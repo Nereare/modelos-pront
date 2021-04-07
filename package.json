@@ -1,7 +1,7 @@
 {
-  "name": "{{PKG_NAME}}",
-  "description": "{{PKG_DESC}}",
-  "version": "0.1.0",
+  "name": "Modelo de Prontuários",
+  "description": "Uma miscelânea de modelos de evolução de consultas com tópicos específicos.",
+  "version": "1.0.0",
   "maintainers": [
     {
       "name": "Igor Padoim",
@@ -10,7 +10,7 @@
     }
   ],
   "bugs": {
-    "web": "https://github.com/{{PKG_REPO}}/issues"
+    "web": "https://github.com/Nereare/modelos-pront/issues"
   },
-  "license": "MIT"
+  "license": "Hippocratic-2.1"
 }

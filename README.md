@@ -1,22 +1,14 @@
-# {{PKG_NAME}}
+# Modelo de Prontuários
 
-<!--
-TODO Change version reference badge
-BODY The [ReadMe file](README.md) has a badge referring to the repository's version. By default we use [Shields](https://shields.io/)' JSON version badge. If you are using a file other than a `.json` to keep version, change the line below.
--->
-[![GitHub package.json version](https://img.shields.io/github/package-json/v/{{PKG_REPO}})](https://github.com/{{PKG_REPO}})
-[![License](https://img.shields.io/github/license/{{PKG_REPO}}.svg)](https://github.com/{{PKG_REPO}})
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/Nereare/modelos-pront)](https://github.com/Nereare/modelos-pront)
+[![License](https://img.shields.io/badge/license-Hippocratic%20License-red)](LICENSE.md)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE-OF-CONDUCT.md)
 
-<!--
-TODO Delete the notice line on ReadMe
-BODY The [ReadMe file](README.md) has a notice line guiding to the template's tutorial. Delete it and replace by the repository's description.
--->
-# *This is a template repository. Please read [this file](DELETE_ME.md) for instructions on how to set it.*
+Uma miscelânea de modelos de evolução de consultas com tópicos específicos.
 
-{{PKG_DESC}}
+**Ao usar os conteúdos desse projeto, você assume estar ciente dos nossos [objetivos e limitações](ABOUT.md)**, além de estar ciente e concordar com nossa [Política de Privacidade](PRIVACY.md) e nossos [Termos de Uso](USAGE.md).
 
-## Installing
+## Instalação
 
 <!--
 TODO Set installation instructions
@@ -24,32 +16,27 @@ BODY If there is some installation method, define it on the [README file](README
 -->
 1. Foo.
 
-## Contributing
+## Contribuindo
 
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :tada:
+1. Clone o repositório;
+2. Edite para suas necessidades;
+3. Submeta uma *pull request*;
+4. Feito! :smile:
 
-Please, also read our [Contributing Guidelines](CONTRIBUTING.md).
+Por favor, leia nossas [Diretrizes de Contribuição](CONTRIBUTING.md).
 
-### Code of Conduct
+### Código de Conduta
 
-Please note that this project is released with a [Contributor Code of Conduct](CODE-OF-CONDUCT.md). By participating in this project you agree to abide by its terms.
+Note que este projeto é distribuído com o [Código de Conduta *Contributor*](CODE-OF-CONDUCT.md). Ao participar neste projeto, você concorda em seguir e respeitar esses termos.
 
-## History & Versioning
+## História e Versionamento
 
-See the [Change Log](CHANGELOG.md) for further history.
+Veja o [Changelog](CHANGELOG.md) para a história de modificações completa.
 
-This project uses [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/{{PKG_REPO}}/tags).
+Este projeto usa [SemVer](http://semver.org/) para versionamento. Para as versões disponíveis, veja as [tags do repositório](https://github.com/Nereare/modelos-pront/tags).
 
-## Legal Stuff
+## Licença
 
-<!--
-TODO Set desired licese
-BODY This repository's template sets the license to MIT's by default. If this is not the intended license, change it.
--->
 [![Hippocratic License](https://i.imgur.com/DEKS3nm.png)](LICENSE.md)
 
-This project is available under the [Hippocratic License](https://firstdonoharm.dev/).
+Este projeto está disponível sob a [Licença Hipocrática](https://firstdonoharm.dev/).
