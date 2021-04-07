@@ -2,7 +2,7 @@
 
 [![GitHub package.json version](https://img.shields.io/github/package-json/v/Nereare/modelos-pront)](https://github.com/Nereare/modelos-pront)
 [![License](https://img.shields.io/badge/license-Hippocratic%20License-red)](LICENSE.md)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE-OF-CONDUCT.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](code_of_conduct.md)
 
 Uma miscelânea de modelos de evolução de consultas com tópicos específicos.
 
