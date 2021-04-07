@@ -1,0 +1,16 @@
+{
+  "name": "{{PKG_NAME}}",
+  "description": "{{PKG_DESC}}",
+  "version": "0.1.0",
+  "maintainers": [
+    {
+      "name": "Igor Padoim",
+      "email": "igorpadoim@gmail.com",
+      "web": "https://nereare.github.io/"
+    }
+  ],
+  "bugs": {
+    "web": "https://github.com/{{PKG_REPO}}/issues"
+  },
+  "license": "MIT"
+}
