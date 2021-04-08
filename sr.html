@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Modelo de Prontuários &ndash; Sintomáticos Respiratórios</title>
+    <link href="node_modules/typeface-lato/index.css" rel="stylesheet" type="text/css" />
+    <link href="node_modules/typeface-montserrat/index.css" rel="stylesheet" type="text/css" />
+    <link href="node_modules/normalize.css/normalize.css" rel="stylesheet" type="text/css" />
+    <link href="style/base.css" rel="stylesheet" type="text/css" />
+    <link href="style/sr.css" rel="stylesheet" type="text/css" />
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/clipboard/dist/clipboard.min.js"></script>
+    <script src="js/sr.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>Sintomáticos Respiratórios</h1>
+    </header>
+
+    <div id="maintenance">
+      <p>Site em manutenção!</p>
+    </div>
+
+    <main>
+      <fieldset>
+        <legend>Subjetivo</legend>
+        <!-- Eval / Re-eval Choice -->
+        <div>
+          <input type="radio" id="reeval-no" name="reeval" value="first" checked>
+          <label for="reeval-no">Primeira Avaliação</label>
+          <input type="radio" id="reeval-yes" name="reeval" value="reeval">
+          <label for="reeval-yes">Reavaliação</label>
+          <input type="radio" id="reeval-clt" name="reeval" value="clt">
+          <label for="reeval-clt">Empresa mandou colher</label>
+        </div>
+        <!-- / Eval / Re-eval Choice -->
+
+        <!-- Key Symptoms -->
+        <div class="primeval">
+          <h2>Sintomas-Chave</h2>
+          <p><strong>Dois ou mais</strong> sintomas para configurar critério de coleta.</p>
+          <ul>
+            <li>
+              <input type="checkbox" id="keysymp1" name="keysymps" value="tosse">
+              <label for="keysymp1">Tosse</label>
+            </li>
+            <li>
+              <input type="checkbox" id="keysymp2" name="keysymps" value="coriza">
+              <label for="keysymp2">Coriza</label>
+            </li>
+            <li>
+              <input type="checkbox" id="keysymp3" name="keysymps" value="odinofagia">
+              <label for="keysymp3">Odinofagia</label>
+            </li>
+            <li>
+              <input type="checkbox" id="keysymp4" name="keysymps" value="cefaleia">
+              <label for="keysymp4">Cefaleia</label>
+            </li>
+            <li>
+              <input type="checkbox" id="keysymp5" name="keysymps" value="febre">
+              <label for="keysymp5">Febre</label>
+            </li>
+            <li>
+              <input type="checkbox" id="keysymp6" name="keysymps" value="anosmia">
+              <label for="keysymp6">Anosmia</label>
+            </li>
+            <li>
+              <input type="checkbox" id="keysymp7" name="keysymps" value="disosmia">
+              <label for="keysymp7">Disosmia</label>
+            </li>
+            <li>
+              <input type="checkbox" id="keysymp8" name="keysymps" value="ageusia">
+              <label for="keysymp8">Ageusia</label>
+            </li>
+            <li>
+              <input type="checkbox" id="keysymp9" name="keysymps" value="disgeusia">
+              <label for="keysymp9">Disgeusia</label>
+            </li>
+            <li>
+              <input type="checkbox" id="keysymp10" name="keysymps" value="dispneia">
+              <label for="keysymp10">Dispneia</label>
+            </li>
+            <li>
+              <input type="checkbox" id="keysymp11" name="keysymps" value="congestão nasal">
+              <label for="keysymp11">Congestão Nasal (apenas crianças)</label>
+            </li>
+          </ul>
+        </div>
+        <!-- / Key Symptoms -->
+
+        <!-- Other Symptoms -->
+        <div class="primeval">
+          <h2>Outros Sintomas</h2>
+          <ul>
+            <li>
+              <input type="checkbox" id="othersymp1" name="othersymps" value="mialgia">
+              <label for="othersymp1">Mialgia</label>
+            </li>
+            <li>
+              <input type="checkbox" id="othersymp2" name="othersymps" value="astenia">
+              <label for="othersymp2">Astenia</label>
+            </li>
+            <li>
+              <input type="checkbox" id="othersymp3" name="othersymps" value="artralgia">
+              <label for="othersymp3">Artralgia</label>
+            </li>
+            <li>
+              <input type="checkbox" id="othersymp4" name="othersymps" value="náuseas">
+              <label for="othersymp4">Náuseas</label>
+            </li>
+            <li>
+              <input type="checkbox" id="othersymp5" name="othersymps" value="vômitos">
+              <label for="othersymp5">Vômitos</label>
+            </li>
+            <li>
+              <input type="checkbox" id="othersymp6" name="othersymps" value="lipotimia">
+              <label for="othersymp6">Lipotimia</label>
+            </li>
+            <li>
+              <input type="checkbox" id="othersymp7" name="othersymps" value="vertigem">
+              <label for="othersymp7">Vertigem</label>
+            </li>
+            <li>
+              <input type="checkbox" id="othersymp8" name="othersymps" value="dor abdominal">
+              <label for="othersymp8">Dor Abdominal</label>
+            </li>
+            <li>
+              <input type="checkbox" id="othersymp9" name="othersymps" value="diarreia">
+              <label for="othersymp9">Diarreia</label>
+            </li>
+            <li>
+              <input type="checkbox" id="othersymp10" name="othersymps" value="irritação na garganta">
+              <label for="othersymp10">Irritação na Garganta</label>
+            </li>
+            <li>
+              <input type="checkbox" id="othersymp11" name="othersymps" value="dorsalgia">
+              <label for="othersymp11">Dorsalgia</label>
+            </li>
+            <li>
+              <input type="checkbox" id="othersymp12" name="othersymps" value="cervicalgia">
+              <label for="othersymp12">Cervicalgia</label>
+            </li>
+            <li>
+              <input type="checkbox" id="othersymp13" name="othersymps" value="otalgia">
+              <label for="othersymp13">Otalgia</label>
+            </li>
+            <li>
+              <input type="checkbox" id="othersymp14" name="othersymps" value="otorreia">
+              <label for="othersymp14">Otorreia</label>
+            </li>
+            <li>
+              <input type="checkbox" id="othersymp15" name="othersymps" value="dor em membros superiores">
+              <label for="othersymp15">Dor de MMSS</label>
+            </li>
+            <li>
+              <input type="checkbox" id="othersymp16" name="othersymps" value="dor de membros inferiores">
+              <label for="othersymp16">Dor de MMII</label>
+            </li>
+          </ul>
+        </div>
+        <!-- / Other Symptoms -->
+
+        <!-- Start Date -->
+        <div class="base">
+          <h2>Início dos Sintomas</h2>
+          <input type="date" name="sympstart" id="sympstart" />
+        </div>
+        <!-- / Start Date -->
+
+        <!-- Personal History -->
+        <div class="primeval">
+          <h2>Antecedentes Pessoais</h2>
+          <h3>Comorbidades</h3>
+          <ul>
+            <li>
+              <input type="checkbox" id="comorb1" name="comorbities" value="hipertensão arterial sistêmica">
+              <label for="comorb1">HAS</label>
+            </li>
+            <li>
+              <input type="checkbox" id="comorb2" name="comorbities" value="diabete mélito">
+              <label for="comorb2">DM</label>
+            </li>
+            <li>
+              <input type="checkbox" id="comorb3" name="comorbities" value="asma">
+              <label for="comorb3">Asma</label>
+            </li>
+            <li>
+              <input type="checkbox" id="comorb4" name="comorbities" value="doença pulmonar obstrutiva crônica (DPOC)">
+              <label for="comorb4">DPOC</label>
+            </li>
+            <li>
+              <input type="checkbox" id="comorb5" name="comorbities" value="insuficiência renal crônica">
+              <label for="comorb5">IRC</label>
+            </li>
+            <li>
+              <input type="checkbox" id="comorb6" name="comorbities" value="infarto agudo de miocárdio prévio">
+              <label for="comorb6">IAM</label>
+            </li>
+            <li>
+              <input type="checkbox" id="comorb7" name="comorbities" value="acidente vascular cerebral prévio">
+              <label for="comorb7">AVC</label>
+            </li>
+            <li>
+              <input type="checkbox" id="comorb8" name="comorbities" value="obesidade">
+              <label for="comorb8">Obesidade</label>
+            </li>
+            <li>
+              <input type="checkbox" id="comorb9" name="comorbities" value="infecção pelo HIV">
+              <label for="comorb9">PVHIV</label>
+            </li>
+          </ul>
+          <p>
+            <input type="checkbox" id="tx" name="tx" value="tx">
+            <label for="tx">Transplante prévio de:</label>
+            <input type="text" id="tx-organ" name="tx-organ" placeholder="órgão transplantado" disabled />
+          </p>
+          <p>
+            <input type="checkbox" id="rheum" name="rheum" value="rheum">
+            <label for="rheum">Doença reumatológica:</label>
+            <input type="text" id="rheum-disease" name="rheum-disease" placeholder="nome da doença" disabled />
+          </p>
+          <p>
+            <input type="checkbox" id="suppr" name="suppr" value="suppr">
+            <label for="suppr">Uso de droga imunossupressora/moduladora:</label>
+            <input type="text" id="suppr-drug" name="suppr-drug" placeholder="nome da droga" disabled />
+          </p>
+          <p>
+            <input type="checkbox" id="covid-before" name="covid-before" value="true">
+            <label for="covid-before">Infecção por SARS-CoV-2 prévia em:</label>
+            <input type="date" id="covid-before-date" name="covid-before-date" disabled />
+          </p>
+          <p>
+            <input type="checkbox" id="tb-before" name="tb-before" value="true">
+            <label for="tb-before">Tuberculose Pulmonar prévia em:</label>
+            <input type="date" id="tb-before-date" name="tb-before-date" disabled />
+          </p>
+
+          <h3>Alergias</h3>
+          <p>
+            <input type="radio" id="allergy-yes" name="allergy" value="true">
+            <label for="allergy-yes">Sim</label>
+            <input type="radio" id="allergy-no" name="allergy" value="false">
+            <label for="allergy-no">Não</label>
+          </p>
+          <p>
+            <input class="wide" type="text" id="allergy-drug" name="allergy-drug" placeholder="Medicações a que é alérgice" disabled />
+          </p>
+
+          <h3>Outros Dados</h3>
+          <p>
+            Paciente
+            <select name="contact-sus" id="contact-sus" required>
+              <option value="" disabled selected>escolha...</option>
+              <option value="refere">refere</option>
+              <option value="nega">nega</option>
+            </select>
+            contato com pessoa sintomática nas duas semanas prévias ao início de sintomas, além de
+            <select name="contact-conf" id="contact-conf" required>
+              <option value="" disabled selected>escolha...</option>
+              <option value="refere">referir</option>
+              <option value="nega">negar</option>
+            </select>
+            contato com pessoa com COVID-19 confirmado no mesmo período.
+          </p>
+          <p>
+            Paciente
+            <select name="trip" id="trip" required>
+              <option value="" disabled selected>escolha...</option>
+              <option value="refere">refere</option>
+              <option value="nega">nega</option>
+            </select>
+            ter viajado nas duas semanas prévias ao início de sintomas.
+          </p>
+        </div>
+        <!-- / Personal History -->
+
+        <!-- Re-eval -->
+        <div class="reeval">
+          <h3>Evolução</h3>
+          <p>
+            <input type="radio" id="symp-none" name="symp-evol" value="none">
+            <label for="symp-none">Resolução completa dos sintomas.</label>
+          </p>
+          <p>
+            <input type="radio" id="symp-better" name="symp-evol" value="better">
+            <label for="symp-better">Melhora dos sintomas.</label>
+          </p>
+          <p>
+            <input type="radio" id="symp-better-iatros" name="symp-evol" value="better-iatros">
+            <label for="symp-better-iatros">Melhora dos sintomas, com sintomas potencialmente iatrogênicos por uso de medicações sem evidência científica.</label>
+          </p>
+          <p>
+            <input type="radio" id="symp-same" name="symp-evol" value="same">
+            <label for="symp-same">Mantém sintomas em mesmo grau.</label>
+          </p>
+          <p>
+            <input type="radio" id="symp-same-iatros" name="symp-evol" value="same-iatros">
+            <label for="symp-same-iatros">Mantém sintomas, mas agora com sintomas potencialmente iatrogênicos por uso de medicações sem evidência científica.</label>
+          </p>
+          <p>
+            <input type="radio" id="symp-worst" name="symp-evol" value="worst">
+            <label for="symp-worst">Piora dos sintomas.</label>
+          </p>
+          <p>
+            <input type="radio" id="symp-worst-iatros" name="symp-evol" value="worst-iatros">
+            <label for="symp-worst-iatros">Piora dos sintomas, mas agora com sintomas potencialmente iatrogênicos por uso de medicações sem evidência científica.</label>
+          </p>
+        </div>
+        <!-- / Re-eval -->
+
+        <!-- Work -->
+        <div class="base">
+          <h3>Trabalho</h3>
+          <p>
+            Paciente
+            <select id="work" name="work" required>
+              <option value="" disabled selected>escolha...</option>
+              <option value="não trabalha">não trabalha</option>
+              <option value="trabalha como autônome">trabalha como autônome</option>
+              <option value="trabalha com carteira assinada">trabalha com carteira assinada</option>
+            </select>
+            e refere morar
+            <select name="family" id="family" required>
+              <option value="" disabled selected>escolha...</option>
+              <option value="sozinho">sozinho</option>
+              <option value="com outras pessoas que não trabalham">com outras pessoas que não trabalham</option>
+              <option value="com outras pessoas que trabalham formalmente ou vão para escola">com outras pessoas que trabalham formalmente ou vão para escola</option>
+              <option value="com outras pessoas que trabalham como antônomes">com outras pessoas que trabalham como antônomes</option>
+            </select>
+            .
+          </p>
+        </div>
+        <!-- / Work -->
+
+        <!-- Capitalism Piggery -->
+        <div class="clt">
+          <p>
+            Empregador solicitou ao paciente que procurasse serviço de saúde para coleta de exame para detecção de SARS-CoV-2, no entanto, paciente
+            <select name="clt-symp" id="clt-symp">
+              <option value="" selected disabled>escolha...</option>
+              <option value="não apresenta qualquer sintoma">está assintomático</option>
+              <option value="não preenche critérios vigentes no protocolo de combate à pandemia de COVID-19 da Secretaria Municipal de Saúde, ao qual este serviço está sujeito">não preenche critério</option>
+            </select>
+            .
+          </p>
+        </div>
+        <!-- / Capitalism Piggery -->
+      </fieldset>
+
+      <fieldset>
+        <legend>Objetivo</legend>
+        <!-- Physical Examination -->
+        <div class="base">
+          <h2>Exame Físico</h2>
+
+          <h3>Estado Geral</h3>
+          <p>
+            <select name="status" id="status">
+              <option value="B" selected>Bom</option>
+              <option value="R">Regular</option>
+              <option value="M">Mal</option>
+            </select>
+            estado geral.
+          </p>
+          <p>
+            <select name="activity" id="activity">
+              <option value="" selected>Não se aplica</option>
+              <option value="Ative">Ative</option>
+              <option value="Hipoative">Hipoative</option>
+              <option value="Sonolente">Sonolente</option>
+              <option value="Comatose">Comatose</option>
+            </select>
+            e
+            <select name="reactivity" id="reactivity">
+              <option value="" selected>não se aplica</option>
+              <option value="reative">reative</option>
+              <option value="hiporreative">hiporreative</option>
+              <option value="arreative">arreative</option>
+            </select>
+            .
+          </p>
+          <p>
+            Descoração:
+            <input type="radio" id="color-normal" name="color" value="Corade" checked>
+            <label for="color-normal">&ndash;</label>
+            <input type="radio" id="color-one" name="color" value="1">
+            <label for="color-one">&plus;</label>
+            <input type="radio" id="color-two" name="color" value="2">
+            <label for="color-two">&plus;&plus;</label>
+            <input type="radio" id="color-three" name="color" value="3">
+            <label for="color-three">&plus;&plus;&plus;</label>
+            <input type="radio" id="color-four" name="color" value="4">
+            <label for="color-four">&plus;&plus;&plus;&plus;</label>
+          </p>
+          <p>
+            Desidratação:
+            <input type="radio" id="hydro-normal" name="hydro" value="hidratade" checked>
+            <label for="hydro-normal">&ndash;</label>
+            <input type="radio" id="hydro-one" name="hydro" value="1">
+            <label for="hydro-one">&plus;</label>
+            <input type="radio" id="hydro-two" name="hydro" value="2">
+            <label for="hydro-two">&plus;&plus;</label>
+            <input type="radio" id="hydro-three" name="hydro" value="3">
+            <label for="hydro-three">&plus;&plus;&plus;</label>
+            <input type="radio" id="hydro-four" name="hydro" value="4">
+            <label for="hydro-four">&plus;&plus;&plus;&plus;</label>
+          </p>
+          <p>
+            Cianose:
+            <input type="radio" id="cyanose-normal" name="cyanose" value="acianótice" checked>
+            <label for="cyanose-normal">&ndash;</label>
+            <input type="radio" id="cyanose-one" name="cyanose" value="1">
+            <label for="cyanose-one">&plus;</label>
+            <input type="radio" id="cyanose-two" name="cyanose" value="2">
+            <label for="cyanose-two">&plus;&plus;</label>
+            <input type="radio" id="cyanose-three" name="cyanose" value="3">
+            <label for="cyanose-three">&plus;&plus;&plus;</label>
+            <input type="radio" id="cyanose-four" name="cyanose" value="4">
+            <label for="cyanose-four">&plus;&plus;&plus;&plus;</label>
+          </p>
+          <p>
+            Icterícia:
+            <input type="radio" id="icter-normal" name="icter" value="anictérice" checked>
+            <label for="icter-normal">&ndash;</label>
+            <input type="radio" id="icter-one" name="icter" value="1">
+            <label for="icter-one">&plus;</label>
+            <input type="radio" id="icter-two" name="icter" value="2">
+            <label for="icter-two">&plus;&plus;</label>
+            <input type="radio" id="icter-three" name="icter" value="3">
+            <label for="icter-three">&plus;&plus;&plus;</label>
+            <input type="radio" id="icter-four" name="icter" value="4">
+            <label for="icter-four">&plus;&plus;&plus;&plus;</label>
+          </p>
+          <p>
+            Febril:
+            <input type="radio" id="fever-none" name="fever" value="afebril" checked>
+            <label for="fever-none">Não</label>
+            <input type="radio" id="fever-yes" name="fever" value="febril">
+            <label for="fever-yes">Sim</label>
+          </p>
+          <p>
+            Respiração:
+            <input type="radio" id="breathe-normal" name="breathe" value="eupneice" checked>
+            <label for="breathe-normal">Eupneice</label>
+            <input type="radio" id="breathe-anormal" name="breathe" value="dispneice">
+            <label for="breathe-anormal">Dispneice</label>
+          </p>
+
+          <h3>Pulmonar</h3>
+          <p>
+            <input type="checkbox" name="exam-lung" id="exam-lung">
+            <label for="exam-lung">
+              Murmúrios vesiculares
+              <select name="lung" id="lung">
+                <option value="" disabled selected>escolha...</option>
+                <option value="presentes bilateralmente">presentes bilateralmente</option>
+                <option value="diminuídos em bases bilateralmente">diminuídos em bases bilateralmente</option>
+                <option value="diminuídos em base direita">diminuídos em base direita</option>
+                <option value="diminuídos em base esquerda">diminuídos em base esquerda</option>
+                <option value="diminuídos em hemitórax direito">diminuídos em hemitórax direito</option>
+                <option value="diminuídos em hemitórax esquerdo">diminuídos em hemitórax esquerdo</option>
+                <option value="diminuídos globalmente">diminuídos globalmente</option>
+              </select>
+              ,
+              <select name="lung-sounds" id="lung-sounds">
+                <option value="" disabled selected>escolha...</option>
+                <option value="sem ruídos adventícios">sem ruídos adventícios</option>
+                <option value="com raros roncos">com raros roncos</option>
+                <option value="com sibilos expiratórios">com sibilos expiratórios</option>
+                <option value="com sibilos inspiratórios e expiratórios">com sibilos inspiratórios e expiratórios</option>
+                <option value="com crepitação estertorante em XXX">com crepitação estertorante em XXX</option>
+              </select>
+              . Tiragens
+              <select name="disconfort" id="disconfort">
+                <option value="" disabled selected>escolha...</option>
+                <option value="ausentes">ausentes</option>
+                <option value="presentes subcostalmente">presentes subcostalmente</option>
+                <option value="subcostal e intercostal">subcostal e intercostal</option>
+                <option value="sobcostal, intercostal e de fúrcula">sobcostal, intercostal e de fúrcula</option>
+                <option value="sobcostal, intercostal, de fúrcula e batimento de asas de nariz">sobcostal, intercostal, de fúrcula e batimento de asas de nariz</option>
+              </select>
+              .
+            </label>
+          </p>
+
+          <h3>Cardíaco</h3>
+          <p>
+            <input type="checkbox" name="exam-heart" id="exam-heart">
+            <label for="exam-heart">
+              Bulhas
+              <select name="heart-rhythm" id="heart-rhythm">
+                <option value="" selected disabled>escolha...</option>
+                <option value="rítmicas">rítmicas</option>
+                <option value="arrítmicas">arrítmicas</option>
+              </select>
+              e
+              <select name="heart-sounds" id="heart-sounds">
+                <option value="" selected disabled>escolha...</option>
+                <option value="normofonéticas">normofonéticas</option>
+                <option value="hipofonéticas">hipofonéticas</option>
+                <option value="hiperfonéticas por estalido metálico">hiperfonéticas por estalido metálico</option>
+              </select>
+              em
+              <select name="heart-times" id="heart-times">
+                <option value="" selected disabled>escolha...</option>
+                <option value="dois tempos">dois tempos</option>
+                <option value="dois tempos com desdobramento de B1">dois tempos com desdobramento de B1</option>
+                <option value="dois tempos com desdobramento de B2">dois tempos com desdobramento de B2</option>
+                <option value="dois tempos com desdobramento de B1 e B2">dois tempos com desdobramento de B1 e B2</option>
+                <option value="três tempos com presença de B3">três tempos com presença de B3</option>
+                <option value="três tempos com presença de B4">três tempos com presença de B4</option>
+              </select>
+              ,
+              <select name="heart-murmur" id="heart-murmur">
+                <option value="" selected disabled></option>
+                <option value="sem sopros">sem sopros</option>
+                <option value="com sopro">com sopro...</option>
+              </select>
+              <input type="text" name="heart-murmur-desc" id="heart-murmur-desc" class="hidden">
+              .
+            </label>
+          </p>
+
+          <h3>Otoscopia</h3>
+          <p>
+            <input type="checkbox" name="exam-oto" id="exam-oto">
+            <label for="exam-oto">
+              Membrana timpânica direita
+              <select name="oto-d-membrane" id="oto-d-membrane">
+                <option value="" selected disabled>escolha...</option>
+                <option value="observável">observável</option>
+                <option value="não observável">não observável</option>
+              </select>
+              <select name="oto-d-retromembrane" id="oto-d-retromembrane">
+                <option value="" selected disabled>escolha...</option>
+                <option value="sem alterações, abaulamentos ou conteúdos retrotimpânicos">sem alterações</option>
+                <option value="levemente opacificada">levemente opacificada</option>
+                <option value="levemente hiperemiada, mas sem abaulamentos ou conteúdos retrotimpânicos">levemente hiperemiada, mas sem abaulamentos ou conteúdos retrotimpânicos</option>
+                <option value="hiperemiada, abaulada e com conteúdo retrotimpânico seroso">hiperemiada, abaulada e com conteúdo retrotimpânico seroso</option>
+                <option value="hiperemiada, abaulada e com conteúdo retrotimpânico purulento">hiperemiada, abaulada e com conteúdo retrotimpânico purulento</option>
+                <option value="com rotura">com rotura</option>
+                <option value="mas ausente">mas ausente</option>
+              </select>
+              . Conduto auditivo direito
+              <select name="oto-d-canal" id="oto-d-canal">
+                <option value="" selected disabled>escolha...</option>
+                <option value="sem alterações">sem alterações</option>
+                <option value="com hiperemia importante mas sem secreções">com hiperemia importante mas sem secreções</option>
+                <option value="com hiperemia importante e secreção purulenta">com hiperemia importante e secreção purulenta</option>
+                <option value="com cerume impactado">com cerume impactado</option>
+              </select>
+              .
+              Membrana timpânica esquerda
+              <select name="oto-e-membrane" id="oto-e-membrane">
+                <option value="" selected disabled>escolha...</option>
+                <option value="observável">observável</option>
+                <option value="não observável">não observável</option>
+              </select>
+              <select name="oto-e-retromembrane" id="oto-e-retromembrane">
+                <option value="" selected disabled>escolha...</option>
+                <option value="sem alterações, abaulamentos ou conteúdos retrotimpânicos">sem alterações</option>
+                <option value="levemente opacificada">levemente opacificada</option>
+                <option value="levemente hiperemiada, mas sem abaulamentos ou conteúdos retrotimpânicos">levemente hiperemiada, mas sem abaulamentos ou conteúdos retrotimpânicos</option>
+                <option value="hiperemiada, abaulada e com conteúdo retrotimpânico seroso">hiperemiada, abaulada e com conteúdo retrotimpânico seroso</option>
+                <option value="hiperemiada, abaulada e com conteúdo retrotimpânico purulento">hiperemiada, abaulada e com conteúdo retrotimpânico purulento</option>
+                <option value="com rotura">com rotura</option>
+                <option value="mas ausente">mas ausente</option>
+              </select>
+              . Conduto auditivo direito
+              <select name="oto-e-canal" id="oto-e-canal">
+                <option value="" selected disabled>escolha...</option>
+                <option value="sem alterações">sem alterações</option>
+                <option value="com hiperemia importante mas sem secreções">com hiperemia importante mas sem secreções</option>
+                <option value="com hiperemia importante e secreção purulenta">com hiperemia importante e secreção purulenta</option>
+                <option value="com cerume impactado">com cerume impactado</option>
+              </select>
+              .
+            </label>
+          </p>
+
+          <h3>Nasoscopia Anterior</h3>
+          <p>
+            <input type="checkbox" name="exam-naso" id="exam-naso">
+            <label for="exam-naso">
+              Nasoscopia anterior com mucosa
+              <select name="naso-skin" id="naso-skin">
+                <option value="" selected disabled>escolha...</option>
+                <option value="de aspecto normal">normal</option>
+                <option value="levemente enantematosa">levemente enantematosa</option>
+                <option value="bastante enantematosa">bastante enantematosa</option>
+              </select>
+              , cornetos nasais
+              <select name="naso-shells" id="naso-shells">
+                <option value="" selected disabled>escolha...</option>
+                <option value="sem hipertrofias">sem hipertrofias</option>
+                <option value="hipertrofiados bilateralmente">hipertrofiados bilateralmente</option>
+                <option value="hipertrofiados bilateralmente, pior à esquerda">hipertrofiados bilateralmente, pior à esquerda</option>
+                <option value="hipertrofiados bilateralmente, pior à direita">hipertrofiados bilateralmente, pior à direita</option>
+                <option value="com hipertrofia apenas à esquerda">com hipertrofia apenas à esquerda</option>
+                <option value="com hipertrofia apenas à direita">com hipertrofia apenas à direita</option>
+              </select>
+              e
+              <select name="naso-sept" id="naso-sept">
+                <option value="" selected disabled>escolha...</option>
+                <option value="sem desvio aparente de septo nasal">sem desvio de septo</option>
+                <option value="desvio leve de septo nasal para esquerda">desvio leve de septo nasal para esquerda</option>
+                <option value="desvio moderado de septo nasal para esquerda">desvio moderado de septo nasal para esquerda</option>
+                <option value="desvio importante de septo nasal para esquerda">desvio importante de septo nasal para esquerda</option>
+                <option value="desvio leve de septo nasal para direita">desvio leve de septo nasal para direita</option>
+                <option value="desvio moderado de septo nasal para direita">desvio moderado de septo nasal para direita</option>
+                <option value="desvio importante de septo nasal para direita">desvio importante de septo nasal para direita</option>
+              </select>
+              .
+            </label>
+          </p>
+        </div>
+        <!-- / Physical Examination -->
+
+        <!-- Exam -->
+        <div class="reeval">
+          <h2>Exame</h2>
+          <p>
+            <select name="exam-eval" id="exam-eval">
+              <option value="" selected disabled>escolha...</option>
+              <option value="RT-PCR para SARS-CoV-2" class="exam-eval-detec-bool">RT-PCR</option>
+              <option value="Sorologia para antígenos IgM e IgG contra SARS-CoV-2" class="exam-eval-igmandigg">Sorologia</option>
+              <option value="Sorologia Conjugada IgM+IgG contra SARS-CoV-2" class="exam-eval-igmplusigg">Sorologia Conjugada</option>
+              <option value="Teste Rápido Sorológico IgM e IgG para SARS-CoV-2" class="exam-eval-igmandigg">TR Não-Conjugado</option>
+              <option value="Teste Rápido Sorológico Conjugado IgM+IgG para SARS-CoV-2" class="exam-eval-igmplusigg">TR Conjugado</option>
+              <option value="Teste Rápido Nasal para detecção de Antígeno de SARS-CoV-2" class="exam-eval-detec-bool">TR Nasal para Ag</option>
+            </select>
+            de
+            <input type="date" name="exam-eval-date" id="exam-eval-date">
+            com resultado
+            <select name="exam-eval-detec-bool" id="exam-eval-detec-bool" class="exam-eval-select">
+              <option value="" selected disabled>escolha...</option>
+              <option value="NÃO detectado">não detectado</option>
+              <option value="DETECTADO">detectado</option>
+              <option value="em análise">em análise</option>
+            </select>
+            <select name="exam-eval-igmplusigg" id="exam-eval-igmplusigg" class="exam-eval-select">
+              <option value="" selected disabled>escolha...</option>
+              <option value="NÃO reagente">não reagente</option>
+              <option value="REAGENTE">reagente</option>
+              <option value="em análise">em análise</option>
+            </select>
+            <select name="exam-eval-igmandigg" id="exam-eval-igmandigg" class="exam-eval-select">
+              <option value="" selected disabled>escolha...</option>
+              <option value="IgM e IgG NÃO reagentes">IgM NR e IgG NR</option>
+              <option value="IgM REAGENTE e IgG NÃO reagente">IgM+ e IgG NR</option>
+              <option value="IgM NÃO reagente e IgG REAGENTE">IgM NR e IgG+</option>
+              <option value="IgM e IgG REAGENTES">IgM+ e IgG+</option>
+              <option value="em análise">em análise</option>
+            </select>
+            .
+          </p>
+        </div>
+        <!-- / Exam -->
+
+        <!-- Capitalism Piggery 2 -->
+        <div class="clt">
+          <p>
+            Não se aplica.
+          </p>
+        </div>
+        <!-- / Capitalism Piggery 2 -->
+      </fieldset>
+
+      <fieldset>
+        <legend>Avaliação</legend>
+        <p>Se você não souber esse baseado nas anamnese e exame físico, volte para a faculdade, por favor. &#128077;</p>
+        <select class="wide" name="diag" id="diag" required>
+          <option value="" selected disabled id="opt-blank">escolha...</option>
+          <option value="maybe-covid">Suspeita de COVID-19</option>
+          <option value="not-covid" id="opt-nope">Não fecha critério para suspeita de COVID-19</option>
+          <option value="yes-covid">COVID-19 confirmado</option>
+          <option value="wait-covid">Exame em análise</option>
+          <option value="bai-covid">Exame negativo</option>
+        </select>
+        <p id="symp-day"><strong>D<span>x</span></strong> de sintomas.</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Plano</legend>
+        <!-- Actions -->
+        <div>
+          <h2>Condutas</h2>
+          <ol id="maybe-covid">
+            <li><strong>Exame:</strong> Solicito <select id="lab" name="lab"><option value="" selected disabled>exame...</option><option value="Swab para RT-PCR">Swab para RT-PCR</option><option value="Sorologia">Sorologia</option></select> para SARS-CoV-2 com coleta <select name="lab-when" id="lab-when"><option value="" selected disabled>quando...</option><option value="hoje">hoje</option><option value="em">em...</option></select><span id="lab-date" class="hidden"> <input type="date" id="lab-date-field" name="lab-date"></span>;</li>
+            <li><input type="checkbox" id="leave-needed" name="leave-needed" value="leave-needed"><label for="leave-needed"><strong>Atestado:</strong> Atesto para <input type="number" id="leave" name="leave" value="7" /> dias;</label></li>
+            <li><strong>Afastamento de Familiares:</strong> <select name="family-leave" id="family-leave"><option value="" selected disabled>escolha...</option><option value="Redijo afastamento de familiares, tal qual previsto na Portaria nº 454 do Ministério da Saúde, de 20 de março de 2020">Redijo afastamento de familiares</option><option value="Paciente nega afastamento de familiares">Paciente nega afastamento de familiares</option></select>;</li>
+            <li><strong>Sintomáticos:</strong> <select name="symptomatics" id="symptomatics"><option value="" selected disabled>escolha...</option><option value="Prescrevo sintomáticos">Prescrevo sintomáticos</option><option value="Oriento uso de sintomáticos já em posse do paciente">Oriento uso de sintomáticos já em posse do paciente</option><option value="false">Não são necessários</option></select>;</li>
+            <li><input type="checkbox" id="ln" name="ln" value="ln"><label for="ln">Oriento lavagem nasal com soro fisiológico 0,9%;</label></li>
+            <li>Oriento sinais de alarme para retorno precoce e reavaliação em acolhimento no Sintomáticos Respiratórios;</li>
+            <li>Oriento ausência de evidências científicas validando o uso de "medicações para COVID" (e.g. dexametasona, ivermectina, azitromicina) em pacientes ambulatoriais, assim como reforço a CONTRAINDICAÇÃO FORMAL de uso de azitromicina em casos de suspeita de infeção por SARS-CoV-2 sem sinais de infecção bacteriana (Choosing Wisely Brasil);</li>
+            <li><strong>Retorno:</strong> Retorno em <input type="number" id="follow-up" name="follow-up" value="7" /> dias para <select name="follow-up-why" id="follow-up-why"><option value="" selected disabled>escolha...</option><option value="coleta de exame acima">coleta de exame acima</option><option value="reavaliação e avaliação de exame acima">reavaliação e avaliação de exame acima</option></select>;</li>
+          </ol>
+          <ol id="not-covid">
+            <li>Oriento paciente da ausência de critérios para coleta de exame para investigação de SARS-CoV-2;</li>
+            <li>Oriento paciente sobre sinais para busca de reavaliação no Sintomáticos Respiratórios;</li>
+            <li><input type="checkbox" id="other-symptomatics" name="other-symptomatics" value="other-symptomatics"><label for="other-symptomatics">Prescrevo sintomáticos para quadro atual;</label></li>
+            <li class="clt">Oriento paciente que, segundo artigo 7.3.1, tópico (b), da Norma Regulamentadora Nº 07, que define e regulamenta o Programa de Controle Médico de Saúde Ocupacional (PCMSO) sob a Consolidação das Leis do Trabalho, é ÔNUS DO EMPREGADOR arcar e custear com exames demandados para SAÚDE OCUPACIONAL;</li>
+            <li class="clt">Oriento paciente também que, do ponto de vista de medicina ASSISTENCIAL, de que trata seu contato hoje com este serviço de saúde, paciente não preenche critério para coleta de RT-PCR ou Sorologia para SARS-CoV-2, como definido pelo protoco de combate à pandemia de COVID-19 da Secretaria Municipal de Saúde;</li>
+          </ol>
+          <ol id="yes-covid">
+            <li>Oriento paciente do resultado positivo para infecção por SARS-CoV-2 (COVID-19);</li>
+            <li><input type="checkbox" id="leave-needed-14" name="leave-needed-14" value="leave-needed"><label for="leave-needed-14"><strong>Atestado:</strong> Atesto para <input type="number" id="leave-14" name="leave" value="7" /> dias de modo a completar 14 dias de afastamento do início dos sintomas;</label></li>
+            <li><strong>Afastamento de Familiares:</strong> <select name="family-leave" id="family-leave-14"><option value="" selected disabled>escolha...</option><option value="Redijo afastamento de familiares, tal qual previsto na Portaria nº 454 do Ministério da Saúde, de 20 de março de 2020">Redijo afastamento de familiares</option><option value="Paciente nega afastamento de familiares">Paciente nega afastamento de familiares</option></select>;</li>
+            <li><strong>Sintomáticos:</strong> <select name="symptomatics" id="symptomatics-14"><option value="" selected disabled>escolha...</option><option value="Prescrevo sintomáticos">Prescrevo sintomáticos</option><option value="Oriento uso de sintomáticos já em posse do paciente">Oriento uso de sintomáticos já em posse do paciente</option><option value="false">Não são necessários</option></select>;</li>
+            <li><input type="checkbox" id="ln" name="ln" value="ln"><label for="ln">Oriento lavagem nasal com soro fisiológico 0,9%;</label></li>
+            <li>Oriento sinais de alarme para retorno e reavaliação em acolhimento no Sintomáticos Respiratórios;</li>
+            <li>Oriento ausência de evidências científicas validando o uso de "medicações para COVID" (e.g. dexametasona, ivermectina, azitromicina) em pacientes ambulatoriais, assim como reforço a CONTRAINDICAÇÃO FORMAL de uso de azitromicina em casos de suspeita de infeção por SARS-CoV-2 sem sinais de infecção bacteriana (Choosing Wisely Brasil);</li>
+          </ol>
+          <ol id="wait-covid">
+            <li>Aguardo resultado de exame;</li>
+            <li><input type="checkbox" id="leave-needed-wait" name="leave-needed-wait" value="leave-needed"><label for="leave-needed-wait"><strong>Atestado:</strong> Atesto para <input type="number" id="leave-wait" name="leave" value="7" /> dias até resultado de exame;</label></li>
+            <li><strong>Afastamento de Familiares:</strong> <select name="family-leave" id="family-leave-wait"><option value="" selected disabled>escolha...</option><option value="Redijo afastamento de familiares, tal qual previsto na Portaria nº 454 do Ministério da Saúde, de 20 de março de 2020">Redijo afastamento de familiares</option><option value="Paciente nega afastamento de familiares">Paciente nega afastamento de familiares</option></select>;</li>
+            <li>Oriento sinais de alarme para retorno precoce e reavaliação em acolhimento no Sintomáticos Respiratórios;</li>
+            <li>Oriento ausência de evidências científicas validando o uso de "medicações para COVID" (e.g. dexametasona, ivermectina, azitromicina) em pacientes ambulatoriais, assim como reforço a CONTRAINDICAÇÃO FORMAL de uso de azitromicina em casos de suspeita de infeção por SARS-CoV-2 sem sinais de infecção bacteriana (Choosing Wisely Brasil);</li>
+            <li><strong>Retorno:</strong> Retorno em <input type="number" id="follow-up-wait" name="follow-up" value="7" /> dias para avaliar resultado de exame;</li>
+          </ol>
+          <ol id="bai-covid">
+            <li>Oriento paciente do resultado NEGATIVO para infecção por SARS-CoV-2 (COVID-19);</li>
+            <li>Alta do monitoramento;</li>
+          </ol>
+        </div>
+        <!-- / Actions -->
+      </fieldset>
+
+      <fieldset>
+        <legend>Resultado</legend>
+        <button id="button-run">Gerar</button>
+        <textarea id="output-s" placeholder="Subjetivo" readonly></textarea>
+        <button id="button-s" class="copybtn" data-clipboard-target="#output-s">Copiar Subjetivo</button>
+        <textarea id="output-o" placeholder="Objetivo" readonly></textarea>
+        <button id="button-o" class="copybtn" data-clipboard-target="#output-o">Copiar Objetivo</button>
+        <textarea id="output-p" placeholder="Plano" readonly></textarea>
+        <button id="button-p" class="copybtn" data-clipboard-target="#output-p">Copiar Plano</button>
+      </fieldset>
+
+      <p><button id="make-family-leave">Afastamento de Familiares</button></p>
+      <fieldset id="family-leave-form">
+        <legend>Afastamento de Familiares</legend>
+        <h2>Dados</h2>
+        <p>
+          <input type="text" name="flf-name" id="flf-name" class="wide req" placeholder="Nome do paciente">
+        </p>
+        <p>
+          <input type="text" name="flf-rg" id="flf-rg" class="half" placeholder="RG">
+          <input type="text" name="flf-cpf" id="flf-cpf" class="half" placeholder="CPF">
+        </p>
+        <p>
+          <input type="text" name="flf-address" id="flf-address" class="wide" placeholder="Endereço (rua, número e complemento)">
+        </p>
+        <p>
+          <input type="text" name="flf-shire" id="flf-shire" class="half" placeholder="Bairro">
+          <input type="text" name="flf-cep" id="flf-cep" class="half" placeholder="CEP">
+        </p>
+        <p>
+          <input type="number" name="flf-days" id="flf-days" class="wide req" placeholder="Dias de afastamento">
+        </p>
+        <p>Local de cumprimento da medida:</p>
+        <p>
+          <select name="flf-place" id="flf-place" class="wide">
+            <option value="domiciliar" selected>domiciliar</option>
+            <option value="domiciliar">parque de diversões</option>
+            <option value="domiciliar">mundo da Lua</option>
+            <option value="domiciliar">Terra Média</option>
+            <option value="domiciliar">nos planos de Horror dos Antigos Deuses que residem no vazio das estrelas</option>
+          </select>
+        </p>
+        <textarea name="flf-people" id="flf-people" class="req" placeholder="Nome das pessoas que moram na mesma casa, separados por vírgula. Exemplo: 'Fulano de Tal, Ciclano da Cilva, Cher'"></textarea>
+        <h2>Resultado</h2>
+        <button id="flf-run">Gerar</button>
+        <textarea id="output-flf" placeholder="Afastamento de Familiares" readonly></textarea>
+        <button id="copy-flf" class="copybtn" data-clipboard-target="#output-flf">Copiar Afastamento</button>
+      </fieldset>
+    </main>
+
+    <footer>
+      <h5>Modelo de Prontuários &ndash; Sintomáticos Respiratórios</h5>
+      <p>Feito com lógica e evidências científicas &#128211;</p>
+      <p>Disponível sob a <a href="https://firstdonoharm.dev/">Licença Hipocrática 2.1</a>.</p>
+      <p>&copy; 2021 Igor Padoim</p>
+    </footer>
+  </body>
+</html>

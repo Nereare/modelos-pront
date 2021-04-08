@@ -20,3 +20,4 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Arquivo de Guidelines de Contribuição.
 - Arquivo de Termos de Uso.
 - Arquivo de Política de Privacidade.
+- Página de Sintomáticos Respiratórios.
