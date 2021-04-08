@@ -229,6 +229,8 @@ $RECYCLE.BIN/
 
 # Misc
 *.css
+*.css.map
+.sass-cache/
 .yarn/
 !.yarn/cache
 !.yarn/patches
