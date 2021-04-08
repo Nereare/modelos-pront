@@ -12,5 +12,12 @@
   "bugs": {
     "web": "https://github.com/Nereare/modelos-pront/issues"
   },
-  "license": "Hippocratic-2.1"
+  "license": "Hippocratic-2.1",
+  "dependencies": {
+    "clipboard": "^2.0.8",
+    "jquery": "^3.6.0",
+    "normalize.css": "^8.0.1",
+    "typeface-lato": "^1.1.13",
+    "typeface-montserrat": "^1.1.13"
+  }
 }
