@@ -229,7 +229,7 @@ $RECYCLE.BIN/
 
 # Misc
 *.css
-.yarn/*
+.yarn/
 !.yarn/cache
 !.yarn/patches
 !.yarn/plugins
