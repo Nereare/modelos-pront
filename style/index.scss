@@ -1,0 +1,30 @@
+$accent1: #455a64;
+$accent2: #607d8b;
+
+h1, h2, h3, h4, h5, h6 { color: $accent1; }
+a { color: $accent2; }
+fieldset { border-color: $accent2; }
+legend { color: $accent1; }
+textarea { border-left-color: $accent1; }
+
+main { overflow: auto; }
+article {
+  width: 48%;
+  border: solid 4px $accent2;
+  border-radius: 16px;
+  overflow: auto;
+  margin: 0 0.5em 2em 0;
+  float: left;
+
+  &:hover {
+    box-shadow: 0 3px 6px #888888, 0 3px 6px #888888;
+    transition: box-shadow 0.5s;
+  }
+  * { text-align: center; }
+  a {
+    display: block;
+    margin: 16px;
+    * { margin: 0; }
+  }
+  img { width: 50%; }
+}
