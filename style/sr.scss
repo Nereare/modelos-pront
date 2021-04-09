@@ -1,5 +1,8 @@
-h1, h2, h3, h4, h5, h6 { color: #ff8f00; }
-a { color: #ffab00; }
-fieldset { border-color: #ffab00; }
-legend { color: #ff6f00; }
-textarea { border-left-color: #ff8f00; }
+$accent1: #ff8f00;
+$accent2: #ffab00;
+
+h1, h2, h3, h4, h5, h6 { color: $accent1; }
+a { color: $accent2; }
+fieldset { border-color: $accent2; }
+legend { color: $accent1; }
+textarea { border-left-color: $accent1; }
