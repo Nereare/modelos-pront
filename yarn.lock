@@ -48,6 +48,7 @@ __metadata:
     normalize.css: ^8.0.1
     typeface-lato: ^1.1.13
     typeface-montserrat: ^1.1.13
+    typeface-source-code-pro: ^1.1.13
   languageName: unknown
   linkType: soft
 
@@ -83,5 +84,12 @@ __metadata:
   version: 1.1.13
   resolution: "typeface-montserrat@npm:1.1.13"
   checksum: c9f16042ed9493bb574199e98d13c50a6a64a79e806a6a7af7de60b6b7c6dc0cdb4a2dbe67cef7cba2448e32fd203e5b554c466c7eebc1b575d3a995c39794b6
+  languageName: node
+  linkType: hard
+
+"typeface-source-code-pro@npm:^1.1.13":
+  version: 1.1.13
+  resolution: "typeface-source-code-pro@npm:1.1.13"
+  checksum: 351cca69c0564e41097ad68e7846a29b451f64f84f813b634e79dd8ea1f0f366685944ae98bec806d344a84e102ae775f87ac47302f7bc0e140ea800ba31f451
   languageName: node
   linkType: hard
