@@ -74,7 +74,17 @@ ul {
     margin: 0 0.5em 0.5em 0;
   }
 }
-ol { display: none; }
+ol {
+  list-style: none;
+  counter-reset: item;
+  li {
+    counter-increment: item;
+    &:before {
+      content: counter(item) ". ";
+      font-weight: 800;
+    }
+  }
+}
 
 .wide { width: 100%; }
 .half {
@@ -83,4 +93,5 @@ ol { display: none; }
   margin-right: 0;
   &:nth-child(odd) { margin-right: 5%; }
 }
+.short { width: 4em; }
 .hidden, .clt, .reeval, .exam-eval-select, #symp-day, #family-leave-form { display: none; }
