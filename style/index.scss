@@ -9,11 +9,11 @@ textarea { border-left-color: $accent1; }
 
 main { overflow: auto; }
 article {
-  width: 48%;
+  width: 46%;
   border: solid 4px $accent2;
   border-radius: 16px;
   overflow: auto;
-  margin: 0 0.5em 2em 0;
+  margin: 0.5em 0.5em 2em 0.5em;
   float: left;
 
   &:hover {
