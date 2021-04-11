@@ -6,3 +6,8 @@ a { color: $accent2; }
 fieldset { border-color: $accent2; }
 legend { color: $accent1; }
 textarea { border-left-color: $accent1; }
+
+ol {
+  display: none;
+  li:before { color: $accent1; }
+}
