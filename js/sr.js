@@ -219,8 +219,9 @@ $(document).ready(function() {
   $("#flf-run").on("click", function() {
     if( $("#flf-name").val() == "" || $("#flf-days").val() == "" || $("#flf-people").val() == "" ) {
       alert("Informe PELO MENOS nome, dias de afastamento e nome das pessoas a serem afastadas!");
-      $(".req").css("border-color", "#e53935");
+      $("#flf-name, #flf-days, #flf-people").addClass("req");
     } else {
+      $("#flf-name, #flf-days, #flf-people").removeClass("req");
       // RG
       var rg = "";
       if( $("#flf-rg").val() == "" ) { rg = "________________"; }
