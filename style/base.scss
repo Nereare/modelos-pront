@@ -84,17 +84,3 @@ ol { display: none; }
   &:nth-child(odd) { margin-right: 5%; }
 }
 .hidden, .clt, .reeval, .exam-eval-select, #symp-day, #family-leave-form { display: none; }
-#maintenance {
-  display: none;
-  background: #fffde7;
-  border: 4px solid #f9a825;
-  border-radius: 5px;
-  padding: 0;
-  margin-bottom: 1em;
-  p {
-    text-align: center;
-    color: #f9a825;
-    text-transform: uppercase;
-    margin: 5px;
-  }
-}
