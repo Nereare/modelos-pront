@@ -372,6 +372,7 @@ function runPlans() {
     case "bai-covid":
       plans.push("Oriento paciente do resultado NEGATIVO para infecção por SARS-CoV-2 (COVID-19);");
       plans.push("Alta do monitoramento de Sintomáticos Respiratórios;");
+      break;
     default:
       plans.push("SELECIONE UMA AVALIAÇÃO!");
   }
