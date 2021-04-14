@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Modelo de Prontuários &ndash; Pré-Natal</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#455a64">
+    <link rel="shortcut icon" href="/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#455a64">
+    <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#455a64">
+
+    <link href="node_modules/typeface-lato/index.css" rel="stylesheet" type="text/css">
+    <link href="node_modules/typeface-montserrat/index.css" rel="stylesheet" type="text/css">
+    <link href="node_modules/typeface-source-code-pro/index.css" rel="stylesheet" type="text/css">
+    <link href="node_modules/normalize.css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="style/base.css" rel="stylesheet" type="text/css">
+    <link href="style/pn.css" rel="stylesheet" type="text/css">
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/clipboard/dist/clipboard.min.js"></script>
+    <script src="js/pn.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>Pré-Natal</h1>
+    </header>
+
+    <main>
+      <fieldset>
+        <legend>Subjetivo</legend>
+        <!-- / Minor Symps -->
+        <div>
+          <h2>Sintomas Comuns</h2>
+          <ul>
+            <li>
+              <input type="checkbox" id="minsymp1" name="minsymps" value="enjoos">
+              <label for="minsymp1">Enjoos</label>
+            </li>
+            <li>
+              <input type="checkbox" id="minsymp2" name="minsymps" value="azia">
+              <label for="minsymp2">Azia</label>
+            </li>
+            <li>
+              <input type="checkbox" id="minsymp3" name="minsymps" value="cefaleia">
+              <label for="minsymp3">Cefaleia</label>
+            </li>
+            <li>
+              <input type="checkbox" id="minsymp4" name="minsymps" value="lombalgia">
+              <label for="minsymp4">Lombalgia</label>
+            </li>
+            <li>
+              <input type="checkbox" id="minsymp5" name="minsymps" value="dor em pés">
+              <label for="minsymp5">Dor em pés</label>
+            </li>
+            <li>
+              <input type="checkbox" id="minsymp6" name="minsymps" value="dor em pernas">
+              <label for="minsymp6">Dor em pernas</label>
+            </li>
+            <li>
+              <input type="checkbox" id="minsymp7" name="minsymps" value="inchaço em pés">
+              <label for="minsymp7">Inchaço em pés</label>
+            </li>
+            <li>
+              <input type="checkbox" id="minsymp8" name="minsymps" value="inchaço em pernas">
+              <label for="minsymp8">Inchaço em pernas</label>
+            </li>
+            <li>
+              <input type="checkbox" id="minsymp9" name="minsymps" value="inchaço em mãos">
+              <label for="minsymp9">Inchaço em mãos</label>
+            </li>
+            <li>
+              <input type="checkbox" id="minsymp10" name="minsymps" value="cólicas">
+              <label for="minsymp10">Cólicas</label>
+            </li>
+            <li>
+              <input type="checkbox" id="minsymp11" name="minsymps" value="contrações">
+              <label for="minsymp11">Contrações</label>
+            </li>
+          </ul>
+        </div>
+        <!-- / Minor Symps -->
+
+        <!-- / Medium Symps -->
+        <div>
+          <h2>Sintomas Outros</h2>
+          <ul>
+            <li>
+              <input type="checkbox" id="medsymp1" name="medsymps" value="vômitos recorrentes">
+              <label for="medsymp1">Vômitos recorrentes</label>
+            </li>
+            <li>
+              <input type="checkbox" id="medsymp2" name="medsymps" value="perda de líquido claro">
+              <label for="medsymp2">Perda de líquido claro</label>
+            </li>
+            <li>
+              <input type="checkbox" id="medsymp3" name="medsymps" value="contrações frequentes">
+              <label for="medsymp3">Contrações frequentes</label>
+            </li>
+            <li>
+              <input type="checkbox" id="medsymp4" name="medsymps" value="que feto não se move">
+              <label for="medsymp4">Feto não se move</label>
+            </li>
+            <li>
+              <input type="checkbox" id="medsymp5" name="medsymps" value="inchaço em rosto">
+              <label for="medsymp5">Inchaço em rosto</label>
+            </li>
+            <li>
+              <input type="checkbox" id="medsymp6" name="medsymps" value="disúria">
+              <label for="medsymp6">Disúria</label>
+            </li>
+          </ul>
+        </div>
+        <!-- / Medium Symps -->
+
+        <!-- / Red Flags -->
+        <div>
+          <h2>Sintomas de Alarme</h2>
+          <ul>
+            <li>
+              <input type="checkbox" id="redsymp1" name="redsymps" value="sangramento vaginal">
+              <label for="redsymp1">Sangramento vaginal</label>
+            </li>
+            <li>
+              <input type="checkbox" id="redsymp2" name="redsymps" value="perda de partes fetais">
+              <label for="redsymp2">Perda de partes fetais</label>
+            </li>
+            <li>
+              <input type="checkbox" id="redsymp3" name="redsymps" value="escotomas visuais">
+              <label for="redsymp3">Escotomas visuais</label>
+            </li>
+            <li>
+              <input type="checkbox" id="redsymp4" name="redsymps" value="vômitos incoercíveis">
+              <label for="redsymp4">Vômitos incoercíveis</label>
+            </li>
+            <li>
+              <input type="checkbox" id="redsymp5" name="redsymps" value="dor abdominal atípica">
+              <label for="redsymp5">Dor abdominal atípica</label>
+            </li>
+          </ul>
+        </div>
+        <!-- / Red Flags -->
+
+        <!-- Vaginal Discharge -->
+        <div>
+          <h2>Corrimentos</h2>
+          <p>
+            <input type="checkbox" id="disch" name="disch" value="true">
+            <label for="disch">
+              Presença de corrimento
+              <select id="disch-desc" name="disch-desc" disabled>
+                <option value="fisiológico">fisiológico</option>
+                <option value="pruriginoso">pruriginoso</option>
+                <option value="com odor fétido">com odor fétido</option>
+                <option value="pruriginoso e com odor fétido">pruriginoso e com odor fétido</option>
+                <option value="com aspecto de tampão mucoso">com aspecto de tampão mucoso</option>
+              </select>
+              .
+            </label>
+          </p>
+        </div>
+        <!-- / Vaginal Discharge -->
+      </fieldset>
+
+      <fieldset>
+        <legend>Objetivo</legend>
+        <!-- ID -->
+        <div>
+          <h2>Identificação</h2>
+          <p>
+            <input type="number" class="short" id="age" name="age" placeholder="Idade">
+            anos
+          </p>
+          <p>
+            IG:
+            <input type="number" class="short" id="ig-weeks" min="0" max="50" name="ig-weeks" placeholder="sem">
+            semanas +
+            <input type="number" class="short" id="ig-days" min="0" max="6" name="ig-days" placeholder="d">
+            dias
+          </p>
+          <p>
+            G
+            <input type="number" class="short" id="parity-g" name="parity-g" placeholder="G">
+            P
+            <input type="number" class="short" id="parity-pn" name="parity-pn" placeholder="Pn">
+            C
+            <input type="number" class="short" id="parity-pc" name="parity-pc" placeholder="Pc">
+            A
+            <input type="number" class="short" id="parity-a" name="parity-a" placeholder="A">
+          </p>
+        </div>
+        <!-- / ID -->
+
+        <!-- Physical Examination -->
+        <div>
+          <h2>Exame Físico</h2>
+
+          <h3>Estado Geral</h3>
+          <p>
+            <select name="status" id="status">
+              <option value="B" selected>Bom</option>
+              <option value="R">Regular</option>
+              <option value="M">Mal</option>
+            </select>
+            estado geral.
+          </p>
+          </p>
+          <p>
+            Descoração:
+            <input type="radio" id="color-normal" name="color" value="Corade" checked>
+            <label for="color-normal">&ndash;</label>
+            <input type="radio" id="color-one" name="color" value="1">
+            <label for="color-one">&plus;</label>
+            <input type="radio" id="color-two" name="color" value="2">
+            <label for="color-two">&plus;&plus;</label>
+            <input type="radio" id="color-three" name="color" value="3">
+            <label for="color-three">&plus;&plus;&plus;</label>
+            <input type="radio" id="color-four" name="color" value="4">
+            <label for="color-four">&plus;&plus;&plus;&plus;</label>
+          </p>
+          <p>
+            Desidratação:
+            <input type="radio" id="hydro-normal" name="hydro" value="hidratade" checked>
+            <label for="hydro-normal">&ndash;</label>
+            <input type="radio" id="hydro-one" name="hydro" value="1">
+            <label for="hydro-one">&plus;</label>
+            <input type="radio" id="hydro-two" name="hydro" value="2">
+            <label for="hydro-two">&plus;&plus;</label>
+            <input type="radio" id="hydro-three" name="hydro" value="3">
+            <label for="hydro-three">&plus;&plus;&plus;</label>
+            <input type="radio" id="hydro-four" name="hydro" value="4">
+            <label for="hydro-four">&plus;&plus;&plus;&plus;</label>
+          </p>
+          <p>
+            Cianose:
+            <input type="radio" id="cyanose-normal" name="cyanose" value="acianótice" checked>
+            <label for="cyanose-normal">&ndash;</label>
+            <input type="radio" id="cyanose-one" name="cyanose" value="1">
+            <label for="cyanose-one">&plus;</label>
+            <input type="radio" id="cyanose-two" name="cyanose" value="2">
+            <label for="cyanose-two">&plus;&plus;</label>
+            <input type="radio" id="cyanose-three" name="cyanose" value="3">
+            <label for="cyanose-three">&plus;&plus;&plus;</label>
+            <input type="radio" id="cyanose-four" name="cyanose" value="4">
+            <label for="cyanose-four">&plus;&plus;&plus;&plus;</label>
+          </p>
+          <p>
+            Icterícia:
+            <input type="radio" id="icter-normal" name="icter" value="anictérice" checked>
+            <label for="icter-normal">&ndash;</label>
+            <input type="radio" id="icter-one" name="icter" value="1">
+            <label for="icter-one">&plus;</label>
+            <input type="radio" id="icter-two" name="icter" value="2">
+            <label for="icter-two">&plus;&plus;</label>
+            <input type="radio" id="icter-three" name="icter" value="3">
+            <label for="icter-three">&plus;&plus;&plus;</label>
+            <input type="radio" id="icter-four" name="icter" value="4">
+            <label for="icter-four">&plus;&plus;&plus;&plus;</label>
+          </p>
+
+          <h3>Obstétrico</h3>
+          <p>
+            <strong>AU:</strong>
+            <input type="number" class="short" id="obs-au" name="obs-au" placeholder="AU">
+            cm
+          </p>
+          <p>
+            <strong>BCF:</strong>
+            <input type="number" class="short" id="obs-bcf" name="obs-bcf" placeholder="BCF">
+            bpm
+          </p>
+          <p>
+            <strong>Apresentação:</strong>
+            <select name="obs-pos" id="obs-pos">
+              <option value="indiferente" selected>indiferente</option>
+              <option value="cefálica">cefálica</option>
+              <option value="pélvica">pélvica</option>
+              <option value="córmica">córmica direita</option>
+            </select>
+            <select name="obs-side" id="obs-side">
+              <option value="" selected>indiferente</option>
+              <option value=" esquerda">esquerda</option>
+              <option value=" direita">direita</option>
+              <option value=" posterior">posterior</option>
+              <option value=" anterior">anterior</option>
+            </select>
+            .
+          </p>
+          <p>
+            <strong>MF:</strong>
+            <input type="radio" id="obs-mf-yes" name="obs-mf" value="presente" checked>
+            <label for="obs-mf-yes">Presente</label>
+            <input type="radio" id="obs-mf-no" name="obs-mf" value="ausente">
+            <label for="obs-mf-no">Ausente</label>
+          </p>
+
+          <h3>Pulmonar</h3>
+          <p>
+            <input type="checkbox" name="exam-lung" id="exam-lung">
+            <label for="exam-lung">
+              Murmúrios vesiculares
+              <select name="lung" id="lung">
+                <option value="presentes bilateralmente" selected>presentes bilateralmente</option>
+                <option value="diminuídos em bases bilateralmente">diminuídos em bases bilateralmente</option>
+                <option value="diminuídos em base direita">diminuídos em base direita</option>
+                <option value="diminuídos em base esquerda">diminuídos em base esquerda</option>
+                <option value="diminuídos em hemitórax direito">diminuídos em hemitórax direito</option>
+                <option value="diminuídos em hemitórax esquerdo">diminuídos em hemitórax esquerdo</option>
+                <option value="diminuídos globalmente">diminuídos globalmente</option>
+              </select>
+              ,
+              <select name="lung-sounds" id="lung-sounds">
+                <option value="sem ruídos adventícios" selected>sem ruídos adventícios</option>
+                <option value="com raros roncos">com raros roncos</option>
+                <option value="com sibilos expiratórios">com sibilos expiratórios</option>
+                <option value="com sibilos inspiratórios e expiratórios">com sibilos inspiratórios e expiratórios</option>
+                <option value="com crepitação estertorante em XXX">com crepitação estertorante em XXX</option>
+              </select>
+              .
+            </label>
+          </p>
+
+          <h3>Cardíaco</h3>
+          <p>
+            <input type="checkbox" name="exam-heart" id="exam-heart">
+            <label for="exam-heart">
+              Bulhas
+              <select name="heart-rhythm" id="heart-rhythm">
+                <option value="rítmicas" selected>rítmicas</option>
+                <option value="arrítmicas">arrítmicas</option>
+              </select>
+              e
+              <select name="heart-sounds" id="heart-sounds">
+                <option value="normofonéticas" selected>normofonéticas</option>
+                <option value="hipofonéticas">hipofonéticas</option>
+                <option value="hiperfonéticas por estalido metálico">hiperfonéticas por estalido metálico</option>
+              </select>
+              em
+              <select name="heart-times" id="heart-times">
+                <option value="dois tempos" selected>dois tempos</option>
+                <option value="dois tempos com desdobramento de B1">dois tempos com desdobramento de B1</option>
+                <option value="dois tempos com desdobramento de B2">dois tempos com desdobramento de B2</option>
+                <option value="dois tempos com desdobramento de B1 e B2">dois tempos com desdobramento de B1 e B2</option>
+                <option value="três tempos com presença de B3">três tempos com presença de B3</option>
+                <option value="três tempos com presença de B4">três tempos com presença de B4</option>
+              </select>
+              ,
+              <select name="heart-murmur" id="heart-murmur">
+                <option value="sem sopros." selected>sem sopros</option>
+                <option value="com sopro">com sopro...</option>
+              </select>
+              <input type="text" name="heart-murmur-desc" id="heart-murmur-desc" class="hidden">
+              .
+            </label>
+          </p>
+
+          <h3>Ginecológico</h3>
+          <p>
+            <input type="checkbox" name="exam-gyn-insp" id="exam-gyn-insp">
+            <label for="exam-gyn-insp">
+              <strong>Inspeção:</strong> trofismo e pilificação
+              <select name="gyn-insp-troph" id="gyn-insp-troph">
+                <option value="adequados" selected>adequados</option>
+                <option value="diminuídos">diminuídos</option>
+              </select>
+              para idade.
+              <select name="gyn-insp-hyperemia" id="gyn-insp-hyperemia">
+                <option value="Ausência de hiperemia" selected>Ausência de hiperemia</option>
+                <option value="Hiperemia leve">Hiperemia leve</option>
+                <option value="Hiperemia moderada">Hiperemia moderada</option>
+                <option value="Hiperemia intensa">Hiperemia intensa</option>
+              </select>
+              de introito vaginal.
+              <select name="gyn-insp-fluids" id="gyn-insp-fluids">
+                <option value="Sem saída de fluidos" selected>Sem saída de fluidos</option>
+                <option value="Saída de mínima quatidade de secreção fisiológia">Saída de mínima quatidade de secreção fisiológia</option>
+                <option value="Saída de moderada quatidade de secreção fisiológia">Saída de moderada quatidade de secreção fisiológia</option>
+                <option value="Saída de sangue">Saída de sangue</option>
+              </select>
+              por introito vaginal.
+              <input type="text" name="gyn-insp-desc" id="gyn-insp-desc" placeholder="Descreva lesões cutâneas presentes" class="wide">
+            </label>
+          </p>
+          <p>
+            <input type="checkbox" name="exam-gyn-spec" id="exam-gyn-spec">
+            <label for="exam-gyn-spec">
+              <strong>Especular:</strong> canal vaginal com trofismo e vilificação
+              <select name="gyn-spec-troph" id="gyn-spec-troph">
+                <option value="adequados" selected>adequados</option>
+                <option value="diminuídos">diminuídos</option>
+              </select>
+              para idade.
+              <select name="gyn-spec-hyperemia" id="gyn-spec-hyperemia">
+                <option value="Ausência de hiperemia" selected>Ausência de hiperemia</option>
+                <option value="Hiperemia leve">Hiperemia leve</option>
+                <option value="Hiperemia moderada">Hiperemia moderada</option>
+                <option value="Hiperemia intensa">Hiperemia intensa</option>
+              </select>
+              de canal vaginal.
+              <select name="gyn-spec-fluids" id="gyn-spec-fluids">
+                <option value="Presença de mínima quantidade de secreção fisiológica" selected>Presença de mínima quantidade de secreção fisiológica</option>
+                <option value="Presença de moderada quantidade de secreção fisiológica">Presença de moderada quantidade de secreção fisiológica</option>
+                <option value="Presença de grande quantidade de secreção fisiológica">Presença de grande quantidade de secreção fisiológica</option>
+                <option value="Presença de sangue">Presença de sangue</option>
+                <option value="Presença de sangue, com saída por orifício externo de colo,">Presença de sangue, com saída por orifício externo de colo,</option>
+              </select>
+              em fundo de saco. Colo uterino
+              <select name="gyn-spec-cervix" id="gyn-spec-cervix">
+                <option value="observável e posteriorizado">observável e posteriorizado</option>
+                <option value="observável e medianizado">observável e medianizado</option>
+                <option value="observável e anteriorizado">observável e anteriorizado</option>
+                <option value="não observável">não observável</option>
+              </select>
+              .
+            </label>
+          </p>
+          <p>
+            <input type="checkbox" name="exam-gyn-touch" id="exam-gyn-touch">
+            <label for="exam-gyn-touch">
+              <strong>Toque:</strong> colo
+              <select name="gyn-touch-cervixthick" id="gyn-touch-cervixthick">
+                <option value="grosso" selected>grosso</option>
+                <option value="parcialmente amolecido">parcialmente amolecido</option>
+                <option value="totalmente amolecido">totalmente amolecido</option>
+              </select>
+              <select name="gyn-touch-cervixpos" id="gyn-touch-cervixpos">
+                <option value="posterior" selected>posterior</option>
+                <option value="medianizado">medianizado</option>
+                <option value="anteriorizado">anteriorizado</option>
+              </select>
+              e com orifício interno do colo
+              <select name="gyn-touch-cervixwidth" id="gyn-touch-cervixwidth">
+                <option value="impérvio" selected>impérvio</option>
+                <option value="pérvio a 1cm">pérvio a 1cm</option>
+                <option value="pérvio a 2cm">pérvio a 2cm</option>
+                <option value="pérvio a 3cm">pérvio a 3cm</option>
+                <option value="pérvio a 4cm">pérvio a 4cm</option>
+                <option value="pérvio a 5cm">pérvio a 5cm</option>
+                <option value="pérvio a 6cm">pérvio a 6cm</option>
+                <option value="pérvio a 7cm">pérvio a 7cm</option>
+                <option value="pérvio a 8cm">pérvio a 8cm</option>
+                <option value="pérvio a 9cm">pérvio a 9cm</option>
+                <option value="com dilatação total">com dilatação total</option>
+              </select>
+              . Pólo cefálico fetal
+              <select name="gyn-touch-fetus" id="gyn-touch-fetus">
+                <option value="não tocável" selected>não tocável</option>
+                <option value="alto">alto</option>
+                <option value="em plano -2 de De Lee">em plano -2 de De Lee</option>
+                <option value="em plano -1 de De Lee">em plano -1 de De Lee</option>
+                <option value="em plano 0 de De Lee">em plano 0 de De Lee</option>
+                <option value="em plano +1 de De Lee">em plano +1 de De Lee</option>
+                <option value="em plano +2 de De Lee">em plano +2 de De Lee</option>
+              </select>
+              . Bolsa das águas
+              <select name="gyn-touch-water" id="gyn-touch-water">
+                <option value="" selected>não se aplica</option>
+                <option value="tocável e íntegra">tocável e íntegra</option>
+                <option value="não tocável">não tocável</option>
+              </select>
+              .
+            </label>
+          </p>
+        </div>
+        <!-- / Physical Examination -->
+      </fieldset>
+
+      <fieldset>
+        <legend>Avaliação</legend>
+        <textarea class="wide" name="diag" id="diag" placeholder="Insira os diagnósticos aqui, separados por VÍRGULA.&#10;Gestação, trimestre e paridade são automaticamente gerados." required></textarea>
+      </fieldset>
+
+      <fieldset>
+        <legend>Plano</legend>
+        <!-- Actions -->
+        <div>
+          <h2>Condutas</h2>
+          <ol>
+            <li>
+              <input type="checkbox" id="p-labs" name="p-labs" value="true">
+              <label for="p-labs">
+                Solicito exames laboratoriais para
+                <select class="short" id="p-labs-sem" name="p-labs-sem">
+                  <option value="1º">1º</option>
+                  <option value="2º" selected>2º</option>
+                  <option value="3º">3º</option>
+                </select>
+                semestre;
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-labnow" name="p-labnow" value="true">
+              <label for="p-labnow">Solicito coleta dos exames acima agora, fora do horário, pois gestante não se mostra disponível para coleta no fluxo estabelecido, mesmo após diversas tentativas de sensibilização;</label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-labtr" name="p-labtr" value="true">
+              <label for="p-labtr">Solicito realização de Testes Rápidos para HIV e Sífilis, conforme protocolo Mãe Paulistana;</label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-labpegb" name="p-labpegb" value="true">
+              <label for="p-labpegb">Colho Pesquisa de Estreptococo Grupo B hoje, sem intercorrências;</label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-usg" name="p-usg" value="true">
+              <label for="p-usg">Solicito USG Obstétrico;</label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-labs-other" name="p-labs-other" value="true">
+              <label for="p-labs-other">
+                Solicito outros exames laboratoriais:
+                <input type="text" id="p-labs-otherlab" name="p-labs-otherlab" placeholder="Outros exames" size="44">
+                ;
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-med1" name="p-med1" value="true">
+              <label for="p-med1">Prescrevo ácido fólico;</label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-med2" name="p-med2" value="true">
+              <label for="p-med1">Prescrevo sulfato ferroso e oriento seu uso adequado;</label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-med3" name="p-med3" value="true">
+              <label for="p-med3">Prescrevo carbonato de cálcio segundo protocolo Mãe Paulistana, orientando paciente da ausência de evidências científicas que anteparem prescrição indiscriminada desse fármaco para todas as gestantes;</label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-med4" name="p-med4" value="true">
+              <label for="p-med1">Prescrevo carbonato de cálcio em dose adequada para prevenção de pré-eclâmpsia, assim como ácido acetilsalicílico, e oriento racional clínico por trás da necessidade de uso dessas medicações em gestantes com pré-eclâmpsia ou alto risco para desenvolvê-la;</label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-med5" name="p-med5" value="true">
+              <label for="p-med5">
+                Prescrevo
+                <input type="text" id="p-medother" name="p-medother" placeholder="Outras medicações" size="60">
+                ;
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-vax" name="p-vax" value="true">
+              <label for="p-vax">Levo paciente à Sala de Vacinação para atualização de status vacinal em atraso;</label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-vaxnew" name="p-vaxnew" value="true">
+              <label for="p-vaxnew">Levo paciente à Sala de Vacinação para reinício de vacinação, uma vez que não apresenta qualquer comprovação de vacinação prévia;</label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-ori1" name="p-ori1" value="true">
+              <label for="p-ori1">Oriento algumas das alterações fisiológicas gravídicas e suas relações com sensações e mudanças referidas pela paciente;</label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-ori2" name="p-ori2" value="true">
+              <label for="p-ori2">Oriento e reforço paciente de sinais para busca de acolhimento, assim como reforço que alguns dos sinais (sangramento vaginal ou rotura da bolsa) são condições suficientes para busca direto da Maternidade, sem necessidade de avaliação prévia na Atenção Básica;</label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-ori3" name="p-ori3" value="true">
+              <label for="p-ori3">Oriento sinais de trabalho de parto, na fase ativa, e oriento a procurar atendimento caso os apresente;</label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-ori4" name="p-ori4" value="true">
+              <label for="p-ori4">Oriento medidas não-farmacológias domiciliares para agilizar trabalho de parto em fase latente;</label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-leave" name="p-leave" value="true">
+              <label for="p-leave">
+                Atesto paciente para
+                <input type="number" class="short" id="p-leave-days" name="p-leave-days" placeholder="#">
+                ;
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-pregleave" name="p-pregleave" value="true">
+              <label for="p-pregleave">Adianto licença maternidade por solicitação a gestante;</label>
+            </li>
+            <li>Tiro dúvidas;</li>
+            <li>
+              Retorno em
+              <input type="number" class="short" id="p-return-num" name="p-return-num" placeholder="#">
+              <select id="return-time" name="return-time">
+                <option value="dia(s)">dias</option>
+                <option value="semana(s)" selected>semanas</option>
+                <option value="mês(es)">meses</option>
+              </select>
+              <select id="return-who" name="return-who">
+                <option value="comigo">comigo</option>
+                <option value="com equipe" selected>com equipe</option>
+                <option value="com equipe de referência para retomada de seguimento">com equipe de referência para retomada de seguimento</option>
+              </select>
+              ;
+            </li>
+          </ol>
+        </div>
+        <!-- / Actions -->
+      </fieldset>
+
+      <fieldset>
+        <legend>Resultado</legend>
+        <button id="button-run">Gerar</button>
+        <textarea id="output-s" placeholder="Subjetivo" readonly></textarea>
+        <button id="button-s" class="copybtn" data-clipboard-target="#output-s">Copiar Subjetivo</button>
+        <textarea id="output-o" placeholder="Objetivo" readonly></textarea>
+        <button id="button-o" class="copybtn" data-clipboard-target="#output-o">Copiar Objetivo</button>
+        <textarea id="output-a" placeholder="Avaliação" readonly></textarea>
+        <button id="button-a" class="copybtn" data-clipboard-target="#output-a">Copiar Avaliação</button>
+        <textarea id="output-p" placeholder="Plano" readonly></textarea>
+        <button id="button-p" class="copybtn" data-clipboard-target="#output-p">Copiar Plano</button>
+      </fieldset>
+    </main>
+
+    <footer>
+      <h5>Modelo de Prontuários &ndash; Sintomáticos Respiratórios</h5>
+      <p>Feito com lógica e evidências científicas &#128211;</p>
+      <p>Disponível sob a <a href="https://firstdonoharm.dev/">Licença Hipocrática 2.1</a>.</p>
+      <p>&copy; 2021 Igor Padoim</p>
+    </footer>
+  </body>
+</html>
