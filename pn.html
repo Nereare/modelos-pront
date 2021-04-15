@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Modelo de Prontuários &ndash; Pré-Natal</title>
+    <title>Pré-Natal</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -24,6 +24,7 @@
 
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/clipboard/dist/clipboard.min.js"></script>
+    <script src="js/base.js"></script>
     <script src="js/pn.js"></script>
   </head>
 
@@ -648,10 +649,11 @@
     </main>
 
     <footer>
-      <h5>Modelo de Prontuários &ndash; Sintomáticos Respiratórios</h5>
+      <h5 class="copy name">Pré-Natal</h5>
+      <p>Versão <span class="copy version"></span></p>
       <p>Feito com lógica e evidências científicas &#128211;</p>
-      <p>Disponível sob a <a href="https://firstdonoharm.dev/">Licença Hipocrática 2.1</a>.</p>
-      <p>&copy; 2021 Igor Padoim</p>
+      <p>Disponível sob a <a class="copy license"></a>.</p>
+      <p>&copy; <span class="copy year"></span> <span class="copy author"></span></p>
     </footer>
   </body>
 </html>

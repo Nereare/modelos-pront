@@ -21,6 +21,9 @@
     <link href="node_modules/normalize.css/normalize.css" rel="stylesheet" type="text/css">
     <link href="style/base.css" rel="stylesheet" type="text/css">
     <link href="style/index.css" rel="stylesheet" type="text/css">
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="js/base.js"></script>
   </head>
   <body>
     <header>
@@ -44,10 +47,11 @@
     </main>
 
     <footer>
-      <h5>Modelo de Prontuários</h5>
+      <h5 class="copy name">Home</h5>
+      <p>Versão <span class="copy version"></span></p>
       <p>Feito com lógica e evidências científicas &#128211;</p>
-      <p>Disponível sob a <a href="https://firstdonoharm.dev/">Licença Hipocrática 2.1</a>.</p>
-      <p>&copy; 2021 Igor Padoim</p>
+      <p>Disponível sob a <a class="copy license"></a>.</p>
+      <p>&copy; <span class="copy year"></span> <span class="copy author"></span></p>
     </footer>
   </body>
 </html>

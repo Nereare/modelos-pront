@@ -10,7 +10,7 @@ Antes de enviar um *pull request*, garanta que você conferiu este checklist.
 
 * [ ] Ler estes [guidelines](CONTRIBUTING.md).
 * [ ] Ler o [Código de Conduta](CODE-OF-CONDUCT.md).
-* [ ] Atualizar o número versão em qualquer arquivo de exemplo e no [arquivo de dados do projeto](package.json) para a nova versão que esse *pull request* representa. O esquema de versionamento que nós usamos é o [SemVer](http://semver.org/).
+* [ ] Atualizar o número versão em qualquer arquivo de exemplo, no [arquivo de dados do projeto](package.json) e no [arquivo base de JavaScript](js/base.js) para a nova versão que esse *pull request* representa. O esquema de versionamento que nós usamos é o [SemVer](http://semver.org/).
 
 ## Reportando um Bug e Solicitando Melhorias
 
