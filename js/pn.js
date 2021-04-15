@@ -65,11 +65,13 @@ $(document).ready(function() {
       }
 
       // Subjetivo
-      var discharge = "Nega corrimentos vaginais. ";
+      var discharge = "Nega corrimentos vaginais.";
       if( $("#disch").is(":checked") ) {
-        discharge = "Refere corrimento vaginal " + $("#disch-desc").val() + ". ";
+        discharge = "Refere corrimento vaginal " + $("#disch-desc").val() + ".";
       }
-      $("#output-s").val("Paciente comparece para consulta de pré-natal. Refere estar " + humanList(symps, true) + ". " + discharge);
+      var othersymps = "";
+      if( $("#othersymps").val() != "" ) { othersymps = "\n\n" + $("#othersymps").val(); }
+      $("#output-s").val("Paciente comparece para consulta de pré-natal. Refere estar " + humanList(symps, true) + ". " + discharge + othersymps);
       // Objetivo
       $("#output-o").val("Paciente em " + $("#status").val() + "EG.\n" + humanList(qualitative_exam) + ".\nIG " + $("#ig-weeks").val() + "+" + $("#ig-days").val() + " sem.\nG" + $("#parity-g").val() + "P" + $("#parity-pn").val() + "C" + $("#parity-pc").val() + "A" + $("#parity-a").val() + ".\nMF " + $("input[name='obs-mf']").val() + ".");
       if( $("#obs-au").val() != "" && $("#obs-bcf").val() != "" && $("#obs-mf").val() != "" ) {
