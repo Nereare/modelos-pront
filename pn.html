@@ -509,110 +509,113 @@
         <div>
           <h2>Condutas</h2>
           <ol>
+            <h3>Exames</h3>
             <li>
               <input type="checkbox" id="p-labs" name="p-labs" value="true">
               <label for="p-labs">
-                Solicito exames laboratoriais para
+                Solicito labs de
                 <select class="short" id="p-labs-sem" name="p-labs-sem">
                   <option value="1º">1º</option>
                   <option value="2º" selected>2º</option>
                   <option value="3º">3º</option>
                 </select>
-                semestre;
+                Trim;
               </label>
             </li>
             <li>
               <input type="checkbox" id="p-labnow" name="p-labnow" value="true">
-              <label for="p-labnow">Solicito coleta dos exames acima agora, fora do horário, pois gestante não se mostra disponível para coleta no fluxo estabelecido, mesmo após diversas tentativas de sensibilização;</label>
+              <label for="p-labnow">Coleta <strong>agora</strong></label>
             </li>
             <li>
               <input type="checkbox" id="p-labtr" name="p-labtr" value="true">
-              <label for="p-labtr">Solicito realização de Testes Rápidos para HIV e Sífilis, conforme protocolo Mãe Paulistana;</label>
+              <label for="p-labtr">Solicito TRs</label>
             </li>
             <li>
               <input type="checkbox" id="p-labpegb" name="p-labpegb" value="true">
-              <label for="p-labpegb">Colho Pesquisa de Estreptococo Grupo B hoje, sem intercorrências;</label>
+              <label for="p-labpegb">Colho PEGB</label>
             </li>
             <li>
               <input type="checkbox" id="p-usg" name="p-usg" value="true">
-              <label for="p-usg">Solicito USG Obstétrico;</label>
+              <label for="p-usg">Solicito USG Obstétrico</label>
             </li>
             <li>
               <input type="checkbox" id="p-labs-other" name="p-labs-other" value="true">
               <label for="p-labs-other">
-                Solicito outros exames laboratoriais:
+                Solicito outros labs:
                 <input type="text" id="p-labs-otherlab" name="p-labs-otherlab" placeholder="Outros exames" size="44">
-                ;
               </label>
             </li>
+            <h3>Prescrições</h3>
             <li>
               <input type="checkbox" id="p-med1" name="p-med1" value="true">
-              <label for="p-med1">Prescrevo ácido fólico;</label>
+              <label for="p-med1">Ác. fólico</label>
             </li>
             <li>
               <input type="checkbox" id="p-med2" name="p-med2" value="true">
-              <label for="p-med1">Prescrevo sulfato ferroso e oriento seu uso adequado;</label>
+              <label for="p-med1">FeSO<sub>4</sub></label>
             </li>
             <li>
               <input type="checkbox" id="p-med3" name="p-med3" value="true">
-              <label for="p-med3">Prescrevo carbonato de cálcio segundo protocolo Mãe Paulistana, orientando paciente da ausência de evidências científicas que anteparem prescrição indiscriminada desse fármaco para todas as gestantes;</label>
+              <label for="p-med3">CaCO<sub>3</sub> protocolar</label>
             </li>
             <li>
               <input type="checkbox" id="p-med4" name="p-med4" value="true">
-              <label for="p-med1">Prescrevo carbonato de cálcio em dose adequada para prevenção de pré-eclâmpsia, assim como ácido acetilsalicílico, e oriento racional clínico por trás da necessidade de uso dessas medicações em gestantes com pré-eclâmpsia ou alto risco para desenvolvê-la;</label>
+              <label for="p-med1">CaCO<sub>3</sub> para Pré-Eclâmpsia</label>
             </li>
             <li>
               <input type="checkbox" id="p-med5" name="p-med5" value="true">
               <label for="p-med5">
-                Prescrevo
                 <input type="text" id="p-medother" name="p-medother" placeholder="Outras medicações" size="60">
-                ;
               </label>
             </li>
+            <h3>Vacinas</h3>
             <li>
               <input type="checkbox" id="p-vax" name="p-vax" value="true">
-              <label for="p-vax">Levo paciente à Sala de Vacinação para atualização de status vacinal em atraso;</label>
+              <label for="p-vax">Levo para <strong>atualizar</strong> vacinas</label>
             </li>
             <li>
               <input type="checkbox" id="p-vaxnew" name="p-vaxnew" value="true">
-              <label for="p-vaxnew">Levo paciente à Sala de Vacinação para reinício de vacinação, uma vez que não apresenta qualquer comprovação de vacinação prévia;</label>
+              <label for="p-vaxnew">Levo para <strong>reiniciar</strong> vacinas</label>
             </li>
             <li>
               <input type="checkbox" id="p-vaxori" name="p-vaxori" value="true">
-              <label for="p-vax">Oriento paciente a procurar Sala de Vacinação para atualização de status vacinal em atraso;</label>
+              <label for="p-vax">Oriento procurar sala de vacina</label>
             </li>
+            <h3>Orientações</h3>
             <li>
               <input type="checkbox" id="p-ori1" name="p-ori1" value="true">
-              <label for="p-ori1">Oriento algumas das alterações fisiológicas gravídicas e suas relações com sensações e mudanças referidas pela paciente;</label>
+              <label for="p-ori1">Alterações fisiológicas da gestação</label>
             </li>
             <li>
               <input type="checkbox" id="p-ori2" name="p-ori2" value="true">
-              <label for="p-ori2">Oriento e reforço paciente de sinais para busca de acolhimento, assim como reforço que alguns dos sinais (sangramento vaginal ou rotura da bolsa) são condições suficientes para busca direto da Maternidade, sem necessidade de avaliação prévia na Atenção Básica;</label>
+              <label for="p-ori2">Sinais para acolhimento/PSO</label>
             </li>
             <li>
               <input type="checkbox" id="p-ori3" name="p-ori3" value="true">
-              <label for="p-ori3">Oriento sinais de trabalho de parto, na fase ativa, e oriento a procurar atendimento caso os apresente;</label>
+              <label for="p-ori3">Sinais de TP</label>
             </li>
             <li>
               <input type="checkbox" id="p-ori4" name="p-ori4" value="true">
-              <label for="p-ori4">Oriento medidas não-farmacológias domiciliares para agilizar trabalho de parto em fase latente;</label>
+              <label for="p-ori4">Exercícios para acelerar TP</label>
             </li>
+            <h3>Atestados</h3>
             <li>
               <input type="checkbox" id="p-leave" name="p-leave" value="true">
               <label for="p-leave">
-                Atesto paciente para
+                Atesto para
                 <input type="number" class="short" id="p-leave-days" name="p-leave-days" placeholder="#">
-                ;
+                d
               </label>
             </li>
             <li>
               <input type="checkbox" id="p-pregleave" name="p-pregleave" value="true">
-              <label for="p-pregleave">Adianto licença maternidade por solicitação a gestante;</label>
+              <label for="p-pregleave">Licença maternidade</label>
             </li>
+            <h3>Outros</h3>
             <li>Tiro dúvidas;</li>
             <li>
               Retorno em
-              <input type="number" class="short" id="p-return-num" name="p-return-num" placeholder="#">
+              <input type="number" class="short" id="p-return-num" name="p-return-num" placeholder="#" value="2">
               <select id="return-time" name="return-time">
                 <option value="dia(s)">dias</option>
                 <option value="semana(s)" selected>semanas</option>
