@@ -331,6 +331,7 @@ function runPlans() {
   }
   if( $("#p-vax").is(":checked") ) { plans.push("Levo paciente à Sala de Vacinação para atualização de status vacinal em atraso;"); }
   if( $("#p-vaxnew").is(":checked") ) { plans.push("Levo paciente à Sala de Vacinação para reinício de vacinação, uma vez que não apresenta qualquer comprovação de vacinação prévia;"); }
+  if( $("#p-vaxori").is(":checked") ) { plans.push("Oriento paciente a procurar Sala de Vacinação para atualização de status vacinal em atraso;"); }
   if( $("#p-ori1").is(":checked") ) { plans.push("Oriento algumas das alterações fisiológicas gravídicas e suas relações com sensações e mudanças referidas pela paciente;"); }
   if( $("#p-ori2").is(":checked") ) { plans.push("Oriento e reforço paciente de sinais para busca de acolhimento, assim como reforço que alguns dos sinais (sangramento vaginal ou rotura da bolsa) são condições suficientes para busca direto da Maternidade, sem necessidade de avaliação prévia na Atenção Básica;"); }
   if( $("#p-ori3").is(":checked") ) { plans.push("Oriento sinais de trabalho de parto, na fase ativa, e oriento a procurar atendimento caso os apresente;"); }
