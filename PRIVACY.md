@@ -1,4 +1,4 @@
-# Política Privacidade
+# Política de Privacidade
 
 Este projeto e sítios eletrônicos ou aplicativos a partir dele gerados (denominado "aplicativo" neste documento) **não coletam dados** a ele fornecidos. Os dados fornecidos à interface de usuário do aplicativo são lidados localmente, com a lógica digital e processamento de dados ocorrendo apenas no local de execução do aplicativo (*user-side*).
 
