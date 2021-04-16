@@ -18,7 +18,7 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Arquivo Leia-Me.
 - Arquivo de Changelog.
 - Arquivo de Guidelines de Contribuição.
-- Arquivo de Termos de Uso.
-- Arquivo de Política de Privacidade.
+- Arquivo de Termos de Uso e página HTML associada.
+- Arquivo de Política de Privacidade e página HTML associada.
 - Página de Sintomáticos Respiratórios.
 - Página de Pré-Natal.

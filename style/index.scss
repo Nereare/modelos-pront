@@ -7,6 +7,13 @@ fieldset { border-color: $accent2; }
 legend { color: $accent1; }
 textarea { border-left-color: $accent1; }
 
+nav {
+  margin-bottom: 2em;
+  p {
+    text-align: center;
+    margin: 0.5em 0;
+  }
+}
 main { overflow: auto; }
 article {
   width: 46%;
