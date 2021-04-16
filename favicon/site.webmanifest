@@ -1,6 +1,6 @@
 {
-    "name": "Pront",
-    "short_name": "Pront",
+    "name": "",
+    "short_name": "",
     "icons": [
         {
             "src": "/favicon/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#455a64",
-    "background_color": "#455a64",
+    "theme_color": "#1565c0",
+    "background_color": "#1565c0",
     "display": "standalone"
 }
