@@ -20,5 +20,6 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Arquivo de Guidelines de Contribuição.
 - Arquivo de Termos de Uso e página HTML associada.
 - Arquivo de Política de Privacidade e página HTML associada.
-- Página de Sintomáticos Respiratórios.
+- Página de Sintomáticos Respiratórios:
+  - Modificado dias de sintoma para contar primeiro dia como D1, segundo informativo da Secretaria Municipal de Saúde da Cidade de São Paulo.
 - Página de Pré-Natal.

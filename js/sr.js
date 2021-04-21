@@ -197,6 +197,10 @@ $(document).ready(function() {
         var foobar = $("#output-o").val();
         $("#output-o").val(foobar + "Otoscopia:\n- OD: membrana timpânica direita " + $("#oto-d-membrane").val() + " " + $("#oto-d-retromembrane").val() + ". Conduto auditivo direito " + $("#oto-d-canal").val() + ".\n-OE: membrana timpânica esquerda " + $("#oto-e-membrane").val() + " " + $("#oto-e-retromembrane").val() + ". Conduto auditivo esquerdo " + $("#oto-e-canal").val() + ".\n");
       }
+      if( $("#exam-oro").is(":checked") ) {
+        var foobar = $("#output-o").val();
+        $("#output-o").val(foobar + "Oroscopia: orofaringe " + $("#exam-oro-pharynx").val() + ", com tonsilas palatinas " + $("#exam-oro-tonsils").val() + " " + $("#exam-oro-tonsilcover").val() + " e palato mole " + $("#exam-oro-palate").val() + ".\n" );
+      }
       if( $("#exam-naso").is(":checked") ) {
         var foobar = $("#output-o").val();
         $("#output-o").val(foobar + "Nasoscopia anterior: mucosa " + $("#naso-skin").val() + ", cornetos nasais " + $("#naso-shells").val() + " e " + $("#naso-sept").val() + "\n");
@@ -270,6 +274,7 @@ function deltaDays(date) {
   var today = new Date();
   var begining = new Date(date);
   var days = parseInt((today - begining)/(1000*60*60*24));
+  days += 1;
   return days;
 }
 function humanList(arr) {
