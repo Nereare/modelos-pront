@@ -119,17 +119,17 @@ $(document).ready(function() {
     if( $('input[name="hydro"]:checked').val() == "hidratade" ) {
       qualitative_exam.push("hidratade");
     } else {
-      qualitative_exam.push("desidratade " + $('input[name="color"]:checked').val() + "+/4+");
+      qualitative_exam.push("desidratade " + $('input[name="hydro"]:checked').val() + "+/4+");
     }
     if( $('input[name="cyanose"]:checked').val() == "acianótice" ) {
       qualitative_exam.push("acianótice");
     } else {
-      qualitative_exam.push("cianótice " + $('input[name="color"]:checked').val() + "+/4+");
+      qualitative_exam.push("cianótice " + $('input[name="cyanose"]:checked').val() + "+/4+");
     }
     if( $('input[name="icter"]:checked').val() == "anictérice" ) {
       qualitative_exam.push("anictérice");
     } else {
-      qualitative_exam.push("ictérice " + $('input[name="color"]:checked').val() + "+/4+");
+      qualitative_exam.push("ictérice " + $('input[name="icter"]:checked').val() + "+/4+");
     }
     qualitative_exam.push($('input[name="fever"]:checked').val());
     qualitative_exam.push($('input[name="breathe"]:checked').val());
