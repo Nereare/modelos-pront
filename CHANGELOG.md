@@ -24,3 +24,4 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
   - Modificado dias de sintoma para contar primeiro dia como D1, segundo informativo da Secretaria Municipal de Saúde da Cidade de São Paulo.
 - Página de Pré-Natal.
 - Página de 404.
+- Página de Puericultura.
