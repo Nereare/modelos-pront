@@ -96,7 +96,11 @@ ol {
 }
 .short { width: 4em; }
 .hidden { display: none; }
-.req { border-color: #e53935; }
+.req {
+  color: #e53935;
+  border-color: #e53935;
+}
+input.req { background-color: #ffcdd2; }
 .note {
   font-size: 0.75em;
   font-style: italic;
