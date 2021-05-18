@@ -227,12 +227,12 @@ $(document).ready(function() {
   });
   // Feeding inadequacy option
   $("#feeding-adequacy").on("change", function() {
-    if( $("#feeding-adequacy").val() == "INADEQUADA" ) { $("#feeding-adequacy-desc").css("display", "inline-block"); }
+    if( $("#feeding-adequacy").val() != "adequada" ) { $("#feeding-adequacy-desc").css("display", "inline-block"); }
     else { $("#feeding-adequacy-desc").css("display", "none"); }
   });
   // Socio-ambiental context option
   $("#context").on("change", function() {
-    if( $("#context").val() == "INADEQUADO" ) { $("#context-desc").css("display", "inline-block"); }
+    if( $("#context").val() != "adequado" ) { $("#context-desc").css("display", "inline-block"); }
     else { $("#context-desc").css("display", "none"); }
   });
 
@@ -410,11 +410,11 @@ $(document).ready(function() {
       if( vax == "ATRASADA" ) { vax += " desde os " + $("#vaxx-late-month").val() + " meses"; }
       ddx.push( "Vacinação " + vax );
       var fed = $("#feeding-adequacy").val();
-      if( fed == "INADEQUADA" ) { fed += " (" + $("#feeding-adequacy-why").val() + ")"; }
+      if( fed != "adequada" ) { fed += " (" + $("#feeding-adequacy-why").val() + ")"; }
       ddx.push( "Alimentação " + fed );
       ddx.push( "Desenvolvimento Neuropsicomotor " + $("#dnpm").val() );
       var cont = $("#context").val();
-      if( cont == "INADEQUADO" ) { cont += " (" + $("#context-why").val() + ")"; }
+      if( cont != "adequado" ) { cont += " (" + $("#context-why").val() + ")"; }
       ddx.push( "Ambiente " + cont );
       ddx.push( $("#dx").val().split(",") );
       ddx = ddx.filter(el => {
@@ -449,7 +449,7 @@ $(document).ready(function() {
       if( $("#p-ori9").is(":checked") ) { plans.push( "Oriento acompanhante de que exames complementares, tanto de amostras biológicas como de imagem, não têm papel no RASTREIO de problemas de saúde em crianças pequenas, e que a antropometria é mais que capaz de detectar precocemente problemas de saúde" ); }
       if( $("#p-leave").is(":checked") ) { plans.push( "Atesto paciente para " + $("#p-leave-days").val() + " dias" ); }
       if( $("#p-leave-wpeer").is(":checked") ) { plans.push( "Atesto paciente e acompanhante (" + $("#p-leave-peer").val() + ") para " + $("#p-leave-wpeer-days").val() + " dias" ); }
-      plans.push( "Tiro dúvdas" );
+      plans.push( "Tiro dúvidas" );
       plans.push( "Retorno em " + $("#p-return-num").val() + " " + $("#return-time").val() + " com " + $("#return-who").val() );
 
       $("#output-p").val( plans.join(";\n") + "." );
