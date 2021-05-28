@@ -230,6 +230,7 @@ $(document).ready(function() {
       dxss = dxss.filter(el => {
         return el != null && el != "";
       });
+      $.each($("input[name='obsdx']:checked"), function(){ dxss.push($(this).val()); });
       if(dxss.length > 0) {
         dxss.forEach(function(val) { dxs.push( $.trim(val) + ";" ); });
       }
