@@ -63,6 +63,11 @@ $(document).ready(function() {
       } else {
         qualitative_exam.push("ictérice " + $('input[name="icter"]:checked').val() + "+/4+");
       }
+      if( $('input[name="oedema"]:checked').val() == "sem edema" ) {
+        qualitative_exam.push("sem edema");
+      } else {
+        qualitative_exam.push("edema " + $('input[name="oedema"]:checked').val() + "+/4+");
+      }
 
       // Subjetivo
       var discharge = "Nega corrimentos vaginais.";
