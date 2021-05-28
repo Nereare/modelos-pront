@@ -424,8 +424,9 @@
                 <option value="Saída de moderada quatidade de secreção fisiológia">Saída de moderada quatidade de secreção fisiológia</option>
                 <option value="Saída de sangue">Saída de sangue</option>
               </select>
-              por introito vaginal.
-              <input type="text" name="gyn-insp-desc" id="gyn-insp-desc" placeholder="Descreva lesões cutâneas presentes" class="wide">
+              por introito vaginal. Observa-se
+              <input type="text" name="gyn-insp-desc" id="gyn-insp-desc" placeholder="Descreva lesões cutâneas presentes" size="70">
+              .
             </label>
           </p>
           <p>
@@ -445,13 +446,26 @@
               </select>
               de canal vaginal.
               <select name="gyn-spec-fluids" id="gyn-spec-fluids">
-                <option value="Presença de mínima quantidade de secreção fisiológica" selected>Presença de mínima quantidade de secreção fisiológica</option>
-                <option value="Presença de moderada quantidade de secreção fisiológica">Presença de moderada quantidade de secreção fisiológica</option>
-                <option value="Presença de grande quantidade de secreção fisiológica">Presença de grande quantidade de secreção fisiológica</option>
-                <option value="Presença de sangue">Presença de sangue</option>
-                <option value="Presença de sangue, com saída por orifício externo de colo,">Presença de sangue, com saída por orifício externo de colo,</option>
+                <option value="Presença de mínima quantidade de secreção" selected>Presença de mínima quantidade de secreção</option>
+                <option value="Presença de moderada quantidade de secreção">Presença de moderada quantidade de secreção</option>
+                <option value="Presença de grande quantidade de secreção">Presença de grande quantidade de secreção</option>
               </select>
-              em fundo de saco. Colo uterino
+              <select name="gyn-spec-fluids-desc" id="gyn-spec-fluids-desc">
+                <option value="fisiológica" selected>fisiológica</option>
+                <option value="líquida e translúcida">líquida e translúcida</option>
+                <option value="branco-grumosa">branco-grumosa</option>
+                <option value="purulenta">purulenta</option>
+                <option value="purulenta acinzentada">purulenta acinzentada</option>
+                <option value="purulenta com bolhas">purulenta com bolhas</option>
+                <option value="purulenta acinzentada e com bolhas">purulenta acinzentada e com bolhas</option>
+                <option value="sanguinolenta">sanguinolenta</option>
+              </select>
+              em fundo de saco
+              <select name="gyn-spec-fluids-exit" id="gyn-spec-fluids-exit">
+                <option value="sem saída por orifício externo de colo uterino observável ao exame" selected>SEM saída por OEC</option>
+                <option value="e observa-se saída ativa dessa secreção por oríficio externo de colo uterino ao exame">COM saída por OEC</option>
+              </select>
+              . Colo uterino
               <select name="gyn-spec-cervix" id="gyn-spec-cervix">
                 <option value="observável e posteriorizado">observável e posteriorizado</option>
                 <option value="observável e medianizado">observável e medianizado</option>
@@ -475,7 +489,7 @@
                 <option value="medianizado">medianizado</option>
                 <option value="anteriorizado">anteriorizado</option>
               </select>
-              e com orifício interno do colo
+              , com orifício interno do colo
               <select name="gyn-touch-cervixwidth" id="gyn-touch-cervixwidth">
                 <option value="impérvio" selected>impérvio</option>
                 <option value="pérvio a 1cm">pérvio a 1cm</option>
@@ -489,23 +503,99 @@
                 <option value="pérvio a 9cm">pérvio a 9cm</option>
                 <option value="com dilatação total">com dilatação total</option>
               </select>
-              . Pólo cefálico fetal
-              <select name="gyn-touch-fetus" id="gyn-touch-fetus">
-                <option value="não tocável" selected>não tocável</option>
-                <option value="alto">alto</option>
-                <option value="em plano -2 de De Lee">em plano -2 de De Lee</option>
-                <option value="em plano -1 de De Lee">em plano -1 de De Lee</option>
-                <option value="em plano 0 de De Lee">em plano 0 de De Lee</option>
-                <option value="em plano +1 de De Lee">em plano +1 de De Lee</option>
-                <option value="em plano +2 de De Lee">em plano +2 de De Lee</option>
+              e superfície
+              <select name="gyn-touch-cervixsurface" id="gyn-touch-cervixsurface">
+                <option value="sem alterações tocáveis" selected>sem alterações tocáveis</option>
+                <option value="com nódulo tocável">com nódulo tocável</option>
+                <option value="com cisto tocável">com cisto tocável</option>
+                <option value="áspera ao toque">áspera ao toque</option>
               </select>
-              . Bolsa das águas
-              <select name="gyn-touch-water" id="gyn-touch-water">
-                <option value="" selected>não se aplica</option>
-                <option value="tocável e íntegra">tocável e íntegra</option>
-                <option value="não tocável">não tocável</option>
+              . Colo uterino
+              <select name="gyn-touch-cervixpain" id="gyn-touch-cervixpain">
+                <option value="indolor à mobilização" selected>indolor à mobilização</option>
+                <option value="doloroso à mobilização">doloroso à mobilização</option>
+              </select>
+              , anexos
+              <select name="gyn-touch-annex" id="gyn-touch-annex">
+                <option value="não palpáveis" selected>não palpáveis</option>
+                <option value="com ambos os ovários palpáveis">ambos palpáveis</option>
+                <option value="com ovário direito palpável e esquerdo não palpável">D palpável, E não</option>
+                <option value="com ovário direito não palpável e esquerdo palpável">E palpável, D não</option>
+              </select>
+              <select name="gyn-touch-annexvol" id="gyn-touch-annexvol">
+                <option value="" selected>volumes N/A</option>
+                <option value=" com volumes subjetivamente normais ao toque">volumes normais</option>
+                <option value=" com ovário direito de volume aumentado e esquerdo de volume subjetivamente normal">volume D &uarr; e E normal</option>
+                <option value=" com ovário direito de volume subjetivamente normal e esquerdo de volume aumentado">volume D normal; e E &uarr;</option>
+                <option value=" com volumes de ambos os ovários aumentados">ambos &uarr;</option>
+              </select>
+              <select name="gyn-touch-annexsurf" id="gyn-touch-annexsurf">
+                <option value="" selected>superfície N/A</option>
+                <option value=", superfícies ovarianas tocáveis sem alterações perceptíveis">superfícies normais</option>
+                <option value=", com nódulo tocável em ovário direito">nódulo em ovário D</option>
+                <option value=", com nódulo tocável em ovário esquerdo">nódulo em ovário E</option>
+                <option value=", com nódulos tocáveis em ambos os ovários">nódulos bilaterais</option>
+                <option value=", com cisto tocável em ovário direito">cisto em ovário D</option>
+                <option value=", com cisto tocável em ovário esquerdo">cisto em ovário E</option>
+                <option value=", com cistos tocáveis em ambos os ovários">cistos bilaterais</option>
+                <option value=", com superfície irregular de ovário direito">superfície irregular de ovário D</option>
+                <option value=", com superfície irregular de ovário esquerdo">superfície irregular de ovário E</option>
+                <option value=", com superfícies irregulares de ambos os ovários">superfície irregular bilateral</option>
+              </select>
+              e região anexial
+              <select name="gyn-touch-annexpain" id="gyn-touch-annexpain">
+                <option value="indolor à palpação" selected>indolor</option>
+                <option value="dolorosa à palpação à direita">dolorosa à D</option>
+                <option value="dolorosa à palpação à esquerda">dolorosa à E</option>
+                <option value="dolorosa à palpação difusamente">dolorosa bilateral</option>
               </select>
               .
+            </p>
+            <p>
+              <input type="checkbox" name="exam-gyn-baby" id="exam-gyn-baby">
+              <label for="exam-gyn-baby">
+                <strong>Concepto:</strong>
+                <select name="gyn-baby-head" id="gyn-baby-head">
+                  <option value="polo cefálico" selected>polo cefálico</option>
+                  <option value="glúteo">glúteo</option>
+                  <option value="cotovelo">cotovelo</option>
+                </select>
+                fetal
+                <select name="gyn-baby-height" id="gyn-baby-height">
+                  <option value="não tocável" selected>não tocável</option>
+                  <option value="alto">alto</option>
+                  <option value="em plano -2 de De Lee">em plano -2 de De Lee</option>
+                  <option value="em plano -1 de De Lee">em plano -1 de De Lee</option>
+                  <option value="em plano 0 de De Lee">em plano 0 de De Lee</option>
+                  <option value="em plano +1 de De Lee">em plano +1 de De Lee</option>
+                  <option value="em plano +2 de De Lee">em plano +2 de De Lee</option>
+                </select>
+                ,
+                <select name="gyn-baby-flex" id="gyn-baby-flex">
+                  <option value="" selected>flexão N/A</option>
+                  <option value=", fletido">fletido</option>
+                  <option value=", defletido de I grau">defletido de I grau</option>
+                  <option value=", defletido de II grau">defletido de II grau</option>
+                  <option value=", defletido de III grau">defletido de III grau</option>
+                </select>
+                e apresentação
+                <select name="gyn-baby-present" id="gyn-baby-present">
+                  <option value="" selected>apresentação N/A</option>
+                  <option value=" e apresentação transversa direita">transversa D</option>
+                  <option value=" e apresentação transversa esquerda">transversa E</option>
+                  <option value=" e apresentação oblíqua superior direita">oblíqua Sup D</option>
+                  <option value=" e apresentação oblíqua superior esquerda">oblíqua Sup E</option>
+                  <option value=" e apresentação oblíqua inferior direita">oblíqua Inf D</option>
+                  <option value=" e apresentação oblíqua inferior esquerda">oblíqua Inf E</option>
+                </select>
+                . Bolsa das águas
+                <select name="gyn-baby-water" id="gyn-baby-water">
+                  <option value="" selected>não se aplica</option>
+                  <option value="tocável e íntegra">tocável e íntegra</option>
+                  <option value="não tocável">não tocável</option>
+                </select>
+                .
+              </label>
             </label>
           </p>
         </div>

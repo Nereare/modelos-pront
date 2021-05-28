@@ -88,7 +88,8 @@ $(document).ready(function() {
         $("#exam-heart").is(":checked") ||
         $("#exam-gyn-insp").is(":checked") ||
         $("#exam-gyn-spec").is(":checked") ||
-        $("#exam-gyn-touch").is(":checked")
+        $("#exam-gyn-touch").is(":checked") ||
+        $("#exam-gyn-baby").is(":checked")
       ) {
         var foobar = $("#output-o").val();
         $("#output-o").val(foobar + "\n");
@@ -109,12 +110,27 @@ $(document).ready(function() {
         var foobar = $("#output-o").val();
         var desc = "";
         if( $("#gyn-insp-desc").val() == "" ) { desc = "Sem lesões cutâneas perineais."; }
-        else { desc = $("#gyn-insp-desc").val(); }
+        else { desc = "Observa-se " + $("#gyn-insp-desc").val() + "."; }
         $("#output-o").val(foobar + "\nInspeção perineal: trofismo e pilificação " + $("#gyn-insp-troph").val() + " para idade. " + $("#gyn-insp-hyperemia").val() + " de introito vaginal. " + $("#gyn-insp-fluids").val() + " por introito vaginal. " + desc );
       }
       if( $("#exam-gyn-spec").is(":checked") ) {
         var foobar = $("#output-o").val();
-        $("#output-o").val(foobar + "\nEspecular vaginal: canal vaginal com trofismo e vilificação " + $("#gyn-spec-troph").val() + " para idade. " + $("#gyn-spec-hyperemia").val() + " de canal vaginal. " + $("#gyn-spec-fluids").val() + " em fundo de saco. Colo uterino " + $("#gyn-spec-cervix").val() + "." );
+        $("#output-o").val(
+          foobar +
+          "\nEspecular vaginal: canal vaginal com trofismo e vilificação " +
+          $("#gyn-spec-troph").val() +
+          " para idade. " +
+          $("#gyn-spec-hyperemia").val() +
+          " de canal vaginal. " +
+          $("#gyn-spec-fluids").val() +
+          " " +
+          $("#gyn-spec-fluids-desc").val() +
+          " em fundo de saco " +
+          $("#gyn-spec-fluids-exit").val() +
+          ". Colo uterino " +
+          $("#gyn-spec-cervix").val() +
+          "."
+        );
       }
       if( $("#exam-gyn-touch").is(":checked") ) {
         var foobar = $("#output-o").val();
@@ -124,12 +140,35 @@ $(document).ready(function() {
           $("#gyn-touch-cervixthick").val() +
           ", " +
           $("#gyn-touch-cervixpos").val() +
-          " e com orifício interno do colo " +
+          ", com orifício interno do colo " +
           $("#gyn-touch-cervixwidth").val() +
-          ". Pólo cefálico fetal " +
-          $("#gyn-touch-fetus").val() +
-          ". Bolsa das águas " +
-          $("#gyn-touch-water").val() +
+          " e superfície " +
+          $("#gyn-touch-cervixsurface").val() +
+          ". Colo uterino " +
+          $("#gyn-touch-cervixpain").val() +
+          ", anexos " +
+          $("#gyn-touch-annex").val() +
+          $("#gyn-touch-annexvol").val() +
+          $("#gyn-touch-annexsurf").val() +
+          " e região anexial " +
+          $("#gyn-touch-annexpain").val() +
+          "."
+        );
+      }
+      if( $("#exam-gyn-baby").is(":checked") ) {
+        var foobar = $("#output-o").val();
+        var water = "";
+        if( $("#gyn-baby-water").val() != "" ) { water = ". Bolsa das águas " + $("#gyn-baby-water").val(); }
+
+        $("#output-o").val(
+          foobar +
+          "\nConcepto: " +
+          $("#gyn-baby-head").val() +
+          " fetal " +
+          $("#gyn-baby-height").val() +
+          $("#gyn-baby-flex").val() +
+          $("#gyn-baby-present").val() +
+          water +
           "."
         );
       }
@@ -186,6 +225,7 @@ $(document).ready(function() {
       dxs.push("Gestação " + trim + ";");
       dxs.push(parity_g + ", " + parity_p + parity_c + ", " + parity_a + ";");
       if(age >= 35) { dxs.push("Gestante de idade avançada;"); }
+      if(age <= 16) { dxs.push("Gestante muito jovem;"); }
       dxss = $("#diag").val().split(",");
       dxss = dxss.filter(el => {
         return el != null && el != "";
