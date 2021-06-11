@@ -457,6 +457,38 @@ $(document).ready(function() {
     }
   });
   // / Build output
+
+  // Leave Build
+  $("#lf-run").on("click", function() {
+    if(
+      $("#lf-name").val() != "" &&
+      $("#lf-peer").val() != "" &&
+      $("#lf-days").val() != ""
+    ) {
+      var leave = "Paciente " + $("#lf-name").val().toUpperCase() + " ";
+      if( $("#lf-cns").val() != "" ) {
+        var cns = $("#lf-cns").val();
+        var match = cns.match(/^(\d{3})(\d{3})(\d{3})(\d{3})(\d{3})$/);
+        if (match) {
+          cns = match[1] + "." + match[2] + "." + match[3] + "." + match[4] + "." + match[5];
+        }
+        leave += "(CNS " + cns + ") ";
+      }
+      leave += "necessita ficar afastado por " + $("#lf-days").val().toString().padStart(2, "0") + " dias a partir do dia de hoje, sob supervisão de seu responsável, " + $("#lf-peer").val().toUpperCase() + ".\nSem mais.";
+      $("#output-lf").val(leave);
+    } else {
+      alert("Preencha os campos necessários antes de emitir o atestado.");
+      $("#lf-name").addClass("req");
+      $("#p-leave-wpeer-days").addClass("req");
+      $("#p-leave-peer").addClass("req");
+      $("#p-leave-wpeer-days").focus();
+      $("#lf-name, #p-leave-wpeer-days, #p-leave-peer").on("input", function() {
+        if( $(this).val() != "" ) { $(this).removeClass("req"); }
+        else { $(this).addClass("req"); }
+      });
+    }
+  });
+  // / Leave Build
 });
 
 function deltaDays(date) {
