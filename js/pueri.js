@@ -11,20 +11,13 @@ $(document).ready(function() {
     else { $("#peer-wtf").css("display", "none"); }
   });
   // Show feeding descriptors depending on choice
-  $("input[name='feeding']").on("change", function() {
-    switch( $("input[name='feeding']:checked").val() ) {
-      case "AMP":
-        $("#feeding-fl").css("display", "block");
-        $("#feeding-other").css("display", "none");
-        break;
-      case "AMC":
-      case "AMI":
-        $("#feeding-fl").css("display", "none");
-        $("#feeding-other").css("display", "block");
-        break;
-      default:
-        $("#feeding-fl, #feeding-other").css("display", "none");
-    }
+  $("#feeding-formula").on("change", function() {
+    if( $("#feeding-formula").is(":checked") ){ $("#feeding-fl").css("display", "block"); }
+    else { $("#feeding-fl").css("display", "none"); }
+  });
+  $("#feeding-food").on("change", function() {
+    if( $("#feeding-food").is(":checked") ){ $("#feeding-other").css("display", "block"); }
+    else { $("#feeding-other").css("display", "none"); }
   });
   // Show fontanelle descriptors
   $("#fontanelle-ant").on("change", function() {
@@ -284,18 +277,26 @@ $(document).ready(function() {
         peer = $("#peer-name").val() + " (" + $("#peer-relation").val() + ")";
       }
 
-      var feeding = $("input[name=feeding]:checked").val();
-      switch (feeding) {
-        case "AMP":
-          feeding = "Leite Materno complementado com " + $("input[name='feeding-amp']:checked").val();
-          break;
-        case "AMC":
-          feeding = "Leite Materno e " + $("input[name='feeding-other']").val();
-          break;
-        case "AMI":
-          feeding = $("input[name='feeding-other']").val() + " e SEM Leite Materno";
-        default:
-          feeding = "Leite Materno exclusivamente (AME)";
+      var feeding = "";
+      if( $("#feeding-lm").is(":checked") ) {
+        feeding = "Leite Materno";
+        if( $("#feeding-formula").is(":checked") && $("#feeding-food").is(":checked") ) {
+          feeding += ", fórmula láctea (" + $("input[name='feeding-amp']:checked").val() + ") e alimentos (" + $("input[name='feeding-other']:checked").val() + ")";
+        } else if( $("#feeding-formula").is(":checked") ) {
+          feeding += " e fórmula láctea (" + $("input[name='feeding-amp']:checked").val() + ")";
+        } else if( $("#feeding-food").is(":checked") ) {
+          feeding += " e alimentos (" + $("input[name='feeding-other']:checked").val() + ")";
+        } else {
+          feeding += " Exclusivo (AME)";
+        }
+      } else {
+        if( $("#feeding-formula").is(":checked") && $("#feeding-food").is(":checked") ) {
+          feeding += "fórmula láctea (" + $("input[name='feeding-amp']:checked").val() + ") e alimentos (" + $("input[name='feeding-other']:checked").val() + ")";
+        } else if( $("#feeding-formula").is(":checked") ) {
+          feeding += "fórmula láctea (" + $("input[name='feeding-amp']:checked").val() + ")";
+        } else {
+          feeding += "alimentos (" + $("input[name='feeding-other']:checked").val() + ")";
+        }
       }
 
       var devs = [];
