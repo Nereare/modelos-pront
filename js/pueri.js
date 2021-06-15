@@ -88,13 +88,21 @@ $(document).ready(function() {
       var days = deltaDays( $("#last-weight-date").val() );
       var w1 = parseFloat( $("#last-weight").val() );
       var w2 = parseFloat( $("#weight").val() );
+      var age = ( parseInt( $("#age-years").val() ) * 12) + parseInt( $("#age-months").val() );
       var growth = (w2 - w1) / days;
       var sign = "+";
       if( growth < 0 ) { sign = "&ndash;"; }
 
       var adequacy = "";
-      if( growth >= 20 ) { adequacy = "adequado"; }
-      else { adequacy = "INADEQUADO"; }
+      if( age <= 3 ) {
+        adequacy = (growth >= 20) ? "adequado" : "INADEQUADO";
+      } else if( age <= 6 ) {
+        adequacy = (growth >= 15) ? "adequado" : "INADEQUADO";
+      } else if( age <= 12 ) {
+        adequacy = (growth >= 10) ? "adequado" : "INADEQUADO";
+      } else {
+        adequacy = (growth >= 1) ? "adequado" : "INADEQUADO";
+      }
 
       $("#growth-adequacy").html( adequacy );
       $("#growth-rate").html( sign + Math.abs(growth).toFixed(2) );
