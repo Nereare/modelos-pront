@@ -20,22 +20,97 @@ $(document).ready(function() {
     else { $("#heart-murmur-desc").css("display", "none"); }
   });
 
+  // Calculate Gestational Age
+  $("#lmp, #usg-date, #usg-weeks, #usg-days").on("input", function() {
+    if(
+      $("#lmp").val() == "" ||
+      (
+        $("#usg-date").val() != "" &&
+        (
+          $("#usg-weeks").val() == "" ||
+          $("#usg-days").val() == ""
+        )
+      )
+    ) {
+      $("#lmp").addClass("req");
+      if( $("#usg-date").val() != "" ) {
+        $("#usg-weeks, #usg-days").addClass("req");
+      }
+      $("#lmp, #usg-weeks, #usg-days").on("input", function() {
+        if( $(this).val != "" ) {
+          $(this).removeClass("req");
+        } else {
+          $(this).addClass("req");
+        }
+      });
+    } else {
+      if( $("#usg-date").val() == "" ) {
+        var lmp = new Date( $("#lmp").val() );
+        var today = new Date( Date.now() );
+
+        var ig = parseInt( (today - lmp)/86400000 );
+        var dx = "USG de datação faltante";
+        $("#w").html( parseInt(ig/7) );
+        $("#d").html( parseInt(ig%7) );
+        $("#ig").html( ig );
+        $("#ig-dx").html( dx );
+      } else {
+        var lmp = new Date( $("#lmp").val() );
+        var usg = new Date( $("#usg-date").val() );
+        var today = new Date( Date.now() );
+
+        var ig_lmp = parseInt( (usg - lmp)/86400000 );
+        var ig_usg = parseInt( (parseInt($("#usg-weeks").val())*7) + parseInt($("#usg-days").val()) );
+        var diff = Math.abs(ig_lmp - ig_usg);
+        var err = false;
+
+        if(ig_lmp <= 62) {
+          err = (diff > 5) ? true : false;
+        } else if(ig_lmp <= 111) {
+          err = (diff > 7) ? true : false;
+        } else if(ig_lmp <= 153) {
+          err = (diff > 10) ? true : false;
+        } else if(ig_lmp <= 195) {
+          err = (diff > 14) ? true : false;
+        } else {
+          err = (diff > 21) ? true : false;
+        }
+
+        var ig = 0;
+        var dx = "";
+        if(err) {
+          ig = parseInt((today - usg)/86400000);
+          ig += ig_usg;
+          dx = "Erro de Data";
+        } else {
+          ig = parseInt((today - lmp)/86400000);
+          dx = "DUM Correta";
+        }
+
+        $("#w").html( parseInt(ig/7) );
+        $("#d").html( parseInt(ig%7) );
+        $("#ig").html( ig );
+        $("#ig-dx").html( dx );
+      }
+    }
+  });
+
   // Build output:
   $("#button-run").on("click", function() {
     if(
       $("#age").val() == "" ||
-      $("#ig-weeks").val() == "" ||
-      $("#ig-days").val() == "" ||
+      $("#ig").html() == "" ||
+      $("#ig-dx").html() == "" ||
       $("#parity-g").val() == "" ||
       $("#parity-pn").val() == "" ||
       $("#parity-pc").val() == "" ||
       $("#parity-a").val() == ""
     ) {
       alert("Por favor, preencha todos os campos em vermelho.");
-      $("#age, #ig-weeks, #ig-days, #parity-g, #parity-pn, #parity-pc, #parity-a").addClass("req");
+      $("#age, #lmp, #usg-weeks, #usg-days, #parity-g, #parity-pn, #parity-pc, #parity-a").addClass("req");
       $("#age").focus();
     } else {
-      $("#age, #ig-weeks, #ig-days, #parity-g, #parity-pn, #parity-pc, #parity-a").removeClass("req");
+      $("#age, #lmp, #usg-weeks, #usg-days, #parity-g, #parity-pn, #parity-pc, #parity-a").removeClass("req");
 
       var symps = [];
       $.each($("input[name='minsymps']:checked"), function(){ symps.push($(this).val()); });
@@ -78,7 +153,7 @@ $(document).ready(function() {
       if( $("#othersymps").val() != "" ) { othersymps = "\n\n" + $("#othersymps").val(); }
       $("#output-s").val("Paciente comparece para consulta de pré-natal. Refere estar " + humanList(symps, true) + ". " + discharge + othersymps);
       // Objetivo
-      $("#output-o").val("Paciente em " + $("#status").val() + "EG.\n" + humanList(qualitative_exam) + ".\nIG " + $("#ig-weeks").val() + "+" + $("#ig-days").val() + " sem.\nG" + $("#parity-g").val() + "P" + $("#parity-pn").val() + "C" + $("#parity-pc").val() + "A" + $("#parity-a").val() + ".");
+      $("#output-o").val("Paciente em " + $("#status").val() + "EG.\n" + humanList(qualitative_exam) + ".\nIG " + $("#w").html() + "+" + $("#d").html() + " sem.\nG" + $("#parity-g").val() + "P" + $("#parity-pn").val() + "C" + $("#parity-pc").val() + "A" + $("#parity-a").val() + ".");
       if( $("#obs-au").val() != "" && $("#obs-bcf").val() != "" && $("#obs-mf").val() != "" ) {
         var foobar = $("#output-o").val();
         $("#output-o").val(foobar + "\nMF " + $("input[name='obs-mf']:checked").val() + ". AU " + $("#obs-au").val() + "cm. BCF " + $("#obs-bcf").val() + "bpm. Apresentação fetal " + $("#obs-pos").val() + $("#obs-side").val() + "." );
@@ -173,9 +248,7 @@ $(document).ready(function() {
         );
       }
       // Avaliação
-      var ig = 0;
-      ig += parseInt($("#ig-weeks").val()) * 7;
-      ig += parseInt($("#ig-days").val());
+      var ig = $("#ig").html();
       var trim = "";
       switch (true) {
         case (ig <= 90):
@@ -224,6 +297,7 @@ $(document).ready(function() {
       var dxs = [];
       dxs.push("Gestação " + trim + ";");
       dxs.push(parity_g + ", " + parity_p + parity_c + ", " + parity_a + ";");
+      dxs.push( $("#ig-dx").html() + ";" );
       if(age >= 35) { dxs.push("Gestante de idade avançada;"); }
       if(age <= 16) { dxs.push("Gestante muito jovem;"); }
       dxss = $("#diag").val().split(",");
