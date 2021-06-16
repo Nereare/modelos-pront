@@ -35,6 +35,51 @@
 
     <main>
       <fieldset>
+        <legend>Identificação</legend>
+        <!-- ID -->
+        <div>
+          <p>
+            <input type="number" class="short" id="age" name="age" placeholder="Idade">
+            anos
+          </p>
+          <p>
+            G
+            <input type="number" class="short" id="parity-g" name="parity-g" placeholder="G">
+            P
+            <input type="number" class="short" id="parity-pn" name="parity-pn" placeholder="Pn">
+            C
+            <input type="number" class="short" id="parity-pc" name="parity-pc" placeholder="Pc">
+            A
+            <input type="number" class="short" id="parity-a" name="parity-a" placeholder="A">
+          </p>
+          <h2>IG</h2>
+          <p>
+            DUM:
+            <input type="date" id="lmp" name="lmp">
+          </p>
+          <p>
+            Data USG:
+            <input type="date" id="usg-date" name="usg-date">
+          </p>
+          <p>
+            IG USG:
+            <input type="number" id="usg-weeks" name="usg-weeks" min="1" max="42" placeholder="#">
+            sem
+            <input type="number" id="usg-days" name="usg-days" min="0" max="6" placeholder="#">
+            d
+          </p>
+          <p>
+            <span id="w"></span>
+            sem +
+            <span id="d"></span>
+            d
+          </p>
+          <p class="hidden" id="ig"></p><p class="hidden" id="ig-dx"></p>
+        </div>
+        <!-- / ID -->
+      </fieldset>
+
+      <fieldset>
         <legend>Subjetivo</legend>
         <!-- / Minor Symps -->
         <div>
@@ -198,33 +243,6 @@
 
       <fieldset>
         <legend>Objetivo</legend>
-        <!-- ID -->
-        <div>
-          <h2>Identificação</h2>
-          <p>
-            <input type="number" class="short" id="age" name="age" placeholder="Idade">
-            anos
-          </p>
-          <p>
-            IG:
-            <input type="number" class="short" id="ig-weeks" min="0" max="50" name="ig-weeks" placeholder="sem">
-            semanas +
-            <input type="number" class="short" id="ig-days" min="0" max="6" name="ig-days" placeholder="d">
-            dias
-          </p>
-          <p>
-            G
-            <input type="number" class="short" id="parity-g" name="parity-g" placeholder="G">
-            P
-            <input type="number" class="short" id="parity-pn" name="parity-pn" placeholder="Pn">
-            C
-            <input type="number" class="short" id="parity-pc" name="parity-pc" placeholder="Pc">
-            A
-            <input type="number" class="short" id="parity-a" name="parity-a" placeholder="A">
-          </p>
-        </div>
-        <!-- / ID -->
-
         <!-- Physical Examination -->
         <div>
           <h2>Exame Físico</h2>
