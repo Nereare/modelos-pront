@@ -277,11 +277,22 @@ $(document).ready(function() {
       $("input[name='bio-sex']:checked").val() == "" ||
       $("input[name='feeding']:checked").val() == "" ||
       $("#weight").val() == "" ||
-      $("#height").val() == ""
+      $("#height").val() == "" ||
+      (
+        $("#fontanelle-ant").val() == "aberta" && $("#fontanelle-ant-width").val() == ""
+      ) ||
+      (
+        $("#fontanelle-post").val() == "aberta" && $("#fontanelle-post-width").val() == ""
+      ) ||
+      (
+        $("#tummy-cord").val() == "sem coto umbilical" &&
+        $("#tummy-button-desc").val() == "com anel herniário palpável de" &&
+        $("#tummy-button-width").val() == ""
+      )
     ) {
       alert("Por favor, preencha todos os campos em vermelho.");
-      $("#age-years, #age-months, label[for='bio-sex-f'], label[for='bio-sex-m'], label[for='feeding-ame'], label[for='feeding-amp'], label[for='feeding-amc'], label[for='feeding-ami'], #weight, #height").addClass("req");
-      $("#age-years, #age-months, #weight, #height").on("change", function() {
+      $("#age-years, #age-months, label[for='bio-sex-f'], label[for='bio-sex-m'], label[for='feeding-ame'], label[for='feeding-amp'], label[for='feeding-amc'], label[for='feeding-ami'], #weight, #height, #fontanelle-ant-width, #fontanelle-post-width, #tummy-button-width").addClass("req");
+      $("#age-years, #age-months, #weight, #height, #fontanelle-ant-width, #fontanelle-post-width, #tummy-button-width").on("input", function() {
         if( $(this).val() != "" ) {
           $(this).removeClass("req");
         }

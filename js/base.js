@@ -4,7 +4,7 @@ $(document).ready(function() {
   const year = "2021";
   const license_name = "Licença Hipocrática";
   const license_url = "https://firstdonoharm.dev/";
-  const version = "1.12.10-r5";
+  const version = "1.12.10-r6";
 
   $(".copy.name").html(name + " &ndash; " + $(".copy.name").html());
   $(".copy.author").html(author);
