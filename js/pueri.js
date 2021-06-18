@@ -221,6 +221,25 @@ $(document).ready(function() {
       $("#stature-adequacy").html(adequacy);
     }
   });
+
+  // Vax table exhibition
+  $("#age-years, #age-months").on("input", function() {
+    var a = ( $("#age-years").val() == "" ) ? "0" : $("#age-years").val();
+    var m = ( $("#age-months").val() == "" ) ? "0" : $("#age-months").val();
+    var age = parseInt( a ) * 12;
+    age += parseInt( m );
+    $("#vax-table tr.vax").each(function() {
+      var regex = /[0-9]{1,3}/g;
+      var due = $(this).attr("class");
+      due = parseInt(due.match(regex)[0]);
+      if( typeof(due) == "number" && due <= age) {
+        $(this).removeClass("future");
+      } else {
+        $(this).addClass("future");
+      }
+    });
+  });
+
   // Vaccine late month option
   $("#vaxx").on("change", function() {
     if( $("#vaxx").val() == "ATRASADA" ) { $("#vaxx-late").css("display", "inline-block"); }
