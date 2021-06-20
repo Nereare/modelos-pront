@@ -83,19 +83,18 @@ $(document).ready(function() {
 
   // Build output:
   $("#button-run").on("click", function() {
-    var keys = [];
-    $.each($("input[name='keysymps']:checked"), function(){ keys.push($(this).val()); });
-    var others = [];
-    $.each($("input[name='othersymps']:checked"), function(){ others.push($(this).val()); });
+    var symps = [];
+    $.each($("input[name='keysymps']:checked"), function(){ symps.push( $(this).val().toUpperCase() ); });
+    $.each($("input[name='othersymps']:checked"), function(){ symps.push( $(this).val() ); });
     var comorb = [];
-    $.each($("input[name='comorbities']:checked"), function(){ comorb.push($(this).val()); });
-    if($("input#tx").is(':checked')) { comorb.push("transplante prévio de " + $("#tx-organ").val()); }
-    if($("input#rheum").is(':checked')) { comorb.push($("#rheum-disease").val()); }
-    if($("input#suppr").is(':checked')) { comorb.push("uso crônico de " + $("#suppr-drug").val()); }
+    $.each($("input[name='comorbities']:checked"), function(){ comorb.push( $(this).val() ); });
+    if($("input#tx").is(':checked')) { comorb.push( "transplante prévio de " + $("#tx-organ").val() ); }
+    if($("input#rheum").is(':checked')) { comorb.push( $("#rheum-disease").val() ); }
+    if($("input#suppr").is(':checked')) { comorb.push( "uso crônico de " + $("#suppr-drug").val() ); }
     var covid_date = new Date($("#covid-before-date").val() + "T00:00:00.000-03:00");
-    if($("input#covid-before").is(':checked')) { comorb.push("apresentado infecção prévia por SARS-CoV-2 em " + covid_date.toLocaleDateString("pt-BR", options)); }
+    if($("input#covid-before").is(':checked')) { comorb.push( "apresentado infecção prévia por SARS-CoV-2 em " + covid_date.toLocaleDateString("pt-BR", options) ); }
     var tb_date = new Date($("#tb-before-date").val() + "T00:00:00.000-03:00");
-    if($("input#tb-before").is(':checked')) { comorb.push("tratado tuberculose pulmonar em " + tb_date.toLocaleDateString("pt-BR", options)); }
+    if($("input#tb-before").is(':checked')) { comorb.push( "tratado tuberculose pulmonar em " + tb_date.toLocaleDateString("pt-BR", options) ); }
     var begining = new Date($("#sympstart").val() + "T00:00:00.000-03:00");
     var days = deltaDays($("#sympstart").val());
     var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -174,7 +173,7 @@ $(document).ready(function() {
         $("#output-s").val("Empregador solicitou ao paciente que procurasse serviço de saúde para coleta de exame para detecção de SARS-CoV-2, no entanto, paciente " + $("#clt-symp").val() + ".");
         break;
       default:
-        $("#output-s").val("Paciente procura acolhimento, estando no fluxo de Sintomáticos Respiratórios por apresentar, dentre os sintomas definidores de caso: " + humanList(keys) + ". Além disso, paciente também refere, dentre outros sintomas: " + humanList(others) + ".\nQuadro iniciado " + begining.toLocaleDateString("pt-BR", options) + ".\n\nPaciente " + humanComorbidities(comorb) + ", " + allergies + ".\nPaciente " + $("#work").val() + " e refere morar " + $("#family").val() + ".");
+        $("#output-s").val("Paciente procura acolhimento, estando no fluxo de Sintomáticos Respiratórios por apresentar: " + humanList(symps) + ".\nQuadro iniciado " + begining.toLocaleDateString("pt-BR", options) + ".\n\nPaciente " + humanComorbidities(comorb) + ", " + allergies + ".\nPaciente " + $("#work").val() + " e refere morar " + $("#family").val() + ".");
     }
     // Objetivo
     if( $("input[name='reeval']:checked").val() == "clt" ) {
