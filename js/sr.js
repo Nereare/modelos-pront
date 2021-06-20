@@ -179,10 +179,20 @@ $(document).ready(function() {
     if( $("input[name='reeval']:checked").val() == "clt" ) {
       $("#output-o").val("Não se aplica.");
     } else {
-      $("#output-o").val("Paciente em " + $("#status").val() + "EG." + ped_activity + "\n" + humanList(qualitative_exam) + ".\n\nD" + days + " de sintomas hoje.\n\n");
+      $("#output-o").val("Paciente em " + $("#status").val() + "EG." + ped_activity + "\n" + humanList(qualitative_exam) + ".\n\nD" + days + " de sintomas hoje.");
+      if(
+        $("#exam-lung").is(":checked") ||
+        $("#exam-heart").is(":checked") ||
+        $("#exam-oto").is(":checked") ||
+        $("#exam-oro").is(":checked") ||
+        $("#exam-naso").is(":checked")
+      ) {
+        var foobar = $("#output-o").val();
+        $("#output-o").val(foobar + "\n");
+      }
       if( $("#exam-lung").is(":checked") ) {
         var foobar = $("#output-o").val();
-        $("#output-o").val(foobar + "Pulm: murmúrios vesiculares " + $("#lung").val() + ", " + $("#lung-sounds").val() + "." + tiragens + "\n");
+        $("#output-o").val(foobar + "\nPulm: murmúrios vesiculares " + $("#lung").val() + ", " + $("#lung-sounds").val() + "." + tiragens);
       }
       if( $("#exam-heart").is(":checked") ) {
         var foobar = $("#output-o").val();
@@ -190,23 +200,24 @@ $(document).ready(function() {
         if( murmur == "com sopro" ) {
           murmur += " " + $("#heart-murmur-desc").val();
         }
-        $("#output-o").val(foobar + "Card: bulhas " + $("#heart-rhythm").val() + " e " + $("#heart-sounds").val() + " em " + $("#heart-times").val() + " " + murmur + ".\n");
+        $("#output-o").val(foobar + "\nCard: bulhas " + $("#heart-rhythm").val() + " e " + $("#heart-sounds").val() + " em " + $("#heart-times").val() + " " + murmur + ".");
       }
       if( $("#exam-oto").is(":checked") ) {
         var foobar = $("#output-o").val();
-        $("#output-o").val(foobar + "Otoscopia:\n- OD: membrana timpânica direita " + $("#oto-d-membrane").val() + " " + $("#oto-d-retromembrane").val() + ". Conduto auditivo direito " + $("#oto-d-canal").val() + ".\n-OE: membrana timpânica esquerda " + $("#oto-e-membrane").val() + " " + $("#oto-e-retromembrane").val() + ". Conduto auditivo esquerdo " + $("#oto-e-canal").val() + ".\n");
+        $("#output-o").val(foobar + "\nOtoscopia:\n- OD: membrana timpânica direita " + $("#oto-d-membrane").val() + " " + $("#oto-d-retromembrane").val() + ". Conduto auditivo direito " + $("#oto-d-canal").val() + ".\n- OE: membrana timpânica esquerda " + $("#oto-e-membrane").val() + " " + $("#oto-e-retromembrane").val() + ". Conduto auditivo esquerdo " + $("#oto-e-canal").val() + ".");
       }
       if( $("#exam-oro").is(":checked") ) {
         var foobar = $("#output-o").val();
-        $("#output-o").val(foobar + "Oroscopia: orofaringe " + $("#exam-oro-pharynx").val() + ", com tonsilas palatinas " + $("#exam-oro-tonsils").val() + " " + $("#exam-oro-tonsilcover").val() + " e palato mole " + $("#exam-oro-palate").val() + ".\n" );
+        $("#output-o").val(foobar + "\nOroscopia: orofaringe " + $("#exam-oro-pharynx").val() + ", com tonsilas palatinas " + $("#exam-oro-tonsils").val() + " " + $("#exam-oro-tonsilcover").val() + " e palato mole " + $("#exam-oro-palate").val() + "." );
       }
       if( $("#exam-naso").is(":checked") ) {
         var foobar = $("#output-o").val();
-        $("#output-o").val(foobar + "Nasoscopia anterior: mucosa " + $("#naso-skin").val() + ", cornetos nasais " + $("#naso-shells").val() + " e " + $("#naso-sept").val() + "\n");
+        $("#output-o").val(foobar + "\nNasoscopia anterior: mucosa " + $("#naso-skin").val() + ", cornetos nasais " + $("#naso-shells").val() + " e " + $("#naso-sept").val());
       }
       if( $("input[name='reeval']:checked").val() == "reeval" ) {
         var exam_date = new Date($("#exam-eval-date").val() + "T00:00:00.000-03:00");
-        $("#output-o").val($("#output-o").val() + "\n" + $("#exam-eval").val() + " de " + exam_date.toLocaleDateString("pt-BR") + " com resultado " + $("#" + $("#exam-eval option:selected" ).attr("class")).val() + ".");
+        var foobar = $("#output-o").val();
+        $("#output-o").val(foobar + "\n" + $("#exam-eval").val() + " de " + exam_date.toLocaleDateString("pt-BR") + " com resultado " + $("#" + $("#exam-eval option:selected" ).attr("class")).val() + ".");
       }
     }
     // Plano
