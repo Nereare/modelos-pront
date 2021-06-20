@@ -174,7 +174,7 @@ $(document).ready(function() {
         $("#output-s").val("Empregador solicitou ao paciente que procurasse serviço de saúde para coleta de exame para detecção de SARS-CoV-2, no entanto, paciente " + $("#clt-symp").val() + ".");
         break;
       default:
-        $("#output-s").val("Paciente procura acolhimento, estando no fluxo de Sintomáticos Respiratórios por apresentar, dentre os sintomas definidores de caso: " + humanList(keys) + ". Além disso, paciente também refere, dentre outros sintomas: " + humanList(others) + ".\nQuadro iniciado " + begining.toLocaleDateString("pt-BR", options) + ".\n\nPaciente " + humanComorbidities(comorb) + ", " + allergies + ".\nPaciente " + $("#work").val() + " e refere morar " + $("#family").val() + ".\nPaciente " + $("#contact-sus").val() + " contato com pessoa sintomática nas duas semanas prévias ao início de sintomas, além de " + $("#contact-conf").val() + " contato com pessoa com COVID-19 confirmado no mesmo período.\nPaciente " + $("#trip").val() + " ter viajado nas duas semanas prévias ao início de sintomas.");
+        $("#output-s").val("Paciente procura acolhimento, estando no fluxo de Sintomáticos Respiratórios por apresentar, dentre os sintomas definidores de caso: " + humanList(keys) + ". Além disso, paciente também refere, dentre outros sintomas: " + humanList(others) + ".\nQuadro iniciado " + begining.toLocaleDateString("pt-BR", options) + ".\n\nPaciente " + humanComorbidities(comorb) + ", " + allergies + ".\nPaciente " + $("#work").val() + " e refere morar " + $("#family").val() + ".");
     }
     // Objetivo
     if( $("input[name='reeval']:checked").val() == "clt" ) {
