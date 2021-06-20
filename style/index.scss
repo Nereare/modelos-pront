@@ -2,7 +2,11 @@ $accent1: #455a64;
 $accent2: #607d8b;
 
 h1, h2, h3, h4, h5, h6 { color: $accent1; }
-a { color: $accent2; }
+a {
+  color: $accent2;
+  &:visited { color: $accent2; }
+  &:hover, &:active { color: $accent1; }
+}
 fieldset { border-color: $accent2; }
 legend { color: $accent1; }
 textarea { border-left-color: $accent1; }
