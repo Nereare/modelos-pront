@@ -148,7 +148,7 @@ $(document).ready(function() {
       output += ".  6. Memória: ";
       switch ( $("#memory").val() ) {
         case "testada, com Mini Exame do Estado Mental resultando em ":
-          output += $("#memory").val(); + $("#memory-minimental-grade").val() + "/" + $("#memory-minimental-aim").val();
+          output += $("#memory").val() + $("#memory-minimental-grade").val() + "/" + $("#memory-minimental-aim").val();
           break;
         case "outro":
           output += $("#memory-other").val();
