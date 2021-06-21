@@ -1,0 +1,13 @@
+$accent1: #4527a0; // 800
+$accent2: #6200ea; // A700
+
+h1, h2, h3, h4, h5, h6 { color: $accent1; }
+a { color: $accent2; }
+fieldset { border-color: $accent2; }
+legend { color: $accent1; }
+textarea { border-left-color: $accent1; }
+ol li:before { color: $accent1; }
+
+.topic {
+  p { margin-left: 1em; }
+}
