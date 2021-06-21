@@ -40,3 +40,8 @@ Este projeto usa [SemVer](http://semver.org/) para versionamento. Para as versõ
 [![Hippocratic License](https://i.imgur.com/DEKS3nm.png)](LICENSE.md)
 
 Este projeto está disponível sob a [Licença Hipocrática](https://firstdonoharm.dev/).
+
+### Atribuições
+
+- Ícones retirados ou adaptados de [Material Design Icons](https://materialdesignicons.com/), disponíveis sob a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0);
+- Ícone de DIU: "IUD" por Cécile Parker, de [the Noun Project](https://thenounproject.com/search/?q=iud&i=3701552).
