@@ -51,7 +51,7 @@ ol li:before { color: $accent1; }
         * { margin: 0; }
         &:nth-child(1) {
           width: 45%;
-          background: url("assets/sms.png") top left/50% no-repeat;
+          background: url("../assets/sms.png") top left/50% no-repeat;
           .print-urgent {
             width: 100%;
             text-align: right;
