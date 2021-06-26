@@ -22,6 +22,7 @@ ol li:before { color: $accent1; }
 @media print {
   body {
     font-family: 'Roboto', sans-serif;
+    font-size: 14pt;
     * {
       visibility: hidden;
       text-align: justify;
@@ -39,6 +40,7 @@ ol li:before { color: $accent1; }
     hr {
       border: 0;
       border-bottom: 1px dashed #ccc;
+      margin: 3em 0;
       background: #999;
     }
 
@@ -63,7 +65,7 @@ ol li:before { color: $accent1; }
         &:nth-child(2) {
           width: 18%;
           li {
-            font-size: 0.7em;
+            font-size: 0.5em;
             text-transform: uppercase;
             list-style: none;
             &::before {
