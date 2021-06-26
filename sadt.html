@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Modelo de Prontuários &ndash; SADT</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#1565c0">
+    <link rel="shortcut icon" href="/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1565c0">
+    <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#1565c0">
+
+    <link href="node_modules/typeface-lato/index.css" rel="stylesheet" type="text/css">
+    <link href="node_modules/typeface-montserrat/index.css" rel="stylesheet" type="text/css">
+    <link href="node_modules/typeface-source-code-pro/index.css" rel="stylesheet" type="text/css">
+    <link href="node_modules/normalize.css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="style/base.css" rel="stylesheet" type="text/css">
+    <link href="style/sadt.css" rel="stylesheet" type="text/css">
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/sadt.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>SADT</h1>
+    </header>
+
+    <main>
+      <fieldset>
+        <legend>Identificação</legend>
+        <div>
+          <p>
+            <input type="text" class="wide" id="name" placeholder="Nome completo">
+          </p>
+          <p>
+            <input type="text" class="half" id="pront" placeholder="# de Prontuário">
+            <input type="text" class="half" id="dx" placeholder="Diagnóstico/Justificativa">
+          </p>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>SADTs</legend>
+
+        <h2>SADT 1</h2>
+        <p>
+          <input type="text" class="u-full-width" id="lab1-1" placeholder="Exames (1º SADT, 1ª Linha)">
+        </p>
+        <p>
+          <input type="text" class="u-full-width" id="lab1-2" placeholder="Exames (1º SADT, 2ª Linha)">
+        </p>
+        <p>
+          <input type="text" class="u-full-width" id="lab1-3" placeholder="Exames (1º SADT, 3ª Linha)">
+        </p>
+
+        <h2>SADT 2</h2>
+        <p>
+          <input type="text" class="u-full-width" id="lab2-1" placeholder="Exames (2º SADT, 1ª Linha)">
+        </p>
+        <p>
+          <input type="text" class="u-full-width" id="lab2-2" placeholder="Exames (2º SADT, 2ª Linha)">
+        </p>
+        <p>
+          <input type="text" class="u-full-width" id="lab2-3" placeholder="Exames (2º SADT, 3ª Linha)">
+        </p>
+      </fieldset>
+    </main>
+
+    <div id="print">
+      <table class="sadt-header">
+        <tr>
+          <td>
+            <p class="print-urgent">URGENTE</p>
+          </td>
+          <td>
+            <ul>
+              <li>Análises Clínicas</li>
+              <li>Radiologia</li>
+              <li>Outros</li>
+            </ul>
+          </td>
+          <td>
+            <p class="top">Guia de Encaminhamento</p>
+            <p class="top">SADT</p>
+            <p class="pront">
+              Prontuário Nº:
+              <span class="print-pront">02.X.X</span>
+            </p>
+          </td>
+        </tr>
+      </table>
+
+      <table class="sadt">
+        <tr>
+          <td colspan="6" label="Nome">
+            <span class="print-name">Fulano da Silva</span>
+          </td>
+          <td colspan="2" label="Data de Nasc"><span>&nbsp;</span></td>
+          <td colspan="3" label="Identificação"><span>&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="6" label="Endereço"><span>&nbsp;</span></td>
+          <td colspan="2" label="Município"><span>&nbsp;</span></td>
+          <td colspan="1" label="UF"><span>&nbsp;</span></td>
+          <td colspan="2" label="Telefone"><span>&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="11" label="Hipótese Diagnóstica"><span class="print-dx">Z00</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="11" label="&nbsp;"><span>&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="11" label="Área e/ou seguimento anatômico a ser examinado"><span>&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="11" label="&nbsp;"><span>&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="11" label="Exames ou serviços solicitados"><span class="print-lab1-1">&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="11" label="&nbsp;"><span class="print-lab1-2">&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="11" label="&nbsp;"><span class="print-lab1-3">&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="3" rowspan="2" label="Assinatura CRM e Carimbo"><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></td>
+          <td colspan="3" label="Data Emissão"><span>&nbsp;</span></td>
+          <td colspan="5" label="Unidade Solicitante"><span>&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="8" label="Encaminhado para"><span>&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="3" rowspan="2" label="Carimbo de Autorização"><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></td>
+          <td colspan="8" label="Endereço"><span>&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="8" label="&nbsp;"><span>&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+
+      <hr>
+
+      <table class="sadt-header">
+        <tr>
+          <td>
+            <p class="print-urgent">URGENTE</p>
+          </td>
+          <td>
+            <ul>
+              <li>Análises Clínicas</li>
+              <li>Radiologia</li>
+              <li>Outros</li>
+            </ul>
+          </td>
+          <td>
+            <p class="top">Guia de Encaminhamento</p>
+            <p class="top">SADT</p>
+            <p class="pront">
+              Prontuário Nº:
+              <span class="print-pront">02.X.X</span>
+            </p>
+          </td>
+        </tr>
+      </table>
+
+      <table class="sadt">
+        <tr>
+          <td colspan="6" label="Nome">
+            <span class="print-name">Fulano da Silva</span>
+          </td>
+          <td colspan="2" label="Data de Nasc"><span>&nbsp;</span></td>
+          <td colspan="3" label="Identificação"><span>&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="6" label="Endereço"><span>&nbsp;</span></td>
+          <td colspan="2" label="Município"><span>&nbsp;</span></td>
+          <td colspan="1" label="UF"><span>&nbsp;</span></td>
+          <td colspan="2" label="Telefone"><span>&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="11" label="Hipótese Diagnóstica"><span class="print-dx">Z00</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="11" label="&nbsp;"><span>&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="11" label="Área e/ou seguimento anatômico a ser examinado"><span>&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="11" label="&nbsp;"><span>&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="11" label="Exames ou serviços solicitados"><span class="print-lab2-1">&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="11" label="&nbsp;"><span class="print-lab2-2">&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="11" label="&nbsp;"><span class="print-lab2-3">&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="3" rowspan="2" label="Assinatura CRM e Carimbo"><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></td>
+          <td colspan="3" label="Data Emissão"><span>&nbsp;</span></td>
+          <td colspan="5" label="Unidade Solicitante"><span>&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="8" label="Encaminhado para"><span>&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="3" rowspan="2" label="Carimbo de Autorização"><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></td>
+          <td colspan="8" label="Endereço"><span>&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td colspan="8" label="&nbsp;"><span>&nbsp;</span></td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+
+    <footer>
+      <h5 class="copy name">SADT</h5>
+      <p>Versão <span class="copy version"></span></p>
+      <p>Feito com lógica e evidências científicas &#128211;</p>
+      <p>Disponível sob a <a class="copy license"></a>.</p>
+      <p>&copy; <span class="copy year"></span> <span class="copy author"></span></p>
+    </footer>
+  </body>
+</html>
