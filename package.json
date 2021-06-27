@@ -19,6 +19,8 @@
     "normalize.css": "^8.0.1",
     "typeface-lato": "^1.1.13",
     "typeface-montserrat": "^1.1.13",
+    "typeface-roboto": "^1.1.13",
+    "typeface-roboto-mono": "^1.1.13",
     "typeface-source-code-pro": "^1.1.13"
   }
 }

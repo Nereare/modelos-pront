@@ -48,6 +48,8 @@ __metadata:
     normalize.css: ^8.0.1
     typeface-lato: ^1.1.13
     typeface-montserrat: ^1.1.13
+    typeface-roboto: ^1.1.13
+    typeface-roboto-mono: ^1.1.13
     typeface-source-code-pro: ^1.1.13
   languageName: unknown
   linkType: soft
@@ -84,6 +86,20 @@ __metadata:
   version: 1.1.13
   resolution: "typeface-montserrat@npm:1.1.13"
   checksum: c9f16042ed9493bb574199e98d13c50a6a64a79e806a6a7af7de60b6b7c6dc0cdb4a2dbe67cef7cba2448e32fd203e5b554c466c7eebc1b575d3a995c39794b6
+  languageName: node
+  linkType: hard
+
+"typeface-roboto-mono@npm:^1.1.13":
+  version: 1.1.13
+  resolution: "typeface-roboto-mono@npm:1.1.13"
+  checksum: 0eac7aa64b5185eb9e008e20b2d1596f251ff05f6b6939b7805d41cdfa92127a94bee1d81b46434e582db80f60f6d9390cf661a419c24824a2252cb67c3d1fd4
+  languageName: node
+  linkType: hard
+
+"typeface-roboto@npm:^1.1.13":
+  version: 1.1.13
+  resolution: "typeface-roboto@npm:1.1.13"
+  checksum: d8f68902575211262605fb50147084b295d410f376314d1b4d55d08e4dbb74339a1817c82a7df051694b3e3663a9d0c0179b728101e8403d906b89735b0e97e0
   languageName: node
   linkType: hard
 
