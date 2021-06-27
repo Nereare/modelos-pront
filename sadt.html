@@ -43,11 +43,16 @@
             <input type="text" class="half" id="pront" placeholder="# de Prontuário">
             <input type="text" class="half" id="dx" placeholder="Diagnóstico/Justificativa">
           </p>
+          <p>
+            <input type="text" class="half" id="birth" placeholder="Data de Nascimento">
+            <input type="checkbox" id="urgent">
+            <label for="urgent">Coleta Urgente</label>
+          </p>
         </div>
       </fieldset>
 
       <fieldset>
-        <legend>SADTs</legend>
+        <legend>Exames</legend>
 
         <h2>SADT 1</h2>
         <p>
@@ -102,7 +107,7 @@
           <td colspan="6" label="Nome">
             <span class="print-name">Fulano da Silva</span>
           </td>
-          <td colspan="2" label="Data de Nasc"><span>&nbsp;</span></td>
+          <td colspan="2" label="Data de Nasc"><span class="print-birth">&nbsp;</span></td>
           <td colspan="3" label="Identificação"><span>&nbsp;</span></td>
         </tr>
 
@@ -205,7 +210,7 @@
           <td colspan="6" label="Nome">
             <span class="print-name">Fulano da Silva</span>
           </td>
-          <td colspan="2" label="Data de Nasc"><span>&nbsp;</span></td>
+          <td colspan="2" label="Data de Nasc"><span class="print-birth">&nbsp;</span></td>
           <td colspan="3" label="Identificação"><span>&nbsp;</span></td>
         </tr>
 

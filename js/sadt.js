@@ -10,6 +10,16 @@ $( document ).ready(function() {
   $("#dx").on("input", function() {
     $(".print-dx").html( $("#dx").val() );
   });
+  $("#birth").on("input", function() {
+    $(".print-birth").html( $("#birth").val() );
+  });
+  $("#urgent").on("change", function() {
+    if( $("#urgent").is(":checked") ) {
+      $(".print-urgent").css("display", "block");
+    } else {
+      $(".print-urgent").css("display", "none");
+    }
+  });
 
   $("#lab1-1").on("input", function() {
     $(".print-lab1-1").html( $("#lab1-1").val() );

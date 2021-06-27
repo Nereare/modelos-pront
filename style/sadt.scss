@@ -1,5 +1,5 @@
-$accent1: #4527a0; // 800
-$accent2: #6200ea; // A700
+$accent1: #d84315; // 800
+$accent2: #dd2c00; // A700
 
 h1, h2, h3, h4, h5, h6 { color: $accent1; }
 a { color: $accent2; }
@@ -60,6 +60,7 @@ ol li:before { color: $accent1; }
             font-size: 1em;
             font-weight: bold;
             margin-right: 5em;
+            display: none;
           }
         }
         &:nth-child(2) {
