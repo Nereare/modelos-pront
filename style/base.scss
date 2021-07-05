@@ -99,6 +99,7 @@ ol {
   margin-right: 0;
   &:nth-child(odd) { margin-right: 5%; }
 }
+div.half { float: left; }
 .short { width: 4em; }
 .hidden { display: none; }
 .req {
