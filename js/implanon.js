@@ -53,12 +53,18 @@ $(document).ready(function() {
 
       var reason = "";
       if( criteria.length <= 0 ) {
-        alert("Note que os critérios vigentes de solicitação de Implanon previstos pela Secretaria Municipal de Saúde de São Paulo requerem ao menos um dos fatores listados. Solicitar sem nenhum desses implica na muitíssimo provável recusa da SMS do pedido.");
+        alert("Note que os critérios vigentes de solicitação de Implanon previstos pela Secretaria Municipal de Saúde de São Paulo requerem ao menos um dos fatores listados. Solicitar sem nenhum desses implica na muitíssimo provável recusa pela SMS do pedido.");
       }
-      if( criteria.includes("drug") ) { reason += "\nPaciente é usuária de múltiplas substâncias, apresentando dificuldade de uso de anticoncepcionais."; }
-      if( criteria.includes("teen") ) { reason += "\nPaciente é adolescente."; }
+      if( criteria.includes("teen") ) { reason += "\n- Mulher com menos de 16 anos;"; }
+      if( criteria.includes("drug") ) { reason += "\n- Usuária de substâncias psicoativas, interferindo com a capacidade de autogestão de outros métodos contraceptivos;"; }
+      if( criteria.includes("homeless") ) { reason += "\n- Em situação de rua;"; }
+      if( criteria.includes("hiv") ) { reason += "\n- Vivendo com HIV, em uso de dolutegravir;"; }
+      if( criteria.includes("talidomide") ) { reason += "\n- Em uso de talidomida;"; }
+      if( criteria.includes("prison") ) { reason += "\n- Privada de liberdade;"; }
+      if( criteria.includes("sex") ) { reason += "\n- Trabalhadora do sexo;"; }
+      if( criteria.includes("tb") ) { reason += "\n- Em tratamento de tuberculose, em uso de aminoglicosídeo;"; }
 
-      $("#output").val("Requisição de Implanon\n\nPaciente " + name + " (CNS " + cns + ", CPF " + cpf + "), nascida em " + birth + " e cadastrada nesta Unidade de Saúde com o prontuário " + pront + ". Apresentou " + g + " gestações prévias, " + p + " partos e " + a + " abortos." + reason + "\nSolicito dispositivo intradérmico de etonogestrel para paciente acima.\nSem mais.");
+      $("#output").val("Requisição de Implanon\n\nPaciente " + name + " (CNS " + cns + ", CPF " + cpf + "), nascida em " + birth + " e cadastrada nesta Unidade de Saúde com o prontuário " + pront + ". Apresentou " + g + " gestações prévias, " + p + " partos e " + a + " abortos.\nPaciente apresenta o(s) seguinte(s) critério(s) para Implanon:" + reason + "\nSolicito dispositivo intradérmico de etonogestrel para paciente acima.\nSem mais.");
     }
   });
   // / Build output
