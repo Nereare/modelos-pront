@@ -2,16 +2,32 @@ $( document ).ready(function() {
   console.log("App ready!");
 
   $("#pront").on("input", function() {
-    $(".print-pront").html( $("#pront").val() );
+    if( $("#pront").val() != "" ) {
+      $(".print-pront").html( $("#pront").val() );
+    } else {
+      $(".print-pront").html( "&nbsp;" );
+    }
   });
   $("#name").on("input", function() {
-    $(".print-name").html( $("#name").val() );
+    if( $("#name").val() != "" ) {
+      $(".print-name").html( $("#name").val() );
+    } else {
+      $(".print-name").html( "&nbsp;" );
+    }
   });
   $("#dx").on("input", function() {
-    $(".print-dx").html( $("#dx").val() );
+    if( $("#dx").val() != "" ) {
+      $(".print-dx").html( $("#dx").val() );
+    } else {
+      $(".print-dx").html( "&nbsp;" );
+    }
   });
   $("#birth").on("input", function() {
-    $(".print-birth").html( $("#birth").val() );
+    if( $("#birth").val() != "" ) {
+      $(".print-birth").html( $("#birth").val() );
+    } else {
+      $(".print-birth").html( "&nbsp;" );
+    }
   });
   $("#urgent").on("change", function() {
     if( $("#urgent").is(":checked") ) {
@@ -22,23 +38,47 @@ $( document ).ready(function() {
   });
 
   $("#lab1-1").on("input", function() {
-    $(".print-lab1-1").html( $("#lab1-1").val() );
+    if( $("#lab1-1").val() != "" ) {
+      $(".print-lab1-1").html( $("#lab1-1").val() );
+    } else {
+      $(".print-lab1-1").html( "&nbsp;" );
+    }
   });
   $("#lab1-2").on("input", function() {
-    $(".print-lab1-2").html( $("#lab1-2").val() );
+    if( $("#lab1-2").val() != "" ) {
+      $(".print-lab1-2").html( $("#lab1-2").val() );
+    } else {
+      $(".print-lab1-2").html( "&nbsp;" );
+    }
   });
   $("#lab1-3").on("input", function() {
-    $(".print-lab1-3").html( $("#lab1-3").val() );
+    if( $("#lab1-3").val() != "" ) {
+      $(".print-lab1-3").html( $("#lab1-3").val() );
+    } else {
+      $(".print-lab1-3").html( "&nbsp;" );
+    }
   });
-
   $("#lab2-1").on("input", function() {
-    $(".print-lab2-1").html( $("#lab2-1").val() );
+    if( $("#lab2-1").val() != "" ) {
+      $(".print-lab2-1").html( $("#lab2-1").val() );
+    } else {
+      $(".print-lab2-1").html( "&nbsp;" );
+    }
   });
   $("#lab2-2").on("input", function() {
-    $(".print-lab2-2").html( $("#lab2-2").val() );
+    if( $("#lab2-2").val() != "" ) {
+      $(".print-lab2-2").html( $("#lab2-2").val() );
+    } else {
+      $(".print-lab2-2").html( "&nbsp;" );
+    }
   });
   $("#lab2-3").on("input", function() {
-    $(".print-lab2-3").html( $("#lab2-3").val() );
+    if( $("#lab2-3").val() != "" ) {
+      $(".print-lab2-3").html( $("#lab2-3").val() );
+    } else {
+      $(".print-lab2-3").html( "&nbsp;" );
+    }
+  });
 
   // Set presets
   $("#presets").on("change", function() {
