@@ -154,6 +154,7 @@ $(document).ready(function() {
           output += $("#memory-other").val();
           break;
         default:
+          output += $("#memory").val();
       }
       output += ";\n";
       // Orientação
