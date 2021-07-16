@@ -733,8 +733,19 @@
               </label>
             </li>
             <li>
-              <input type="checkbox" id="p-labnow" name="p-labnow" value="true">
-              <label for="p-labnow">Coleta <strong>agora</strong></label>
+              <input type="checkbox" id="p-labs-other" name="p-labs-other" value="true">
+              <label for="p-labs-other">
+                Solicito outros labs:
+                <input type="text" id="p-labs-otherlab" name="p-labs-otherlab" placeholder="Outros exames" size="44">
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-labnow-run" name="p-labnow-run" value="true">
+              <label for="p-labnow-run">Coleta <strong>agora (não-colaboração)</strong></label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-labnow-critic" name="p-labnow-critic" value="true">
+              <label for="p-labnow-critic">Coleta <strong>agora (exame crítico)</strong></label>
             </li>
             <li>
               <input type="checkbox" id="p-labtr" name="p-labtr" value="true">
@@ -749,10 +760,28 @@
               <label for="p-usg">Solicito USG Obstétrico</label>
             </li>
             <li>
-              <input type="checkbox" id="p-labs-other" name="p-labs-other" value="true">
-              <label for="p-labs-other">
-                Solicito outros labs:
-                <input type="text" id="p-labs-otherlab" name="p-labs-otherlab" placeholder="Outros exames" size="44">
+              <input type="checkbox" id="p-usg-morph" name="p-usg-morph" value="true">
+              <label for="p-usg-morph">
+                Solicito USG Morfológico de
+                <select class="short" id="p-usg-morph-trim" name="p-usg-morph-trim">
+                  <option value="1º">1º</option>
+                  <option value="2º" selected>2º</option>
+                </select>
+                trimestre, devido a
+                <select id="p-usg-morph-why" name="p-usg-morph-why">
+                  <option value="tem idade maior ou igual a 35 anos">idade &ge;35a</option>
+                  <option value="tem diabete mélito">DM</option>
+                  <option value="carrega gestação múltipla">Gemelaridade</option>
+                  <option value="tem infecção aguda que pode repercutir em feto">Zika/Sífilis/Toxo/CMV</option>
+                  <option value="utilizou drogas potencialmente teratogênicas">Med. Teratogênicas</option>
+                  <option value="utilizou/utiliza drogas com potencial teratogênico">SPA Teratogênicas</option>
+                  <option value="realizou USG Obstétrico que sugeriu malformação fetal">USG Obst com Malformação</option>
+                  <option value="realizou USG Obstétrico que sugeriu Restrição de Crescimento Intrauterino">USG Obst com RCIU</option>
+                  <option value="teve gestação prévia com malformação fetal">Malformação Fetal Prévia</option>
+                  <option value="tem histórico familiar de malformação fetal">AF de Malformação Fetal</option>
+                  <option value="apresentou diversos episódios de abortamento prévios">Aborto Habitual</option>
+                  <option value="tem histórico prévio de óbito fetal ou neonatal sem etiologia definida">AP de Óbito Perinatal NE</option>
+                </select>
               </label>
             </li>
             <h3>Prescrições</h3>
@@ -774,7 +803,19 @@
             </li>
             <li>
               <input type="checkbox" id="p-med5" name="p-med5" value="true">
-              <label for="p-med5">
+              <label for="p-med5">Paracetamol</label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-med6" name="p-med6" value="true">
+              <label for="p-med6">Dipirona</label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-med7" name="p-med7" value="true">
+              <label for="p-med7">Buscopam</label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-med8" name="p-med8" value="true">
+              <label for="p-med8">
                 <input type="text" id="p-medother" name="p-medother" placeholder="Outras medicações" size="60">
               </label>
             </li>
@@ -802,11 +843,34 @@
             </li>
             <li>
               <input type="checkbox" id="p-ori3" name="p-ori3" value="true">
-              <label for="p-ori3">Sinais de TP</label>
+              <label for="p-ori3">Alimentação para náuseas</label>
             </li>
             <li>
               <input type="checkbox" id="p-ori4" name="p-ori4" value="true">
-              <label for="p-ori4">Exercícios para acelerar TP</label>
+              <label for="p-ori4">Alongamento para cãimbras</label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-ori5" name="p-ori5" value="true">
+              <label for="p-ori5">
+                <span class="tooltip">
+                  Ausência de evidência de segurança de vacinas contra COVID-19
+                  <span class="tooltiptext">
+                    Última checagem de literatura em 16/07/2021.
+                  </span>
+                </span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-ori6" name="p-ori6" value="true">
+              <label for="p-ori6">Sinais de TP</label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-ori7" name="p-ori7" value="true">
+              <label for="p-ori7">Exercícios para acelerar TP</label>
+            </li>
+            <li>
+              <input type="checkbox" id="p-ori8" name="p-ori8" value="true">
+              <label for="p-ori8">Exercícios para diminuir dor de contrações</label>
             </li>
             <h3>Atestados</h3>
             <li>
@@ -822,6 +886,10 @@
               <label for="p-pregleave">Licença maternidade</label>
             </li>
             <h3>Outros</h3>
+            <li>
+              <input type="checkbox" id="p-pregreport" name="p-pregreport" value="true">
+              <label for="p-pregreport">Relatório Médico de Z34</label>
+            </li>
             <li>Tiro dúvidas;</li>
             <li>
               Retorno em
