@@ -7,3 +7,16 @@ fieldset { border-color: $accent2; }
 legend { color: $accent1; }
 textarea { border-left-color: $accent1; }
 ol li:before { color: $accent1; }
+
+#ig-pelem {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  img {
+    vertical-align: middle;
+    width: 1.5em;
+    margin: 0 0.5em;
+  }
+  #errodedata { display: none; }
+}

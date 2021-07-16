@@ -63,6 +63,7 @@ $(document).ready(function() {
         var ig_usg = parseInt( (parseInt($("#usg-weeks").val())*7) + parseInt($("#usg-days").val()) );
         var diff = Math.abs(ig_lmp - ig_usg);
         var err = false;
+        var warn = "none";
 
         if(ig_lmp <= 62) {
           err = (diff > 5) ? true : false;
@@ -82,6 +83,7 @@ $(document).ready(function() {
           ig = parseInt((today - usg)/86400000);
           ig += ig_usg;
           dx = "Erro de Data";
+          warn = "inline-block";
         } else {
           ig = parseInt((today - lmp)/86400000);
           dx = "DUM Correta";
@@ -91,6 +93,7 @@ $(document).ready(function() {
         $("#d").html( parseInt(ig%7) );
         $("#ig").html( ig );
         $("#ig-dx").html( dx );
+        $("#errodedata").css("display", warn);
       }
     }
   });
