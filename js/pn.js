@@ -115,6 +115,46 @@ $(document).ready(function() {
     }
   });
 
+  // Parse Uterine Height
+  $("#obs-au").on("input", function() {
+    if(
+      $("#ig").html() != "" &&
+      $("#obs-au").val() != ""
+    ) {
+      var ig_w = parseInt( $("#w").html() );
+      var au = parseInt( $("#obs-au").val() );
+      $(".obs-au-warn").css("display", "none");
+      $("#obs-au-dx").html("");
+
+      if( au < (ig_w - 2) ) {
+        $("#obs-au-low").css("display", "inline-block");
+        $("#obs-au-dx").html("AU muito baixa (RCIU?)");
+      }
+      if( au > (ig_w + 2) ) {
+        $("#obs-au-high").css("display", "inline-block");
+        $("#obs-au-dx").html("AU muito alta (polidrâmnio?)");
+      }
+    }
+  });
+
+  // Parse Uterine Height
+  $("#obs-bcf").on("input", function() {
+    if( $("#obs-bcf").val() != "" ) {
+      var bcf = parseInt( $("#obs-bcf").val() );
+      $(".obs-bcf-warn").css("display", "none");
+      $("#obs-bcf-dx").html("");
+
+      if( bcf < 120 ) {
+        $("#obs-bcf-low").css("display", "inline-block");
+        $("#obs-bcf-dx").html("Bradicardia fetal mantida");
+      }
+      if( bcf > 160 ) {
+        $("#obs-bcf-high").css("display", "inline-block");
+        $("#obs-bcf-dx").html("Taquicardia fetal mantida");
+      }
+    }
+  });
+
   // Build output:
   $("#button-run").on("click", function() {
     if(
@@ -324,6 +364,8 @@ $(document).ready(function() {
       dxs.push(parity_g + ", " + parity_p + parity_c + ", " + parity_a );
       dxs.push( $("#ig-dx").html() );
       dxs.push( bmidx );
+      if( $("#obs-au-dx").html() != "" ) { dxs.push( $("#obs-au-dx").html() ); }
+      if( $("#obs-bcf-dx").html() != "" ) { dxs.push( $("#obs-bcf-dx").html() ); }
       if(age >= 35) { dxs.push("Gestante de idade avançada"); }
       if(age <= 16) { dxs.push("Gestante muito jovem"); }
       dxss = $("#diag").val().split(",");

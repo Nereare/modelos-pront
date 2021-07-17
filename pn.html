@@ -346,15 +346,29 @@
           </p>
 
           <h3>Obstétrico</h3>
-          <p>
+          <p id="au-pelem">
             <strong>AU:</strong>
             <input type="number" class="short" id="obs-au" name="obs-au" placeholder="AU">
             cm
+            <span class="obs-au-warn" id="obs-au-low">
+              <img src="assets/au-baixa.svg" alt="AU muito baixa">
+            </span>
+            <span class="obs-au-warn" id="obs-au-high">
+              <img src="assets/au-alta.svg" alt="AU muito alta">
+            </span>
+            <span class="hidden" id="obs-au-dx"></span>
           </p>
-          <p>
+          <p id="bcf-pelem">
             <strong>BCF:</strong>
             <input type="number" class="short" id="obs-bcf" name="obs-bcf" placeholder="BCF">
             bpm
+            <span class="obs-bcf-warn" id="obs-bcf-low">
+              <img src="assets/bcf-baixo.svg" alt="Bradicardia fetal">
+            </span>
+            <span class="obs-bcf-warn" id="obs-bcf-high">
+              <img src="assets/bcf-alto.svg" alt="Taquicardia fetal">
+            </span>
+            <span class="hidden" id="obs-bcf-dx"></span>
           </p>
           <p>
             <strong>Apresentação:</strong>
