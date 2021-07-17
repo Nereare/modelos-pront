@@ -25,6 +25,27 @@ BODY If there is some installation method, define it on the [README file](README
 
 Por favor, leia nossas [Diretrizes de Contribuição](CONTRIBUTING.md).
 
+### Contribuidores
+
+Um agradecimento para as pessoas maravilhosas abaixo ([guia de emojis](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="mailto:fabriciogmarcelino@gmail.com"><img src="https://s.gravatar.com/avatar/17052f2dfbd4a05eb12ed8937b0c4bd0?s=100&d=retro" width="100px;" alt=""/><br /><sub><b>Fabrício G. Marcelino</b></sub></a><br />🤔📓🔬🐛</td>
+    <td align="center"><a href="mailto:yasminsabongi@gmail.com"><img src="https://s.gravatar.com/avatar/c66b2d7feb1b1784f3e5b06fd8b9aedc?s=100&d=retro" width="100px;" alt=""/><br /><sub><b>Yasmin Sabongi</b></sub></a><br />🤔</td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+Este projeto usa a especificação [all-contributors](https://allcontributors.org/). Contribuições de todo tipo são bem vindas!
+
 ### Código de Conduta
 
 Note que este projeto é distribuído com o [Código de Conduta *Contributor*](CODE-OF-CONDUCT.md). Ao participar neste projeto, você concorda em seguir e respeitar esses termos.
