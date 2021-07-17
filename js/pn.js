@@ -32,7 +32,7 @@ $(document).ready(function() {
         )
       )
     ) {
-      $("#lmp").addClass("req");
+      if( $("#lmp").val() == "" ) { $("#lmp").addClass("req"); }
       if( $("#usg-date").val() != "" ) {
         $("#usg-weeks, #usg-days").addClass("req");
       }
@@ -99,7 +99,7 @@ $(document).ready(function() {
   });
 
   // Calculate BMI
-  $("#weight, #height").on("change", function() {
+  $("#weight, #height").on("input", function() {
     if(
       $("#ig").html() != "" &&
       $("#weight").val() != "" &&
