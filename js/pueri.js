@@ -489,7 +489,12 @@ $(document).ready(function() {
       if( $("#p-leave").is(":checked") ) { plans.push( "Atesto paciente para " + $("#p-leave-days").val() + " dias" ); }
       if( $("#p-leave-wpeer").is(":checked") ) { plans.push( "Atesto paciente e acompanhante (" + $("#p-leave-peer").val() + ") para " + $("#p-leave-wpeer-days").val() + " dias" ); }
       plans.push( "Tiro dúvidas" );
-      plans.push( "Retorno em " + $("#p-return-num").val() + " " + $("#return-time").val() + " com " + $("#return-who").val() );
+      if( $("#return-time").val() == "após pandemia" ) {
+        plans.push( "Retorno após melhora da pandemia e reabertura de agenda habitual, uma vez que considero que possíveis benefícios de um retorno breve neste momento de crise sanitária tem poucos benefícios comparados aos riscos de expôr paciente (e familiares) a contato possível com SARS-CoV-2 e a infecção dele decorrente" );
+        plans.push( "Combino com acompanhante que antropometria será seguida pela equipe quando de vacinação, com busca de alguma das Auxiliares de Enfermagem da equipe para medidas" );
+      } else {
+        plans.push( "Retorno em " + $("#p-return-num").val() + " " + $("#return-time").val() + " com " + $("#return-who").val() );
+      }
 
       $("#output-p").val( plans.join(";\n") + "." );
     }
