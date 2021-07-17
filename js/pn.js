@@ -320,22 +320,21 @@ $(document).ready(function() {
       }
 
       var dxs = [];
-      dxs.push("Gestação " + trim + ";");
-      dxs.push(parity_g + ", " + parity_p + parity_c + ", " + parity_a + ";");
-      dxs.push( $("#ig-dx").html() + ";" );
-      if(age >= 35) { dxs.push("Gestante de idade avançada;"); }
-      if(age <= 16) { dxs.push("Gestante muito jovem;"); }
+      dxs.push("Gestação " + trim );
+      dxs.push(parity_g + ", " + parity_p + parity_c + ", " + parity_a );
       dxs.push( $("#ig-dx").html() );
       dxs.push( bmidx );
+      if(age >= 35) { dxs.push("Gestante de idade avançada"); }
+      if(age <= 16) { dxs.push("Gestante muito jovem"); }
       dxss = $("#diag").val().split(",");
       dxss = dxss.filter(el => {
         return el != null && el != "";
       });
       $.each($("input[name='obsdx']:checked"), function(){ dxss.push($(this).val()); });
       if(dxss.length > 0) {
-        dxss.forEach(function(val) { dxs.push( $.trim(val) + ";" ); });
+        dxss.forEach(function(val) { dxs.push( $.trim(val) ); });
       }
-      $("#output-a").val(dxs.join("\n"));
+      $("#output-a").val(dxs.join(";\n") + ".");
       // Plano
       $("#output-p").val(runPlans());
     }
@@ -460,53 +459,53 @@ function ordinate(num, accent) {
 function runPlans() {
   var plans = [];
   if( $("#p-labs").is(":checked") ) {
-    plans.push("Solicito exames laboratoriais para " + $("#p-labs-sem").val() + " trimestre;");
+    plans.push("Solicito exames laboratoriais para " + $("#p-labs-sem").val() + " trimestre");
   }
   if( $("#p-labs-other").is(":checked") ) {
-    plans.push("Solicito outros exames laboratoriais: " + $("#p-labs-otherlab").val() + ";");
+    plans.push("Solicito outros exames laboratoriais: " + $("#p-labs-otherlab").val());
   }
-  if( $("#p-labnow-run").is(":checked") ) { plans.push("Solicito coleta dos exames acima agora, fora do horário, pois gestante não se mostra disponível para coleta no fluxo estabelecido, mesmo após diversas tentativas de sensibilização;"); }
-  if( $("#p-labnow-critic").is(":checked") ) { plans.push("Solicito coleta dos exames acima agora, fora do horário, pois tais exames são muito críticos no seguimento pré-natal da paciente para delegá-los à busca ativa da paciente de coleta em horário padrão;"); }
-  if( $("#p-labtr").is(":checked") ) { plans.push("Solicito realização de Testes Rápidos para HIV e Sífilis, conforme protocolo Mãe Paulistana;"); }
-  if( $("#p-labpegb").is(":checked") ) { plans.push("Colho Pesquisa de Estreptococo Grupo B hoje, sem intercorrências;"); }
-  if( $("#p-usg").is(":checked") ) { plans.push("Solicito USG Obstétrico;"); }
+  if( $("#p-labnow-run").is(":checked") ) { plans.push("Solicito coleta dos exames acima agora, fora do horário, pois gestante não se mostra disponível para coleta no fluxo estabelecido, mesmo após diversas tentativas de sensibilização"); }
+  if( $("#p-labnow-critic").is(":checked") ) { plans.push("Solicito coleta dos exames acima agora, fora do horário, pois tais exames são muito críticos no seguimento pré-natal da paciente para delegá-los à busca ativa da paciente de coleta em horário padrão"); }
+  if( $("#p-labtr").is(":checked") ) { plans.push("Solicito realização de Testes Rápidos para HIV e Sífilis, conforme protocolo Mãe Paulistana"); }
+  if( $("#p-labpegb").is(":checked") ) { plans.push("Colho Pesquisa de Estreptococo Grupo B hoje, sem intercorrências"); }
+  if( $("#p-usg").is(":checked") ) { plans.push("Solicito USG Obstétrico"); }
   if( $("#p-usg-morph").is(":checked") ) {
-    plans.push("Solicito USG Morfológico de " + $("#p-usg-morph-trim").val() + " trimestre pois paciente " + $("#p-usg-morph-why").val() + ";");
+    plans.push("Solicito USG Morfológico de " + $("#p-usg-morph-trim").val() + " trimestre pois paciente " + $("#p-usg-morph-why").val());
   }
-  if( $("#p-med1").is(":checked") ) { plans.push("Prescrevo ácido fólico;"); }
-  if( $("#p-med2").is(":checked") ) { plans.push("Prescrevo sulfato ferroso e oriento seu uso adequado;"); }
-  if( $("#p-med3").is(":checked") ) { plans.push("Prescrevo carbonato de cálcio segundo protocolo Mãe Paulistana, orientando paciente da ausência de evidências científicas que anteparem prescrição indiscriminada desse fármaco para todas as gestantes;"); }
-  if( $("#p-med4").is(":checked") ) { plans.push("Prescrevo carbonato de cálcio em dose adequada para prevenção de pré-eclâmpsia, assim como ácido acetilsalicílico, e oriento racional clínico por trás da necessidade de uso dessas medicações em gestantes com pré-eclâmpsia ou alto risco para desenvolvê-la;"); }
-  if( $("#p-med5").is(":checked") ) { plans.push("Prescrevo paracetamol para dor;"); }
-  if( $("#p-med6").is(":checked") ) { plans.push("Prescrevo dipirona para dor;"); }
-  if( $("#p-med7").is(":checked") ) { plans.push("Prescrevo escopolamina+dipirona para dor;"); }
+  if( $("#p-med1").is(":checked") ) { plans.push("Prescrevo ácido fólico"); }
+  if( $("#p-med2").is(":checked") ) { plans.push("Prescrevo sulfato ferroso e oriento seu uso adequado"); }
+  if( $("#p-med3").is(":checked") ) { plans.push("Prescrevo carbonato de cálcio segundo protocolo Mãe Paulistana, orientando paciente da ausência de evidências científicas que anteparem prescrição indiscriminada desse fármaco para todas as gestantes"); }
+  if( $("#p-med4").is(":checked") ) { plans.push("Prescrevo carbonato de cálcio em dose adequada para prevenção de pré-eclâmpsia, assim como ácido acetilsalicílico, e oriento racional clínico por trás da necessidade de uso dessas medicações em gestantes com pré-eclâmpsia ou alto risco para desenvolvê-la"); }
+  if( $("#p-med5").is(":checked") ) { plans.push("Prescrevo paracetamol para dor"); }
+  if( $("#p-med6").is(":checked") ) { plans.push("Prescrevo dipirona para dor"); }
+  if( $("#p-med7").is(":checked") ) { plans.push("Prescrevo escopolamina+dipirona para dor"); }
   if( $("#p-med8").is(":checked") ) {
-    plans.push("Prescrevo " + $("#p-medother").val() + ";");
+    plans.push("Prescrevo " + $("#p-medother").val());
   }
-  if( $("#p-vax").is(":checked") ) { plans.push("Levo paciente à Sala de Vacinação para atualização de status vacinal em atraso;"); }
-  if( $("#p-vaxnew").is(":checked") ) { plans.push("Levo paciente à Sala de Vacinação para reinício de vacinação, uma vez que não apresenta qualquer comprovação de vacinação prévia;"); }
-  if( $("#p-vaxori").is(":checked") ) { plans.push("Oriento paciente a procurar Sala de Vacinação para atualização de status vacinal em atraso;"); }
-  if( $("#p-ori1").is(":checked") ) { plans.push("Oriento algumas das alterações fisiológicas gravídicas e suas relações com sensações e mudanças referidas pela paciente;"); }
-  if( $("#p-ori2").is(":checked") ) { plans.push("Oriento e reforço paciente de sinais para busca de acolhimento, assim como reforço que alguns dos sinais (sangramento vaginal ou rotura da bolsa) são condições suficientes para busca direto da Maternidade, sem necessidade de avaliação prévia na Atenção Básica;"); }
-  if( $("#p-ori3").is(":checked") ) { plans.push("Oriento mudanças dietéticas básicas para controle não-farmacológico de náuseas na gestação, como fracionamento alimentar, consumo de alimentos em temperatura ambiente ou gelados, uso de temperos fortes do gosto da paciente (em especial condimentos com capsaicinas), consumo de gelo antes de refeições, consumo de água gelada e não-mistura de alimentos com texturas distoantes;"); }
-  if( $("#p-ori4").is(":checked") ) { plans.push("Oriento alongamento de membros superiores e inferiores para controle de cãimbras na gestação;"); }
-  if( $("#p-ori5").is(":checked") ) { plans.push("Oriento paciente da ausência de estudos científicos que anteparem indicação clínica de SEGURANÇA de uso de quaisquer das vacinas contra COVID-19 atualmente disponíveis no Brasil. Oriento também que o protocolo de vacinação da Secretaria Municipal de Saúde (assim como a SOGESP) indicam uso universal de quaisquer vacinas contra COVID-19 na gestação como uma medida desesperada devido ao altíssimo risco que gestação impõe a pacientes com COVID-19, mas que, mesmo em face disso, não há dados de segurança objetivos para gestantes (ou lactantes e respectivos lactentes), sendo uma escolha pessoal da paciente o uso o não de tais imunobiológicos, e que equipe estará à disposição para seguir de perto a paciente, independente de sua escolha;"); }
-  if( $("#p-ori6").is(":checked") ) { plans.push("Oriento sinais de trabalho de parto, na fase ativa, e oriento a procurar atendimento caso os apresente;"); }
-  if( $("#p-ori7").is(":checked") ) { plans.push("Oriento medidas não-farmacológias domiciliares para agilizar trabalho de parto em fase latente;"); }
-  if( $("#p-ori8").is(":checked") ) { plans.push("Oriento medidas não-farmacológicas para diminuir dor associada às contrações de Braxton-Hicks;"); }
+  if( $("#p-vax").is(":checked") ) { plans.push("Levo paciente à Sala de Vacinação para atualização de status vacinal em atraso"); }
+  if( $("#p-vaxnew").is(":checked") ) { plans.push("Levo paciente à Sala de Vacinação para reinício de vacinação, uma vez que não apresenta qualquer comprovação de vacinação prévia"); }
+  if( $("#p-vaxori").is(":checked") ) { plans.push("Oriento paciente a procurar Sala de Vacinação para atualização de status vacinal em atraso"); }
+  if( $("#p-ori1").is(":checked") ) { plans.push("Oriento algumas das alterações fisiológicas gravídicas e suas relações com sensações e mudanças referidas pela paciente"); }
+  if( $("#p-ori2").is(":checked") ) { plans.push("Oriento e reforço paciente de sinais para busca de acolhimento, assim como reforço que alguns dos sinais (sangramento vaginal ou rotura da bolsa) são condições suficientes para busca direto da Maternidade, sem necessidade de avaliação prévia na Atenção Básica"); }
+  if( $("#p-ori3").is(":checked") ) { plans.push("Oriento mudanças dietéticas básicas para controle não-farmacológico de náuseas na gestação, como fracionamento alimentar, consumo de alimentos em temperatura ambiente ou gelados, uso de temperos fortes do gosto da paciente (em especial condimentos com capsaicinas), consumo de gelo antes de refeições, consumo de água gelada e não-mistura de alimentos com texturas distoantes"); }
+  if( $("#p-ori4").is(":checked") ) { plans.push("Oriento alongamento de membros superiores e inferiores para controle de cãimbras na gestação"); }
+  if( $("#p-ori5").is(":checked") ) { plans.push("Oriento paciente da ausência de estudos científicos que anteparem indicação clínica de SEGURANÇA de uso de quaisquer das vacinas contra COVID-19 atualmente disponíveis no Brasil. Oriento também que o protocolo de vacinação da Secretaria Municipal de Saúde (assim como a SOGESP) indicam uso universal de quaisquer vacinas contra COVID-19 na gestação como uma medida desesperada devido ao altíssimo risco que gestação impõe a pacientes com COVID-19, mas que, mesmo em face disso, não há dados de segurança objetivos para gestantes (ou lactantes e respectivos lactentes), sendo uma escolha pessoal da paciente o uso o não de tais imunobiológicos, e que equipe estará à disposição para seguir de perto a paciente, independente de sua escolha"); }
+  if( $("#p-ori6").is(":checked") ) { plans.push("Oriento sinais de trabalho de parto, na fase ativa, e oriento a procurar atendimento caso os apresente"); }
+  if( $("#p-ori7").is(":checked") ) { plans.push("Oriento medidas não-farmacológias domiciliares para agilizar trabalho de parto em fase latente"); }
+  if( $("#p-ori8").is(":checked") ) { plans.push("Oriento medidas não-farmacológicas para diminuir dor associada às contrações de Braxton-Hicks"); }
   var days = parseInt( $("#p-leave-days").val() );
   var leave_days = (days > 1) ? days : "hoje";
   if( $("#p-leave").is(":checked") ) {
-    plans.push("Atesto paciente para " + leave_days + ";");
+    plans.push("Atesto paciente para " + leave_days);
   }
   if( $("#p-pregleave").is(":checked") ) {
-    plans.push("Oriento paciente de que adiantamento da licença maternidade, autorizada pela CLT a partir de 36 semanas de gestação, implica perda de número de dias de licença após parto igual ao número de dias adiantado, uma vez que adiantar licença maternidade não expande os 120 dias previstos na legislação vigente;");
-    plans.push("Adianto licença maternidade por solicitação a gestante, a qual confirma estar ciente da orientação acima;");
+    plans.push("Oriento paciente de que adiantamento da licença maternidade, autorizada pela CLT a partir de 36 semanas de gestação, implica perda de número de dias de licença após parto igual ao número de dias adiantado, uma vez que adiantar licença maternidade não expande os 120 dias previstos na legislação vigente");
+    plans.push("Adianto licença maternidade por solicitação a gestante, a qual confirma estar ciente da orientação acima");
   }
-  if( $("#p-pregreport").is(":checked") ) { plans.push("Redijo relatório médico, por solicitação da paciente e em vista do Art. 86 do Código de Ética Médica (CFM, 2019), constando CID-19 Z34 relativo à condição de gestante atualmente vigente da paciente;"); }
-  plans.push("Tiro dúvidas;");
-  plans.push("Retorno em " + $("#p-return-num").val() + " " + $("#return-time").val() + " " + $("#return-who").val() + ";");
-  return plans.join("\n");
+  if( $("#p-pregreport").is(":checked") ) { plans.push("Redijo relatório médico, por solicitação da paciente e em vista do Art. 86 do Código de Ética Médica (CFM, 2019), constando CID-19 Z34 relativo à condição de gestante atualmente vigente da paciente"); }
+  plans.push("Tiro dúvidas");
+  plans.push("Retorno em " + $("#p-return-num").val() + " " + $("#return-time").val() + " " + $("#return-who").val());
+  return plans.join(";\n") + ".";
 }
 
 function parseBMI(bmi, ig) {
