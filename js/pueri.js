@@ -2,6 +2,16 @@ $(document).ready(function() {
   new ClipboardJS(".copybtn");
   console.log("App ready!");
 
+  // Check age
+  $("#age-years, #age-months").on("input", function() {
+    var age = (parseInt( $("#age-years").val() ) * 12) + parseInt( $("#age-months").val() );
+    if( age > 60) {
+      alert("A idade máxima suportada por esta calculadora é de 5a.");
+      $("#age-years").val(0);
+      $("#age-months").val(0).focus();
+    }
+  });
+
   // Show peer description
   $("#peer").on("change", function() {
     if(
