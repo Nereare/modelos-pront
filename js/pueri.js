@@ -481,21 +481,26 @@ $(document).ready(function() {
       if( $("#p-vax").is(":checked") ) { plans.push( "Levo paciente à sala de vacinas para atualização de imunizantes em atraso" ); }
       if( $("#p-vaxori").is(":checked") ) { plans.push( "Oriento acompanhante a levar paciente à sala de vacina para atualização vacinal" ); }
       if( $("#p-labs").is(":checked") ) { plans.push( "Solicito " + $("#p-labs-what").val() + " para " + $("#p-labs-why").val() ); }
-      if( $("#p-ori1").is(":checked") ) { plans.push( "Oriento hidratação cutânea do paciente" ); }
-      if( $("#p-ori2").is(":checked") ) { plans.push( "Reforço manutenção do paciente em Aleitamento Materno Exclusivo, reforçando os benefícios tanto para o paciente como à lactante" ); }
-      if( $("#p-ori3").is(":checked") ) { plans.push( "Reforço importância de manutenção de Aleitamento Materno mesmo no contexto de introdução de outros alimentos" ); }
-      if( $("#p-ori4").is(":checked") ) {
+      if( $("#p-feed1").is(":checked") ) { plans.push( "Reforço manutenção do paciente em Aleitamento Materno Exclusivo, reforçando os benefícios tanto para o paciente como à lactante" ); }
+      if( $("#p-feed2").is(":checked") ) { plans.push( "Reforço importância de manutenção de Aleitamento Materno mesmo no contexto de introdução de outros alimentos" ); }
+      if( $("#p-feed3").is(":checked") ) { plans.push( "Oriento técnica de preparo e diluição de leite de vaca para adequação de oferta para lactentes abaixo de 06 meses de vida, uma vez que não há possibilidade econômica na casa de oferta de fórmulas específicas para lactentes" ); }
+      if( $("#p-feed4").is(":checked") ) { plans.push( "Oriento fórmulas lácteas para lactentes, uma vez que mãe se mostra pouco aberta às ofertas de orientações sobre aleitamento materno e relactação" ); }
+      if( $("#p-feed5").is(":checked") ) { plans.push( "Oriento ausência de benefícios de uso de engrossantes, assim como os riscos potenciais para o lactente de consumo de tais calorias vazias" ); }
+      if( $("#p-feed6").is(":checked") ) {
         plans.push( "Oriento composição ideal (reforçando os grupos alimentares necessários para oferta de todos os macronutrientes), modo de preparo e de armazenamento de papinha salgada" );
         plans.push( "Oriento modo de preparo de papinha doce, e que ela não substitui leite materno nem papinha salgada" );
       }
-      if( $("#p-ori5").is(":checked") ) { plans.push( "Oriento alimentos que apresentam risco à saúde quando consumidos por crianças pequenas (mel e xantinas)" ); }
-      if( $("#p-ori6").is(":checked") ) { plans.push( "Oriento sinais para busca de acolhimento para avaliação" ); }
-      if( $("#p-ori7").is(":checked") ) { plans.push( "Oriento uso de amido de milho e/ou pasta d'água caseira para tratamento de dermatite urêmica" ); }
-      if( $("#p-ori8").is(":checked") ) {
+      if( $("#p-feed7").is(":checked") ) { plans.push( "Oriento alimentos que apresentam risco à saúde quando consumidos por crianças pequenas (mel e xantinas)" ); }
+      if( $("#p-ori1").is(":checked") ) { plans.push( "Oriento hidratação cutânea do paciente" ); }
+      if( $("#p-ori2").is(":checked") ) { plans.push( "Oriento sinais para busca de acolhimento para avaliação" ); }
+      if( $("#p-ori3").is(":checked") ) { plans.push( "Oriento sinais para busca de acolhimento para avaliação no fluxo de Sintomáticos Respiratórios" ); }
+      if( $("#p-ori4").is(":checked") ) { plans.push( "Oriento lavagem nasal do lactente com soro fisiológico 0,9%" ); }
+      if( $("#p-ori5").is(":checked") ) { plans.push( "Oriento uso de amido de milho e/ou pasta d'água caseira para tratamento de dermatite urêmica" ); }
+      if( $("#p-ori6").is(":checked") ) {
         plans.push( "Oriento medidas ambientais para prevenção de picadas de insetos, como uso de redes e de repelentes de ambiente" );
         plans.push( "Reforço contraindicação formal de uso de repelentes tópicos em crianças pequenas" );
       }
-      if( $("#p-ori9").is(":checked") ) { plans.push( "Oriento acompanhante de que exames complementares, tanto de amostras biológicas como de imagem, não têm papel no RASTREIO de problemas de saúde em crianças pequenas, e que a antropometria é mais que capaz de detectar precocemente problemas de saúde" ); }
+      if( $("#p-ori7").is(":checked") ) { plans.push( "Oriento acompanhante de que exames complementares, tanto de amostras biológicas como de imagem, não têm papel no RASTREIO de problemas de saúde em crianças pequenas, e que a antropometria é mais que capaz de detectar precocemente problemas de saúde" ); }
       if( $("#p-leave").is(":checked") ) { plans.push( "Atesto paciente para " + $("#p-leave-days").val() + " dias" ); }
       if( $("#p-leave-wpeer").is(":checked") ) { plans.push( "Atesto paciente e acompanhante (" + $("#p-leave-peer").val() + ") para " + $("#p-leave-wpeer-days").val() + " dias" ); }
       plans.push( "Tiro dúvidas" );
