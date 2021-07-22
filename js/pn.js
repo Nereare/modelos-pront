@@ -155,22 +155,42 @@ $(document).ready(function() {
     }
   });
 
+  // Parse Arterial Pressure
+  $("#pas, #pad").on("input", function() {
+    if(
+      $("#pas").val() != "" &&
+      $("#pad").val() != ""
+    ) {
+      var pas = parseInt( $("#pas").val() );
+      var pad = parseInt( $("#pad").val() );
+      $("#pa-warn").css("display", "none");
+
+      if( pas >= 140 || pad >= 85 ) {
+        $("#pa-warn").css("display", "inline-block");
+      }
+    }
+  });
+
   // Build output:
   $("#button-run").on("click", function() {
     if(
       $("#age").val() == "" ||
       $("#ig").html() == "" ||
       $("#ig-dx").html() == "" ||
+      $("#weight").val() == "" ||
+      $("#height").val() == "" ||
+      $("#pas").val() == "" ||
+      $("#pad").val() == "" ||
       $("#parity-g").val() == "" ||
       $("#parity-pn").val() == "" ||
       $("#parity-pc").val() == "" ||
       $("#parity-a").val() == ""
     ) {
       alert("Por favor, preencha todos os campos em vermelho.");
-      $("#age, #lmp, #usg-weeks, #usg-days, #parity-g, #parity-pn, #parity-pc, #parity-a").addClass("req");
+      $("#age, #weight, #height, #pas, #pad, #lmp, #usg-weeks, #usg-days, #parity-g, #parity-pn, #parity-pc, #parity-a").addClass("req");
       $("#age").focus();
     } else {
-      $("#age, #lmp, #usg-weeks, #usg-days, #parity-g, #parity-pn, #parity-pc, #parity-a").removeClass("req");
+      $("#age, #weight, #height, #pas, #pad, #lmp, #usg-weeks, #usg-days, #parity-g, #parity-pn, #parity-pc, #parity-a").removeClass("req");
 
       var symps = [];
       $.each($("input[name='minsymps']:checked"), function(){ symps.push($(this).val()); });
@@ -218,7 +238,7 @@ $(document).ready(function() {
       if( $("#othersymps").val() != "" ) { othersymps = "\n\n" + $("#othersymps").val(); }
       $("#output-s").val("Paciente comparece para consulta de pré-natal. Refere estar " + humanList(symps, true) + ". " + discharge + othersymps);
       // Objetivo
-      $("#output-o").val("Paciente em " + $("#status").val() + "EG.\n" + humanList(qualitative_exam) + ".\nIG " + $("#w").html() + "+" + $("#d").html() + " sem.\nG" + $("#parity-g").val() + "P" + $("#parity-pn").val() + "C" + $("#parity-pc").val() + "A" + $("#parity-a").val() + ".\nPeso = " + weight + "g\nAltura = " + height + "cm\nIMC = " + bmi + "kg/cm²");
+      $("#output-o").val("Paciente em " + $("#status").val() + "EG.\n" + humanList(qualitative_exam) + ".\nIG " + $("#w").html() + "+" + $("#d").html() + " sem.\nG" + $("#parity-g").val() + "P" + $("#parity-pn").val() + "C" + $("#parity-pc").val() + "A" + $("#parity-a").val() + ".\nPA = " + $("#pas").val() + "x" + $("#pad").val() + "mmHg\nPeso = " + weight + "g\nAltura = " + height + "cm\nIMC = " + bmi + "kg/cm²");
       if( $("#obs-au").val() != "" && $("#obs-bcf").val() != "" && $("#obs-mf").val() != "" ) {
         var foobar = $("#output-o").val();
         $("#output-o").val(foobar + "\nMF " + $("input[name='obs-mf']:checked").val() + ". AU " + $("#obs-au").val() + "cm. BCF " + $("#obs-bcf").val() + "bpm. Apresentação fetal " + $("#obs-pos").val() + $("#obs-side").val() + "." );
