@@ -105,7 +105,7 @@ $(document).ready(function() {
       $("#weight").val() != "" &&
       $("#height").val() != ""
     ) {
-      var weight = parseFloat( $("#weight").val() ) / 1000;
+      var weight = parseFloat( $("#weight").val() );
       var height = parseFloat( $("#height").val() );
       var bmi = weight / Math.pow((height / 100), 2);
       var ig = $("#ig").html();
@@ -126,18 +126,23 @@ $(document).ready(function() {
       $(".obs-au-warn").css("display", "none");
       $("#obs-au-dx").html("");
 
-      if( au < (ig_w - 2) ) {
-        $("#obs-au-low").css("display", "inline-block");
-        $("#obs-au-dx").html("AU muito baixa (RCIU?)");
-      }
-      if( au > (ig_w + 2) ) {
-        $("#obs-au-high").css("display", "inline-block");
-        $("#obs-au-dx").html("AU muito alta (polidrâmnio?)");
+      if(
+        ig_w >= 20 &&
+        ig_w < 37
+      ) {
+        if( au < (ig_w - 2) ) {
+          $("#obs-au-low").css("display", "inline-block");
+          $("#obs-au-dx").html("AU muito baixa (RCIU?)");
+        }
+        if( au > (ig_w + 2) ) {
+          $("#obs-au-high").css("display", "inline-block");
+          $("#obs-au-dx").html("AU muito alta (polidrâmnio?)");
+        }
       }
     }
   });
 
-  // Parse Uterine Height
+  // Parse Fetal Heartbeat
   $("#obs-bcf").on("input", function() {
     if( $("#obs-bcf").val() != "" ) {
       var bcf = parseInt( $("#obs-bcf").val() );
@@ -238,7 +243,7 @@ $(document).ready(function() {
       if( $("#othersymps").val() != "" ) { othersymps = "\n\n" + $("#othersymps").val(); }
       $("#output-s").val("Paciente comparece para consulta de pré-natal. Refere estar " + humanList(symps, true) + ". " + discharge + othersymps);
       // Objetivo
-      $("#output-o").val("Paciente em " + $("#status").val() + "EG.\n" + humanList(qualitative_exam) + ".\nIG " + $("#w").html() + "+" + $("#d").html() + " sem.\nG" + $("#parity-g").val() + "P" + $("#parity-pn").val() + "C" + $("#parity-pc").val() + "A" + $("#parity-a").val() + ".\nPA = " + $("#pas").val() + "x" + $("#pad").val() + "mmHg\nPeso = " + weight + "g\nAltura = " + height + "cm\nIMC = " + bmi + "kg/cm²");
+      $("#output-o").val("Paciente em " + $("#status").val() + "EG.\n" + humanList(qualitative_exam) + ".\nIG " + $("#w").html() + "+" + $("#d").html() + " sem.\nG" + $("#parity-g").val() + "P" + $("#parity-pn").val() + "C" + $("#parity-pc").val() + "A" + $("#parity-a").val() + ".\nPA = " + $("#pas").val() + "x" + $("#pad").val() + "mmHg\nPeso = " + weight + "kg\nAltura = " + height + "cm\nIMC = " + bmi + "kg/cm²");
       if( $("#obs-au").val() != "" && $("#obs-bcf").val() != "" && $("#obs-mf").val() != "" ) {
         var foobar = $("#output-o").val();
         $("#output-o").val(foobar + "\nMF " + $("input[name='obs-mf']:checked").val() + ". AU " + $("#obs-au").val() + "cm. BCF " + $("#obs-bcf").val() + "bpm. Apresentação fetal " + $("#obs-pos").val() + $("#obs-side").val() + "." );
