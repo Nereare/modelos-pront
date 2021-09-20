@@ -534,6 +534,7 @@ function runPlans() {
   if( $("#p-labnow-run").is(":checked") ) { plans.push("Solicito coleta dos exames acima agora, fora do horário, pois gestante não se mostra disponível para coleta no fluxo estabelecido, mesmo após diversas tentativas de sensibilização"); }
   if( $("#p-labnow-critic").is(":checked") ) { plans.push("Solicito coleta dos exames acima agora, fora do horário, pois tais exames são muito críticos no seguimento pré-natal da paciente para delegá-los à busca ativa da paciente de coleta em horário padrão"); }
   if( $("#p-labtr").is(":checked") ) { plans.push("Solicito realização de Testes Rápidos para HIV e Sífilis, conforme protocolo Mãe Paulistana"); }
+  if( $("#p-labtotg").is(":checked") ) { plans.push("Solicito Teste Oral de Tolerância a 75g de Glicose em 0-60-120min"); }
   if( $("#p-labpegb").is(":checked") ) { plans.push("Colho Pesquisa de Estreptococo Grupo B hoje, sem intercorrências"); }
   if( $("#p-usg").is(":checked") ) { plans.push("Solicito USG Obstétrico"); }
   if( $("#p-usg-morph").is(":checked") ) {
