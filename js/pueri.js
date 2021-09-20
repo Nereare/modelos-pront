@@ -29,6 +29,15 @@ $(document).ready(function() {
     if( $("#feeding-food").is(":checked") ){ $("#feeding-other").css("display", "block"); }
     else { $("#feeding-other").css("display", "none"); }
   });
+  // Show school year selection
+  $("#school").on("change", function() {
+    if( $("#school option:selected").val() == "refere que paciente está frequentando escola" ) {
+      $("#school-option").removeClass("hidden");
+    } else {
+      $("#school-option").addClass("hidden");
+      $("#school-year").val("");
+    }
+  });
   // Show fontanelle descriptors
   $("#fontanelle-ant").on("change", function() {
     if( $("#fontanelle-ant").val() != "aberta" ) { $("#fontanelle-ant-open").css("display", "none"); }
@@ -352,15 +361,21 @@ $(document).ready(function() {
       $.each($("input[name='devices']:checked"), function(){ devs.push( $(this).val() ); });
       if( devs.length > 0 ) { devices = "Acompanhante refere uso de " + humanList(devs); }
 
+      var school = $("#school option:selected").val();
+      if( school == "refere que paciente está frequentando escola" ) {
+        school += " no " + $("#school-year").val() + "º ano";
+      }
+
       var symps = [];
       var symptoms = "não apresenta nenhum sintoma";
       $.each($("input[name='symps']:checked"), function(){ symps.push( $(this).val() ); });
       if( symps.length > 0 ) { symptoms = "apresenta " + humanList(symps); }
 
       var othersymps = "";
-      if( $("#othersymps").val() != "" ) { symptoms = "\n\n" + $("#othersymps").val(); }
+      if( $("#othersymps").val() != "" ) { symptoms += " exceto:\n\n" + $("#othersymps").val(); }
+      else { symptoms += "."; }
 
-      $("#output-s").val("Paciente trazido por " + peer + ", que refere alimentação com " + feeding + ". " + devices + ".\nPaciente, acompanhante conta, " + symptoms + "." + othersymps);
+      $("#output-s").val("Paciente trazido por " + peer + ", que refere alimentação com " + feeding + ". " + devices + ".\nAcompanhante " + school + ".\nPaciente, acompanhante conta, " + symptoms + othersymps);
 
       // Objetivo
       var qualitative_exam = [];

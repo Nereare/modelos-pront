@@ -143,7 +143,7 @@
         <!-- / Feeding -->
 
         <!-- Pacifier -->
-        <h3>Dispositivos</h3>
+        <h2>Dispositivos</h2>
         <ul>
           <li>
             <input type="checkbox" id="device1" name="devices" value="chupeta">
@@ -157,8 +157,35 @@
             <input type="checkbox" id="device3" name="devices" value="copinho">
             <label for="device3">Copinho</label>
           </li>
+          <li>
+            <input type="checkbox" id="device4" name="devices" value="andador">
+            <label for="device4">Andador</label>
+          </li>
+          <li>
+            <input type="checkbox" id="device5" name="devices" value="celular">
+            <label for="device5">Celular</label>
+          </li>
+          <li>
+            <input type="checkbox" id="device6" name="devices" value="tablet">
+            <label for="device6">Tablet</label>
+          </li>
         </ul>
         <!-- / Pacifier -->
+
+        <!-- School -->
+        <h2>Escola</h2>
+        <select id="school">
+          <option value="nega que paciente frequente creche ou escola" selected>Não frequenta</option>
+          <option value="refere que paciente está frequentando creche (CEI)">CEI</option>
+          <option value="refere que paciente está frequentando escola infantil (EMEI/EEEI)">EMEI</option>
+          <option value="refere que paciente está frequentando escola">Escola</option>
+        </select>
+        <span class="hidden" id="school-option">
+          no
+          <input type="number" id="school-year" min="1" max="9" step="1" placeholder="#">
+          ano
+        </span>
+        <!-- / School -->
 
         <!-- Meh Symptoms -->
         <div>
@@ -183,6 +210,18 @@
             <li>
               <input type="checkbox" id="symp5" name="symps" value="gases">
               <label for="symp5">Gases</label>
+            </li>
+            <li>
+              <input type="checkbox" id="symp6" name="symps" value="constipação">
+              <label for="symp6">Constipação</label>
+            </li>
+            <li>
+              <input type="checkbox" id="symp7" name="symps" value="cólicas eventuais manifestadas como contrações físicas com pouco ou nenhum choro">
+              <label for="symp7">Cólicas benignas</label>
+            </li>
+            <li>
+              <input type="checkbox" id="symp8" name="symps" value="cólicas recorrentes com dor importante e choro incoercível">
+              <label for="symp8">Cólicas c/ alarme</label>
             </li>
           </ul>
           <textarea id="othersymps" name="othersymps" placeholder="Insira outros sintomas aqui. O texto aqui inserido não será processado."></textarea>
