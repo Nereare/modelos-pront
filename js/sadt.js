@@ -160,9 +160,14 @@ $( document ).ready(function() {
           s11 = "Glicemia, TSH, T4 Livre, Urina Tipo 1, Urocultura";
           s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Toxoplasmose (IgM e IgG)";
           break;
+        case "preg2428":
+          dx = "Gestante";
+          s11 = "Teste Oral de Tolerância a 75g de Glicose, dosagens de jejum (0min), 60min e 120min";
+          s21 = "Ultrassonografia Obstétrica";
+          break;
         case "pegb":
           dx = "Gestante";
-          s11 = "Pesquisa de Estreptococos Grupo B em secreções vaginal e retal";
+          s11 = "Pesquisa de Estreptococo Grupo B por swab de secreções vaginal e retal";
           break;
         case "tb":
           dx = "Tuberculose";
