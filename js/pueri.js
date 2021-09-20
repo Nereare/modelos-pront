@@ -401,6 +401,18 @@ $(document).ready(function() {
       }
       qualitative_exam.push($('input[name="breathe"]:checked').val());
 
+      var skindescs = [
+        $("#skin-hydro").val(),
+        $("#skin-desquamation").val(),
+        $("#skin-mongolic").val(),
+        $("#skin-lanugo").val()
+      ];
+      skindescs = $.grep( skindescs, function(n) { return( n != "" ); });
+      var skin = "Pele: " + humanList(skindescs) + ".";
+      if( $("#skin-other").val() != "" ) {
+        skin += " " + $("#skin-other").val();
+      }
+
       var fontanelle = [];
       fontanelle[0] = $("#fontanelle-ant").val();
       if( fontanelle[0] == "aberta" ) { fontanelle[0] += ", " + $("#fontanelle-ant-tension").val() + " e com largura de " + $("#fontanelle-ant-width").val() + "cm"; }
@@ -464,7 +476,7 @@ $(document).ready(function() {
       if( $("#pc").val() != "" ) { metrics.push( "- PC: " + $("#pc").val() + "cm (" + $("#z-pc").html() + "z);" ); }
       metrics = "\n\n# Antropometria:\n" + metrics.join("\n");
 
-      $("#output-o").val("Paciente em " + $("#status").val() + "EG. " + $("#activity").val() + " e " + $("#reactivity").val() + ".\n" + humanList(qualitative_exam) + ".\nFontanela anterior " + fontanelle[0] + ". Fontanela posterior " + fontanelle[1] + ".\n" + eyes + ".\n" + lungs + ".\n" + heart + ".\n" + tummy + ".\n" + perineum + "." + misc + metrics);
+      $("#output-o").val("Paciente em " + $("#status").val() + "EG. " + $("#activity").val() + " e " + $("#reactivity").val() + ".\n" + humanList(qualitative_exam) + ".\nFontanela anterior " + fontanelle[0] + ". Fontanela posterior " + fontanelle[1] + ".\n" + eyes + ".\n" + skin + "\n" + lungs + ".\n" + heart + ".\n" + tummy + ".\n" + perineum + "." + misc + metrics);
 
       // Avaliação
       var ddx = [];
