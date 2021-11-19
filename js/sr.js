@@ -371,60 +371,60 @@ function runPlans() {
       } else {
         when_to = "hoje";
       }
-      plans.push("Solicito " + $("#lab").val() + " para SARS-CoV-2 com coleta " + when_to + ";");
+      plans.push("Solicito " + $("#lab").val() + " para SARS-CoV-2 com coleta " + when_to);
       if( $("#refusal").is(":checked") ) {
-        plans.push("Paciente ou seu acompanhante recusam a coleta do exame acima, mesmo após orientação da importância epidemiológica da coleta de tal exame;");
+        plans.push("Paciente ou seu acompanhante recusam a coleta do exame acima, mesmo após orientação da importância epidemiológica da coleta de tal exame");
       }
       if( $("#leave-needed").is(":checked") ) {
-        plans.push("Atesto para " + $("#leave").val() + " dias;");
+        plans.push("Atesto para " + $("#leave").val() + " dias");
       }
-      plans.push($("#family-leave").val() + ";");
+      plans.push($("#family-leave").val());
       if( $("#symptomatics").val() != "false" && $("#symptomatics").val() != "" ) {
-        plans.push($("#symptomatics").val() + ";");
+        plans.push($("#symptomatics").val());
       }
       if( $("#ln").is(':checked') ) {
-        plans.push("Oriento lavagem nasal com soro fisiológico 0,9%;");
+        plans.push("Oriento lavagem nasal com soro fisiológico 0,9%");
       }
-      plans.push("Oriento sinais de alarme para retorno precoce e reavaliação em acolhimento no Sintomáticos Respiratórios;");
-      plans.push("Oriento ausência de evidências científicas validando o uso de \"medicações para COVID\" (e.g. dexametasona, ivermectina, azitromicina) em pacientes ambulatoriais, assim como reforço a CONTRAINDICAÇÃO FORMAL de uso de azitromicina em casos de suspeita de infeção por SARS-CoV-2 sem sinais de infecção bacteriana (Choosing Wisely Brasil);");
-      plans.push("Retorno em " + $("#follow-up").val() + " dias para " + $("#follow-up-why").val() + ";");
+      plans.push("Oriento sinais de alarme para retorno precoce e reavaliação em acolhimento no Sintomáticos Respiratórios");
+      plans.push("Oriento ausência de evidências científicas validando o uso de \"medicações para COVID\" (e.g. dexametasona, ivermectina, azitromicina) em pacientes ambulatoriais, assim como reforço a CONTRAINDICAÇÃO FORMAL de uso de azitromicina em casos de suspeita de infeção por SARS-CoV-2 sem sinais de infecção bacteriana (Choosing Wisely Brasil)");
+      plans.push("Retorno em " + $("#follow-up").val() + " dias para " + $("#follow-up-why").val());
       break;
     case "not-covid":
-      plans.push("Oriento paciente da ausência de critérios para coleta de exame para investigação de SARS-CoV-2;");
-      plans.push("Oriento paciente sobre sinais para busca de reavaliação no Sintomáticos Respiratórios;");
+      plans.push("Oriento paciente da ausência de critérios para coleta de exame para investigação de SARS-CoV-2");
+      plans.push("Oriento paciente sobre sinais para busca de reavaliação no Sintomáticos Respiratórios");
       if( $("#other-symptomatics").is(":checked") ) {
-        plans.push("Prescrevo sintomáticos para quadro atual;");
+        plans.push("Prescrevo sintomáticos para quadro atual");
       }
       if( $("input[name='reeval']:checked").val() == "clt" ) {
-        plans.push("Oriento paciente que, segundo artigo 7.3.1, tópico (b), da Norma Regulamentadora Nº 07, que define e regulamenta o Programa de Controle Médico de Saúde Ocupacional (PCMSO) sob a Consolidação das Leis do Trabalho, é ÔNUS DO EMPREGADOR arcar e custear com exames demandados para SAÚDE OCUPACIONAL;");
-        plans.push("Oriento paciente também que, do ponto de vista de medicina ASSISTENCIAL, de que trata seu contato hoje com este serviço de saúde, paciente não preenche critério para coleta de RT-PCR ou Sorologia para SARS-CoV-2, como definido pelo protoco de combate à pandemia de COVID-19 da Secretaria Municipal de Saúde;");
+        plans.push("Oriento paciente que, segundo artigo 7.3.1, tópico (b), da Norma Regulamentadora Nº 07, que define e regulamenta o Programa de Controle Médico de Saúde Ocupacional (PCMSO) sob a Consolidação das Leis do Trabalho, é ÔNUS DO EMPREGADOR arcar e custear com exames demandados para SAÚDE OCUPACIONAL");
+        plans.push("Oriento paciente também que, do ponto de vista de medicina ASSISTENCIAL, de que trata seu contato hoje com este serviço de saúde, paciente não preenche critério para coleta de RT-PCR ou Sorologia para SARS-CoV-2, como definido pelo protoco de combate à pandemia de COVID-19 da Secretaria Municipal de Saúde");
       }
       break;
     case "yes-covid":
-      plans.push("Oriento paciente do resultado positivo para infecção por SARS-CoV-2 (COVID-19);");
+      plans.push("Oriento paciente do resultado positivo para infecção por SARS-CoV-2 (COVID-19)");
       if( $("#leave-needed-14").is(":checked") ) {
-        plans.push("Atesto para " + $("#leave-14").val() + " dias de modo a completar 14 dias de afastamento do início dos sintomas;");
+        plans.push("Atesto para " + $("#leave-14").val() + " dias de modo a completar 14 dias de afastamento do início dos sintomas");
       }
-      plans.push($("#family-leave-14").val() + ";");
+      plans.push($("#family-leave-14").val());
       if( $("#symptomatics-14").val() != "false" && $("#symptomatics-14").val() != "" ) {
-        plans.push($("#symptomatics-14").val() + ";");
+        plans.push($("#symptomatics-14").val());
       }
-      plans.push("Oriento sinais de alarme para retorno precoce e reavaliação em acolhimento no Sintomáticos Respiratórios;");
-      plans.push("Oriento ausência de evidências científicas validando o uso de \"medicações para COVID\" (e.g. dexametasona, ivermectina, azitromicina) em pacientes ambulatoriais, assim como reforço a CONTRAINDICAÇÃO FORMAL de uso de azitromicina em casos de suspeita de infeção por SARS-CoV-2 sem sinais de infecção bacteriana (Choosing Wisely Brasil);");
+      plans.push("Oriento sinais de alarme para retorno precoce e reavaliação em acolhimento no Sintomáticos Respiratórios");
+      plans.push("Oriento ausência de evidências científicas validando o uso de \"medicações para COVID\" (e.g. dexametasona, ivermectina, azitromicina) em pacientes ambulatoriais, assim como reforço a CONTRAINDICAÇÃO FORMAL de uso de azitromicina em casos de suspeita de infeção por SARS-CoV-2 sem sinais de infecção bacteriana (Choosing Wisely Brasil)");
       break;
     case "wait-covid":
-      plans.push("Aguardo resultado de exame;");
+      plans.push("Aguardo resultado de exame");
       if( $("#leave-needed-wait").is(":checked") ) {
-        plans.push("Atesto para " + $("#leave-wait").val() + " dias até resultado de exame;");
+        plans.push("Atesto para " + $("#leave-wait").val() + " dias até resultado de exame");
       }
-      plans.push($("#family-leave-wait").val() + ";");
-      plans.push("Oriento sinais de alarme para retorno precoce e reavaliação em acolhimento no Sintomáticos Respiratórios;");
-      plans.push("Oriento ausência de evidências científicas validando o uso de \"medicações para COVID\" (e.g. dexametasona, ivermectina, azitromicina) em pacientes ambulatoriais, assim como reforço a CONTRAINDICAÇÃO FORMAL de uso de azitromicina em casos de suspeita de infeção por SARS-CoV-2 sem sinais de infecção bacteriana (Choosing Wisely Brasil);");
-      plans.push("Retorno em " + $("#follow-up-wait").val() + " dias para avaliar resultado de exame;");
+      plans.push($("#family-leave-wait").val());
+      plans.push("Oriento sinais de alarme para retorno precoce e reavaliação em acolhimento no Sintomáticos Respiratórios");
+      plans.push("Oriento ausência de evidências científicas validando o uso de \"medicações para COVID\" (e.g. dexametasona, ivermectina, azitromicina) em pacientes ambulatoriais, assim como reforço a CONTRAINDICAÇÃO FORMAL de uso de azitromicina em casos de suspeita de infeção por SARS-CoV-2 sem sinais de infecção bacteriana (Choosing Wisely Brasil)");
+      plans.push("Retorno em " + $("#follow-up-wait").val() + " dias para avaliar resultado de exame");
       break;
     case "bai-covid":
-      plans.push("Oriento paciente do resultado NEGATIVO para infecção por SARS-CoV-2 (COVID-19);");
-      plans.push("Alta do monitoramento de Sintomáticos Respiratórios;");
+      plans.push("Oriento paciente do resultado NEGATIVO para infecção por SARS-CoV-2 (COVID-19)");
+      plans.push("Alta do monitoramento de Sintomáticos Respiratórios");
       break;
     case "preexam-covid":
       var when_to = "hoje";
@@ -436,12 +436,12 @@ function runPlans() {
         card_given = "No dia da coleta será fornecido";
         preexam_return = "para coleta do exame acima solicitado, ";
       }
-      plans.push("Solicito RT-PCR para SARS-CoV-2 com coleta " + when_to + ";");
-      plans.push(card_given + " cartão com protocolo e senha para acesso do exame no sítio eletrônico do laboratório, assim como orientamos como acessar tal exame;");
-      plans.push("Oriento retorno " + preexam_return + "caso passe a apresentar sintomas respiratórios, ou caso não consiga acessar exame acima no sítio eletrônico;");
+      plans.push("Solicito RT-PCR para SARS-CoV-2 com coleta " + when_to);
+      plans.push(card_given + " cartão com protocolo e senha para acesso do exame no sítio eletrônico do laboratório, assim como orientamos como acessar tal exame");
+      plans.push("Oriento retorno " + preexam_return + "caso passe a apresentar sintomas respiratórios, ou caso não consiga acessar exame acima no sítio eletrônico");
       break;
     default:
       plans.push("SELECIONE UMA AVALIAÇÃO!");
   }
-  return plans.join("\n");
+  return plans.join(";\n") + ".";
 }
