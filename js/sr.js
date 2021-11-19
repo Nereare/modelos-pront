@@ -336,6 +336,9 @@ function runPlans() {
       } else {
         when_to = "hoje";
       }
+      if( $("#refusal").is(":checked") ) {
+        plans.push("Paciente ou seu acompanhante recusam a coleta do exame acima, mesmo após orientação da importância epidemiológica da coleta de tal exame;");
+      }
       plans.push("Solicito " + $("#lab").val() + " para SARS-CoV-2 com coleta " + when_to + ";");
       if( $("#leave-needed").is(":checked") ) {
         plans.push("Atesto para " + $("#leave").val() + " dias;");
