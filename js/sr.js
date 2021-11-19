@@ -11,14 +11,20 @@ $(document).ready(function() {
   $("input[name='reeval']").on("change", function() {
     switch( $("input[name='reeval']:checked").val() ) {
       case "reeval":
-        $(".reeval, .base").css("display", "block");
         $(".primeval, .clt").css("display", "none");
+        $(".reeval, .base").css("display", "block");
         break;
       case "clt":
+        $(".reeval, .base, .primeval").css("display", "none");
         $(".clt").css("display", "block");
         $("li.clt").css("display", "list-item");
-        $(".reeval, .base, .primeval").css("display", "none");
-        $("#diag option#opt-nope").attr("selected", "selected");
+        $("#opt-nope").prop("selected", true);
+        $("#diag").trigger("change");
+        break;
+      case "eda":
+        $(".primeval, .clt, .reeval, .base").css("display", "none");
+        $(".eda").css("display", "block");
+        $("#opt-preexam").prop("selected", true);
         $("#diag").trigger("change");
         break;
       default:
@@ -72,6 +78,13 @@ $(document).ready(function() {
       $("#lab-date").css("display", "inline");
     } else {
       $("#lab-date").css("display", "none");
+    }
+  });
+  $("#lab-when-preexam").on("change", function() {
+    if( $("#lab-when-preexam").val() == "em" ) {
+      $("#lab-date-preexam").css("display", "inline");
+    } else {
+      $("#lab-date-preexam").css("display", "none");
     }
   });
 
@@ -188,11 +201,17 @@ $(document).ready(function() {
       case "clt":
         $("#output-s").val("Empregador solicitou ao paciente que procurasse serviço de saúde para coleta de exame para detecção de SARS-CoV-2, no entanto, paciente " + $("#clt-symp").val() + ".");
         break;
+      case "eda":
+        $("#output-s").val("Paciente comparece para coleta de RT-PCR para SARS-CoV-2 por estar com exame invasivo agendado, estando assintomátice.");
+        break;
       default:
         $("#output-s").val("Paciente procura acolhimento, estando no fluxo de Sintomáticos Respiratórios por apresentar: " + humanList(symps) + ".\nQuadro iniciado " + begining.toLocaleDateString("pt-BR", options) + ".\n\nPaciente " + humanComorbidities(comorb) + ", " + allergies + ".\nPaciente " + $("#work").val() + " e refere morar " + $("#family").val() + ".");
     }
     // Objetivo
-    if( $("input[name='reeval']:checked").val() == "clt" ) {
+    if(
+      $("input[name='reeval']:checked").val() == "clt" ||
+      $("input[name='reeval']:checked").val() == "eda"
+    ) {
       $("#output-o").val("Não se aplica.");
     } else {
       $("#output-o").val("Paciente em " + $("#status").val() + "EG." + ped_activity + "\n" + humanList(qualitative_exam) + ".\n\nD" + days + " de sintomas hoje.");
@@ -406,6 +425,20 @@ function runPlans() {
     case "bai-covid":
       plans.push("Oriento paciente do resultado NEGATIVO para infecção por SARS-CoV-2 (COVID-19);");
       plans.push("Alta do monitoramento de Sintomáticos Respiratórios;");
+      break;
+    case "preexam-covid":
+      var when_to = "hoje";
+      var card_given = "Fornecemos";
+      var preexam_return = "";
+      if( $("#lab-when-preexam").val() == "em" ) {
+        var foo = new Date($("#lab-date-field-preexam").val() + "T00:00:00.000-03:00")
+        when_to = foo.toLocaleDateString("pt-BR", options);
+        card_given = "No dia da coleta será fornecido";
+        preexam_return = "para coleta do exame acima solicitado, ";
+      }
+      plans.push("Solicito RT-PCR para SARS-CoV-2 com coleta " + when_to + ";");
+      plans.push(card_given + " cartão com protocolo e senha para acesso do exame no sítio eletrônico do laboratório, assim como orientamos como acessar tal exame;");
+      plans.push("Oriento retorno " + preexam_return + "caso passe a apresentar sintomas respiratórios, ou caso não consiga acessar exame acima no sítio eletrônico;");
       break;
     default:
       plans.push("SELECIONE UMA AVALIAÇÃO!");

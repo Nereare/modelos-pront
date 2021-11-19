@@ -44,6 +44,8 @@
           <label for="reeval-yes">Reavaliação</label>
           <input type="radio" id="reeval-clt" name="reeval" value="clt">
           <label for="reeval-clt">Empresa mandou colher</label>
+          <input type="radio" id="reeval-eda" name="reeval" value="eda">
+          <label for="reeval-eda">Coleta pré-exame</label>
         </div>
         <!-- / Eval / Re-eval Choice -->
 
@@ -348,6 +350,15 @@
           </p>
         </div>
         <!-- / Capitalism Piggery -->
+
+        <!-- Pre-Exam -->
+        <div class="eda hidden">
+          <p>
+            Paciente comparece para coleta de RT-PCR para SARS-CoV-2 por estar com exame invasivo agendado,
+            estando assintomátice.
+          </p>
+        </div>
+        <!-- / Pre-Exam -->
       </fieldset>
 
       <fieldset>
@@ -681,13 +692,13 @@
         </div>
         <!-- / Exam -->
 
-        <!-- Capitalism Piggery 2 -->
-        <div class="clt">
+        <!-- Capitalism Piggery 2 / Pre-Exam -->
+        <div class="clt eda">
           <p>
             Não se aplica.
           </p>
         </div>
-        <!-- / Capitalism Piggery 2 -->
+        <!-- / Capitalism Piggery 2 / Pre-Exam -->
       </fieldset>
 
       <fieldset>
@@ -700,6 +711,7 @@
           <option value="yes-covid">COVID-19 confirmado</option>
           <option value="wait-covid">Exame em análise</option>
           <option value="bai-covid">Exame negativo</option>
+          <option value="preexam-covid" id="opt-preexam">Coleta protocolar</option>
         </select>
         <p id="symp-day"><strong>D<span>x</span></strong> de sintomas.</p>
       </fieldset>
@@ -774,6 +786,27 @@
           <ol id="bai-covid">
             <li>Oriento paciente do resultado NEGATIVO para infecção por SARS-CoV-2 (COVID-19);</li>
             <li>Alta do monitoramento;</li>
+          </ol>
+          <ol id="preexam-covid">
+            <li>
+              Solicito Swab para RT-PCR para SARS-CoV-2 com coleta
+              <select name="lab-when-preexam" id="lab-when-preexam">
+                <option value="hoje" selected>hoje</option>
+                <option value="em">em...</option>
+              </select>
+              <span id="lab-date-preexam" class="hidden">
+                <input type="date" id="lab-date-field-preexam" name="lab-date-preexam">
+              </span>
+              ;
+            </li>
+            <li>
+              Fornecemos cartão com protocolo e senha para acesso do exame no sítio eletrônico do laboratório,
+              assim como orientamos como acessar tal exame;
+            </li>
+            <li>
+              Oriento retorno caso passe a apresentar sintomas respiratórios, ou caso não consiga acessar exame acima
+              no sítio eletrônico;
+            </li>
           </ol>
         </div>
         <!-- / Actions -->
