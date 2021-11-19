@@ -81,6 +81,22 @@ $(document).ready(function() {
     $("#" + $("#exam-eval option:selected" ).attr("class")).css("display", "block");
   });
 
+  // Set return reason automatically, when first evaluation
+  $("#refusal").on("change", function() {
+    if( $("#refusal").is(":checked") ) {
+      $("#follow-up-why-reevalnoexam").prop("selected", true);
+    } else {
+      $("#lab-when").trigger("change");
+    }
+  });
+  $("#lab-when").on("change", function() {
+    if( $("#lab-when").val() == "hoje" ) {
+      $("#follow-up-why-reevalexam").prop("selected", true);
+    } else {
+      $("#follow-up-why-collect").prop("selected", true);
+    }
+  });
+
   // Build output:
   $("#button-run").on("click", function() {
     var symps = [];
@@ -336,10 +352,10 @@ function runPlans() {
       } else {
         when_to = "hoje";
       }
+      plans.push("Solicito " + $("#lab").val() + " para SARS-CoV-2 com coleta " + when_to + ";");
       if( $("#refusal").is(":checked") ) {
         plans.push("Paciente ou seu acompanhante recusam a coleta do exame acima, mesmo após orientação da importância epidemiológica da coleta de tal exame;");
       }
-      plans.push("Solicito " + $("#lab").val() + " para SARS-CoV-2 com coleta " + when_to + ";");
       if( $("#leave-needed").is(":checked") ) {
         plans.push("Atesto para " + $("#leave").val() + " dias;");
       }
