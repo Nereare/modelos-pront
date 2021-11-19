@@ -121,7 +121,7 @@ $( document ).ready(function() {
         case "ckd":
           dx = "Insuficiência Renal Crônica";
           s11 = "Glicemia, Hemoglobina Glicada, Colesterol Total, HDL, LDL, Triglicérides, Ureia,";
-          s12 = "Creatinina, Sódio, Potássio, Cálcio Total, Fósfoto, TSH, T4 Livre, PTH, Proteinúria de";
+          s12 = "Creatinina, Sódio, Potássio, Cálcio Total, Fósfoto, TSH, T4 Livre, PTH, Albuminúria de";
           s13 = "24h, Hemograma Completo, Ferro, Ferritina, Reticulócitos, Proteínas Total e Frações";
           s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg),";
           s22 = "Sorologia para Hepatite C (Anti-HCV)";
