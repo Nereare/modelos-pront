@@ -2,6 +2,20 @@ $(document).ready(function() {
   new ClipboardJS(".copybtn");
   console.log("App ready!");
 
+  // Enable cramps descriptor
+  $("#minsymp11").on("change", function() {
+    if( $("#minsymp11").is(":checked") ) { $("#cramps-desc").css("display", "block"); }
+    else { $("#cramps-desc").css("display", "block"); }
+  });
+  $("#cramps").on("change", function() {
+    if( $("#cramps").val() == "rítmicas e próximas, a cada " ) {
+      $("#cramps-time-desc").css("display", "block");
+    } else {
+      $("#cramps-time-desc").css("display", "none");
+      $("#cramps-time").val("");
+    }
+  });
+
   // Enable vaginal discharge selection
   $("#disch").on("change", function() {
     if( $("#disch").is(":checked") ) { $("#disch-desc").prop("disabled", false); }
@@ -239,9 +253,17 @@ $(document).ready(function() {
       if( $("#disch").is(":checked") ) {
         discharge = "Refere corrimento vaginal " + $("#disch-desc").val() + ".";
       }
+      var cramps = "";
+      if( $("#minsymp11").is(":checked") ) {
+        cramps = " Paciente refere contrações uterinas ";
+        cramps += $("#cramps").val();
+        if( $("#cramps").val() == "rítmicas e próximas, a cada " ) {
+          cramps += $("#cramps-time").val() + " minutos."
+        }
+      }
       var othersymps = "";
       if( $("#othersymps").val() != "" ) { othersymps = "\n\n" + $("#othersymps").val(); }
-      $("#output-s").val("Paciente comparece para consulta de pré-natal. Refere estar " + humanList(symps, true) + ". " + discharge + othersymps);
+      $("#output-s").val("Paciente comparece para consulta de pré-natal. Refere estar " + humanList(symps, true) + ". " + discharge + cramps + othersymps);
       // Objetivo
       $("#output-o").val("Paciente em " + $("#status").val() + "EG.\n" + humanList(qualitative_exam) + ".\nIG " + $("#w").html() + "+" + $("#d").html() + " sem.\nG" + $("#parity-g").val() + "P" + $("#parity-pn").val() + "C" + $("#parity-pc").val() + "A" + $("#parity-a").val() + ".\nPA = " + $("#pas").val() + "x" + $("#pad").val() + "mmHg\nPeso = " + weight + "kg\nAltura = " + height + "cm\nIMC = " + bmi + "kg/cm²");
       if( $("#obs-au").val() != "" && $("#obs-bcf").val() != "" && $("#obs-mf").val() != "" ) {
