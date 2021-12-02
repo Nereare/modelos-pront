@@ -116,6 +116,10 @@
             <input type="radio" id="feeding-amp-lv" name="feeding-amp" value="LV">
             <label for="feeding-amp-lv">Leite de Vaca</label>
           </p>
+          <p>
+            <input type="checkbox" id="feeding-amp-thick" value="thick">
+            <label for="feeding-amp-thick"><strong>Usa engrossantes?</strong></label>
+          </p>
         </div>
         <div class="hidden" id="feeding-other">
           <h3>Comidas</h3>
@@ -138,6 +142,55 @@
           <p>
             <input type="radio" id="feeding-other-comidacasa" name="feeding-other" value="comida de casa">
             <label for="feeding-other-comidacasa">Comida de Casa</label>
+          </p>
+        </div>
+        <div id="feeding-lm-difficulty">
+          <h4>Dificuldades LM</h4>
+          <p>
+            <input type="checkbox" id="feeding-difficulty-lm-suck" class="feeding-difficulty-lm" name="feeding-difficulty" value="pega do seio durante mamadas">
+            <label for="feeding-difficulty-lm-suck">Pega</label>
+          </p>
+          <p>
+            <input type="checkbox" id="feeding-difficulty-lm-sleep" class="feeding-difficulty-lm" name="feeding-difficulty" value="criança dorme durante mamadas">
+            <label for="feeding-difficulty-lm-sleep">Dorme</label>
+          </p>
+          <p>
+            <input type="checkbox" id="feeding-difficulty-lm-pain" class="feeding-difficulty-lm" name="feeding-difficulty" value="dor nos seios durante mamadas">
+            <label for="feeding-difficulty-lm-pain">Dor</label>
+          </p>
+        </div>
+        <div id="feeding-fl-difficulty" class="hidden">
+          <h4>Dificuldades FL</h4>
+          <p>
+            <input type="checkbox" id="feeding-difficulty-fl-constipation" class="feeding-difficulty-fl" name="feeding-difficulty" value="criança está ressecada com FL atual">
+            <label for="feeding-difficulty-fl-constipation">Constipação</label>
+          </p>
+          <p>
+            <input type="checkbox" id="feeding-difficulty-fl-diarrhea" class="feeding-difficulty-fl" name="feeding-difficulty" value="criança apresenta amolecimento das fezes com FL atual">
+            <label for="feeding-difficulty-fl-diarrhea">Diarreia</label>
+          </p>
+          <p>
+            <input type="checkbox" id="feeding-difficulty-fl-cramps" class="feeding-difficulty-fl" name="feeding-difficulty" value="criança apresenta cólicas após tomar FL atual">
+            <label for="feeding-difficulty-fl-cramps">Cólicas</label>
+          </p>
+          <p>
+            <input type="checkbox" id="feeding-difficulty-fl-thick" class="feeding-difficulty-fl" name="feeding-difficulty" value="criança não aceita FL sem engrossantes">
+            <label for="feeding-difficulty-fl-thick">Cobra engrossantes</label>
+          </p>
+        </div>
+        <div id="feeding-other-difficulty" class="hidden">
+          <h4>Dificuldades Comida</h4>
+          <p>
+            <input type="checkbox" id="feeding-difficulty-other-picky" class="feeding-difficulty-other" name="feeding-difficulty" value="criança é bastante seletiva com seus alimentos">
+            <label for="feeding-difficulty-other-picky">Seletiva</label>
+          </p>
+          <p>
+            <input type="checkbox" id="feeding-difficulty-other-noveg" class="feeding-difficulty-other" name="feeding-difficulty" value="criança não aceita comer vegetais">
+            <label for="feeding-difficulty-other-noveg">Sem vegetais</label>
+          </p>
+          <p>
+            <input type="checkbox" id="feeding-difficulty-other-bored" class="feeding-difficulty-other" name="feeding-difficulty" value="criança se recusa a comer comida de verdade e leva parentes a lhe oferecerem lanches e doces no lugar de alimentos">
+            <label for="feeding-difficulty-other-bored">"Não come" + come tranqueiras</label>
           </p>
         </div>
         <!-- / Feeding -->
@@ -170,6 +223,14 @@
             <label for="device6">Tablet</label>
           </li>
         </ul>
+
+        <h3>Fraldas</h3>
+        <select id="diaper">
+          <option value="continuamente">24/7</option>
+          <option value="apenas para dormir e sair para consultas">Para dormir</option>
+          <option value="eventualmente, passando a maior parte do tempo sem fraldas">Eventualmente</option>
+          <option value="cessado">Cessou</option>
+        </select>
         <!-- / Pacifier -->
 
         <!-- School -->

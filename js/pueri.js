@@ -21,13 +21,33 @@ $(document).ready(function() {
     else { $("#peer-wtf").css("display", "none"); }
   });
   // Show feeding descriptors depending on choice
+  $("#feeding-lm").on("change", function() {
+    if( $("#feeding-lm").is(":checked") ){
+      $("#feeding-lm-difficulty").css("display", "block");
+    } else {
+      $("#feeding-lm-difficulty").css("display", "none");
+      $(".feeding-difficulty-lm").prop("checked", false);
+    }
+  });
   $("#feeding-formula").on("change", function() {
-    if( $("#feeding-formula").is(":checked") ){ $("#feeding-fl").css("display", "block"); }
-    else { $("#feeding-fl").css("display", "none"); }
+    if( $("#feeding-formula").is(":checked") ){
+      $("#feeding-fl").css("display", "block");
+      $("#feeding-fl-difficulty").css("display", "block");
+    } else {
+      $("#feeding-fl").css("display", "none");
+      $("#feeding-fl-difficulty").css("display", "none");
+      $(".feeding-difficulty-fl").prop("checked", false);
+    }
   });
   $("#feeding-food").on("change", function() {
-    if( $("#feeding-food").is(":checked") ){ $("#feeding-other").css("display", "block"); }
-    else { $("#feeding-other").css("display", "none"); }
+    if( $("#feeding-food").is(":checked") ){
+      $("#feeding-other").css("display", "block");
+      $("#feeding-other-difficulty").css("display", "block");
+    } else {
+      $("#feeding-other").css("display", "none");
+      $("#feeding-other-difficulty").css("display", "none");
+      $(".feeding-difficulty-other").prop("checked", false);
+    }
   });
   // Show school year selection
   $("#school").on("change", function() {
@@ -340,9 +360,17 @@ $(document).ready(function() {
         if( $("#feeding-formula").is(":checked") && $("#feeding-food").is(":checked") ) {
           feeding += ", fórmula láctea (" + $("input[name='feeding-amp']:checked").val() + ") e alimentos (" + $("input[name='feeding-other']:checked").val() + ")";
         } else if( $("#feeding-formula").is(":checked") ) {
-          feeding += " e fórmula láctea (" + $("input[name='feeding-amp']:checked").val() + ")";
+          feeding += " e fórmula láctea (" + $("input[name='feeding-amp']:checked").val();
+          if( $("#feeding-amp-thick").is(":checked") ) {
+            feeding += ", COM ENGROSSANTE"
+          }
+          feeding += ")";
         } else if( $("#feeding-food").is(":checked") ) {
-          feeding += " e alimentos (" + $("input[name='feeding-other']:checked").val() + ")";
+          feeding += " e alimentos (" + $("input[name='feeding-other']:checked").val();
+          if( $("#feeding-amp-thick").is(":checked") ) {
+            feeding += ", COM ENGROSSANTE"
+          }
+          feeding += ")";
         } else {
           feeding += " Exclusivo (AME)";
         }
@@ -356,6 +384,11 @@ $(document).ready(function() {
         }
       }
 
+      var difficulties = [];
+      var feeding_difficulty = "Acompanhante nega dificuldades alimentares";
+      $.each($("input[name='feeding-difficulty']:checked"), function(){ difficulties.push( $(this).val() ); });
+      if( difficulties.length > 0 ) { feeding_difficulty = "Acompanhante refere diculdade alimentar em: " + humanList(difficulties); }
+
       var devs = [];
       var devices = "Acomanhante nega uso de chupetas ou outros dispositivos";
       $.each($("input[name='devices']:checked"), function(){ devs.push( $(this).val() ); });
@@ -366,6 +399,8 @@ $(document).ready(function() {
         school += " no " + $("#school-year").val() + "º ano";
       }
 
+      var diaper = "Acompanhante refere uso de fraldas " + $("#diaper option:selected").val();
+
       var symps = [];
       var symptoms = "não apresenta nenhum sintoma";
       $.each($("input[name='symps']:checked"), function(){ symps.push( $(this).val() ); });
@@ -375,7 +410,7 @@ $(document).ready(function() {
       if( $("#othersymps").val() != "" ) { symptoms += " exceto:\n\n" + $("#othersymps").val(); }
       else { symptoms += "."; }
 
-      $("#output-s").val("Paciente trazido por " + peer + ", que refere alimentação com " + feeding + ". " + devices + ".\nAcompanhante " + school + ".\nPaciente, acompanhante conta, " + symptoms + othersymps);
+      $("#output-s").val("Paciente trazido por " + peer + ", que refere alimentação com " + feeding + ". " + feeding_difficulty + ".\n" + devices + ".\nAcompanhante " + school + ".\n" + diaper + ".\n\nPaciente, acompanhante conta, " + symptoms + othersymps);
 
       // Objetivo
       var qualitative_exam = [];
