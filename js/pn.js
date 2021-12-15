@@ -4,8 +4,12 @@ $(document).ready(function() {
 
   // Enable cramps descriptor
   $("#minsymp11").on("change", function() {
-    if( $("#minsymp11").is(":checked") ) { $("#cramps-desc").css("display", "block"); }
-    else { $("#cramps-desc").css("display", "block"); }
+    if( $("#minsymp11").is(":checked") ) {
+      $("#cramps-desc").css("display", "block");
+    } else {
+      $("#cramps-desc").css("display", "none");
+      $("#cramps-null").prop("selected", true);
+    }
   });
   $("#cramps").on("change", function() {
     if( $("#cramps").val() == "rítmicas e próximas, a cada " ) {
