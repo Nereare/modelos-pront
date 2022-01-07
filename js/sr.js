@@ -446,6 +446,22 @@ function runPlans() {
       plans.push("Oriento paciente do resultado NEGATIVO para infecção por SARS-CoV-2 (COVID-19)");
       plans.push("Alta do monitoramento de Sintomáticos Respiratórios");
       break;
+    case "return-tr":
+      plans.push("Solicitamos retorno amanhã para coleta de TRs, uma vez que Unidades Básicas de Saúde têm horário definido para fechar e manter equipe no local apenas para realização de testes rápidos, além de infactível, impõe risco à nossa integridade física");
+      if( $("#leave-needed-returntr").is(":checked") ) {
+        plans.push("Atesto para " + $("#leave-returntr").val() + " dias");
+      }
+      plans.push($("#family-leave-returntr").val());
+      if( $("#symptomatics-returntr").val() != "false" && $("#symptomatics-returntr").val() != "" ) {
+        plans.push($("#symptomatics-returntr").val());
+      }
+      if( $("#ln-returntr").is(':checked') ) {
+        plans.push("Oriento lavagem nasal com soro fisiológico 0,9%");
+      }
+      plans.push("Oriento sinais de alarme para retorno precoce e reavaliação em acolhimento no Sintomáticos Respiratórios");
+      plans.push("Oriento ausência de evidências científicas validando o uso de \"medicações para COVID\" (e.g. dexametasona, ivermectina, azitromicina) em pacientes ambulatoriais, assim como reforço a CONTRAINDICAÇÃO FORMAL de uso de azitromicina em casos de suspeita de infeção por SARS-CoV-2 sem sinais de infecção bacteriana (Choosing Wisely Brasil)");
+      plans.push("Retorno amanhã para coleta de TRs");
+      break;
     case "bai-tr":
       plans.push("Oriento paciente dos resultados NEGATIVOS dos Testes Rápidos para SARS-CoV-2 e Influenza A/B");
       if( $("#leave-needed-baitr").is(":checked") ) {

@@ -670,7 +670,7 @@
               <option value="REAGENTE para A, não reagente para B">A+</option>
               <option value="não reagente para A, REAGENTE para B">B+</option>
               <option value="REAGENTE para A e B">A+B+</option>
-              <option value="não realizado por falta de material">não realizado</option>
+              <option value="não realizado por falta de material">não realizado / falta</option>
               <option value="não realizado por infactibilidade de realizá-lo em face da falta de tempo e dos riscos à integridade física da equipe caso matenhamos UBS aberta apenas para tal">não realizado / tempo</option>
             </select>
           </p>
@@ -733,6 +733,7 @@
           <option value="" selected disabled id="opt-blank">escolha...</option>
           <option value="yes-tr">TR Positivo</option>
           <option value="bai-tr">TRs negativos</option>
+          <option value="return-tr">Retorno para TRs</option>
           <option value="not-covid" id="opt-nope">Não fecha critério para suspeita de COVID-19</option>
           <option value="" disabled>--- Condutas Clássicas ---</option>
           <option value="maybe-covid">Suspeita de COVID-19</option>
@@ -824,6 +825,16 @@
           <ol id="bai-covid">
             <li>Oriento paciente do resultado NEGATIVO para infecção por SARS-CoV-2 (COVID-19);</li>
             <li>Alta do monitoramento;</li>
+          </ol>
+          <ol id="return-tr">
+            <li>Solicitamos retorno amanhã para coleta de TRs;</li>
+            <li><input type="checkbox" id="leave-needed-returntr" value="leave-needed"><label for="leave-needed-returntr"><strong>Atestado:</strong> Atesto para <input type="number" id="leave-returntr" name="leave" value="7" /> dias;</label></li>
+            <li><strong>Afastamento de Familiares:</strong> <select name="family-leave" id="family-leave-tr"><option value="Redijo afastamento de familiares, tal qual previsto na Portaria nº 454 do Ministério da Saúde, de 20 de março de 2020">Redijo afastamento de familiares</option><option value="Paciente nega afastamento de familiares" selected>Paciente nega afastamento de familiares</option></select>;</li>
+            <li><strong>Sintomáticos:</strong> <select name="symptomatics" id="symptomatics-returntr"><option value="Prescrevo sintomáticos" selected>Prescrevo sintomáticos</option><option value="Oriento uso de sintomáticos já em posse do paciente">Oriento uso de sintomáticos já em posse do paciente</option><option value="false">Não são necessários</option></select>;</li>
+            <li><input type="checkbox" id="ln-returntr" value="ln"><label for="ln-returntr">Oriento lavagem nasal com soro fisiológico 0,9%;</label></li>
+            <li>Oriento sinais de alarme para retorno e reavaliação em acolhimento no Sintomáticos Respiratórios;</li>
+            <li>Oriento ausência de evidências científicas validando o uso de "medicações para COVID" (e.g. dexametasona, ivermectina, azitromicina) em pacientes ambulatoriais, assim como reforço a CONTRAINDICAÇÃO FORMAL de uso de azitromicina em casos de suspeita de infeção por SARS-CoV-2 sem sinais de infecção bacteriana (Choosing Wisely Brasil);</li>
+            <li>Retorno amanhã para coleta de TRs.</li>
           </ol>
           <ol id="bai-tr">
             <li>Oriento paciente dos resultados NEGATIVOS dos Testes Rápidos para SARS-CoV-2 e Influenza A/B;</li>
