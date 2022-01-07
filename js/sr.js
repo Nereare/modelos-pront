@@ -400,6 +400,23 @@ function runPlans() {
         plans.push("Oriento paciente também que, do ponto de vista de medicina ASSISTENCIAL, de que trata seu contato hoje com este serviço de saúde, paciente não preenche critério para coleta de RT-PCR ou Sorologia para SARS-CoV-2, como definido pelo protoco de combate à pandemia de COVID-19 da Secretaria Municipal de Saúde");
       }
       break;
+    case "yes-tr":
+      plans.push("Oriento paciente do resultado " + $("#tr-covid").val() + " do Teste Rápido para SARS-CoV-2");
+      plans.push("Oriento paciente do resultado " + $("#tr-influenza").val() + " do Teste Rápido para Influenza A/B");
+      if( $("#leave-needed-tr").is(":checked") ) {
+        plans.push("Atesto para " + $("#leave-tr").val() + " dias");
+      }
+      plans.push($("#family-leave-tr").val());
+      if( $("#symptomatics-tr").val() != "false" && $("#symptomatics-tr").val() != "" ) {
+        plans.push($("#symptomatics-tr").val());
+      }
+      if( $("#ln-tr").is(':checked') ) {
+        plans.push("Oriento lavagem nasal com soro fisiológico 0,9%");
+      }
+      plans.push("Oriento sinais de alarme para retorno precoce e reavaliação em acolhimento no Sintomáticos Respiratórios");
+      plans.push("Oriento ausência de evidências científicas validando o uso de \"medicações para COVID\" (e.g. dexametasona, ivermectina, azitromicina) em pacientes ambulatoriais, assim como reforço a CONTRAINDICAÇÃO FORMAL de uso de azitromicina em casos de suspeita de infeção por SARS-CoV-2 sem sinais de infecção bacteriana (Choosing Wisely Brasil)");
+      plans.push("Alta do episódio");
+      break;
     case "yes-covid":
       plans.push("Oriento paciente do resultado positivo para infecção por SARS-CoV-2 (COVID-19)");
       if( $("#leave-needed-14").is(":checked") ) {
@@ -408,6 +425,9 @@ function runPlans() {
       plans.push($("#family-leave-14").val());
       if( $("#symptomatics-14").val() != "false" && $("#symptomatics-14").val() != "" ) {
         plans.push($("#symptomatics-14").val());
+      }
+      if( $("#ln-yescovid").is(':checked') ) {
+        plans.push("Oriento lavagem nasal com soro fisiológico 0,9%");
       }
       plans.push("Oriento sinais de alarme para retorno precoce e reavaliação em acolhimento no Sintomáticos Respiratórios");
       plans.push("Oriento ausência de evidências científicas validando o uso de \"medicações para COVID\" (e.g. dexametasona, ivermectina, azitromicina) em pacientes ambulatoriais, assim como reforço a CONTRAINDICAÇÃO FORMAL de uso de azitromicina em casos de suspeita de infeção por SARS-CoV-2 sem sinais de infecção bacteriana (Choosing Wisely Brasil)");
@@ -425,6 +445,19 @@ function runPlans() {
     case "bai-covid":
       plans.push("Oriento paciente do resultado NEGATIVO para infecção por SARS-CoV-2 (COVID-19)");
       plans.push("Alta do monitoramento de Sintomáticos Respiratórios");
+      break;
+    case "bai-tr":
+      plans.push("Oriento paciente dos resultados NEGATIVOS dos Testes Rápidos para SARS-CoV-2 e Influenza A/B");
+      if( $("#leave-needed-baitr").is(":checked") ) {
+        plans.push("Atesto para " + $("#leave-tr").val() + " dias");
+      }
+      if( $("#symptomatics-baitr").val() != "false" && $("#symptomatics-tr").val() != "" ) {
+        plans.push($("#symptomatics-baitr").val());
+      }
+      if( $("#ln-baitr").is(':checked') ) {
+        plans.push("Oriento lavagem nasal com soro fisiológico 0,9%");
+      }
+      plans.push("Alta do episódio");
       break;
     case "preexam-covid":
       var when_to = "hoje";
