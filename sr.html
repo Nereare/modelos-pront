@@ -652,12 +652,13 @@
         </div>
         <!-- / Physical Examination -->
 
-        <div class="base">
+        <div class="primeval">
           <h2>TRs</h2>
           <p>
             SARS-CoV-2
             <select id="tr-covid">
-              <option value="não reagente" selected>NR</option>
+              <option value="" selected>Aguardando...</option>
+              <option value="não reagente">NR</option>
               <option value="REAGENTE">+</option>
               <option value="não realizado por falta de material">não realizado / falta</option>
               <option value="não realizado por infactibilidade de realizá-lo em face da falta de tempo e dos riscos à integridade física da equipe caso matenhamos UBS aberta apenas para tal">não realizado / tempo</option>
@@ -666,7 +667,8 @@
           <p>
             Influenza
             <select id="tr-influenza">
-              <option value="não reagente para A e B" selected>NR</option>
+              <option value="" selected>Aguardando...</option>
+              <option value="não reagente para A e B">NR</option>
               <option value="REAGENTE para A, não reagente para B">A+</option>
               <option value="não reagente para A, REAGENTE para B">B+</option>
               <option value="REAGENTE para A e B">A+B+</option>
@@ -731,6 +733,7 @@
         <p>Se você não souber esse baseado nas anamnese e exame físico, volte para a faculdade, por favor. &#128077;</p>
         <select class="wide" name="diag" id="diag" required>
           <option value="" selected disabled id="opt-blank">escolha...</option>
+          <option value="default-tr">TR Padrão</option>
           <option value="yes-tr">TR Positivo</option>
           <option value="bai-tr">TRs negativos</option>
           <option value="return-tr">Retorno para TRs</option>
@@ -797,13 +800,22 @@
           </ol>
           <ol id="yes-tr">
             <li>Oriento resultados de TRs;</li>
-            <li><input type="checkbox" id="leave-needed-tr" value="leave-needed"><label for="leave-needed-tr"><strong>Atestado:</strong> Atesto para <input type="number" id="leave-tr" name="leave" value="7" /> dias;</label></li>
+            <li><input type="checkbox" id="leave-needed-tr" value="leave-needed"><label for="leave-needed-tr"><strong>Atestado:</strong> Atesto para <input type="number" id="leave-tr" value="7" /> dias;</label></li>
             <li><strong>Afastamento de Familiares:</strong> <select name="family-leave" id="family-leave-tr"><option value="Redijo afastamento de familiares, tal qual previsto na Portaria nº 454 do Ministério da Saúde, de 20 de março de 2020">Redijo afastamento de familiares</option><option value="Paciente nega afastamento de familiares" selected>Paciente nega afastamento de familiares</option></select>;</li>
             <li><strong>Sintomáticos:</strong> <select name="symptomatics" id="symptomatics-tr"><option value="Prescrevo sintomáticos" selected>Prescrevo sintomáticos</option><option value="Oriento uso de sintomáticos já em posse do paciente">Oriento uso de sintomáticos já em posse do paciente</option><option value="false">Não são necessários</option></select>;</li>
             <li><input type="checkbox" id="ln-tr" value="ln"><label for="ln-tr">Oriento lavagem nasal com soro fisiológico 0,9%;</label></li>
             <li>Oriento sinais de alarme para retorno e reavaliação em acolhimento no Sintomáticos Respiratórios;</li>
             <li>Oriento ausência de evidências científicas validando o uso de "medicações para COVID" (e.g. dexametasona, ivermectina, azitromicina) em pacientes ambulatoriais, assim como reforço a CONTRAINDICAÇÃO FORMAL de uso de azitromicina em casos de suspeita de infeção por SARS-CoV-2 sem sinais de infecção bacteriana (Choosing Wisely Brasil);</li>
             <li>Alta do episódio.</li>
+          </ol>
+          <ol id="default-tr">
+            <li><input type="checkbox" id="leave-needed-defaulttr" value="leave-needed"><label for="leave-needed-defaulttr"><strong>Atestado:</strong> Atesto para <input type="number" id="leave-defaulttr" value="7" /> dias;</label></li>
+            <li><strong>Afastamento de Familiares:</strong> <select name="family-leave" id="family-leave-defaulttr"><option value="Redijo afastamento de familiares, tal qual previsto na Portaria nº 454 do Ministério da Saúde, de 20 de março de 2020">Redijo afastamento de familiares</option><option value="Paciente nega afastamento de familiares" selected>Paciente nega afastamento de familiares</option></select>;</li>
+            <li><strong>Sintomáticos:</strong> <select name="symptomatics" id="symptomatics-defaulttr"><option value="Prescrevo sintomáticos" selected>Prescrevo sintomáticos</option><option value="Oriento uso de sintomáticos já em posse do paciente">Oriento uso de sintomáticos já em posse do paciente</option><option value="false">Não são necessários</option></select>;</li>
+            <li><input type="checkbox" id="ln-defaulttr" value="ln"><label for="ln-defaulttr">Oriento lavagem nasal com soro fisiológico 0,9%;</label></li>
+            <li>Oriento sinais de alarme para retorno e reavaliação em acolhimento no Sintomáticos Respiratórios;</li>
+            <li>Oriento ausência de evidências científicas validando o uso de "medicações para COVID" (e.g. dexametasona, ivermectina, azitromicina) em pacientes ambulatoriais, assim como reforço a CONTRAINDICAÇÃO FORMAL de uso de azitromicina em casos de suspeita de infeção por SARS-CoV-2 sem sinais de infecção bacteriana (Choosing Wisely Brasil);</li>
+            <li>Alta do episódio após realização de TRs.</li>
           </ol>
           <ol id="yes-covid">
             <li>Oriento paciente do resultado positivo para infecção por SARS-CoV-2 (COVID-19);</li>
@@ -838,7 +850,7 @@
           </ol>
           <ol id="bai-tr">
             <li>Oriento paciente dos resultados NEGATIVOS dos Testes Rápidos para SARS-CoV-2 e Influenza A/B;</li>
-            <li><input type="checkbox" id="leave-needed-baitr" value="leave-needed"><label for="leave-needed-baitr"><strong>Atestado:</strong> Atesto para <input type="number" id="leave-tr" name="leave" value="3" /> dias;</label></li>
+            <li><input type="checkbox" id="leave-needed-baitr" value="leave-needed"><label for="leave-needed-baitr"><strong>Atestado:</strong> Atesto para <input type="number" id="leave-baitr" name="leave" value="3" /> dias;</label></li>
             <li><strong>Sintomáticos:</strong> <select name="symptomatics" id="symptomatics-baitr"><option value="Prescrevo sintomáticos">Prescrevo sintomáticos</option><option value="Oriento uso de sintomáticos já em posse do paciente">Oriento uso de sintomáticos já em posse do paciente</option><option value="false" selected>Não são necessários</option></select>;</li>
             <li><input type="checkbox" id="ln-baitr" value="ln"><label for="ln-baitr">Oriento lavagem nasal com soro fisiológico 0,9%;</label></li>
             <li>Alta do episódio;</li>

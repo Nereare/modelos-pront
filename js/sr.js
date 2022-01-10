@@ -253,6 +253,13 @@ $(document).ready(function() {
         var exam_date = new Date($("#exam-eval-date").val() + "T00:00:00.000-03:00");
         var foobar = $("#output-o").val();
         $("#output-o").val(foobar + "\n" + $("#exam-eval").val() + " de " + exam_date.toLocaleDateString("pt-BR") + " com resultado " + $("#" + $("#exam-eval option:selected" ).attr("class")).val() + ".");
+      } else if( $("input[name='reeval']:checked").val() == "first" ) {
+        var covid = "Aguardando realização de TR para Antígeno de SARS-CoV-2;";
+        if ( $("#tr-covid").val() != "" ) { covid = "TR para Antígeno de SARS-CoV-2 " + $("#tr-covid").val() + ";"; }
+        var influenza = "Aguardando realização de TR para Antígenos de Influenza A/B.";
+        if ( $("#tr-influenza").val() != "" ) { influenza = "TR para Antígenos de Influenza A/B " + $("#tr-influenza").val() + "."; }
+        var foobar = $("#output-o").val();
+        $("#output-o").val(foobar + "\n\n" + covid + "\n" + influenza);
       }
     }
     // Plano
@@ -416,6 +423,21 @@ function runPlans() {
       plans.push("Oriento sinais de alarme para retorno precoce e reavaliação em acolhimento no Sintomáticos Respiratórios");
       plans.push("Oriento ausência de evidências científicas validando o uso de \"medicações para COVID\" (e.g. dexametasona, ivermectina, azitromicina) em pacientes ambulatoriais, assim como reforço a CONTRAINDICAÇÃO FORMAL de uso de azitromicina em casos de suspeita de infeção por SARS-CoV-2 sem sinais de infecção bacteriana (Choosing Wisely Brasil)");
       plans.push("Alta do episódio");
+      break;
+    case "default-tr":
+      if( $("#leave-needed-defaulttr").is(":checked") ) {
+        plans.push("Atesto para " + $("#leave-defaulttr").val() + " dias");
+      }
+      plans.push($("#family-leave-defaulttr").val());
+      if( $("#symptomatics-defaulttr").val() != "false" && $("#symptomatics-defaulttr").val() != "" ) {
+        plans.push($("#symptomatics-defaulttr").val());
+      }
+      if( $("#ln-defaulttr").is(':checked') ) {
+        plans.push("Oriento lavagem nasal com soro fisiológico 0,9%");
+      }
+      plans.push("Oriento sinais de alarme para retorno precoce e reavaliação em acolhimento no Sintomáticos Respiratórios");
+      plans.push("Oriento ausência de evidências científicas validando o uso de \"medicações para COVID\" (e.g. dexametasona, ivermectina, azitromicina) em pacientes ambulatoriais, assim como reforço a CONTRAINDICAÇÃO FORMAL de uso de azitromicina em casos de suspeita de infeção por SARS-CoV-2 sem sinais de infecção bacteriana (Choosing Wisely Brasil)");
+      plans.push("Alta do episódio após realização de TRs");
       break;
     case "yes-covid":
       plans.push("Oriento paciente do resultado positivo para infecção por SARS-CoV-2 (COVID-19)");
