@@ -24,7 +24,7 @@ article {
   border: solid 4px $accent2;
   border-radius: 16px;
   overflow: auto;
-  margin: 0.5em 0.5em 2em 0.5em;
+  margin: 0.5em 0.5em 0.5em 0.5em;
   float: left;
 
   &:hover {
@@ -38,4 +38,9 @@ article {
     * { margin: 0; }
   }
   img { width: 50%; }
+  &.wide {
+    width: 95%;
+    margin-right: 0;
+    img { width: 25%; }
+  }
 }
