@@ -136,29 +136,35 @@ $( document ).ready(function() {
         case "preg1med":
           dx = "Gestante";
           s11 = "Glicemia, TSH, T4 Livre, Eritrograma (Hemoglobina + Hematócrito), Tipagem Sanguínea AB0,";
-          s12 = "Tipagem Sanguínea Rh, Urina Tipo 1, Urocultura, Protoparasitológico de Fezes";
+          s12 = "Tipagem Sanguínea Rh, Urina Tipo 1, Urocultura, Protoparasitológico de Fezes, Hemoglobina";
+          s13 = "glicada";
           s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg),";
-          s22 = "Sorologia para Hepatite C (Anti-HCV), Sorologia para Toxoplasmose (IgM e IgG)";
+          s22 = "Sorologia para Hepatite C (Anti-HCV), Sorologia para Toxoplasmose (IgM e IgG), Dosagem de";
+          s23 = "Anti-HBs";
           break;
         case "preg23nurse":
           dx = "Gestante";
           s11 = "Glicemia, Urina Tipo 1, Urocultura";
-          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis";
+          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAG), Sorologia";
+          s22 = "para Hepatite C (Anti-HCV)";
           break;
         case "preg23nursetoxo":
           dx = "Gestante";
           s11 = "Glicemia, Urina Tipo 1, Urocultura";
-          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Toxoplasmose (IgM e IgG)";
+          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Toxoplasmose (IgM e IgG),";
+          s22 = "Sorologia para Hepatite B (HBsAg), Sorologia para Hepatite C (Anti-HCV)";
           break;
         case "preg23med":
           dx = "Gestante";
           s11 = "Glicemia, TSH, T4 Livre, Urina Tipo 1, Urocultura";
-          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis";
+          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg),";
+          s22 = "Sorologia para Hepatite C (Anti-HCV)";
           break;
         case "preg23medtoxo":
           dx = "Gestante";
           s11 = "Glicemia, TSH, T4 Livre, Urina Tipo 1, Urocultura";
-          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Toxoplasmose (IgM e IgG)";
+          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Toxoplasmose (IgM e IgG),";
+          s22 = "Sorologia para Hepatite B (HBsAg), Sorologia para Hepatite C (Anti-HCV)";
           break;
         case "preg2428":
           dx = "Gestante";
