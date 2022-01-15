@@ -1,0 +1,30 @@
+$accent1: #0277bd; // 800
+$accent2: #0091ea; // A700
+
+h1, h2, h3, h4, h5, h6 { color: $accent1; }
+a { color: $accent2; }
+fieldset { border-color: $accent2; }
+legend { color: $accent1; }
+textarea { border-left-color: $accent1; }
+
+ol {
+  display: none;
+  li:before { color: $accent1; }
+}
+strong { color: $accent1; }
+em {
+  color: $accent2;
+  &.ident { margin-left: 1.5em; }
+}
+table {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid $accent2;
+  border-radius: 5px;
+}
+
+#breathe-abnormal-desc-field,
+#lung-crept-field,
+#abdomen-mass-chart,
+#abdomen-stuff-desc,
+#abdomen-skoda-desc { display: none; }
