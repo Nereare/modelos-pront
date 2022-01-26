@@ -441,6 +441,12 @@ function runO() {
     o.push( ssvv.join(" | ") );
   }
 
+  if( $("#exam-neck").is(":checked") ) {
+    var cerv = ["Cervical:"];
+    if( $("#thyroid").val() != "" ) { cerv.push( "Tiroide " + $("#thyroid").val() + "." ); }
+    if( $("#lymph").val() != "" ) { cerv.push( $("#lymph").val() + $("#lymph-desc").val() + "." ); }
+    o.push( cerv.join(" ") );
+  }
   if( $("#exam-lung").is(":checked") ) {
     var crept = ".";
     if(
