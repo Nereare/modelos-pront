@@ -1,5 +1,5 @@
-$accent1: #689f38; // 700
-$accent2: #64dd17; // A700
+$accent1: #ff8f00;
+$accent2: #ffab00;
 
 h1, h2, h3, h4, h5, h6 { color: $accent1; }
 a { color: $accent2; }
@@ -22,6 +22,7 @@ header {
     margin: 0.5em 0;
   }
 }
+
 @keyframes pulse {
   to {
     box-shadow: 0 0 0 15px rgba(232, 76, 61, 0);
