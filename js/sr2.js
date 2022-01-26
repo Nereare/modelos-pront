@@ -136,7 +136,7 @@ $(document).ready(function() {
   });
 
   // Calculate Pediatric Strep Score:
-  $("#keysymp1, #keysymp2, #keysymp3, #keysymp5, #keysymp6, #keysymp12, #othersymp20, input[name='fever'], #ssvv-temp, #ssvv-temp-type, #exam-neck, #lymph, #exam-oro, #exam-oro-pharynx, #exam-oro-tonsils").on("input change", function() {
+  $("#keysymp1, #keysymp2, #keysymp3, #keysymp5, #keysymp6, #keysymp12, #othersymp20, input[name='fever'], #ssvv-temp, #ssvv-temp-type, #exam-neck, #lymph, #exam-oro, #exam-oro-pharynx, #exam-oro-tonsils, #age").on("input change", function() {
     $("#strep").html( "X" );
     $("#strep-desc").html( "..." );
     if( $("#eval").val() == "1" && $("#keysymp3").is(":checked") ) {
