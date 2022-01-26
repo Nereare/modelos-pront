@@ -417,6 +417,7 @@ function runO() {
       $("#ssvv-pad").val() != ""
     ) ||
     $("#ssvv-fr").val() != "" ||
+    $("#ssvv-temp").val() != "" ||
     $("#ssvv-weight").val() != "" ||
     $("#ssvv-height").val() != ""
   ) {
@@ -425,6 +426,7 @@ function runO() {
     if( $("#ssvv-pulse").val() != "" ) { ssvv.push( "Pulso = " + $("#ssvv-pulse").val() + "bpm" ); }
     if( $("#ssvv-pas").val() != "" ) { ssvv.push( "PA = " + $("#ssvv-pas").val() + "/" + $("#ssvv-pad").val() + "mmHg" ); }
     if( $("#ssvv-fr").val() != "" ) { ssvv.push( "FR = " + $("#ssvv-fr").val() + "irpm" ); }
+    if( $("#ssvv-temp").val() != "" ) { ssvv.push( "Temp = " + $("#ssvv-temp").val() + "°C (" + $("#ssvv-temp-type").val() + ")" ); }
     if( $("#ssvv-weight").val() != "" ) { ssvv.push( "Peso = " + $("#ssvv-weight").val() + "kg" ); }
     if( $("#ssvv-height").val() != "" ) { ssvv.push( "Alt = " + $("#ssvv-height").val() + "cm" ); }
     if(
