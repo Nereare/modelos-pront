@@ -227,6 +227,14 @@
               <input type="checkbox" id="othersymp21" name="othersymps" value="inapetência">
               <label for="othersymp21">Inapetência</label>
             </li>
+            <li>
+              <input type="checkbox" id="othersymp22" name="othersymps" value="irritação ocular">
+              <label for="othersymp22">Irritação Ocular</label>
+            </li>
+            <li>
+              <input type="checkbox" id="othersymp23" name="othersymps" value="secreção ocular">
+              <label for="othersymp23">Secreção Ocular</label>
+            </li>
           </ul>
 
           <textarea id="miscsymps" placeholder="Inclua aqui sintomas outros além dos acima, separados por VÍRGULA. Os sintomas aqui descritos serão transformados em letras minúsculas."></textarea>
@@ -741,6 +749,24 @@
           </div>
 
           <h2>Geral</h2>
+          <p>
+            <input type="checkbox" id="exam-eye">
+            <label for="exam-eye">
+              <strong>Olhos:</strong>
+              Conjuntiva
+              <select id="eye-white">
+                <option value="sem alterações" selected>Nl</option>
+                <option value="com hiperemia leve">&half;hiperm</option>
+                <option value="com hiperemia moderada">hiperm</option>
+              </select>
+              , secreções
+              <select id="eye-secr">
+                <option value="ausentes">&empty;</option>
+                <option value="presentes">+</option>
+              </select>
+            </label>
+          </p>
+
           <p>
             <input type="checkbox" id="exam-neck">
             <label for="exam-neck">

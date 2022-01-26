@@ -441,6 +441,9 @@ function runO() {
     o.push( ssvv.join(" | ") );
   }
 
+  if( $("#exam-eye").is(":checked") ) {
+    o.push( "Olhos: conjuntiva " + $("#eye-white").val() + ", secreções " + $("#eye-secr").val() + "." );
+  }
   if( $("#exam-neck").is(":checked") ) {
     var cerv = ["Cervical:"];
     if( $("#thyroid").val() != "" ) { cerv.push( "Tiroide " + $("#thyroid").val() + "." ); }
