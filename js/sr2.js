@@ -62,6 +62,13 @@ $(document).ready(function() {
     $("#plan-delusion").prop("checked", true);
   });
 
+  // Change febrile state when fever is input
+  $("#ssvv-temp").on("input change", function() {
+    var temp = parseFloat( $("#ssvv-temp").val() );
+    if( temp >= 37.8 ) { $("#fever-yes").prop("checked", true); }
+    else { $("#fever-none").prop("checked", true); }
+  });
+
   // Enable abnormal breathing description:
   $("input[name='breathe']").on("change", function() {
     if( $("input[name='breathe']:checked").val() == "dispneice" ) {
