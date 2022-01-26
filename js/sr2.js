@@ -128,6 +128,61 @@ $(document).ready(function() {
     else { $("#mmiipulse-descriptors").css("display", "inline-block"); }
   });
 
+  // Calculate Pediatric Strep Score:
+  $("#keysymp1, #keysymp2, #keysymp3, #keysymp5, #keysymp6, #keysymp12, #othersymp20, input[name='fever'], #ssvv-temp, #ssvv-temp-type, #exam-neck, #lymph, #exam-oro, #exam-oro-pharynx, #exam-oro-tonsils").on("input change", function() {
+    $("#strep").html( "X" );
+    $("#strep-desc").html( "..." );
+    if( $("#eval").val() == "1" && $("#keysymp3").is(":checked") ) {
+      if(
+        $("#age").val() != "" &&
+        $("#exam-oro").is(":checked") &&
+        $("#exam-neck").is(":checked") &&
+        $("#lymph").val() != ""
+      ) {
+        var score = 1;
+        if( $("input[name='fever']:checked").val() == "febril" || parseFloat( $("#ssvv-temp").val() ) >= 37.8 ) { score += 1; }
+        var doy = new Date();
+        doy = doy.getDOY();
+        if( doy >= 152 && doy <= 334 ) { score += 1; }
+        var age = parseInt( $("#age").val() );
+        if( age >= 5 && age <= 15 ) { score += 1; }
+        if(
+          $("#exam-oro").is(":checked") &&
+          $("#exam-oro-pharynx").val() == "muito hiperemiada" &&
+          $("#exam-oro-tonsils").val() != "ausentes, como esperado para idade," &&
+          $("#exam-oro-tonsils").val() != "ausentes"
+        ) { score += 1; }
+        if(
+          $("#exam-neck").is(":checked") &&
+          $("#lymph").val() != "" &&
+          $("#lymph").val() != "Sem linfonodomegalias cervicais, periauriculares ou supraclávicas palpáveis"
+        ) { score += 1; }
+        if(
+          $("#keysymp1").is(":checked") ||
+          $("#keysymp2").is(":checked") ||
+          $("#keysymp12").is(":checked") ||
+          $("#othersymp20").is(":checked") ||
+          (
+            $("#exam-eye").is(":checked") &&
+            $("#eye-white").val() != "sem alterações"
+          )
+        ) { score -= 1; }
+        $("#strep").html( score );
+        var desc = [
+          "Provavelmente nem faringotonsilite é...",
+          "Faringotonsilite provavelmente NÃO bacteriana",
+          "Faringotonsilite provavelmente NÃO bacteriana",
+          "Faringotonsilite provavelmente NÃO bacteriana, considerar TR ou Cultura para GAS",
+          "Faringotonsilite de etiologia incerta, considerar TR ou Cultura para GAS",
+          "Faringotonsilite possivelmente bacteriana",
+          "Faringotonsilite provavelmente bacteriana"
+        ];
+        $("#strep-desc").html( desc[score] );
+      }
+      $("#strepscore").removeClass("hidden");
+    } else { $("#strepscore").addClass("hidden"); }
+  });
+
   // Select evaluation type
   $("#eval").on("change", function() {
     switch( $("#eval").val() ) {
@@ -487,6 +542,9 @@ function runO() {
     if( $("#mmiipulse-strength").val() == "ausentes até aa. femorais" ) { pulse = $("#mmiipulse-strength").val(); }
     else { pulse = $("#mmiipulse-strength").val() + " e " + $("#mmiipulse-simmetry").val() + ", palpáveis a partir de " + $("#mmiipulse-artery").val(); }
     o.push( "MMII: " + oedema + ", pulsos " + pulse + "." );
+  }
+  if( $("#strep").html() != "X" ) {
+    o.push( "Strep Score Pediátrico = " + $("#strep").html() + " (" + $("#strep-desc").html() + ")" );
   }
 
   if( $("#exam-covid-date").val() != "" ) {

@@ -32,6 +32,22 @@ header {
   &.due { animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1); }
 }
 
+#strepscore {
+  position: fixed;
+  bottom: 1em;
+  left: 1em;
+  width: 20em;
+
+  fieldset { background: white; }
+  p {
+    margin: 0.2em;
+    &#strep {
+      font-size: 1.5em;
+      text-align: center;
+    }
+  }
+}
+
 #family-leave-form { display: none; }
 .container { overflow: auto; }
 #sympstart {
