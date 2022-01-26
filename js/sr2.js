@@ -110,7 +110,7 @@ $(document).ready(function() {
   }).change();
 
   // Calculate BMI when appliable:
-  $("#ssvv-weight, #ssvv-height").on("input, change", function() {
+  $("#ssvv-weight, #ssvv-height").on("input change", function() {
     if(
       $("#ssvv-weight").val() != "" &&
       $("#ssvv-height").val() != ""
