@@ -122,39 +122,116 @@
             </span>
           </p>
 
-          <h2>Sinais Vitais</h2>
-          <p>
-            <strong>Sat. O<sub>2</sub>:</strong>
-            <input type="number" id="ssvv-sat" min="0" max="100" step="1" placeholder="#">
-            %
-            <select id="ssvv-sat-type">
-              <option value="em ar ambiente" selected>aa</option>
-              <option value="em cateter nasal de O2">CN O<sub>2</sub></option>
-              <option value="em máscara não-reinalante">Másc+Reserv</option>
-            </select>
-          </p>
+          <div class="container">
+            <h2>Sinais Vitais</h2>
+            <div class="half">
+              <p>
+                <strong>Sat. O<sub>2</sub>:</strong>
+                <input type="number" id="ssvv-sat" class="short" min="0" max="100" step="1" placeholder="#">
+                %
+                <select id="ssvv-sat-type">
+                  <option value="em ar ambiente" selected>aa</option>
+                  <option value="em cateter nasal de O2">CN O<sub>2</sub></option>
+                  <option value="em máscara não-reinalante">Másc+Reserv</option>
+                </select>
+              </p>
+              <p>
+                <strong>Pulso:</strong>
+                <input type="number" id="ssvv-pulse" class="short" min="1" step="1" placeholder="#">
+                bpm
+              </p>
+              <p>
+                <strong>PA:</strong>
+                <input type="number" id="ssvv-pas" class="short" min="1" step="2" placeholder="PAS">
+                x
+                <input type="number" id="ssvv-pad" class="short" min="1" step="2" placeholder="PAD">
+                mmHg
+              </p>
+              <p>
+                <strong>FR:</strong>
+                <input type="number" id="ssvv-fr" class="short" min="1" step="1" placeholder="#">
+                irpm
+              </p>
+            </div>
 
-          <p>
-            <strong>Pulso:</strong>
-            <input type="number" id="ssvv-pulse" min="1" step="1" placeholder="#">
-            bpm
-          </p>
-
-          <p>
-            <strong>PA:</strong>
-            <input type="number" id="ssvv-pas" min="1" step="2" placeholder="PAS">
-            x
-            <input type="number" id="ssvv-pad" min="1" step="2" placeholder="PAD">
-            mmHg
-          </p>
-
-          <p>
-            <strong>FR:</strong>
-            <input type="number" id="ssvv-fr" min="1" step="1" placeholder="#">
-            irpm
-          </p>
+            <div class="half">
+              <p>
+                <strong>Temp:</strong>
+                <input type="number" id="ssvv-temp" class="short" min="1" step="0.1" placeholder="#">
+                °C
+                <select id="ssvv-temp-desc">
+                  <option value="axilar">axila</option>
+                  <option value="infravermelho de testa">testa</option>
+                </select>
+              </p>
+              <p>
+                <strong>Peso:</strong>
+                <input type="number" id="ssvv-weight" class="short" min="0" step="0.1" placeholder="#">
+                kg
+              </p>
+              <p>
+                <strong>Alt:</strong>
+                <input type="number" id="ssvv-height" class="short" min="1" step="1" placeholder="#">
+                cm
+              </p>
+              <p>
+                <strong>IMC:</strong>
+                <input type="number" id="ssvv-bmi" class="short" placeholder="#" disabled>
+                kg/m<sup>2</sup>
+              </p>
+            </div>
+          </div>
 
           <h2>Geral</h2>
+          <p>
+            <input type="checkbox" id="exam-eye">
+            <label for="exam-eye">
+              <strong>Olhos:</strong>
+              Conjuntiva
+              <select id="eye-white">
+                <option value="sem alterações" selected>Nl</option>
+                <option value="com hiperemia leve">&half;hiperm</option>
+                <option value="com hiperemia moderada">hiperm</option>
+              </select>
+              , secreções
+              <select id="eye-secr">
+                <option value="ausentes">&empty;</option>
+                <option value="presentes">+</option>
+              </select>
+            </label>
+          </p>
+
+          <p>
+            <input type="checkbox" id="exam-neck">
+            <label for="exam-neck">
+              <strong>Cervical:</strong>
+              Tireoide
+              <select id="thyroid">
+                <option value="" selected>N/A</option>
+                <option value="não palpável">&empty;</option>
+                <option value="palpável topicamente, sem alterações de volume ou de superfície palpáveis">Nl</option>
+                <option value="palpável topicamente, levemente aumentada mas sem alterações palpáveis de superfície">&uarr;Vol</option>
+                <option value="palpável topicamente, bastante aumentada mas sem alterações palpáveis de superfície">&uarr;&uarr;&uarr;Vol</option>
+                <option value="palpável topicamente, volume aumentado às custas de nódulo único">&uarr;Vol/Nód</option>
+                <option value="palpável topicamente, volume aumentado às custas de diversos nódulos">&uarr;Vol/Nód++</option>
+              </select>
+              ,
+              <select id="lymph">
+                <option value="" selected>N/A</option>
+                <option value="Sem linfonodomegalias cervicais, periauriculares ou supraclávicas palpáveis">Nl</option>
+                <option value="Presença de alguns linfonodos palpáveis, menores que 05mm">Linf&lt;5mm</option>
+                <option value="Presença de algumas linfonodomegalias">Linf&gt;5mm</option>
+                <option value="Presença de inúmeros linfonodos palpáveis, todos menores que 05mm">Linf++&lt;5mm</option>
+                <option value="Presença de inúmeras linfonodomegalias palpáveis">Linf++&gt;5mm</option>
+              </select>
+              <select id="lymph-desc">
+                <option value="" selected>&empty;</option>
+                <option value=", fibroelásticos, móveis, não-aderidos a planos profundos e dolorosos">reacionais</option>
+                <option value=", endurados, coalescidos, aderidos a planos profundos e indolores"></option>
+              </select>
+            </label>
+          </p>
+
           <p>
             <input type="checkbox" id="exam-lung">
             <label for="exam-lung">
@@ -285,7 +362,7 @@
               </select>
               <br>
               <em class="ident">Hepatimetria:</em>
-              <input type="number" min="-10" max="10" step="1" value="0" placeholder="#">
+              <input type="number" id="abdomen-hepatimetry" min="-10" max="10" step="1" value="0" placeholder="#">
               <span class="tooltip">
                 cm
                 <span class="tooltiptext">
@@ -443,8 +520,8 @@
               , tonsilas
               <select id="exam-oro-tonsils" name="exam-oro-tonsils">
                 <option value="ausentes, como esperado para idade,">&empty;idade</option>
-                <option value="ausentes" selected>&empty;</option>
-                <option value="grau 1 de Brodsky">g1</option>
+                <option value="ausentes">&empty;</option>
+                <option value="grau 1 de Brodsky" selected>g1</option>
                 <option value="grau 2 de Brodsky">g2</option>
                 <option value="grau 3 de Brodsky">g3</option>
                 <option value="grau 4 de Brodsky">g4</option>
@@ -497,6 +574,51 @@
               </select>
               .
             </label>
+          </p>
+
+          <h2>Periferia</h2>
+          <p>
+            <strong>Pele:</strong>
+            <textarea id="skin" rows="4"></textarea>
+          </p>
+
+          <p>
+            <strong>MMII:</strong>
+            edema
+            <select id="oedema">
+              <option value="sem edemas" selected>&empty;</option>
+              <option value="com edema bilateral e simétrico">bilat</option>
+              <option value="com edema bilateral, maior à direita">bilat D&gt;E</option>
+              <option value="com edema bilateral, maior à esquerda">bilat D&lt;E</option>
+            </select>
+            <select id="oedema-grade">
+              <option value="1+/4+" selected>1+</option>
+              <option value="2+/4+">2+</option>
+              <option value="3+/4+">3+</option>
+              <option value="4+/4+">4+</option>
+            </select>
+            , pulsos
+            <select id="mmiipulse-strength">
+              <option value="cheios" selected>cheios</option>
+              <option value="fracos">&darr;</option>
+              <option value="em martelo d'água">&uarr;</option>
+              <option value="ausentes até aa. femorais">&empty;</option>
+            </select>
+            <span id="mmiipulse-descriptors">
+              <select id="mmiipulse-simmetry">
+                <option value="simétricos" selected>=</option>
+                <option value="diminuídos à direita">&darr;D</option>
+                <option value="diminuídos à esquerda">&darr;E</option>
+              </select>
+              a partir de aa.
+              <select id="mmiipulse-artery">
+                <option value="pediosas" selected>pediosas</option>
+                <option value="tibiais posteriores">tibiais post</option>
+                <option value="poplíteas">poplíteas</option>
+                <option value="femorais">femorais</option>
+              </select>
+            </span>
+            .
           </p>
         </div>
       </fieldset>

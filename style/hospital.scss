@@ -22,9 +22,13 @@ table {
   border: 1px solid $accent2;
   border-radius: 5px;
 }
+div.container { overflow: auto; }
+
+#skin { min-height: 1em; }
 
 #breathe-abnormal-desc-field,
 #lung-crept-field,
 #abdomen-mass-chart,
 #abdomen-stuff-desc,
-#abdomen-skoda-desc { display: none; }
+#abdomen-skoda-desc,
+#oedema-grade { display: none; }

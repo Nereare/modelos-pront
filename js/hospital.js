@@ -7,6 +7,13 @@ $(document).ready(function() {
     $("#maintenance").css("display", "block");
   }
 
+  // Change febrile state when fever is input
+  $("#ssvv-temp").on("input change", function() {
+    var temp = parseFloat( $("#ssvv-temp").val() );
+    if( temp >= 37.8 ) { $("#fever-yes").prop("checked", true); }
+    else { $("#fever-none").prop("checked", true); }
+  });
+
   // Enable abnormal breathing description:
   $("input[name='breathe']").on("change", function() {
     if( $("input[name='breathe']:checked").val() == "dispneice" ) {
@@ -71,8 +78,41 @@ $(document).ready(function() {
     }
   });
 
+  // Enable oedema intensity:
+  $("#oedema").on("change", function() {
+    if( $("#oedema").val() != "sem edemas" ) {
+      $("#oedema-grade").css("display", "inline-block");
+    } else {
+      $("#oedema-grade")
+        .css("display", "none")
+        .val("1+/4+");
+    }
+  });
+
+  // Calculate BMI when appliable:
+  $("#ssvv-weight, #ssvv-height").on("input change", function() {
+    if(
+      $("#ssvv-weight").val() != "" &&
+      $("#ssvv-height").val() != ""
+    ) {
+      var weight = parseFloat( $("#ssvv-weight").val() );
+      var height = parseFloat( $("#ssvv-height").val() ) / 100;
+      var bmi = weight / (height * height);
+      $("#ssvv-bmi").val( bmi.toFixed(1) );
+    }
+  });
+
+  // Disable MMII pulse descriptors, if absent:
+  $("#mmiipulse-strength").on("change", function() {
+    if( $("#mmiipulse-strength").val() == "ausentes até aa. femorais" ) { $("#mmiipulse-descriptors").css("display", "none"); }
+    else { $("#mmiipulse-descriptors").css("display", "inline-block"); }
+  });
+
   // Build output:
   $("#button-run").on("click", function() {
+    var o = ["# EF"];
+    o.push( "Paciente em " + $("#status").val() + "EG." );
+
     var qualitative_exam = [];
     if( $('input[name="color"]:checked').val() == "Corade" ) {
       qualitative_exam.push("Corade");
@@ -96,51 +136,124 @@ $(document).ready(function() {
     }
     qualitative_exam.push($('input[name="fever"]:checked').val());
     qualitative_exam.push($('input[name="breathe"]:checked').val());
+    o.push( humanList(qualitative_exam) + "." );
 
-    // Objetivo
-    $("#output-o").val("# EF\nPaciente em " + $("#status").val() + "EG.\n" + humanList(qualitative_exam) + ".\nSat. O2 = " + $("#ssvv-sat").val() + " " + $("#ssvv-sat-type").val() + " | Pulso = " + $("#ssvv-pulse").val() + "bpm | PA = " + $("#ssvv-pas").val() + "/" + $("#ssvv-pad").val() + "mmHg | FR = " + $("#ssvv-fr").val() + "irpm\n" );
+    // Vital Signs
     if(
-      $("#exam-lung").is(":checked") ||
-      $("#exam-heart").is(":checked") ||
-      $("#exam-oto").is(":checked") ||
-      $("#exam-oro").is(":checked") ||
-      $("#exam-naso").is(":checked")
+      $("#ssvv-sat").val() != "" ||
+      $("#ssvv-pulse").val() != "" ||
+      (
+        $("#ssvv-pas").val() != "" &&
+        $("#ssvv-pad").val() != ""
+      ) ||
+      $("#ssvv-fr").val() != "" ||
+      $("#ssvv-temp").val() != "" ||
+      $("#ssvv-weight").val() != "" ||
+      $("#ssvv-height").val() != ""
     ) {
-      var foobar = $("#output-o").val();
-      $("#output-o").val(foobar + "\n");
+      var ssvv = [];
+      if( $("#ssvv-sat").val() != "" ) { ssvv.push( "Sat. O2 = " + $("#ssvv-sat").val() + "% " + $("#ssvv-sat-type").val() ); }
+      if( $("#ssvv-pulse").val() != "" ) { ssvv.push( "Pulso = " + $("#ssvv-pulse").val() + "bpm" ); }
+      if( $("#ssvv-pas").val() != "" ) { ssvv.push( "PA = " + $("#ssvv-pas").val() + "/" + $("#ssvv-pad").val() + "mmHg" ); }
+      if( $("#ssvv-fr").val() != "" ) { ssvv.push( "FR = " + $("#ssvv-fr").val() + "irpm" ); }
+      if( $("#ssvv-temp").val() != "" ) { ssvv.push( "Temp = " + $("#ssvv-temp").val() + "°C (" + $("#ssvv-temp-type").val() + ")" ); }
+      if( $("#ssvv-weight").val() != "" ) { ssvv.push( "Peso = " + $("#ssvv-weight").val() + "kg" ); }
+      if( $("#ssvv-height").val() != "" ) { ssvv.push( "Alt = " + $("#ssvv-height").val() + "cm" ); }
+      if(
+        $("#ssvv-weight").val() != "" &&
+        $("#ssvv-height").val() != ""
+      ) {
+        var weight = parseFloat( $("#ssvv-weight").val() );
+        var height = parseFloat( $("#ssvv-height").val() ) / 100;
+        var bmi = weight / (height * height);
+        ssvv.push( "IMC = " + bmi.toFixed(1) + "kg/m²" );
+      }
+      o.push( ssvv.join(" | ") );
+    }
+
+    if( $("#exam-eye").is(":checked") ) {
+      o.push( "Olhos: conjuntiva " + $("#eye-white").val() + ", secreções " + $("#eye-secr").val() + "." );
+    }
+    if( $("#exam-neck").is(":checked") ) {
+      var cerv = ["Cervical:"];
+      if( $("#thyroid").val() != "" ) { cerv.push( "Tiroide " + $("#thyroid").val() + "." ); }
+      if( $("#lymph").val() != "" ) { cerv.push( $("#lymph").val() + $("#lymph-desc").val() + "." ); }
+      o.push( cerv.join(" ") );
     }
     if( $("#exam-lung").is(":checked") ) {
-      var foobar = $("#output-o").val();
       var crept = ".";
       if(
         $("#lung-sounds").val() == "com crepitação estertorante em " ||
         $("#lung-sounds").val() == "com redução de murmúrios vesiculares até " ||
         $("#lung-sounds").val() == "com sopro cavernoso em "
       ) { crept = $("#lung-crept").val() + "."; }
-      $("#output-o").val(foobar + "Pulm: murmúrios vesiculares " + $("#lung").val() + ", " + $("#lung-sounds").val() + crept);
+      o.push( "Pulm: murmúrios vesiculares " + $("#lung").val() + ", " + $("#lung-sounds").val() + crept );
     }
     if( $("#exam-heart").is(":checked") ) {
-      var foobar = $("#output-o").val();
       var murmur = $("#heart-murmur").val();
       if( murmur == "com sopro" ) {
         murmur += " " + $("#heart-murmur-desc").val();
       }
-      $("#output-o").val(foobar + "Card: bulhas " + $("#heart-rhythm").val() + " e " + $("#heart-sounds").val() + " em " + $("#heart-times").val() + " " + murmur + ".");
+      o.push( "Card: bulhas " + $("#heart-rhythm").val() + " e " + $("#heart-sounds").val() + " em " + $("#heart-times").val() + " " + murmur + "." );
+    }
+    if( $("#exam-abdomen").is(":checked") ) {
+      var abd = "Abdome: " + $("#abdomen").val() + ", ruídos hidroaéreos " + $("#abdomen-rha").val() + ", " + $("#abdomen-tension").val() + ", percussão " + $("#abdomen-percussion").val();
+      if( $("#abdomen-percussion").val() != "globalmente timpânica" ) {
+        var mass = [];
+        $.each($("input[name='abdomen-mass']:checked"), function(){ mass.push( $(this).val() ); });
+        abd += humanList( mass );
+      }
+      abd += ", espaço de Traube " + $("#abdomen-traube").val() + ", margem inferior de fígado percutível ";
+      var hep = parseInt( $("#abdomen-hepatimetry").val() );
+      if( hep > 0 ) { abd += Math.abs(hep) + "cm abaixo de rebordo costal direito"; }
+      else if ( hep < 0 ) { abd += Math.abs(hep) + "cm acima de rebordo costal direito"; }
+      else { abd += "em nível de rebordo costal direito"; }
+      if( $("#abdomen-mobilemass").val() != "" ) { abd += ", macicez móvel " + $("#abdomen-mobilemass").val(); }
+      if( $("#abdomen-skoda").val() != "" ) {
+        abd += ", semicírculo de Skoda " + $("#abdomen-skoda").val();
+        if( $("#abdomen-skoda").val() == "presente a " ) { abd += $("#abdomen-skoda-cm").val() + "cm de cicatriz umbilical"; }
+      }
+      if( $("#abdomen-fillip").val() != "" ) { abd += ", sinal do piparote " + $("#abdomen-fillip").val(); }
+      abd += ", " + $("#abdomen-stuff").val();
+      if( $("#abdomen-stuff").val() == "com " ) { abd += $("#abdomen-stuff-desc").val(); }
+      if( $("#abdomen-peritonitis").val() != "" ) { abd += ", descompressão brusca " + $("#abdomen-peritonitis").val(); }
+      abd += ".";
+      if( $("#abdomen-other").val() != "" ) { abd += $("#abdomen-other").val(); }
+
+      o.push( abd );
+    }
+    if( $("#exam-murphy").is(":checked") ) {
+      o.push( "Sinal de Murphy " + $("#murphy").val() + "." );
+    }
+    if( $("#exam-mcburney").is(":checked") ) {
+      o.push( "Sinal de McBurney " + $("#mcburney").val() + "." );
+    }
+    if( $("#exam-giordano").is(":checked") ) {
+      o.push( "Giordano " + $("#giordano").val() + "." );
     }
     if( $("#exam-oto").is(":checked") ) {
-      var foobar = $("#output-o").val();
-      $("#output-o").val(foobar + "Otoscopia:\n- OD: membrana timpânica direita " + $("#oto-d-membrane").val() + " " + $("#oto-d-retromembrane").val() + ". Conduto auditivo direito " + $("#oto-d-canal").val() + ".\n- OE: membrana timpânica esquerda " + $("#oto-e-membrane").val() + " " + $("#oto-e-retromembrane").val() + ". Conduto auditivo esquerdo " + $("#oto-e-canal").val() + ".");
+      o.push( "Otoscopia:\n- OD: membrana timpânica direita " + $("#oto-d-membrane").val() + " " + $("#oto-d-retromembrane").val() + ". Conduto auditivo direito " + $("#oto-d-canal").val() + ".\n- OE: membrana timpânica esquerda " + $("#oto-e-membrane").val() + " " + $("#oto-e-retromembrane").val() + ". Conduto auditivo esquerdo " + $("#oto-e-canal").val() + "." );
     }
     if( $("#exam-oro").is(":checked") ) {
-      var foobar = $("#output-o").val();
-      $("#output-o").val(foobar + "Oroscopia: orofaringe " + $("#exam-oro-pharynx").val() + ", com tonsilas palatinas " + $("#exam-oro-tonsils").val() + " " + $("#exam-oro-tonsilcover").val() + " e palato mole " + $("#exam-oro-palate").val() + "." );
+      o.push( "Oroscopia: orofaringe " + $("#exam-oro-pharynx").val() + ", com tonsilas palatinas " + $("#exam-oro-tonsils").val() + " " + $("#exam-oro-tonsilcover").val() + " e palato mole " + $("#exam-oro-palate").val() + "." );
     }
     if( $("#exam-naso").is(":checked") ) {
-      var foobar = $("#output-o").val();
-      $("#output-o").val(foobar + "Nasoscopia anterior: mucosa " + $("#naso-skin").val() + ", cornetos nasais " + $("#naso-shells").val() + " e " + $("#naso-sept").val());
+      o.push( "Nasoscopia anterior: mucosa " + $("#naso-skin").val() + ", cornetos nasais " + $("#naso-shells").val() + " e " + $("#naso-sept").val() );
     }
+    if( $("#skin").val() != "" ) {
+      o.push( "Pele: " + $("#skin").val() );
+    }
+    if( $("#exam-extr").is(":checked") ) {
+      var oedema = $("#oedema").val();
+      if( oedema != "sem edemas" ) { oedema += " " + $("#oedema-grade").val(); }
+      var pulse = "";
+      if( $("#mmiipulse-strength").val() == "ausentes até aa. femorais" ) { pulse = $("#mmiipulse-strength").val(); }
+      else { pulse = $("#mmiipulse-strength").val() + " e " + $("#mmiipulse-simmetry").val() + ", palpáveis a partir de " + $("#mmiipulse-artery").val(); }
+      o.push( "MMII: " + oedema + ", pulsos " + pulse + "." );
+    }
+
+    $("#output-o").val( o.join("\n") );
   });
-  // / Build output
 });
 
 function humanList(arr) {
