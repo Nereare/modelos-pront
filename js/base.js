@@ -17,7 +17,7 @@ Date.prototype.getDOY = function() {
 $(document).ready(function() {
   const name = "Modelo de Prontuários";
   const author = "Igor Padoim";
-  const year = "2021";
+  const year = "2021-2022";
   const license_name = "Licença Hipocrática";
   const license_url = "https://firstdonoharm.dev/";
   const version = "1.25.22-r22";
