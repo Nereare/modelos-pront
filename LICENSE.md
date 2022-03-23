@@ -1,4 +1,4 @@
-[Modelo de Prontuários](README.md) Copyright 2021 Igor Padoim ("Licensor")
+[Modelo de Prontuários](README.md) Copyright 2021-2022 Igor Padoim ("Licensor")
 
 # Hippocratic License Version Number: 2.1.
 
