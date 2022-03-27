@@ -45,6 +45,7 @@ __metadata:
   dependencies:
     clipboard: ^2.0.8
     jquery: ^3.6.0
+    moment: ^2.29.1
     normalize.css: ^8.0.1
     typeface-lato: ^1.1.13
     typeface-montserrat: ^1.1.13
@@ -53,6 +54,13 @@ __metadata:
     typeface-source-code-pro: ^1.1.13
   languageName: unknown
   linkType: soft
+
+"moment@npm:^2.29.1":
+  version: 2.29.1
+  resolution: "moment@npm:2.29.1"
+  checksum: 86729013febf7160de5b93da69273dd304d674b0224f9544b3abd09a87671ddd2cdd57598261ce57588910d63747ffd5590965e83c790d8bf327083c0e0a06e0
+  languageName: node
+  linkType: hard
 
 "normalize.css@npm:^8.0.1":
   version: 8.0.1

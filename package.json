@@ -16,6 +16,7 @@
   "dependencies": {
     "clipboard": "^2.0.8",
     "jquery": "^3.6.0",
+    "moment": "^2.29.1",
     "normalize.css": "^8.0.1",
     "typeface-lato": "^1.1.13",
     "typeface-montserrat": "^1.1.13",
