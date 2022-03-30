@@ -1,41 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Modelo de Prontuários &ndash;  Termos de Uso</title>
+<?php
+/**
+ * The slug for this page.
+ * IMPORTANT: Set the variable below so that the header works properly!
+ * @var string
+ */
+$page = 'usage';
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/favicon/site.webmanifest">
-    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#1565c0">
-    <link rel="shortcut icon" href="/favicon/favicon.ico">
-    <meta name="msapplication-TileColor" content="#1565c0">
-    <meta name="msapplication-config" content="/favicon/browserconfig.xml">
-    <meta name="theme-color" content="#1565c0">
+require_once "header.php";
+?>
 
-    <link href="node_modules/typeface-lato/index.css" rel="stylesheet" type="text/css">
-    <link href="node_modules/typeface-montserrat/index.css" rel="stylesheet" type="text/css">
-    <link href="node_modules/typeface-source-code-pro/index.css" rel="stylesheet" type="text/css">
-    <link href="node_modules/normalize.css/normalize.css" rel="stylesheet" type="text/css">
-    <link href="style/base.css" rel="stylesheet" type="text/css">
-    <link href="style/page.css" rel="stylesheet" type="text/css">
-
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="js/base.js"></script>
-  </head>
-  <body>
-    <header>
+<section class="section">
+  <div class="container">
+    <div class="content">
       <h1>Termos de Uso</h1>
-    </header>
-
-    <main>
       <h2>1. Termos</h2>
       <p>Ao acessar este projeto (e qualquer distribuição de sítio eletrônico a partir dele gerado), você concorda em cumprir estes termos de serviço, todas as leis e regulamentos aplicáveis ​​e concorda que é responsável pelo cumprimento de todas as leis locais aplicáveis.</p>
       <p>Se você não concordar com algum desses termos, está proibido de usar ou acessar este site. Os materiais contidos neste site são protegidos pelas leis de direitos autorais e marcas comerciais aplicáveis.</p>
       <h2>2. Uso de Licença</h2>
-      <p>Os termos de uso do projeto, sítios eletrônicos a partir dele gerados, e qualquer material gerado por este projeto são regidos pela <a class="copy license"></a>.</p>
+      <p>Os termos de uso do projeto, sítios eletrônicos a partir dele gerados, e qualquer material gerado por este projeto são regidos pela <a href="LICENSE.md">Licença Hipocrática</a>.</p>
       <h2>3. Isenção de responsabilidade</h2>
       <p>Os materiais no site da são fornecidos <code>como estão</code> (<em>as is</em>). Não oferecemos garantias, expressas ou implícitas, e, por este meio, isenta e nega todas as outras garantias, incluindo, sem limitação, garantias implícitas ou condições de comercialização, adequação a um fim específico ou não violação de propriedade intelectual ou outra violação de direitos.</p>
       <p>Além disso, não garantimos ou fazemos qualquer representação relativa à precisão, aos resultados prováveis ​​ou à confiabilidade do uso dos materiais em seu site ou de outra forma relacionado a esses materiais ou em sites vinculados a este site.</p>
@@ -44,22 +26,18 @@
       <h2>5. Precisão dos materiais</h2>
       <p>Os materiais exibidos no site do projeto podem incluir erros técnicos, tipográficos ou fotográficos. Não garantimos que qualquer material em seu site seja preciso, completo ou atual. Podemos fazer alterações nos materiais contidos em seu site a qualquer momento, sem aviso prévio. No entanto, não nos comprometemos a atualizar os materiais.</p>
       <h2>6. Links</h2>
-      <p>Não analisamos todos os sites vinculados ao seu site e não somos responsáveis pelo conteúdo de nenhum site vinculado. A inclusão de qualquer link não implica endosso do site. O uso de qualquer site vinculado é por conta e risco do usuário.</p>
+      <p>Não analisamos todos os sites vinculados ao site e não somos responsáveis pelo conteúdo de nenhum site vinculado. A inclusão de qualquer link não implica endosso do site. O uso de qualquer site vinculado é por conta e risco do usuário.</p>
       <h2>7. Modificações</h2>
       <p>Podemos revisar estes termos de serviço do site a qualquer momento, sem aviso prévio. Ao usar este site, você concorda em ficar vinculado à versão atual desses termos de serviço.</p>
       <h2>8. Lei aplicável</h2>
       <p>Estes termos e condições são regidos e interpretados de acordo com as leis locais (cidade de São Paulo, SP, Brasil) e você se submete irrevogavelmente à jurisdição exclusiva dos tribunais neste estado ou localidade.</p>
       <blockquote>
-      <p>Publicado em 07 de abril de 2021 às 09h13min.</p>
+        <p>Atualizado em 30 de março de 2022 às 10h15min.</p>
       </blockquote>
-    </main>
+    </div>
+  </div>
+</section>
 
-    <footer>
-      <h5 class="copy name">Termos de Uso</h5>
-      <p>Versão <span class="copy version"></span></p>
-      <p>Feito com lógica e evidências científicas &#128211;</p>
-      <p>Disponível sob a <a class="copy license"></a>.</p>
-      <p>&copy; <span class="copy year"></span> <span class="copy author"></span></p>
-    </footer>
-  </body>
-</html>
+<?php
+require_once "footer.php";
+?>

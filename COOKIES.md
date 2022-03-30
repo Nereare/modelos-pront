@@ -55,9 +55,10 @@ Não usamos Cookies de desempenho.
 
 ### 3.3. Cookies de funcionalidade
 
-| Cookie | Tempo | Propriedade | Descrição |
-|:------:|:-----:|:-----------:|:---------:|
-| x | x | x | x |
+| Cookie           | Tempo | Propriedade | Descrição                                          |
+|:----------------:|:-----:|:-----------:|:--------------------------------------------------:|
+| `accept_cookies` | 30d   | Próprio     | Registra o aceite do usuário do uso de cookies.    |
+| `menu`           | 30d   | Próprio     | Salva a organização dos menus optada pelo usuário. |
 
 ### 3.4. Cookies de publicidade
 
@@ -94,6 +95,6 @@ Ao continuar a navegação nas nossas aplicações após essa mudança se tornar
 
 Em caso de dúvidas sobre esta Política de Cookies, entre em contato conosco pelo [email](mailto:igorpadoim@gmail.com).
 
-> Esta Política de Cookies foi atualizada pela última vez: 29/03/2022.
+> Atualizado em 30 de março de 2022 às 10h21min.
 
 [PRIVACY]: PRIVACY.md

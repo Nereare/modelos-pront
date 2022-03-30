@@ -1,6 +1,10 @@
 # Política de Privacidade
 
-Este projeto e sítios eletrônicos ou aplicativos a partir dele gerados (denominado "aplicativo" neste documento) **não coletam dados** a ele fornecidos. Os dados fornecidos à interface de usuário do aplicativo são lidados localmente, com a lógica digital e processamento de dados ocorrendo apenas no local de execução do aplicativo (*user-side*).
+Este projeto e sítios eletrônicos ou aplicativos a partir dele gerados (denominado "aplicativo" neste documento) coletam dados referentes apenas à experiência de usuário como ordem de menus (denominado "dados de usuário" neste documento), e **não coletam dados clínicos, antropométricos ou referentes aos pacientes cuja evolução está sendo realizada através dos modelos de prontuário** (denominado "dados clínicos" neste documento) a ele fornecidos.
+
+Os dados clínicos fornecidos aos modelos de prontuário do aplicativo são lidados localmente, com a lógica digital e o processamento de dados ocorrendo apenas no local de execução do aplicativo (*user-side*).
+
+Os dados de usuário fornecidos às caixas de mensagem e à página de configuração **são enviados ao servidor** para processamento, independentemente de armazenamento em Cookies ou em variáveis de sessão.
 
 Em vista disso e ciente que o projeto e seus colaboradores visam que os dados fornecidos ao aplicativo **não sejam disseminados através do aplicativo** para outros locais, ao usar o aplicativo você assume que disseminações dessas informações que eventualmente ocorram, ocorrem por causa outra, como, por exemplo mas não limitado a, vírus eletrônicos que coletam dados.
 
@@ -24,4 +28,4 @@ Podemos revisar esta política de privacidade do site a qualquer momento, sem av
 
 Esta política é efetiva a partir de sua publicação abaixo notada.
 
-> Publicado em 08 de abril de 2021 às 08h01min.
+> Publicado em 30 de março de 2022 às 10h29min.
