@@ -14,4 +14,41 @@ Date.prototype.getDOY = function() {
     return dayOfYear;
 };
 
-$(document).ready(function() {});
+$(document).ready(function() {
+  console.log("Ready!");
+
+  // Accept cookies
+  $("#cookie-accept").on("click", function() {
+    $.ajax({
+      url: "scripts/cookies.php",
+      type: "get",
+      data: {
+        job: "accept"
+      }
+    })
+    .always(function() { location.reload(true); });
+  });
+  // Reject cookies
+  $("#cookie-reject").on("click", function() {
+    $.ajax({
+      url: "scripts/cookies.php",
+      type: "get",
+      data: {
+        job: "deny"
+      }
+    })
+    .always(function() { location.reload(true); });
+  });
+
+  // Accept ethical responsability
+  $("#ethics-accept").on("click", function() {
+    $.ajax({
+      url: "scripts/cookies.php",
+      type: "get",
+      data: {
+        job: "ethics"
+      }
+    })
+    .always(function() { location.reload(true); });
+  });
+});
