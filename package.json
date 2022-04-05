@@ -14,6 +14,7 @@
   },
   "license": "Hippocratic-2.1",
   "dependencies": {
+    "@creativebulma/bulma-divider": "^1.1.0",
     "@mdi/font": "^6.6.96",
     "bulma": "^0.9.3",
     "bulma-checkradio": "^2.1.3",
