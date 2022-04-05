@@ -69,6 +69,9 @@ if ( isset($_SESSION["cookies"]) ) {
 
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/base.js"></script>
+    <?php if ( !in_array($page, ["index", "about", "usage", "cookies", "privacy"]) ) { ?>
+    <script src="js/<?php echo $page; ?>.js"></script>
+    <?php } ?>
   </head>
 
   <body>
@@ -78,7 +81,7 @@ if ( isset($_SESSION["cookies"]) ) {
         <nav class="navbar">
           <div class="container">
             <div class="navbar-brand">
-              <a class="navbar-item">
+              <a class="navbar-item" href="index.php">
                 <img src="assets/index-logo.svg" alt="Logo">
               </a>
               <span class="navbar-burger" data-target="navbarMenuHeroA">
