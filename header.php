@@ -119,12 +119,23 @@ if ( isset($_SESSION["cookies"]) ) {
       <!-- Hero content: will be in the middle -->
       <div class="hero-body">
         <div class="container has-text-centered">
+          <?php
+          if ( isset($subtitle) ) {
+          ?>
+          <p class="title">
+            <?php echo $subtitle; ?>
+          </p>
+          <p class="subtitle">
+            <?php echo constant("APP_NAME"); ?> &bull; v<?php echo constant("APP_VERSION"); ?>
+          </p>
+          <?php } else { ?>
           <p class="title">
             <?php echo constant("APP_NAME"); ?>
           </p>
           <p class="subtitle">
             Versão <?php echo constant("APP_VERSION"); ?>
           </p>
+          <?php } ?>
         </div>
       </div>
     </header>
