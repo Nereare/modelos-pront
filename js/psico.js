@@ -5,24 +5,32 @@ $(document).ready(function() {
   // Enable fields with "other" option
   $(".otherable").on("change", function() {
     var elem = "#" + $(this).attr("id") + "-other";
-    if( $(this).val() == "outro" ) { $(elem).css("display", "inline-block"); }
-    else { $(elem).css("display", "none"); }
-  });
-
-  // Enable Mini Mental fields
-  $("#memory").on("change", function() {
-    if( $("#memory").val() == "testada, com Mini Exame do Estado Mental resultando em " ) {
-      $("#memory-minimental").css("display", "inline-block");
-    } else {
-      $("#memory-minimental").css("display", "none");
+    if( $(this).val() == "outro" ) { $(elem).prop("disabled", false); }
+    else {
+      $(elem)
+        .prop("disabled", true)
+        .val("");
     }
   });
 
   // Enable Hallucinations' description fields
   $(".hallucinations").on("change", function() {
-    var elem = "#" + $(this).attr("id") + "-box";
-    if( $(this).val() != "ausentes" ) { $(elem).css("display", "inline-block"); }
-    else { $(elem).css("display", "none"); }
+    var elem = "#" + $(this).attr("id") + "-desc";
+    if( $(this).val() != "ausentes" ) { $(elem).prop("disabled", false); }
+    else {
+      $(elem)
+        .prop("disabled", true)
+        .val("");
+    }
+  });
+
+  // Enable Mini Mental fields
+  $("#memory").on("change", function() {
+    if( $("#memory").val() == "testada com Mini Exame do Estado Mental resultando em " ) {
+      $("#memory-minimental-grade, #memory-minimental-aim").prop("disabled", false);
+    } else {
+      $("#memory-minimental-grade, #memory-minimental-aim").prop("disabled", true);
+    }
   });
 
   // Build output:
@@ -147,7 +155,7 @@ $(document).ready(function() {
       // Memória
       output += ".  6. Memória: ";
       switch ( $("#memory").val() ) {
-        case "testada, com Mini Exame do Estado Mental resultando em ":
+        case "testada com Mini Exame do Estado Mental resultando em ":
           output += $("#memory").val() + $("#memory-minimental-grade").val() + "/" + $("#memory-minimental-aim").val();
           break;
         case "outro":
