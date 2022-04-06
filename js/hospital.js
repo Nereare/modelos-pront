@@ -2,90 +2,22 @@ $(document).ready(function() {
   new ClipboardJS(".copybtn");
   console.log("App ready!");
 
-  var maintenance = false;
-  if( maintenance ) {
-    $("#maintenance").css("display", "block");
-  }
-
   // Change febrile state when fever is input
   $("#ssvv-temp").on("input change", function() {
     var temp = parseFloat( $("#ssvv-temp").val() );
     if( temp >= 37.8 ) { $("#fever-yes").prop("checked", true); }
+    else if ( temp <= 34 ) { $("#fever-hypo").prop("checked", true); }
     else { $("#fever-none").prop("checked", true); }
   });
 
   // Enable abnormal breathing description:
   $("input[name='breathe']").on("change", function() {
     if( $("input[name='breathe']:checked").val() == "dispneice" ) {
-      $("#breathe-abnormal-desc-field").css("display", "inline-block");
+      $("#breathe-abnormal-desc").prop("disabled", false);
     } else {
-      $("#breathe-abnormal-desc-field").css("display", "none");
-      $("#breathe-abnormal-desc").val("");
-    }
-  });
-
-  // Enable heart murmur description:
-  $("#heart-murmur").on("change", function() {
-    if( $("#heart-murmur option:selected").val() == "com sopro" ) {
-      $("#heart-murmur-desc").css("display", "inline-block");
-    }
-    else {
-      $("#heart-murmur-desc")
-        .css("display", "none")
+      $("#breathe-abnormal-desc")
+        .prop("disabled", true)
         .val("");
-    }
-  });
-
-  // Enable crepitation description:
-  $("#lung-sounds").on("change", function() {
-    if(
-      $("#lung-sounds").val() == "com crepitação estertorante em " ||
-      $("#lung-sounds").val() == "com redução de murmúrios vesiculares até " ||
-      $("#lung-sounds").val() == "com sopro cavernoso em "
-    ) {
-      $("#lung-crept-field").css("display", "inline-block");
-    } else {
-      $("#lung-crept-field").css("display", "none");
-      $("#lung-crept").val("base direita");
-    }
-  });
-
-  // Enable percussion mass chart:
-  $("#abdomen-percussion").on("change", function() {
-    if( $("#abdomen-percussion").val() == "com macicez percutível em " ) {
-      $("#abdomen-mass-chart").css("display", "block");
-    } else {
-      $("#abdomen-mass-chart").css("display", "none");
-    }
-  });
-  // Enable Skoda description:
-  $("#abdomen-skoda").on("change", function() {
-    if( $("#abdomen-skoda").val() == "presente a " ) {
-      $("#abdomen-skoda-desc").css("display", "inline-block");
-    } else {
-      $("#abdomen-skoda-desc").css("display", "none");
-      $("#abdomen-skoda-cm").val("");
-    }
-  });
-  // Enable mass description:
-  $("#abdomen-stuff").on("change", function() {
-    if( $("#abdomen-stuff").val() == "com " ) {
-      $("#abdomen-stuff-desc").css("display", "inline-block");
-    } else {
-      $("#abdomen-stuff-desc")
-        .css("display", "none")
-        .val("");
-    }
-  });
-
-  // Enable oedema intensity:
-  $("#oedema").on("change", function() {
-    if( $("#oedema").val() != "sem edemas" ) {
-      $("#oedema-grade").css("display", "inline-block");
-    } else {
-      $("#oedema-grade")
-        .css("display", "none")
-        .val("1+/4+");
     }
   });
 
@@ -102,6 +34,82 @@ $(document).ready(function() {
     }
   });
 
+  // Enable crepitation description:
+  $("#lung-sounds").on("change", function() {
+    if(
+      $("#lung-sounds").val() == "com crepitação estertorante em " ||
+      $("#lung-sounds").val() == "com sopro cavernoso em "
+    ) {
+      $("#lung-crept").prop("disabled", false);
+    } else {
+      $("#lung-crept")
+        .prop("disabled", true)
+        .val("base direita");
+    }
+  });
+
+  // Enable heart murmur description:
+  $("#heart-murmur").on("change", function() {
+    if( $("#heart-murmur option:selected").val() == "com sopro" ) {
+      $("#heart-murmur-desc").prop("disabled", false);
+    }
+    else {
+      $("#heart-murmur-desc")
+        .prop("disabled", true)
+        .val("");
+    }
+  });
+
+  // Enable percussion mass description:
+  $("#abdomen-percussion").on("change", function() {
+    if( $("#abdomen-percussion").val() == "com macicez percutível em " ) {
+      $("#abdomen-percussion-mass").prop("disabled", false);
+    } else {
+      $("#abdomen-percussion-mass")
+        .prop("disabled", true)
+        .val("");
+    }
+  });
+  // Enable Skoda description:
+  $("#abdomen-skoda").on("change", function() {
+    if( $("#abdomen-skoda").val() == "presente a " ) {
+      $("#abdomen-skoda-cm").prop("disabled", false);
+    } else {
+      $("#abdomen-skoda-cm")
+        .prop("disabled", true)
+        .val("");
+    }
+  });
+  // Enable mass description:
+  $("#abdomen-stuff").on("change", function() {
+    if( $("#abdomen-stuff").val() == "com " ) {
+      $("#abdomen-stuff-desc").prop("disabled", false);
+    } else {
+      $("#abdomen-stuff-desc")
+        .prop("disabled", true)
+        .val("");
+    }
+  });
+
+  // Enable/Disable skin description
+  $("#skin").on("input change", function() {
+    if ( $("#skin").val() != "" ) {
+      $("#exam-skin").prop("checked", true);
+    } else {
+      $("#exam-skin").prop("checked", false);
+    }
+  });
+
+  // Enable oedema intensity:
+  $("#oedema").on("change", function() {
+    if( $("#oedema").val() != "sem edemas" ) {
+      $("#oedema-grade").css("display", "inline-block");
+    } else {
+      $("#oedema-grade")
+        .css("display", "none")
+        .val("1+/4+");
+    }
+  });
   // Disable MMII pulse descriptors, if absent:
   $("#mmiipulse-strength").on("change", function() {
     if( $("#mmiipulse-strength").val() == "ausentes até aa. femorais" ) { $("#mmiipulse-descriptors").css("display", "none"); }
@@ -135,7 +143,11 @@ $(document).ready(function() {
       qualitative_exam.push("ictérice " + $('input[name="icter"]:checked').val() + "+/4+");
     }
     qualitative_exam.push($('input[name="fever"]:checked').val());
-    qualitative_exam.push($('input[name="breathe"]:checked').val());
+    if( $('input[name="breathe"]:checked').val() == "dispneice" ) {
+      qualitative_exam.push( $("#breathe-abnormal-desc").val() + "dispneice" );
+    } else {
+      qualitative_exam.push("eupneice");
+    }
     o.push( humanList(qualitative_exam) + "." );
 
     // Vital Signs
@@ -156,7 +168,7 @@ $(document).ready(function() {
       if( $("#ssvv-pulse").val() != "" ) { ssvv.push( "Pulso = " + $("#ssvv-pulse").val() + "bpm" ); }
       if( $("#ssvv-pas").val() != "" ) { ssvv.push( "PA = " + $("#ssvv-pas").val() + "/" + $("#ssvv-pad").val() + "mmHg" ); }
       if( $("#ssvv-fr").val() != "" ) { ssvv.push( "FR = " + $("#ssvv-fr").val() + "irpm" ); }
-      if( $("#ssvv-temp").val() != "" ) { ssvv.push( "Temp = " + $("#ssvv-temp").val() + "°C (" + $("#ssvv-temp-type").val() + ")" ); }
+      if( $("#ssvv-temp").val() != "" ) { ssvv.push( "Temp = " + $("#ssvv-temp").val() + "°C (" + $("#ssvv-temp-desc").val() + ")" ); }
       if( $("#ssvv-weight").val() != "" ) { ssvv.push( "Peso = " + $("#ssvv-weight").val() + "kg" ); }
       if( $("#ssvv-height").val() != "" ) { ssvv.push( "Alt = " + $("#ssvv-height").val() + "cm" ); }
       if(
@@ -199,9 +211,7 @@ $(document).ready(function() {
     if( $("#exam-abdomen").is(":checked") ) {
       var abd = "Abdome: " + $("#abdomen").val() + ", ruídos hidroaéreos " + $("#abdomen-rha").val() + ", " + $("#abdomen-tension").val() + ", percussão " + $("#abdomen-percussion").val();
       if( $("#abdomen-percussion").val() != "globalmente timpânica" ) {
-        var mass = [];
-        $.each($("input[name='abdomen-mass']:checked"), function(){ mass.push( $(this).val() ); });
-        abd += humanList( mass );
+        abd += $("#abdomen-percussion-mass").val();
       }
       abd += ", espaço de Traube " + $("#abdomen-traube").val() + ", margem inferior de fígado percutível ";
       var hep = parseInt( $("#abdomen-hepatimetry").val() );
@@ -238,17 +248,17 @@ $(document).ready(function() {
       o.push( "Oroscopia: orofaringe " + $("#exam-oro-pharynx").val() + ", com tonsilas palatinas " + $("#exam-oro-tonsils").val() + " " + $("#exam-oro-tonsilcover").val() + " e palato mole " + $("#exam-oro-palate").val() + "." );
     }
     if( $("#exam-naso").is(":checked") ) {
-      o.push( "Nasoscopia anterior: mucosa " + $("#naso-skin").val() + ", cornetos nasais " + $("#naso-shells").val() + " e " + $("#naso-sept").val() );
+      o.push( "Nasoscopia anterior: mucosa " + $("#naso-skin").val() + ", cornetos nasais " + $("#naso-shells").val() + " e " + $("#naso-sept").val() + "." );
     }
-    if( $("#skin").val() != "" ) {
+    if( $("#exam-skin").is(":checked") ) {
       o.push( "Pele: " + $("#skin").val() );
     }
-    if( $("#exam-extr").is(":checked") ) {
+    if( $("#exam-mmii").is(":checked") ) {
       var oedema = $("#oedema").val();
       if( oedema != "sem edemas" ) { oedema += " " + $("#oedema-grade").val(); }
       var pulse = "";
       if( $("#mmiipulse-strength").val() == "ausentes até aa. femorais" ) { pulse = $("#mmiipulse-strength").val(); }
-      else { pulse = $("#mmiipulse-strength").val() + " e " + $("#mmiipulse-simmetry").val() + ", palpáveis a partir de " + $("#mmiipulse-artery").val(); }
+      else { pulse = $("#mmiipulse-strength").val() + " e " + $("#mmiipulse-simmetry").val() + ", palpáveis a partir de aa. " + $("#mmiipulse-artery").val(); }
       o.push( "MMII: " + oedema + ", pulsos " + pulse + "." );
     }
 

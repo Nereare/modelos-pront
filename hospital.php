@@ -16,8 +16,8 @@ require_once "header.php";
       <h2 class="title is-4">Estado Geral</h2>
 
       <div class="field">
-        <div class="control">
-          <div class="select">
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
             <select name="status" id="status">
               <option value="B" selected>BEG</option>
               <option value="R">REG</option>
@@ -84,22 +84,28 @@ require_once "header.php";
         <label for="fever-none">Afebril</label>
         <input class="is-checkradio is-danger" type="radio" id="fever-yes" name="fever" value="febril">
         <label for="fever-yes">Febril</label>
+        <input class="is-checkradio is-danger" type="radio" id="fever-hypo" name="fever" value="hipotérmice">
+        <label for="fever-hypo">Hipotérmice</label>
       </div>
 
-      <div class="field">
-        <input class="is-checkradio is-success" type="radio" id="breathe-normal" name="breathe" value="eupneice" checked>
-        <label for="breathe-normal">Eupneice</label>
-        <input class="is-checkradio is-danger" type="radio" id="breathe-abnormal" name="breathe" value="dispneice">
-        <label for="breathe-abnormal">Dispneice</label>
-        <span class="control" id="breathe-abnormal-desc-field">
-          <div class="select is-small">
-            <select id="breathe-abnormal-desc">
+      <div class="field has-addons">
+        <div class="control">
+          <input class="is-checkradio is-success" type="radio" id="breathe-normal" name="breathe" value="eupneice" checked>
+          <label for="breathe-normal">Eupneice</label>
+        </div>
+        <div class="control">
+          <input class="is-checkradio is-danger" type="radio" id="breathe-abnormal" name="breathe" value="dispneice">
+          <label for="breathe-abnormal">Dispneice</label>
+        </div>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="breathe-abnormal-desc" disabled>
               <option value="" selected>&ndash;</option>
               <option value="taqui">taqui</option>
               <option value="bradi">bradi</option>
             </select>
           </div>
-        </span>
+        </div>
       </div>
     </div>
 
@@ -213,7 +219,7 @@ require_once "header.php";
               <input type="number" id="ssvv-height" class="input" min="1" step="1" placeholder="#">
             </div>
             <div class="control">
-              <button class="button is-static">kg</button>
+              <button class="button is-static">cm</button>
             </div>
           </div>
 
@@ -252,8 +258,8 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">Conjuntiva</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="eye-white">
                   <option value="sem alterações" selected>normal</option>
                   <option value="com hiperemia leve">hipermia leve</option>
@@ -268,8 +274,8 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">Secreções</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="eye-secr">
                   <option value="ausentes">&empty;</option>
                   <option value="presentes">&plus;</option>
@@ -302,8 +308,8 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">Tireoide</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="thyroid">
                   <option value="" selected>N/A</option>
                   <option value="não palpável">&empty;</option>
@@ -321,8 +327,8 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">Linfonodos</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="lymph">
                   <option value="" selected>N/A</option>
                   <option value="Sem linfonodomegalias cervicais, periauriculares ou supraclávicas palpáveis">Normal</option>
@@ -336,8 +342,8 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">de aspecto</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="lymph-desc">
                   <option value="" selected>&empty;</option>
                   <option value=", fibroelásticos, móveis, não-aderidos a planos profundos e dolorosos">reacional</option>
@@ -370,8 +376,8 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">MV</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="lung">
                   <option value="presentes bilateralmente" selected>&plus;</option>
                   <option value="diminuídos em bases bilateralmente">&darr; base bilat</option>
@@ -387,8 +393,8 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">RA</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="lung-sounds">
                   <option value="sem ruídos adventícios" selected>&empty;</option>
                   <option value="com raros roncos">alguns roncos</option>
@@ -401,19 +407,24 @@ require_once "header.php";
             </div>
           </div>
 
-          <div class="field">
-            <div class="select">
-              <select id="lung-crept" disabled>
-                <option value="base direita" selected>Crepitações: base D</option>
-                <option value="base esquerda">Crepitações: base E</option>
-                <option value="mesotórax direito">Crepitações: meio D</option>
-                <option value="mesotórax esquerdo">Crepitações: meio E</option>
-                <option value="ápice direito">Crepitações: áp. D</option>
-                <option value="ápice esquerdo">Crepitações: áp. E</option>
-                <option value="bases bilateralmente">Crepitações: base bilat</option>
-                <option value="mesotórax bilateralmente">Crepitações: meio bilat</option>
-                <option value="ápices bilateralmente">Crepitações: áp. bilat</option>
-              </select>
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static">Alteração até</button>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="lung-crept" disabled>
+                  <option value="base direita" selected>base D</option>
+                  <option value="base esquerda">base E</option>
+                  <option value="mesotórax direito">meso D</option>
+                  <option value="mesotórax esquerdo">meso E</option>
+                  <option value="ápice direito">ápice D</option>
+                  <option value="ápice esquerdo">ápice E</option>
+                  <option value="bases bilateralmente">base bilat</option>
+                  <option value="mesotórax bilateralmente">meso bilat</option>
+                  <option value="ápices bilateralmente">ápice bilat</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
@@ -440,16 +451,16 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">B</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="heart-rhythm">
                   <option value="rítmicas" selected>R</option>
                   <option value="arrítmicas">arrít.</option>
                 </select>
               </div>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="heart-sounds">
                   <option value="normofonéticas" selected>NF</option>
                   <option value="hipofonéticas">&darr;fonese</option>
@@ -457,8 +468,8 @@ require_once "header.php";
                 </select>
               </div>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="heart-times">
                   <option value="dois tempos" selected>2T</option>
                   <option value="dois tempos com desdobramento de B1">2T B1&times;</option>
@@ -470,8 +481,8 @@ require_once "header.php";
                 </select>
               </div>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="heart-murmur">
                   <option value="sem sopros" selected>SS</option>
                   <option value="com sopro">sopro...</option>
@@ -509,8 +520,8 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">Abdome</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="abdomen">
                   <option value="plano" selected>Plano</option>
                   <option value="globoso">Globoso</option>
@@ -519,8 +530,8 @@ require_once "header.php";
                 </select>
               </div>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="abdomen-rha">
                   <option value="presentes e normoativos">RHA +/nl</option>
                   <option value="presentes e aumentados">RHA +/&uarr;</option>
@@ -530,16 +541,16 @@ require_once "header.php";
                 </select>
               </div>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="abdomen-tension">
                   <option value="flácido">Flácido</option>
                   <option value="tenso">Tenso</option>
                 </select>
               </div>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="abdomen-percussion">
                   <option value="globalmente timpânica">timp</option>
                   <option value="com macicez percutível em ">maciço em...</option>
@@ -550,7 +561,7 @@ require_once "header.php";
 
           <div class="field">
             <div class="control">
-              <input type="text" id="abdomen-percussion-solid" class="input" placeholder="Descreva localização da(s) macicez..." disabled>
+              <input type="text" id="abdomen-percussion-mass" class="input" placeholder="Descreva localização da(s) macicez..." disabled>
             </div>
           </div>
 
@@ -558,8 +569,8 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">Traube</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="abdomen-traube">
                   <option value="livre" selected>livre</option>
                   <option value="ocupado">ocupado</option>
@@ -568,6 +579,7 @@ require_once "header.php";
             </div>
           </div>
 
+          <p class="help">Valores negativos = acima de RCD, positivos = abaixo de RCD</p>
           <div class="field has-addons">
             <div class="control">
               <button class="button is-static">Hepatimetria</button>
@@ -579,14 +591,13 @@ require_once "header.php";
               <button class="button is-static">cm</button>
             </div>
           </div>
-          <p>Valores negativos = acima de RCD, positivos = abaixo de RCD</p>
 
           <div class="field has-addons">
             <div class="control">
               <button class="button is-static">Macicez Móvel</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="abdomen-mobilemass">
                   <option value="" selected>NT</option>
                   <option value="ausente">&ndash;</option>
@@ -600,8 +611,8 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">Skoda</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="abdomen-skoda">
                   <option value="" selected>NT</option>
                   <option value="ausente">&ndash;</option>
@@ -610,7 +621,7 @@ require_once "header.php";
               </div>
             </div>
             <div class="control is-expanded">
-              <input type="number" id="abdomen-skoda-cm" class="input" min="0" step="1" placeholder="#">
+              <input type="number" id="abdomen-skoda-cm" class="input" min="0" step="1" placeholder="#" disabled>
             </div>
             <div class="control">
               <button class="button is-static">cm da c. umbilical</button>
@@ -621,8 +632,8 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">Piparote</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="abdomen-fillip">
                   <option value="" selected>NT</option>
                   <option value="ausente">&ndash;</option>
@@ -645,7 +656,7 @@ require_once "header.php";
               </div>
             </div>
             <div class="control is-expanded">
-              <input type="text" class="input" id="abdomen-stuff-desc" placeholder="descrição de massa/s palpável/is">
+              <input type="text" class="input" id="abdomen-stuff-desc" placeholder="descrição de massa/s palpável/is" disabled>
             </div>
           </div>
 
@@ -653,8 +664,8 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">DB</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="abdomen-peritonitis">
                   <option value="" selected>NT</option>
                   <option value="ausente">&ndash;</option>
@@ -668,8 +679,8 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">Murphy</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="murphy">
                   <option value="" selected>NT</option>
                   <option value="negativo">&ndash;</option>
@@ -683,8 +694,8 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">McBurney</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="mcburney">
                   <option value="" selected>NT</option>
                   <option value="negativo">&ndash;</option>
@@ -698,8 +709,8 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">Giordano</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="giordano">
                   <option value="" selected>NT</option>
                   <option value="negativo">&ndash;</option>
@@ -711,7 +722,7 @@ require_once "header.php";
 
           <div class="field">
             <div class="control">
-              <input type="text" id="abdomen-other" class="input" placeholder="Descreva outros achados...">
+              <textarea class="textarea has-fixed-size" id="abdomen-other" placeholder="Descreva outros achados..." rows="2"></textarea>
             </div>
           </div>
 
@@ -725,8 +736,8 @@ require_once "header.php";
       <div class="columns is-vcentered">
         <div class="column is-2">
           <div class="field">
-            <input type="checkbox" id="exam-eye" class="is-checkradio">
-            <label for="exam-eye">
+            <input type="checkbox" id="exam-oto" class="is-checkradio">
+            <label for="exam-oto">
               <span class="icon">
                 <i class="mdi mdi-ear-hearing mdi-24px"></i>
               </span>
@@ -739,16 +750,16 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">MTD</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select name="oto-d-membrane" id="oto-d-membrane">
                   <option value="observável" selected>+</option>
                   <option value="não observável">&empty;</option>
                 </select>
               </div>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select name="oto-d-retromembrane" id="oto-d-retromembrane">
                   <option value="sem alterações, abaulamentos ou conteúdos retrotimpânicos" selected>nl</option>
                   <option value="levemente opacificada">&half;opaca</option>
@@ -764,8 +775,8 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">Conduto</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select name="oto-d-canal" id="oto-d-canal">
                   <option value="sem alterações" selected>nl</option>
                   <option value="com hiperemia importante mas sem secreções">hiperem</option>
@@ -780,16 +791,16 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">MTE</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select name="oto-e-membrane" id="oto-e-membrane">
                   <option value="observável" selected>+</option>
                   <option value="não observável">&empty;</option>
                 </select>
               </div>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select name="oto-e-retromembrane" id="oto-e-retromembrane">
                   <option value="sem alterações, abaulamentos ou conteúdos retrotimpânicos" selected>nl</option>
                   <option value="levemente opacificada">&half;opaca</option>
@@ -805,8 +816,8 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">Conduto</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select name="oto-e-canal" id="oto-e-canal">
                   <option value="sem alterações" selected>nl</option>
                   <option value="com hiperemia importante mas sem secreções">hiperem</option>
@@ -826,8 +837,8 @@ require_once "header.php";
       <div class="columns is-vcentered">
         <div class="column is-2">
           <div class="field">
-            <input type="checkbox" id="exam-eye" class="is-checkradio">
-            <label for="exam-eye">
+            <input type="checkbox" id="exam-oro" class="is-checkradio">
+            <label for="exam-oro">
               <span class="icon">
                 <i class="mdi mdi-tooth mdi-24px"></i>
               </span>
@@ -840,8 +851,8 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">Oroscopia</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="exam-oro-pharynx" name="exam-oro-pharynx">
                   <option value="sem hiperemia" selected>&empty;hiperem</option>
                   <option value="levemente hiperemiada">&half;hiperem</option>
@@ -855,8 +866,8 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">Tonsilas</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="exam-oro-tonsils" name="exam-oro-tonsils">
                   <option value="ausentes, como esperado para idade,">&empty;idade</option>
                   <option value="ausentes">&empty;</option>
@@ -867,8 +878,8 @@ require_once "header.php";
                 </select>
               </div>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="exam-oro-tonsilcover" name="exam-oro-tonsilcover">
                   <option value="sem placas purulentas ou caseicas" selected>nl</option>
                   <option value="com cáseos">cáseo</option>
@@ -884,8 +895,8 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static">Palato</button>
             </div>
-            <div class="control">
-              <div class="select">
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
                 <select id="exam-oro-palate" name="exam-oro-palate">
                   <option value="centralizado, sem desvio" selected>nl</option>
                   <option value="com desvio à direita">desvio D</option>
@@ -896,134 +907,209 @@ require_once "header.php";
           </div>
         </div>
       </div>
+
+      <div>
+        <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+      </div>
+
+      <div class="columns is-vcentered">
+        <div class="column is-2">
+          <div class="field">
+            <input type="checkbox" id="exam-naso" class="is-checkradio">
+            <label for="exam-naso">
+              <span class="icon">
+                <i class="mdi mdi-face-woman-profile mdi-24px"></i>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static">Mucosa</button>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select name="naso-skin" id="naso-skin">
+                  <option value="de aspecto normal" selected>nl</option>
+                  <option value="levemente enantematosa">&half;hiperem</option>
+                  <option value="bastante enantematosa">+hiperem</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static">Cornetos</button>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select name="naso-shells" id="naso-shells">
+                  <option value="sem hipertrofias" selected>nl</option>
+                  <option value="hipertrofiados bilateralmente">&uarr;bilat</option>
+                  <option value="hipertrofiados bilateralmente, pior à esquerda">&uarr;bilat/&uarr;E</option>
+                  <option value="hipertrofiados bilateralmente, pior à direita">&uarr;bilat/&uarr;D</option>
+                  <option value="com hipertrofia apenas à esquerda">&uarr;E</option>
+                  <option value="com hipertrofia apenas à direita">&uarr;D</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static">Septo Nasal</button>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select name="naso-sept" id="naso-sept">
+                  <option value="sem desvio aparente de septo nasal" selected>nl</option>
+                  <option value="desvio leve de septo nasal para esquerda">desvio &half;E</option>
+                  <option value="desvio moderado de septo nasal para esquerda">desvio &frac34;E</option>
+                  <option value="desvio importante de septo nasal para esquerda">desvio +E</option>
+                  <option value="desvio leve de septo nasal para direita">desvio &half;D</option>
+                  <option value="desvio moderado de septo nasal para direita">desvio &frac34;D</option>
+                  <option value="desvio importante de septo nasal para direita">desvio +D</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <h2 class="title is-4">Periferia</h2>
+
+      <div class="columns is-vcentered">
+        <div class="column is-2">
+          <div class="field">
+            <input type="checkbox" id="exam-skin" class="is-checkradio">
+            <label for="exam-skin">
+              <span class="icon">
+                <i class="mdi mdi-fingerprint mdi-24px"></i>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="field">
+            <div class="control">
+              <textarea class="textarea has-fixed-size" id="skin" rows="6"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+      </div>
+
+      <div class="columns is-vcentered">
+        <div class="column is-2">
+          <div class="field">
+            <input type="checkbox" id="exam-mmii" class="is-checkradio">
+            <label for="exam-mmii">
+              <span class="icon">
+                <i class="mdi mdi-shoe-print mdi-24px"></i>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static">Edema</button>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="oedema">
+                  <option value="sem edemas" selected>&empty;</option>
+                  <option value="com edema bilateral e simétrico">bilat</option>
+                  <option value="com edema bilateral, maior à direita">bilat D&gt;E</option>
+                  <option value="com edema bilateral, maior à esquerda">bilat D&lt;E</option>
+                </select>
+              </div>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="oedema-grade">
+                  <option value="1+/4+" selected>1+</option>
+                  <option value="2+/4+">2+</option>
+                  <option value="3+/4+">3+</option>
+                  <option value="4+/4+">4+</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static">Pulsos</button>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="mmiipulse-strength">
+                  <option value="cheios" selected>cheios</option>
+                  <option value="fracos">&darr;</option>
+                  <option value="em martelo d'água">&uarr;</option>
+                  <option value="ausentes até aa. femorais">&empty;</option>
+                </select>
+              </div>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="mmiipulse-simmetry">
+                  <option value="simétricos" selected>simétricos</option>
+                  <option value="diminuídos à direita">&darr;D</option>
+                  <option value="diminuídos à esquerda">&darr;E</option>
+                </select>
+              </div>
+            </div>
+            <div class="control">
+              <button class="button is-static">a partir de aa.</button>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="mmiipulse-artery">
+                  <option value="pediosas" selected>pediosas</option>
+                  <option value="tibiais posteriores">tibiais post</option>
+                  <option value="poplíteas">poplíteas</option>
+                  <option value="femorais">femorais</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="box">
+      <h2 class="title is-4">Resultado</h2>
+
+      <div class="field is-expanded">
+        <div class="control is-expanded">
+          <button id="button-run" class="button is-primary is-fullwidth">Gerar</button>
+        </div>
+      </div>
+      <div class="field is-expanded">
+        <div class="control">
+          <textarea id="output-o" class="textarea has-fixed-size" placeholder="EF" rows="10" readonly></textarea>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control is-expanded">
+          <button id="button-o" class="button is-fullwidth copybtn" data-clipboard-target="#output-o">Copiar EF</button>
+        </div>
+      </div>
     </div>
 
   </div>
-</main>
-
-<main>
-  <fieldset>
-    <div>
-      <h2>ORL</h2>
-      <p>
-        <input type="checkbox" name="exam-naso" id="exam-naso">
-        <label for="exam-naso">
-          <strong>Nasoscopia Anterior: </strong>
-          mucosa
-          <select name="naso-skin" id="naso-skin">
-            <option value="de aspecto normal" selected>nl</option>
-            <option value="levemente enantematosa">&half;hiperem</option>
-            <option value="bastante enantematosa">+hiperem</option>
-          </select>
-          , cornetos
-          <select name="naso-shells" id="naso-shells">
-            <option value="sem hipertrofias" selected>nl</option>
-            <option value="hipertrofiados bilateralmente">&uarr;bilat</option>
-            <option value="hipertrofiados bilateralmente, pior à esquerda">&uarr;bilat/&uarr;E</option>
-            <option value="hipertrofiados bilateralmente, pior à direita">&uarr;bilat/&uarr;D</option>
-            <option value="com hipertrofia apenas à esquerda">&uarr;E</option>
-            <option value="com hipertrofia apenas à direita">&uarr;D</option>
-          </select>
-          e septo
-          <select name="naso-sept" id="naso-sept">
-            <option value="sem desvio aparente de septo nasal" selected>nl</option>
-            <option value="desvio leve de septo nasal para esquerda">desvio &half;E</option>
-            <option value="desvio moderado de septo nasal para esquerda">desvio &frac34;E</option>
-            <option value="desvio importante de septo nasal para esquerda">desvio +E</option>
-            <option value="desvio leve de septo nasal para direita">desvio &half;D</option>
-            <option value="desvio moderado de septo nasal para direita">desvio &frac34;D</option>
-            <option value="desvio importante de septo nasal para direita">desvio +D</option>
-          </select>
-          .
-        </label>
-      </p>
-
-      <h2>Periferia</h2>
-      <p>
-        <strong>Pele:</strong>
-        <textarea id="skin" rows="4"></textarea>
-      </p>
-
-      <p>
-        <strong>MMII:</strong>
-        edema
-        <select id="oedema">
-          <option value="sem edemas" selected>&empty;</option>
-          <option value="com edema bilateral e simétrico">bilat</option>
-          <option value="com edema bilateral, maior à direita">bilat D&gt;E</option>
-          <option value="com edema bilateral, maior à esquerda">bilat D&lt;E</option>
-        </select>
-        <select id="oedema-grade">
-          <option value="1+/4+" selected>1+</option>
-          <option value="2+/4+">2+</option>
-          <option value="3+/4+">3+</option>
-          <option value="4+/4+">4+</option>
-        </select>
-        , pulsos
-        <select id="mmiipulse-strength">
-          <option value="cheios" selected>cheios</option>
-          <option value="fracos">&darr;</option>
-          <option value="em martelo d'água">&uarr;</option>
-          <option value="ausentes até aa. femorais">&empty;</option>
-        </select>
-        <span id="mmiipulse-descriptors">
-          <select id="mmiipulse-simmetry">
-            <option value="simétricos" selected>=</option>
-            <option value="diminuídos à direita">&darr;D</option>
-            <option value="diminuídos à esquerda">&darr;E</option>
-          </select>
-          a partir de aa.
-          <select id="mmiipulse-artery">
-            <option value="pediosas" selected>pediosas</option>
-            <option value="tibiais posteriores">tibiais post</option>
-            <option value="poplíteas">poplíteas</option>
-            <option value="femorais">femorais</option>
-          </select>
-        </span>
-        .
-      </p>
-    </div>
-  </fieldset>
-
-  <!--
-  <fieldset>
-    <legend>Diagnóstico</legend>
-    <p>Se você não souber esse baseado nas anamnese e exame físico, volte para a faculdade, por favor. &#128077;</p>
-    <select class="wide" id="dx" required>
-      <option value="" selected disabled id="opt-blank">escolha...</option>
-      <option value="default-tr">TR Padrão</option>
-      <option value="yes-tr">TR Positivo</option>
-      <option value="bai-tr">TRs negativos</option>
-      <option value="return-tr">Retorno para TRs</option>
-      <option value="not-covid" id="opt-nope">Não fecha critério para suspeita de COVID-19</option>
-      <option value="" disabled>--- Condutas Clássicas ---</option>
-      <option value="maybe-covid">Suspeita de COVID-19</option>
-      <option value="yes-covid">COVID-19 confirmado</option>
-      <option value="wait-covid">Exame em análise</option>
-      <option value="bai-covid">Exame negativo</option>
-      <option value="preexam-covid" id="opt-preexam">Coleta protocolar</option>
-    </select>
-  </fieldset>
-
-  <fieldset>
-    <legend>Condutas</legend>
-    <div>
-      <ol>
-      </ol>
-    </div>
-  </fieldset>
-  -->
-
-  <fieldset>
-    <legend>Resultado</legend>
-    <button id="button-run">Gerar</button>
-    <textarea id="output-o" placeholder="EF" readonly></textarea>
-    <button id="button-o" class="copybtn" data-clipboard-target="#output-o">Copiar EF</button>
-    <!--
-    <textarea id="output-p" placeholder="Condutas" readonly></textarea>
-    <button id="button-p" class="copybtn" data-clipboard-target="#output-p">Copiar Condutas</button>
-    -->
-  </fieldset>
 </main>
 
 <?php

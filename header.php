@@ -68,6 +68,7 @@ if ( isset($_SESSION["cookies"]) ) {
     <link href="style/pront.css" rel="stylesheet" type="text/css">
 
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/clipboard/dist/clipboard.min.js"></script>
     <script src="js/base.js"></script>
     <?php if ( !in_array($page, ["index", "about", "usage", "cookies", "privacy"]) ) { ?>
     <script src="js/<?php echo $page; ?>.js"></script>
