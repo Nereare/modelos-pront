@@ -36,10 +36,10 @@ $(document).ready(function() {
     if( error ) {
       alert("Por favor, preencha todos os campos em vermelho.");
       $.each(missing, function(i, v) {
-        $(v).addClass("req");
+        $(v).addClass("is-danger");
         $(v).on("input", function() {
-          if( $(this).val() != "" ) { $(this).removeClass("req"); }
-          else { $(this).addClass("req"); }
+          if( $(this).val() != "" ) { $(this).removeClass("is-danger"); }
+          else { $(this).addClass("is-danger"); }
         });
       });
       $(missing[0]).focus();
