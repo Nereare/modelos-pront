@@ -8,19 +8,6 @@ $page = 'config';
 
 require_once "header.php";
 
-$menu = [
-  [null, null, null],
-  [null, null, null],
-  [null, null, null],
-  [null, null, null],
-  [null, null, null],
-  [null, null, null]
-];
-if ( isset($_SESSION["cookies"]) ) {
-  if ( $_SESSION["cookies"] ) { $menu = $_COOKIES["menu"]; }
-  else { $menu = $_SESSION["menu"]; }
-}
-
 function echo_select($select) {
   $selected = [
     "null" => "",
