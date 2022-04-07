@@ -22,9 +22,9 @@ $(document).ready(function() {
     ) {
       alert("Por favor, preencha todos os campos em vermelho.");
       $("#name, #birth, #pront, #cns, #parity-g, #parity-pn, #parity-pc, #parity-a")
-        .addClass("req")
+        .addClass("is-danger")
         .on("input", function() {
-          if( $(this).val() != "" ) { $(this).removeClass("req"); }
+          if( $(this).val() != "" ) { $(this).removeClass("is-danger"); }
         });
     } else {
       var name = $("#name").val().toUpperCase();
