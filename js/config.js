@@ -42,7 +42,7 @@ $(document).ready(function() {
     console.log( JSON.stringify(newmenu) );
 
     $.ajax({
-      url: "config-do.php",
+      url: "scripts/config-do.php",
       type: "get",
       data: {
         newmenu: JSON.stringify(newmenu)
