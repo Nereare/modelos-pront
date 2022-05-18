@@ -76,70 +76,67 @@ if ( isset($_SESSION["cookies"]) ) {
   </head>
 
   <body>
-    <header class="hero is-primary is-medium">
-      <!-- Hero head: will stick at the top -->
-      <div class="hero-head">
-        <nav class="navbar">
-          <div class="container">
-            <div class="navbar-brand">
-              <a class="navbar-item" href="index.php">
-                <img src="assets/index-logo.svg" alt="Logo">
-              </a>
-              <span class="navbar-burger" data-target="navbarMenuHeroA">
-                <span></span>
-                <span></span>
-                <span></span>
-              </span>
-            </div>
-            <div id="navbarMenuHeroA" class="navbar-menu">
-              <div class="navbar-end">
-                <a class="navbar-item<?php is_selected('index', $page); ?>" href="index.php">Início</a>
-                <a class="navbar-item<?php is_selected('about', $page); ?>" href="about.php">Sobre</a>
-                <a class="navbar-item<?php is_selected('usage', $page); ?>" href="usage.php">Termos de Uso</a>
-                <a class="navbar-item<?php is_selected('cookies', $page); ?>" href="cookies.php">Política de Cookies</a>
-                <a class="navbar-item<?php is_selected('privacy', $page); ?>" href="privacy.php">Política de Privacidade</a>
-                <a class="navbar-item<?php is_selected('config', $page); ?>" href="config.php">
-                  <span class="icon">
-                    <i class="mdi mdi-cog mdi-24px"></i>
-                  </span>
-                </a>
-                <span class="navbar-item">
-                  <a class="button is-primary is-inverted" href="https://github.com/Nereare/modelos-pront">
-                    <span class="icon">
-                      <i class="mdi mdi-github mdi-24px"></i>
-                    </span>
-                    <span>Código-Fonte</span>
-                  </a>
-                </span>
-              </div>
-            </div>
-          </div>
-        </nav>
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="index.php">
+          <img src="assets/index-logo.svg" alt="Logo">
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
       </div>
 
-      <!-- Hero content: will be in the middle -->
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          <?php
-          if ( isset($subtitle) ) {
-          ?>
-          <p class="title">
-            <?php echo $subtitle; ?>
-          </p>
-          <p class="subtitle">
-            <?php echo constant("APP_NAME"); ?> &bull; v<?php echo constant("APP_VERSION"); ?>
-          </p>
-          <?php } else { ?>
-          <p class="title">
-            <?php echo constant("APP_NAME"); ?>
-          </p>
-          <p class="subtitle">
-            Versão <?php echo constant("APP_VERSION"); ?>
-          </p>
-          <?php } ?>
+      <div id="navbar-menu" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item<?php is_selected('index', $page); ?>" href="index.php">Início</a>
+          <a class="navbar-item<?php is_selected('about', $page); ?>" href="about.php">Sobre</a>
+          <a class="navbar-item<?php is_selected('usage', $page); ?>" href="usage.php">Termos de Uso</a>
+          <a class="navbar-item<?php is_selected('cookies', $page); ?>" href="cookies.php">Política de Cookies</a>
+          <a class="navbar-item<?php is_selected('privacy', $page); ?>" href="privacy.php">Política de Privacidade</a>
+        </div>
+
+        <div class="navbar-end">
+          <a class="navbar-item<?php is_selected('config', $page); ?>" href="config.php">
+            <span class="icon">
+              <i class="mdi mdi-cog mdi-24px"></i>
+            </span>
+          </a>
+          <span class="navbar-item">
+            <a class="button is-primary is-inverted" href="https://github.com/Nereare/modelos-pront">
+              <span class="icon">
+                <i class="mdi mdi-github mdi-24px"></i>
+              </span>
+              <span>Código-Fonte</span>
+            </a>
+          </span>
         </div>
       </div>
-    </header>
+    </nav>
+
+    <section class="section">
+      <div class="container has-text-centered">
+        <?php
+        if ( isset($subtitle) ) {
+        ?>
+        <p class="title has-text-primary">
+          <?php echo $subtitle; ?>
+        </p>
+        <p class="subtitle">
+          <?php echo constant("APP_NAME"); ?> &bull; v<?php echo constant("APP_VERSION"); ?>
+        </p>
+        <?php } else { ?>
+        <p class="title has-text-primary">
+          <?php echo constant("APP_NAME"); ?>
+        </p>
+        <p class="subtitle">
+          Versão <?php echo constant("APP_VERSION"); ?>
+        </p>
+        <?php } ?>
+      </div>
+    </section>
 
     <?php if ( !isset($_SESSION["ethics"]) ) { ?>
     <section class="section">
