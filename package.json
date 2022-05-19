@@ -1,7 +1,7 @@
 {
   "name": "modelos-pront",
   "description": "Uma miscelânea de modelos de evolução de consultas com tópicos específicos.",
-  "version": "2.0.4",
+  "version": "2.2.4",
   "maintainers": [
     {
       "name": "Igor Padoim",
@@ -21,6 +21,7 @@
     "bulma-switch": "^2.0.4",
     "clipboard": "^2.0.8",
     "jquery": "^3.6.0",
+    "jquery-ui-dist": "^1.13.1",
     "normalize.css": "^8.0.1",
     "typeface-montserrat": "^1.1.13",
     "typeface-roboto-mono": "^1.1.13"

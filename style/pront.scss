@@ -22,3 +22,6 @@ $link: #00acc1;
   margin-right: 1rem;
   z-index: 1000;
 }
+
+// Hide jQuery UI Autocomplete helper div.
+.ui-helper-hidden-accessible { display: none; }

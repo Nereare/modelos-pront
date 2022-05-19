@@ -4,7 +4,7 @@ define("APP_AUTHOR", "Igor Padoim");
 define("APP_YEAR", "2021-2022");
 define("APP_LICENSE_NAME", "Licença Hipocrática");
 define("APP_LICENSE_URI", "https://firstdonoharm.dev/");
-define("APP_VERSION", "2.1.4");
+define("APP_VERSION", "2.2.4");
 
 define("MODELS", [
   "sr2" => [
@@ -70,6 +70,14 @@ define("MODELS", [
     "Representação gráfica de um dispositivo intrauterino, com seu corpo mais espesso devido ao princípio ativo nele depositado, e os dois braços de fixação estendidos lateralmente do topo do corpo",
     "Passagem de DIU",
     "Modelo de evolução de consulta específica para passagem de Dispositivo Intrauterino, incluindo exame físico ginecológico, parâmetros de testagem uterina (histerometria), além de parâmetro quanto ao DIU."
+  ],
+  "meds" => [
+    "meds",
+    "meds.php",
+    "meds.svg",
+    "Cápsula de medicação a 45°",
+    "Prescrições",
+    "Gerador de prescrições para prontuários em que a prescrição é digitada manualmente, incluindo modelos para algumas condições em que sintomáticos e/ou tratamentos são padronizados ou protocolados."
   ]
 ]);
 ?>
