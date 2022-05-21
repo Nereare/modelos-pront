@@ -6,6 +6,15 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Não Publicado][Unreleased]
 
+## [2.2.5] - 2022-05-21
+### Adicionado
+- Página de prescrição.
+### Modificado
+- Estilo das páginas.
+- Alguns pontos de funcionalidade de *scripts*.
+### Corrigido
+- Alguns bugs de execução e referência de *scripts*.
+
 ## [1.25.22] - 2022-03-27
 ### Adicionado
 - Código de Conduta de [Contributor Covenant v1.4.1](https://www.contributor-covenant.org/).
@@ -29,5 +38,6 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Página de Requisição de Implanon.
 - Página de Exame Físico genérico.
 
-[Unreleased]: https://github.com/Nereare/modelos-pront/compare/v1.25.22...HEAD
+[Unreleased]: https://github.com/Nereare/modelos-pront/compare/v2.2.5...HEAD
+[2.2.5]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.25.22...v2.2.5
 [1.25.22]: https://github.com/Nereare/modelos-pront/releases/tag/v1.25.22
