@@ -25,7 +25,7 @@ Os materiais exibidos no site do projeto podem incluir erros técnicos, tipográ
 
 ## 6. Links
 
-Não analisamos todos os sites vinculados ao seu site e não somos responsáveis pelo conteúdo de nenhum site vinculado. A inclusão de qualquer link não implica endosso do site. O uso de qualquer site vinculado é por conta e risco do usuário.
+Não analisamos todos os sites vinculados ao site e não somos responsáveis pelo conteúdo de nenhum site vinculado. A inclusão de qualquer link não implica endosso do site. O uso de qualquer site vinculado é por conta e risco do usuário.
 
 ## 7. Modificações
 
@@ -35,4 +35,4 @@ Podemos revisar estes termos de serviço do site a qualquer momento, sem aviso p
 
 Estes termos e condições são regidos e interpretados de acordo com as leis locais (cidade de São Paulo, SP, Brasil) e você se submete irrevogavelmente à jurisdição exclusiva dos tribunais neste estado ou localidade.
 
-> Publicado em 07 de abril de 2021 às 09h13min.
+> Atualizado em 30 de março de 2022 às 10h15min.

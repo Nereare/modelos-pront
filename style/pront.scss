@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+$family-sans-serif: "Montserrat", sans-serif;
+$family-monospace: "Roboto Mono", monospace;
+$primary: #0090ed;
+$link: #00acc1;
+
+// Import Bulma for customization from the variables set above.
+@import "../node_modules/bulma/bulma.sass";
+@import "../node_modules/bulma-checkradio/dist/css/bulma-checkradio.min.css";
+@import "../node_modules/bulma-switch/dist/css/bulma-switch.min.css";
+@import "../node_modules/@creativebulma/bulma-divider/dist/bulma-divider.min.css";
+
+// Custom styles
+
+// Notification from `config.php`, regarding the success (or not) of
+// saving the configurations.
+#config-reply {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  margin-right: 1rem;
+  z-index: 1000;
+}
+
+// Hide jQuery UI Autocomplete helper div.
+.ui-helper-hidden-accessible { display: none; }
+
+// Vaccine class for Pueri
+.future { color: findLightColor($table-color); }

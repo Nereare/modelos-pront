@@ -15,16 +15,47 @@ Date.prototype.getDOY = function() {
 };
 
 $(document).ready(function() {
-  const name = "Modelo de Prontuários";
-  const author = "Igor Padoim";
-  const year = "2021-2022";
-  const license_name = "Licença Hipocrática";
-  const license_url = "https://firstdonoharm.dev/";
-  const version = "1.25.22-r22";
+  console.log("Ready!");
 
-  $(".copy.name").html(name + " &ndash; " + $(".copy.name").html());
-  $(".copy.author").html(author);
-  $(".copy.year").html(year);
-  $(".copy.license").html(license_name).attr("href", license_url);
-  $(".copy.version").html(version);
+  // Accept cookies
+  $("#cookie-accept").on("click", function() {
+    $.ajax({
+      url: "scripts/cookies.php",
+      type: "get",
+      data: {
+        job: "accept"
+      }
+    })
+    .always(function() { location.reload(true); });
+  });
+  // Reject cookies
+  $("#cookie-reject").on("click", function() {
+    $.ajax({
+      url: "scripts/cookies.php",
+      type: "get",
+      data: {
+        job: "deny"
+      }
+    })
+    .always(function() { location.reload(true); });
+  });
+
+  // Accept ethical responsability
+  $("#ethics-accept").on("click", function() {
+    $.ajax({
+      url: "scripts/cookies.php",
+      type: "get",
+      data: {
+        job: "ethics"
+      }
+    })
+    .always(function() { location.reload(true); });
+  });
+
+  // Check for click events on the navbar burger icon
+  $(".navbar-burger").click(function() {
+      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      $(".navbar-burger").toggleClass("is-active");
+      $(".navbar-menu").toggleClass("is-active");
+  });
 });

@@ -2,20 +2,85 @@ $(document).ready(function() {
   new ClipboardJS(".copybtn");
   console.log("App ready!");
 
+  // Create checkbox-button functionality
+  $(".checkbutton").on("change", function() {
+    if ( $(this).is(":checked") ) {
+      $(this).parent()
+        .addClass("is-primary")
+        .find(".mdi")
+          .removeClass("mdi-checkbox-blank-outline mdi-checkbox-marked")
+          .addClass("mdi-checkbox-marked");
+    } else {
+      $(this).parent()
+        .removeClass("is-primary")
+        .find(".mdi")
+          .removeClass("mdi-checkbox-blank-outline mdi-checkbox-marked")
+          .addClass("mdi-checkbox-blank-outline");
+    }
+  });
+
+  // Add checking method for required fields
+  $("[required]").on("input change", function() {
+    if ( $(this).val() == "" ) { $(this).addClass("is-danger"); }
+    else { $(this).removeClass("is-danger"); }
+  });
+
+  // Change febrile state when fever is input
+  $("#ssvv-temp").on("input change", function() {
+    var temp = parseFloat( $("#ssvv-temp").val() );
+    if( temp >= 37.8 ) { $("#fever-yes").prop("checked", true); }
+    else if ( temp <= 34 ) { $("#fever-hypo").prop("checked", true); }
+    else { $("#fever-none").prop("checked", true); }
+  });
+  // Enable abnormal breathing description:
+  $("input[name='breathe']").on("change", function() {
+    if( $("input[name='breathe']:checked").val() == "dispneice" ) {
+      $("#breathe-abnormal-desc").prop("disabled", false);
+    } else {
+      $("#breathe-abnormal-desc")
+        .prop("disabled", true)
+        .val("");
+    }
+  });
+  // Enable crepitation description:
+  $("#lung-sounds").on("change", function() {
+    if(
+      $("#lung-sounds").val() == "com crepitação estertorante em " ||
+      $("#lung-sounds").val() == "com sopro cavernoso em "
+    ) {
+      $("#lung-crept").prop("disabled", false);
+    } else {
+      $("#lung-crept")
+        .prop("disabled", true)
+        .val("base direita");
+    }
+  });
+  // Enable heart murmur description:
+  $("#heart-murmur").on("change", function() {
+    if( $("#heart-murmur option:selected").val() == "com sopro" ) {
+      $("#heart-murmur-desc").prop("disabled", false);
+    }
+    else {
+      $("#heart-murmur-desc")
+        .prop("disabled", true)
+        .val("");
+    }
+  });
+
   // Enable cramps descriptor
   $("#minsymp11").on("change", function() {
     if( $("#minsymp11").is(":checked") ) {
-      $("#cramps-desc").css("display", "block");
+      $("#cramps-desc").removeClass("is-hidden");
     } else {
-      $("#cramps-desc").css("display", "none");
+      $("#cramps-desc").addClass("is-hidden");
       $("#cramps-null").prop("selected", true);
     }
   });
   $("#cramps").on("change", function() {
     if( $("#cramps").val() == "rítmicas e próximas, a cada " ) {
-      $("#cramps-time-desc").css("display", "block");
+      $("#cramps-time-desc").removeClass("is-hidden");
     } else {
-      $("#cramps-time-desc").css("display", "none");
+      $("#cramps-time-desc").addClass("is-hidden");
       $("#cramps-time").val("");
     }
   });
@@ -25,17 +90,12 @@ $(document).ready(function() {
     if( $("#disch").is(":checked") ) { $("#disch-desc").prop("disabled", false); }
     else { $("#disch-desc").prop("disabled", true); }
   });
+
   // Set primipage autofill
   $("#parity-g").on("change", function() {
     if( $("#parity-g").val() == "1" ) {
-      $("#parity-pn, #parity-pc, #parity-a").val("0");
+      $("#parity-pn, #parity-pc, #parity-a").val("0").trigger("change");
     }
-  });
-
-  // Enabling heart murmur description:
-  $("#heart-murmur").on("change", function() {
-    if( $("#heart-murmur option:selected").val() == "com sopro" ) { $("#heart-murmur-desc").css("display", "inline"); }
-    else { $("#heart-murmur-desc").css("display", "none"); }
   });
 
   // Calculate Gestational Age
@@ -50,17 +110,10 @@ $(document).ready(function() {
         )
       )
     ) {
-      if( $("#lmp").val() == "" ) { $("#lmp").addClass("req"); }
-      if( $("#usg-date").val() != "" ) {
-        $("#usg-weeks, #usg-days").addClass("req");
+      if( $("#lmp").val() == "" ) { $("#lmp").trigger("change"); }
+      if( $("#usg-date").val() != "" && $("#usg-weeks").val() == "" && $("#usg-days").val() == "" ) {
+        $("#usg-weeks, #usg-days").trigger("change");
       }
-      $("#lmp, #usg-weeks, #usg-days").on("input", function() {
-        if( $(this).val != "" ) {
-          $(this).removeClass("req");
-        } else {
-          $(this).addClass("req");
-        }
-      });
     } else {
       if( $("#usg-date").val() == "" ) {
         var lmp = new Date( $("#lmp").val() );
@@ -81,7 +134,7 @@ $(document).ready(function() {
         var ig_usg = parseInt( (parseInt($("#usg-weeks").val())*7) + parseInt($("#usg-days").val()) );
         var diff = Math.abs(ig_lmp - ig_usg);
         var err = false;
-        var warn = "none";
+        var warn = false;
 
         if(ig_lmp <= 62) {
           err = (diff > 5) ? true : false;
@@ -101,7 +154,7 @@ $(document).ready(function() {
           ig = parseInt((today - usg)/86400000);
           ig += ig_usg;
           dx = "Erro de Data";
-          warn = "inline-block";
+          warn = true;
         } else {
           ig = parseInt((today - lmp)/86400000);
           dx = "DUM Correta";
@@ -111,7 +164,8 @@ $(document).ready(function() {
         $("#d").html( parseInt(ig%7) );
         $("#ig").html( ig );
         $("#ig-dx").html( dx );
-        $("#errodedata").css("display", warn);
+        if (warn) { $("#errodedata").removeClass("is-hidden"); }
+        else { $("#errodedata").addClass("is-hidden"); }
       }
     }
   });
@@ -126,10 +180,23 @@ $(document).ready(function() {
       var weight = parseFloat( $("#weight").val() );
       var height = parseFloat( $("#height").val() );
       var bmi = weight / Math.pow((height / 100), 2);
+      $("#bmi").parent().find(".mdi")
+        .removeClass("mdi-help-circle mdi-arrow-up-bold-circle mdi-arrow-down-bold-circle mdi-checkbox-marked-circle");
       var ig = $("#ig").html();
       var bmidx = parseBMI(bmi, ig);
+
       $("#bmi").val( bmi.toFixed(1) );
       $("#bmi-dx").html( bmidx );
+      if ( $("#bmi-dx").html() == "Baixo Peso" ) {
+        $("#bmi").parent().find(".mdi")
+          .addClass("mdi-arrow-down-bold-circle");
+      } else if ( $("#bmi-dx").html() == "IMC Adequado" ) {
+        $("#bmi").parent().find(".mdi")
+          .addClass("mdi-checkbox-marked-circle");
+      } else {
+        $("#bmi").parent().find(".mdi")
+          .addClass("mdi-arrow-up-bold-circle");
+      }
     }
   });
 
@@ -141,7 +208,8 @@ $(document).ready(function() {
     ) {
       var ig_w = parseInt( $("#w").html() );
       var au = parseInt( $("#obs-au").val() );
-      $(".obs-au-warn").css("display", "none");
+      $("#obs-au").parent().find(".mdi")
+        .removeClass("mdi-help-circle mdi-arrow-up-bold-circle mdi-arrow-down-bold-circle mdi-checkbox-marked-circle mdi-dots-horizontal-circle");
       $("#obs-au-dx").html("");
 
       if(
@@ -149,13 +217,20 @@ $(document).ready(function() {
         ig_w < 37
       ) {
         if( au < (ig_w - 2) ) {
-          $("#obs-au-low").css("display", "inline-block");
+          $("#obs-au").parent().find(".mdi")
+            .addClass("mdi-arrow-down-bold-circle");
           $("#obs-au-dx").html("AU muito baixa (RCIU?)");
-        }
-        if( au > (ig_w + 2) ) {
-          $("#obs-au-high").css("display", "inline-block");
+        } else if( au > (ig_w + 2) ) {
+          $("#obs-au").parent().find(".mdi")
+            .addClass("mdi-arrow-up-bold-circle");
           $("#obs-au-dx").html("AU muito alta (polidrâmnio?)");
+        } else {
+          $("#obs-au").parent().find(".mdi")
+            .addClass("mdi-checkbox-marked-circle");
         }
+      } else {
+        $("#obs-au").parent().find(".mdi")
+          .addClass("mdi-dots-horizontal-circle");
       }
     }
   });
@@ -164,16 +239,21 @@ $(document).ready(function() {
   $("#obs-bcf").on("input", function() {
     if( $("#obs-bcf").val() != "" ) {
       var bcf = parseInt( $("#obs-bcf").val() );
-      $(".obs-bcf-warn").css("display", "none");
+      $("#obs-bcf").parent().find(".mdi")
+        .removeClass("mdi-help-circle mdi-arrow-up-bold-circle mdi-arrow-down-bold-circle mdi-checkbox-marked-circle");
       $("#obs-bcf-dx").html("");
 
       if( bcf < 120 ) {
-        $("#obs-bcf-low").css("display", "inline-block");
+        $("#obs-bcf").parent().find(".mdi")
+          .addClass("mdi-arrow-down-bold-circle");
         $("#obs-bcf-dx").html("Bradicardia fetal mantida");
-      }
-      if( bcf > 160 ) {
-        $("#obs-bcf-high").css("display", "inline-block");
+      } else if( bcf > 160 ) {
+        $("#obs-bcf").parent().find(".mdi")
+          .addClass("mdi-arrow-up-bold-circle");
         $("#obs-bcf-dx").html("Taquicardia fetal mantida");
+      } else {
+        $("#obs-bcf").parent().find(".mdi")
+          .addClass("mdi-checkbox-marked-circle");
       }
     }
   });
@@ -186,10 +266,15 @@ $(document).ready(function() {
     ) {
       var pas = parseInt( $("#pas").val() );
       var pad = parseInt( $("#pad").val() );
-      $("#pa-warn").css("display", "none");
+      $("#pad").parent().find(".mdi")
+        .removeClass("mdi-help-circle mdi-arrow-up-bold-circle mdi-arrow-down-bold-circle mdi-checkbox-marked-circle");
 
       if( pas >= 140 || pad >= 85 ) {
-        $("#pa-warn").css("display", "inline-block");
+        $("#pad").parent().find(".mdi")
+          .addClass("mdi-arrow-up-bold-circle");
+      } else {
+        $("#pad").parent().find(".mdi")
+          .addClass("mdi-checkbox-marked-circle");
       }
     }
   });
@@ -209,12 +294,9 @@ $(document).ready(function() {
       $("#parity-pc").val() == "" ||
       $("#parity-a").val() == ""
     ) {
-      alert("Por favor, preencha todos os campos em vermelho.");
-      $("#age, #weight, #height, #pas, #pad, #lmp, #usg-weeks, #usg-days, #parity-g, #parity-pn, #parity-pc, #parity-a").addClass("req");
+      $("[required]").trigger("change");
       $("#age").focus();
     } else {
-      $("#age, #weight, #height, #pas, #pad, #lmp, #usg-weeks, #usg-days, #parity-g, #parity-pn, #parity-pc, #parity-a").removeClass("req");
-
       var symps = [];
       $.each($("input[name='minsymps']:checked"), function(){ symps.push($(this).val()); });
       $.each($("input[name='medsymps']:checked"), function(){ symps.push($(this).val()); });
@@ -266,49 +348,68 @@ $(document).ready(function() {
         }
       }
       var othersymps = "";
-      if( $("#othersymps").val() != "" ) { othersymps = "\n\n" + $("#othersymps").val(); }
+      if( $("#othersymps").val() != "" ) { othersymps = "\n\n" + $("#othersymps").val().trim(); }
       $("#output-s").val("Paciente comparece para consulta de pré-natal. Refere estar " + humanList(symps, true) + ". " + discharge + cramps + othersymps);
+
       // Objetivo
-      $("#output-o").val("Paciente em " + $("#status").val() + "EG.\n" + humanList(qualitative_exam) + ".\nIG " + $("#w").html() + "+" + $("#d").html() + " sem.\nG" + $("#parity-g").val() + "P" + $("#parity-pn").val() + "C" + $("#parity-pc").val() + "A" + $("#parity-a").val() + ".\nPA = " + $("#pas").val() + "x" + $("#pad").val() + "mmHg\nPeso = " + weight + "kg\nAltura = " + height + "cm\nIMC = " + bmi + "kg/cm²");
+      var o = ["# EF"];
+      o.push( "Paciente em " + $("#status").val() + "EG." );
+      o.push( humanList(qualitative_exam) + "." );
+      o.push("IG " + $("#w").html() + "+" + $("#d").html() + " sem.\nG" + $("#parity-g").val() + "P" + $("#parity-pn").val() + "C" + $("#parity-pc").val() + "A" + $("#parity-a").val() + ".\nPA = " + $("#pas").val() + "/" + $("#pad").val() + "mmHg\nPeso = " + weight + "kg\nAltura = " + height + "cm\nIMC = " + bmi + "kg/cm²");
       if( $("#obs-au").val() != "" && $("#obs-bcf").val() != "" && $("#obs-mf").val() != "" ) {
-        var foobar = $("#output-o").val();
-        $("#output-o").val(foobar + "\nMF " + $("input[name='obs-mf']:checked").val() + ". AU " + $("#obs-au").val() + "cm. BCF " + $("#obs-bcf").val() + "bpm. Apresentação fetal " + $("#obs-pos").val() + $("#obs-side").val() + "." );
+        o.push("MF " + $("#obs-mf").val() + ". AU " + $("#obs-au").val() + "cm. BCF " + $("#obs-bcf").val() + "bpm. Apresentação fetal " + $("#obs-pos").val() + $("#obs-side").val() + "." );
       }
+
+      // Vital Signs
       if(
-        $("#exam-lung").is(":checked") ||
-        $("#exam-heart").is(":checked") ||
-        $("#exam-gyn-insp").is(":checked") ||
-        $("#exam-gyn-spec").is(":checked") ||
-        $("#exam-gyn-touch").is(":checked") ||
-        $("#exam-gyn-baby").is(":checked")
+        $("#ssvv-sat").val() != "" ||
+        $("#ssvv-pulse").val() != "" ||
+        $("#ssvv-fr").val() != "" ||
+        $("#ssvv-temp").val() != ""
       ) {
-        var foobar = $("#output-o").val();
-        $("#output-o").val(foobar + "\n");
+        var ssvv = [];
+        if( $("#ssvv-sat").val() != "" ) { ssvv.push( "Sat. O2 = " + $("#ssvv-sat").val() + "% " + $("#ssvv-sat-type").val() ); }
+        if( $("#ssvv-pulse").val() != "" ) { ssvv.push( "Pulso = " + $("#ssvv-pulse").val() + "bpm" ); }
+        if( $("#ssvv-fr").val() != "" ) { ssvv.push( "FR = " + $("#ssvv-fr").val() + "irpm" ); }
+        if( $("#ssvv-temp").val() != "" ) { ssvv.push( "Temp = " + $("#ssvv-temp").val() + "°C (" + $("#ssvv-temp-desc").val() + ")" ); }
+        o.push( ssvv.join(" | ") );
       }
+
+      // Generic EF
       if( $("#exam-lung").is(":checked") ) {
-        var foobar = $("#output-o").val();
-        $("#output-o").val(foobar + "\nPulm: murmúrios vesiculares " + $("#lung").val() + ", " + $("#lung-sounds").val() + ".");
+        var crept = ".";
+        if(
+          $("#lung-sounds").val() == "com crepitação estertorante em " ||
+          $("#lung-sounds").val() == "com redução de murmúrios vesiculares até " ||
+          $("#lung-sounds").val() == "com sopro cavernoso em "
+        ) { crept = $("#lung-crept").val() + "."; }
+        o.push( "Pulm: murmúrios vesiculares " + $("#lung").val() + ", " + $("#lung-sounds").val() + crept );
       }
       if( $("#exam-heart").is(":checked") ) {
-        var foobar = $("#output-o").val();
         var murmur = $("#heart-murmur").val();
         if( murmur == "com sopro" ) {
           murmur += " " + $("#heart-murmur-desc").val();
         }
-        $("#output-o").val(foobar + "\nCard: bulhas " + $("#heart-rhythm").val() + " e " + $("#heart-sounds").val() + " em " + $("#heart-times").val() + " " + murmur);
+        o.push( "Card: bulhas " + $("#heart-rhythm").val() + " e " + $("#heart-sounds").val() + " em " + $("#heart-times").val() + " " + murmur + "." );
       }
       if( $("#exam-gyn-insp").is(":checked") ) {
-        var foobar = $("#output-o").val();
         var desc = "";
         if( $("#gyn-insp-desc").val() == "" ) { desc = "Sem lesões cutâneas perineais."; }
         else { desc = "Observa-se " + $("#gyn-insp-desc").val() + "."; }
-        $("#output-o").val(foobar + "\nInspeção perineal: trofismo e pilificação " + $("#gyn-insp-troph").val() + " para idade. " + $("#gyn-insp-hyperemia").val() + " de introito vaginal. " + $("#gyn-insp-fluids").val() + " por introito vaginal. " + desc );
+        o.push(
+          "Inspeção perineal: trofismo e pilificação " +
+          $("#gyn-insp-troph").val() +
+          " para idade. " +
+          $("#gyn-insp-hyperemia").val() +
+          " de introito vaginal. " +
+          $("#gyn-insp-fluids").val() +
+          " por introito vaginal. " +
+          desc
+        );
       }
       if( $("#exam-gyn-spec").is(":checked") ) {
-        var foobar = $("#output-o").val();
-        $("#output-o").val(
-          foobar +
-          "\nEspecular vaginal: canal vaginal com trofismo e vilificação " +
+        o.push(
+          "Especular vaginal: canal vaginal com trofismo e vilificação " +
           $("#gyn-spec-troph").val() +
           " para idade. " +
           $("#gyn-spec-hyperemia").val() +
@@ -324,10 +425,8 @@ $(document).ready(function() {
         );
       }
       if( $("#exam-gyn-touch").is(":checked") ) {
-        var foobar = $("#output-o").val();
-        $("#output-o").val(
-          foobar +
-          "\nToque vaginal: colo " +
+        o.push(
+          "Toque vaginal: colo " +
           $("#gyn-touch-cervixthick").val() +
           ", " +
           $("#gyn-touch-cervixpos").val() +
@@ -347,13 +446,11 @@ $(document).ready(function() {
         );
       }
       if( $("#exam-gyn-baby").is(":checked") ) {
-        var foobar = $("#output-o").val();
         var water = "";
         if( $("#gyn-baby-water").val() != "" ) { water = ". Bolsa das águas " + $("#gyn-baby-water").val(); }
 
-        $("#output-o").val(
-          foobar +
-          "\nConcepto: " +
+        o.push(
+          "Concepto: " +
           $("#gyn-baby-head").val() +
           " fetal " +
           $("#gyn-baby-height").val() +
@@ -363,6 +460,9 @@ $(document).ready(function() {
           "."
         );
       }
+
+      $("#output-o").val( o.join("\n") );
+
       // Avaliação
       var ig = $("#ig").html();
       var trim = "";
@@ -583,7 +683,6 @@ function runPlans() {
   if( $("#p-ori2").is(":checked") ) { plans.push("Oriento e reforço paciente de sinais para busca de acolhimento, assim como reforço que alguns dos sinais (sangramento vaginal ou rotura da bolsa) são condições suficientes para busca direto da Maternidade, sem necessidade de avaliação prévia na Atenção Básica"); }
   if( $("#p-ori3").is(":checked") ) { plans.push("Oriento mudanças dietéticas básicas para controle não-farmacológico de náuseas na gestação, como fracionamento alimentar, consumo de alimentos em temperatura ambiente ou gelados, uso de temperos fortes do gosto da paciente (em especial condimentos com capsaicinas), consumo de gelo antes de refeições, consumo de água gelada e não-mistura de alimentos com texturas distoantes"); }
   if( $("#p-ori4").is(":checked") ) { plans.push("Oriento alongamento de membros superiores e inferiores para controle de cãimbras na gestação"); }
-  if( $("#p-ori5").is(":checked") ) { plans.push("Oriento paciente da ausência de estudos científicos que anteparem indicação clínica de SEGURANÇA de uso de quaisquer das vacinas contra COVID-19 atualmente disponíveis no Brasil. Oriento também que o protocolo de vacinação da Secretaria Municipal de Saúde (assim como a SOGESP) indicam uso universal de quaisquer vacinas contra COVID-19 na gestação como uma medida desesperada devido ao altíssimo risco que gestação impõe a pacientes com COVID-19, mas que, mesmo em face disso, não há dados de segurança objetivos para gestantes (ou lactantes e respectivos lactentes), sendo uma escolha pessoal da paciente o uso o não de tais imunobiológicos, e que equipe estará à disposição para seguir de perto a paciente, independente de sua escolha"); }
   if( $("#p-ori6").is(":checked") ) { plans.push("Oriento sinais de trabalho de parto, na fase ativa, e oriento a procurar atendimento caso os apresente"); }
   if( $("#p-ori7").is(":checked") ) { plans.push("Oriento medidas não-farmacológias domiciliares para agilizar trabalho de parto em fase latente"); }
   if( $("#p-ori8").is(":checked") ) { plans.push("Oriento medidas não-farmacológicas para diminuir dor associada às contrações de Braxton-Hicks"); }
@@ -908,7 +1007,7 @@ function parseBMI(bmi, ig) {
   ];
   var dx = "Obesidade";
   if( bmi <= data[ig][0] ) { dx = "Baixo Peso"; }
-  else if ( bmi <= data[ig][1] ) { dx = "Adequado"; }
+  else if ( bmi <= data[ig][1] ) { dx = "IMC Adequado"; }
   else if ( bmi <= data[ig][2] ) { dx = "Sobrepeso"; }
 
   return dx;

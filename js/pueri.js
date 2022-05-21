@@ -2,6 +2,23 @@ $(document).ready(function() {
   new ClipboardJS(".copybtn");
   console.log("App ready!");
 
+  // Create checkbox-button functionality
+  $(".checkbutton").on("change", function() {
+    if ( $(this).is(":checked") ) {
+      $(this).parent()
+        .addClass("is-primary")
+        .find(".mdi")
+          .removeClass("mdi-checkbox-blank-outline mdi-checkbox-marked")
+          .addClass("mdi-checkbox-marked");
+    } else {
+      $(this).parent()
+        .removeClass("is-primary")
+        .find(".mdi")
+          .removeClass("mdi-checkbox-blank-outline mdi-checkbox-marked")
+          .addClass("mdi-checkbox-blank-outline");
+    }
+  });
+
   // Check age
   $("#age-years, #age-months").on("input", function() {
     var age = (parseInt( $("#age-years").val() ) * 12) + parseInt( $("#age-months").val() );
@@ -17,75 +34,107 @@ $(document).ready(function() {
     if(
       $("#peer").val() == "cuidador" ||
       $("#peer").val() == "outro"
-    ) { $("#peer-wtf").css("display", "inline-block"); }
-    else { $("#peer-wtf").css("display", "none"); }
+    ) { $(".peer-wtf").prop("disabled", false); }
+    else { $(".peer-wtf").prop("disabled", true).val(""); }
   });
   // Show feeding descriptors depending on choice
   $("#feeding-lm").on("change", function() {
     if( $("#feeding-lm").is(":checked") ){
-      $("#feeding-lm-difficulty").css("display", "block");
+      $("#feeding-lm-difficulty").removeClass("is-hidden");
     } else {
-      $("#feeding-lm-difficulty").css("display", "none");
+      $("#feeding-lm-difficulty").addClass("is-hidden");
       $(".feeding-difficulty-lm").prop("checked", false);
     }
   });
   $("#feeding-formula").on("change", function() {
     if( $("#feeding-formula").is(":checked") ){
-      $("#feeding-fl").css("display", "block");
-      $("#feeding-fl-difficulty").css("display", "block");
+      $("#feeding-fl").removeClass("is-hidden");
     } else {
-      $("#feeding-fl").css("display", "none");
-      $("#feeding-fl-difficulty").css("display", "none");
+      $("#feeding-fl").addClass("is-hidden");
       $(".feeding-difficulty-fl").prop("checked", false);
     }
   });
   $("#feeding-food").on("change", function() {
     if( $("#feeding-food").is(":checked") ){
-      $("#feeding-other").css("display", "block");
-      $("#feeding-other-difficulty").css("display", "block");
+      $("#feeding-other").removeClass("is-hidden");
     } else {
-      $("#feeding-other").css("display", "none");
-      $("#feeding-other-difficulty").css("display", "none");
+      $("#feeding-other").addClass("is-hidden");
       $(".feeding-difficulty-other").prop("checked", false);
     }
   });
   // Show school year selection
   $("#school").on("change", function() {
     if( $("#school option:selected").val() == "refere que paciente está frequentando escola" ) {
-      $("#school-option").removeClass("hidden");
+      $("#school-year").prop("disabled", false);
     } else {
-      $("#school-option").addClass("hidden");
+      $("#school-year").prop("disabled", true)
       $("#school-year").val("");
     }
   });
   // Show fontanelle descriptors
   $("#fontanelle-ant").on("change", function() {
-    if( $("#fontanelle-ant").val() != "aberta" ) { $("#fontanelle-ant-open").css("display", "none"); }
-    else { $("#fontanelle-ant-open").css("display", "inline-block"); }
+    if( $("#fontanelle-ant").val() == "aberta" ) { $("#fontanelle-ant-width").prop("disabled", false); }
+    else { $("#fontanelle-ant-width").prop("disabled", true).val(""); }
   });
   $("#fontanelle-post").on("change", function() {
-    if( $("#fontanelle-post").val() != "aberta" ) { $("#fontanelle-post-open").css("display", "none"); }
-    else { $("#fontanelle-post-open").css("display", "inline-block"); }
+    if( $("#fontanelle-post").val() == "aberta" ) { $("#fontanelle-post-width").prop("disabled", false); }
+    else { $("#fontanelle-post-width").prop("disabled", true).val(""); }
   });
   // Show strabism descriptors
   $("#eyes").on("change", function() {
-    if( $("#eyes").val() == "Observa-se estrabismo" ) { $("#eyes-strab").css("display", "inline-block"); }
-    else { $("#eyes-strab").css("display", "none"); }
+    if( $("#eyes").val() == "Observa-se estrabismo" ) { $(".eyes-strab").prop("disabled", false); }
+    else { $(".eyes-strab").prop("disabled", true); }
   });
-  // Enabling heart murmur description:
+  // Change febrile state when fever is input
+  $("#ssvv-temp").on("input change", function() {
+    var temp = parseFloat( $("#ssvv-temp").val() );
+    if( temp >= 37.8 ) { $("#fever-yes").prop("checked", true); }
+    else if ( temp <= 34 ) { $("#fever-hypo").prop("checked", true); }
+    else { $("#fever-none").prop("checked", true); }
+  });
+  // Enable abnormal breathing description:
+  $("input[name='breathe']").on("change", function() {
+    if( $("input[name='breathe']:checked").val() == "dispneice" ) {
+      $("#breathe-abnormal-desc").prop("disabled", false);
+    } else {
+      $("#breathe-abnormal-desc")
+        .prop("disabled", true)
+        .val("");
+    }
+  });
+  // Enable crepitation description:
+  $("#lung-sounds").on("change", function() {
+    if(
+      $("#lung-sounds").val() == "com crepitação estertorante em " ||
+      $("#lung-sounds").val() == "com sopro cavernoso em "
+    ) {
+      $("#lung-crept").prop("disabled", false);
+    } else {
+      $("#lung-crept")
+        .prop("disabled", true)
+        .val("base direita");
+    }
+  });
+  // Enable heart murmur description:
   $("#heart-murmur").on("change", function() {
-    if( $("#heart-murmur option:selected").val() == "com sopro" ) { $("#heart-murmur-desc").css("display", "inline"); }
-    else { $("#heart-murmur-desc").css("display", "none"); }
+    if( $("#heart-murmur option:selected").val() == "com sopro" ) {
+      $("#heart-murmur-desc").prop("disabled", false);
+    }
+    else {
+      $("#heart-murmur-desc")
+        .prop("disabled", true)
+        .val("");
+    }
   });
   // Show abdominal tumor description
   $("#tummy-tumors").on("change", function() {
-    if( $("#tummy-tumors").val() == "com massa" ) { $("#tummy-tumor-desc").css("display", "inline-block"); }
-    else { $("#tummy-tumor-desc").css("display", "none"); }
+    if( $("#tummy-tumors").val() == "com " ) { $("#tummy-tumor-desc").prop("disabled", false); }
+    else { $("#tummy-tumor-desc").prop("disabled", true).val(""); }
   });
   // Show belly button descriptors
   $("#tummy-cord").on("change", function() {
-    if( $("#tummy-cord").val() == "sem coto umbilical" ) { $("#tummy-button").css("display", "inline-block"); }
-    else { $("#tummy-button").css("display", "none"); }
+    if( $("#tummy-cord").val() == "sem coto umbilical" ) { $(".tummy-button-misc").prop("disabled", false); }
+    else { $(".tummy-button-misc").prop("disabled", true) }
   });
   // Show hernia width
   $("#tummy-button-desc").on("change", function() {
@@ -93,14 +142,18 @@ $(document).ready(function() {
     else { $("#tummy-button-width").css("display", "inline-block"); }
   });
   // Show adequate perineum descriptors
-  $("input[name='bio-sex']").on("change", function() {
-    if( $("input[name='bio-sex']:checked").val() == "f" ) {
-      $("#perineum-f").css("display", "block");
-      $("#perineum-m, #perineum-notice").css("display", "none");
+  $("#bio-sex").on("change", function() {
+    if( $("#bio-sex").val() == "f" ) {
+      $(".perineum-f, .perineum-both").removeClass("is-hidden");
+      $(".perineum-m, .perineum-notice").addClass("is-hidden");
     } else {
-      $("#perineum-f, #perineum-notice").css("display", "none");
-      $("#perineum-m").css("display", "block");
+      $(".perineum-m, .perineum-both").removeClass("is-hidden");
+      $(".perineum-f, .perineum-notice").addClass("is-hidden");
     }
+  });
+  $("#perineum-other").on("change", function() {
+    if ( $("#perineum-other").val() == "outro" ) { $("#perineum-other-desc").prop("disabled", false); }
+    else { $("#perineum-other-desc").prop("disabled", true).val(""); }
   });
   // Show timpanic membrane descriptors
   $("#oto-d-membrane").on("change", function() {
@@ -113,8 +166,8 @@ $(document).ready(function() {
   });
   // Show cavity options if teeth present
   $("#exam-teeth-teeth").on("change", function() {
-    if( $("#exam-teeth-teeth option:selected").val() == "dentes ausentes" ) { $("#exam-teeth-cavity").css("display", "none"); }
-    else { $("#exam-teeth-cavity").css("display", "inline-block"); }
+    if( $("#exam-teeth-teeth option:selected").val() == "dentes ausentes" ) { $("#exam-teeth-cavity").prop("disabled", true); }
+    else { $("#exam-teeth-cavity").prop("disabled", false); }
   });
 
   // Growth calculation
@@ -154,11 +207,11 @@ $(document).ready(function() {
       $("#weight").val() != "" &&
       $("#age-years").val() != "" &&
       $("#age-months").val() != "" &&
-      $("input[name='bio-sex']:checked").val() != ""
+      $("#bio-sex").val() != ""
     ) {
       var weight = parseFloat( $("#weight").val() ) / 1000;
       var age = ( parseInt( $("#age-years").val() ) * 12) + parseInt( $("#age-months").val() );
-      var sex = $("input[name='bio-sex']:checked").val();
+      var sex = $("#bio-sex").val();
       var z = getZ(weight, age, sex, "weight");
       $("#z-weight").html(z);
     }
@@ -169,11 +222,11 @@ $(document).ready(function() {
       $("#height").val() != "" &&
       $("#age-years").val() != "" &&
       $("#age-months").val() != "" &&
-      $("input[name='bio-sex']:checked").val() != ""
+      $("#bio-sex").val() != ""
     ) {
       var height = parseFloat( $("#height").val() );
       var age = ( parseInt( $("#age-years").val() ) * 12) + parseInt( $("#age-months").val() );
-      var sex = $("input[name='bio-sex']:checked").val();
+      var sex = $("#bio-sex").val();
       var z = getZ(height, age, sex, "height");
       $("#z-height").html(z);
     }
@@ -185,13 +238,13 @@ $(document).ready(function() {
       $("#height").val() != "" &&
       $("#age-years").val() != "" &&
       $("#age-months").val() != "" &&
-      $("input[name='bio-sex']:checked").val() != ""
+      $("#bio-sex").val() != ""
     ) {
       var weight = parseFloat( $("#weight").val() ) / 1000;
       var height = parseFloat( $("#height").val() );
       var bmi = weight / Math.pow((height / 100), 2);
       var age = ( parseInt( $("#age-years").val() ) * 12) + parseInt( $("#age-months").val() );
-      var sex = $("input[name='bio-sex']:checked").val();
+      var sex = $("#bio-sex").val();
       var z = getZ(bmi, age, sex, "bmi");
       $("#bmi").val(bmi.toFixed(2));
       $("#z-bmi").html(z);
@@ -203,11 +256,11 @@ $(document).ready(function() {
       $("#pc").val() != "" &&
       $("#age-years").val() != "" &&
       $("#age-months").val() != "" &&
-      $("input[name='bio-sex']:checked").val() != ""
+      $("#bio-sex").val() != ""
     ) {
       var pc = parseFloat( $("#pc").val() );
       var age = ( parseInt( $("#age-years").val() ) * 12) + parseInt( $("#age-months").val() );
-      var sex = $("input[name='bio-sex']:checked").val();
+      var sex = $("#bio-sex").val();
       var z = getZ(pc, age, sex, "pc");
       $("#z-pc").html(z);
     }
@@ -220,7 +273,7 @@ $(document).ready(function() {
       $("#pc").val() != "" &&
       $("#age-years").val() != "" &&
       $("#age-months").val() != "" &&
-      $("input[name='bio-sex']:checked").val() != ""
+      $("#bio-sex").val() != ""
     ) {
       var weight = parseFloat( $("#weight").val() ) / 1000;
       var height = parseFloat( $("#height").val() );
@@ -281,31 +334,35 @@ $(document).ready(function() {
 
   // Vaccine late month option
   $("#vaxx").on("change", function() {
-    if( $("#vaxx").val() == "ATRASADA" ) { $("#vaxx-late").css("display", "inline-block"); }
-    else { $("#vaxx-late").css("display", "none"); }
+    if( $("#vaxx").val() == "ATRASADA" ) { $("#vaxx-late-month").prop("disabled", false); }
+    else { $("#vaxx-late-month").prop("disabled", true).val(""); }
   });
   // Feeding inadequacy option
   $("#feeding-adequacy").on("change", function() {
-    if( $("#feeding-adequacy").val() != "adequada" ) { $("#feeding-adequacy-desc").css("display", "inline-block"); }
-    else { $("#feeding-adequacy-desc").css("display", "none"); }
+    if( $("#feeding-adequacy").val() != "adequada" ) { $("#feeding-adequacy-why").prop("disabled", false); }
+    else { $("#feeding-adequacy-why").prop("disabled", true).val(""); }
   });
   // Socio-ambiental context option
   $("#context").on("change", function() {
-    if( $("#context").val() != "adequado" ) { $("#context-desc").css("display", "inline-block"); }
-    else { $("#context-desc").css("display", "none"); }
+    if( $("#context").val() != "adequado" ) { $("#context-why").prop("disabled", false); }
+    else { $("#context-why").prop("disabled", true).val(""); }
   });
 
   // Show leave form
   $("#p-leave-wpeer").on("change", function() {
     if( $("#p-leave").is(":checked") ) { $("#p-leave").prop("checked", false); }
-    if( $("#p-leave-wpeer").is(":checked") ) { $("#leave-form").css("display", "block"); }
-    else { $("#leave-form").css("display", "none"); }
+    if( $("#p-leave-wpeer").is(":checked") ) { $("#leave-form").removeClass("is-hidden"); }
+    else { $("#leave-form").addClass("is-hidden"); }
   });
   $("#p-leave-peer").on("input", function() { $("#lf-peer").val( $("#p-leave-peer").val() ); });
   $("#p-leave-wpeer-days").on("input", function() { $("#lf-days").val( $("#p-leave-wpeer-days").val() ); });
   // Select only one leave option
   $("#p-leave").on("change", function() {
-    if( $("#p-leave-wpeer").is(":checked") ) { $("#p-leave-wpeer").prop("checked", false); }
+    if( $("#p-leave-wpeer").is(":checked") ) {
+      $("#p-leave-wpeer")
+        .prop("checked", false)
+        .trigger("change");
+    }
   });
 
   // Build output:
@@ -313,7 +370,7 @@ $(document).ready(function() {
     if(
       $("#age-years").val() == "" ||
       $("#age-months").val() == "" ||
-      $("input[name='bio-sex']:checked").val() == "" ||
+      $("#bio-sex").val() == "" ||
       $("input[name='feeding']:checked").val() == "" ||
       $("#weight").val() == "" ||
       $("#height").val() == "" ||
@@ -330,22 +387,7 @@ $(document).ready(function() {
       )
     ) {
       alert("Por favor, preencha todos os campos em vermelho.");
-      $("#age-years, #age-months, label[for='bio-sex-f'], label[for='bio-sex-m'], label[for='feeding-ame'], label[for='feeding-amp'], label[for='feeding-amc'], label[for='feeding-ami'], #weight, #height, #fontanelle-ant-width, #fontanelle-post-width, #tummy-button-width").addClass("req");
-      $("#age-years, #age-months, #weight, #height, #fontanelle-ant-width, #fontanelle-post-width, #tummy-button-width").on("input", function() {
-        if( $(this).val() != "" ) {
-          $(this).removeClass("req");
-        }
-      });
-      $("input[name='bio-sex']").on("change", function() {
-        if( $(this).val() != "" ) {
-          $("label[for='bio-sex-f'], label[for='bio-sex-m']").removeClass("req");
-        }
-      });
-      $("input[name='feeding']").on("change", function() {
-        if( $(this).val() != "" ) {
-          $("label[for='feeding-ame'], label[for='feeding-amp'], label[for='feeding-amc'], label[for='feeding-ami']").removeClass("req");
-        }
-      });
+      $("[required]").trigger("change");
       $("#age-years").focus();
     } else {
       // Subjetivo
@@ -399,7 +441,12 @@ $(document).ready(function() {
         school += " no " + $("#school-year").val() + "º ano";
       }
 
-      var diaper = "Acompanhante refere uso de fraldas " + $("#diaper option:selected").val();
+      var outside_others = [];
+      var outside = "nega atividades extra-domiciliares";
+      $.each($("input[name='not-school']:checked"), function(){ outside_others.push( $(this).val() ); });
+      if( outside_others.length > 0 ) { outside = "Acompanhante refere práticas de " + humanList(outside_others); }
+
+      var diaper = "refere uso de fraldas " + $("#diaper option:selected").val();
 
       var symps = [];
       var symptoms = "não apresenta nenhum sintoma";
@@ -410,7 +457,7 @@ $(document).ready(function() {
       if( $("#othersymps").val() != "" ) { symptoms += " exceto:\n\n" + $("#othersymps").val(); }
       else { symptoms += "."; }
 
-      $("#output-s").val("Paciente trazido por " + peer + ", que refere alimentação com " + feeding + ". " + feeding_difficulty + ".\n" + devices + ".\nAcompanhante " + school + ".\n" + diaper + ".\n\nPaciente, acompanhante conta, " + symptoms + othersymps);
+      $("#output-s").val("Paciente trazido por " + peer + ", que refere alimentação com " + feeding + ". " + feeding_difficulty + ".\n" + devices + ".\nAcompanhante " + school + ".\nAcompanhante também " + outside + ".\n" + diaper + ".\n\nPaciente, acompanhante conta, " + symptoms + othersymps);
 
       // Objetivo
       var qualitative_exam = [];
@@ -480,7 +527,7 @@ $(document).ready(function() {
       var other = $("#perineum-other").val();
       if( other == "outro" ) { other = "com " + $("#perineum-other-desc").val(); }
       var sexparts = "";
-      if( $("input[name='bio-sex']:checked").val() == "f" ) { sexparts = "Sinéquias " + $("#perineum-f-sineq").val(); }
+      if( $("#bio-sex").val() == "f" ) { sexparts = "Sinéquias " + $("#perineum-f-sineq").val(); }
       else { sexparts = "Testículos " + $("#perineum-m-testies").val() + ". Fimose " + $("#perineum-m-phimosis").val(); }
       var perineum = "Períneo: " + sexparts + ". " + other;
 

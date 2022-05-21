@@ -7,6 +7,20 @@ $(document).ready(function() {
   $("#return-month option[value='" + (today.getMonth() + 1) + "']").attr("selected", "true");
   $("#return-year").val( today.getFullYear() + 10 );
 
+  // Change painkiller status
+  $("#p-painkillers").on("change", function() {
+    if ( $(this).val() == "true" ) {
+      $("#p-painkillers-via, #p-painkillers-med").prop("disabled", false);
+    } else {
+      $("#p-painkillers-via, #p-painkillers-med").prop("disabled", true);
+    }
+  });
+  // Change blockade status
+  $("#p-block").on("change", function() {
+    if ( $(this).val() == "true" ) { $("#p-block-method").prop("disabled", false); }
+    else { $("#p-block-method").prop("disabled", true); }
+  });
+
   // Build output:
   $("#button-run").on("click", function() {
     var required = ["#ago-firstmenses", "#ago-firstsex", "#ago-partners", "#ago-lastsex", "#parity-g", "#parity-pn", "#parity-pc", "#parity-a", "#menses-pause", "#menses-flow", "#gyn-hysterometry", "#iud-model", "#iud-lot"];
@@ -22,10 +36,10 @@ $(document).ready(function() {
     if( error ) {
       alert("Por favor, preencha todos os campos em vermelho.");
       $.each(missing, function(i, v) {
-        $(v).addClass("req");
+        $(v).addClass("is-danger");
         $(v).on("input", function() {
-          if( $(this).val() != "" ) { $(this).removeClass("req"); }
-          else { $(this).addClass("req"); }
+          if( $(this).val() != "" ) { $(this).removeClass("is-danger"); }
+          else { $(this).addClass("is-danger"); }
         });
       });
       $(missing[0]).focus();
@@ -144,20 +158,20 @@ $(document).ready(function() {
         "Tiro dúvidas referentes tanto ao método contraceptivo como ao procedimento de passagem de DIU",
         "Discuto termo de passagem de DIU de Cobre com paciente, o qual paciente assina, estando ciente, e que anexo ao prontuário"
       ];
-      if( $("#p-painkillers").is(":checked") ) {
+      if( $("#p-painkillers").val() == "true" ) {
         plans.push(
           "Realizo analgesia pré-procedimento " +
           $("#p-painkillers-via").val() + " com " +
           $("#p-painkillers-med").val()
         );
       }
-      plans.push("Paciente posicionada em decúbito dorsal com elevação de cabeceira a 30°");
+      plans.push("Paciente posicionada em decúbito dorsal " + $("#p-elevation").val() );
       plans.push("Exame ginecológico realizado sem intercorrências, excluindo sinais de infecções ginecológicas");
       plans.push(
         "Assepsia realizada com " +
         $("#p-asepsis").val() + ", iniciando em colo uterino e seguindo para canal vaginal"
       );
-      if( $("#p-block").is(":checked") ) {
+      if( $("#p-block").val() == "true" ) {
         plans.push(
           "Realizo bloqueio " +
           $("#p-block-method").val() + " com lidocaína 1% após orientar paciente de benefícios duvidosos de anestesia à passagem de DIU, e paciente manter desejo de bloqueio anestésico"
@@ -169,7 +183,7 @@ $(document).ready(function() {
       plans.push("Oriento cuidados locais");
       plans.push("Oriento possibilidades de efeitos adversos após-passagem de DIU");
       plans.push("Oriento sinais de alarme para busca de reavaliação em acolhimento");
-      if( $("#p-usg").is(":checked") ) { plans.push("Solicito USG Transvaginal para controle de locação do DIU"); }
+      if( $("#p-usg").val() == "true" ) { plans.push("Solicito USG Transvaginal para controle de locação do DIU"); }
       plans.push("Oriento retorno em acolhimento comigo após fim da próxima menstruação, para avaliação especular de fio guia");
       plans.push(
         "Troca de DIU prevista para " +
