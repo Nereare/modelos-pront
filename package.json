@@ -22,6 +22,7 @@
     "clipboard": "^2.0.8",
     "jquery": "^3.6.0",
     "jquery-ui-dist": "^1.13.1",
+    "moment": "^2.29.1",
     "normalize.css": "^8.0.1",
     "typeface-montserrat": "^1.1.13",
     "typeface-roboto-mono": "^1.1.13"

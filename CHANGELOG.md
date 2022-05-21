@@ -6,6 +6,7 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Não Publicado][Unreleased]
 
+## [1.25.22] - 2022-03-27
 ### Adicionado
 - Código de Conduta de [Contributor Covenant v1.4.1](https://www.contributor-covenant.org/).
 - [Licença](LICENSE.md).
@@ -26,3 +27,7 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Página de 404.
 - Página de Puericultura.
 - Página de Requisição de Implanon.
+- Página de Exame Físico genérico.
+
+[Unreleased]: https://github.com/Nereare/modelos-pront/compare/v1.25.22...HEAD
+[1.25.22]: https://github.com/Nereare/modelos-pront/releases/tag/v1.25.22
