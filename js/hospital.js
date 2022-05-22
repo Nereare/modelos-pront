@@ -192,7 +192,7 @@ $(document).ready(function() {
       if( $("#lymph").val() != "" ) { cerv.push( $("#lymph").val() + $("#lymph-desc").val() + "." ); }
       o.push( cerv.join(" ") );
     }
-    if( $("#exam-lung").is(":checked") ) {
+    if( $("#exam-lungs").is(":checked") ) {
       var crept = ".";
       if(
         $("#lung-sounds").val() == "com crepitação estertorante em " ||
