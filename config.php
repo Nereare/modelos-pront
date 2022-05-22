@@ -19,7 +19,8 @@ function echo_select($select) {
     "psico" => "",
     "pueri" => "",
     "sadt" => "",
-    "sr2" => ""
+    "sr2" => "",
+    "meds" => ""
   ];
 
   switch ($select) {
@@ -47,6 +48,9 @@ function echo_select($select) {
     case "sr2":
       $selected["sr2"] = " selected";
       break;
+    case "meds":
+      $selected["meds"] = " selected";
+      break;
     default:
       $selected["null"] = " selected";
       break;
@@ -63,6 +67,7 @@ function echo_select($select) {
     <option value=\"pueri\"{$selected["pueri"]}>Puericultura</option>
     <option value=\"sadt\"{$selected["sadt"]}>SADTs</option>
     <option value=\"sr2\"{$selected["sr2"]}>Sintomáticos Respiratórios v2</option>
+    <option value=\"meds\"{$selected["meds"]}>Prescrições</option>
   </select>
   ";
 }
