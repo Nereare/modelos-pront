@@ -10,7 +10,7 @@
   </div>
 </footer>
 
-<?php if ( !isset($_COOKIES["accept_cookies"]) && !isset($_SESSION["cookies"]) ){ ?>
+<?php if ( !isset($_COOKIES["accept_cookies"]) && !isset($_SESSION["cookies"]) ) { ?>
   <div class="modal is-active" id="cookie-consent">
     <div class="modal-background"></div>
     <div class="modal-content">
