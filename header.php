@@ -117,7 +117,7 @@ if ( isset($_SESSION["cookies"]) ) {
       </div>
     </nav>
 
-    <section class="section">
+    <header class="section">
       <div class="container has-text-centered">
         <?php
         if ( isset($subtitle) ) {
@@ -137,7 +137,7 @@ if ( isset($_SESSION["cookies"]) ) {
         </p>
         <?php } ?>
       </div>
-    </section>
+    </header>
 
     <?php if ( !isset($_SESSION["ethics"]) ) { ?>
     <section class="section">

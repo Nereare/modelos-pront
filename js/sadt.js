@@ -1,6 +1,23 @@
 $( document ).ready(function() {
   console.log("App ready!");
 
+  // Create checkbox-button functionality
+  $(".checkbutton").on("change", function() {
+    if ( $(this).is(":checked") ) {
+      $(this).parent()
+        .addClass("is-warning")
+        .find(".mdi")
+          .removeClass("mdi-checkbox-blank-outline mdi-checkbox-marked")
+          .addClass("mdi-checkbox-marked");
+    } else {
+      $(this).parent()
+        .removeClass("is-warning")
+        .find(".mdi")
+          .removeClass("mdi-checkbox-blank-outline mdi-checkbox-marked")
+          .addClass("mdi-checkbox-blank-outline");
+    }
+  });
+
   $("#pront").on("input", function() {
     if( $("#pront").val() != "" ) {
       $(".print-pront").html( $("#pront").val() );
@@ -94,77 +111,56 @@ $( document ).ready(function() {
       switch ( $("#presets option:selected").val() ) {
         case "screening1":
           s11 = "Glicemia, Hemoglobina Glicada, Colesterol Total, HDL, LDL, Triglicérides, TSH, T4 Livre";
-          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg),";
-          s22 = "Sorologia para Hepatite C (Anti-HCV)";
+          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg), Sorologia para Hepatite C";
+          s22 = "(Anti-HCV)";
           break;
         case "screening2":
-          s11 = "Glicemia, Hemoglobina Glicada, Colesterol Total, HDL, LDL, Triglicérides, TSH, T4 Livre,";
-          s12 = "Pesquisa de Sangue Oculto nas Fezes";
-          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg),";
-          s22 = "Sorologia para Hepatite C (Anti-HCV)";
+          s11 = "Glicemia, Hemoglobina Glicada, Colesterol Total, HDL, LDL, Triglicérides, TSH, T4 Livre, Pesquisa de Sangue";
+          s12 = "Oculto nas Fezes";
+          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg), Sorologia para Hepatite C";
+          s22 = "(Anti-HCV)";
           break;
         case "has1":
           dx = "Hipertensão / Diabete";
-          s11 = "Glicemia, Hemoglobina Glicada, Colesterol Total, HDL, LDL, Triglicérides, Ureia,";
-          s12 = "Creatinina, Sódio, Potássio, TSH, T4 Livre, Microalbuminúria em Amostra Isolada";
-          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg),";
-          s22 = "Sorologia para Hepatite C (Anti-HCV)";
+          s11 = "Glicemia, Hemoglobina Glicada, Colesterol Total, HDL, LDL, Triglicérides, Ureia, Creatinina, Sódio, Potássio,";
+          s12 = "TSH, T4 Livre, Microalbuminúria em Amostra Isolada";
+          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg), Sorologia para Hepatite C";
+          s22 = "(Anti-HCV)";
           break;
         case "has2":
           dx = "Hipertensão / Diabete";
-          s11 = "Glicemia, Hemoglobina Glicada, Colesterol Total, HDL, LDL, Triglicérides, Ureia,";
-          s12 = "Creatinina, Sódio, Potássio, TSH, T4 Livre, Microalbuminúria em Amostra Isolada,";
-          s13 = "Pesquisa de Sangue Oculto nas Fezes";
-          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg),";
-          s22 = "Sorologia para Hepatite C (Anti-HCV)";
+          s11 = "Glicemia, Hemoglobina Glicada, Colesterol Total, HDL, LDL, Triglicérides, Ureia, Creatinina, Sódio, Potássio,";
+          s12 = "TSH, T4 Livre, Microalbuminúria em Amostra Isolada, Pesquisa de Sangue Oculto nas Fezes";
+          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg), Sorologia para Hepatite C";
+          s22 = "(Anti-HCV)";
           break;
         case "ckd":
-          dx = "Insuficiência Renal Crônica";
-          s11 = "Glicemia, Hemoglobina Glicada, Colesterol Total, HDL, LDL, Triglicérides, Ureia,";
-          s12 = "Creatinina, Sódio, Potássio, Cálcio Total, Fósfoto, TSH, T4 Livre, PTH, Albuminúria de";
-          s13 = "24h, Hemograma Completo, Ferro, Ferritina, Reticulócitos, Proteínas Total e Frações";
-          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg),";
-          s22 = "Sorologia para Hepatite C (Anti-HCV)";
+          dx = "Doença Renal Crônica";
+          s11 = "Glicemia, Hemoglobina Glicada, Colesterol Total, HDL, LDL, Triglicérides, Ureia, Creatinina, Sódio, Potássio,";
+          s12 = "Cálcio Total, Fósfoto, TSH, T4 Livre, PTH, Microalbuminúria de 24h, Hemograma Completo, Ferro, Ferritina,";
+          s13 = "Transferrina, Capacidade Total de Ligação de Transferrina, Reticulócitos, Proteínas Total e Frações";
+          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg), Sorologia para Hepatite C";
+          s22 = "(Anti-HCV)";
           break;
-        case "preg1nurse":
+        case "preg1":
           dx = "Gestante";
-          s11 = "Glicemia, Eritrograma (Hemoglobina + Hematócrito), Tipagem Sanguínea AB0, Tipagem";
-          s12 = "Sanguínea Rh, Urina Tipo 1, Urocultura, Protoparasitológico de Fezes";
-          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg),";
-          s22 = "Sorologia para Hepatite C (Anti-HCV), Sorologia para Toxoplasmose (IgM e IgG)";
+          s11 = "Glicemia, Hemoglobina Glicada, Eritrograma (Hemoglobina + Hematócrito), Tipagem Sanguínea AB0, Tipagem";
+          s12 = "Sanguínea Rh, Pesquisa de Anticorpos Irregulares (ou Coombs Indireto), TSH, T4 Livre, Urina Tipo 1, Urocultura,";
+          s13 = "Protoparasitológico de Fezes";
+          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg), Dosagem de Anti-HBc, Dosagem";
+          s22 = "de Anti-HBs, Sorologia para Hepatite C(Anti-HCV), Sorologia para Toxoplasmose (IgM e IgG)";
           break;
-        case "preg1med":
+        case "preg23":
           dx = "Gestante";
-          s11 = "Glicemia, TSH, T4 Livre, Eritrograma (Hemoglobina + Hematócrito), Tipagem Sanguínea AB0,";
-          s12 = "Tipagem Sanguínea Rh, Urina Tipo 1, Urocultura, Protoparasitológico de Fezes, Hemoglobina";
-          s13 = "glicada";
-          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg),";
-          s22 = "Sorologia para Hepatite C (Anti-HCV), Sorologia para Toxoplasmose (IgM e IgG), Dosagem de";
-          s23 = "Anti-HBs";
+          s11 = "Glicemia, Eritrograma (Hemoglobina + Hematócrito), TSH, T4 Livre, Urina Tipo 1, Urocultura";
+          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg), Sorologia para Hepatite C";
+          s22 = "(Anti-HCV)";
           break;
-        case "preg23nurse":
+        case "preg23toxo":
           dx = "Gestante";
-          s11 = "Glicemia, Urina Tipo 1, Urocultura";
-          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAG), Sorologia";
-          s22 = "para Hepatite C (Anti-HCV)";
-          break;
-        case "preg23nursetoxo":
-          dx = "Gestante";
-          s11 = "Glicemia, Urina Tipo 1, Urocultura";
-          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Toxoplasmose (IgM e IgG),";
-          s22 = "Sorologia para Hepatite B (HBsAg), Sorologia para Hepatite C (Anti-HCV)";
-          break;
-        case "preg23med":
-          dx = "Gestante";
-          s11 = "Glicemia, TSH, T4 Livre, Urina Tipo 1, Urocultura";
-          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg),";
-          s22 = "Sorologia para Hepatite C (Anti-HCV)";
-          break;
-        case "preg23medtoxo":
-          dx = "Gestante";
-          s11 = "Glicemia, TSH, T4 Livre, Urina Tipo 1, Urocultura";
-          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Toxoplasmose (IgM e IgG),";
-          s22 = "Sorologia para Hepatite B (HBsAg), Sorologia para Hepatite C (Anti-HCV)";
+          s11 = "Glicemia, Eritrograma (Hemoglobina + Hematócrito), TSH, T4 Livre, Urina Tipo 1, Urocultura";
+          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg), Sorologia para Hepatite C";
+          s22 = "(Anti-HCV), Sorologia para Toxoplasmose (IgM e IgG)";
           break;
         case "preg2428":
           dx = "Gestante";
@@ -175,41 +171,45 @@ $( document ).ready(function() {
           dx = "Gestante";
           s11 = "Pesquisa de Estreptococo Grupo B por swab de secreções vaginal e retal";
           break;
-        case "tb":
+        case "tb1":
           dx = "Tuberculose";
-          s11 = "Glicemia, Hemoglobina Glicada, Ureia, Creatinina, Sódio, Potássio, TGO, TGP, Bilirrubinas";
-          s12 = "Total e Frações";
+          s11 = "Glicemia, Hemoglobina Glicada, Ureia, Creatinina, Sódio, Potássio, TGO, TGP, Bilirrubinas Total e Frações";
+          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg), Dosagem de Anti-HBc, Dosagem";
+          s22 = "de Anti-HBs, Sorologia para Hepatite C(Anti-HCV), Sorologia para Hepatite A (IgM e Total), Sorologia para";
+          s23 = "Toxoplasmose (IgM e IgG)";
+          break;
+        case "tb2":
+          dx = "Tuberculose";
+          s11 = "Glicemia, Hemoglobina Glicada, Ureia, Creatinina, Sódio, Potássio, TGO, TGP, Bilirrubinas Total e Frações";
           s21 = "Radiografia de Tórax Póstero-Anterior E PERFIL";
           break;
         case "infert_f1":
-          dx = "Infertilidade Feminina?";
-          s11 = "Glicemia, Hemoglobina Glicada, Colesterol Total, HDL, LDL, Triglicérides, TSH, T4 Livre,";
-          s12 = "FSH, LH, Prolactina, Testosteronas Total e Livre, 17-OH-Progesterona, Sulfato de";
-          s13 = "Dihidroepiandrosterona (DHEAS)";
-          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg),";
-          s22 = "Sorologia para Hepatite C (Anti-HCV), Sorologia para Clamídia";
+          dx = "Infertilidade Feminina? (N97.9)";
+          s11 = "Glicemia, Hemoglobina Glicada, Colesterol Total, HDL, LDL, Triglicérides, TSH, T4 Livre, FSH, LH, Prolactina,";
+          s12 = "Testosteronas Total e Livre, 17-OH-Progesterona, Sulfato de Dihidroepiandrosterona (DHEAS)";
+          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg), Sorologia para Hepatite C";
+          s22 = "(Anti-HCV), Sorologia para \"Chlamydia trachomatis\"";
           break;
         case "infert_f2":
-          dx = "Infertilidade Feminina?";
+          dx = "Infertilidade Feminina? (N97.9)";
           s11 = "Dosagem sérica de Hormônio Anti-Mülleriano";
           s21 = "Ultrassonografia Transvaginal";
           break;
         case "infert_m1":
-          dx = "Infertilidade Masculina?";
+          dx = "Infertilidade Masculina? (N46)";
           s11 = "Glicemia, Hemoglobina Glicada, Colesterol Total, HDL, LDL, Triglicérides, TSH, T4 Livre";
-          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg),";
-          s22 = "Sorologia para Hepatite C (Anti-HCV), Sorologia para Clamídia";
+          s21 = "Sorologia para HIV 1/2, Sorologia para Sífilis, Sorologia para Hepatite B (HBsAg), Sorologia para Hepatite C";
+          s22 = "(Anti-HCV), Sorologia para \"Chlamydia trachomatis\"";
           break;
         case "infert_m2":
-          dx = "Infertilidade Masculina?";
+          dx = "Infertilidade Masculina? (N46)";
           s11 = "Espermograma";
           s21 = "Ultrassonografia Doppler de Testículos (Bilateral)";
           break;
         case "pcos":
-          dx = "Síndrome dos Ovários Policísticos?";
-          s11 = "Glicemia, Hemoglobina Glicada, Colesterol Total, HDL, LDL, Triglicérides, TSH, T4 Livre,";
-          s12 = "FSH, LH, Prolactina, Testosteronas Total e Livre, 17-OH-Progesterona, Sulfato de";
-          s13 = "Dihidroepiandrosterona (DHEAS)";
+          dx = "Síndrome dos Ovários Policísticos? (E28.2)";
+          s11 = "Glicemia, Hemoglobina Glicada, Colesterol Total, HDL, LDL, Triglicérides, TSH, T4 Livre, FSH, LH, Prolactina,";
+          s12 = "Testosteronas Total e Livre, 17-OH-Progesterona, Sulfato de Dihidroepiandrosterona (DHEAS)";
           s21 = "Ultrassonografia Transvaginal";
           break;
         default:
