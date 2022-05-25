@@ -16,7 +16,7 @@ switch ($job) {
     break;
   case "accept":
     $_SESSION["cookies"] = true;
-    setcookie("accept_cookies", "true", time() + 30*24*60*60 ); // 30 days
+    setcookie("accept_cookies", "true", time() + 30*24*60*60, "/" ); // 30 days
     break;
   case "ethics":
     $_SESSION["ethics"] = true;

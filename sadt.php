@@ -10,7 +10,7 @@ $subtitle = "SADTs";
 require_once "header.php";
 
 function getUnit($line = 3) {
-  if ( isset($_COOKIES["place"]) ) { return $_COOKIES["place"]; }
+  if ( isset($_COOKIE["place"]) ) { return $_COOKIE["place"]; }
   elseif ( isset($_SESSION["place"]) ) { return $_SESSION["place"]; }
   else { $line = 3; }
 

@@ -30,10 +30,10 @@ $menu = [
 ];
 if ( isset($_SESSION["cookies"]) ) {
   if ( $_SESSION["cookies"] ) {
-    if ( isset($_COOKIES["menu"]) ) {
-      $menu = json_decode( $_COOKIES["menu"] );
+    if ( isset($_COOKIE["menu"]) ) {
+      $menu = json_decode( $_COOKIE["menu"] );
     } else {
-      setcookie("menu", json_encode( $menu ), time() + 30*24*60*60);
+      setcookie( "menu", json_encode( $menu ), time() + 30*24*60*60, "/" );
     }
   } else {
     if ( isset($_SESSION["menu"]) ) {
