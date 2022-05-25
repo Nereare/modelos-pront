@@ -10,11 +10,11 @@ $subtitle = "SADTs";
 require_once "header.php";
 
 function getUnit($line = 3) {
-  if ( isset($_COOKIE["place"]) ) { return $_COOKIE["place"]; }
-  elseif ( isset($_SESSION["place"]) ) { return $_SESSION["place"]; }
-  else { $line = 3; }
+  if ( isset($_COOKIE["place"]) ) { $data = json_decode( $_COOKIE["place"] ); }
+  elseif ( isset($_SESSION["place"]) ) { $data = $_SESSION["place"]; }
+  else { $line = 4; }
 
-  if ( $line > 2 ) { return "&nbsp;"; }
+  if ( $line > 3 ) { return "&nbsp;"; }
   else { return $data[ $line ]; }
 }
 ?>
@@ -225,12 +225,12 @@ function getUnit($line = 3) {
     </tr>
 
     <tr>
-      <td colspan="8" label="Encaminhado para"><span class="has-text-right pr-2"><?php echo getUnit(1); ?></span></td>
+      <td colspan="8" label="Encaminhado para"><span class="has-text-right pr-2">CNES <?php echo getUnit(1); ?> | Tel.: <?php echo getUnit(2); ?></span></td>
     </tr>
 
     <tr>
       <td colspan="3" rowspan="2" label="Carimbo de Autorização"><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></td>
-      <td colspan="8" label="Endereço"><span class="has-text-right pr-2"><?php echo getUnit(2); ?></span></td>
+      <td colspan="8" label="Endereço"><span class="has-text-right pr-2"><?php echo getUnit(3); ?></span></td>
     </tr>
 
     <tr>
@@ -328,12 +328,12 @@ function getUnit($line = 3) {
     </tr>
 
     <tr>
-      <td colspan="8" label="Encaminhado para"><span class="has-text-right pr-2"><?php echo getUnit(1); ?></span></td>
+      <td colspan="8" label="Encaminhado para"><span class="has-text-right pr-2">CNES <?php echo getUnit(1); ?> | Tel.: <?php echo getUnit(2); ?></span></td>
     </tr>
 
     <tr>
       <td colspan="3" rowspan="2" label="Carimbo de Autorização"><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></td>
-      <td colspan="8" label="Endereço"><span class="has-text-right pr-2"><?php echo getUnit(2); ?></span></td>
+      <td colspan="8" label="Endereço"><span class="has-text-right pr-2"><?php echo getUnit(3); ?></span></td>
     </tr>
 
     <tr>

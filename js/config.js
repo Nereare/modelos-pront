@@ -39,14 +39,32 @@ $(document).ready(function() {
       }
     });
 
-    console.log( JSON.stringify(newmenu) );
+    var phone_regex = /((\(\d{2}\))?( )?(\d)?( |-)?(\d{4})( |-)?(\d{4}))/;
+    var place_name = $("#place-name").val();
+    var place_cnes = $("#place-cnes").val();
+    var place_phone = $("#place-phone").val();
+    var place_address = $("#place-address").val();
+
+    // Checks for validity of inputs
+    if ( place_name.length > 80 ) { place_name = place_name.substring(0, 80); }
+    if ( place_cnes.length > 7 ) { place_cnes = place_cnes.substring(0, 7); }
+    if ( !place_phone.match( phone_regex ) ) { place_phone = "(11) 3066-8000"; }
+    if ( place_address.length > 80 ) { place_address = place_address.substring(0, 80); }
+
+    // Set data for AJAX
+    var data = {
+      newmenu: JSON.stringify(newmenu),
+      place_name: place_name,
+      place_cnes: place_cnes,
+      place_phone: place_phone,
+      place_address: place_address
+    };
+    console.log( data );
 
     $.ajax({
       url: "scripts/config-do.php",
       type: "get",
-      data: {
-        newmenu: JSON.stringify(newmenu)
-      }
+      data: data
     })
       .done(function() {
         $("#config-reply").addClass("is-success");

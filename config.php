@@ -71,61 +71,116 @@ function echo_select($select) {
   </select>
   ";
 }
+
+if ( isset( $_COOKIE["place"] ) ) { $place = json_decode( $_COOKIE["place"] ); }
+elseif ( isset( $_SESSION["place"] ) ) { $place = $_SESSION["place"]; }
+else { $place = ["", "", "", ""]; }
 ?>
 
 <section class="section">
   <div class="container">
     <div class="box">
       <h2 class="title is-3">Configurações</h2>
-      <form class="control">
-        <h3 class="title is-4">Ordem dos Menus</h3>
 
-        <?php
-        foreach ($menu as $index => $line) {
-          $index++;
-          $wide = false;
-          if ( count($line) === 1 ) {
-            $wide = true;
-            $line[1] = null;
-            $line[2] = null;
-          }
-        ?>
-        <div class="mb-4">
-          <h4 class="title is-5">Linha <?php echo $index; ?></h4>
-          <div class="field">
-            <input id="line<?php echo $index; ?>-wide" class="switch is-rounded line-menu" type="checkbox"<?php if ($wide) { echo " checked"; } ?>>
-            <label for="line<?php echo $index; ?>-wide">Menu largo</label>
+      <h3 class="title is-4">Ordem dos Menus</h3>
+
+      <?php
+      foreach ($menu as $index => $line) {
+        $index++;
+        $wide = false;
+        if ( count($line) === 1 ) {
+          $wide = true;
+          $line[1] = null;
+          $line[2] = null;
+        }
+      ?>
+      <div class="mb-4">
+        <h4 class="title is-5">Linha <?php echo $index; ?></h4>
+        <div class="field">
+          <input id="line<?php echo $index; ?>-wide" class="switch line-menu" type="checkbox"<?php if ($wide) { echo " checked"; } ?>>
+          <label for="line<?php echo $index; ?>-wide">Menu largo</label>
+        </div>
+        <div id="line<?php echo $index; ?>-widemenu" class="field<?php if (!$wide) { echo " is-hidden"; } ?>">
+          <div id="line<?php echo $index; ?>-optwide" class="select is-fullwidth menu-select">
+            <?php echo_select($line[0]) ?>
           </div>
-          <div id="line<?php echo $index; ?>-widemenu" class="field<?php if (!$wide) { echo " is-hidden"; } ?>">
-            <div id="line<?php echo $index; ?>-optwide" class="select menu-select is-rounded">
+        </div>
+        <div id="line<?php echo $index; ?>-shortmenu"<?php if ($wide) { echo " class=\"is-hidden\""; } ?>>
+          <div class="field">
+            <div class="select is-fullwidth menu-select" id="line<?php echo $index; ?>-opt1">
               <?php echo_select($line[0]) ?>
             </div>
           </div>
-          <div id="line<?php echo $index; ?>-shortmenu"<?php if ($wide) { echo " class=\"is-hidden\""; } ?>>
-            <div class="field">
-              <div class="select menu-select is-rounded" id="line<?php echo $index; ?>-opt1">
-                <?php echo_select($line[0]) ?>
-              </div>
+          <div class="field">
+            <div class="select is-fullwidth menu-select" id="line<?php echo $index; ?>-opt2">
+              <?php echo_select($line[1]) ?>
             </div>
-            <div class="field">
-              <div class="select menu-select is-rounded" id="line<?php echo $index; ?>-opt2">
-                <?php echo_select($line[1]) ?>
-              </div>
-            </div>
-            <div class="field">
-              <div class="select menu-select is-rounded" id="line<?php echo $index; ?>-opt3">
-                <?php echo_select($line[2]) ?>
-              </div>
+          </div>
+          <div class="field">
+            <div class="select is-fullwidth menu-select" id="line<?php echo $index; ?>-opt3">
+              <?php echo_select($line[2]) ?>
             </div>
           </div>
         </div>
-        <?php } ?>
+      </div>
+      <?php } ?>
 
-        <div class="field">
-          <button id="config-save" class="button is-success is-fullwidth" type="button">Salvar</button>
+      <div class="divider">
+        <div>&bull;&nbsp;&bull;&nbsp;&bull;</div>
+      </div>
+
+      <h3 class="title is-4">Local para SADTs</h3>
+
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Nome da Unidade</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="text" class="input" id="place-name" placeholder="..." maxlength="80" value="<?php echo $place[0]; ?>">
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column">
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">CNES</button>
+            </div>
+            <div class="control is-expanded">
+              <input type="number" class="input" id="place-cnes" placeholder="#######" pattern="\d{7}" value="<?php echo $place[1]; ?>">
+            </div>
+          </div>
         </div>
 
-      </form>
+        <div class="column">
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">Telefone</button>
+            </div>
+            <div class="control is-expanded">
+              <input type="text" class="input" id="place-phone" placeholder="(##) # #### ####" placeholder="((\(\d{2}\))?( )?(\d)?( |-)?(\d{4})( |-)?(\d{4}))" value="<?php echo $place[2]; ?>">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Endereço</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="text" class="input" id="place-address" placeholder="..." maxlength="80" value="<?php echo $place[3]; ?>">
+        </div>
+      </div>
+
+      <div class="divider">
+        <div>&bull;&nbsp;&bull;&nbsp;&bull;</div>
+      </div>
+
+      <div class="field">
+        <button id="config-save" class="button is-success is-fullwidth" type="button">Salvar</button>
+      </div>
+
     </div>
   </div>
 </section>
