@@ -15,7 +15,7 @@ Date.prototype.getDOY = function() {
 };
 
 $(document).ready(function() {
-  console.log("Ready!");
+  console.log("Main Logic Ready!");
 
   // Accept cookies
   $("#cookie-accept").on("click", function() {
