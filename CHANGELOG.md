@@ -7,6 +7,8 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Não Publicado][Unreleased]
 ### Adicionado
 - Possibilidade de configurar dados de local de emissão de SADTs.
+- Possibilidade de incluir dados pessoais médicos para uso em ferramentas.
+  - No momento, suportado apenas no *Sintomáticos Respiratórios v3*.
 ### Corrigido
 - Falta de "Prescrições" como opção no menu de configurações.
 - Referência a *cookies*.

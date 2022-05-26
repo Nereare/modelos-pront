@@ -75,6 +75,10 @@ function echo_select($select) {
 if ( isset( $_COOKIE["place"] ) ) { $place = json_decode( $_COOKIE["place"] ); }
 elseif ( isset( $_SESSION["place"] ) ) { $place = $_SESSION["place"]; }
 else { $place = ["", "", "", ""]; }
+
+if ( isset($_COOKIE["physician"]) ) { $physician = json_decode( $_COOKIE["physician"] ); }
+elseif ( isset($_SESSION["physician"]) ) { $physician = $_SESSION["physician"]; }
+else { $physician = ["", "", "SP"]; }
 ?>
 
 <section class="section">
@@ -170,6 +174,69 @@ else { $place = ["", "", "", ""]; }
         </div>
         <div class="control is-expanded">
           <input type="text" class="input" id="place-address" placeholder="..." maxlength="80" value="<?php echo $place[3]; ?>">
+        </div>
+      </div>
+
+      <div class="divider">
+        <div>&bull;&nbsp;&bull;&nbsp;&bull;</div>
+      </div>
+
+      <h3 class="title is-4">Dados Pessoais Médicos</h3>
+
+      <div class="columns">
+        <div class="column is-two-thirds">
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">Nome</button>
+            </div>
+            <div class="control is-expanded">
+              <input type="text" class="input" id="physician-name" placeholder="..." value="<?php echo $physician[0]; ?>">
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">CRM</button>
+            </div>
+            <div class="control is-expanded">
+              <input type="number" class="input" id="physician-crm" placeholder="###.###" min="1" step="1" value="<?php echo $physician[1]; ?>">
+            </div>
+            <div class="control">
+              <div class="select">
+                <select id="physician-crm-uf">
+                  <option value="AC"<?php echo ( $physician[2] == "AC" ) ? " selected" : ""; ?>>AC</option>
+                  <option value="AL"<?php echo ( $physician[2] == "AL" ) ? " selected" : ""; ?>>AL</option>
+                  <option value="AP"<?php echo ( $physician[2] == "AP" ) ? " selected" : ""; ?>>AP</option>
+                  <option value="AM"<?php echo ( $physician[2] == "AM" ) ? " selected" : ""; ?>>AM</option>
+                  <option value="BA"<?php echo ( $physician[2] == "BA" ) ? " selected" : ""; ?>>BA</option>
+                  <option value="CE"<?php echo ( $physician[2] == "CE" ) ? " selected" : ""; ?>>CE</option>
+                  <option value="DF"<?php echo ( $physician[2] == "DF" ) ? " selected" : ""; ?>>DF</option>
+                  <option value="ES"<?php echo ( $physician[2] == "ES" ) ? " selected" : ""; ?>>ES</option>
+                  <option value="GO"<?php echo ( $physician[2] == "GO" ) ? " selected" : ""; ?>>GO</option>
+                  <option value="MA"<?php echo ( $physician[2] == "MA" ) ? " selected" : ""; ?>>MA</option>
+                  <option value="MT"<?php echo ( $physician[2] == "MT" ) ? " selected" : ""; ?>>MT</option>
+                  <option value="MS"<?php echo ( $physician[2] == "MS" ) ? " selected" : ""; ?>>MS</option>
+                  <option value="MG"<?php echo ( $physician[2] == "MG" ) ? " selected" : ""; ?>>MG</option>
+                  <option value="PA"<?php echo ( $physician[2] == "PA" ) ? " selected" : ""; ?>>PA</option>
+                  <option value="PB"<?php echo ( $physician[2] == "PB" ) ? " selected" : ""; ?>>PB</option>
+                  <option value="PR"<?php echo ( $physician[2] == "PR" ) ? " selected" : ""; ?>>PR</option>
+                  <option value="PE"<?php echo ( $physician[2] == "PE" ) ? " selected" : ""; ?>>PE</option>
+                  <option value="PI"<?php echo ( $physician[2] == "PI" ) ? " selected" : ""; ?>>PI</option>
+                  <option value="RJ"<?php echo ( $physician[2] == "RJ" ) ? " selected" : ""; ?>>RJ</option>
+                  <option value="RN"<?php echo ( $physician[2] == "RN" ) ? " selected" : ""; ?>>RN</option>
+                  <option value="RS"<?php echo ( $physician[2] == "RS" ) ? " selected" : ""; ?>>RS</option>
+                  <option value="RO"<?php echo ( $physician[2] == "RO" ) ? " selected" : ""; ?>>RO</option>
+                  <option value="RR"<?php echo ( $physician[2] == "RR" ) ? " selected" : ""; ?>>RR</option>
+                  <option value="SC"<?php echo ( $physician[2] == "SC" ) ? " selected" : ""; ?>>SC</option>
+                  <option value="SP"<?php echo ( $physician[2] == "SP" ) ? " selected" : ""; ?>>SP</option>
+                  <option value="SE"<?php echo ( $physician[2] == "SE" ) ? " selected" : ""; ?>>SE</option>
+                  <option value="TO"<?php echo ( $physician[2] == "TO" ) ? " selected" : ""; ?>>TO</option>
+                </select>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
