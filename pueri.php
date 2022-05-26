@@ -468,6 +468,33 @@ require_once "header.php";
         </div>
       </div>
 
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Se Criança</button>
+        </div>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="child-activity">
+              <option value="" selected>N/A</option>
+              <option value="ative">ative</option>
+              <option value="hipoative">hipoative</option>
+              <option value="inative">inative</option>
+              <option value="hiperative">hiperative</option>
+            </select>
+          </div>
+        </div>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="child-reactivity">
+              <option value="" selected>N/A</option>
+              <option value="reative">reative</option>
+              <option value="hiporreative">hiporreative</option>
+              <option value="arreative">arreative</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
       <h3 class="title is-5">Fontanelas</h3>
 
       <div class="field has-addons">
