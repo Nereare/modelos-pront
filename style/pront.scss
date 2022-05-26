@@ -29,6 +29,20 @@ $link: #00acc1;
 // Vaccine class for Pueri
 .future { color: findLightColor($table-color); }
 
+// Symptom day notice for SRv3
+#day-notice {
+  position: fixed;
+  top: 5rem;
+  right: 1rem;
+  margin-right: 1rem;
+  z-index: 1000;
+  max-width: 150px;
+}
+// Modal size for SRv3
+@media only screen and (min-width: 760px) { #family-leave-form .modal-card { width: 750px; } }
+@media only screen and (min-width: 960px) { #family-leave-form .modal-card { width: 960px; } }
+
+
 // SADT display styles
 @media screen { #sadt-print { display: none; } }
 @page {

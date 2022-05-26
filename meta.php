@@ -4,15 +4,15 @@ define("APP_AUTHOR", "Igor Padoim");
 define("APP_YEAR", "2021-2022");
 define("APP_LICENSE_NAME", "Licença Hipocrática");
 define("APP_LICENSE_URI", "https://firstdonoharm.dev/");
-define("APP_VERSION", "2.2.8");
+define("APP_VERSION", "2.3.8");
 
 define("MODELS", [
-  "sr2" => [
-    "sr2",
-    "sr2.php",
+  "sr" => [
+    "sr",
+    "sr.php",
     "sr.svg",
     "Um vírus circular com espículas terminadas em representações circulares de antígenos",
-    "Sintomáticos Respiratórios v2",
+    "Sintomáticos Respiratórios v3",
     "Fluxo de atendimento de pacientes com suspeita de infecção por SARS-CoV-2, incluindo sintomas, início e condutas, além de lembrar sempre a imbecilidade do \"tratamento precoce\" defendido por negacionistas de ciência."
   ],
   "hospital" => [

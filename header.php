@@ -23,7 +23,7 @@ function is_selected($link, $page) {
 $menu = [
   ["hospital"],
   ["psico", "pn", "pueri"],
-  ["sadt", "sr2", "diu"],
+  ["sadt", "sr", "diu"],
   ["implanon", "meds", null],
   [null, null, null],
   [null, null, null]
