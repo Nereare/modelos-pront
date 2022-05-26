@@ -5,13 +5,17 @@ Todas as mudanças significativas nesse projeto serão documentadas neste arquiv
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
 ## [Não Publicado][Unreleased]
+
+## [2.3.8] - 2022-05-26
 ### Adicionado
 - Possibilidade de configurar dados de local de emissão de SADTs.
 - Possibilidade de incluir dados pessoais médicos para uso em ferramentas.
   - No momento, suportado apenas no *Sintomáticos Respiratórios v3*.
+- Versão 3 da página de *Sintomáticos Respiratórios*.
 ### Corrigido
 - Falta de "Prescrições" como opção no menu de configurações.
 - Referência a *cookies*.
+- Falta de avaliação de atividade/reatividade em *Puericultura*.
 
 ## [2.2.5] - 2022-05-21
 ### Adicionado
@@ -45,6 +49,7 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Página de Requisição de Implanon.
 - Página de Exame Físico genérico.
 
-[Unreleased]: https://github.com/Nereare/modelos-pront/compare/v2.2.5...HEAD
+[Unreleased]: https://github.com/Nereare/modelos-pront/compare/v2.3.8...HEAD
+[2.3.8]: https://github.com/olivierlacan/keep-a-changelog/compare/v2.2.5...v2.3.8
 [2.2.5]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.25.22...v2.2.5
 [1.25.22]: https://github.com/Nereare/modelos-pront/releases/tag/v1.25.22
