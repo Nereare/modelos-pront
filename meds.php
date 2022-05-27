@@ -20,7 +20,7 @@ require_once "header.php";
           <button class="button is-static" tabindex="-1">Medicação</button>
         </div>
         <div class="control is-expanded">
-          <input type="text" class="input" id="med-search" placeholder="Comece digitando o nome da medicação aqui" autofocus>
+          <input type="text" class="input" id="med-search" placeholder="Comece digitando o nome da medicação aqui">
         </div>
       </div>
 
