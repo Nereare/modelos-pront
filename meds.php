@@ -101,6 +101,8 @@ require_once "header.php";
               <option value="Dissolver sob a língua">Dissolver SL</option>
               <option value="Inalar">Inalar</option>
               <option value="Pingar">Pingar</option>
+              <option value="Lavar cada narina com">Lavar (narina)</option>
+              <option value="Usar">Usar</option>
             </select>
           </div>
         </div>
@@ -110,6 +112,13 @@ require_once "header.php";
         <div class="control is-expanded">
           <div class="select is-fullwidth">
             <select id="med-unity">
+              <option value="" disabled>--- Comuns ---</option>
+              <option value="cp(s)" selected>cp(s)</option>
+              <option value="mL">mL</option>
+              <option value="jato(s)">jato(s)</option>
+              <option value="puff(s)">puff(s)</option>
+              <option value="UI">UI</option>
+              <option value="" disabled>--- Outros ---</option>
               <option value="adesivo(s)">adesivo(s)</option>
               <option value="ampola(s)">ampola(s)</option>
               <option value="anel(s)">anel(s)</option>
@@ -119,14 +128,12 @@ require_once "header.php";
               <option value="caneta(s)">caneta(s)</option>
               <option value="cápsula(s)">cápsula(s)</option>
               <option value="comprimido(s)">comprimido(s)</option>
-              <option value="cp(s)" selected>cp(s)</option>
               <option value="depot(s)">depot(s)</option>
               <option value="drágea(s)">drágea(s)</option>
               <option value="frasco(s)">frasco(s)</option>
               <option value="goma(s)">goma(s)</option>
               <option value="implante(s)">implante(s)</option>
               <option value="kit(s)">kit(s)</option>
-              <option value="mL">mL</option>
               <option value="óvulo(s)">óvulo(s)</option>
               <option value="pastilha(s)">pastilha(s)</option>
               <option value="supositório(s)">supositório(s)</option>
@@ -210,11 +217,7 @@ require_once "header.php";
         </div>
       </div>
     </div>
-  </div>
-</main>
 
-<section class="section">
-  <div class="container">
     <div class="box">
       <h2 class="title is-4">Prescrição</h2>
 
@@ -228,7 +231,7 @@ require_once "header.php";
       </div>
     </div>
   </div>
-</section>
+</main>
 
 <?php
 require_once "footer.php";

@@ -15371,6 +15371,54 @@ $(document).ready(function() {
     "SRO Vs. Gatorade": "Caso você prefira, é possível substituir o soro de reidratação pelo mesmo volume de qualquer bebida isotônica da sua preferência."
   };
 
+  function addMed(data, clear = false) {
+    // Create div element to represent the medication added
+    var addy = $("<div>", {class: "notification item"});
+    addy.append( $("<button>", {class: "delete"}) );
+    addy.append( $("<p>").html("<strong>#.</strong> <span class=\"med-name\"></span> <span class=\"med-concentration\"></span> --- <span class=\"med-via\"></span> ------------------------------------------------------------------------ <span class=\"med-qtt\"></span>") );
+    addy.append( $("<p>").html("<span class=\"med-act\"></span> <span class=\"med-cps\"></span> <span class=\"med-unity\"></span><span class=\"med-interval\"></span><span class=\"med-interval-time\"></span><span class=\"med-duration\"></span><span class=\"med-duration-time\"></span><span class=\"med-if\"></span>.") );
+    addy.append( $("<p>").html("<span class=\"med-guide\"></span>") );
+    addy.find("button.delete").on("click", function() { $(this).parent().remove(); });
+    // Fill `addy` element
+    addy.find(".med-name").html( data[0] );
+    addy.find(".med-concentration").html( data[1] );
+    addy.find(".med-via").html( data[2] );
+    addy.find(".med-qtt").html( data[3] );
+    addy.find(".med-act").html( data[4] );
+    addy.find(".med-cps").html( data[5] );
+    addy.find(".med-unity").html( data[6] );
+    if ( data[9] ) {
+      addy.find(".med-interval").html( " a cada " + data[7] );
+      addy.find(".med-interval-time").html( " " + data[8] );
+      addy.find(".med-duration").html( data[9] );
+      addy.find(".med-if").html( data[10] );
+    } else {
+      addy.find(".med-interval").html( " em DOSE ÚNICA" );
+    }
+    addy.find(".med-guide").html( data[11] );
+    // Append `addy` element to the medication list
+    $("#prescription").append( addy );
+
+    // Empty form, if asked to
+    if (clear) {
+      $("#med-search").val("").focus();
+      $("#med-name").val("");
+      $("#med-concentration").val("");
+      $("#med-via").val("Oral");
+      $("#med-qtt").val("");
+      $("#med-act").val("Tomar");
+      $("#med-interval").val("");
+      $("#med-interval-time").val("hora(s)");
+      $("#med-cps").val("");
+      $("#med-unity").val("cp(s)").trigger("change");
+      $("#med-duration").val("");
+      $("#med-duration-time").val("dia(s)");
+      $("#med-if").val("");
+      $("#med-defaultguides").val("");
+      $("#med-guide").val("");
+    }
+  }
+
   // Initialize medication autocomplete
   $("#med-search").autocomplete({
     source: med_list,
@@ -15416,9 +15464,14 @@ $(document).ready(function() {
       $("#med-via").val() != "" &&
       $("#med-act").val() != "" &&
       $("#med-cps").val() != "" &&
-      $("#med-unity").val() != "" &&
-      $("#med-interval").val() != "" &&
-      $("#med-interval-time").val() != ""
+      $("#med-unity").val() != "" && (
+        (
+          $("#med-duration-time").val() == "dose única"
+        ) || (
+          $("#med-interval").val() != "" &&
+          $("#med-interval-time").val() != ""
+        )
+      )
     ) { valid_sub = true; }
 
     if (valid_med && valid_sub) {
@@ -15438,57 +15491,14 @@ $(document).ready(function() {
       data.push( $("#med-unity").val() );
       data.push( $("#med-interval").val() );
       data.push( $("#med-interval-time").val() );
-      if ( $("#med-duration").val() != "" ) { data.push( " por " + $("#med-duration").val() + " " + $("#med-duration-time").val() ); }
-      else { data.push( "" ); }
+      if ( $("#med-duration-time").val() != "dose única" ) { data.push( " por " + $("#med-duration").val() + " " + $("#med-duration-time").val() ); }
+      else { data.push( false ); }
       if ( $("#med-if").val() != "" ) { data.push( ", se " + $("#med-if").val() ); }
       else { data.push( "" ); }
       if ( $("#med-guide").val() != "" ) { data.push( $("#med-guide").val() ); }
       else { data.push( "" ); }
 
-      var addy = $("<div>", {class: "notification item"});
-      addy.append( $("<button>", {class: "delete"}) );
-      addy.append(
-        $("<p>").html("<strong>#.</strong> <span class=\"med-name\"></span> <span class=\"med-concentration\"></span> --- <span class=\"med-via\"></span> ------------------------------------------------------------------------ <span class=\"med-qtt\"></span>")
-      );
-      addy.append(
-        $("<p>").html("<span class=\"med-act\"></span> <span class=\"med-cps\"></span> <span class=\"med-unity\"></span> a cada <span class=\"med-interval\"></span> <span class=\"med-interval-time\"></span><span class=\"med-duration\"></span><span class=\"med-duration-time\"></span><span class=\"med-if\"></span>.")
-      );
-      addy.append(
-        $("<p>").html("<span class=\"med-guide\"></span>")
-      );
-      addy.find("button.delete").on("click", function() {
-        $(this).parent().remove();
-      });
-      addy.find(".med-name").html( data[0] );
-      addy.find(".med-concentration").html( data[1] );
-      addy.find(".med-via").html( data[2] );
-      addy.find(".med-qtt").html( data[3] );
-      addy.find(".med-act").html( data[4] );
-      addy.find(".med-cps").html( data[5] );
-      addy.find(".med-unity").html( data[6] );
-      addy.find(".med-interval").html( data[7] );
-      addy.find(".med-interval-time").html( data[8] );
-      addy.find(".med-duration").html( data[9] );
-      addy.find(".med-if").html( data[10] );
-      addy.find(".med-guide").html( data[11] );
-
-      $("#prescription").append( addy );
-
-      $("#med-search").val("").focus();
-      $("#med-name").val("");
-      $("#med-concentration").val("");
-      $("#med-via").val("Oral");
-      $("#med-qtt").val("");
-      $("#med-act").val("Tomar");
-      $("#med-interval").val("");
-      $("#med-interval-time").val("hora(s)");
-      $("#med-cps").val("");
-      $("#med-unity").val("cp(s)").trigger("change");
-      $("#med-duration").val("");
-      $("#med-duration-time").val("dia(s)");
-      $("#med-if").val("");
-      $("#med-defaultguides").val("");
-      $("#med-guide").val("");
+      addMed(data, true);
     } else { $("[required]").trigger("change"); }
   });
   // Update final output
