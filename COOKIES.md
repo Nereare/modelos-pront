@@ -97,6 +97,6 @@ Ao continuar a navegação nas nossas aplicações após essa mudança se tornar
 
 Em caso de dúvidas sobre esta Política de Cookies, entre em contato conosco pelo [email](mailto:igorpadoim@gmail.com).
 
-> Atualizado em 30 de março de 2022 às 10h21min.
+> Atualizado em 27 de maio de 2022 às 22h04min.
 
 [PRIVACY]: PRIVACY.md

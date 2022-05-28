@@ -7,6 +7,8 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Não Publicado][Unreleased]
 ### Adicionado
 - Instruções para instalação do site.
+### Modificado
+- Informações sobre *cookies* atualizadas para refletir os dois novos introduzidos desde última atualização destas informações.
 ### Corrigido
 - Processamento de medicações "dose única" na página de *Prescrições*.
 - Capitalização das grafias de referências a métodos `GET` (maiúsculo) nas invocações de `AJAX`.

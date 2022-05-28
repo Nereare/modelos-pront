@@ -108,7 +108,7 @@ require_once "header.php";
       <p>Ao continuar a navegação nas nossas aplicações após essa mudança se tornar eficaz, você concorda com elas. Aconselhamos que você sempre verifique esta Política, bem como a nossa Política de Privacidade.</p>
       <p>Em caso de dúvidas sobre esta Política de Cookies, entre em contato conosco pelo <a href="mailto:igorpadoim@gmail.com">email</a>.</p>
       <blockquote>
-        <p>Atualizado em 30 de março de 2022 às 10h21min.</p>
+        <p>Atualizado em 27 de maio de 2022 às 22h04min.</p>
       </blockquote>
     </div>
   </div>
