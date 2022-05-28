@@ -21,7 +21,7 @@ $(document).ready(function() {
   $("#cookie-accept").on("click", function() {
     $.ajax({
       url: "scripts/cookies.php",
-      type: "get",
+      type: "GET",
       data: {
         job: "accept"
       }
@@ -32,7 +32,7 @@ $(document).ready(function() {
   $("#cookie-reject").on("click", function() {
     $.ajax({
       url: "scripts/cookies.php",
-      type: "get",
+      type: "GET",
       data: {
         job: "deny"
       }
@@ -44,7 +44,7 @@ $(document).ready(function() {
   $("#ethics-accept").on("click", function() {
     $.ajax({
       url: "scripts/cookies.php",
-      type: "get",
+      type: "GET",
       data: {
         job: "ethics"
       }

@@ -7,6 +7,7 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Não Publicado][Unreleased]
 ### Corrigido
 - Processamento de medicações "dose única" na página de *Prescrições*.
+- Capitalização das grafias de referências a métodos `GET` (maiúsculo) nas invocações de `AJAX`.
 
 ## [2.3.8] - 2022-05-26
 ### Adicionado

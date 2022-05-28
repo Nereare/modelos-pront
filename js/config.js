@@ -85,7 +85,7 @@ $(document).ready(function() {
 
     $.ajax({
       url: "scripts/config-do.php",
-      type: "get",
+      type: "GET",
       data: data
     })
       .done(function(r) {
