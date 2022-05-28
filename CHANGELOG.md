@@ -5,6 +5,8 @@ Todas as mudanças significativas nesse projeto serão documentadas neste arquiv
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
 ## [Não Publicado][Unreleased]
+### Corrigido
+- Links de comparação de *tags* deste arquivo.
 
 ## [2.4.10] - 2022-05-27
 ### Adicionado
@@ -62,7 +64,7 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Página de Exame Físico genérico.
 
 [Unreleased]: https://github.com/Nereare/modelos-pront/compare/v2.4.10...HEAD
-[2.4.10]: https://github.com/olivierlacan/keep-a-changelog/compare/v2.3.8...v2.4.10
-[2.3.8]: https://github.com/olivierlacan/keep-a-changelog/compare/v2.2.5...v2.3.8
-[2.2.5]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.25.22...v2.2.5
+[2.4.10]: https://github.com/Nereare/modelos-pront/compare/v2.3.8...v2.4.10
+[2.3.8]: https://github.com/Nereare/modelos-pront/compare/v2.2.5...v2.3.8
+[2.2.5]: https://github.com/Nereare/modelos-pront/compare/v1.25.22...v2.2.5
 [1.25.22]: https://github.com/Nereare/modelos-pront/releases/tag/v1.25.22
