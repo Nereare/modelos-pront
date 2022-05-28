@@ -231,14 +231,6 @@ require_once "header.php";
           <div class="select is-fullwidth">
             <select id="predefineds">
               <option value="" disabled selected>Escolha entre as prescrições pré-definidas abaixo</option>
-              <option value="sr1">Resfriado/Gripe (dip)</option>
-              <option value="sr2">Resfriado/Gripe (dip+parac)</option>
-              <option value="sr3">Resfriado/Gripe (parac)</option>
-              <option value="dengue1">Dengue (dip)</option>
-              <option value="dengue2">Dengue (dip+parac)</option>
-              <option value="dengue3">Dengue (parac)</option>
-              <option value="uti1">Cistite (macrodantina)</option>
-              <option value="uti2">Cistite (cefalexina)</option>
             </select>
           </div>
         </div>
