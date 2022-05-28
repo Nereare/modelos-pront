@@ -11,11 +11,24 @@ Uma miscelânea de modelos de evolução de consultas com tópicos específicos.
 
 ## Instalação
 
-<!--
-TODO Set installation instructions
-BODY If there is some installation method, define it on the [README file](README.md).
--->
-1. Foo.
+0. Garanta que você tem as dependências instaladas:
+    1. [Yarn](https://yarnpkg.com/); e
+    2. [Sass](https://sass-lang.com/);
+1. Clone o repositório localmente:
+    1. Vá até a pasta onde você deseja copiar o repositório; e
+    2. execute: `git clone https://github.com/Nereare/modelos-pront.git`;
+2. Vá até o repositório:
+    1. Usuários Windows: `Set-Location -Path Path\To\Repo`;
+    2. Usuários Unix: `cd path/to/repo`;
+3. Instale as dependências: `yarn` ou `yarn install`;
+4. Compile o arquivo de estilo:
+    1. Entre na pasta `style`; e
+    2. Execute `sass pront.scss pront.css --style=compressed`;
+         - Enquanto o parâmetro `--style=compressed` não é **necessário**, ele ajuda a poupar um dedinho de espaço;
+    3. Volte à pasta raiz do repositório;
+5. Copie todo o conteúdo para o seu servidor (local ou remoto);
+    1. As pastas com ponto (*dotfolders*) podem ser ignoradas;
+6. Pronto, você pude usar o site no seu servidor, agora! :tada:
 
 ## Contribuindo
 

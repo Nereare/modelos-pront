@@ -5,6 +5,8 @@ Todas as mudanças significativas nesse projeto serão documentadas neste arquiv
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
 ## [Não Publicado][Unreleased]
+### Adicionado
+- Instruções para instalação do site.
 ### Corrigido
 - Processamento de medicações "dose única" na página de *Prescrições*.
 - Capitalização das grafias de referências a métodos `GET` (maiúsculo) nas invocações de `AJAX`.
