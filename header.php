@@ -2,12 +2,6 @@
 require "meta.php";
 session_start();
 
-/* Remove session variables and cookies
-setcookie("accept_cookies", time() - 3600);
-unset($_SESSION['cookies']);
-unset($_SESSION["ethics"]);
-*/
-
 /**
  * Checks which page the user is currently in, for setting the CSS class.
  * @param  string  $link    The slug for the page linked in the anchor.
