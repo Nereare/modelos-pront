@@ -55,10 +55,12 @@ Não usamos Cookies de desempenho.
 
 ### 3.3. Cookies de funcionalidade
 
-| Cookie           | Tempo | Propriedade | Descrição                                          |
-|:----------------:|:-----:|:-----------:|:--------------------------------------------------:|
-| `accept_cookies` | 30d   | Próprio     | Registra o aceite do usuário do uso de cookies.    |
-| `menu`           | 30d   | Próprio     | Salva a organização dos menus optada pelo usuário. |
+| Cookie           | Tempo | Propriedade | Descrição                                                      |
+|:----------------:|:-----:|:-----------:|:--------------------------------------------------------------:|
+| `accept_cookies` | 30d   | Próprio     | Registra o aceite do usuário do uso de cookies.                |
+| `menu`           | 30d   | Próprio     | Salva a organização dos menus optada pelo usuário.             |
+| `place`          | 30d   | Próprio     | Salva dados (opcionais) quanto a um possível local de atuação. |
+| `physician`      | 30d   | Próprio     | Salva dados (opcionais) quanto ao profissional médico.         |
 
 ### 3.4. Cookies de publicidade
 

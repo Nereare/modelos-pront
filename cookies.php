@@ -71,6 +71,18 @@ require_once "header.php";
             <td style="text-align:center">Próprio</td>
             <td style="text-align:center">Salva a organização dos menus optada pelo usuário.</td>
           </tr>
+          <tr>
+            <td style="text-align:center"><code>place</code></td>
+            <td style="text-align:center">30d</td>
+            <td style="text-align:center">Próprio</td>
+            <td style="text-align:center">Salva dados (opcionais) quanto a um possível local de atuação.</td>
+          </tr>
+          <tr>
+            <td style="text-align:center"><code>physician</code></td>
+            <td style="text-align:center">30d</td>
+            <td style="text-align:center">Próprio</td>
+            <td style="text-align:center">Salva dados (opcionais) quanto ao profissional médico.</td>
+          </tr>
         </tbody>
       </table>
       <h3>3.4. Cookies de publicidade</h3>
