@@ -15372,7 +15372,7 @@ $(document).ready(function() {
   };
 
   var predefineds = {
-    "sr1": [ // Resfriado/Gripe (dip)
+    "Resfriado/Gripe (dip)": [
       [
         "Ibuprofeno",
         "400mg",
@@ -15416,7 +15416,7 @@ $(document).ready(function() {
         "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana."
       ]
     ],
-    "sr2": [ // Resfriado/Gripe (dip+parac)
+    "Resfriado/Gripe (dip+parac)": [
       [
         "Ibuprofeno",
         "400mg",
@@ -15474,7 +15474,7 @@ $(document).ready(function() {
         "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana."
       ]
     ],
-    "sr3": [ // Resfriado/Gripe (parac)
+    "Resfriado/Gripe (parac)": [
       [
         "Paracetamol",
         "750mg",
@@ -15504,7 +15504,7 @@ $(document).ready(function() {
         "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana."
       ]
     ],
-    "dengue1": [ // Dengue (dip)
+    "Dengue (dip)": [
       [
         "Dipirona",
         "1.000mg",
@@ -15534,7 +15534,7 @@ $(document).ready(function() {
         "O soro acima pode ser substituído por água de coco e bebidas isotônicas. A água filtrada pode ser qualquer líquido, exceto refrigerantes e outros ultraprocessados."
       ]
     ],
-    "dengue2": [ // Dengue (dip+parac)
+    "Dengue (dip+parac)": [
       [
         "Dipirona",
         "1.000mg",
@@ -15578,7 +15578,7 @@ $(document).ready(function() {
         "O soro acima pode ser substituído por água de coco e bebidas isotônicas. A água filtrada pode ser qualquer líquido, exceto refrigerantes e outros ultraprocessados."
       ]
     ],
-    "dengue3": [ // Dengue (parac)
+    "Dengue (parac)": [
       [
         "Paracetamol",
         "750mg",
@@ -15608,7 +15608,109 @@ $(document).ready(function() {
         "O soro acima pode ser substituído por água de coco e bebidas isotônicas. A água filtrada pode ser qualquer líquido, exceto refrigerantes e outros ultraprocessados."
       ]
     ],
-    "uti1": [ // Cistite (macrodantina)
+    "GECA (buscopam)": [
+      [
+        "Dipirona + Escopolamina",
+        "500+10mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "2",
+        "cps",
+        "8",
+        "horas",
+        "",
+        ", se dor ou cólicas",
+        ""
+      ],
+      [
+        "Ondansetrona",
+        "4mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "8",
+        "horas",
+        "",
+        ", se náuseas",
+        ""
+      ],
+      [
+        "Sais para Reidratação Oral",
+        "--",
+        "Via Oral",
+        "",
+        "Tomar",
+        "300",
+        "mL (aprox. 02 copos americanos) de soro",
+        "8",
+        "horas",
+        " ou se diarreias",
+        "",
+        "O soro acima pode ser substituído por água de coco e bebidas isotônicas."
+      ]
+    ],
+    "GECA (parac)": [
+      [
+        "Paracetamol",
+        "750mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor",
+        ""
+      ],
+      [
+        "Escopolamina",
+        "10mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "8",
+        "horas",
+        "",
+        ", se cólicas",
+        ""
+      ],
+      [
+        "Ondansetrona",
+        "4mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "8",
+        "horas",
+        "",
+        ", se náuseas",
+        ""
+      ],
+      [
+        "Sais para Reidratação Oral",
+        "--",
+        "Via Oral",
+        "",
+        "Tomar",
+        "300",
+        "mL (aprox. 02 copos americanos) de soro",
+        "8",
+        "horas",
+        " ou se diarreias",
+        "",
+        "O soro acima pode ser substituído por água de coco e bebidas isotônicas."
+      ]
+    ],
+    "Cistite (macrodantina)": [
       [
         "Nitrofurantoína",
         "100mg",
@@ -15638,7 +15740,7 @@ $(document).ready(function() {
         ""
       ]
     ],
-    "uti2": [ // Cistite (cefalexina)
+    "Cistite (cefalexina)": [
       [
         "Cefalexina",
         "500mg",
@@ -15667,6 +15769,370 @@ $(document).ready(function() {
         ", se dor no canal da urina",
         ""
       ]
+    ],
+    "IC": [
+      [
+        "Furosemida",
+        "40mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "12",
+        "horas",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "Dor Osteomuscular (dip)": [
+      [
+        "Ibuprofeno",
+        "400mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "8",
+        "horas",
+        " por 5 dias",
+        "",
+        ""
+      ],
+      [
+        "Dipirona",
+        "1.000mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor, febre ou calafrios",
+        ""
+      ],
+      [
+        "Paracetamol",
+        "750mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor, febre ou calafrios",
+        ""
+      ],
+      [
+        "Ciclobenzaprina",
+        "5mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "1",
+        "dia",
+        " por 1 semana",
+        "",
+        "Tomar 30 minutos antes de dormir."
+      ],
+      [
+        "Codeína",
+        "30mg",
+        "Via Oral",
+        "30 cps",
+        "Tomar",
+        "1",
+        "cp",
+        "8",
+        "horas",
+        "",
+        ", se dor que não melhora mesmo após 30 minutos de uso de analgésico simples",
+        ""
+      ]
+    ],
+    "Dor Osteomuscular (parac)": [
+      [
+        "Paracetamol",
+        "750mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor, febre ou calafrios",
+        ""
+      ],
+      [
+        "Ciclobenzaprina",
+        "5mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "1",
+        "dia",
+        " por 1 semana",
+        "",
+        "Tomar 30 minutos antes de dormir."
+      ],
+      [
+        "Codeína",
+        "30mg",
+        "Via Oral",
+        "30 cps",
+        "Tomar",
+        "1",
+        "cp",
+        "8",
+        "horas",
+        "",
+        ", se dor que não melhora mesmo após 30 minutos de uso de analgésico simples",
+        ""
+      ]
+    ],
+    "Dor Neuropática (dip)": [
+      [
+        "Ibuprofeno",
+        "400mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "8",
+        "horas",
+        " por 5 dias",
+        "",
+        ""
+      ],
+      [
+        "Dipirona",
+        "1.000mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor, febre ou calafrios",
+        ""
+      ],
+      [
+        "Paracetamol",
+        "750mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor, febre ou calafrios",
+        ""
+      ],
+      [
+        "Ciclobenzaprina",
+        "5mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "1",
+        "dia",
+        " por 1 semana",
+        "",
+        "Tomar 30 minutos antes de dormir."
+      ],
+      [
+        "Codeína",
+        "30mg",
+        "Via Oral",
+        "30 cps",
+        "Tomar",
+        "1",
+        "cp",
+        "8",
+        "horas",
+        "",
+        ", se dor que não melhora mesmo após 30 minutos de uso de analgésico simples",
+        ""
+      ],
+      [
+        "Amitriptilina",
+        "25mg",
+        "Via Oral",
+        "60 cps",
+        "Tomar",
+        "1",
+        "cp",
+        "1",
+        "dia",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "Dor Neuropática (parac)": [
+      [
+        "Paracetamol",
+        "750mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor, febre ou calafrios",
+        ""
+      ],
+      [
+        "Ciclobenzaprina",
+        "5mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "1",
+        "dia",
+        " por 1 semana",
+        "",
+        "Tomar 30 minutos antes de dormir."
+      ],
+      [
+        "Codeína",
+        "30mg",
+        "Via Oral",
+        "30 cps",
+        "Tomar",
+        "1",
+        "cp",
+        "8",
+        "horas",
+        "",
+        ", se dor que não melhora mesmo após 30 minutos de uso de analgésico simples",
+        ""
+      ],
+      [
+        "Amitriptilina",
+        "25mg",
+        "Via Oral",
+        "60 cps",
+        "Tomar",
+        "1",
+        "cp",
+        "1",
+        "dia",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "Herpes Zóster (adulto)": [
+      [
+        "Aciclovir",
+        "200mg",
+        "Via Oral",
+        "56 cps",
+        "Tomar",
+        "2",
+        "cps",
+        "6",
+        "horas",
+        " por 7 dias",
+        "",
+        ""
+      ],
+      [
+        "Hidróxido de Alumínio",
+        "60mg/mL",
+        "Via Oral",
+        "",
+        "Tomar",
+        "10",
+        "mL",
+        "6",
+        "horas",
+        "",
+        ", se queimação no estômago",
+        ""
+      ],
+      [
+        "Pregabalina",
+        "75mg",
+        "Via Oral",
+        "180 cps",
+        "Tomar",
+        "1",
+        "cp",
+        "12",
+        "horas",
+        " por 3 meses",
+        "",
+        "Caso persista a dor mesmo após os 3 meses de uso, buscar aconselhamento junto a neurologista ou médico especializado em dor."
+      ]
+    ],
+    "Herpes Zóster (idoso)": [
+      [
+        "Aciclovir",
+        "200mg",
+        "Via Oral",
+        "56 cps",
+        "Tomar",
+        "2",
+        "cps",
+        "6",
+        "horas",
+        " por 7 dias",
+        "",
+        ""
+      ],
+      [
+        "Hidróxido de Alumínio",
+        "60mg/mL",
+        "Via Oral",
+        "",
+        "Tomar",
+        "10",
+        "mL",
+        "6",
+        "horas",
+        "",
+        ", se queimação no estômago",
+        ""
+      ],
+      [
+        "Pregabalina",
+        "75mg",
+        "Via Oral",
+        "90 cps",
+        "Tomar",
+        "1",
+        "cp",
+        "1",
+        "dia",
+        " por 3 meses",
+        "",
+        "Caso persista a dor mesmo após os 3 meses de uso, buscar aconselhamento junto a neurologista ou médico especializado em dor."
+      ]
     ]
   };
 
@@ -15686,7 +16152,7 @@ $(document).ready(function() {
     addy.find(".med-act").html( data[4] );
     addy.find(".med-cps").html( data[5] );
     addy.find(".med-unity").html( data[6] );
-    if ( data[9] ) {
+    if ( data[9] != "DU" ) {
       addy.find(".med-interval").html( " a cada " + data[7] );
       addy.find(".med-interval-time").html( " " + data[8] );
       addy.find(".med-duration").html( data[9] );
@@ -15727,6 +16193,10 @@ $(document).ready(function() {
   // Initialize default guidances
   $.each(guides, function(i, v) {
     $("#med-defaultguides").append( $("<option>", { text: i, value: v}) );
+  });
+  // Initialize predefs
+  $.each(predefineds, function(i, v) {
+    $("#predefineds").append( $("<option>", { text: i, value: i}) );
   });
   // Add checking method for required fields
   $("[required]").on("input change", function() {
@@ -15791,7 +16261,7 @@ $(document).ready(function() {
       data.push( $("#med-interval").val() );
       data.push( $("#med-interval-time").val() );
       if ( $("#med-duration-time").val() != "dose única" ) { data.push( " por " + $("#med-duration").val() + " " + $("#med-duration-time").val() ); }
-      else { data.push( false ); }
+      else { data.push( "DU" ); }
       if ( $("#med-if").val() != "" ) { data.push( ", se " + $("#med-if").val() ); }
       else { data.push( "" ); }
       if ( $("#med-guide").val() != "" ) { data.push( $("#med-guide").val() ); }
