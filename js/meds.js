@@ -15371,6 +15371,305 @@ $(document).ready(function() {
     "SRO Vs. Gatorade": "Caso você prefira, é possível substituir o soro de reidratação pelo mesmo volume de qualquer bebida isotônica da sua preferência."
   };
 
+  var predefineds = {
+    "sr1": [ // Resfriado/Gripe (dip)
+      [
+        "Ibuprofeno",
+        "400mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "8",
+        "horas",
+        " por 5 dias",
+        "",
+        ""
+      ],
+      [
+        "Dipirona",
+        "1.000mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor, febre ou calafrios",
+        ""
+      ],
+      [
+        "Soro Fisiológico",
+        "0,9%",
+        "Via Nasal",
+        "",
+        "Lavar cada narina com",
+        "20",
+        "mL de soro",
+        "6",
+        "horas",
+        "",
+        "",
+        "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana."
+      ]
+    ],
+    "sr2": [ // Resfriado/Gripe (dip+parac)
+      [
+        "Ibuprofeno",
+        "400mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "8",
+        "horas",
+        " por 5 dias",
+        "",
+        ""
+      ],
+      [
+        "Dipirona",
+        "1.000mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor, febre ou calafrios",
+        ""
+      ],
+      [
+        "Paracetamol",
+        "750mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor, febre ou calafrios",
+        ""
+      ],
+      [
+        "Soro Fisiológico",
+        "0,9%",
+        "Via Nasal",
+        "",
+        "Lavar cada narina com",
+        "20",
+        "mL de soro",
+        "6",
+        "horas",
+        "",
+        "",
+        "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana."
+      ]
+    ],
+    "sr3": [ // Resfriado/Gripe (parac)
+      [
+        "Paracetamol",
+        "750mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor, febre ou calafrios",
+        ""
+      ],
+      [
+        "Soro Fisiológico",
+        "0,9%",
+        "Via Nasal",
+        "",
+        "Lavar cada narina com",
+        "20",
+        "mL de soro",
+        "6",
+        "horas",
+        "",
+        "",
+        "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana."
+      ]
+    ],
+    "dengue1": [ // Dengue (dip)
+      [
+        "Dipirona",
+        "1.000mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor, febre ou calafrios",
+        ""
+      ],
+      [
+        "Sais para Reidratação Oral",
+        "--",
+        "Via Oral",
+        "",
+        "Tomar",
+        "600",
+        "mL (aprox. 03 copos americanos) de soro",
+        "8",
+        "horas",
+        " intercalado por 1.200mL (aprox. 06 copos americanos) de água filtrada",
+        "",
+        "O soro acima pode ser substituído por água de coco e bebidas isotônicas. A água filtrada pode ser qualquer líquido, exceto refrigerantes e outros ultraprocessados."
+      ]
+    ],
+    "dengue2": [ // Dengue (dip+parac)
+      [
+        "Dipirona",
+        "1.000mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor, febre ou calafrios",
+        ""
+      ],
+      [
+        "Paracetamol",
+        "750mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor, febre ou calafrios",
+        ""
+      ],
+      [
+        "Sais para Reidratação Oral",
+        "--",
+        "Via Oral",
+        "",
+        "Tomar",
+        "600",
+        "mL (aprox. 03 copos americanos) de soro",
+        "8",
+        "horas",
+        " intercalado por 1.200mL (aprox. 06 copos americanos) de água filtrada",
+        "",
+        "O soro acima pode ser substituído por água de coco e bebidas isotônicas. A água filtrada pode ser qualquer líquido, exceto refrigerantes e outros ultraprocessados."
+      ]
+    ],
+    "dengue3": [ // Dengue (parac)
+      [
+        "Paracetamol",
+        "750mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor, febre ou calafrios",
+        ""
+      ],
+      [
+        "Sais para Reidratação Oral",
+        "--",
+        "Via Oral",
+        "",
+        "Tomar",
+        "600",
+        "mL (aprox. 03 copos americanos) de soro",
+        "8",
+        "horas",
+        " intercalado por 1.200mL (aprox. 06 copos americanos) de água filtrada",
+        "",
+        "O soro acima pode ser substituído por água de coco e bebidas isotônicas. A água filtrada pode ser qualquer líquido, exceto refrigerantes e outros ultraprocessados."
+      ]
+    ],
+    "uti1": [ // Cistite (macrodantina)
+      [
+        "Nitrofurantoína",
+        "100mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        " por 03 dias",
+        "",
+        ""
+      ],
+      [
+        "Fenazopiridina",
+        "100mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1 a 2",
+        "cp(s)",
+        "8",
+        "horas",
+        "",
+        ", se dor no canal da urina",
+        ""
+      ]
+    ],
+    "uti2": [ // Cistite (cefalexina)
+      [
+        "Cefalexina",
+        "500mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        " por 03 dias",
+        "",
+        ""
+      ],
+      [
+        "Fenazopiridina",
+        "100mg",
+        "Via Oral",
+        "",
+        "Tomar",
+        "1 a 2",
+        "cp(s)",
+        "8",
+        "horas",
+        "",
+        ", se dor no canal da urina",
+        ""
+      ]
+    ]
+  };
+
   function addMed(data, clear = false) {
     // Create div element to represent the medication added
     var addy = $("<div>", {class: "notification item"});
@@ -15501,6 +15800,13 @@ $(document).ready(function() {
       addMed(data, true);
     } else { $("[required]").trigger("change"); }
   });
+  // Set predefined prescription from select menu
+  $("#predefineds").on("change", function() {
+    $("#prescription").html("");
+    $.each(predefineds[ $("#predefineds").val() ], function(i, v) {
+      addMed(v);
+    });
+  });
   // Update final output
   $("#prescription").on("DOMSubtreeModified", function() {
     // Run each prescription item and add it to the output
@@ -15531,4 +15837,10 @@ $(document).ready(function() {
 
     $("#copy").attr("data-clipboard-text", items.join("\n\n"));
   });
+
+  // Check if there was a predefined model requested (through GET)
+  if ( $("#get-predefined").val() ) {
+    $("#predefineds").val( $("#get-predefined").val() );//
+    $("#predefineds").trigger("change");
+  }
 });

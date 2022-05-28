@@ -7,6 +7,9 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Não Publicado][Unreleased]
 ### Adicionado
 - Instruções para instalação do site.
+- Modelos de prescrição pré-definidos.
+- Habilidade da página de *Prescrições* de receber parâmetros (via `GET`) para já preparar prescrição pré-definida;
+  - E botão-link na página de *Sintomáticos Respiratórios* levando até esta, com pré-definição de receita definida.
 ### Modificado
 - Informações sobre *cookies* atualizadas para refletir os dois novos introduzidos desde última atualização destas informações.
 ### Corrigido

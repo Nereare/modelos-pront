@@ -15,6 +15,10 @@ require_once "header.php";
     <div class="box">
       <h2 class="title is-4">Inscrito</h2>
 
+      <?php if ( isset( $_GET["pre"] ) ) { ?>
+      <input type="text" class="is-hidden" id="get-predefined" value="<?php echo $_GET["pre"]; ?>">
+      <?php } ?>
+
       <div class="field has-addons ui-widget">
         <div class="control">
           <button class="button is-static" tabindex="-1">Medicação</button>
@@ -216,6 +220,30 @@ require_once "header.php";
           <button class="button is-success is-fullwidth" id="add">Incluir Medicação</button>
         </div>
       </div>
+    </div>
+
+    <div class="box">
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Pré-Definidas</button>
+        </div>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="predefineds">
+              <option value="" disabled selected>Escolha entre as prescrições pré-definidas abaixo</option>
+              <option value="sr1">Resfriado/Gripe (dip)</option>
+              <option value="sr2">Resfriado/Gripe (dip+parac)</option>
+              <option value="sr3">Resfriado/Gripe (parac)</option>
+              <option value="dengue1">Dengue (dip)</option>
+              <option value="dengue2">Dengue (dip+parac)</option>
+              <option value="dengue3">Dengue (parac)</option>
+              <option value="uti1">Cistite (macrodantina)</option>
+              <option value="uti2">Cistite (cefalexina)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <p class="help">Note que selecionar algum dos modelos acima automaticamente <strong>apagará</strong> qualquer medicação já incluída abaixo e adicionará as medicações pré-definidas em seu(s) lugar.</p>
     </div>
 
     <div class="box">
