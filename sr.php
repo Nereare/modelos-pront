@@ -2228,11 +2228,9 @@ function getPhysician($index = 3) {
                 </div>
               </div>
               <div class="control">
-                <a class="button is-link" id="got-to-meds" href="meds.php?pre=sr2" target="_blank">Ir p/ Prescrições*</a>
+                <a class="button is-link" id="got-to-meds" href="meds.php?pre=<?php echo urlencode("Resfriado/Gripe (dip+parac)"); ?>" target="_blank">Ir p/ Prescrições</a>
               </div>
             </div>
-            <br>
-            <p class="help">* Abre em nova aba.</p>
           </li>
           <li>
             <div class="field has-addons">
