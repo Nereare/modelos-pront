@@ -48,7 +48,7 @@ require_once "header.php";
         <div>E</div>
       </div>
 
-      <div class="columns">
+      <div class="columns mb-0">
         <div class="column">
           <div class="field has-addons">
             <div class="control">
@@ -90,6 +90,20 @@ require_once "header.php";
         </div>
       </div>
 
+      <div class="field has-addons">
+        <div class="control">
+          <label for="med-continuous" class="button">
+            <span class="icon">
+              <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
+            </span>
+            <input type="checkbox" class="is-hidden checkbutton" id="med-continuous" value="true">
+          </label>
+        </div>
+        <div class="control is-expanded">
+          <button class="button is-static is-fullwidth" tabindex="-1">Uso Contínuo</button>
+        </div>
+      </div>
+
       <h2 class="title is-4">Subscrito</h2>
 
       <div class="field has-addons">
@@ -106,6 +120,7 @@ require_once "header.php";
               <option value="Inalar">Inalar</option>
               <option value="Pingar">Pingar</option>
               <option value="Lavar cada narina com">Lavar (narina)</option>
+              <option value="Aplicar, em cada narina,">Aplicar (narina)</option>
               <option value="Usar">Usar</option>
             </select>
           </div>
@@ -119,9 +134,12 @@ require_once "header.php";
               <option value="" disabled>--- Comuns ---</option>
               <option value="cp(s)" selected>cp(s)</option>
               <option value="mL">mL</option>
+              <option value="gota(s)">gota(s)</option>
               <option value="jato(s)">jato(s)</option>
               <option value="puff(s)">puff(s)</option>
               <option value="UI">UI</option>
+              <option value="" disabled>--- Incomuns ---</option>
+              <option value="aplicador(es)">aplicador(es)</option>
               <option value="" disabled>--- Outros ---</option>
               <option value="adesivo(s)">adesivo(s)</option>
               <option value="ampola(s)">ampola(s)</option>

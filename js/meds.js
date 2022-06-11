@@ -16184,6 +16184,23 @@ $(document).ready(function() {
     }
   }
 
+  // Create checkbox-button functionality
+  $(".checkbutton").on("change", function() {
+    if ( $(this).is(":checked") ) {
+      $(this).parent()
+        .addClass("is-primary")
+        .find(".mdi")
+          .removeClass("mdi-checkbox-blank-outline mdi-checkbox-marked")
+          .addClass("mdi-checkbox-marked");
+    } else {
+      $(this).parent()
+        .removeClass("is-primary")
+        .find(".mdi")
+          .removeClass("mdi-checkbox-blank-outline mdi-checkbox-marked")
+          .addClass("mdi-checkbox-blank-outline");
+    }
+  });
+
   // Initialize medication autocomplete
   $("#med-search").autocomplete({
     source: med_list,
@@ -16255,6 +16272,8 @@ $(document).ready(function() {
       data.push( "Via " + $("#med-via").val() );
       if ( $("#med-qtt").val() != "" ) { data.push( $("#med-qtt").val() + " " + $("#med-unity").val() ); }
       else { data.push( "" ); }
+      if ( $("#med-continuous").is(":checked") ) { data.push(" - USO CONTÍNUO"); }
+      else { data.push( "" ); }
       data.push( $("#med-act").val() );
       data.push( $("#med-cps").val() );
       data.push( $("#med-unity").val() );
@@ -16289,6 +16308,7 @@ $(document).ready(function() {
       var med_concentration = $(this).find(".med-concentration").html();
       var med_via = $(this).find(".med-via").html();
       var med_qtt = $(this).find(".med-qtt").html();
+      var med_continuous = $(this).find(".med-continuous").html();
       var med_act = $(this).find(".med-act").html();
       var med_cps = $(this).find(".med-cps").html();
       var med_unity = $(this).find(".med-unity").html();
@@ -16298,8 +16318,15 @@ $(document).ready(function() {
       var med_if = $(this).find(".med-if").html();
       var med_guide = $(this).find(".med-guide").html();
 
-      item.push( i + ". " + med_name + " " + med_concentration + " --- " + med_via + " ------------------------------------------------------------------------ " + med_qtt );
-      item.push( "    " + med_act + " " + med_cps + " " + med_unity + " a cada " + med_interval + " " + med_interval_time + med_duration + med_if + "." );
+      item.push(
+        i + ". " +
+        med_name + " " + med_concentration + med_continuous + " --- " +
+        med_via + " ------------------------------------------------------------------------ " +
+        med_qtt );
+      subscript = "    " + med_act + " " + med_cps + " " + med_unity;
+      if ( med_interval == " em DOSE ÚNICA" ) { subscript += med_interval + "."; }
+      else { subscript += med_interval + med_interval_time + med_duration + med_if + "."; }
+      item.push(subscript);
       if ( med_guide ) { item.push( "    " + med_guide ); }
 
       items.push( item.join("\n") );
