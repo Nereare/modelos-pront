@@ -5,8 +5,13 @@ Todas as mudanças significativas nesse projeto serão documentadas neste arquiv
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
 ## [Não Publicado][Unreleased]
+
+## [2.4.11] - 2022-06-11
+### Adicionado
+- Opção de "uso contínuo" em *Prescrições*.
 ### Corrigido
 - Links de comparação de *tags* deste arquivo.
+- Erros quanto ao processamento de *output* de medicações em *Prescrições*.
 
 ## [2.4.10] - 2022-05-27
 ### Adicionado
@@ -63,7 +68,8 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Página de Requisição de Implanon.
 - Página de Exame Físico genérico.
 
-[Unreleased]: https://github.com/Nereare/modelos-pront/compare/v2.4.10...HEAD
+[Unreleased]: https://github.com/Nereare/modelos-pront/compare/v2.4.11...HEAD
+[2.4.11]: https://github.com/Nereare/modelos-pront/compare/v2.4.10...v2.4.11
 [2.4.10]: https://github.com/Nereare/modelos-pront/compare/v2.3.8...v2.4.10
 [2.3.8]: https://github.com/Nereare/modelos-pront/compare/v2.2.5...v2.3.8
 [2.2.5]: https://github.com/Nereare/modelos-pront/compare/v1.25.22...v2.2.5
