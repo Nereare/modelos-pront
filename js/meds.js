@@ -15378,6 +15378,7 @@ $(document).ready(function() {
         "400mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15392,6 +15393,7 @@ $(document).ready(function() {
         "1.000mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15405,6 +15407,7 @@ $(document).ready(function() {
         "Soro Fisiológico",
         "0,9%",
         "Via Nasal",
+        "",
         "",
         "Lavar cada narina com",
         "20",
@@ -15422,6 +15425,7 @@ $(document).ready(function() {
         "400mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15435,6 +15439,7 @@ $(document).ready(function() {
         "Dipirona",
         "1.000mg",
         "Via Oral",
+        "",
         "",
         "Tomar",
         "1",
@@ -15450,6 +15455,7 @@ $(document).ready(function() {
         "750mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15463,6 +15469,7 @@ $(document).ready(function() {
         "Soro Fisiológico",
         "0,9%",
         "Via Nasal",
+        "",
         "",
         "Lavar cada narina com",
         "20",
@@ -15480,6 +15487,7 @@ $(document).ready(function() {
         "750mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15493,6 +15501,7 @@ $(document).ready(function() {
         "Soro Fisiológico",
         "0,9%",
         "Via Nasal",
+        "",
         "",
         "Lavar cada narina com",
         "20",
@@ -15510,6 +15519,7 @@ $(document).ready(function() {
         "1.000mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15523,6 +15533,7 @@ $(document).ready(function() {
         "Sais para Reidratação Oral",
         "--",
         "Via Oral",
+        "",
         "",
         "Tomar",
         "600",
@@ -15540,6 +15551,7 @@ $(document).ready(function() {
         "1.000mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15554,6 +15566,7 @@ $(document).ready(function() {
         "750mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15567,6 +15580,7 @@ $(document).ready(function() {
         "Sais para Reidratação Oral",
         "--",
         "Via Oral",
+        "",
         "",
         "Tomar",
         "600",
@@ -15584,6 +15598,7 @@ $(document).ready(function() {
         "750mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15597,6 +15612,7 @@ $(document).ready(function() {
         "Sais para Reidratação Oral",
         "--",
         "Via Oral",
+        "",
         "",
         "Tomar",
         "600",
@@ -15614,6 +15630,7 @@ $(document).ready(function() {
         "500+10mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "2",
         "cps",
@@ -15628,6 +15645,7 @@ $(document).ready(function() {
         "4mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15641,6 +15659,7 @@ $(document).ready(function() {
         "Sais para Reidratação Oral",
         "--",
         "Via Oral",
+        "",
         "",
         "Tomar",
         "300",
@@ -15658,6 +15677,7 @@ $(document).ready(function() {
         "750mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15671,6 +15691,7 @@ $(document).ready(function() {
         "Escopolamina",
         "10mg",
         "Via Oral",
+        "",
         "",
         "Tomar",
         "1",
@@ -15686,6 +15707,7 @@ $(document).ready(function() {
         "4mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15699,6 +15721,7 @@ $(document).ready(function() {
         "Sais para Reidratação Oral",
         "--",
         "Via Oral",
+        "",
         "",
         "Tomar",
         "300",
@@ -15716,6 +15739,7 @@ $(document).ready(function() {
         "100mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15729,6 +15753,7 @@ $(document).ready(function() {
         "Fenazopiridina",
         "100mg",
         "Via Oral",
+        "",
         "",
         "Tomar",
         "1 a 2",
@@ -15746,6 +15771,7 @@ $(document).ready(function() {
         "500mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15759,6 +15785,7 @@ $(document).ready(function() {
         "Fenazopiridina",
         "100mg",
         "Via Oral",
+        "",
         "",
         "Tomar",
         "1 a 2",
@@ -15776,6 +15803,7 @@ $(document).ready(function() {
         "40mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15792,6 +15820,7 @@ $(document).ready(function() {
         "400mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15805,6 +15834,7 @@ $(document).ready(function() {
         "Dipirona",
         "1.000mg",
         "Via Oral",
+        "",
         "",
         "Tomar",
         "1",
@@ -15820,6 +15850,7 @@ $(document).ready(function() {
         "750mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15834,6 +15865,7 @@ $(document).ready(function() {
         "5mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15847,6 +15879,7 @@ $(document).ready(function() {
         "Codeína",
         "30mg",
         "Via Oral",
+        "",
         "30 cps",
         "Tomar",
         "1",
@@ -15864,6 +15897,7 @@ $(document).ready(function() {
         "750mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15878,6 +15912,7 @@ $(document).ready(function() {
         "5mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15891,6 +15926,7 @@ $(document).ready(function() {
         "Codeína",
         "30mg",
         "Via Oral",
+        "",
         "30 cps",
         "Tomar",
         "1",
@@ -15908,6 +15944,7 @@ $(document).ready(function() {
         "400mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15921,6 +15958,7 @@ $(document).ready(function() {
         "Dipirona",
         "1.000mg",
         "Via Oral",
+        "",
         "",
         "Tomar",
         "1",
@@ -15936,6 +15974,7 @@ $(document).ready(function() {
         "750mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15950,6 +15989,7 @@ $(document).ready(function() {
         "5mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -15963,6 +16003,7 @@ $(document).ready(function() {
         "Codeína",
         "30mg",
         "Via Oral",
+        "",
         "30 cps",
         "Tomar",
         "1",
@@ -15977,6 +16018,7 @@ $(document).ready(function() {
         "Amitriptilina",
         "25mg",
         "Via Oral",
+        "",
         "60 cps",
         "Tomar",
         "1",
@@ -15994,6 +16036,7 @@ $(document).ready(function() {
         "750mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -16008,6 +16051,7 @@ $(document).ready(function() {
         "5mg",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "1",
         "cp",
@@ -16021,6 +16065,7 @@ $(document).ready(function() {
         "Codeína",
         "30mg",
         "Via Oral",
+        "",
         "30 cps",
         "Tomar",
         "1",
@@ -16035,6 +16080,7 @@ $(document).ready(function() {
         "Amitriptilina",
         "25mg",
         "Via Oral",
+        "",
         "60 cps",
         "Tomar",
         "1",
@@ -16051,6 +16097,7 @@ $(document).ready(function() {
         "Aciclovir",
         "200mg",
         "Via Oral",
+        "",
         "56 cps",
         "Tomar",
         "2",
@@ -16066,6 +16113,7 @@ $(document).ready(function() {
         "60mg/mL",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "10",
         "mL",
@@ -16079,6 +16127,7 @@ $(document).ready(function() {
         "Pregabalina",
         "75mg",
         "Via Oral",
+        "",
         "180 cps",
         "Tomar",
         "1",
@@ -16095,6 +16144,7 @@ $(document).ready(function() {
         "Aciclovir",
         "200mg",
         "Via Oral",
+        "",
         "56 cps",
         "Tomar",
         "2",
@@ -16110,6 +16160,7 @@ $(document).ready(function() {
         "60mg/mL",
         "Via Oral",
         "",
+        "",
         "Tomar",
         "10",
         "mL",
@@ -16123,6 +16174,7 @@ $(document).ready(function() {
         "Pregabalina",
         "75mg",
         "Via Oral",
+        "",
         "90 cps",
         "Tomar",
         "1",
@@ -16140,7 +16192,7 @@ $(document).ready(function() {
     // Create div element to represent the medication added
     var addy = $("<div>", {class: "notification item"});
     addy.append( $("<button>", {class: "delete"}) );
-    addy.append( $("<p>").html("<strong>#.</strong> <span class=\"med-name\"></span> <span class=\"med-concentration\"></span> --- <span class=\"med-via\"></span> ------------------------------------------------------------------------ <span class=\"med-qtt\"></span>") );
+    addy.append( $("<p>").html("<strong>#.</strong> <span class=\"med-name\"></span> <span class=\"med-concentration\"></span> --- <span class=\"med-via\"></span><span class=\"med-continuous\"></span> ------------------------------------------------------------------------ <span class=\"med-qtt\"></span>") );
     addy.append( $("<p>").html("<span class=\"med-act\"></span> <span class=\"med-cps\"></span> <span class=\"med-unity\"></span><span class=\"med-interval\"></span><span class=\"med-interval-time\"></span><span class=\"med-duration\"></span><span class=\"med-duration-time\"></span><span class=\"med-if\"></span>.") );
     addy.append( $("<p>").html("<span class=\"med-guide\"></span>") );
     addy.find("button.delete").on("click", function() { $(this).parent().remove(); });
@@ -16149,18 +16201,19 @@ $(document).ready(function() {
     addy.find(".med-concentration").html( data[1] );
     addy.find(".med-via").html( data[2] );
     addy.find(".med-qtt").html( data[3] );
-    addy.find(".med-act").html( data[4] );
-    addy.find(".med-cps").html( data[5] );
-    addy.find(".med-unity").html( data[6] );
-    if ( data[9] != "DU" ) {
-      addy.find(".med-interval").html( " a cada " + data[7] );
-      addy.find(".med-interval-time").html( " " + data[8] );
-      addy.find(".med-duration").html( data[9] );
-      addy.find(".med-if").html( data[10] );
+    addy.find(".med-continuous").html( data[4] );
+    addy.find(".med-act").html( data[5] );
+    addy.find(".med-cps").html( data[6] );
+    addy.find(".med-unity").html( data[7] );
+    if ( data[10] != "DU" ) {
+      addy.find(".med-interval").html( " a cada " + data[8] );
+      addy.find(".med-interval-time").html( " " + data[9] );
+      addy.find(".med-duration").html( data[10] );
+      addy.find(".med-if").html( data[11] );
     } else {
       addy.find(".med-interval").html( " em DOSE ÚNICA" );
     }
-    addy.find(".med-guide").html( data[11] );
+    addy.find(".med-guide").html( data[12] );
     // Append `addy` element to the medication list
     $("#prescription").append( addy );
 
@@ -16279,7 +16332,10 @@ $(document).ready(function() {
       data.push( $("#med-unity").val() );
       data.push( $("#med-interval").val() );
       data.push( $("#med-interval-time").val() );
-      if ( $("#med-duration-time").val() != "dose única" ) { data.push( " por " + $("#med-duration").val() + " " + $("#med-duration-time").val() ); }
+      if ( $("#med-duration-time").val() != "dose única" ) {
+        if ( $("#med-duration").val() != "" ) { data.push( " por " + $("#med-duration").val() + " " + $("#med-duration-time").val() ); }
+        else { data.push( "" ); }
+      }
       else { data.push( "DU" ); }
       if ( $("#med-if").val() != "" ) { data.push( ", se " + $("#med-if").val() ); }
       else { data.push( "" ); }
