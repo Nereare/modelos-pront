@@ -10,6 +10,8 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
   - Opção de exames de Coombs Indireto e VDRL de seguimento;
   - Opção de prescrição de Rhogam; e
   - Opção de solicitação de Implanon.
+### Modificado
+- *Sintomáticos Respiratórios*: campos de vacinas e infecção prévia por SARS-CoV-2 agora são opcionais.
 ### Corrigido
 - *Sintomáticos Respiratórios*:
   - Campo de anamnese miscelânea agora não processado (comportamento pretendido para v3, mas não implementado); e

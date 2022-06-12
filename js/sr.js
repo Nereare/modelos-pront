@@ -341,20 +341,23 @@ $(document).ready(function() {
             }
 
             // Previous COVID-19 infection
-            var prev_covid = "Nega diagnóstico prévio de COVID-19.";
             if( $("#covid-before").is(":checked") ) {
               var covid_date = new Date( $("#covid-before-date").val() + "T00:00:00.000-03:00" );
-              prev_covid = "Refere infecção prévia por SARS-CoV-2, com a mais recente em " + covid_date.toLocaleDateString("pt-BR") + ".";
+              s.push( "Refere infecção prévia por SARS-CoV-2, com a mais recente em " + covid_date.toLocaleDateString("pt-BR") + "." );
             }
-            s.push( prev_covid );
 
             // Vaccines
-            var vax = "";
-            if( $("#vax-covid").val() == "" || $("#vax-covid").val() == "0" ) { vax = "Nega vacinação contra SARS-CoV-2."; }
-            else { vax = "Refere ter tomado " + $("#vax-covid").val() + " doses de vacinas contra COVID-19."; }
-            if( $("#vax-influenza").val() == "true" ) { vax += " Refere vacinação atualizada contra Influenza."; }
-            else { vax += " Nega vacinação atualizada contra Influenza."; }
-            s.push( vax );
+            var vax = [];
+            if( $("#vax-covid").val() != "" ) {
+              if ( $("#vax-covid").val() == "0" ) { vax.push( "Nega vacinação contra SARS-CoV-2." ); }
+              else { vax.push( "Refere ter tomado " + $("#vax-covid").val() + " dose(s) de vacinas contra COVID-19." ); }
+            }
+            if( $("#vax-influenza").val() != "" ) {
+              if ( $("#vax-influenza").val() == "true" ) { vax.push( "Refere vacinação atualizada contra Influenza." ); }
+              else { vax.push( " Nega vacinação atualizada contra Influenza." ); }
+            }
+            if ( vax.join(" ") != "" ) { s.push( vax.join(" ") ); }
+
 
             // Work status
             var work = "";
