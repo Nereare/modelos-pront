@@ -16185,6 +16185,53 @@ $(document).ready(function() {
         "",
         "Caso persista a dor mesmo após os 3 meses de uso, buscar aconselhamento junto a neurologista ou médico especializado em dor."
       ]
+    ],
+    "Dispepsia": [
+      [
+        "Omeprazol",
+        "20mg",
+        "Via Oral",
+        "",
+        " - USO POR 03 MESES",
+        "Tomar",
+        "02",
+        "cps",
+        "12",
+        "horas",
+        " por 03 meses",
+        "",
+        "Tomar dose matinal de jejum e aguardar 30 minutos antes de se alimentar. Tomar dose noturna 30 minutos antes de se alimentar."
+      ],
+      [
+        "Domperidona",
+        "10mg",
+        "Via Oral",
+        "",
+        " - USO POR 03 MESES",
+        "Tomar",
+        "01",
+        "cp",
+        "8",
+        "horas",
+        " por 03 meses",
+        "",
+        ""
+      ],
+      [
+        "Hidróxido de Alumínio",
+        "60mg/mL",
+        "Via Oral",
+        "",
+        " - USO POR 06 MESES",
+        "Tomar",
+        "20",
+        "mL",
+        "6",
+        "horas",
+        "",
+        ", se queimação no estômago ou sensação de refluxo ou azia",
+        ""
+      ]
     ]
   };
 
