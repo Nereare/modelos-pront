@@ -11,7 +11,9 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
   - Opção de prescrição de Rhogam; e
   - Opção de solicitação de Implanon.
 ### Modificado
-- *Sintomáticos Respiratórios*: campos de vacinas e infecção prévia por SARS-CoV-2 agora são opcionais.
+- *Sintomáticos Respiratórios*:
+  - Campos de vacinas e infecção prévia por SARS-CoV-2 agora são opcionais.
+  - Redesenhado distribuição de campos de definição de tosse e febre.
 ### Corrigido
 - *Sintomáticos Respiratórios*:
   - Campo de anamnese miscelânea agora não processado (comportamento pretendido para v3, mas não implementado); e

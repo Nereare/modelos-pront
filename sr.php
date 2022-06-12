@@ -50,136 +50,151 @@ function getPhysician($index = 3) {
       <div class="eval-first mb-4">
         <h3 class="title is-5">Sintomas-Chave</h3>
 
-        <div class="field has-addons">
-          <div class="control">
-            <label for="symp-cough" class="button">
-              <span class="icon">
-                <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
-              </span>
-              <input type="checkbox" class="is-hidden checkbutton" id="symp-cough" value="true">
-            </label>
-          </div>
-          <div class="control">
-            <button class="button is-static" tabindex="-1">Tosse</button>
-          </div>
-          <div class="control">
-            <div class="select">
-              <select id="cough-desc" disabled>
-                <option value="seca" selected>seca</option>
-                <option value="produtiva">produtiva</option>
-              </select>
+        <div class="columns">
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <label for="symp-cough" class="button">
+                  <span class="icon">
+                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
+                  </span>
+                  <input type="checkbox" class="is-hidden checkbutton" id="symp-cough" value="true">
+                </label>
+              </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Tosse</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="cough-desc" disabled>
+                    <option value="seca" selected>seca</option>
+                    <option value="produtiva">produtiva</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Tosse prévia</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-disabled is-fullwidth">
+                  <select id="cough-prev" disabled>
+                    <option value="" selected>N/A</option>
+                    <option value="seca">seca</option>
+                    <option value="produtiva">produtiva</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">, agora</button>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="cough-diff" disabled>
+                    <option value="igual ao basal" selected>igual</option>
+                    <option value="com quantidade aumentada em relação ao basal">qtd&uarr;</option>
+                    <option value="com aspecto pior que o basal">aspecto pior</option>
+                    <option value="com quantidade aumentada e aspecto pior que o basal">qtd&uarr;/aspec. pior</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="cough-other" disabled>
+                    <option value="" selected>sem outros achados</option>
+                    <option value=" com alguns laivos de sangue eventuais">com laivos sg</option>
+                    <option value=" com hemoptise franca">com hemoptise</option>
+                    <option value=" com episódios de apneia associados">com apneia</option>
+                    <option value=" com episódios de cianose associados">com cianose</option>
+                    <option value=" com piora importante à noite a ao se deitar">pior em decúbito</option>
+                    <option value=", apenas à noite">apenas noturna</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Desde</button>
+              </div>
+              <div class="control is-expanded">
+                <input type="date" class="input" id="cough-start" disabled>
+              </div>
             </div>
           </div>
-          <div class="control">
-            <button class="button is-static" tabindex="-1">(tosse prévia</button>
-          </div>
-          <div class="control">
-            <div class="select is-disabled">
-              <select id="cough-prev" disabled>
-                <option value="" selected>N/A</option>
-                <option value="seca">seca</option>
-                <option value="produtiva">produtiva</option>
-              </select>
-            </div>
-          </div>
-          <div class="control">
-            <button class="button is-static" tabindex="-1">, agora</button>
-          </div>
-          <div class="control">
-            <div class="select">
-              <select id="cough-diff" disabled>
-                <option value="igual ao basal" selected>igual</option>
-                <option value="com quantidade aumentada em relação ao basal">qtd&uarr;</option>
-                <option value="com aspecto pior que o basal">aspecto pior</option>
-                <option value="com quantidade aumentada e aspecto pior que o basal">qtd&uarr;/aspec. pior</option>
-              </select>
-            </div>
-          </div>
-          <div class="control">
-            <button class="button is-static" tabindex="-1">)</button>
-          </div>
-          <div class="control">
-            <div class="select">
-              <select id="cough-other" disabled>
-                <option value="" selected>sem outros achados</option>
-                <option value=" com alguns laivos de sangue eventuais">com laivos sg</option>
-                <option value=" com hemoptise franca">com hemoptise</option>
-                <option value=" com episódios de apneia associados">com apneia</option>
-                <option value=" com episódios de cianose associados">com cianose</option>
-                <option value=" com piora importante à noite a ao se deitar">pior em decúbito</option>
-                <option value=", apenas à noite">apenas noturna</option>
-              </select>
-            </div>
-          </div>
-          <div class="control">
-            <button class="button is-static" tabindex="-1">desde</button>
-          </div>
-          <div class="control is-expanded">
-            <input type="date" class="input" id="cough-start" disabled>
-          </div>
-        </div>
 
-        <div class="field has-addons">
-          <div class="control">
-            <label for="symp-fever" class="button">
-              <span class="icon">
-                <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
-              </span>
-              <input type="checkbox" class="is-hidden checkbutton" id="symp-fever" value="true">
-            </label>
-          </div>
-          <div class="control">
-            <button class="button is-static" tabindex="-1">Febre</button>
-          </div>
-          <div class="control">
-            <div class="select" disabled>
-              <select id="fever-measure" disabled>
-                <option value="não aferida" selected>não aferida</option>
-                <option value="não aferida, mas associada a calafrios">não afer + calafrios</option>
-                <option value="aferida, de até ">aferida</option>
-              </select>
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <label for="symp-fever" class="button">
+                  <span class="icon">
+                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
+                  </span>
+                  <input type="checkbox" class="is-hidden checkbutton" id="symp-fever" value="true">
+                </label>
+              </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Febre</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth" disabled>
+                  <select id="fever-measure" disabled>
+                    <option value="não aferida" selected>não aferida</option>
+                    <option value="não aferida, mas associada a calafrios">não afer + calafrios</option>
+                    <option value="aferida, de até ">aferida</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="fever-freq" disabled>
+                    <option value="com pico único" selected>pico único</option>
+                    <option value="com alguns picos desde seu início">alguns picos</option>
+                    <option value="diariamente desde seu início">diariamente</option>
+                    <option value="algumas vezes por dia">mais de 1x/d</option>
+                    <option value="com picos emendando uns nos outros">contínua</option>
+                    <option value="apenas vespertina">vespertina</option>
+                    <option value="a cada 48 horas (febre terçã benigna)">terçã benig</option>
+                    <option value="a cada 36 a 48 horas (febre terção maligna)">terçã malig</option>
+                    <option value="a cada 72 horas (febre quartã)">quartã</option>
+                  </select>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="control">
-            <button class="button is-static" tabindex="-1">de até</button>
-          </div>
-          <div class="control">
-            <input type="number" class="input" id="fever-max" min="32" step="0.1" placeholder="#" disabled>
-          </div>
-          <div class="control">
-            <button class="button is-static" tabindex="-1">°C,</button>
-          </div>
-          <div class="control">
-            <div class="select">
-              <select id="fever-freq" disabled>
-                <option value="com pico único" selected>pico único</option>
-                <option value="com alguns picos desde seu início">alguns picos</option>
-                <option value="diariamente desde seu início">diariamente</option>
-                <option value="algumas vezes por dia">mais de 1x/d</option>
-                <option value="com picos emendando uns nos outros">contínua</option>
-                <option value="apenas vespertina">vespertina</option>
-                <option value="a cada 48 horas (febre terçã benigna)">terçã benig</option>
-                <option value="a cada 36 a 48 horas (febre terção maligna)">terçã malig</option>
-                <option value="a cada 72 horas (febre quartã)">quartã</option>
-              </select>
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">De até</button>
+              </div>
+              <div class="control is-expanded">
+                <input type="number" class="input" id="fever-max" min="32" step="0.1" placeholder="#" disabled>
+              </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">°C</button>
+              </div>
             </div>
-          </div>
-          <div class="control">
-            <div class="select">
-              <select id="fever-other" disabled>
-                <option value="" selected>sem outros achados</option>
-                <option value=" associada a sudorese fria">com suor</option>
-                <option value=" associada a sudorese fria e calafrios">com suor/calafrios</option>
-                <option value=" associada a delírios sensoperceptivos">com delírios</option>
-                <option value=" associada a crise convulsiva">com convulsão</option>
-              </select>
+            <div class="field has-addons">
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="fever-other" disabled>
+                    <option value="" selected>sem outros achados</option>
+                    <option value=" associada a sudorese fria">com suor</option>
+                    <option value=" associada a sudorese fria e calafrios">com suor/calafrios</option>
+                    <option value=" associada a delírios sensoperceptivos">com delírios</option>
+                    <option value=" associada a crise convulsiva">com convulsão</option>
+                  </select>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="control">
-            <button class="button is-static" tabindex="-1">desde/em</button>
-          </div>
-          <div class="control is-expanded">
-            <input type="date" class="input" id="fever-start" disabled>
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">desde/em</button>
+              </div>
+              <div class="control is-expanded">
+                <input type="date" class="input" id="fever-start" disabled>
+              </div>
+            </div>
           </div>
         </div>
 
