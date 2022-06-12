@@ -299,14 +299,10 @@ $(document).ready(function() {
           }
           $.each($("input[name='symps-key']:checked"), function(){ symps.push( $(this).val().toUpperCase() ); });
           $.each($("input[name='symps-other']:checked"), function(){ symps.push( $(this).val() ); });
-          var ss = $("#symp-misc").val().split(",")
-          ss = ss.filter(el => {
-            return el != null && el != "";
-          });
-          $.each(ss, function(){ symps.push( this.trim().toLowerCase() ); });
           if( symps.length == 0 ) { symps = "ASSINTOMÁTICO"; symptomatic = false; }
           else { symps = "com: " + humanList( symps ); }
           s.push( "Paciente procura atendimento referindo estar " + symps + "." );
+          if ( $("#symp-misc").val().trim() != "" ) { s.push( $("#symp-misc").val().trim() ); }
 
           if( $("#fear-contact").is(":checked") ) { s.push( "Paciente conta ter buscado atendimento pois teve contato com alguém que testou positivo." ); }
           if( $("#fear-fear").is(":checked") ) { s.push( "Paciente conta estar com medo de estar com COVID." ); }
@@ -321,11 +317,13 @@ $(document).ready(function() {
             // Comorbidities' and Alergies list
             var comorb = [];
             $.each($("input[name='comorbidities']:checked"), function(){ comorb.push( $(this).val() ); });
-            var cc = $("#comorb-other").val().split(",")
-            cc = cc.filter(el => {
-              return el != null && el != "";
-            });
-            $.each(cc, function(){ symps.push( $(this).val().trim() ); });
+            if ( $("#comorb-other").val() != "" ) {
+              var cc = $("#comorb-other").val().split(",")
+              cc = cc.filter(el => {
+                return el != null && el != "";
+              });
+              $.each(cc, function(i, v){ comorb.push( v.trim() ); });
+            }
             comorb = humanList( comorb );
             if( comorb == "" ) { comorb = "Nega comorbidades."; }
             else { comorb = "Refere ter " + comorb + "."; }

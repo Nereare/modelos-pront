@@ -5,6 +5,10 @@ Todas as mudanças significativas nesse projeto serão documentadas neste arquiv
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
 ## [Não Publicado][Unreleased]
+### Corrigido
+- *Sintomáticos Respiratórios*:
+  - Campo de anamnese miscelânea agora não processado (comportamento pretendido para v3, mas não implementado); e
+  - Processamento de outras comorbidades.
 
 ## [2.4.11] - 2022-06-11
 ### Adicionado
