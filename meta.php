@@ -4,7 +4,7 @@ define("APP_AUTHOR", "Igor Padoim");
 define("APP_YEAR", "2021-2022");
 define("APP_LICENSE_NAME", "Licença Hipocrática");
 define("APP_LICENSE_URI", "https://firstdonoharm.dev/");
-define("APP_VERSION", "2.4.11-r1");
+define("APP_VERSION", "2.4.11-r2");
 
 define("MODELS", [
   "sr" => [

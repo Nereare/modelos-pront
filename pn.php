@@ -1276,6 +1276,12 @@ require_once "header.php";
           </div>
           <div class="field">
             <div class="control is-expanded">
+              <input type="checkbox" class="is-checkradio" id="dx_negrh" name="obsdx" value="Gestante Rh-Negativo">
+              <label for="dx_hypotir">Rh-Negativo (<code>O36.0</code>)</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control is-expanded">
               <input type="checkbox" class="is-checkradio" id="dx_fabs" name="obsdx" value="Artrogripose Múltipla Congênita">
               <label for="dx_fabs">Artrogripose Múltipla Congênita (<code>Q74.3</code>)</label>
             </div>
@@ -1320,6 +1326,40 @@ require_once "header.php";
                     <option value="3º">3º Tri</option>
                   </select>
                 </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="field has-addons">
+              <div class="control">
+                <label for="p-labcoombs" class="button">
+                  <span class="icon">
+                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
+                  </span>
+                  <input type="checkbox" class="is-hidden checkbutton" id="p-labcoombs" value="true">
+                </label>
+              </div>
+              <div class="control is-expanded">
+                <button class="button is-static is-fullwidth" tabindex="-1">
+                  Solicito PAI/Coombs Indireto
+                </button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="field has-addons">
+              <div class="control">
+                <label for="p-labvdrl" class="button">
+                  <span class="icon">
+                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
+                  </span>
+                  <input type="checkbox" class="is-hidden checkbutton" id="p-labvdrl" value="true">
+                </label>
+              </div>
+              <div class="control is-expanded">
+                <button class="button is-static is-fullwidth" tabindex="-1">
+                  Solicito VDRL para seguimento mensal
+                </button>
               </div>
             </div>
           </li>
@@ -1624,6 +1664,23 @@ require_once "header.php";
               </div>
             </div>
           </li>
+          <li>
+            <div class="field has-addons">
+              <div class="control">
+                <label for="p-med9" class="button">
+                  <span class="icon">
+                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
+                  </span>
+                  <input type="checkbox" class="is-hidden checkbutton" id="p-med9" value="true">
+                </label>
+              </div>
+              <div class="control is-expanded">
+                <button class="button is-static is-fullwidth" tabindex="-1">
+                  Rhogam
+                </button>
+              </div>
+            </div>
+          </li>
 
           <h3 class="title is-5">Vacinas</h3>
 
@@ -1857,6 +1914,23 @@ require_once "header.php";
               <div class="control is-expanded">
                 <button class="button is-static is-fullwidth" tabindex="-1">
                   Relatório Médico de Z34
+                </button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="field has-addons">
+              <div class="control">
+                <label for="p-implanon" class="button">
+                  <span class="icon">
+                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
+                  </span>
+                  <input type="checkbox" class="is-hidden checkbutton" id="p-implanon" value="true">
+                </label>
+              </div>
+              <div class="control is-expanded">
+                <button class="button is-static is-fullwidth" tabindex="-1">
+                  Solicito Implanon
                 </button>
               </div>
             </div>

@@ -654,6 +654,8 @@ function runPlans() {
   if( $("#p-labs").is(":checked") ) {
     plans.push("Solicito exames laboratoriais para " + $("#p-labs-sem").val() + " trimestre");
   }
+  if( $("#p-labcoombs").is(":checked") ) { plans.push("Solicito Pesquisa de Anticorpos Irregulares (PAI) / Coombs Indireto"); }
+  if( $("#p-labvdrl").is(":checked") ) { plans.push("Solicito VDRL mensal para seguimendo de Sífilis Gestacional"); }
   if( $("#p-labs-other").is(":checked") ) {
     plans.push("Solicito outros exames laboratoriais: " + $("#p-labs-otherlab").val());
   }
@@ -676,6 +678,7 @@ function runPlans() {
   if( $("#p-med8").is(":checked") ) {
     plans.push("Prescrevo " + $("#p-medother").val());
   }
+  if( $("#p-med9").is(":checked") ) { plans.push("Prescrevo imunoglobulina Anti-D para profilaxia contra isoimunização Rh"); }
   if( $("#p-vax").is(":checked") ) { plans.push("Levo paciente à Sala de Vacinação para atualização de status vacinal em atraso"); }
   if( $("#p-vaxnew").is(":checked") ) { plans.push("Levo paciente à Sala de Vacinação para reinício de vacinação, uma vez que não apresenta qualquer comprovação de vacinação prévia"); }
   if( $("#p-vaxori").is(":checked") ) { plans.push("Oriento paciente a procurar Sala de Vacinação para atualização de status vacinal em atraso"); }
@@ -696,6 +699,7 @@ function runPlans() {
     plans.push("Adianto licença maternidade por solicitação a gestante, a qual confirma estar ciente da orientação acima");
   }
   if( $("#p-pregreport").is(":checked") ) { plans.push("Redijo relatório médico, por solicitação da paciente e em vista do Art. 86 do Código de Ética Médica (CFM, 2019), constando CID-19 Z34 relativo à condição de gestante atualmente vigente da paciente"); }
+  if( $("#p-implanon").is(":checked") ) { plans.push("Faço solicitação de dispositivo intradérmico de etonogestrel (Implanon) para anticoncepção pós-parto da paciente"); }
   plans.push("Tiro dúvidas");
   plans.push("Retorno em " + $("#p-return-num").val() + " " + $("#return-time").val() + " " + $("#return-who").val());
   return plans.join(";\n") + ".";
