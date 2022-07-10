@@ -5,6 +5,8 @@ Todas as mudanças significativas nesse projeto serão documentadas neste arquiv
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
 ## [Não Publicado][Unreleased]
+
+## [2.4.12] - 2022-07-10
 ### Adicionado
 - *Pré-Natal*:
   - Opção de exames de Coombs Indireto e VDRL de seguimento;
@@ -16,8 +18,9 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
   - Redesenhado distribuição de campos de definição de tosse e febre.
 ### Corrigido
 - *Sintomáticos Respiratórios*:
-  - Campo de anamnese miscelânea agora não processado (comportamento pretendido para v3, mas não implementado); e
-  - Processamento de outras comorbidades.
+  - Campo de anamnese miscelânea agora não processado (comportamento pretendido para v3, mas não implementado);
+  - Processamento de outras comorbidades; e
+  - Processamento de resultados de exames prévios para Covid e Influenza.
 
 ## [2.4.11] - 2022-06-11
 ### Adicionado
@@ -81,7 +84,8 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Página de Requisição de Implanon.
 - Página de Exame Físico genérico.
 
-[Unreleased]: https://github.com/Nereare/modelos-pront/compare/v2.4.11...HEAD
+[Unreleased]: https://github.com/Nereare/modelos-pront/compare/v2.4.12...HEAD
+[2.4.12]: https://github.com/Nereare/modelos-pront/compare/v2.4.11...v2.4.12
 [2.4.11]: https://github.com/Nereare/modelos-pront/compare/v2.4.10...v2.4.11
 [2.4.10]: https://github.com/Nereare/modelos-pront/compare/v2.3.8...v2.4.10
 [2.3.8]: https://github.com/Nereare/modelos-pront/compare/v2.2.5...v2.3.8

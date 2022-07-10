@@ -870,6 +870,7 @@ function getPhysician($index = 3) {
                   <option value="Teste Rápido Sorológico IgM e IgG para SARS-CoV-2">TR IgM/IgG</option>
                   <option value="Teste Rápido Sorológico Conjugado IgM+IgG para SARS-CoV-2">TR Ig Total</option>
                   <option value="Teste Rápido Nasal para detecção de Antígeno de SARS-CoV-2">TR-Ag</option>
+                  <option value="Auto-Teste Rápido Nasal para detecção de Antígeno de SARS-CoV-2">Auto TR-Ag</option>
                 </select>
               </div>
             </div>
@@ -907,6 +908,15 @@ function getPhysician($index = 3) {
             <div class="control is-expanded">
               <div class="select is-fullwidth">
                 <select id="exam-influenza">
+                  <option value="" selected>N/A</option>
+                  <option value="Teste Rápido para Influenza A/B">TR</option>
+                  <option value="PCR para Influenza">PCR</option>
+                </select>
+              </div>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="exam-influenza-res">
                   <option value="" selected>N/A</option>
                   <option value="não reagente para A e B">NR</option>
                   <option value="REAGENTE para A, não reagente para B">A+</option>

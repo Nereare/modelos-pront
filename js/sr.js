@@ -772,6 +772,36 @@ function runO() {
     o.push( "MMII: " + oedema + ", pulsos " + pulse + "." );
   }
 
+  if (
+    $("#exam-covid-date").val() != "" &&
+    $("#exam-covid").val() != "" &&
+    $("#exam-covid-res").val() != ""
+  ) {
+    var note = "";
+    if ( $("#exam-covid").val() == "Auto-Teste Rápido Nasal para detecção de Antígeno de SARS-CoV-2" ) {
+      note = ", resultado referido por paciente";
+    }
+    var exam_date = new Date( $("#exam-covid-date").val() + "T00:00:00.000-03:00" );
+    o.push(
+      $("#exam-covid").val() + " (" +
+      exam_date.toLocaleDateString("pt-BR") +
+      note + ") " +
+      $("#exam-covid-res").val() + "."
+    );
+  }
+  if (
+    $("#exam-influenza-date").val() != "" &&
+    $("#exam-influenza").val() != "" &&
+    $("#exam-influenza-res").val() != ""
+  ) {
+    var exam_date = new Date( $("#exam-influenza-date").val() + "T00:00:00.000-03:00" );
+    o.push(
+      $("#exam-influenza").val() + " (" +
+      exam_date.toLocaleDateString("pt-BR") + ") " +
+      $("#exam-influenza-res").val() + "."
+    );
+  }
+
   return o;
 }
 
