@@ -17,6 +17,9 @@ function getPhysician($index = 3) {
   if ( $index > 2 ) { return ""; }
   else { return $data[ $index ]; }
 }
+if ( isset($_COOKIE["sr_header"]) ) { $sr_header = $_COOKIE["sr_header"]; }
+elseif ( isset($_SESSION["sr_header"]) ) { $sr_header = $_SESSION["sr_header"]; }
+else { $sr_header = "# CM #"; }
 ?>
 
 <main class="section">
@@ -2034,12 +2037,12 @@ function getPhysician($index = 3) {
 
       <div class="field has-addons">
         <div class="control">
-          <button class="button is-static" tabindex="-1">CIDs Comuns</button>
+          <button class="button is-static" tabindex="-1">Diagnóstico</button>
         </div>
-        <div class="control is-expanded">
-          <div class="select is-fullwidth">
+        <div class="control">
+          <div class="select">
             <select id="icd-search">
-              <option value="" selected disabled>Escolha...</option>
+              <option value="" selected disabled>Outro...</option>
               <option value="J00">Resfriado Comum</option>
               <option value="J11.1">Sd. Gripal</option>
               <option value="J03.9">Faringotonsilite Viral</option>
@@ -2057,8 +2060,11 @@ function getPhysician($index = 3) {
             </select>
           </div>
         </div>
+        <div class="control is-expanded">
+          <input type="text" class="input" id="dx-final" placeholder="Preencha diagnóstico aqui...">
+        </div>
         <div class="control">
-          <input type="text" class="input" id="icd-result" placeholder="CID aparecerá aqui" readonly>
+          <input type="text" class="input" id="icd-result" placeholder="CID" readonly>
         </div>
       </div>
 
@@ -2694,34 +2700,68 @@ function getPhysician($index = 3) {
           <button id="button-run" class="button is-primary is-fullwidth">Gerar</button>
         </div>
       </div>
-      <div class="field">
-        <div class="control">
-          <textarea id="output-s" class="textarea has-fixed-size" placeholder="Subjetivo" rows="4" readonly></textarea>
-        </div>
+
+      <div class="tabs is-centered">
+        <ul>
+          <li class="is-active">
+            <a id="show-unified">
+              <span class="icon"><i class="mdi mdi-crop-square" aria-hidden="true"></i></span>
+              <span>Unificado</span>
+            </a>
+          </li>
+          <li>
+            <a id="show-soap">
+              <span class="icon"><i class="mdi mdi-grid-large" aria-hidden="true"></i></span>
+              <span>SOAP</span>
+            </a>
+          </li>
+        </ul>
       </div>
-      <div class="field">
-        <div class="control is-expanded">
-          <button id="button-s" class="button is-fullwidth copybtn" data-clipboard-target="#output-s">Copiar Subjetivo</button>
+
+      <div id="output-unified">
+        <div class="field">
+          <div class="control">
+            <textarea id="output-uni" class="textarea has-fixed-size" placeholder="Prontuário..." rows="12" readonly></textarea>
+          </div>
         </div>
-      </div>
-      <div class="field">
-        <div class="control">
-          <textarea id="output-o" class="textarea has-fixed-size" placeholder="Objetivo" rows="4" readonly></textarea>
+        <div class="field">
+          <div class="control is-expanded">
+            <button id="button-uni" class="button is-fullwidth copybtn" data-clipboard-target="#output-uni">Copiar Prontuário</button>
+          </div>
         </div>
+        <input type="text" class="is-hidden" id="sr-header" value="<?php echo $sr_header; ?>">
       </div>
-      <div class="field">
-        <div class="control is-expanded">
-          <button id="button-o" class="button is-fullwidth copybtn" data-clipboard-target="#output-o">Copiar Objetivo</button>
+
+      <div class="is-hidden" id="output-soap">
+        <div class="field">
+          <div class="control">
+            <textarea id="output-s" class="textarea has-fixed-size" placeholder="Subjetivo" rows="4" readonly></textarea>
+          </div>
         </div>
-      </div>
-      <div class="field">
-        <div class="control">
-          <textarea id="output-p" class="textarea has-fixed-size" placeholder="Plano" rows="4" readonly></textarea>
+        <div class="field">
+          <div class="control is-expanded">
+            <button id="button-s" class="button is-fullwidth copybtn" data-clipboard-target="#output-s">Copiar Subjetivo</button>
+          </div>
         </div>
-      </div>
-      <div class="field">
-        <div class="control is-expanded">
-          <button id="button-p" class="button is-fullwidth copybtn" data-clipboard-target="#output-p">Copiar Plano</button>
+        <div class="field">
+          <div class="control">
+            <textarea id="output-o" class="textarea has-fixed-size" placeholder="Objetivo" rows="4" readonly></textarea>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control is-expanded">
+            <button id="button-o" class="button is-fullwidth copybtn" data-clipboard-target="#output-o">Copiar Objetivo</button>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <textarea id="output-p" class="textarea has-fixed-size" placeholder="Plano" rows="4" readonly></textarea>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control is-expanded">
+            <button id="button-p" class="button is-fullwidth copybtn" data-clipboard-target="#output-p">Copiar Plano</button>
+          </div>
         </div>
       </div>
     </div>

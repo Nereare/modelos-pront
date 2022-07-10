@@ -258,12 +258,21 @@ $(document).ready(function() {
     $("#go-science-go").removeClass("is-active");
   });
 
+  // Select type of output to show
+  $("#show-unified, #show-soap").on("click", function() {
+    //if ( !$(this).hasClass("is-active") ) {
+      $("#show-unified, #show-soap").parent("li").toggleClass("is-active");
+      $("#output-unified, #output-soap").toggleClass("is-hidden");
+    //}
+  });
+
   // Run
   $("#button-run").on("click", function() {
     if( $("#eval").val() != "" ) {
       var s = "";
       var o = "";
       var p = "";
+      $("#output-uni").val("");
 
       switch( $("#time-current").val() ) {
         case "first": // First evaluation
@@ -418,6 +427,13 @@ $(document).ready(function() {
       $("#output-s").val(s);
       $("#output-o").val(o);
       $("#output-p").val(p);
+
+      a = $("#icd-search option:selected").html();
+      if ( $("#icd-search").val() == "" ) { a = $("#dx-final").val(); }
+      if ( a != "" && a != "Outro..." ) { a = "# HD: " + a + "\n\n"; }
+      else { a = ""; }
+      sr_header = $("#sr-header").val();
+      $("#output-uni").val(sr_header + "\n" + s + "\n\n" + o + "\n\n" + a + "# CD:\n" + p);
     }
   });
 
