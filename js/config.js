@@ -1,4 +1,44 @@
 $(document).ready(function() {
+  // Close modals with a `.delete` button
+  $(".delete").on("click", function() {
+    $(this).parents(".modal").removeClass("is-active");
+  });
+
+  // Change tabs
+  $("#menu-button").on("click", function() {
+    if ( !$("#menu-button").parent().hasClass("is-active") ) {
+      $("#sadt-button, #crm-button, #reset-button").parent().removeClass("is-active");
+      $("#sadt, #crm, #reset").addClass("is-hidden");
+      $("#menu-button").parent().addClass("is-active");
+      $("#menu").removeClass("is-hidden");
+    }
+  });
+  $("#sadt-button").on("click", function() {
+    if ( !$("#sadt-button").parent().hasClass("is-active") ) {
+      $("#menu-button, #crm-button, #reset-button").parent().removeClass("is-active");
+      $("#menu, #crm, #reset").addClass("is-hidden");
+      $("#sadt-button").parent().addClass("is-active");
+      $("#sadt").removeClass("is-hidden");
+    }
+  });
+  $("#crm-button").on("click", function() {
+    if ( !$("#crm-button").parent().hasClass("is-active") ) {
+      $("#menu-button, #sadt-button, #reset-button").parent().removeClass("is-active");
+      $("#menu, #sadt, #reset").addClass("is-hidden");
+      $("#crm-button").parent().addClass("is-active");
+      $("#crm").removeClass("is-hidden");
+    }
+  });
+  $("#reset-button").on("click", function() {
+    if ( !$("#reset-button").parent().hasClass("is-active") ) {
+      $("#crm-button, #menu-button, #sadt-button").parent().removeClass("is-active");
+      $("#crm, #menu, #sadt").addClass("is-hidden");
+      $("#reset-button").parent().addClass("is-active");
+      $("#reset").removeClass("is-hidden");
+    }
+  });
+
+  // Toggle between single-icon (wide) and three-icon (short) line
   $(".line-menu").on("change", function() {
     var i = $(this).prop("id").match(/\d/)[0];
     if ( $(this).prop("checked") ) {
@@ -10,12 +50,19 @@ $(document).ready(function() {
     }
   });
 
+  // Hide reply notification
   $("#config-reply button").on("click", function() {
     $("#config-reply")
       .removeClass("is-success is-warning is-danger")
       .addClass("is-hidden");
   });
 
+  // Show cookie reset modal
+  $("#reset-cookies").on("click", function() {
+    $("#reset-cookies-modal").addClass("is-active");
+  });
+
+  // Send data to be saved
   $("#config-save").on("click", function() {
     $("#config-save")
       .addClass("is-loading")
@@ -50,7 +97,7 @@ $(document).ready(function() {
     // Checks for validity of place inputs
     if ( place_name.length > 80 ) { place_name = place_name.substring(0, 80); }
     if ( place_cnes.length > 7 ) { place_cnes = place_cnes.substring(0, 7); }
-    if ( !place_phone.match( phone_regex ) ) { place_phone = "(11) 3066-8000"; }
+    if ( !place_phone.match( phone_regex ) ) { place_phone = ""; }
     if ( place_address.length > 80 ) { place_address = place_address.substring(0, 80); }
 
     // Set regex pattern(s) for physician data checking
@@ -61,14 +108,8 @@ $(document).ready(function() {
     var physician_crm = $("#physician-crm").val();
     var physician_crm_uf = $("#physician-crm-uf").val();
     // Checks for validity of physician inputs
-    if (
-      !physician_crm.match( crm_regex ) ||
-      !physician_crm_uf.match( uf_regex )
-    ) {
-      $("#config-reply").addClass("is-warning");
-      $("#config-reply p").html("Algum dado enviado estava errado");
-      return 1;
-    }
+    if ( !physician_crm.match( crm_regex ) ) { physician_crm = ""; }
+    if ( !physician_crm_uf.match( uf_regex ) ) { physician_crm_uf = "SP"; }
 
     // Set data for AJAX
     var data = {
@@ -81,7 +122,6 @@ $(document).ready(function() {
       physician_crm: physician_crm,
       physician_crm_uf: physician_crm_uf
     };
-    console.log( data );
 
     $.ajax({
       url: "scripts/config-do.php",
@@ -106,6 +146,26 @@ $(document).ready(function() {
       })
       .always(function() {
         $("#config-reply").removeClass("is-hidden");
+        $("#config-save")
+          .removeClass("is-loading")
+          .prop("disabled", false);
+      });
+  });
+
+  $("#reset-cookies-confirm").on("click", function() {
+    $.ajax({
+      url: "scripts/config-do.php",
+      type: "GET",
+      data: { do: "reset" }
+    })
+      .done(function(r) {
+        $(location).prop("href", ".");
+      })
+      .fail(function() {
+        $("#config-reply p").html("Algo deu errado :(");
+        $("#config-reply")
+          .addClass("is-danger")
+          .removeClass("is-hidden");
         $("#config-save")
           .removeClass("is-loading")
           .prop("disabled", false);
