@@ -16,13 +16,13 @@ switch ($job) {
     break;
   case "accept":
     $_SESSION["cookies"] = true;
-    setcookie("accept_cookies", "true", time() + 30*24*60*60, "/" ); // 30 days
+    setcookie("accept_cookies", "true", time() + 30*24*60*60, "/" );
     break;
   case "ethics":
-    $_SESSION["ethics"] = true;
+    if ( $_SESSION["cookies"] ) { setcookie("ethics", "true", time() + 30*24*60*60, "/" ); }
+    else { $_SESSION["ethics"] = true; }
     break;
   default:
-    // code...
-    break;
+    exit(404);
 }
 ?>

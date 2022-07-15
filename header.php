@@ -133,7 +133,7 @@ if ( isset($_SESSION["cookies"]) ) {
       </div>
     </header>
 
-    <?php if ( !isset($_SESSION["ethics"]) ) { ?>
+    <?php if ( !isset( $_SESSION["ethics"] ) && !isset( $_COOKIE["ethics"] ) ) { ?>
     <section class="section">
       <div class="container">
         <article class="message is-warning">
