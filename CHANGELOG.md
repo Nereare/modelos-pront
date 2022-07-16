@@ -9,6 +9,7 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - *Sintomáticos Respiratórios*:
   - Resultado em forma compilada (evolução tradicional) em adição a SOAP.
 - Função para reiniciar *cookies* e variáveis de sessão.
+- Configuração de cabeçalho para *Sintomáticos Respiratórios*.
 
 ## [2.4.12] - 2022-07-10
 ### Adicionado

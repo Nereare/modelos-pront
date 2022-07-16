@@ -17,9 +17,10 @@ function getPhysician($index = 3) {
   if ( $index > 2 ) { return ""; }
   else { return $data[ $index ]; }
 }
-if ( isset($_COOKIE["sr_header"]) ) { $sr_header = $_COOKIE["sr_header"]; }
-elseif ( isset($_SESSION["sr_header"]) ) { $sr_header = $_SESSION["sr_header"]; }
-else { $sr_header = "# CM #"; }
+
+if ( isset( $_COOKIE["sr_header"] ) ) { $sr_header = $_COOKIE["sr_header"]; }
+elseif ( isset( $_SESSION["sr_header"] ) ) { $sr_header = $_SESSION["sr_header"]; }
+else { $sr_header = "SR"; }
 ?>
 
 <main class="section">

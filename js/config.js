@@ -7,32 +7,40 @@ $(document).ready(function() {
   // Change tabs
   $("#menu-button").on("click", function() {
     if ( !$("#menu-button").parent().hasClass("is-active") ) {
-      $("#sadt-button, #crm-button, #reset-button").parent().removeClass("is-active");
-      $("#sadt, #crm, #reset").addClass("is-hidden");
+      $("#sadt-button, #crm-button, #header-button, #reset-button").parent().removeClass("is-active");
+      $("#sadt, #crm, #header, #reset").addClass("is-hidden");
       $("#menu-button").parent().addClass("is-active");
       $("#menu").removeClass("is-hidden");
     }
   });
   $("#sadt-button").on("click", function() {
     if ( !$("#sadt-button").parent().hasClass("is-active") ) {
-      $("#menu-button, #crm-button, #reset-button").parent().removeClass("is-active");
-      $("#menu, #crm, #reset").addClass("is-hidden");
+      $("#menu-button, #crm-button, #header-button, #reset-button").parent().removeClass("is-active");
+      $("#menu, #crm, #header, #reset").addClass("is-hidden");
       $("#sadt-button").parent().addClass("is-active");
       $("#sadt").removeClass("is-hidden");
     }
   });
   $("#crm-button").on("click", function() {
     if ( !$("#crm-button").parent().hasClass("is-active") ) {
-      $("#menu-button, #sadt-button, #reset-button").parent().removeClass("is-active");
-      $("#menu, #sadt, #reset").addClass("is-hidden");
+      $("#menu-button, #sadt-button, #header-button, #reset-button").parent().removeClass("is-active");
+      $("#menu, #sadt, #header, #reset").addClass("is-hidden");
       $("#crm-button").parent().addClass("is-active");
       $("#crm").removeClass("is-hidden");
     }
   });
+  $("#header-button").on("click", function() {
+    if ( !$("#header-button").parent().hasClass("is-active") ) {
+      $("#menu-button, #sadt-button, #crm-button, #reset-button").parent().removeClass("is-active");
+      $("#menu, #sadt, #crm, #reset").addClass("is-hidden");
+      $("#header-button").parent().addClass("is-active");
+      $("#header").removeClass("is-hidden");
+    }
+  });
   $("#reset-button").on("click", function() {
     if ( !$("#reset-button").parent().hasClass("is-active") ) {
-      $("#crm-button, #menu-button, #sadt-button").parent().removeClass("is-active");
-      $("#crm, #menu, #sadt").addClass("is-hidden");
+      $("#menu-button, #sadt-button, #crm-button, #header-button").parent().removeClass("is-active");
+      $("#menu, #sadt, #crm, #header").addClass("is-hidden");
       $("#reset-button").parent().addClass("is-active");
       $("#reset").removeClass("is-hidden");
     }
@@ -62,11 +70,14 @@ $(document).ready(function() {
     $("#reset-cookies-modal").addClass("is-active");
   });
 
-  // Send data to be saved
-  $("#config-save").on("click", function() {
-    $("#config-save")
+  // Send MENU data to be saved
+  $("#menu-save").on("click", function() {
+    $(this)
       .addClass("is-loading")
       .prop("disabled", true);
+    $("#config-reply")
+      .addClass("is-hidden")
+      .removeClass("is-success is-info is-warning is-danger");
 
     // Get new menu data
     var newmenu = [];
@@ -87,40 +98,10 @@ $(document).ready(function() {
       }
     });
 
-    // Set regex pattern(s) for place data checking
-    var phone_regex = /((\(\d{2}\)|\d{2})?( )?(\d)?( |-)?(\d{4})( |-)?(\d{4}))/;
-    // Get place data
-    var place_name = $("#place-name").val();
-    var place_cnes = $("#place-cnes").val();
-    var place_phone = $("#place-phone").val();
-    var place_address = $("#place-address").val();
-    // Checks for validity of place inputs
-    if ( place_name.length > 80 ) { place_name = place_name.substring(0, 80); }
-    if ( place_cnes.length > 7 ) { place_cnes = place_cnes.substring(0, 7); }
-    if ( !place_phone.match( phone_regex ) ) { place_phone = ""; }
-    if ( place_address.length > 80 ) { place_address = place_address.substring(0, 80); }
-
-    // Set regex pattern(s) for physician data checking
-    var crm_regex = /\d{4,6}/;
-    var uf_regex = /AC|AL|AP|AM|BA|CE|DF|ES|GO|MA|MT|MS|MG|PA|PB|PR|PE|PI|RJ|RN|RS|RO|RR|SC|SP|SE|TO/;
-    // Get physician data
-    var physician_name = $("#physician-name").val();
-    var physician_crm = $("#physician-crm").val();
-    var physician_crm_uf = $("#physician-crm-uf").val();
-    // Checks for validity of physician inputs
-    if ( !physician_crm.match( crm_regex ) ) { physician_crm = ""; }
-    if ( !physician_crm_uf.match( uf_regex ) ) { physician_crm_uf = "SP"; }
-
     // Set data for AJAX
     var data = {
-      newmenu: JSON.stringify(newmenu),
-      place_name: place_name,
-      place_cnes: place_cnes,
-      place_phone: place_phone,
-      place_address: place_address,
-      physician_name: physician_name,
-      physician_crm: physician_crm,
-      physician_crm_uf: physician_crm_uf
+      do: "menu",
+      newmenu: JSON.stringify(newmenu)
     };
 
     $.ajax({
@@ -135,6 +116,9 @@ $(document).ready(function() {
         } else if ( r == "406" ) {
           $("#config-reply").addClass("is-warning");
           $("#config-reply p").html("Algum dado enviado estava errado");
+        } else if ( r == "417" ) {
+          $("#config-reply").addClass("is-warning");
+          $("#config-reply p").html("Os dado enviado estavam incompletos");
         } else {
           $("#config-reply").addClass("is-danger");
           $("#config-reply p").html("Algo deu errado :(");
@@ -146,12 +130,183 @@ $(document).ready(function() {
       })
       .always(function() {
         $("#config-reply").removeClass("is-hidden");
-        $("#config-save")
+        $("#menu-save")
+          .removeClass("is-loading")
+          .prop("disabled", false);
+      });
+  });
+  // Send SADT data to be saved
+  $("#sadt-save").on("click", function() {
+    $(this)
+      .addClass("is-loading")
+      .prop("disabled", true);
+    $("#config-reply")
+      .addClass("is-hidden")
+      .removeClass("is-success is-info is-warning is-danger");
+
+    // Set regex pattern(s) for place data checking
+    var phone_regex = /((\(\d{2}\)|\d{2})?( )?(\d)?( |-)?(\d{4})( |-)?(\d{4}))/;
+    // Get place data
+    var place_name = $("#place-name").val();
+    var place_cnes = $("#place-cnes").val();
+    var place_phone = $("#place-phone").val();
+    var place_address = $("#place-address").val();
+    // Checks for validity of place inputs
+    if ( place_name.length > 80 ) { place_name = place_name.substring(0, 80); }
+    if ( place_cnes.length > 7 ) { place_cnes = place_cnes.substring(0, 7); }
+    if ( !place_phone.match( phone_regex ) ) { place_phone = ""; }
+    if ( place_address.length > 80 ) { place_address = place_address.substring(0, 80); }
+
+    // Set data for AJAX
+    var data = {
+      do: "sadt",
+      place_name: place_name,
+      place_cnes: place_cnes,
+      place_phone: place_phone,
+      place_address: place_address
+    };
+
+    $.ajax({
+      url: "scripts/config-do.php",
+      type: "GET",
+      data: data
+    })
+      .done(function(r) {
+        if ( r == "0" ) {
+          $("#config-reply").addClass("is-success");
+          $("#config-reply p").html("Novos dados de local salvos!");
+        } else if ( r == "406" ) {
+          $("#config-reply").addClass("is-warning");
+          $("#config-reply p").html("Algum dado enviado estava errado");
+        } else if ( r == "417" ) {
+          $("#config-reply").addClass("is-warning");
+          $("#config-reply p").html("Os dado enviado estavam incompletos");
+        } else {
+          $("#config-reply").addClass("is-danger");
+          $("#config-reply p").html("Algo deu errado :(");
+        }
+      })
+      .fail(function() {
+        $("#config-reply").addClass("is-danger");
+        $("#config-reply p").html("Algo deu errado :(");
+      })
+      .always(function() {
+        $("#config-reply").removeClass("is-hidden");
+        $("#sadt-save")
+          .removeClass("is-loading")
+          .prop("disabled", false);
+      });
+  });
+  // Send CRM data to be saved
+  $("#crm-save").on("click", function() {
+    $(this)
+      .addClass("is-loading")
+      .prop("disabled", true);
+    $("#config-reply")
+      .addClass("is-hidden")
+      .removeClass("is-success is-info is-warning is-danger");
+
+    // Set regex pattern(s) for physician data checking
+    var crm_regex = /\d{4,6}/;
+    var uf_regex = /AC|AL|AP|AM|BA|CE|DF|ES|GO|MA|MT|MS|MG|PA|PB|PR|PE|PI|RJ|RN|RS|RO|RR|SC|SP|SE|TO/;
+    // Get physician data
+    var physician_name = $("#physician-name").val();
+    var physician_crm = $("#physician-crm").val();
+    var physician_crm_uf = $("#physician-crm-uf").val();
+    // Checks for validity of physician inputs
+    if ( !physician_crm.match( crm_regex ) ) { physician_crm = ""; }
+    if ( !physician_crm_uf.match( uf_regex ) ) { physician_crm_uf = "SP"; }
+
+    // Set data for AJAX
+    var data = {
+      do: "crm",
+      physician_name: physician_name,
+      physician_crm: physician_crm,
+      physician_crm_uf: physician_crm_uf
+    };
+
+    $.ajax({
+      url: "scripts/config-do.php",
+      type: "GET",
+      data: data
+    })
+      .done(function(r) {
+        if ( r == "0" ) {
+          $("#config-reply").addClass("is-success");
+          $("#config-reply p").html("Novos dados médicos salvos!");
+        } else if ( r == "406" ) {
+          $("#config-reply").addClass("is-warning");
+          $("#config-reply p").html("Algum dado enviado estava errado");
+        } else if ( r == "417" ) {
+          $("#config-reply").addClass("is-warning");
+          $("#config-reply p").html("Os dado enviado estavam incompletos");
+        } else {
+          $("#config-reply").addClass("is-danger");
+          $("#config-reply p").html("Algo deu errado :(");
+        }
+      })
+      .fail(function() {
+        $("#config-reply").addClass("is-danger");
+        $("#config-reply p").html("Algo deu errado :(");
+      })
+      .always(function() {
+        $("#config-reply").removeClass("is-hidden");
+        $("#crm-save")
+          .removeClass("is-loading")
+          .prop("disabled", false);
+      });
+  });
+  // Send HEADER data to be saved
+  $("#header-save").on("click", function() {
+    $(this)
+      .addClass("is-loading")
+      .prop("disabled", true);
+    $("#config-reply")
+      .addClass("is-hidden")
+      .removeClass("is-success is-info is-warning is-danger");
+
+    // Get headers
+    var sr_header = $("#sr_header").val().trim();
+
+    // Set data for AJAX
+    var data = {
+      do: "header",
+      sr_header: sr_header
+    };
+
+    $.ajax({
+      url: "scripts/config-do.php",
+      type: "GET",
+      data: data
+    })
+      .done(function(r) {
+        if ( r == "0" ) {
+          $("#config-reply").addClass("is-success");
+          $("#config-reply p").html("Novos cabeçalhos salvos!");
+        } else if ( r == "406" ) {
+          $("#config-reply").addClass("is-warning");
+          $("#config-reply p").html("Algum dado enviado estava errado");
+        } else if ( r == "417" ) {
+          $("#config-reply").addClass("is-warning");
+          $("#config-reply p").html("Os dado enviado estavam incompletos");
+        } else {
+          $("#config-reply").addClass("is-danger");
+          $("#config-reply p").html("Algo deu errado :(");
+        }
+      })
+      .fail(function() {
+        $("#config-reply").addClass("is-danger");
+        $("#config-reply p").html("Algo deu errado :(");
+      })
+      .always(function() {
+        $("#config-reply").removeClass("is-hidden");
+        $("#header-save")
           .removeClass("is-loading")
           .prop("disabled", false);
       });
   });
 
+  // Send request to rest cookie and session data
   $("#reset-cookies-confirm").on("click", function() {
     $.ajax({
       url: "scripts/config-do.php",
@@ -166,7 +321,7 @@ $(document).ready(function() {
         $("#config-reply")
           .addClass("is-danger")
           .removeClass("is-hidden");
-        $("#config-save")
+        $(this)
           .removeClass("is-loading")
           .prop("disabled", false);
       });

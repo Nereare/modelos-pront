@@ -79,6 +79,10 @@ else { $place = ["", "", "", ""]; }
 if ( isset($_COOKIE["physician"]) ) { $physician = json_decode( $_COOKIE["physician"] ); }
 elseif ( isset($_SESSION["physician"]) ) { $physician = $_SESSION["physician"]; }
 else { $physician = ["", "", "SP"]; }
+
+if ( isset( $_COOKIE["sr_header"] ) ) { $sr_header = $_COOKIE["sr_header"]; }
+elseif ( isset( $_SESSION["sr_header"] ) ) { $sr_header = $_SESSION["sr_header"]; }
+else { $sr_header = "SR"; }
 ?>
 
 <section class="section">
@@ -110,6 +114,14 @@ else { $physician = ["", "", "SP"]; }
                 <i class="mdi mdi-doctor mdi-24px" aria-hidden="true"></i>
               </span>
               <span>CRM</span>
+            </a>
+          </li>
+          <li>
+            <a id="header-button">
+              <span class="icon">
+                <i class="mdi mdi-format-header-pound mdi-24px" aria-hidden="true"></i>
+              </span>
+              <span>Cabeçalhos</span>
             </a>
           </li>
           <li>
@@ -166,6 +178,16 @@ else { $physician = ["", "", "SP"]; }
           </div>
         </div>
         <?php } ?>
+
+        <div class="field">
+          <button id="menu-save" class="button is-success is-fullwidth" type="button">
+            <span class="icon">
+              <i class="mdi mdi-content-save mdi-24px" aria-hidden="true"></i>
+            </span>
+            <span>Salvar</span>
+          </button>
+
+        </div>
       </div>
 
       <div class="is-hidden" id="sadt">
@@ -211,6 +233,15 @@ else { $physician = ["", "", "SP"]; }
           <div class="control is-expanded">
             <input type="text" class="input" id="place-address" placeholder="..." maxlength="80" value="<?php echo $place[3]; ?>">
           </div>
+        </div>
+
+        <div class="field">
+          <button id="sadt-save" class="button is-success is-fullwidth" type="button">
+            <span class="icon">
+              <i class="mdi mdi-content-save mdi-24px" aria-hidden="true"></i>
+            </span>
+            <span>Salvar</span>
+          </button>
         </div>
       </div>
 
@@ -273,6 +304,37 @@ else { $physician = ["", "", "SP"]; }
             </div>
           </div>
         </div>
+
+        <div class="field">
+          <button id="crm-save" class="button is-success is-fullwidth" type="button">
+            <span class="icon">
+              <i class="mdi mdi-content-save mdi-24px" aria-hidden="true"></i>
+            </span>
+            <span>Salvar</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="is-hidden" id="header">
+        <h3 class="title is-4">Configurar Cabeçalhos</h3>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button type="button" class="button is-static" tabindex="-1">Sintomáticos Respiratórios</button>
+          </div>
+          <div class="control is-expanded">
+            <input type="text" class="input" id="sr_header" placeholder="Novo cabeçalho..." value="<?php echo $sr_header; ?>">
+          </div>
+        </div>
+
+        <div class="field">
+          <button id="header-save" class="button is-success is-fullwidth" type="button">
+            <span class="icon">
+              <i class="mdi mdi-content-save mdi-24px" aria-hidden="true"></i>
+            </span>
+            <span>Salvar</span>
+          </button>
+        </div>
       </div>
 
       <div class="is-hidden" id="reset">
@@ -288,14 +350,6 @@ else { $physician = ["", "", "SP"]; }
             </button>
           </div>
         </div>
-      </div>
-
-      <div class="divider">
-        <div>&bull;&nbsp;&bull;&nbsp;&bull;</div>
-      </div>
-
-      <div class="field">
-        <button id="config-save" class="button is-success is-fullwidth" type="button">Salvar</button>
       </div>
 
     </div>
