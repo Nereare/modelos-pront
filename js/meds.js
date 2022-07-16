@@ -15627,7 +15627,7 @@ $(document).ready(function() {
     "GECA (buscopam)": [
       [
         "Dipirona + Escopolamina",
-        "500+10mg",
+        "250+10mg",
         "Via Oral",
         "",
         "",
