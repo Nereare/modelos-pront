@@ -1011,10 +1011,67 @@ require_once "header.php";
       <div class="columns is-vcentered">
         <div class="column is-2">
           <div class="field">
+            <input type="checkbox" id="exam-mmss" class="is-checkradio">
+            <label for="exam-mmss">
+              <span class="icon">
+                <i class="mdi mdi-hand-front-left mdi-24px"></i>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="field has-addons">
+            <div class="control">
+               <button class="button is-static" tabindex="-1">Pulsos</button>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="mmsspulse-strength">
+                  <option value="cheios" selected>cheios</option>
+                  <option value="fracos">&darr;</option>
+                  <option value="em martelo d'água">&uarr;</option>
+                  <option value="ausentes até aa. axilares">&empty;</option>
+                </select>
+              </div>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="mmsspulse-simmetry">
+                  <option value="simétricos" selected>simétricos</option>
+                  <option value="diminuídos à direita">&darr;D</option>
+                  <option value="diminuídos à esquerda">&darr;E</option>
+                </select>
+              </div>
+            </div>
+            <div class="control">
+               <button class="button is-static" tabindex="-1">a partir de aa.</button>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="mmsspulse-artery">
+                  <option value="radiais" selected>radiais</option>
+                  <option value="ulnares">ulnares</option>
+                  <option value="braquiais">braquiais</option>
+                  <option value="axilares">axilares</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+      </div>
+
+      <div class="columns is-vcentered">
+        <div class="column is-2">
+          <div class="field">
             <input type="checkbox" id="exam-mmii" class="is-checkradio">
             <label for="exam-mmii">
               <span class="icon">
-                <i class="mdi mdi-shoe-print mdi-24px"></i>
+                <i class="mdi mdi-foot-print mdi-24px"></i>
               </span>
             </label>
           </div>
@@ -1086,7 +1143,1364 @@ require_once "header.php";
           </div>
         </div>
       </div>
+    </div>
 
+    <div class="box">
+      <h2 class="title is-4">Neuro</h2>
+
+      <div class="is-hidden" id="neuro">
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="neuro-cincinnati" class="is-checkradio">
+              <label for="neuro-cincinnati">
+                <span class="icon">
+                  <i class="mdi mdi-ambulance mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button type="button" class="button is-static" tabindex="-1">Supercílios</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="neuro-cincinnati-eyebrow">
+                    <option value="abduz ambos os supercílios simetricamente" selected>Normal</option>
+                    <option value="não abduz supercílio direito">&empty;Direito</option>
+                    <option value="não abduz supercílio esquerdo">&empty;Esquerda</option>
+                    <option value="não abduz nenhum dos supercílios">&empty;Bilateral</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button type="button" class="button is-static" tabindex="-1">Rima</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="neuro-cincinnati-mouth">
+                    <option value="sem desvio de rima" selected>Normal</option>
+                    <option value="desvio de rima à direita">Desvio à Dir</option>
+                    <option value="desvio de rima à esquerda">Desvio à Esq</option>
+                    <option value="não sorri">Ausência</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button type="button" class="button is-static" tabindex="-1">MMSS</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="neuro-cincinnati-mmss">
+                    <option value="sem queda de membros superiores" selected>Normal</option>
+                    <option value="queda parcial de membro superior direito">&darr;Direito</option>
+                    <option value="queda parcial de membro superior esquerdo">&darr;Esquerdo</option>
+                    <option value="queda parcial de ambos os membros superiores">&darr;Bilateral</option>
+                    <option value="queda total e rápida de membro superior direito">&darr; Rápida Direito</option>
+                    <option value="queda total e rápida de membro superior esquerdo">&darr; Rápida Esquerdo</option>
+                    <option value="queda total e rápida de ambos os membros superiores">&darr; Rápida Bilateral</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="neuro-main" class="is-checkradio">
+              <label for="neuro-main">
+                <span class="icon">
+                  <i class="mdi mdi-brain mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button type="button" class="button is-static" tabindex="-1">GCS</button>
+              </div>
+              <div class="control">
+                <button type="button" class="button is-static" tabindex="-1">AO</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="neuro-gcs-eye">
+                    <option value="4" selected>4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                    <option value="0">0 NT</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <button type="button" class="button is-static" tabindex="-1">RV</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="neuro-gcs-speech">
+                    <option value="5" selected>5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                    <option value="0">0 NT</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <button type="button" class="button is-static" tabindex="-1">RM</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="neuro-gcs-muscle">
+                    <option value="6" selected>6</option>
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                    <option value="0">0 NT</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button type="button" class="button is-static" tabindex="-1">RASS</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="neuro-rass">
+                    <option value="" selected>N/A</option>
+                    <option value="+4">+4 (Combativo)</option>
+                    <option value="+3">+3 (Muito agitado)</option>
+                    <option value="+2">+2 (Agitado)</option>
+                    <option value="+1">+1 (Inquieto)</option>
+                    <option value="0">0 (Alerta e calmo)</option>
+                    <option value="-1">-1 (Torporoso)</option>
+                    <option value="-2">-2 (Sedado leve)</option>
+                    <option value="-3">-3 (Sedado moderado)</option>
+                    <option value="-4">-4 (Sedado profundamente)</option>
+                    <option value="-5">-5 (Coma)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="neuro-speech" class="is-checkradio">
+              <label for="neuro-speech">
+                <span class="icon">
+                  <i class="mdi mdi-account-voice mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button type="button" class="button is-static" tabindex="-1">Linguagem</button>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="neuro-speech-desc">
+                    <option value="sem alterações" selected>Normal</option>
+                    <option value="afasia de Broca">Broca</option>
+                    <option value="afasia de Wernicke">Wernicke</option>
+                    <option value="afasia de condução">Condução</option>
+                    <option value="afasia global">Global</option>
+                    <option value="ecolalia">Ecolalia</option>
+                    <option value="disartria">Disartria</option>
+                    <option value="outro">Outro...</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <input type="text" class="input" id="neuro-speech-other" placeholder="Descreva alteração de linguagem" disabled>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="neuro-walk" class="is-checkradio">
+              <label for="neuro-walk">
+                <span class="icon">
+                  <i class="mdi mdi-walk mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button type="button" class="button is-static" tabindex="-1">Marcha</button>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="neuro-walk-desc">
+                    <option value="sem alterações" selected>Normal</option>
+                    <option value="espástica">Espástica</option>
+                    <option value="escarvante">Escarvante</option>
+                    <option value="atáxica cerebelar">Atáxica Cerebelar/Ebriosa</option>
+                    <option value="atáxica sensitiva">Atáxica Sensitiva</option>
+                    <option value="parkinsoniana">Parkinsoniana</option>
+                    <option value="ceifante">Ceifante</option>
+                    <option value="anserina">Anserina</option>
+                    <option value="tabética">Tabética</option>
+                    <option value="vestibular">Vestibular</option>
+                    <option value="claudicante">Claudicante</option>
+                    <option value="outro">Outro</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <input type="text" class="input" id="neuro-walk-other" placeholder="Descreva alteração de marcha" disabled>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button type="button" class="button is-static" tabindex="-1">Romberg</button>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="neuro-romberg">
+                    <option value="" selected>NT</option>
+                    <option value="ausência de sinal de Romberg">Ausente (Normal)</option>
+                    <option value="pseudo-sinal de Romberg">Pseudo-Presente</option>
+                    <option value="sinal de Romberg PRESENTE (verdadeiro)">Presente</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <input type="text" class="input" id="neuro-walk-other" placeholder="Descreva alteração de marcha" disabled>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="neuro-strength" class="is-checkradio">
+              <label for="neuro-strength">
+                <span class="icon">
+                  <i class="mdi mdi-arm-flex mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <table class="table is-hoverable is-fullwidth has-text-centered">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Dir</th>
+                  <th>Esq</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>Flexão Quirodáctilos</th>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-fingers-flexion-right" min="0" step="1" max="5" data-side="Dir" data-name="Flexão Quirodáctilos" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-fingers-flexion-right-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-fingers-flexion-left" min="0" step="1" max="5" data-side="Esq" data-name="Flexão Quirodáctilos" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-fingers-flexion-left-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Extensão Quirodáctilos</th>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-fingers-extension-right" min="0" step="1" max="5" data-side="Dir" data-name="Extensão Quirodáctilos" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-fingers-extension-right-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-fingers-extension-left" min="0" step="1" max="5" data-side="Esq" data-name="Extensão Quirodáctilos" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-fingers-extension-left-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Flexão Punho</th>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-hand-flexion-right" min="0" step="1" max="5" data-side="Dir" data-name="Flexão Punho" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-hand-flexion-right-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-hand-flexion-left" min="0" step="1" max="5" data-side="Esq" data-name="Flexão Punho" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-hand-flexion-left-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Extensão Punho</th>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-hand-extension-right" min="0" step="1" max="5" data-side="Dir" data-name="Extensão Punho" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-hand-extension-right-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-hand-extension-left" min="0" step="1" max="5" data-side="Esq" data-name="Extensão Punho" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-hand-extension-left-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Flexão Antebraço</th>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-forearem-flexion-right" min="0" step="1" max="5" data-side="Dir" data-name="Flexão Antebraço" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-forearem-flexion-right-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-forearem-flexion-left" min="0" step="1" max="5" data-side="Esq" data-name="Flexão Antebraço" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-forearem-flexion-left-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Extensão Antebraço</th>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-forearm-extension-right" min="0" step="1" max="5" data-side="Dir" data-name="Extensão Antebraço" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-forearm-extension-right-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-forearm-extension-left" min="0" step="1" max="5" data-side="Esq" data-name="Extensão Antebraço" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-forearm-extension-left-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Abdução Braço</th>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-arm-abduction-right" min="0" step="1" max="5" data-side="Dir" data-name="Abdução Braço" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-arm-abduction-right-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-arm-abduction-left" min="0" step="1" max="5" data-side="Esq" data-name="Abdução Braço" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-arm-abduction-left-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Adução Braço</th>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-arm-aduction-right" min="0" step="1" max="5" data-side="Dir" data-name="Adução Braço" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-arm-aduction-right-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-arm-aduction-left" min="0" step="1" max="5" data-side="Esq" data-name="Adução Braço" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-arm-aduction-left-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Flexão Plantar</th>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-foot-flexion-right" min="0" step="1" max="5" data-side="Dir" data-name="Flexão Plantar" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-foot-flexion-right-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-foot-flexion-left" min="0" step="1" max="5" data-side="Esq" data-name="Flexão Plantar" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-foot-flexion-left-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Dorsiflexão</th>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-foot-dorsiflexion-right" min="0" step="1" max="5" data-side="Dir" data-name="Dorsiflexão" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-foot-dorsiflexion-right-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-foot-dorsiflexion-left" min="0" step="1" max="5" data-side="Esq" data-name="Dorsiflexão" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-foot-dorsiflexion-left-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Extensão Perna</th>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-leg-extension-right" min="0" step="1" max="5" data-side="Dir" data-name="Extensão Perna" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-leg-extension-right-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-leg-extension-left" min="0" step="1" max="5" data-side="Esq" data-name="Extensão Perna" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-leg-extension-left-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Flexão Perna</th>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-leg-flexion-right" min="0" step="1" max="5" data-side="Dir" data-name="Flexão Perna" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-leg-flexion-right-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-leg-flexion-left" min="0" step="1" max="5" data-side="Esq" data-name="Flexão Perna" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-leg-flexion-left-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Extensão Coxa</th>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-thigh-extension-right" min="0" step="1" max="5" data-side="Dir" data-name="Extensão Coxa" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-thigh-extension-right-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-thigh-extension-left" min="0" step="1" max="5" data-side="Esq" data-name="Extensão Coxa" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-thigh-extension-left-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Flexão Coxa</th>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-thigh-flexion-right" min="0" step="1" max="5" data-side="Dir" data-name="Flexão Coxa" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-thigh-flexion-right-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control is-expanded">
+                        <input type="number" class="input neuro-strength-param" id="neuro-strength-thigh-flexion-left" min="0" step="1" max="5" data-side="Esq" data-name="Flexão Coxa" placeholder="Força">
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select id="neuro-strength-thigh-flexion-left-mod">
+                            <option value="" selected>...</option>
+                            <option value="+">&plus;</option>
+                            <option value="-">&ndash;</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="neuro-coord" class="is-checkradio">
+              <label for="neuro-coord">
+                <span class="icon">
+                  <i class="mdi mdi-gymnastics mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <table class="table is-hoverable is-fullwidth has-text-centered">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Dir</th>
+                  <th>Esq</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>Disdiadococinesia</th>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select id="neuro-coord-dysdiadochokinesis-right">
+                            <option value="ausente" selected>Ausente</option>
+                            <option value="PRESENTE">Presente</option>
+                            <option value="">NT</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select id="neuro-coord-dysdiadochokinesis-left">
+                            <option value="ausente" selected>Ausente</option>
+                            <option value="PRESENTE">Presente</option>
+                            <option value="">NT</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Índex-Nariz</th>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select id="neuro-coord-indexnaso-right">
+                            <option value="bem coordenado com e sem abolição visual" selected>Normal</option>
+                            <option value="descoordenação apenas à abolição visual">Alterado SÓ sem visão</option>
+                            <option value="descoordenação com e sem abolição visual">Alterado</option>
+                            <option value="descoordenação que piora à abolição visual">Alterado PIOR sem visão</option>
+                            <option value="">NT</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select id="neuro-coord-indexnaso-left">
+                            <option value="bem coordenado com e sem abolição visual" selected>Normal</option>
+                            <option value="descoordenação apenas à abolição visual">Alterado SÓ sem visão</option>
+                            <option value="descoordenação com e sem abolição visual">Alterado</option>
+                            <option value="descoordenação que piora à abolição visual">Alterado PIOR sem visão</option>
+                            <option value="">NT</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Calcanhar-Joelho</th>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select id="neuro-coord-leg-right">
+                            <option value="" selected>NT</option>
+                            <option value="bem coordenado com e sem abolição visual">Normal</option>
+                            <option value="descoordenação apenas à abolição visual">Alterado SÓ sem visão</option>
+                            <option value="descoordenação com e sem abolição visual">Alterado</option>
+                            <option value="descoordenação que piora à abolição visual">Alterado PIOR sem visão</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select id="neuro-coord-leg-left">
+                            <option value="" selected>NT</option>
+                            <option value="bem coordenado com e sem abolição visual">Normal</option>
+                            <option value="descoordenação apenas à abolição visual">Alterado SÓ sem visão</option>
+                            <option value="descoordenação com e sem abolição visual">Alterado</option>
+                            <option value="descoordenação que piora à abolição visual">Alterado PIOR sem visão</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Rechaço</th>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select id="neuro-coord-defense-right">
+                            <option value="" selected>NT</option>
+                            <option value="ausente">Ausente</option>
+                            <option value="presente">Presente</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select id="neuro-coord-defense-left">
+                            <option value="" selected>NT</option>
+                            <option value="ausente">Ausente</option>
+                            <option value="presente">Presente</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="neuro-reflex" class="is-checkradio">
+              <label for="neuro-reflex">
+                <span class="icon">
+                  <i class="mdi mdi-seat-legroom-extra mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <table class="table is-hoverable is-fullwidth has-text-centered">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Dir</th>
+                  <th>Esq</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    Patelar
+                  </td>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select id="neuro-reflex-patella-right">
+                            <option value="" selected>NT</option>
+                            <option value="presente">Presente</option>
+                            <option value="ausente">Ausente</option>
+                            <option value="AUSENTE mesmo com sensibilização">Ausente c/ Manobra</option>
+                            <option value="EXALTADO">Exaltado</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select id="neuro-reflex-patella-left">
+                            <option value="" selected>NT</option>
+                            <option value="presente">Presente</option>
+                            <option value="ausente">Ausente</option>
+                            <option value="AUSENTE mesmo com sensibilização">Ausente c/ Manobra</option>
+                            <option value="EXALTADO">Exaltado</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Aquileu
+                  </td>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select id="neuro-reflex-aquileu-right">
+                            <option value="" selected>NT</option>
+                            <option value="presente">Presente</option>
+                            <option value="ausente">Ausente</option>
+                            <option value="AUSENTE mesmo com sensibilização">Ausente c/ Manobra</option>
+                            <option value="EXALTADO">Exaltado</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select id="neuro-reflex-aquileu-left">
+                            <option value="" selected>NT</option>
+                            <option value="presente">Presente</option>
+                            <option value="ausente">Ausente</option>
+                            <option value="AUSENTE mesmo com sensibilização">Ausente c/ Manobra</option>
+                            <option value="EXALTADO">Exaltado</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Radial
+                  </td>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select id="neuro-reflex-radius-right">
+                            <option value="" selected>NT</option>
+                            <option value="presente">Presente</option>
+                            <option value="ausente">Ausente</option>
+                            <option value="AUSENTE mesmo com sensibilização">Ausente c/ Manobra</option>
+                            <option value="EXALTADO">Exaltado</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select id="neuro-reflex-radius-left">
+                            <option value="" selected>NT</option>
+                            <option value="presente">Presente</option>
+                            <option value="ausente">Ausente</option>
+                            <option value="AUSENTE mesmo com sensibilização">Ausente c/ Manobra</option>
+                            <option value="EXALTADO">Exaltado</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Bicipital
+                  </td>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select id="neuro-reflex-biceps-right">
+                            <option value="" selected>NT</option>
+                            <option value="presente">Presente</option>
+                            <option value="ausente">Ausente</option>
+                            <option value="AUSENTE mesmo com sensibilização">Ausente c/ Manobra</option>
+                            <option value="EXALTADO">Exaltado</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select id="neuro-reflex-biceps-left">
+                            <option value="" selected>NT</option>
+                            <option value="presente">Presente</option>
+                            <option value="ausente">Ausente</option>
+                            <option value="AUSENTE mesmo com sensibilização">Ausente c/ Manobra</option>
+                            <option value="EXALTADO">Exaltado</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Tricipital
+                  </td>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select id="neuro-reflex-triceps-right">
+                            <option value="" selected>NT</option>
+                            <option value="presente">Presente</option>
+                            <option value="ausente">Ausente</option>
+                            <option value="AUSENTE mesmo com sensibilização">Ausente c/ Manobra</option>
+                            <option value="EXALTADO">Exaltado</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select id="neuro-reflex-triceps-left">
+                            <option value="" selected>NT</option>
+                            <option value="presente">Presente</option>
+                            <option value="ausente">Ausente</option>
+                            <option value="AUSENTE mesmo com sensibilização">Ausente c/ Manobra</option>
+                            <option value="EXALTADO">Exaltado</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Cutâneo-Plantar
+                  </td>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select id="neuro-reflex-plantar-right">
+                            <option value="" selected>NT</option>
+                            <option value="presente">Presente</option>
+                            <option value="ausente">Ausente</option>
+                            <option value="AUSENTE mesmo com sensibilização">Ausente c/ Manobra</option>
+                            <option value="SINAL DE BABINSKI">Babinski</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select id="neuro-reflex-plantar-left">
+                            <option value="" selected>NT</option>
+                            <option value="presente">Presente</option>
+                            <option value="ausente">Ausente</option>
+                            <option value="AUSENTE mesmo com sensibilização">Ausente c/ Manobra</option>
+                            <option value="SINAL DE BABINSKI">Babinski</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="neuro-feel" class="is-checkradio">
+              <label for="neuro-feel">
+                <span class="icon">
+                  <i class="mdi mdi-gesture-tap-hold mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <table class="table is-hoverable is-fullwidth has-text-centered">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Dir</th>
+                  <th>Esq</th>
+                </tr>
+              </thead>
+              <tbody id="neuro-feel-container">
+                <!-- Example:
+                <tr class="neuro-feel-item" id="fcc38733-dc06-41f4-af46-4cda4353e6b6">
+                  <td>
+                    <div class="field has-addons">
+                      <div class="control">
+                        <button type="button" class="button is-danger" id="delete-fcc38733-dc06-41f4-af46-4cda4353e6b6">
+                          <span class="icon">
+                            <i class="mdi mdi-delete"></i>
+                          </span>
+                        </button>
+                      </div>
+                      <div class="control">
+                        <div class="select">
+                          <select class="type" id="type-fcc38733-dc06-41f4-af46-4cda4353e6b6">
+                            <option value="Epicrítica" selected>Epicrítica</option>
+                            <option value="Proprioceptiva">Proprioceptiva</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="control is-expanded">
+                        <input type="text" class="input topography" id="topography-fcc38733-dc06-41f4-af46-4cda4353e6b6" placeholder="Topografia">
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select class="right" id="right-fcc38733-dc06-41f4-af46-4cda4353e6b6">
+                            <option value="" selected>NT</option>
+                            <option value="presente">Presente</option>
+                            <option value="diminuída">Diminuída</option>
+                            <option value="AUSENTE">Ausente</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="field">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                          <select class="left" id="left-fcc38733-dc06-41f4-af46-4cda4353e6b6">
+                            <option value="" selected>NT</option>
+                            <option value="presente">Presente</option>
+                            <option value="diminuída">Diminuída</option>
+                            <option value="AUSENTE">Ausente</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                -->
+              </tbody>
+            </table>
+
+            <div class="field">
+              <div class="control is-expanded">
+                <button type="button" class="button is-fullwidth" id="neuro-feel-add">
+                  <span class="icon-text">
+                    <span class="icon">
+                      <i class="mdi mdi-plus-box"></i>
+                    </span>
+                    <span>Adicionar</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="neuro-other" class="is-checkradio">
+              <label for="neuro-other">
+                <span class="icon">
+                  <i class="mdi mdi-head-snowflake mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="mb-5" id="neuro-other-container">
+              <!-- Example:
+              <div class="field has-addons neuro-other-item" id="fcc38733-dc06-41f4-af46-4cda4353e6b6">
+                <div class="control">
+                  <button type="button" class="button is-danger" id="delete-fcc38733-dc06-41f4-af46-4cda4353e6b6">
+                    <span class="icon">
+                      <i class="mdi mdi-delete"></i>
+                    </span>
+                  </button>
+                </div>
+                <div class="control">
+                  <input type="text" class="input" id="title-fcc38733-dc06-41f4-af46-4cda4353e6b6" placeholder="Subtítulo">
+                </div>
+                <div class="control">
+                  <button type="button" class="button is-static" tabindex="-1">:</button>
+                </div>
+                <div class="control is-expanded">
+                  <input type="text" class="input" id="desc-fcc38733-dc06-41f4-af46-4cda4353e6b6" placeholder="Descreva achado">
+                </div>
+                <div class="control">
+                  <button type="button" class="button is-static" tabindex="-1">.</button>
+                </div>
+              </div>
+              -->
+            </div>
+
+            <div class="field">
+              <div class="control is-expanded">
+                <button type="button" class="button is-fullwidth" id="neuro-other-add">
+                  <span class="icon-text">
+                    <span class="icon">
+                      <i class="mdi mdi-plus-box"></i>
+                    </span>
+                    <span>Adicionar</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control is-expanded">
+          <button type="button" class="button is-fullwidth" id="neuro-show">
+            <span class="text-icon">
+              <span class="icon">
+                <i class="mdi mdi-eye"></i>
+              </span>
+              <span class="text">Mostrar</span>
+            </span>
+          </button>
+        </div>
+      </div>
     </div>
 
     <div class="box">

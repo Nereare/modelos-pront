@@ -8,6 +8,8 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Adicionado
 - *Sintomáticos Respiratórios*:
   - Resultado em forma compilada (evolução tradicional) em adição a SOAP.
+- *Exame Físico*:
+  - Exame neurológico.
 - Função para reiniciar *cookies* e variáveis de sessão.
 - Configuração de cabeçalho para *Sintomáticos Respiratórios*.
 
