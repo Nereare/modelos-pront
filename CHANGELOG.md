@@ -5,6 +5,8 @@ Todas as mudanças significativas nesse projeto serão documentadas neste arquiv
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
 ## [Não Publicado][Unreleased]
+
+## [2.5.3] - 2022-07-19
 ### Adicionado
 - *Sintomáticos Respiratórios*:
   - Resultado em forma compilada (evolução tradicional) em adição a SOAP;
@@ -99,7 +101,8 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Página de Requisição de Implanon.
 - Página de Exame Físico genérico.
 
-[Unreleased]: https://github.com/Nereare/modelos-pront/compare/v2.4.12...HEAD
+[Unreleased]: https://github.com/Nereare/modelos-pront/compare/v2.5.3...HEAD
+[2.5.3]: https://github.com/Nereare/modelos-pront/compare/v2.4.12...v2.5.3
 [2.4.12]: https://github.com/Nereare/modelos-pront/compare/v2.4.11...v2.4.12
 [2.4.11]: https://github.com/Nereare/modelos-pront/compare/v2.4.10...v2.4.11
 [2.4.10]: https://github.com/Nereare/modelos-pront/compare/v2.3.8...v2.4.10
