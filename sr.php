@@ -294,105 +294,125 @@ else { $sr_header = "SR"; }
         <div class="columns">
           <div class="column">
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-1" name="symps-other" value="artralgia">
-              <label for="symp-other-1">Artralgia</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-1" name="symps-other" value="afonia">
+              <label for="symp-other-1">Afonia</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-2" name="symps-other" value="astenia">
-              <label for="symp-other-2">Astenia</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-2" name="symps-other" value="artralgia">
+              <label for="symp-other-2">Artralgia</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-3" name="symps-other" value="cervicalgia">
-              <label for="symp-other-3">Cervicalgia</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-3" name="symps-other" value="astenia">
+              <label for="symp-other-3">Astenia</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-4" name="symps-other" value="congestão nasal">
-              <label for="symp-other-4">Congestão Nasal (adultos)</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-4" name="symps-other" value="cervicalgia">
+              <label for="symp-other-4">Cervicalgia</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-5" name="symps-other" value="diarreia">
-              <label for="symp-other-5">Diarreia</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-5" name="symps-other" value="congestão nasal">
+              <label for="symp-other-5">Congestão Nasal (adultos)</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-6" name="symps-other" value="dor abdominal">
-              <label for="symp-other-6">Dor Abdominal</label>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-7" name="symps-other" value="dor de membros inferiores">
-              <label for="symp-other-7">Dor de MMII</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-6" name="symps-other" value="diarreia">
+              <label for="symp-other-6">Diarreia</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-8" name="symps-other" value="dor em membros superiores">
-              <label for="symp-other-8">Dor de MMSS</label>
-            </div>
-            <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-9" name="symps-other" value="dor no pescoço">
-              <label for="symp-other-9">Dor no Pescoço</label>
-            </div>
-            <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-10" name="symps-other" value="dorsalgia">
-              <label for="symp-other-10">Dorsalgia</label>
-            </div>
-            <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-11" name="symps-other" value="espirros">
-              <label for="symp-other-11">Espirros</label>
-            </div>
-            <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-12" name="symps-other" value="inapetência">
-              <label for="symp-other-12">Inapetência</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-7" name="symps-other" value="disfonia">
+              <label for="symp-other-7">Disfonia</label>
             </div>
           </div>
 
           <div class="column">
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-13" name="symps-other" value="irritação na garganta">
-              <label for="symp-other-13">Irritação na Garganta</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-8" name="symps-other" value="dor abdominal">
+              <label for="symp-other-8">Dor Abdominal</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-14" name="symps-other" value="irritação ocular">
-              <label for="symp-other-14">Irritação Ocular</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-9" name="symps-other" value="dor em pernas">
+              <label for="symp-other-9">Dor de MMII</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-15" name="symps-other" value="lipotimia">
-              <label for="symp-other-15">Lipotimia</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-10" name="symps-other" value="dor em braços">
+              <label for="symp-other-10">Dor de MMSS</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-16" name="symps-other" value="mialgia">
-              <label for="symp-other-16">Mialgia</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-11" name="symps-other" value="dor no pescoço">
+              <label for="symp-other-11">Dor no Pescoço</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-17" name="symps-other" value="náuseas">
-              <label for="symp-other-17">Náuseas</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-12" name="symps-other" value="dorsalgia">
+              <label for="symp-other-12">Dorsalgia</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-18" name="symps-other" value="otalgia">
-              <label for="symp-other-18">Otalgia</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-13" name="symps-other" value="espirros">
+              <label for="symp-other-13">Espirros</label>
+            </div>
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-14" name="symps-other" value="inapetência">
+              <label for="symp-other-14">Inapetência</label>
             </div>
           </div>
 
           <div class="column">
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-19" name="symps-other" value="otorreia">
-              <label for="symp-other-19">Otorreia</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-15" name="symps-other" value="irritação na garganta">
+              <label for="symp-other-15">Irritação na Garganta</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-20" name="symps-other" value="secreção ocular">
-              <label for="symp-other-20">Secreção Ocular</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-16" name="symps-other" value="irritação ocular">
+              <label for="symp-other-16">Irritação Ocular</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-21" name="symps-other" value="toracalgia">
-              <label for="symp-other-21">Toracalgia</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-17" name="symps-other" value="lipotimia">
+              <label for="symp-other-17">Lipotimia</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-22" name="symps-other" value="vertigem">
-              <label for="symp-other-22">Vertigem</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-18" name="symps-other" value="lombalgia">
+              <label for="symp-other-18">Lombalgia</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-23" name="symps-other" value="vômitos">
-              <label for="symp-other-23">Vômitos</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-19" name="symps-other" value="mialgia">
+              <label for="symp-other-19">Mialgia</label>
+            </div>
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-20" name="symps-other" value="náuseas">
+              <label for="symp-other-20">Náuseas</label>
+            </div>
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-21" name="symps-other" value="otalgia">
+              <label for="symp-other-21">Otalgia</label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-22" name="symps-other" value="otorreia">
+              <label for="symp-other-22">Otorreia</label>
+            </div>
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-23" name="symps-other" value="prurido nasal">
+              <label for="symp-other-23">Prurido Nasal</label>
+            </div>
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-24" name="symps-other" value="secreção ocular">
+              <label for="symp-other-24">Secreção Ocular</label>
+            </div>
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-25" name="symps-other" value="sensação de calor">
+              <label for="symp-other-25">Sensação de Calor</label>
+            </div>
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-26" name="symps-other" value="toracalgia">
+              <label for="symp-other-26">Toracalgia</label>
+            </div>
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-27" name="symps-other" value="vertigem">
+              <label for="symp-other-27">Vertigem</label>
+            </div>
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-28" name="symps-other" value="êmeses">
+              <label for="symp-other-28">Vômitos</label>
             </div>
           </div>
         </div>
@@ -452,173 +472,201 @@ else { $sr_header = "SR"; }
         </div>
 
         <div id="reeval-symps">
-          <h4 class="title is-6" id="reeval-symps-title">Mantém:</h4>
+          <h4 class="title is-6" id="reeval-symps-title">Mantém</h4>
 
           <div class="columns">
             <div class="column">
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-1" name="symps-keeping" value="ageusia">
-                <label for="symp-keeping-1">Ageusia</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-1" name="symps-keeping" value="afonia">
+                <label for="symp-keeping-1">Afonia</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-2" name="symps-keeping" value="anorexia">
-                <label for="symp-keeping-2">Anorexia</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-2" name="symps-keeping" value="ageusia">
+                <label for="symp-keeping-2">Ageusia</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-3" name="symps-keeping" value="anosmia">
-                <label for="symp-keeping-3">Anosmia</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-3" name="symps-keeping" value="anorexia">
+                <label for="symp-keeping-3">Anorexia</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-4" name="symps-keeping" value="anúria">
-                <label for="symp-keeping-4">Anúria</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-4" name="symps-keeping" value="anosmia">
+                <label for="symp-keeping-4">Anosmia</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-5" name="symps-keeping" value="artralgia">
-                <label for="symp-keeping-5">Artralgia</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-5" name="symps-keeping" value="anúria">
+                <label for="symp-keeping-5">Anúria</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-6" name="symps-keeping" value="astenia">
-                <label for="symp-keeping-6">Astenia</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-6" name="symps-keeping" value="artralgia">
+                <label for="symp-keeping-6">Artralgia</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-7" name="symps-keeping" value="calafrios">
-                <label for="symp-keeping-7">Calafrios</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-7" name="symps-keeping" value="astenia">
+                <label for="symp-keeping-7">Astenia</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-8" name="symps-keeping" value="cefaleia">
-                <label for="symp-keeping-8">Cefaleia</label>
-              </div>
-            </div>
-
-            <div class="column">
-              <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-9" name="symps-keeping" value="cervicalgia">
-                <label for="symp-keeping-9">Cervicalgia</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-8" name="symps-keeping" value="calafrios">
+                <label for="symp-keeping-8">Calafrios</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-10" name="symps-keeping" value="confusão mental">
-                <label for="symp-keeping-10">Confusão Mental</label>
-              </div>
-              <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-11" name="symps-keeping" value="congestão nasal">
-                <label for="symp-keeping-11">Congestão Nasal</label>
-              </div>
-              <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-12" name="symps-keeping" value="coriza">
-                <label for="symp-keeping-12">Coriza</label>
-              </div>
-              <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-13" name="symps-keeping" value="diarreia">
-                <label for="symp-keeping-13">Diarreia</label>
-              </div>
-              <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-14" name="symps-keeping" value="disgeusia">
-                <label for="symp-keeping-14">Disgeusia</label>
-              </div>
-              <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-15" name="symps-keeping" value="disosmia">
-                <label for="symp-keeping-15">Disosmia</label>
-              </div>
-              <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-16" name="symps-keeping" value="dispneia">
-                <label for="symp-keeping-16">Dispneia</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-9" name="symps-keeping" value="cefaleia">
+                <label for="symp-keeping-9">Cefaleia</label>
               </div>
             </div>
 
             <div class="column">
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-17" name="symps-keeping" value="dor abdominal">
-                <label for="symp-keeping-17">Dor Abdominal</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-10" name="symps-keeping" value="cervicalgia">
+                <label for="symp-keeping-10">Cervicalgia</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-18" name="symps-keeping" value="dor de membros inferiores">
-                <label for="symp-keeping-18">Dor de MMII</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-11" name="symps-keeping" value="confusão mental">
+                <label for="symp-keeping-11">Confusão Mental</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-19" name="symps-keeping" value="dor em membros superiores">
-                <label for="symp-keeping-19">Dor de MMSS</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-12" name="symps-keeping" value="congestão nasal">
+                <label for="symp-keeping-12">Congestão Nasal</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-20" name="symps-keeping" value="dor no pescoço">
-                <label for="symp-keeping-20">Dor no Pescoço</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-13" name="symps-keeping" value="coriza">
+                <label for="symp-keeping-13">Coriza</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-21" name="symps-keeping" value="dorsalgia">
-                <label for="symp-keeping-21">Dorsalgia</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-14" name="symps-keeping" value="diarreia">
+                <label for="symp-keeping-14">Diarreia</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-22" name="symps-keeping" value="espirros">
-                <label for="symp-keeping-22">Espirros</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-15" name="symps-keeping" value="disfonia">
+                <label for="symp-keeping-15">Disfonia</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-23" name="symps-keeping" value="febre">
-                <label for="symp-keeping-23">Febre</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-16" name="symps-keeping" value="disgeusia">
+                <label for="symp-keeping-16">Disgeusia</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-24" name="symps-keeping" value="hipoatividade">
-                <label for="symp-keeping-24">Hipoatividade</label>
-              </div>
-            </div>
-
-            <div class="column">
-              <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-25" name="symps-keeping" value="hiporexia importante">
-                <label for="symp-keeping-25">Hiporexia</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-17" name="symps-keeping" value="disosmia">
+                <label for="symp-keeping-17">Disosmia</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-26" name="symps-keeping" value="inapetência">
-                <label for="symp-keeping-26">Inapetência</label>
-              </div>
-              <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-27" name="symps-keeping" value="irritação na garganta">
-                <label for="symp-keeping-27">Irritação na Garganta</label>
-              </div>
-              <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-28" name="symps-keeping" value="lipotimia">
-                <label for="symp-keeping-28">Lipotimia</label>
-              </div>
-              <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-29" name="symps-keeping" value="mialgia">
-                <label for="symp-keeping-29">Mialgia</label>
-              </div>
-              <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-30" name="symps-keeping" value="náuseas">
-                <label for="symp-keeping-30">Náuseas</label>
-              </div>
-              <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-31" name="symps-keeping" value="odinofagia">
-                <label for="symp-keeping-31">Odinofagia</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-18" name="symps-keeping" value="dispneia">
+                <label for="symp-keeping-18">Dispneia</label>
               </div>
             </div>
 
             <div class="column">
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-32" name="symps-keeping" value="otalgia">
-                <label for="symp-keeping-32">Otalgia</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-19" name="symps-keeping" value="dor abdominal">
+                <label for="symp-keeping-19">Dor Abdominal</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-33" name="symps-keeping" value="otorreia">
-                <label for="symp-keeping-33">Otorreia</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-20" name="symps-keeping" value="dor em pernas">
+                <label for="symp-keeping-20">Dor de MMII</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-34" name="symps-keeping" value="rebaixamento do nível de consciência">
-                <label for="symp-keeping-34">&darr;GCS</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-21" name="symps-keeping" value="dor em braços">
+                <label for="symp-keeping-21">Dor de MMSS</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-35" name="symps-keeping" value="toracalgia">
-                <label for="symp-keeping-35">Toracalgia</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-22" name="symps-keeping" value="dor no pescoço">
+                <label for="symp-keeping-22">Dor no Pescoço</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-36" name="symps-keeping" value="tosse">
-                <label for="symp-keeping-36">Tosse</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-23" name="symps-keeping" value="dorsalgia">
+                <label for="symp-keeping-23">Dorsalgia</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-37" name="symps-keeping" value="vertigem">
-                <label for="symp-keeping-37">Vertigem</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-24" name="symps-keeping" value="espirros">
+                <label for="symp-keeping-24">Espirros</label>
               </div>
               <div class="field">
-                <input type="checkbox" class="is-checkradio" id="symp-keeping-38" name="symps-keeping" value="vômitos">
-                <label for="symp-keeping-38">Vômitos</label>
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-25" name="symps-keeping" value="febre">
+                <label for="symp-keeping-25">Febre</label>
+              </div>
+              <div class="field">
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-26" name="symps-keeping" value="rebaixamento do nível de consciência">
+                <label for="symp-keeping-26">&darr;GCS</label>
+              </div>
+              <div class="field">
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-27" name="symps-keeping" value="hipoatividade">
+                <label for="symp-keeping-27">Hipoatividade</label>
+              </div>
+            </div>
+
+            <div class="column">
+              <div class="field">
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-28" name="symps-keeping" value="hiporexia">
+                <label for="symp-keeping-28">Hiporexia</label>
+              </div>
+              <div class="field">
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-29" name="symps-keeping" value="inapetência">
+                <label for="symp-keeping-29">Inapetência</label>
+              </div>
+              <div class="field">
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-30" name="symps-keeping" value="irritação na garganta">
+                <label for="symp-keeping-30">Irritação na Garganta</label>
+              </div>
+              <div class="field">
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-31" name="symps-keeping" value="irritação ocular">
+                <label for="symp-keeping-31">Irritação Ocular</label>
+              </div>
+              <div class="field">
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-32" name="symps-keeping" value="lipotimia">
+                <label for="symp-keeping-32">Lipotimia</label>
+              </div>
+              <div class="field">
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-33" name="symps-keeping" value="lombalgia">
+                <label for="symp-keeping-33">Lombalgia</label>
+              </div>
+              <div class="field">
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-34" name="symps-keeping" value="mialgia">
+                <label for="symp-keeping-34">Mialgia</label>
+              </div>
+              <div class="field">
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-35" name="symps-keeping" value="náuseas">
+                <label for="symp-keeping-35">Náuseas</label>
+              </div>
+              <div class="field">
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-36" name="symps-keeping" value="odinofagia">
+                <label for="symp-keeping-36">Odinofagia</label>
+              </div>
+            </div>
+
+            <div class="column">
+              <div class="field">
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-37" name="symps-keeping" value="otalgia">
+                <label for="symp-keeping-37">Otalgia</label>
+              </div>
+              <div class="field">
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-38" name="symps-keeping" value="otorreia">
+                <label for="symp-keeping-38">Otorreia</label>
+              </div>
+              <div class="field">
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-39" name="symps-keeping" value="prurido nasal">
+                <label for="symp-keeping-39">Prurido Nasal</label>
+              </div>
+              <div class="field">
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-40" name="symps-keeping" value="secreção ocular">
+                <label for="symp-keeping-40">Secreção Ocular</label>
+              </div>
+              <div class="field">
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-41" name="symps-keeping" value="sensação de calor">
+                <label for="symp-keeping-41">Sensação de Calor</label>
+              </div>
+              <div class="field">
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-42" name="symps-keeping" value="toracalgia">
+                <label for="symp-keeping-42">Toracalgia</label>
+              </div>
+              <div class="field">
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-43" name="symps-keeping" value="tosse">
+                <label for="symp-keeping-43">Tosse</label>
+              </div>
+              <div class="field">
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-44" name="symps-keeping" value="vertigem">
+                <label for="symp-keeping-44">Vertigem</label>
+              </div>
+              <div class="field">
+                <input type="checkbox" class="is-checkradio" id="symp-keeping-45" name="symps-keeping" value="vômitos">
+                <label for="symp-keeping-45">Vômitos</label>
               </div>
             </div>
           </div>
@@ -2343,6 +2391,8 @@ else { $sr_header = "SR"; }
                     <option value="" disabled>Sem TP aqui, satanás</option>
                     <option value="" disabled>-- Adultos --</option>
                     <option value="amoxicilina 500mg 8/8h" selected>Amoxi</option>
+                    <option value="amoxicilina 875mg 12/12h" selected>Amoxi BD</option>
+                    <option value="amoxicilina 1.000mg 8/8h" selected>Amoxi&times;2</option>
                     <option value="amoxicilina 500mg 8/8h mais claritromicina 500mg/d">Amoxi+Claritro</option>
                     <option value="cefalexina 500mg 6/6h">Cefalexina</option>
                     <option value="cefalexina 1.000mg 6/6h">Cefalexina&times;2</option>

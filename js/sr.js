@@ -51,8 +51,8 @@ $(document).ready(function() {
       $("#reeval-symps-title").html("");
     } else {
       $("#reeval-symps").removeClass("is-hidden");
-      if ( $(this).val() == "melhora dos sintomas, mantendo " ) { $("#reeval-symps-title").html("Mantém:"); }
-      else { $("#reeval-symps-title").html("Pioraram:"); }
+      if ( $(this).val() == "melhora dos sintomas, mantendo: " ) { $("#reeval-symps-title").html("Mantém"); }
+      else { $("#reeval-symps-title").html("Pioraram"); }
     }
   });
 
@@ -404,6 +404,7 @@ $(document).ready(function() {
           s.push( start );
 
           // Work status
+          var work = "";
           if( $("#work").val() != "" ) {
             work = "Paciente " + $("#work").val();
             if( $("#work-special").val() != "" ) {
@@ -428,10 +429,11 @@ $(document).ready(function() {
       $("#output-o").val(o);
       $("#output-p").val(p);
 
-      a = $("#icd-search option:selected").html();
-      if ( $("#icd-search").val() == "" ) { a = $("#dx-final").val(); }
-      if ( a != "" && a != "Outro..." ) { a = "# HD: " + a + "\n\n"; }
-      else { a = ""; }
+      a = $("#dx-final").val().trim();
+      if ( a == "" ) { a = $("#icd-search option:selected").html(); }
+      if ( a == "Outro..." ) { a = ""; }
+      if ( a != "" ) { a = "# HD: " + a + "\n\n"; }
+
       sr_header = $("#sr-header").val();
       $("#output-uni").val("# " + sr_header + " #\n" + s + "\n\n" + o + "\n\n" + a + "# CD:\n" + p);
     }
