@@ -1,7 +1,7 @@
 {
   "name": "modelos-pront",
   "description": "Uma miscelânea de modelos de evolução de consultas com tópicos específicos.",
-  "version": "2.5.3",
+  "version": "2.5.4",
   "maintainers": [
     {
       "name": "Igor Padoim",
@@ -24,6 +24,7 @@
     "jquery-ui-dist": "^1.13.1",
     "normalize.css": "^8.0.1",
     "typeface-montserrat": "^1.1.13",
-    "typeface-roboto-mono": "^1.1.13"
+    "typeface-roboto-mono": "^1.1.13",
+    "uuid": "^8.3.2"
   }
 }

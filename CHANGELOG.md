@@ -5,6 +5,8 @@ Todas as mudanças significativas nesse projeto serão documentadas neste arquiv
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
 ## [Não Publicado][Unreleased]
+### Modificado
+- Geração de UUIDv4 para biblioteca externa, para compatibilidade restrospectiva - obrigado PCs velhos de hospitais.
 
 ## [2.5.3] - 2022-07-19
 ### Adicionado
