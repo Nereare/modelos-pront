@@ -51,6 +51,56 @@ else { $sr_header = "SR"; }
 
       <input type="text" class="is-hidden" id="time-current" value="first">
 
+      <div class="mb-4">
+        <div class="field has-addons">
+          <div class="control">
+            <label for="companion" class="button">
+              <span class="icon">
+                <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
+              </span>
+              <input type="checkbox" class="is-hidden checkbutton" id="companion" value="true">
+            </label>
+          </div>
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Acompanhante</button>
+          </div>
+          <div class="control">
+            <input type="text" class="input" id="companion-name" placeholder="Nome" disabled>
+          </div>
+          <div class="control">
+            <button class="button is-static" tabindex="-1">(</button>
+          </div>
+          <div class="control">
+            <input type="text" class="input" id="companion-relation" placeholder="Relação" disabled>
+          </div>
+          <div class="control">
+            <button class="button is-static" tabindex="-1">)</button>
+          </div>
+          <div class="control">
+            <div class="select">
+              <select id="companion-func" disabled>
+                <option value="acompanhade" selected>acompanha</option>
+                <option value="trazide">traz</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Fonte</button>
+          </div>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <select id="companion-font" disabled>
+                <option value="próprie paciente" selected>paciente</option>
+                <option value="acompanhante">acompanhante</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="eval-first mb-4">
         <h3 class="title is-5">Sintomas-Chave</h3>
 

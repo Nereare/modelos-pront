@@ -16232,6 +16232,115 @@ $(document).ready(function() {
         ", se queimação no estômago ou sensação de refluxo ou azia",
         ""
       ]
+    ],
+    "Enxaqueca (+dip)": [
+      [
+        "Ibuprofeno",
+        "400mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "01",
+        "cp",
+        "8",
+        "horas",
+        " por 05 dias",
+        "",
+        ""
+      ],
+      [
+        "Dipirona",
+        "1.000mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "02",
+        "cps",
+        "6",
+        "horas",
+        "",
+        ", se dor ou antes de crise de enxaqueca",
+        ""
+      ],
+      [
+        "Paracetamol",
+        "750mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "01",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor, intercalado com dipirona",
+        ""
+      ],
+      [
+        "Sumatriptana",
+        "50mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "01",
+        "cp",
+        "30",
+        "minutos",
+        "",
+        ", se crise de enxaqueca",
+        "Tomar 01 cp se crise de enxaqueca e esperar 30 minutos. Caso não apresente melhora, tente mais 01 cp e aguarde mais 30 minutos. Se, após a 01 hora total, não apresentar melhora da crise de enxaqueca, buscar atendimento médico."
+      ]
+    ],
+    "Enxaqueca (-dip)": [
+      [
+        "Ibuprofeno",
+        "400mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "01",
+        "cp",
+        "8",
+        "horas",
+        " por 05 dias",
+        "",
+        ""
+      ],
+      [
+        "Paracetamol",
+        "750mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "01",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor, intercalado com dipirona",
+        ""
+      ],
+      [
+        "Sumatriptana",
+        "50mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "01",
+        "cp",
+        "30",
+        "minutos",
+        "",
+        ", se crise de enxaqueca",
+        "Tomar 01 cp se crise de enxaqueca e esperar 30 minutos. Caso não apresente melhora, tente mais 01 cp e aguarde mais 30 minutos. Se, após a 01 hora total, não apresentar melhora da crise de enxaqueca, buscar atendimento médico."
+      ]
     ]
   };
 

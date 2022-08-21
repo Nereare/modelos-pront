@@ -19,6 +19,15 @@ $(document).ready(function() {
     }
   });
 
+  // Set companion information
+  $("#companion").on("change", function() {
+    if ( $(this).is(":checked") ) {
+      $("#companion-name, #companion-relation, #companion-func, #companion-font").prop("disabled", false);
+    } else {
+      $("#companion-name, #companion-relation, #companion-func, #companion-font").prop("disabled", true);
+    }
+  });
+
   // Select evaluation type
   // Select first evaluation
   $("#time-first").on("click", function() {
@@ -277,6 +286,9 @@ $(document).ready(function() {
       switch( $("#time-current").val() ) {
         case "first": // First evaluation
           s = [];
+          // Run companion info
+          var companion = get_companion();
+          if ( companion ) { s.push( companion ); }
           // Symptoms' listing
           var symps = [];
           var symptomatic = true;
@@ -388,6 +400,9 @@ $(document).ready(function() {
           break;
         case "reeval": // Reevaluation
           s = [];
+          // Run companion info
+          var companion = get_companion();
+          if ( companion ) { s.push( companion ); }
           // Symptom evolution
           var evol = $("#evol").val();
           if( evol != "resolução completa dos sintomas" ) {
@@ -641,6 +656,15 @@ function humanList(arr) {
       r += " e " + last;
       return r;
   }
+}
+
+function get_companion() {
+  var comp = "";
+  if ( $("#companion").is(":checked") ) {
+    comp = "Paciente vem ao PS " + $("#companion-func").val() + " por " + $("#companion-name").val() + " (" + $("#companion-relation").val() + ").";
+    comp += " Fonte: " + $("#companion-font").val() + "."
+  }
+  return comp;
 }
 
 function runO() {
