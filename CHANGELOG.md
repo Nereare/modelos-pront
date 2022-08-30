@@ -7,6 +7,7 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Não Publicado][Unreleased]
 ### Adicionado
 - Medicações pré-definidas agora incluem duas possibilidades para enxaqueca.
+- Página para geração de laudos padronizados de radiografias de tórax, que presume radiografias solicitadas em incidências póstero-anterior **e** perfil.
 ### Modificado
 - Geração de UUIDv4 para biblioteca externa, para compatibilidade restrospectiva - obrigado PCs velhos de hospitais.
 - Descrição de acompanhante em *Sintomáticos Respiratórios*.

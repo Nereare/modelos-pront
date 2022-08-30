@@ -4,7 +4,7 @@ define("APP_AUTHOR", "Igor Padoim");
 define("APP_YEAR", "2021-2022");
 define("APP_LICENSE_NAME", "Licença Hipocrática");
 define("APP_LICENSE_URI", "https://firstdonoharm.dev/");
-define("APP_VERSION", "2.5.5");
+define("APP_VERSION", "2.6.0");
 
 define("MODELS", [
   "sr" => [
@@ -78,6 +78,14 @@ define("MODELS", [
     "Cápsula de medicação a 45°",
     "Prescrições",
     "Gerador de prescrições para prontuários em que a prescrição é digitada manualmente, incluindo modelos para algumas condições em que sintomáticos e/ou tratamentos são padronizados ou protocolados."
+  ],
+  "report" => [
+    "report",
+    "report.php",
+    "report.svg",
+    "Quadrado de bordas arredondadas com caixa torácica estilizada em negativo",
+    "Laudos de Rx Tórax",
+    "Gerador de laudos para radiografias de tórax póstero-anteriores e perfil."
   ]
 ]);
 ?>
