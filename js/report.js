@@ -230,7 +230,7 @@ function build_technique() {
   if ( $("#adequability-abduction").is(":checked") ) { param.push("MMSS abduzidos adequadamente"); }
   else { param.push("MMSS gerando superposição por não estarem abduzidos"); }
   // Superimpositions
-  if ( $("#adequability-superinpositions").is(":checked") ) { param.push("sem superimposições inevitáveis"); }
+  if ( $("#adequability-superinpositions").is(":checked") ) { param.push("sem superimposições evitáveis"); }
   else { param.push("PRESENÇA de superimposições evitáveis"); }
   // Lateral Incidence
   if ( $("#adequability-lateral").is(":checked") ) { param.push("incidência ortogonal presente"); }
@@ -310,14 +310,14 @@ function build_eval() {
     lung.push( "com consolidação(ões) observável(is) em: " + humanList( foci ) );
   }
   if ( $("#lung-effusion").val() == "livres bilateralmente" ) {
-    lung.push( $("#lung-effusion").val() );
+    lung.push( "seios costofrênicos " + $("#lung-effusion").val() );
   } else if ( $("#lung-effusion").val() == "com derrame pleural bilateralmente" ) {
-    lung.push( $("#lung-effusion").val() + ", com ~" + $("#lung-effusion-right").val() + "mm à direita e ~" + $("#lung-effusion-left").val() + "mm à esquerda" );
+    lung.push( "seios costofrênicos " + $("#lung-effusion").val() + ", com ~" + $("#lung-effusion-right").val() + "mm à direita e ~" + $("#lung-effusion-left").val() + "mm à esquerda" );
   } else {
     if ( $("#lung-effusion").val() == "com derrame pleural à direita" ) {
-      lung.push( $("#lung-effusion").val() + " de ~" + $("#lung-effusion-right").val() + "mm" );
+      lung.push( "seios costofrênicos " + $("#lung-effusion").val() + " de ~" + $("#lung-effusion-right").val() + "mm" );
     } else {
-      lung.push( $("#lung-effusion").val() + " de ~" + $("#lung-effusion-left").val() + "mm" );
+      lung.push( "seios costofrênicos " + $("#lung-effusion").val() + " de ~" + $("#lung-effusion-left").val() + "mm" );
     }
   }
   if ( $("#lung-diaphragm").val() ) {
