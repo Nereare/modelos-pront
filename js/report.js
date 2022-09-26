@@ -248,11 +248,19 @@ function build_eval() {
   // Check heart parameters
   let heart = [];
   if ( $("#heart-area").val() == "aumentada" ) {
-    let heart = parseInt( $("#heart-width").val() );
+    let heart_area = parseInt( $("#heart-width").val() );
     let hemith = parseInt( $("#heart-hemithorax-width").val() );
-    let ratio = heart * 100 / hemith;
+    let ratio = heart_area * 100 / hemith;
     ratio = ratio.toFixed(1) + "%";
-    heart.push( "área cardíaca " + $("#heart-area").val() + " (largura cardíaca de " + heart + "mm, ou ~" + ratio + " do hemitórax)" );
+    heart.push(
+      "área cardíaca " +
+      $("#heart-area").val() +
+      " (largura cardíaca de ~" +
+      heart_area +
+      "mm, ou ~" +
+      ratio +
+      " do hemitórax)"
+    );
   } else {
     heart.push( "área cardíaca " + $("#heart-area").val() );
   }
