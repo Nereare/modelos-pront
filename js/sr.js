@@ -661,8 +661,9 @@ function humanList(arr) {
 function get_companion() {
   var comp = "";
   if ( $("#companion").is(":checked") ) {
-    comp = "Paciente vem ao PS " + $("#companion-func").val() + " por " + $("#companion-name").val() + " (" + $("#companion-relation").val() + ").";
-    comp += " Fonte: " + $("#companion-font").val() + "."
+    comp = "Paciente vem ao PS " + $("#companion-func").val() + " por " + $("#companion-name").val();
+    if ( $("#companion-relation").val() != "" ) { comp += " (" + $("#companion-relation").val() + ")"; }
+    comp += ". Fonte: " + $("#companion-font").val() + "."
   }
   return comp;
 }

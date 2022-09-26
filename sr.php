@@ -64,7 +64,7 @@ else { $sr_header = "SR"; }
           <div class="control">
             <button class="button is-static" tabindex="-1">Acompanhante</button>
           </div>
-          <div class="control">
+          <div class="control is-expanded">
             <input type="text" class="input" id="companion-name" placeholder="Nome" disabled>
           </div>
           <div class="control">
