@@ -344,9 +344,21 @@ function build_eval() {
 
   // Check soft tissue parameters
   let soft = [];
-  soft.push( "clavículas " + $("#soft-clavicules").val() + $("#soft-clavicules-desc").val() );
-  soft.push( "arcos costais " + $("#soft-ribs").val() + $("#soft-ribs-desc").val() );
-  soft.push( "enfisema subcutâneo " + $("#soft-emphisema").val() + $("#soft-emphisema-desc").val() );
+  if ( $("#soft-clavicules").val() == "com " && $("#soft-clavicules-desc").val() != "" ) {
+    soft.push( "clavículas " + $("#soft-clavicules").val() + $("#soft-clavicules-desc").val() );
+  } else {
+    soft.push( "clavículas sem alterações observáveis" );
+  }
+  if ( $("#soft-ribs").val() == "com " && $("#soft-ribs-desc").val() != "" ) {
+    soft.push( "arcos costais " + $("#soft-ribs").val() + $("#soft-ribs-desc").val() );
+  } else {
+    soft.push( "arcos costais sem alterações observáveis" );
+  }
+  if ( $("#soft-emphisema").val() == "PRESENTE em " && $("#soft-emphisema-desc").val() != "" ) {
+    soft.push( "enfisema subcutâneo " + $("#soft-emphisema").val() + $("#soft-emphisema-desc").val() );
+  } else {
+    soft.push( "enfisema subcutâneo ausente" );
+  }
   // Add soft tissue parameters to evaluation
   param.push( "  - Partes Moles: " + soft.join("; ") + "." );
 
