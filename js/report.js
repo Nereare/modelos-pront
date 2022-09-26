@@ -58,13 +58,13 @@ $(document).ready(function() {
   });
 
   // Enable/Disable hilum infiltration focus
-  $("#hilum").on("change", function() {
+  $("#lung-hilum").on("change", function() {
     if ( $(this).val() == "sem alterações observáveis" ) {
-      $("#hilum-hyper")
+      $("#lung-hilum-hyper")
         .val("sem predomínios")
         .prop("disabled", true);
     } else {
-      $("#hilum-hyper")
+      $("#lung-hilum-hyper")
         .prop("disabled", false);
     }
   });
