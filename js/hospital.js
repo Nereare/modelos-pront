@@ -47,6 +47,17 @@ $(document).ready(function() {
         .val("base direita");
     }
   });
+  // Enable percussion description:
+  $("#lung-tap").on("change", function() {
+    if ( $(this).val() == "Macicez percutível em " ) {
+      $("#lung-tap-desc")
+        .prop("disabled", false);
+    } else {
+      $("#lung-tap-desc")
+        .prop("disabled", true)
+        .val("");
+    }
+  });
 
   // Enable heart murmur description:
   $("#heart-murmur").on("change", function() {
@@ -399,7 +410,16 @@ $(document).ready(function() {
       $("#ssvv-fr").val() != "" ||
       $("#ssvv-temp").val() != "" ||
       $("#ssvv-weight").val() != "" ||
-      $("#ssvv-height").val() != ""
+      $("#ssvv-height").val() != "" ||
+      $("#ssvv-pain").val() != "" ||
+      $("#ssvv-glucose").val() != "" ||
+      (
+        $("#neuro-gcs-eye").val() != "" &&
+        $("#neuro-gcs-speech").val() != "" &&
+        $("#neuro-gcs-muscle").val() != ""
+      ) ||
+      $("#orientation-time").val() != "" ||
+      $("#orientation-space").val() != ""
     ) {
       var ssvv = [];
       if( $("#ssvv-sat").val() != "" ) { ssvv.push( "Sat. O2 = " + $("#ssvv-sat").val() + "% " + $("#ssvv-sat-type").val() ); }
@@ -417,6 +437,45 @@ $(document).ready(function() {
         var height = parseFloat( $("#ssvv-height").val() ) / 100;
         var bmi = weight / (height * height);
         ssvv.push( "IMC = " + bmi.toFixed(1) + "kg/m²" );
+      }
+      if( $("#ssvv-glucose").val() != "" ) {
+        let dx = parseInt( $("#ssvv-glucose").val() );
+        let gluc = "";
+        if ( dx > 400 ) { gluc = "HI"; }
+        else { gluc = dx + "mg/dL" }
+        ssvv.push( "Glicemia Capilar = " + gluc + " (" + $("#ssvv-glucose-time").val() + ")" );
+      }
+      if( $("#ssvv-pain").val() != "" ) { ssvv.push( "Dor (EVA) = " + $("#ssvv-pain").val() ); }
+      if ( $("#neuro-gcs-eye").val() != "" &&
+           $("#neuro-gcs-speech").val() != "" &&
+           $("#neuro-gcs-muscle").val() != "" ) {
+        var gcs = [
+         "AO " + $("#neuro-gcs-eye").val(),
+         "RV " + $("#neuro-gcs-speech").val(),
+         "RM " + $("#neuro-gcs-muscle").val()
+        ];
+        var gcscore = parseInt( $("#neuro-gcs-eye").val() );
+        gcscore += parseInt( $("#neuro-gcs-speech").val() );
+        gcscore += parseInt( $("#neuro-gcs-muscle").val() );
+        if ( $("#neuro-gcs-eye").val() == "0" ||
+            $("#neuro-gcs-speech").val() == "0" ||
+            $("#neuro-gcs-muscle").val() == "0" ) {
+         gcscore += "NT";
+        }
+        ssvv.push( "GCS = " + gcscore + " (" + gcs.join(", ") + ")" );
+      }
+      if ( $("#orientation-time").val() != "" ||
+           $("#orientation-space").val() != "" ) {
+        if ( $("#orientation-time").val() == $("#orientation-space").val() ) {
+          ssvv.push( $("#orientation-time").val() + " no tempo-espaço" );
+        } else {
+          if ( $("#orientation-time").val() != "" ) {
+            ssvv.push( $("#orientation-time").val() + " no tempo" );
+          }
+          if ( $("#orientation-space").val() != "" ) {
+            ssvv.push( $("#orientation-space").val() + " no espaço" );
+          }
+        }
       }
       o.push( ssvv.join(" | ") );
     }
@@ -437,7 +496,13 @@ $(document).ready(function() {
         $("#lung-sounds").val() == "com redução de murmúrios vesiculares até " ||
         $("#lung-sounds").val() == "com sopro cavernoso em "
       ) { crept = $("#lung-crept").val() + "."; }
-      o.push( "Pulm: murmúrios vesiculares " + $("#lung").val() + ", " + $("#lung-sounds").val() + crept );
+      let tap = "";
+      if ( $("#lung-tap").val() != "" ) {
+        tap = " " + $("#lung-tap").val();
+        if ( tap == " Macicez percutível em " ) { tap += $("#lung-tap-desc").val(); }
+        tap += ".";
+      }
+      o.push( "Pulm: murmúrios vesiculares " + $("#lung").val() + ", " + $("#lung-sounds").val() + crept + tap );
     }
     if( $("#exam-heart").is(":checked") ) {
       var murmur = $("#heart-murmur").val();
@@ -526,23 +591,9 @@ $(document).ready(function() {
       o.push("");
       o.push("## Neurológico:");
     }
-    if( $("#neuro-main").is(":checked") ) {
-      var gcs = [
-        "AO " + $("#neuro-gcs-eye").val(),
-        "RV " + $("#neuro-gcs-speech").val(),
-        "RM " + $("#neuro-gcs-muscle").val()
-      ];
-      var gcscore = parseInt( $("#neuro-gcs-eye").val() );
-      gcscore += parseInt( $("#neuro-gcs-speech").val() );
-      gcscore += parseInt( $("#neuro-gcs-muscle").val() );
-      if ( $("#neuro-gcs-eye").val() == "0" ||
-           $("#neuro-gcs-speech").val() == "0" ||
-           $("#neuro-gcs-muscle").val() == "0" ) {
-        gcscore += "NT";
-      }
-      var rass = "";
-      if ( $("#neuro-rass").val() != "" ) { rass = " | RASS " + $("#neuro-rass").val(); }
-      o.push( "- Consciência: GCS " + gcscore + " (" + gcs.join(", ") + ")" + rass + "." );
+    if( $("#neuro-main").is(":checked") && $("#neuro-rass").val() != "" ) {
+      var rass = "RASS " + $("#neuro-rass").val() + ".";
+      o.push( rass );
     }
     if( $("#neuro-speech").is(":checked") ) {
       var speech = "";

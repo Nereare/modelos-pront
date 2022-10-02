@@ -176,6 +176,27 @@ require_once "header.php";
                <button class="button is-static" tabindex="-1">irpm</button>
             </div>
           </div>
+
+          <div class="field has-addons">
+            <div class="control">
+               <button class="button is-static" tabindex="-1">Dextro</button>
+            </div>
+            <div class="control">
+              <input type="number" id="ssvv-glucose" class="input" min="1" step="1" placeholder="# (HI > 400)">
+            </div>
+            <div class="control">
+               <button class="button is-static" tabindex="-1">mg/dL</button>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="ssvv-glucose-time">
+                  <option value="alimentação desconhecida" selected>Desconhecida</option>
+                  <option value="pré-prandial">PRÉ-Prandial</option>
+                  <option value="pós-prandial">PÓS-Prandial</option>
+                </select>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="column">
@@ -233,6 +254,117 @@ require_once "header.php";
             <div class="control">
                <button class="button is-static" tabindex="-1">kg/m<sup>2</sup></button>
             </div>
+          </div>
+
+          <div class="field has-addons">
+            <div class="control">
+               <button class="button is-static" tabindex="-1">Dor (EVA)</button>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="ssvv-pain">
+                  <option value="" selected>N/A</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <h2 class="title is-4">Consciência</h2>
+
+      <div class="field has-addons">
+        <div class="control">
+          <button type="button" class="button is-static" tabindex="-1">GCS</button>
+        </div>
+        <div class="control">
+          <button type="button" class="button is-static" tabindex="-1">AO</button>
+        </div>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="neuro-gcs-eye">
+              <option value="" selected>NT</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+              <option value="0">0 NT</option>
+            </select>
+          </div>
+        </div>
+        <div class="control">
+          <button type="button" class="button is-static" tabindex="-1">RV</button>
+        </div>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="neuro-gcs-speech">
+              <option value="" selected>NT</option>
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+              <option value="0">0 NT</option>
+            </select>
+          </div>
+        </div>
+        <div class="control">
+          <button type="button" class="button is-static" tabindex="-1">RM</button>
+        </div>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="neuro-gcs-muscle">
+              <option value="" selected>NT</option>
+              <option value="6">6</option>
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+              <option value="0">0 NT</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Orientação - Tempo</button>
+        </div>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="orientation-time">
+              <option value="" selected>NT</option>
+              <option value="orientade">Orientade</option>
+              <option value="DESORIENTADE">DESorientade</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Orientação - Espaço</button>
+        </div>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="orientation-space">
+              <option value="" selected>NT</option>
+              <option value="orientade">Orientade</option>
+              <option value="DESORIENTADE">DESorientade</option>
+            </select>
           </div>
         </div>
       </div>
@@ -425,6 +557,27 @@ require_once "header.php";
                   <option value="ápices bilateralmente">ápice bilat</option>
                 </select>
               </div>
+            </div>
+          </div>
+
+          <div class="field has-addons">
+            <div class="control">
+               <button class="button is-static" tabindex="-1">Percussão</button>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="lung-tap">
+                  <option value="" selected>N/A</option>
+                  <option value="Percussão claro-pulmonar em todos os campos pulmonares">Normal</option>
+                  <option value="Macicez percutível em ">Macicez em...</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control is-expanded">
+              <input type="text" class="input" id="lung-tap-desc" placeholder="Descreva localização da(s) macicez..." disabled>
             </div>
           </div>
         </div>
@@ -1232,57 +1385,6 @@ require_once "header.php";
           </div>
 
           <div class="column">
-            <div class="field has-addons">
-              <div class="control">
-                <button type="button" class="button is-static" tabindex="-1">GCS</button>
-              </div>
-              <div class="control">
-                <button type="button" class="button is-static" tabindex="-1">AO</button>
-              </div>
-              <div class="control is-expanded">
-                <div class="select is-fullwidth">
-                  <select id="neuro-gcs-eye">
-                    <option value="4" selected>4</option>
-                    <option value="3">3</option>
-                    <option value="2">2</option>
-                    <option value="1">1</option>
-                    <option value="0">0 NT</option>
-                  </select>
-                </div>
-              </div>
-              <div class="control">
-                <button type="button" class="button is-static" tabindex="-1">RV</button>
-              </div>
-              <div class="control is-expanded">
-                <div class="select is-fullwidth">
-                  <select id="neuro-gcs-speech">
-                    <option value="5" selected>5</option>
-                    <option value="4">4</option>
-                    <option value="3">3</option>
-                    <option value="2">2</option>
-                    <option value="1">1</option>
-                    <option value="0">0 NT</option>
-                  </select>
-                </div>
-              </div>
-              <div class="control">
-                <button type="button" class="button is-static" tabindex="-1">RM</button>
-              </div>
-              <div class="control is-expanded">
-                <div class="select is-fullwidth">
-                  <select id="neuro-gcs-muscle">
-                    <option value="6" selected>6</option>
-                    <option value="5">5</option>
-                    <option value="4">4</option>
-                    <option value="3">3</option>
-                    <option value="2">2</option>
-                    <option value="1">1</option>
-                    <option value="0">0 NT</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
             <div class="field has-addons">
               <div class="control">
                 <button type="button" class="button is-static" tabindex="-1">RASS</button>
