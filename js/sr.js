@@ -864,6 +864,7 @@ function runP() {
   // Prescriptions
   if( $("#plan-symptomatics").is(":checked") ) { p.push( $("#symptomatics").val() ); }
   if( $("#plan-ln").is(":checked") ) { p.push( "Oriento lavagem nasal com soro fisiológico 0,9%" ); }
+  if( $("#plan-clenil").is(":checked") ) { p.push( "Prescrevo beclometasona nasal para otimização de controle de sintomas respiratórios altos" ); }
   if( $("#plan-syrups").is(":checked") ) { p.push( "Oriento que não existem \"xaropes para tosse\" que sejam superiores a placebo, e, portanto, visando minimizar efeitos colaterais desnecessários, não serão prescritos" ); }
   if( $("#plan-honey").is(":checked") ) { p.push( "Oriento consumo de uma colher de mel, antes de dormir, para melhorar percepção subjetiva da tosse" ); }
   if( $("#plan-tamiflu").is(":checked") ) { p.push( "Prescrevo oseltamivir 12/12h por 05 dias" ); }

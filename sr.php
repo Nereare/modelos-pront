@@ -2380,6 +2380,21 @@ else { $sr_header = "SR"; }
           <li>
             <div class="field has-addons">
               <div class="control">
+                <label for="plan-clenil" class="button">
+                  <span class="icon">
+                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
+                  </span>
+                  <input type="checkbox" class="is-hidden checkbutton" id="plan-clenil" value="true">
+                </label>
+              </div>
+              <div class="control is-expanded">
+                <button class="button is-static is-fullwidth" tabindex="-1"><strong>Clenil</strong>&nbsp;nasal</button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="field has-addons">
+              <div class="control">
                 <label for="plan-syrups" class="button">
                   <span class="icon">
                     <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
