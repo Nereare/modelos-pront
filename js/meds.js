@@ -15417,6 +15417,21 @@ $(document).ready(function() {
         "",
         "",
         "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana."
+      ],
+      [
+        "Beclometasona",
+        "50mcg/jato",
+        "Via Nasal",
+        "",
+        "",
+        "Aplicar 01 jato em cada narina",
+        "",
+        "",
+        "12",
+        "horas",
+        " por 02 semanas",
+        "",
+        "Sempre realizar lavagem nasal ANTES de aplicar beclometasona."
       ]
     ],
     "Resfriado/Gripe (dip+parac)": [
@@ -15479,6 +15494,21 @@ $(document).ready(function() {
         "",
         "",
         "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana."
+      ],
+      [
+        "Beclometasona",
+        "50mcg/jato",
+        "Via Nasal",
+        "",
+        "",
+        "Aplicar 01 jato em cada narina",
+        "",
+        "",
+        "12",
+        "horas",
+        " por 02 semanas",
+        "",
+        "Sempre realizar lavagem nasal ANTES de aplicar beclometasona."
       ]
     ],
     "Resfriado/Gripe (parac)": [
@@ -15511,6 +15541,21 @@ $(document).ready(function() {
         "",
         "",
         "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana."
+      ],
+      [
+        "Beclometasona",
+        "50mcg/jato",
+        "Via Nasal",
+        "",
+        "",
+        "Aplicar 01 jato em cada narina",
+        "",
+        "",
+        "12",
+        "horas",
+        " por 02 semanas",
+        "",
+        "Sempre realizar lavagem nasal ANTES de aplicar beclometasona."
       ]
     ],
     "Dengue (dip)": [
@@ -15794,23 +15839,6 @@ $(document).ready(function() {
         "horas",
         "",
         ", se dor no canal da urina",
-        ""
-      ]
-    ],
-    "IC": [
-      [
-        "Furosemida",
-        "40mg",
-        "Via Oral",
-        "",
-        " - USO CONTÍNUO",
-        "Tomar",
-        "1",
-        "cp",
-        "12",
-        "horas",
-        "",
-        "",
         ""
       ]
     ],
