@@ -16369,6 +16369,38 @@ $(document).ready(function() {
         ", se crise de enxaqueca",
         "Tomar 01 cp se crise de enxaqueca e esperar 30 minutos. Caso não apresente melhora, tente mais 01 cp e aguarde mais 30 minutos. Se, após a 01 hora total, não apresentar melhora da crise de enxaqueca, buscar atendimento médico."
       ]
+    ],
+    "Xeratose": [
+      [
+        "Hidratante Corporal Neutrogena Body Care Intensive",
+        "---",
+        "Via Tópica",
+        "",
+        "",
+        "Aplicar",
+        "quantidade",
+        "generosa à toda a pele",
+        "12",
+        "horas",
+        "",
+        "",
+        "(A marca de hidratante acima é posta meramente como sugestão, podendo ser substituída por qualquer hidratante corporal sem fragância, sem corantes e sem remédios.)"
+      ],
+      [
+        "Dexclorferinamina",
+        "0,4mg/mL",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "10",
+        "mL",
+        "8",
+        "horas",
+        "",
+        ", se coceira",
+        ""
+      ]
     ]
   };
 
