@@ -4,7 +4,7 @@ define("APP_AUTHOR", "Igor Padoim");
 define("APP_YEAR", "2021-2022");
 define("APP_LICENSE_NAME", "Licença Hipocrática");
 define("APP_LICENSE_URI", "https://firstdonoharm.dev/");
-define("APP_VERSION", "2.8.1");
+define("APP_VERSION", "2.9.0");
 
 define("MODELS", [
   "sr" => [
@@ -55,19 +55,11 @@ define("MODELS", [
     "Exame Psíquico",
     "Ferramenta de geração de exame psíquico com os componentes mais comuns deste, além de modelos pré-definidos, para facilidade de preenchimento, de alterações (e normalidade) de cada campo avaliado."
   ],
-  "implanon" => [
-    "implanon",
-    "implanon.php",
-    "implanon.svg",
-    "Carrinho de bebê com um traço diagonal do canto superior esquerdo ao canto inferior direito",
-    "Requisição Implanon",
-    "Modelo de requisição de dispositivo intradérmico de liberação de etonogestrel, segundo critérios disponíveis para tal dispensação definidos pelo Relatório de Recomendação Nº 599 de abril/2021 da Conitec."
-  ],
   "diu" => [
     "diu",
     "diu.php",
     "diu.svg",
-    "Representação gráfica de um dispositivo intrauterino, com seu corpo mais espesso devido ao princípio ativo nele depositado, e os dois braços de fixação estendidos lateralmente do topo do corpo",
+    "Carrinho de bebê com um traço diagonal do canto superior esquerdo ao canto inferior direito",
     "Passagem de DIU",
     "Modelo de evolução de consulta específica para passagem de Dispositivo Intrauterino, incluindo exame físico ginecológico, parâmetros de testagem uterina (histerometria), além de parâmetro quanto ao DIU."
   ],

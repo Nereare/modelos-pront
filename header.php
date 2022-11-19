@@ -18,7 +18,7 @@ $menu = [
   ["hospital"],
   ["psico", "pn", "pueri"],
   ["sadt", "sr", "diu"],
-  ["implanon", "meds", "report"],
+  ["meds", "report", null ],
   [null, null, null],
   [null, null, null]
 ];
@@ -65,6 +65,8 @@ if ( isset($_SESSION["cookies"]) ) {
     <script src="node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
     <script src="node_modules/clipboard/dist/clipboard.min.js"></script>
     <script src="node_modules/uuid/dist/umd/uuidv4.min.js"></script>
+    <script src="node_modules/dompurify/dist/purify.min.js"></script>
+    <script src="node_modules/marked/marked.min.js"></script>
     <script src="js/base.js"></script>
     <?php if ( !in_array($page, ["index", "about", "usage", "cookies", "privacy"]) ) { ?>
     <script src="js/<?php echo $page; ?>.js"></script>
