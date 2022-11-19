@@ -445,7 +445,7 @@ $(document).ready(function() {
         else { gluc = dx + "mg/dL" }
         ssvv.push( "Glicemia Capilar = " + gluc + " (" + $("#ssvv-glucose-time").val() + ")" );
       }
-      if( $("#ssvv-pain").val() != "" ) { ssvv.push( "Dor (EVA) = " + $("#ssvv-pain").val() ); }
+      if( $("#ssvv-pain").val() != "" ) { ssvv.push( "Dor (EVA) = " + $("#ssvv-pain").val() + "/10" ); }
       if ( $("#neuro-gcs-eye").val() != "" &&
            $("#neuro-gcs-speech").val() != "" &&
            $("#neuro-gcs-muscle").val() != "" ) {

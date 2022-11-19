@@ -347,7 +347,7 @@ require_once "header.php";
           <div class="select is-fullwidth">
             <select id="orientation-time">
               <option value="" selected>NT</option>
-              <option value="orientade">Orientade</option>
+              <option value="Orientade">Orientade</option>
               <option value="DESORIENTADE">DESorientade</option>
             </select>
           </div>
@@ -362,7 +362,7 @@ require_once "header.php";
           <div class="select is-fullwidth">
             <select id="orientation-space">
               <option value="" selected>NT</option>
-              <option value="orientade">Orientade</option>
+              <option value="Orientade">Orientade</option>
               <option value="DESORIENTADE">DESorientade</option>
             </select>
           </div>
