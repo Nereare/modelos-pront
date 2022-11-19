@@ -16382,24 +16382,49 @@ $(document).ready(function() {
     addy.find("button.delete").on("click", function() { $(this).parent().remove(); });
     // Fill `addy` element
     addy.find(".med-name").html( data[0] );
-    addy.find(".med-concentration").html( data[1] );
-    addy.find(".med-via").html( data[2] );
-    addy.find(".med-qtt").html( data[3] );
-    addy.find(".med-continuous").html( data[4] );
-    addy.find(".med-act").html( data[5] );
-    addy.find(".med-cps").html( data[6] );
-    addy.find(".med-unity").html( data[7] );
-    if ( data[10] != "DU" ) {
-      addy.find(".med-interval").html( " a cada " + data[8] );
-      addy.find(".med-interval-time").html( " " + data[9] );
-      addy.find(".med-duration").html( data[10] );
-      addy.find(".med-if").html( data[11] );
+    addy.find(".med-concentration").html(data[1]);
+    // Check application method - for topical application
+    if (data[2] == "Via Tópica" ) {
+      addy.find(".med-via").html( data[2] );
+      addy.find(".med-qtt").html( data[3] );
+      addy.find(".med-continuous").html(data[4]);
+      if ( data[5] == "Aplicar fina camada" ) {
+        addy.find(".med-act").html( "Aplicar" );
+        addy.find(".med-cps").html( "fina" );
+        addy.find(".med-unity").html("camada");
+      } else {
+        addy.find(".med-act").html( "Aplicar" );
+        addy.find(".med-cps").html( "camada" );
+        addy.find(".med-unity").html("espessa");
+      }
+      if ( data[10] != "DU" ) {
+        addy.find(".med-interval").html( " a cada " + data[8] );
+        addy.find(".med-interval-time").html( " " + data[9] );
+        addy.find(".med-duration").html( data[10] );
+        addy.find(".med-if").html( data[11] );
+      } else {
+        addy.find(".med-interval").html( " em DOSE ÚNICA" );
+      }
+      addy.find(".med-guide").html( data[12] );
     } else {
-      addy.find(".med-interval").html( " em DOSE ÚNICA" );
+      addy.find(".med-via").html( data[2] );
+      addy.find(".med-qtt").html( data[3] );
+      addy.find(".med-continuous").html( data[4] );
+      addy.find(".med-act").html( data[5] );
+      addy.find(".med-cps").html( data[6] );
+      addy.find(".med-unity").html( data[7] );
+      if ( data[10] != "DU" ) {
+        addy.find(".med-interval").html( " a cada " + data[8] );
+        addy.find(".med-interval-time").html( " " + data[9] );
+        addy.find(".med-duration").html( data[10] );
+        addy.find(".med-if").html( data[11] );
+      } else {
+        addy.find(".med-interval").html( " em DOSE ÚNICA" );
+      }
+      addy.find(".med-guide").html( data[12] );
     }
-    addy.find(".med-guide").html( data[12] );
     // Append `addy` element to the medication list
-    $("#prescription").append( addy );
+      $("#prescription").append(addy);
 
     // Empty form, if asked to
     if (clear) {
@@ -16488,6 +16513,17 @@ $(document).ready(function() {
       $("#med-act").val() != "" &&
       $("#med-cps").val() != "" &&
       $("#med-unity").val() != "" && (
+        (
+          $("#med-duration-time").val() == "dose única"
+        ) || (
+          $("#med-interval").val() != "" &&
+          $("#med-interval-time").val() != ""
+        )
+      )
+    ) { valid_sub = true; }
+    if (
+      $("#med-via").val() == "Tópica" &&
+      $("#med-act").val() != "" && (
         (
           $("#med-duration-time").val() == "dose única"
         ) || (

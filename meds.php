@@ -69,6 +69,7 @@ require_once "header.php";
                   <option value="Subcutânea">SC</option>
                   <option value="Retal">Retal</option>
                   <option value="Vaginal">Vaginal</option>
+                  <option value="Tópica">Tópica</option>
                 </select>
               </div>
             </div>
@@ -122,6 +123,8 @@ require_once "header.php";
               <option value="Lavar cada narina com">Lavar (narina)</option>
               <option value="Aplicar, em cada narina,">Aplicar (narina)</option>
               <option value="Usar">Usar</option>
+              <option value="Aplicar fina camada">Aplicar (fina, tópica)</option>
+              <option value="Aplicar camada espessa">Aplicar (grossa, tópica)</option>
             </select>
           </div>
         </div>

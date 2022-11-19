@@ -4,7 +4,7 @@ define("APP_AUTHOR", "Igor Padoim");
 define("APP_YEAR", "2021-2022");
 define("APP_LICENSE_NAME", "Licença Hipocrática");
 define("APP_LICENSE_URI", "https://firstdonoharm.dev/");
-define("APP_VERSION", "2.7.0");
+define("APP_VERSION", "2.8.1");
 
 define("MODELS", [
   "sr" => [
@@ -86,6 +86,14 @@ define("MODELS", [
     "Quadrado de bordas arredondadas com caixa torácica estilizada em negativo",
     "Laudos de Rx Tórax",
     "Gerador de laudos para radiografias de tórax póstero-anteriores e perfil."
+  ],
+  "ekg" => [
+    "ekg",
+    "ekg.php",
+    "ekg.svg",
+    "Coração estilizado sobreposto por traçado, também fortemente estilizado, de uma abstração de complexo QRS de eletrocardiografia",
+    "Laudos de ECG",
+    "Gerador de laudos para eletrocardiogramas (ECGs)."
   ]
 ]);
 ?>
