@@ -731,47 +731,47 @@ else { $sr_header = "SR"; }
             <h4 class="title is-6">Comorbidades</h4>
 
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-1" name="comorbidities" value="hipertensão arterial sistêmica">
+              <input type="checkbox" class="is-checkradio" id="comorb-1" name="comorbidities" value="HAS">
               <label for="comorb-1">HAS</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-2" name="comorbidities" value="diabete mélito">
+              <input type="checkbox" class="is-checkradio" id="comorb-2" name="comorbidities" value="DM">
               <label for="comorb-2">DM</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-3" name="comorbidities" value="asma">
+              <input type="checkbox" class="is-checkradio" id="comorb-3" name="comorbidities" value="Asma">
               <label for="comorb-3">Asma</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-4" name="comorbidities" value="doença pulmonar obstrutiva crônica (DPOC)">
+              <input type="checkbox" class="is-checkradio" id="comorb-4" name="comorbidities" value="DPOC">
               <label for="comorb-4">DPOC</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-5" name="comorbidities" value="insuficiência renal crônica">
+              <input type="checkbox" class="is-checkradio" id="comorb-5" name="comorbidities" value="LRC">
               <label for="comorb-5">IRC</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-6" name="comorbidities" value="infarto agudo de miocárdio prévio">
+              <input type="checkbox" class="is-checkradio" id="comorb-6" name="comorbidities" value="IAM prévio">
               <label for="comorb-6">IAM</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-7" name="comorbidities" value="acidente vascular cerebral prévio">
+              <input type="checkbox" class="is-checkradio" id="comorb-7" name="comorbidities" value="AVC prévio">
               <label for="comorb-7">AVC</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-8" name="comorbidities" value="obesidade">
+              <input type="checkbox" class="is-checkradio" id="comorb-8" name="comorbidities" value="Obesidade">
               <label for="comorb-8">Obesidade</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-9" name="comorbidities" value="infecção pelo HIV">
+              <input type="checkbox" class="is-checkradio" id="comorb-9" name="comorbidities" value="PVHIV">
               <label for="comorb-9">PVHIV</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-11" name="comorbidities" value="infecção pelo HIV com critérios para Aids">
+              <input type="checkbox" class="is-checkradio" id="comorb-11" name="comorbidities" value="PVHIV+Aids">
               <label for="comorb-11">PVHIV + Aids</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-12" name="comorbidities" value="paralisia cerebral">
+              <input type="checkbox" class="is-checkradio" id="comorb-12" name="comorbidities" value="PC">
               <label for="comorb-12">PC</label>
             </div>
 
@@ -900,6 +900,7 @@ else { $sr_header = "SR"; }
                   <option value="não trabalha">Não trabalha</option>
                   <option value="não estuda">Não estuda</option>
                   <option value="estuda">Estuda</option>
+                  <option value="estuda e trabalha">Estuda + Trabalha</option>
                   <option value="trabalha com vínculo celetista">Trabalha com carteira assinada</option>
                   <option value="trabalha por conta própria">Trabalha por conta</option>
                   <option value="trabalha sem condições mínimas de manutenção de seus direitos humanos fundamentais (incluindo direito de ausência remunerada, neste caso)">"Trabalho" uberizado/semi-escravo</option>
@@ -918,9 +919,9 @@ else { $sr_header = "SR"; }
               <div class="select is-fullwidth">
                 <select id="family">
                   <option value="" selected>Sem resposta</option>
-                  <option value="sozinho">Mora sozinho</option>
-                  <option value="com outras pessoas que NÃO têm necessidade de afastamento de familiares">Coabitantes NÃO precisam de afastamento</option>
-                  <option value="com outras pessoas que têm necessidade de afastamento de familiares">Coabitantes PRECISAM de afastamento</option>
+                  <option value="mora sozinho">Mora sozinho</option>
+                  <option value="mora com outras pessoas que NÃO têm necessidade de afastamento de familiares">Coabitantes NÃO precisam de afastamento</option>
+                  <option value="mora com outras pessoas que têm necessidade de afastamento de familiares">Coabitantes PRECISAM de afastamento</option>
                 </select>
               </div>
             </div>

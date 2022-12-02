@@ -325,7 +325,7 @@ $(document).ready(function() {
           s.push( "Paciente procura atendimento referindo estar " + symps + "." );
           if ( $("#symp-misc").val().trim() != "" ) { s.push( $("#symp-misc").val().trim() ); }
 
-          if( $("#fear-contact").is(":checked") ) { s.push( "Paciente conta ter buscado atendimento pois teve contato com alguém que testou positivo." ); }
+          if( $("#fear-contact").is(":checked") ) { s.push( "Paciente conta ter tido contato com alguém que testou positivo." ); }
           if( $("#fear-fear").is(":checked") ) { s.push( "Paciente conta estar com medo de estar com COVID." ); }
 
           if( symptomatic ) {
@@ -346,53 +346,55 @@ $(document).ready(function() {
               $.each(cc, function(i, v){ comorb.push( v.trim() ); });
             }
             comorb = humanList( comorb );
-            if( comorb == "" ) { comorb = "Nega comorbidades."; }
-            else { comorb = "Refere ter " + comorb + "."; }
-            var allergies = "Nega alergias medicamentosas.";
+            if( comorb == "" ) { comorb = "# AP: nega comorbidades conhecidas."; }
+            else { comorb = "# AP: " + comorb + "."; }
+            var allergies = "# Nega alergias medicamentosas.";
             if( $("#allergy-yes").is(":checked") ) {
-              allergies = "Refere alergia a " + $("#allergy-drug").val() + ".";
+              allergies = "# Refere alergia a " + $("#allergy-drug").val() + ".";
             }
-            s.push( comorb + " " + allergies );
+            s.push( comorb + "\n" + allergies );
 
             // Pregnancy
             if( $("#pregnancy").is(":checked") ) {
               var preg = "";
-              preg = "Paciente gestante de " + $("#preg-w").val() + "+" + $("#preg-d").val() + " sem."
+              preg = "# Gestante de " + $("#preg-w").val() + "+" + $("#preg-d").val() + " sem."
               s.push( preg );
             }
 
             // Previous COVID-19 infection
             if( $("#covid-before").is(":checked") ) {
               var covid_date = new Date( $("#covid-before-date").val() + "T00:00:00.000-03:00" );
-              s.push( "Refere infecção prévia por SARS-CoV-2, com a mais recente em " + covid_date.toLocaleDateString("pt-BR") + "." );
+              s.push( "# Última COVID-19 em " + covid_date.toLocaleDateString("pt-BR") + "." );
             }
 
             // Vaccines
             var vax = [];
             if( $("#vax-covid").val() != "" ) {
-              if ( $("#vax-covid").val() == "0" ) { vax.push( "Nega vacinação contra SARS-CoV-2." ); }
-              else { vax.push( "Refere ter tomado " + $("#vax-covid").val() + " dose(s) de vacinas contra COVID-19." ); }
+              if ( $("#vax-covid").val() == "0" ) { vax.push( "# Vacinas COVID-19: NEGA." ); }
+              else { vax.push( "# Vacinas COVID-19: " + $("#vax-covid").val() + " dose(s)." ); }
             }
             if( $("#vax-influenza").val() != "" ) {
-              if ( $("#vax-influenza").val() == "true" ) { vax.push( "Refere vacinação atualizada contra Influenza." ); }
-              else { vax.push( " Nega vacinação atualizada contra Influenza." ); }
+              if ( $("#vax-influenza").val() == "true" ) { vax.push( "# Vacina Influenza: refere ter tomado." ); }
+              else { vax.push( "# Vacina Influenza: NEGA." ); }
             }
-            if ( vax.join(" ") != "" ) { s.push( vax.join(" ") ); }
+            if ( vax.join("\n") != "" ) { s.push( vax.join("\n") ); }
 
 
             // Work status
-            var work = "";
-            if( $("#work").val() != "" ) {
-              work = "Paciente " + $("#work").val();
+            if ($("#work").val() != "") {
+              var work = "# Trabalho: " + $("#work").val();
               if( $("#work-special").val() != "" ) {
                 work += " (" + $("#work-special").val();
                 if ( $("#work-special-function").val() != "" ) { work += " como " + $("#work-special-function").val() + ")"; }
                 else { work += ")"; }
               }
               work += ".";
+              s.push(work);
             }
-            if( $("#family").val() != "" ) { work += "Refere também morar " + $("#family").val() + "."; }
-            if( work != "" ) { s.push( work ); }
+            if ($("#family").val() != "") {
+              var family = "# Residência: " + $("#family").val() + ".";
+              s.push( family );
+            }
           }
 
           // Concatenate S
@@ -661,9 +663,9 @@ function humanList(arr) {
 function get_companion() {
   var comp = "";
   if ( $("#companion").is(":checked") ) {
-    comp = "Paciente vem ao PS " + $("#companion-func").val() + " por " + $("#companion-name").val();
+    comp = "# Vem ao PS " + $("#companion-func").val() + " por " + $("#companion-name").val();
     if ( $("#companion-relation").val() != "" ) { comp += " (" + $("#companion-relation").val() + ")"; }
-    comp += ". Fonte: " + $("#companion-font").val() + "."
+    comp += ".\n# Fonte: " + $("#companion-font").val() + "."
   }
   return comp;
 }
