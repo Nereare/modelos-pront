@@ -18,7 +18,7 @@ $menu = [
   ["hospital"],
   ["psico", "pn", "pueri"],
   ["sadt", "sr", "diu"],
-  ["meds", "report", null ],
+  ["meds", "report", "labs" ],
   [null, null, null],
   [null, null, null]
 ];
