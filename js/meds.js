@@ -15778,7 +15778,7 @@ $(document).ready(function() {
         "O soro acima pode ser substituído por água de coco e bebidas isotônicas."
       ]
     ],
-    "Cistite (macrodantina)": [
+    "Cistite (macrodantina, 3d)": [
       [
         "Nitrofurantoína",
         "100mg",
@@ -15810,7 +15810,7 @@ $(document).ready(function() {
         ""
       ]
     ],
-    "Cistite (cefalexina)": [
+    "Cistite (cefalexina, 3d)": [
       [
         "Cefalexina",
         "500mg",
@@ -15823,6 +15823,70 @@ $(document).ready(function() {
         "6",
         "horas",
         " por 03 dias",
+        "",
+        ""
+      ],
+      [
+        "Fenazopiridina",
+        "100mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "1 a 2",
+        "cp(s)",
+        "8",
+        "horas",
+        "",
+        ", se dor no canal da urina",
+        ""
+      ]
+    ],
+    "Cistite (macrodantina, 7d)": [
+      [
+        "Nitrofurantoína",
+        "100mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        " por 07 dias",
+        "",
+        ""
+      ],
+      [
+        "Fenazopiridina",
+        "100mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "1 a 2",
+        "cp(s)",
+        "8",
+        "horas",
+        "",
+        ", se dor no canal da urina",
+        ""
+      ]
+    ],
+    "Cistite (cefalexina, 7d)": [
+      [
+        "Cefalexina",
+        "500mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        " por 07 dias",
         "",
         ""
       ],
