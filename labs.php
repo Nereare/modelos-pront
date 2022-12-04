@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The slug for this page.
  * IMPORTANT: Set the variable below so that the header works properly!
@@ -658,6 +659,24 @@ require_once "header.php";
         </div>
         <div class="control is-expanded">
           <input type="number" class="input" id="dhl" min="0" step="1" placeholder="DHL">
+        </div>
+      </div>
+
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">BNP</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="bnp" min="0" step="0.1" placeholder="BNP">
+        </div>
+      </div>
+
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">INR</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="inr" step="0.01" placeholder="INR">
         </div>
       </div>
 

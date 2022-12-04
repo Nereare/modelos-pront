@@ -229,7 +229,10 @@ $(document).ready(function() {
     if ( gaso.length > 0 ) { res.push( gaso.join("\n") ); }
 
     // Miocardium
-    if ( $("#tropo-fast").val() != "" ) { res.push( "- Tropo FAST " + $("#tropo-fast").val() ); }
+    if ( $("#tropo-fast").val() != "" ) {
+      let tropo = parseFloat( $("#tropo-fast").val() );
+      res.push( "- Tropo FAST " + ( tropo < 0.03 ? "indetectável ao método" : tropo ) );
+    }
     if ( $("#tropo-us").val() != "" ) { res.push( "- Tropo Ultrassensível " + $("#tropo-us").val() ); }
 
     // Miscellanea results
@@ -242,10 +245,15 @@ $(document).ready(function() {
         res.push( "- VHS " + $("#vhs").val() );
       }
     }
-    if ( $("#cpk").val() != "" ) { res.push( "- CPK " + $("#cpk").val() ); }
-    if ( $("#dhl").val() != "" ) { res.push( "- DHL " + $("#dhl").val() ); }
     if ( $("#dd").val() != "" ) { res.push( "- DD " + $("#dd").val() ); }
     if ( $("#glucose").val() != "" ) { res.push( "- Glic " + $("#glucose").val() ); }
+    if ( $("#cpk").val() != "" ) { res.push( "- CPK " + $("#cpk").val() ); }
+    if ( $("#dhl").val() != "" ) { res.push( "- DHL " + $("#dhl").val() ); }
+    if ( $("#bnp").val() != "" ) {
+      let bnp = parseFloat( $("#bnp").val() );
+      res.push("- BNP " + ( bnp > 30000 ? ">30.000,0" : bnp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") ) );
+    }
+    if ( $("#inr").val() != "" ) { res.push( "- INR " + $("#inr").val() ); }
 
     // Useless Results
     if ( $("#uselessness").is(":checked") ) { res.push( "- Demais labs: nada digno de nota" ); }
