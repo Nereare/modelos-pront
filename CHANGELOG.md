@@ -12,6 +12,7 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Modificado
 - Geração de UUIDv4 para biblioteca externa, para compatibilidade restrospectiva - obrigado PCs velhos de hospitais.
 - Descrição de acompanhante em *Sintomáticos Respiratórios*.
+- Licença Hipocrática para versão 3 (HL3-FULL).
 
 ## [2.5.3] - 2022-07-19
 ### Adicionado
