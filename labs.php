@@ -767,6 +767,47 @@ require_once "header.php";
 
       <div class="field has-addons">
         <div class="control">
+          <button class="button is-static" tabindex="-1">Dengue</button>
+        </div>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="dengue-ns1">
+              <option value="" selected>NS1 NT</option>
+              <option value="não reagente">&mdash;</option>
+              <option value="REAGENTE">&plus;</option>
+            </select>
+          </div>
+        </div>
+        <div class="control">
+          <button class="button is-static" tabindex="-1">/</button>
+        </div>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="dengue-igm">
+              <option value="" selected>IgM NT</option>
+              <option value="não reagente">&mdash;</option>
+              <option value="REAGENTE">&plus;</option>
+            </select>
+          </div>
+        </div>
+        <div class="control">
+          <button class="button is-static" tabindex="-1">/</button>
+        </div>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="dengue-igg">
+              <option value="" selected>IgG NT</option>
+              <option value="não reagente">&mdash;</option>
+              <option value="REAGENTE">&plus;</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- -->
+
+      <div class="field has-addons">
+        <div class="control">
           <label for="uselessness" class="button">
             <span class="icon">
               <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
@@ -778,8 +819,6 @@ require_once "header.php";
           <button class="button is-static is-fullwidth" tabindex="-1">Demais labs: nada digno de nota</button>
         </div>
       </div>
-
-      <!-- -->
     </div>
 
     <!-- Resultado -->

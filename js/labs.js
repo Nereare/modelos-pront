@@ -309,6 +309,11 @@ $(document).ready(function() {
     }
     if ( $("#inr").val() != "" ) { res.push( "- INR " + $("#inr").val() ); }
 
+    // Dengue results
+    if ($("#dengue-ns1").val() != "" && $("#dengue-igm").val() != "" && $("#dengue-igg").val() != "") {
+      res.push("- Dengue:\n  - NS1 " + $("#dengue-ns1").val() + "\n  - IgM " + $("#dengue-igm").val() + "\n  - IgG " + $("#dengue-igg").val() );
+    }
+
     // Useless Results
     if ( $("#uselessness").is(":checked") ) { res.push( "- Demais labs: nada digno de nota" ); }
 
