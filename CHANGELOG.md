@@ -5,6 +5,8 @@ Todas as mudanças significativas nesse projeto serão documentadas neste arquiv
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
 ## [Não Publicado][Unreleased]
+
+## [2.10.5] - 2023-01-16
 ### Adicionado
 - Medicações pré-definidas agora incluem duas possibilidades para enxaqueca.
 - Página para geração de laudos padronizados de radiografias de tórax, que presume radiografias solicitadas em incidências póstero-anterior **e** perfil.
@@ -110,7 +112,8 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Página de Requisição de Implanon.
 - Página de Exame Físico genérico.
 
-[Unreleased]: https://github.com/Nereare/modelos-pront/compare/v2.5.3...HEAD
+[Unreleased]: https://github.com/Nereare/modelos-pront/compare/v2.10.5...HEAD
+[2.10.5]: https://github.com/Nereare/modelos-pront/compare/v2.5.3...v2.10.5
 [2.5.3]: https://github.com/Nereare/modelos-pront/compare/v2.4.12...v2.5.3
 [2.4.12]: https://github.com/Nereare/modelos-pront/compare/v2.4.11...v2.4.12
 [2.4.11]: https://github.com/Nereare/modelos-pront/compare/v2.4.10...v2.4.11
