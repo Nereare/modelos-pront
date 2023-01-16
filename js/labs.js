@@ -75,6 +75,7 @@ $(document).ready(function() {
     }
   });
 
+  // Urinary culture
   $("#uroc").on("change", function() {
     if ( $(this).val() == "PARCIAL POSITIVO para " ) {
       $("#uroc-result")
@@ -92,6 +93,32 @@ $(document).ready(function() {
     }
   });
 
+  // Sum neutrophile percent totals
+  $("#hmg-segm-percent, #hmg-bast-percent, #hmg-metamyelocyst-percent, #hmg-myelocyst-percent, #hmg-promyelocyst-percent, #hmg-myeloblast-percent, #hmg-blast-percent").on("change input", function() {
+    let total = 0.0;
+    total += parseFloat( $("#hmg-segm-percent").val() == "" ? "0.0" : $("#hmg-segm-percent").val() );
+    total += parseFloat( $("#hmg-bast-percent").val() == "" ? "0.0" : $("#hmg-bast-percent").val() );
+    total += parseFloat( $("#hmg-metamyelocyst-percent").val() == "" ? "0.0" : $("#hmg-metamyelocyst-percent").val() );
+    total += parseFloat( $("#hmg-myelocyst-percent").val() == "" ? "0.0" : $("#hmg-myelocyst-percent").val() );
+    total += parseFloat( $("#hmg-promyelocyst-percent").val() == "" ? "0.0" : $("#hmg-promyelocyst-percent").val() );
+    total += parseFloat( $("#hmg-myeloblast-percent").val() == "" ? "0.0" : $("#hmg-myeloblast-percent").val() );
+    total += parseFloat( $("#hmg-blast-percent").val() == "" ? "0.0" : $("#hmg-blast-percent").val() );
+    $("#hmg-neutro-percent").val( total );
+  });
+  // Sum neutrophile absolute totals
+  $("#hmg-segm-abs, #hmg-bast-abs, #hmg-metamyelocyst-abs, #hmg-myelocyst-abs, #hmg-promyelocyst-abs, #hmg-myeloblast-abs, #hmg-blast-abs").on("change input", function() {
+    let total = 0.0;
+    total += parseFloat( $("#hmg-segm-abs").val() == "" ? "0.0" : $("#hmg-segm-abs").val() );
+    total += parseFloat( $("#hmg-bast-abs").val() == "" ? "0.0" : $("#hmg-bast-abs").val() );
+    total += parseFloat( $("#hmg-metamyelocyst-abs").val() == "" ? "0.0" : $("#hmg-metamyelocyst-abs").val() );
+    total += parseFloat( $("#hmg-myelocyst-abs").val() == "" ? "0.0" : $("#hmg-myelocyst-abs").val() );
+    total += parseFloat( $("#hmg-promyelocyst-abs").val() == "" ? "0.0" : $("#hmg-promyelocyst-abs").val() );
+    total += parseFloat( $("#hmg-myeloblast-abs").val() == "" ? "0.0" : $("#hmg-myeloblast-abs").val() );
+    total += parseFloat( $("#hmg-blast-abs").val() == "" ? "0.0" : $("#hmg-blast-abs").val() );
+    $("#hmg-neutro-abs").val( total );
+  });
+
+  // Generate result
   $("#button-run").on("click", function() {
     // Main result array
     let res = ["# Labs"];
@@ -193,11 +220,33 @@ $(document).ready(function() {
       hmg.push( "    - Leuco " + $("#hmg-leuco").val().replace(/\B(?=(\d{3})+(?!\d))/g, ".") );
       let neutro_abs = $("#hmg-neutro-abs").val() != "" ? " (" + $("#hmg-neutro-abs").val().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ")" : "";
       hmg.push( "    - Neutro " + $("#hmg-neutro-percent").val() + "%" + neutro_abs );
-      if ( $("#hmg-segm-percent").val() != "" && $("#hmg-young-percent").val() != "" ) {
+      if ( $("#hmg-segm-percent").val() != "" && ( $("#hmg-blast-percent").val() != "" || $("#hmg-myeloblast-percent").val() != "" || $("#hmg-promyelocyst-percent").val() != "" || $("#hmg-myelocyst-percent").val() != "" || $("#hmg-metamyelocyst-percent").val() != "" || $("#hmg-bast-percent").val() != "" ) ) {
         let segm_abs = $("#hmg-segm-abs").val() != "" ? " (" + $("#hmg-segm-abs").val().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ")" : "";
         hmg.push( "      - Segmentados " + $("#hmg-segm-percent").val() + "%" + segm_abs );
-        let young_abs = $("#hmg-young-abs").val() != "" ? " (" + $("#hmg-young-abs").val().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ")" : "";
-        hmg.push( "      - Formas Jovens " + $("#hmg-young-percent").val() + "%" + young_abs );
+        if ( $("#hmg-bast-percent").val() != "" ) {
+          let bast_abs = $("#hmg-bast-abs").val() != "" ? " (" + $("#hmg-bast-abs").val().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ")" : "";
+          hmg.push( "      - Bastonetes " + $("#hmg-bast-percent").val() + "%" + bast_abs );
+        }
+        if ( $("#hmg-metamyelocyst-percent").val() != "" ) {
+          let metamyelocyst_abs = $("#hmg-metamyelocyst-abs").val() != "" ? " (" + $("#hmg-metamyelocyst-abs").val().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ")" : "";
+          hmg.push( "      - Metamielócitos " + $("#hmg-metamyelocyst-percent").val() + "%" + metamyelocyst_abs );
+        }
+        if ( $("#hmg-myelocyst-percent").val() != "" ) {
+          let myelocyst_abs = $("#hmg-myelocyst-abs").val() != "" ? " (" + $("#hmg-myelocyst-abs").val().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ")" : "";
+          hmg.push( "      - Mielócitos " + $("#hmg-myelocyst-percent").val() + "%" + myelocyst_abs );
+        }
+        if ( $("#hmg-promyelocyst-percent").val() != "" ) {
+          let promyelocyst_abs = $("#hmg-promyelocyst-abs").val() != "" ? " (" + $("#hmg-promyelocyst-abs").val().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ")" : "";
+          hmg.push( "      - Promieloblastos " + $("#hmg-promyelocyst-percent").val() + "%" + promyelocyst_abs );
+        }
+        if ( $("#hmg-myeloblast-percent").val() != "" ) {
+          let myeloblast_abs = $("#hmg-myeloblast-abs").val() != "" ? " (" + $("#hmg-myeloblast-abs").val().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ")" : "";
+          hmg.push( "      - Mieloblastos " + $("#hmg-myeloblast-percent").val() + "%" + myeloblast_abs );
+        }
+        if ( $("#hmg-blast-percent").val() != "" ) {
+          let blast_abs = $("#hmg-blast-abs").val() != "" ? " (" + $("#hmg-blast-abs").val().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ")" : "";
+          hmg.push( "      - Blastos " + $("#hmg-blast-percent").val() + "%" + blast_abs );
+        }
       }
       let linfo_abs = $("#hmg-linfo-abs").val() != "" ? " (" + $("#hmg-linfo-abs").val().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ")" : "";
       hmg.push( "    - Linfo " + $("#hmg-linfo-percent").val() + "%" + linfo_abs );
@@ -233,14 +282,19 @@ $(document).ready(function() {
       let tropo = parseFloat( $("#tropo-fast").val() );
       res.push( "- Tropo FAST " + ( tropo < 0.03 ? "indetectável ao método" : tropo ) );
     }
-    if ( $("#tropo-us").val() != "" ) { res.push( "- Tropo Ultrassensível " + $("#tropo-us").val() ); }
+    if ( $("#tropo-us").val() != "" ) {
+      let tropo = parseFloat( $("#tropo-us").val() );
+      res.push( "- Tropo Ultrassensível " + ( tropo < 0.001 ? "indetectável ao método" : tropo ) );
+    }
 
     // Miscellanea results
     if ( $("#pcr").val() != "" || $("#vhs").val() != "" ) {
       if ( $("#pcr").val() != "" && $("#vhs").val() != "" ) {
-        res.push( "- PCR/VHS " + $("#pcr").val() + "/" + $("#vhs").val() );
+        let pcr = parseFloat( $("#pcr").val() );
+        res.push( "- PCR/VHS " + ( pcr < 0.01 ? "indetectável ao método" : pcr ) + "/" + $("#vhs").val() );
       } else if ( $("#pcr").val() != "" ) {
-        res.push( "- PCR " + $("#pcr").val() );
+        let pcr = parseFloat( $("#pcr").val() );
+        res.push( "- PCR " + ( pcr < 0.01 ? "indetectável ao método" : pcr ) );
       } else {
         res.push( "- VHS " + $("#vhs").val() );
       }
@@ -251,7 +305,7 @@ $(document).ready(function() {
     if ( $("#dhl").val() != "" ) { res.push( "- DHL " + $("#dhl").val() ); }
     if ( $("#bnp").val() != "" ) {
       let bnp = parseFloat( $("#bnp").val() );
-      res.push("- BNP " + ( bnp > 30000 ? ">30.000,0" : bnp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") ) );
+      res.push("- BNP " + ( bnp > 30000 ? "acima do limite superior de detecção do método" : bnp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") ) );
     }
     if ( $("#inr").val() != "" ) { res.push( "- INR " + $("#inr").val() ); }
 

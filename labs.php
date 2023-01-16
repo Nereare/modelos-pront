@@ -416,6 +416,108 @@ require_once "header.php";
       </div>
       <div class="field has-addons ml-5">
         <div class="control">
+          <button class="button is-static" tabindex="-1">Blastos</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="hmg-blast-percent" min="0" step="0.1" placeholder="Blastos (%)">
+        </div>
+        <div class="control">
+          <button class="button is-static" tabindex="-1">(</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="hmg-blast-abs" min="0" step="1" placeholder="Blastos (abs)">
+        </div>
+        <div class="control">
+          <button class="button is-static" tabindex="-1">)</button>
+        </div>
+      </div>
+      <div class="field has-addons ml-5">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Mieloblastos</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="hmg-myeloblast-percent" min="0" step="0.1" placeholder="Mieloblastos (%)">
+        </div>
+        <div class="control">
+          <button class="button is-static" tabindex="-1">(</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="hmg-myeloblast-abs" min="0" step="1" placeholder="Mieloblastos (abs)">
+        </div>
+        <div class="control">
+          <button class="button is-static" tabindex="-1">)</button>
+        </div>
+      </div>
+      <div class="field has-addons ml-5">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Promieloblastos</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="hmg-promyelocyst-percent" min="0" step="0.1" placeholder="Promieloblastos (%)">
+        </div>
+        <div class="control">
+          <button class="button is-static" tabindex="-1">(</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="hmg-promyelocyst-abs" min="0" step="1" placeholder="Promieloblastos (abs)">
+        </div>
+        <div class="control">
+          <button class="button is-static" tabindex="-1">)</button>
+        </div>
+      </div>
+      <div class="field has-addons ml-5">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Mielócitos</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="hmg-myelocyst-percent" min="0" step="0.1" placeholder="Mielócitos (%)">
+        </div>
+        <div class="control">
+          <button class="button is-static" tabindex="-1">(</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="hmg-myelocyst-abs" min="0" step="1" placeholder="Mielócitos (abs)">
+        </div>
+        <div class="control">
+          <button class="button is-static" tabindex="-1">)</button>
+        </div>
+      </div>
+      <div class="field has-addons ml-5">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Metamielócitos</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="hmg-metamyelocyst-percent" min="0" step="0.1" placeholder="Metamielócitos (%)">
+        </div>
+        <div class="control">
+          <button class="button is-static" tabindex="-1">(</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="hmg-metamyelocyst-abs" min="0" step="1" placeholder="Metamielócitos (abs)">
+        </div>
+        <div class="control">
+          <button class="button is-static" tabindex="-1">)</button>
+        </div>
+      </div>
+      <div class="field has-addons ml-5">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Bastonetes</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="hmg-bast-percent" min="0" step="0.1" placeholder="Bastonetes (%)">
+        </div>
+        <div class="control">
+          <button class="button is-static" tabindex="-1">(</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="hmg-bast-abs" min="0" step="1" placeholder="Bastonetes (abs)">
+        </div>
+        <div class="control">
+          <button class="button is-static" tabindex="-1">)</button>
+        </div>
+      </div>
+      <div class="field has-addons ml-5">
+        <div class="control">
           <button class="button is-static" tabindex="-1">Segmentados</button>
         </div>
         <div class="control is-expanded">
@@ -426,23 +528,6 @@ require_once "header.php";
         </div>
         <div class="control is-expanded">
           <input type="number" class="input" id="hmg-segm-abs" min="0" step="1" placeholder="Segmentados (abs)">
-        </div>
-        <div class="control">
-          <button class="button is-static" tabindex="-1">)</button>
-        </div>
-      </div>
-      <div class="field has-addons ml-5">
-        <div class="control">
-          <button class="button is-static" tabindex="-1">Jovens</button>
-        </div>
-        <div class="control is-expanded">
-          <input type="number" class="input" id="hmg-young-percent" min="0" step="0.1" placeholder="Jovens (%)">
-        </div>
-        <div class="control">
-          <button class="button is-static" tabindex="-1">(</button>
-        </div>
-        <div class="control is-expanded">
-          <input type="number" class="input" id="hmg-young-abs" min="0" step="1" placeholder="Jovens (abs)">
         </div>
         <div class="control">
           <button class="button is-static" tabindex="-1">)</button>
