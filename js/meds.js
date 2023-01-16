@@ -16465,6 +16465,57 @@ $(document).ready(function() {
         ", se coceira",
         ""
       ]
+    ],
+    "PS - Tramadol IV": [
+      [
+        "Tramadol",
+        "50mg/mL",
+        "Via Endovenosa",
+        "01 ampola",
+        "",
+        "Aplicar",
+        "01",
+        "ampola",
+        "",
+        "",
+        "DU",
+        "",
+        ""
+      ]
+    ],
+    "PS - Haldol IM": [
+      [
+        "Haloperidol",
+        "05mg/mL",
+        "Via Intramuscular",
+        "01 ampola",
+        "",
+        "Aplicar",
+        "01",
+        "ampola",
+        "",
+        "",
+        "DU",
+        "",
+        ""
+      ]
+    ],
+    "PS - Quetiapina VO": [
+      [
+        "Quetiapina",
+        "25mg",
+        "Via Oral",
+        "01 cp",
+        "",
+        "Dar",
+        "01",
+        "cp",
+        "",
+        "",
+        "DU",
+        "",
+        ""
+      ]
     ]
   };
 
