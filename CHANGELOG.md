@@ -5,6 +5,10 @@ Todas as mudanças significativas nesse projeto serão documentadas neste arquiv
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
 ## [Não Publicado][Unreleased]
+### Modificado
+- *Prescrições*:
+  - Incluir plasil em prescrição de enxaqueca;
+  - Substituir amitriptilina por gabapentina em prescrição de dor neuropática ([DOI: 10.1002/14651858.CD008242.pub3](https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD008242.pub3/full) e [DOI: 10.1002/14651858.CD007938.pub4](https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD007938.pub4/full)).
 
 ## [2.10.5] - 2023-01-16
 ### Adicionado

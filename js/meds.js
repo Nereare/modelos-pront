@@ -16107,8 +16107,8 @@ $(document).ready(function() {
         ""
       ],
       [
-        "Amitriptilina",
-        "25mg",
+        "Gabapentina",
+        "300mg",
         "Via Oral",
         "60 cps",
         "",
@@ -16119,7 +16119,7 @@ $(document).ready(function() {
         "dia",
         "",
         "",
-        ""
+        "Tomar 30 minutos antes de dormir."
       ]
     ],
     "Dor Neuropática (parac)": [
@@ -16169,8 +16169,8 @@ $(document).ready(function() {
         ""
       ],
       [
-        "Amitriptilina",
-        "25mg",
+        "Gabapentina",
+        "300mg",
         "Via Oral",
         "60 cps",
         "",
@@ -16181,7 +16181,7 @@ $(document).ready(function() {
         "dia",
         "",
         "",
-        ""
+        "Tomar 30 minutos antes de dormir."
       ]
     ],
     "Herpes Zóster (adulto)": [
@@ -16372,6 +16372,21 @@ $(document).ready(function() {
         ""
       ],
       [
+        "Metoclopramida",
+        "10mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "01",
+        "cp",
+        "08",
+        "horas",
+        "",
+        ", se crise de enxaqueca ou enjôos",
+        ""
+      ],
+      [
         "Sumatriptana",
         "50mg",
         "Via Oral",
@@ -16416,6 +16431,21 @@ $(document).ready(function() {
         "horas",
         "",
         ", se dor, intercalado com dipirona",
+        ""
+      ],
+      [
+        "Metoclopramida",
+        "10mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "01",
+        "cp",
+        "08",
+        "horas",
+        "",
+        ", se crise de enxaqueca ou enjôos",
         ""
       ],
       [
