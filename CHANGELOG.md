@@ -5,6 +5,11 @@ Todas as mudanças significativas nesse projeto serão documentadas neste arquiv
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
 ## [Não Publicado][Unreleased]
+
+## [2.10.5-r1] - 2023-03-11
+### Adicionado
+- *Prescrições*:
+  - Receita padrão para tratamento adulto de escabiose (estimando-se peso ~70kg).
 ### Modificado
 - *Prescrições*:
   - Incluir plasil em prescrição de enxaqueca;
@@ -116,7 +121,8 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Página de Requisição de Implanon.
 - Página de Exame Físico genérico.
 
-[Unreleased]: https://github.com/Nereare/modelos-pront/compare/v2.10.5...HEAD
+[Unreleased]: https://github.com/Nereare/modelos-pront/compare/v2.10.5-r1...HEAD
+[2.10.5-r1]: https://github.com/Nereare/modelos-pront/compare/v2.10.5...v2.10.5-r1
 [2.10.5]: https://github.com/Nereare/modelos-pront/compare/v2.5.3...v2.10.5
 [2.5.3]: https://github.com/Nereare/modelos-pront/compare/v2.4.12...v2.5.3
 [2.4.12]: https://github.com/Nereare/modelos-pront/compare/v2.4.11...v2.4.12

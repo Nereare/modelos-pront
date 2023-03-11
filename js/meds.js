@@ -16496,6 +16496,38 @@ $(document).ready(function() {
         ""
       ]
     ],
+    "Escabiose": [
+      [
+        "Ivermectina",
+        "06mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "02",
+        "cps",
+        "07",
+        "d",
+        " por 02 semanas",
+        "",
+        "Quando de cada tomada de ivermectina, lavar todas as roupas de cama, mesa, banho e corpo em água quente ou, caso não seja possível lavar em água quente, passar a ferro após lavar."
+      ],
+      [
+        "Dexclorferinamina",
+        "0,4mg/mL",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "10",
+        "mL",
+        "8",
+        "horas",
+        "",
+        ", se coceira",
+        ""
+      ]
+    ],
     "PS - Tramadol IV": [
       [
         "Tramadol",
