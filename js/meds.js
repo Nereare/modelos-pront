@@ -2195,7 +2195,8 @@ $(document).ready(function() {
     "Insulina Humana Análoga Detemir 100UI/mL",
     "Insulina Humana Análoga Glulisina 100UI/mL",
     "Caneta de Insulina Humana Regular 100UI/mL",
-    "Caneta de Insulina Humana Isófana (NPH) 100UI/mL"
+    "Caneta de Insulina Humana Isófana (NPH) 100UI/mL",
+    "Hidróxido de Alumínio 60mg/mL"
   ];
 
   var meds = {
@@ -15362,6 +15363,12 @@ $(document).ready(function() {
       "100UI/mL",
       "caneta sol inj",
       "caneta"
+    ],
+    "Hidróxido de Alumínio 60mg/mL": [
+      "Hidróxido de Alumínio",
+      "60mg/mL",
+      "sol",
+      "frasco"
     ]
   };
 
