@@ -5,6 +5,8 @@ Todas as mudanças significativas nesse projeto serão documentadas neste arquiv
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
 ## [Não Publicado][Unreleased]
+### Modificado
+- Todos os campos dentro de `div.field`s agora têm fontes com espaçamento fixo (*monospace*).
 
 ## [2.10.5-r1] - 2023-03-11
 ### Adicionado

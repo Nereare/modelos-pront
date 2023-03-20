@@ -13,6 +13,11 @@ $link: #00acc1;
 
 // Custom styles
 
+// Set all fields' fonts to `$family-monospace`
+.field {
+  * { font-family: $family-monospace; }
+}
+
 // Notification from `config.php`, regarding the success (or not) of
 // saving the configurations.
 #config-reply {
