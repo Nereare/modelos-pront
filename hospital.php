@@ -122,7 +122,7 @@ require_once "header.php";
               <input type="number" id="ssvv-sat" class="input" min="0" max="100" step="1" placeholder="#">
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">%</button>
+              <button class="button is-static" tabindex="-1">%</button>
             </div>
             <div class="control">
               <div class="select">
