@@ -15439,6 +15439,21 @@ $(document).ready(function() {
         " por 02 semanas",
         "",
         "Sempre realizar lavagem nasal ANTES de aplicar beclometasona."
+      ],
+      [
+        "Ambroxol",
+        "06mg/mL",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "05",
+        "mL",
+        "08",
+        "horas",
+        " por 05d",
+        "",
+        ""
       ]
     ],
     "Resfriado/Gripe (dip+parac)": [
@@ -15516,6 +15531,21 @@ $(document).ready(function() {
         " por 02 semanas",
         "",
         "Sempre realizar lavagem nasal ANTES de aplicar beclometasona."
+      ],
+      [
+        "Ambroxol",
+        "06mg/mL",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "05",
+        "mL",
+        "08",
+        "horas",
+        " por 05d",
+        "",
+        ""
       ]
     ],
     "Resfriado/Gripe (parac)": [
@@ -15563,6 +15593,21 @@ $(document).ready(function() {
         " por 02 semanas",
         "",
         "Sempre realizar lavagem nasal ANTES de aplicar beclometasona."
+      ],
+      [
+        "Ambroxol",
+        "06mg/mL",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "05",
+        "mL",
+        "08",
+        "horas",
+        " por 05d",
+        "",
+        ""
       ]
     ],
     "Dengue (dip)": [
