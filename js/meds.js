@@ -15721,6 +15721,36 @@ $(document).ready(function() {
         " ou se diarreias",
         "",
         "O soro acima pode ser substituído por água de coco e bebidas isotônicas."
+      ],
+      [
+        "Racecadotrila",
+        "100mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "01",
+        "cp",
+        "8",
+        "horas",
+        " por 07d",
+        "",
+        ""
+      ],
+      [
+        "Saccharomyces boulardii",
+        "200mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "01",
+        "cp",
+        "12",
+        "horas",
+        " por 03 dias",
+        "",
+        "Tomar apenas APÓS diarreia começar a melhorar."
       ]
     ],
     "GECA (parac)": [
@@ -15783,6 +15813,36 @@ $(document).ready(function() {
         " ou se diarreias",
         "",
         "O soro acima pode ser substituído por água de coco e bebidas isotônicas."
+      ],
+      [
+        "Racecadotrila",
+        "100mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "01",
+        "cp",
+        "8",
+        "horas",
+        " por 07d",
+        "",
+        ""
+      ],
+      [
+        "Saccharomyces boulardii",
+        "200mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "01",
+        "cp",
+        "12",
+        "horas",
+        " por 03 dias",
+        "",
+        "Tomar apenas APÓS diarreia começar a melhorar."
       ]
     ],
     "Cistite (macrodantina, 3d)": [
