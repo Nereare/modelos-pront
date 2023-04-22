@@ -856,6 +856,7 @@ function runP() {
   // Labs
   if( $("#plan-labcovid").is(":checked") ) { p.push( "Solicito coleta de " + $("#labcovid").val() + " para SARS-CoV-2" + $("#labcovid-refusal").val() ); }
   if( $("#plan-labflu").is(":checked") ) { p.push( "Solicito coleta de " + $("#labflu").val() + " para Influenza A/B" + $("#labflu-refusal").val() ); }
+  if( $("#plan-labother").is(":checked") ) { p.push("Solicito, também, coleta de " + $("#labother").val()); }
   if( $("#plan-labnone").is(":checked") ) {
     p.push( "Oriento paciente no protocolo vigente da Prefeitura Municipal de São Paulo e como ele restringe a possibilidade de coleta de exames para detecção de SARS-CoV-2, não estando o paciente entre os grupos autorizados por tal protocolo a colher exames de COVID-19" );
     p.push( "Oriento também que, não fosse esse protocolo, paciente apresenta sim indicação de colher exame para detecção de SARS-CoV-2, uma vez que apresenta uma suspeita de infecção por este vírus" );
@@ -866,7 +867,7 @@ function runP() {
   // Prescriptions
   if( $("#plan-symptomatics").is(":checked") ) { p.push( $("#symptomatics").val() ); }
   if( $("#plan-ln").is(":checked") ) { p.push( "Oriento lavagem nasal com soro fisiológico 0,9%" ); }
-  if( $("#plan-clenil").is(":checked") ) { p.push( "Prescrevo beclometasona nasal para otimização de controle de sintomas respiratórios altos" ); }
+  if( $("#plan-clenil").is(":checked") ) { p.push( "Prescrevo corticoesteroide nasal para otimização de controle de sintomas respiratórios altos" ); }
   if( $("#plan-syrups").is(":checked") ) { p.push( "Oriento que não existem \"xaropes para tosse\" que sejam superiores a placebo, e, portanto, visando minimizar efeitos colaterais desnecessários, não serão prescritos" ); }
   if( $("#plan-honey").is(":checked") ) { p.push( "Oriento consumo de uma colher de mel, antes de dormir, para melhorar percepção subjetiva da tosse" ); }
   if( $("#plan-tamiflu").is(":checked") ) { p.push( "Prescrevo oseltamivir 12/12h por 05 dias" ); }
@@ -879,6 +880,10 @@ function runP() {
   p.push( "Oriento ausência de evidências científicas validando o uso de \"tratamento precoce\" para COVID-19 (e.g. dexametasona, ivermectina, azitromicina) em pacientes ambulatoriais, assim como reforço a CONTRAINDICAÇÃO FORMAL de uso de azitromicina em casos de suspeita de infeção por SARS-CoV-2 sem sinais de infecção bacteriana (Choosing Wisely Brasil)" );
   if( $("#plan-isolation").is(":checked") ) { p.push( "Oriento sobre medidas de isolamento do caso-índice tanto dentro como fora de casa (uso de máscara durante todo o período, dormir e se manter em cômodo separado, manter casa arejada e ventilada, não compartilhar itens pessoais, de higiene ou de alimentação, etc.), higiene das mãos e medidas de etiqueta respiratória" ); }
   if( $("#plan-quarantine").is(":checked") ) { p.push( "Oriento medidas que as demais pessoas da casa devem tomar para evitar entrar em contato com o caso índice, assim como reforço higiene de mãos e etiqueta respiratória" ); }
+  if( $("#plan-trvspcr").is(":checked") ) { p.push("Oriento diferenças de valores preditivos positivo e negativo entre Teste Rápido para Antígeno Nasal e RT-PCR para SARS-CoV-2, e impacto na interpretação diagnóstica dessas diferenças em bioestatística"); }
+  // TODO: Research further!!! (transmission)
+  // if( $("#plan-sympequalcontagion").is(":checked") ) { p.push("Oriento "); }
+  // No Criteria
   if( $("#plan-criterianotmet").is(":checked") ) { p.push( "Oriento paciente da ausência de critérios para coleta de exame para investigação de SARS-CoV-2" ); }
   if( $("#plan-whenseek").is(":checked") ) { p.push( "Oriento paciente sobre sinais que sugerem busca de nova avaliação no Sintomáticos Respiratórios" ); }
   if( $("#plan-whenseeker").is(":checked") ) { p.push( "Oriento paciente sobre sinais que sugerem busca de nova avaliação em Pronto Socorro" ); }

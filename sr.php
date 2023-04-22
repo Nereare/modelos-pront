@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The slug for this page.
  * IMPORTANT: Set the variable below so that the header works properly!
@@ -9,18 +10,30 @@ $subtitle = "Sintomáticos Respiratórios v3";
 
 require_once "header.php";
 
-function getPhysician($index = 3) {
-  if ( isset($_COOKIE["physician"]) ) { $data = json_decode( $_COOKIE["physician"] ); }
-  elseif ( isset($_SESSION["physician"]) ) { $data = $_SESSION["physician"]; }
-  else { $data = ["", "", "SP"]; }
+function getPhysician($index = 3)
+{
+  if (isset($_COOKIE["physician"])) {
+    $data = json_decode($_COOKIE["physician"]);
+  } elseif (isset($_SESSION["physician"])) {
+    $data = $_SESSION["physician"];
+  } else {
+    $data = ["", "", "SP"];
+  }
 
-  if ( $index > 2 ) { return ""; }
-  else { return $data[ $index ]; }
+  if ($index > 2) {
+    return "";
+  } else {
+    return $data[$index];
+  }
 }
 
-if ( isset( $_COOKIE["sr_header"] ) ) { $sr_header = $_COOKIE["sr_header"]; }
-elseif ( isset( $_SESSION["sr_header"] ) ) { $sr_header = $_SESSION["sr_header"]; }
-else { $sr_header = "SR"; }
+if (isset($_COOKIE["sr_header"])) {
+  $sr_header = $_COOKIE["sr_header"];
+} elseif (isset($_SESSION["sr_header"])) {
+  $sr_header = $_SESSION["sr_header"];
+} else {
+  $sr_header = "SR";
+}
 ?>
 
 <main class="section">
@@ -105,7 +118,7 @@ else { $sr_header = "SR"; }
         <h3 class="title is-5">Sintomas-Chave</h3>
 
         <div class="columns">
-          <div class="column">
+          <div class="column is-half">
             <div class="field has-addons">
               <div class="control">
                 <label for="symp-cough" class="button">
@@ -129,7 +142,7 @@ else { $sr_header = "SR"; }
             </div>
             <div class="field has-addons">
               <div class="control">
-                <button class="button is-static" tabindex="-1">Tosse prévia</button>
+                <button class="button is-static" tabindex="-1">Prévia</button>
               </div>
               <div class="control is-expanded">
                 <div class="select is-disabled is-fullwidth">
@@ -149,7 +162,7 @@ else { $sr_header = "SR"; }
                     <option value="igual ao basal" selected>igual</option>
                     <option value="com quantidade aumentada em relação ao basal">qtd&uarr;</option>
                     <option value="com aspecto pior que o basal">aspecto pior</option>
-                    <option value="com quantidade aumentada e aspecto pior que o basal">qtd&uarr;/aspec. pior</option>
+                    <option value="com quantidade aumentada e aspecto pior que o basal">qtd&uarr;+aspec.</option>
                   </select>
                 </div>
               </div>
@@ -179,7 +192,7 @@ else { $sr_header = "SR"; }
             </div>
           </div>
 
-          <div class="column">
+          <div class="column is-half">
             <div class="field has-addons">
               <div class="control">
                 <label for="symp-fever" class="button">
@@ -1166,13 +1179,13 @@ else { $sr_header = "SR"; }
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Sat O<sub>2</sub></button>
+              <button class="button is-static" tabindex="-1">Sat O<sub>2</sub></button>
             </div>
             <div class="control is-expanded">
               <input type="number" id="ssvv-sat" class="input" min="0" max="100" step="1" placeholder="#">
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">%</button>
+              <button class="button is-static" tabindex="-1">%</button>
             </div>
             <div class="control">
               <div class="select">
@@ -1187,43 +1200,43 @@ else { $sr_header = "SR"; }
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Pulso</button>
+              <button class="button is-static" tabindex="-1">Pulso</button>
             </div>
             <div class="control is-expanded">
               <input type="number" id="ssvv-pulse" class="input" min="1" step="1" placeholder="#">
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">bpm</button>
+              <button class="button is-static" tabindex="-1">bpm</button>
             </div>
           </div>
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">PA</button>
+              <button class="button is-static" tabindex="-1">PA</button>
             </div>
             <div class="control is-expanded">
               <input type="number" id="ssvv-pas" class="input" min="1" step="2" placeholder="PAS">
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">/</button>
+              <button class="button is-static" tabindex="-1">/</button>
             </div>
             <div class="control is-expanded">
               <input type="number" id="ssvv-pad" class="input" min="1" step="2" placeholder="PAD">
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">mmHg</button>
+              <button class="button is-static" tabindex="-1">mmHg</button>
             </div>
           </div>
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">FR</button>
+              <button class="button is-static" tabindex="-1">FR</button>
             </div>
             <div class="control is-expanded">
               <input type="number" id="ssvv-fr" class="input" min="1" step="1" placeholder="#">
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">irpm</button>
+              <button class="button is-static" tabindex="-1">irpm</button>
             </div>
           </div>
         </div>
@@ -1231,13 +1244,13 @@ else { $sr_header = "SR"; }
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Temp</button>
+              <button class="button is-static" tabindex="-1">Temp</button>
             </div>
             <div class="control is-expanded">
               <input type="number" id="ssvv-temp" class="input" min="1" step="0.1" placeholder="#">
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">°C</button>
+              <button class="button is-static" tabindex="-1">°C</button>
             </div>
             <div class="control">
               <div class="select">
@@ -1251,37 +1264,37 @@ else { $sr_header = "SR"; }
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Peso</button>
+              <button class="button is-static" tabindex="-1">Peso</button>
             </div>
             <div class="control is-expanded">
               <input type="number" id="ssvv-weight" class="input" min="0" step="0.1" placeholder="#">
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">kg</button>
+              <button class="button is-static" tabindex="-1">kg</button>
             </div>
           </div>
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Alt</button>
+              <button class="button is-static" tabindex="-1">Alt</button>
             </div>
             <div class="control is-expanded">
               <input type="number" id="ssvv-height" class="input" min="1" step="1" placeholder="#">
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">cm</button>
+              <button class="button is-static" tabindex="-1">cm</button>
             </div>
           </div>
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">IMC</button>
+              <button class="button is-static" tabindex="-1">IMC</button>
             </div>
             <div class="control is-expanded">
               <input type="number" id="ssvv-bmi" class="input" placeholder="#" readonly>
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">kg/m<sup>2</sup></button>
+              <button class="button is-static" tabindex="-1">kg/m<sup>2</sup></button>
             </div>
           </div>
         </div>
@@ -1304,7 +1317,7 @@ else { $sr_header = "SR"; }
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Conjuntiva</button>
+              <button class="button is-static" tabindex="-1">Conjuntiva</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1320,7 +1333,7 @@ else { $sr_header = "SR"; }
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Secreções</button>
+              <button class="button is-static" tabindex="-1">Secreções</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1354,7 +1367,7 @@ else { $sr_header = "SR"; }
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Tireoide</button>
+              <button class="button is-static" tabindex="-1">Tireoide</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1373,7 +1386,7 @@ else { $sr_header = "SR"; }
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Linfonodos</button>
+              <button class="button is-static" tabindex="-1">Linfonodos</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1388,7 +1401,7 @@ else { $sr_header = "SR"; }
               </div>
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">de aspecto</button>
+              <button class="button is-static" tabindex="-1">de aspecto</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1422,7 +1435,7 @@ else { $sr_header = "SR"; }
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">MV</button>
+              <button class="button is-static" tabindex="-1">MV</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1439,7 +1452,7 @@ else { $sr_header = "SR"; }
               </div>
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">RA</button>
+              <button class="button is-static" tabindex="-1">RA</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1457,7 +1470,7 @@ else { $sr_header = "SR"; }
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Alteração até</button>
+              <button class="button is-static" tabindex="-1">Alteração até</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1497,7 +1510,7 @@ else { $sr_header = "SR"; }
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">B</button>
+              <button class="button is-static" tabindex="-1">B</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1566,7 +1579,7 @@ else { $sr_header = "SR"; }
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Abdome</button>
+              <button class="button is-static" tabindex="-1">Abdome</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1615,7 +1628,7 @@ else { $sr_header = "SR"; }
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Traube</button>
+              <button class="button is-static" tabindex="-1">Traube</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1630,19 +1643,19 @@ else { $sr_header = "SR"; }
           <p class="help">Valores negativos = acima de RCD, positivos = abaixo de RCD</p>
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Hepatimetria</button>
+              <button class="button is-static" tabindex="-1">Hepatimetria</button>
             </div>
             <div class="control is-expanded">
               <input type="number" class="input" id="abdomen-hepatimetry" min="-10" max="10" step="1" value="0" placeholder="#">
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">cm</button>
+              <button class="button is-static" tabindex="-1">cm</button>
             </div>
           </div>
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Macicez Móvel</button>
+              <button class="button is-static" tabindex="-1">Macicez Móvel</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1657,7 +1670,7 @@ else { $sr_header = "SR"; }
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Skoda</button>
+              <button class="button is-static" tabindex="-1">Skoda</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1672,13 +1685,13 @@ else { $sr_header = "SR"; }
               <input type="number" id="abdomen-skoda-cm" class="input" min="0" step="1" placeholder="#" disabled>
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">cm da c. umbilical</button>
+              <button class="button is-static" tabindex="-1">cm da c. umbilical</button>
             </div>
           </div>
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Piparote</button>
+              <button class="button is-static" tabindex="-1">Piparote</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1693,7 +1706,7 @@ else { $sr_header = "SR"; }
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Massas</button>
+              <button class="button is-static" tabindex="-1">Massas</button>
             </div>
             <div class="control">
               <div class="select">
@@ -1710,7 +1723,7 @@ else { $sr_header = "SR"; }
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">DB</button>
+              <button class="button is-static" tabindex="-1">DB</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1725,7 +1738,7 @@ else { $sr_header = "SR"; }
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Murphy</button>
+              <button class="button is-static" tabindex="-1">Murphy</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1740,7 +1753,7 @@ else { $sr_header = "SR"; }
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">McBurney</button>
+              <button class="button is-static" tabindex="-1">McBurney</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1755,7 +1768,7 @@ else { $sr_header = "SR"; }
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Giordano</button>
+              <button class="button is-static" tabindex="-1">Giordano</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1794,7 +1807,7 @@ else { $sr_header = "SR"; }
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">MTD</button>
+              <button class="button is-static" tabindex="-1">MTD</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1819,7 +1832,7 @@ else { $sr_header = "SR"; }
               </div>
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">Conduto</button>
+              <button class="button is-static" tabindex="-1">Conduto</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1835,7 +1848,7 @@ else { $sr_header = "SR"; }
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">MTE</button>
+              <button class="button is-static" tabindex="-1">MTE</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1860,7 +1873,7 @@ else { $sr_header = "SR"; }
               </div>
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">Conduto</button>
+              <button class="button is-static" tabindex="-1">Conduto</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1895,7 +1908,7 @@ else { $sr_header = "SR"; }
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Oroscopia</button>
+              <button class="button is-static" tabindex="-1">Oroscopia</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1910,7 +1923,7 @@ else { $sr_header = "SR"; }
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Tonsilas</button>
+              <button class="button is-static" tabindex="-1">Tonsilas</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1939,7 +1952,7 @@ else { $sr_header = "SR"; }
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Palato</button>
+              <button class="button is-static" tabindex="-1">Palato</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1973,7 +1986,7 @@ else { $sr_header = "SR"; }
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Mucosa</button>
+              <button class="button is-static" tabindex="-1">Mucosa</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1988,7 +2001,7 @@ else { $sr_header = "SR"; }
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Cornetos</button>
+              <button class="button is-static" tabindex="-1">Cornetos</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -2006,7 +2019,7 @@ else { $sr_header = "SR"; }
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Septo Nasal</button>
+              <button class="button is-static" tabindex="-1">Septo Nasal</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -2067,7 +2080,7 @@ else { $sr_header = "SR"; }
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Edema</button>
+              <button class="button is-static" tabindex="-1">Edema</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -2093,7 +2106,7 @@ else { $sr_header = "SR"; }
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Pulsos</button>
+              <button class="button is-static" tabindex="-1">Pulsos</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -2115,7 +2128,7 @@ else { $sr_header = "SR"; }
               </div>
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">a partir de aa.</button>
+              <button class="button is-static" tabindex="-1">a partir de aa.</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -2259,6 +2272,24 @@ else { $sr_header = "SR"; }
           <li>
             <div class="field has-addons">
               <div class="control">
+                <label for="plan-labflu" class="button">
+                  <span class="icon">
+                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
+                  </span>
+                  <input type="checkbox" class="is-hidden checkbutton" id="plan-labother" value="true">
+                </label>
+              </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Outro</button>
+              </div>
+              <div class="control is-expanded">
+                <input type="text" class="input" id="labother">
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="field has-addons">
+              <div class="control">
                 <label for="plan-labnone" class="button">
                   <span class="icon">
                     <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
@@ -2389,7 +2420,7 @@ else { $sr_header = "SR"; }
                 </label>
               </div>
               <div class="control is-expanded">
-                <button class="button is-static is-fullwidth" tabindex="-1"><strong>Clenil</strong>&nbsp;nasal</button>
+                <button class="button is-static is-fullwidth" tabindex="-1"><strong>Corticoide</strong>&nbsp;nasal</button>
               </div>
             </div>
           </li>
@@ -2459,7 +2490,9 @@ else { $sr_header = "SR"; }
                     <option value="amoxicilina 500mg 8/8h" selected>Amoxi</option>
                     <option value="amoxicilina 875mg 12/12h" selected>Amoxi BD</option>
                     <option value="amoxicilina 1.000mg 8/8h" selected>Amoxi&times;2</option>
-                    <option value="amoxicilina 500mg 8/8h mais claritromicina 500mg/d">Amoxi+Claritro</option>
+                    <option value="amoxicilina 500mg 8/8h mais claritromicina 500mg 12/12h">Amoxi+Claritro</option>
+                    <option value="amoxicilina+clavulanato 500+125mg 8/8h">Amoxi+Clav</option>
+                    <option value="amoxicilina+clavulanato 875+125mg 12/12h">Amoxi+Clav BD</option>
                     <option value="cefalexina 500mg 6/6h">Cefalexina</option>
                     <option value="cefalexina 1.000mg 6/6h">Cefalexina&times;2</option>
                     <option value="ciprofloxacino 500mg 12/12h mais clindamicina 300mg 8/8h">Cipro+Clinda</option>
@@ -2647,6 +2680,38 @@ else { $sr_header = "SR"; }
               </div>
             </div>
           </li>
+          <li>
+            <div class="field has-addons">
+              <div class="control">
+                <label for="plan-quarantine" class="button">
+                  <span class="icon">
+                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
+                  </span>
+                  <input type="checkbox" class="is-hidden checkbutton" id="plan-trvspcr" value="true">
+                </label>
+              </div>
+              <div class="control is-expanded">
+                <button class="button is-static is-fullwidth" tabindex="-1">Diff TR-Ag&nbsp;<em>Vs.</em>&nbsp;RT-PCR</button>
+              </div>
+            </div>
+          </li>
+          <!-- TODO: Research further
+          <li>
+            <div class="field has-addons">
+              <div class="control">
+                <label for="plan-quarantine" class="button">
+                  <span class="icon">
+                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
+                  </span>
+                  <input type="checkbox" class="is-hidden checkbutton" id="plan-sympequalcontagion" value="true">
+                </label>
+              </div>
+              <div class="control is-expanded">
+                <button class="button is-static is-fullwidth" tabindex="-1">Fim sintomas = Fim transmissão</button>
+              </div>
+            </div>
+          </li>
+          -->
 
           <h3 class="title is-5">Sem Critérios</h3>
           <li>
@@ -3180,33 +3245,33 @@ else { $sr_header = "SR"; }
             <div class="control">
               <div class="select">
                 <select id="flf-crm-uf">
-                  <option value="AC"<?php echo ( getPhysician(2) == "AC" ) ? " selected" : ""; ?>>AC</option>
-                  <option value="AL"<?php echo ( getPhysician(2) == "AL" ) ? " selected" : ""; ?>>AL</option>
-                  <option value="AP"<?php echo ( getPhysician(2) == "AP" ) ? " selected" : ""; ?>>AP</option>
-                  <option value="AM"<?php echo ( getPhysician(2) == "AM" ) ? " selected" : ""; ?>>AM</option>
-                  <option value="BA"<?php echo ( getPhysician(2) == "BA" ) ? " selected" : ""; ?>>BA</option>
-                  <option value="CE"<?php echo ( getPhysician(2) == "CE" ) ? " selected" : ""; ?>>CE</option>
-                  <option value="DF"<?php echo ( getPhysician(2) == "DF" ) ? " selected" : ""; ?>>DF</option>
-                  <option value="ES"<?php echo ( getPhysician(2) == "ES" ) ? " selected" : ""; ?>>ES</option>
-                  <option value="GO"<?php echo ( getPhysician(2) == "GO" ) ? " selected" : ""; ?>>GO</option>
-                  <option value="MA"<?php echo ( getPhysician(2) == "MA" ) ? " selected" : ""; ?>>MA</option>
-                  <option value="MT"<?php echo ( getPhysician(2) == "MT" ) ? " selected" : ""; ?>>MT</option>
-                  <option value="MS"<?php echo ( getPhysician(2) == "MS" ) ? " selected" : ""; ?>>MS</option>
-                  <option value="MG"<?php echo ( getPhysician(2) == "MG" ) ? " selected" : ""; ?>>MG</option>
-                  <option value="PA"<?php echo ( getPhysician(2) == "PA" ) ? " selected" : ""; ?>>PA</option>
-                  <option value="PB"<?php echo ( getPhysician(2) == "PB" ) ? " selected" : ""; ?>>PB</option>
-                  <option value="PR"<?php echo ( getPhysician(2) == "PR" ) ? " selected" : ""; ?>>PR</option>
-                  <option value="PE"<?php echo ( getPhysician(2) == "PE" ) ? " selected" : ""; ?>>PE</option>
-                  <option value="PI"<?php echo ( getPhysician(2) == "PI" ) ? " selected" : ""; ?>>PI</option>
-                  <option value="RJ"<?php echo ( getPhysician(2) == "RJ" ) ? " selected" : ""; ?>>RJ</option>
-                  <option value="RN"<?php echo ( getPhysician(2) == "RN" ) ? " selected" : ""; ?>>RN</option>
-                  <option value="RS"<?php echo ( getPhysician(2) == "RS" ) ? " selected" : ""; ?>>RS</option>
-                  <option value="RO"<?php echo ( getPhysician(2) == "RO" ) ? " selected" : ""; ?>>RO</option>
-                  <option value="RR"<?php echo ( getPhysician(2) == "RR" ) ? " selected" : ""; ?>>RR</option>
-                  <option value="SC"<?php echo ( getPhysician(2) == "SC" ) ? " selected" : ""; ?>>SC</option>
-                  <option value="SP"<?php echo ( getPhysician(2) == "SP" ) ? " selected" : ""; ?>>SP</option>
-                  <option value="SE"<?php echo ( getPhysician(2) == "SE" ) ? " selected" : ""; ?>>SE</option>
-                  <option value="TO"<?php echo ( getPhysician(2) == "TO" ) ? " selected" : ""; ?>>TO</option>
+                  <option value="AC" <?php echo (getPhysician(2) == "AC") ? " selected" : ""; ?>>AC</option>
+                  <option value="AL" <?php echo (getPhysician(2) == "AL") ? " selected" : ""; ?>>AL</option>
+                  <option value="AP" <?php echo (getPhysician(2) == "AP") ? " selected" : ""; ?>>AP</option>
+                  <option value="AM" <?php echo (getPhysician(2) == "AM") ? " selected" : ""; ?>>AM</option>
+                  <option value="BA" <?php echo (getPhysician(2) == "BA") ? " selected" : ""; ?>>BA</option>
+                  <option value="CE" <?php echo (getPhysician(2) == "CE") ? " selected" : ""; ?>>CE</option>
+                  <option value="DF" <?php echo (getPhysician(2) == "DF") ? " selected" : ""; ?>>DF</option>
+                  <option value="ES" <?php echo (getPhysician(2) == "ES") ? " selected" : ""; ?>>ES</option>
+                  <option value="GO" <?php echo (getPhysician(2) == "GO") ? " selected" : ""; ?>>GO</option>
+                  <option value="MA" <?php echo (getPhysician(2) == "MA") ? " selected" : ""; ?>>MA</option>
+                  <option value="MT" <?php echo (getPhysician(2) == "MT") ? " selected" : ""; ?>>MT</option>
+                  <option value="MS" <?php echo (getPhysician(2) == "MS") ? " selected" : ""; ?>>MS</option>
+                  <option value="MG" <?php echo (getPhysician(2) == "MG") ? " selected" : ""; ?>>MG</option>
+                  <option value="PA" <?php echo (getPhysician(2) == "PA") ? " selected" : ""; ?>>PA</option>
+                  <option value="PB" <?php echo (getPhysician(2) == "PB") ? " selected" : ""; ?>>PB</option>
+                  <option value="PR" <?php echo (getPhysician(2) == "PR") ? " selected" : ""; ?>>PR</option>
+                  <option value="PE" <?php echo (getPhysician(2) == "PE") ? " selected" : ""; ?>>PE</option>
+                  <option value="PI" <?php echo (getPhysician(2) == "PI") ? " selected" : ""; ?>>PI</option>
+                  <option value="RJ" <?php echo (getPhysician(2) == "RJ") ? " selected" : ""; ?>>RJ</option>
+                  <option value="RN" <?php echo (getPhysician(2) == "RN") ? " selected" : ""; ?>>RN</option>
+                  <option value="RS" <?php echo (getPhysician(2) == "RS") ? " selected" : ""; ?>>RS</option>
+                  <option value="RO" <?php echo (getPhysician(2) == "RO") ? " selected" : ""; ?>>RO</option>
+                  <option value="RR" <?php echo (getPhysician(2) == "RR") ? " selected" : ""; ?>>RR</option>
+                  <option value="SC" <?php echo (getPhysician(2) == "SC") ? " selected" : ""; ?>>SC</option>
+                  <option value="SP" <?php echo (getPhysician(2) == "SP") ? " selected" : ""; ?>>SP</option>
+                  <option value="SE" <?php echo (getPhysician(2) == "SE") ? " selected" : ""; ?>>SE</option>
+                  <option value="TO" <?php echo (getPhysician(2) == "TO") ? " selected" : ""; ?>>TO</option>
                 </select>
               </div>
             </div>
