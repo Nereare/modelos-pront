@@ -15426,8 +15426,8 @@ $(document).ready(function() {
         "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana."
       ],
       [
-        "Beclometasona",
-        "50mcg/jato",
+        "Budesonida",
+        "32mcg/jato",
         "Via Nasal",
         "",
         "",
@@ -15503,8 +15503,8 @@ $(document).ready(function() {
         "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana."
       ],
       [
-        "Beclometasona",
-        "50mcg/jato",
+        "Budesonida",
+        "32mcg/jato",
         "Via Nasal",
         "",
         "",
@@ -15550,8 +15550,8 @@ $(document).ready(function() {
         "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana."
       ],
       [
-        "Beclometasona",
-        "50mcg/jato",
+        "Budesonida",
+        "32mcg/jato",
         "Via Nasal",
         "",
         "",
@@ -15941,7 +15941,7 @@ $(document).ready(function() {
         "6",
         "horas",
         "",
-        ", se dor, febre ou calafrios",
+        ", se dor",
         ""
       ],
       [
@@ -15956,7 +15956,7 @@ $(document).ready(function() {
         "6",
         "horas",
         "",
-        ", se dor, febre ou calafrios",
+        ", se dor, intercalado com dipirona",
         ""
       ],
       [
@@ -16003,7 +16003,7 @@ $(document).ready(function() {
         "6",
         "horas",
         "",
-        ", se dor, febre ou calafrios",
+        ", se dor",
         ""
       ],
       [
@@ -16065,7 +16065,7 @@ $(document).ready(function() {
         "6",
         "horas",
         "",
-        ", se dor, febre ou calafrios",
+        ", se dor",
         ""
       ],
       [
@@ -16080,7 +16080,7 @@ $(document).ready(function() {
         "6",
         "horas",
         "",
-        ", se dor, febre ou calafrios",
+        ", se dor, intercalado com dipirona",
         ""
       ],
       [
@@ -16142,7 +16142,7 @@ $(document).ready(function() {
         "6",
         "horas",
         "",
-        ", se dor, febre ou calafrios",
+        ", se dor",
         ""
       ],
       [
@@ -16321,7 +16321,7 @@ $(document).ready(function() {
         "60mg/mL",
         "Via Oral",
         "",
-        " - USO POR 06 MESES",
+        "",
         "Tomar",
         "20",
         "mL",
@@ -16437,7 +16437,7 @@ $(document).ready(function() {
         "6",
         "horas",
         "",
-        ", se dor, intercalado com dipirona",
+        ", se dor",
         ""
       ],
       [
