@@ -15438,7 +15438,22 @@ $(document).ready(function() {
         "horas",
         " por 02 semanas",
         "",
-        "Sempre realizar lavagem nasal ANTES de aplicar beclometasona."
+        "Sempre realizar lavagem nasal ANTES de aplicar budesonida."
+      ],
+      [
+        "Ambroxol",
+        "06mg/mL",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "05",
+        "mL",
+        "08",
+        "horas",
+        " por 07d",
+        ", se tosse",
+        ""
       ]
     ],
     "Resfriado/Gripe (dip+parac)": [
@@ -15515,7 +15530,22 @@ $(document).ready(function() {
         "horas",
         " por 02 semanas",
         "",
-        "Sempre realizar lavagem nasal ANTES de aplicar beclometasona."
+        "Sempre realizar lavagem nasal ANTES de aplicar budesonida."
+      ],
+      [
+        "Ambroxol",
+        "06mg/mL",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "05",
+        "mL",
+        "08",
+        "horas",
+        " por 07d",
+        ", se tosse",
+        ""
       ]
     ],
     "Resfriado/Gripe (parac)": [
@@ -15562,7 +15592,22 @@ $(document).ready(function() {
         "horas",
         " por 02 semanas",
         "",
-        "Sempre realizar lavagem nasal ANTES de aplicar beclometasona."
+        "Sempre realizar lavagem nasal ANTES de aplicar budesonida."
+      ],
+      [
+        "Ambroxol",
+        "06mg/mL",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "05",
+        "mL",
+        "08",
+        "horas",
+        " por 07d",
+        ", se tosse",
+        ""
       ]
     ],
     "Dengue (dip)": [
@@ -15721,6 +15766,36 @@ $(document).ready(function() {
         " ou se diarreias",
         "",
         "O soro acima pode ser substituído por água de coco e bebidas isotônicas."
+      ],
+      [
+        "Racecadotrila",
+        "100mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "01",
+        "cp",
+        "08",
+        "horas",
+        " por 07d",
+        ", se diarreia",
+        ""
+      ],
+      [
+        "Saccharomyces boulardii",
+        "200mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "01",
+        "cp",
+        "12",
+        "horas",
+        " por 03d",
+        "",
+        "Tomar apenas quando DIARREIA ESTIVER EM MELHORA."
       ]
     ],
     "GECA (parac)": [
@@ -15783,6 +15858,36 @@ $(document).ready(function() {
         " ou se diarreias",
         "",
         "O soro acima pode ser substituído por água de coco e bebidas isotônicas."
+      ],
+      [
+        "Racecadotrila",
+        "100mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "01",
+        "cp",
+        "08",
+        "horas",
+        " por 07d",
+        ", se diarreia",
+        ""
+      ],
+      [
+        "Saccharomyces boulardii",
+        "200mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "01",
+        "cp",
+        "12",
+        "horas",
+        " por 03d",
+        "",
+        "Tomar apenas quando DIARREIA ESTIVER EM MELHORA."
       ]
     ],
     "Cistite (macrodantina, 3d)": [
