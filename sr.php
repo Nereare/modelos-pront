@@ -915,6 +915,7 @@ if (isset($_COOKIE["sr_header"])) {
                   <option value="estuda">Estuda</option>
                   <option value="estuda e trabalha">Estuda + Trabalha</option>
                   <option value="trabalha com vínculo celetista">Trabalha com carteira assinada</option>
+                  <option value="trabalha como funcionárie públice">Trabalha como funcionárie</option>
                   <option value="trabalha por conta própria">Trabalha por conta</option>
                   <option value="trabalha sem condições mínimas de manutenção de seus direitos humanos fundamentais (incluindo direito de ausência remunerada, neste caso)">"Trabalho" uberizado/semi-escravo</option>
                 </select>
