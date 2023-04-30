@@ -2273,7 +2273,7 @@ if (isset($_COOKIE["sr_header"])) {
           <li>
             <div class="field has-addons">
               <div class="control">
-                <label for="plan-labflu" class="button">
+                <label for="plan-labother" class="button">
                   <span class="icon">
                     <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
                   </span>
@@ -2338,6 +2338,44 @@ if (isset($_COOKIE["sr_header"])) {
               </div>
               <div class="control">
                 <button class="button is-static" tabindex="-1">)</button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="field has-addons">
+              <div class="control">
+                <label for="plan-leaverefuse" class="button">
+                  <span class="icon">
+                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
+                  </span>
+                  <input type="checkbox" class="is-hidden checkbutton" id="plan-leaverefuse" value="true">
+                </label>
+              </div>
+              <div class="control is-expanded">
+                <button class="button is-static is-fullwidth" tabindex="-1">Recusa atestado</button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="field has-addons">
+              <div class="control">
+                <label for="plan-leavehours" class="button">
+                  <span class="icon">
+                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
+                  </span>
+                  <input type="checkbox" class="is-hidden checkbutton" id="plan-leavehours" value="true">
+                </label>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="leave-leavehours-what">
+                    <option value="Oriento onde obter">Oriento</option>
+                    <option value="Redijo">Redijo</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <button class="button is-static is-fullwidth" tabindex="-1">comprovante de horas</button>
               </div>
             </div>
           </li>
@@ -2684,7 +2722,7 @@ if (isset($_COOKIE["sr_header"])) {
           <li>
             <div class="field has-addons">
               <div class="control">
-                <label for="plan-quarantine" class="button">
+                <label for="plan-trvspcr" class="button">
                   <span class="icon">
                     <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
                   </span>
@@ -2853,6 +2891,21 @@ if (isset($_COOKIE["sr_header"])) {
                     <option value="reavaliação em atendimento de livre-demanda se não apresentar sintomas de melhora">reaval se não melhorar</option>
                   </select>
                 </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="field has-addons">
+              <div class="control">
+                <label for="plan-whut" class="button is-primary">
+                  <span class="icon">
+                    <i class="mdi mdi-checkbox-marked mdi-24px"></i>
+                  </span>
+                  <input type="checkbox" class="is-hidden checkbutton" id="plan-whut" value="true" checked>
+                </label>
+              </div>
+              <div class="control is-expanded">
+                <button class="button is-static is-fullwidth" tabindex="-1">Tiro dúvivas</button>
               </div>
             </div>
           </li>

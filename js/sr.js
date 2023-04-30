@@ -856,13 +856,15 @@ function runP() {
   // Labs
   if( $("#plan-labcovid").is(":checked") ) { p.push( "Solicito coleta de " + $("#labcovid").val() + " para SARS-CoV-2" + $("#labcovid-refusal").val() ); }
   if( $("#plan-labflu").is(":checked") ) { p.push( "Solicito coleta de " + $("#labflu").val() + " para Influenza A/B" + $("#labflu-refusal").val() ); }
-  if( $("#plan-labother").is(":checked") ) { p.push("Solicito, também, coleta de " + $("#labother").val()); }
+  if( $("#plan-labother").is(":checked") ) { p.push("Solicito, também, " + $("#labother").val()); }
   if( $("#plan-labnone").is(":checked") ) {
     p.push( "Oriento paciente no protocolo vigente da Prefeitura Municipal de São Paulo e como ele restringe a possibilidade de coleta de exames para detecção de SARS-CoV-2, não estando o paciente entre os grupos autorizados por tal protocolo a colher exames de COVID-19" );
     p.push( "Oriento também que, não fosse esse protocolo, paciente apresenta sim indicação de colher exame para detecção de SARS-CoV-2, uma vez que apresenta uma suspeita de infecção por este vírus" );
   }
   // Leaves
   if( $("#plan-leave").is(":checked") ) { p.push( "Atesto paciente para " + $("#leave").val() + " dias" + $("#leave-reason").val() ); }
+  if( $("#plan-leaverefuse").is(":checked") ) { p.push("Ofereço afastamento, que paciente recusa"); }
+  if( $("#plan-leavehours").is(":checked") ) { p.push($("#leave-leavehours-what").val() + " comprovante de horas"); }
   if( $("#plan-familyleave").is(":checked") ) { p.push( $("#familyleave").val() ); }
   // Prescriptions
   if( $("#plan-symptomatics").is(":checked") ) { p.push( $("#symptomatics").val() ); }
@@ -896,6 +898,7 @@ function runP() {
   if( $("#plan-labwait").is(":checked") ) { p.push( "Oriento que exame previamente coletado ainda não está pronto" ); }
   // Follow Up
   if( $("#plan-followup").is(":checked") ) { p.push( "Oriento retorno no Sintomáticos Respiratórios em " + $("#followup").val() + " dias para " + $("#followup-reason").val() ); }
+  if ($("#plan-whut").is(":checked") ) { p.push("Tiro dúvidas"); }
   if( $("#plan-bai").is(":checked") ) { p.push( "Alta do episódio" ); }
 
   return p;
