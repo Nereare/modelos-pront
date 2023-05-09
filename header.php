@@ -64,7 +64,6 @@ if ( isset($_SESSION["cookies"]) ) {
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
     <script src="node_modules/clipboard/dist/clipboard.min.js"></script>
-    <script src="node_modules/uuid/dist/umd/uuidv4.min.js"></script>
     <script src="node_modules/dompurify/dist/purify.min.js"></script>
     <script src="node_modules/marked/marked.min.js"></script>
     <script src="js/base.js"></script>
