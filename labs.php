@@ -13,6 +13,25 @@ require_once "header.php";
 
 <main class="section">
   <div class="container">
+    <!-- Date -->
+    <div class="box">
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="mdi mdi-calendar"></i>
+              </span>
+              <span>Data</span>
+            </span>
+          </button>
+        </div>
+        <div class="control is-expanded">
+          <input type="date" class="input" id="date">
+        </div>
+      </div>
+    </div>
+
     <!-- Função Renal -->
     <div class="box">
       <h2 class="title is-4">Função Renal</h2>

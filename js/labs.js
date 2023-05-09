@@ -121,7 +121,13 @@ $(document).ready(function() {
   // Generate result
   $("#button-run").on("click", function() {
     // Main result array
-    let res = ["# Labs"];
+    let date = "";
+    let date_options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    if ($("#date").val() != "") {
+      date = new Date($("#date").val() + "T00:00:00-03:00");
+      date = " (" + date.toLocaleString("pt-BR", date_options) + ")";
+    }
+    let res = ["# Labs" + date];
 
     // Renal Function
     if ( $("#urea").val() != "" || $("#creatinine").val() != "" ) {
