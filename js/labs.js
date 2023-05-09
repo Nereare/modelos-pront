@@ -223,6 +223,47 @@ $(function() {
       .trigger("change");
   });
 
+  // GASA
+  $("#gasa-serum-alb, #gasa-ascitis-alb").on("change input", function() {
+    // Parse values
+    let albumin = [];
+    albumin["serum"] = $("#gasa-serum-alb").val().trim() != "" ? parseFloat($("#gasa-serum-alb").val()) : "";
+    albumin["ascitis"] = $("#gasa-ascitis-alb").val().trim() != "" ? parseFloat($("#gasa-ascitis-alb").val()) : "";
+    albumin["diff"] = ( albumin["serum"] != "" && albumin["ascitis"] != "" ) ? (albumin["serum"] - albumin["ascitis"]) : "";
+
+    if ( albumin["serum"] == "" && albumin["ascitis"] == "" ) {
+      $("#gasa-result-show")
+        .html( "Sem dados suficientes" )
+        .removeClass( "is-info is-warning" );
+      $("#gasa-result").val("");
+    } else {
+      if ( albumin["diff"] != "" ) {
+        let high = (albumin["diff"] >= 1.1);
+        $("#gasa-result-show")
+          .html( high ? "Aumentado" : "Diminuído" )
+          .removeClass( "is-info is-warning" )
+          .addClass( high ? "is-info" : "is-warning" );
+        $("#gasa-result").val( albumin["diff"].toFixed(2) + " (" + ( high ? "Aumentado" : "Diminuído" ) + ")" );
+      } else {
+        $("#gasa-result-show")
+          .html("Sem dados suficientes")
+          .removeClass("is-info is-warning");
+        $("#gasa-result").val("");
+      }
+    }
+  });
+  // Update corresponding fields
+  $("#gasa-serum-alb").on("change input", function() {
+    $("#prot-alb")
+      .val( $("#gasa-serum-alb").val() )
+      .trigger("change");
+  });
+  $("#prot-alb").on("change input", function() {
+    $("#gasa-serum-alb")
+      .val( $("#prot-alb").val() )
+      .trigger("change");
+  });
+
   // Add miscellaneous description field & button method
   $("#misc-add").on("click", function() {
     let uuid = uuidPoor();
@@ -462,6 +503,9 @@ $(function() {
       res.push( "    - Sérica " + dhl["serum"] + " (LSN " + dhl["uln"] + ( dhl["uln_twothirds"] != " / LSN*2/3 " + dhl["uln_twothirds"] ? "" : "" ) + ")" );
     }
 
+    // GASA
+    if ( $("#gasa-result").val().trim() != "" ) { res.push( "- GASA " + $("#gasa-result").val() ); }
+
     // Microbio/Other
     // Dengue results
     if ( $("#dengue-ns1").val() != "" && $("#dengue-igm").val() != "" && $("#dengue-igg").val() != "" ) {
@@ -512,6 +556,7 @@ $(function() {
         res.push( "  - Rel. Alb/Glob " + (albumin / globulin).toFixed(3) );
       }
     }
+    if ( $("#gasa-ascitis-alb").val() != "" ) { res.push( "- Albumina (Ascite) " + $("#gasa-ascitis-alb").val() ); }
 
     // Manual Results
     if ( $(".other-exam").length > 0 ) {

@@ -7,9 +7,11 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Não Publicado][Unreleased]
 ### Adicionado
 - *Labs*:
-  - Adicionar data.
-  - Adicionar exames de COVID-19 e Influenza.
-  - Adicionar possibilidade de exames manuais.
+  - Data.
+  - Exames de COVID-19 e Influenza.
+  - Possibilidade de exames manuais.
+  - Cálculo de GASA (Gradiente Albumina Soro-Ascite).
+  - Critérios de Light.
 - *Exame Físico*:
   - Toque retal.
 ### Modificado

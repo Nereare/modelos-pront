@@ -779,6 +779,39 @@ require_once "header.php";
       </div>
     </div>
 
+    <!-- GASA -->
+    <div class="box">
+      <h2 class="title is-4">Gradiente Albumina Soro-Ascite</h2>
+
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Alb. Sérica</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="gasa-serum-alb" min="0" step="0.1" placeholder="Albumina Sérica">
+        </div>
+      </div>
+
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Alb. Ascítica</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="gasa-ascitis-alb" min="0" step="0.1" placeholder="Albumina Ascítica">
+        </div>
+      </div>
+
+      <h3 class="title is-5">Resultado</h3>
+
+      <input type="hidden" id="gasa-result">
+
+      <div class="field">
+        <div class="control is-expanded">
+          <button class="button is-fullwidth" id="gasa-result-show" tabindex="-1" disabled>Sem dados suficientes</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Microbio / Outros -->
     <div class="box">
       <h2 class="title is-4">Outros Testes Microbiológicos</h2>
