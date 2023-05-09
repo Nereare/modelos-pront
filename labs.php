@@ -986,47 +986,29 @@ require_once "header.php";
           <input type="number" class="input" id="prot-glob" step="0.1" placeholder="Globulinas">
         </div>
       </div>
+    </div>
 
-      <div class="field has-addons">
-        <div class="control">
-          <button class="button is-static" tabindex="-1">Dengue</button>
-        </div>
-        <div class="control is-expanded">
-          <div class="select is-fullwidth">
-            <select id="dengue-ns1">
-              <option value="" selected>NS1 NT</option>
-              <option value="não reagente">&mdash;</option>
-              <option value="REAGENTE">&plus;</option>
-            </select>
-          </div>
-        </div>
-        <div class="control">
-          <button class="button is-static" tabindex="-1">/</button>
-        </div>
-        <div class="control is-expanded">
-          <div class="select is-fullwidth">
-            <select id="dengue-igm">
-              <option value="" selected>IgM NT</option>
-              <option value="não reagente">&mdash;</option>
-              <option value="REAGENTE">&plus;</option>
-            </select>
-          </div>
-        </div>
-        <div class="control">
-          <button class="button is-static" tabindex="-1">/</button>
-        </div>
-        <div class="control is-expanded">
-          <div class="select is-fullwidth">
-            <select id="dengue-igg">
-              <option value="" selected>IgG NT</option>
-              <option value="não reagente">&mdash;</option>
-              <option value="REAGENTE">&plus;</option>
-            </select>
-          </div>
-        </div>
+    <!-- Outros -->
+    <div class="box">
+      <h2 class="title is-4">Outros</h2>
+
+      <div class="mb-3" id="misc-container">
       </div>
 
-      <!-- -->
+      <div class="field">
+        <div class="control is-expanded">
+          <button class="button is-fullwidth" id="misc-add">
+            <span class="icon">
+              <i class="mdi mdi-plus-box mdi-24px"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mensagens -->
+    <div class="box">
+      <h2 class="title is-4">Mensagens</h2>
 
       <div class="field has-addons">
         <div class="control">

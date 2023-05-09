@@ -8,6 +8,8 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Adicionado
 - *Labs*:
   - Adicionar data.
+  - Adicionar exames de COVID-19 e Influenza.
+  - Adicionar possibilidade de exames manuais.
 - *Exame Físico*:
   - Toque retal.
 ### Modificado

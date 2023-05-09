@@ -223,6 +223,46 @@ $(function() {
       .trigger("change");
   });
 
+  // Add miscellaneous description field & button method
+  $("#misc-add").on("click", function() {
+    let uuid = uuidPoor();
+    let title_input = $("<input>")
+      .addClass("input lab-title")
+      .attr("type", "text")
+      .attr("placeholder", "Exame...");
+    let title_control = $("<div>")
+      .addClass("control is-expanded")
+      .append(title_input);
+    let description_input = $("<input>")
+      .addClass("input result")
+      .attr("type", "text")
+      .attr("placeholder", "Resultado...");
+    let description_control = $("<div>")
+      .addClass("control is-expanded")
+      .append( description_input );
+    let delete_i = $("<i>")
+      .addClass("mdi mdi-delete mdi-18px");
+    let delete_span = $("<span>")
+      .addClass("icon")
+      .append( delete_i );
+    let delete_button = $("<button>")
+      .addClass("button is-danger")
+      .append( delete_span )
+      .on("click", function() {
+        $("#" + uuid).remove();
+      });
+    let delete_control = $("<div>")
+      .addClass("control")
+      .append( delete_button );
+    let field = $("<div>")
+      .addClass("field has-addons other-exam")
+      .attr("id", uuid)
+      .append( title_control )
+      .append( description_control )
+      .append( delete_control );
+    $("#misc-container").append( field );
+  }).trigger("click");
+
   // Generate result
   $("#button-run").on("click", function() {
     // Main result array
@@ -471,6 +511,17 @@ $(function() {
         let globulin = parseFloat( $("#prot-glob").val() );
         res.push( "  - Rel. Alb/Glob " + (albumin / globulin).toFixed(3) );
       }
+    }
+
+    // Manual Results
+    if ( $(".other-exam").length > 0 ) {
+      $(".other-exam").each(function() {
+        let title  = $(this).find(".lab-title").val().trim();
+        let result = $(this).find(".result").val().trim();
+        if ( title != "" && result != "" ) {
+          res.push( "- " + title + " " + result );
+        }
+      });
     }
 
     // Useless Results
