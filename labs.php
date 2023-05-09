@@ -793,6 +793,27 @@ require_once "header.php";
 
       <div class="field has-addons">
         <div class="control">
+          <button class="button is-static" tabindex="-1">Prot. Total</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="prot-total" step="0.1" placeholder="Prot. Total">
+        </div>
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Alb</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="prot-alb" step="0.1" placeholder="Albumina">
+        </div>
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Glob</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="prot-glob" step="0.1" placeholder="Globulinas">
+        </div>
+      </div>
+
+      <div class="field has-addons">
+        <div class="control">
           <button class="button is-static" tabindex="-1">Dengue</button>
         </div>
         <div class="control is-expanded">

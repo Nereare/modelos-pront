@@ -329,6 +329,19 @@ $(function() {
     }
     if ( $("#inr").val() != "" ) { res.push( "- INR " + $("#inr").val() ); }
 
+    // Proteins
+    if ( $("#prot-total").val() != "" || $("#prot-alb").val() != "" || $("#prot-glob").val() != "" ) {
+      res.push("- Proteínas Séricas:");
+      if ( $("#prot-total").val() != "" ) { res.push( "  - Total " + $("#prot-total").val() ); }
+      if ( $("#prot-alb").val() != "" ) { res.push( "  - Alb " + $("#prot-alb").val() ); }
+      if ( $("#prot-glob").val() != "" ) { res.push( "  - Glob " + $("#prot-glob").val() ); }
+      if ( $("#prot-alb").val() != "" && $("#prot-glob").val() != "" ) {
+        let albumin = parseFloat( $("#prot-alb").val() );
+        let globulin = parseFloat( $("#prot-glob").val() );
+        res.push( "  - Rel. Alb/Glob " + (albumin / globulin).toFixed(3) );
+      }
+    }
+
     // Dengue results
     if ($("#dengue-ns1").val() != "" && $("#dengue-igm").val() != "" && $("#dengue-igg").val() != "") {
       res.push("- Dengue:\n  - NS1 " + $("#dengue-ns1").val() + "\n  - IgM " + $("#dengue-igm").val() + "\n  - IgG " + $("#dengue-igg").val() );
