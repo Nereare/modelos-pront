@@ -1,2 +1,3 @@
 (D) GASA @Labs
 (D) Critérios de Light @Labs
+(A) 2023-05-08 UUID Personalizado @Global
