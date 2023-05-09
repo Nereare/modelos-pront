@@ -422,6 +422,23 @@ $(function() {
       res.push( "    - Sérica " + dhl["serum"] + " (LSN " + dhl["uln"] + ( dhl["uln_twothirds"] != " / LSN*2/3 " + dhl["uln_twothirds"] ? "" : "" ) + ")" );
     }
 
+    // Microbio/Other
+    // Dengue results
+    if ( $("#dengue-ns1").val() != "" && $("#dengue-igm").val() != "" && $("#dengue-igg").val() != "" ) {
+      res.push( "- Dengue:" );
+      res.push( "  - NS1 " + $("#dengue-ns1").val() );
+      res.push( "  - IgM " + $("#dengue-igm").val() );
+      res.push( "  - IgG " + $("#dengue-igg").val() );
+    }
+    // COVID result
+    if ( $("#covid").val() != "" && $("#covid-res").val() != "" ) {
+      res.push( "- " + $("#covid").val() + " " + $("#covid-res").val() );
+    }
+    // Influenza result
+    if ( $("#influenza").val() != "" && $("#influenza-res").val() != "" ) {
+      res.push( "- " + $("#influenza").val() + " " + $("#influenza-res").val() );
+    }
+
     // Miscellanea results
     if ( $("#pcr").val() != "" || $("#vhs").val() != "" ) {
       if ( $("#pcr").val() != "" && $("#vhs").val() != "" ) {
@@ -443,7 +460,6 @@ $(function() {
       res.push("- BNP " + ( bnp > 35000 ? "acima do limite superior de detecção do método" : bnp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") ) );
     }
     if ( $("#inr").val() != "" ) { res.push( "- INR " + $("#inr").val() ); }
-
     // Proteins
     if ( $("#prot-total").val() != "" || $("#prot-alb").val() != "" || $("#prot-glob").val() != "" ) {
       res.push("- Proteínas Séricas:");
@@ -455,11 +471,6 @@ $(function() {
         let globulin = parseFloat( $("#prot-glob").val() );
         res.push( "  - Rel. Alb/Glob " + (albumin / globulin).toFixed(3) );
       }
-    }
-
-    // Dengue results
-    if ($("#dengue-ns1").val() != "" && $("#dengue-igm").val() != "" && $("#dengue-igg").val() != "") {
-      res.push("- Dengue:\n  - NS1 " + $("#dengue-ns1").val() + "\n  - IgM " + $("#dengue-igm").val() + "\n  - IgG " + $("#dengue-igg").val() );
     }
 
     // Useless Results

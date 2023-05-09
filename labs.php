@@ -779,6 +779,120 @@ require_once "header.php";
       </div>
     </div>
 
+    <!-- Microbio / Outros -->
+    <div class="box">
+      <h2 class="title is-4">Outros Testes Microbiológicos</h2>
+
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Dengue</button>
+        </div>
+        <div class="control">
+          <button class="button is-static" tabindex="-1">NS1</button>
+        </div>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="dengue-ns1">
+              <option value="" selected>NT</option>
+              <option value="não reagente">-</option>
+              <option value="REAGENTE">&plus;</option>
+            </select>
+          </div>
+        </div>
+        <div class="control">
+          <button class="button is-static" tabindex="-1">IgM</button>
+        </div>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="dengue-igm">
+              <option value="" selected>NT</option>
+              <option value="não reagente">-</option>
+              <option value="REAGENTE">&plus;</option>
+            </select>
+          </div>
+        </div>
+        <div class="control">
+          <button class="button is-static" tabindex="-1">IgG</button>
+        </div>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="dengue-igg">
+              <option value="" selected>NT</option>
+              <option value="não reagente">-</option>
+              <option value="REAGENTE">&plus;</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">COVID</button>
+        </div>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="covid">
+              <option value="" selected>N/A</option>
+              <option value="RT-PCR para SARS-CoV-2">RT-PCR</option>
+              <option value="Sorologia para anticorpos IgM e IgG contra SARS-CoV-2">Sorol IgM/IgG</option>
+              <option value="Sorologia Conjugada IgM+IgG contra SARS-CoV-2">Sorol Ig Total</option>
+              <option value="Teste Rápido Sorológico IgM e IgG para SARS-CoV-2">TR IgM/IgG</option>
+              <option value="Teste Rápido Sorológico Conjugado IgM+IgG para SARS-CoV-2">TR Ig Total</option>
+              <option value="Teste Rápido Nasal para detecção de Antígeno de SARS-CoV-2">TR-Ag</option>
+              <option value="Auto-Teste Rápido Nasal para detecção de Antígeno de SARS-CoV-2">Auto TR-Ag</option>
+            </select>
+          </div>
+        </div>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="covid-res">
+              <option value="" selected disabled>N/A</option>
+              <option value="" disabled>-- PCR / TR-Ag --</option>
+              <option value="NÃO detectado">não detectado</option>
+              <option value="DETECTADO">detectado</option>
+              <option value="" disabled>-- Sorol Conj --</option>
+              <option value="NÃO reagente">não reagente</option>
+              <option value="REAGENTE">reagente</option>
+              <option value="" disabled>-- Sorol Discr --</option>
+              <option value="IgM e IgG NÃO reagentes">IgM NR e IgG NR</option>
+              <option value="IgM REAGENTE e IgG NÃO reagente">IgM+ e IgG NR</option>
+              <option value="IgM NÃO reagente e IgG REAGENTE">IgM NR e IgG+</option>
+              <option value="IgM e IgG REAGENTES">IgM+ e IgG+</option>
+              <option value="" disabled>-- Outro --</option>
+              <option value="em análise">em análise</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Influenza</button>
+        </div>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="influenza">
+              <option value="" selected>N/A</option>
+              <option value="Teste Rápido para Influenza A/B">TR</option>
+              <option value="PCR para Influenza">PCR</option>
+            </select>
+          </div>
+        </div>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="influenza-res">
+              <option value="" selected>N/A</option>
+              <option value="não reagente para A e B">NR</option>
+              <option value="REAGENTE para A, não reagente para B">A+</option>
+              <option value="não reagente para A, REAGENTE para B">B+</option>
+              <option value="REAGENTE para A e B">A+B+</option>
+              <option value="em análise">em análise</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Miscelânea -->
     <div class="box">
       <h2 class="title is-4">Miscelânea</h2>
