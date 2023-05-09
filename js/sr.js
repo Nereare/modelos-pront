@@ -856,7 +856,7 @@ function runP() {
   // Labs
   if( $("#plan-labcovid").is(":checked") ) { p.push( "Solicito coleta de " + $("#labcovid").val() + " para SARS-CoV-2" + $("#labcovid-refusal").val() ); }
   if( $("#plan-labflu").is(":checked") ) { p.push( "Solicito coleta de " + $("#labflu").val() + " para Influenza A/B" + $("#labflu-refusal").val() ); }
-  if( $("#plan-labother").is(":checked") ) { p.push("Solicito, também, " + $("#labother").val()); }
+  if( $("#plan-labother").is(":checked") ) { p.push("Solicito " + $("#labother").val()); }
   if( $("#plan-labnone").is(":checked") ) {
     p.push( "Oriento paciente no protocolo vigente da Prefeitura Municipal de São Paulo e como ele restringe a possibilidade de coleta de exames para detecção de SARS-CoV-2, não estando o paciente entre os grupos autorizados por tal protocolo a colher exames de COVID-19" );
     p.push( "Oriento também que, não fosse esse protocolo, paciente apresenta sim indicação de colher exame para detecção de SARS-CoV-2, uma vez que apresenta uma suspeita de infecção por este vírus" );
