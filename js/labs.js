@@ -132,6 +132,97 @@ $(function() {
     $("#hmg-neutro-abs").val( total );
   });
 
+  // Light Criteria
+  $("#light-serum-prot-total, #light-pleura-prot-total, #light-serum-dhl, #light-serum-dhl-uln, #light-pleura-dhl").on("change input", function() {
+    // Parse values
+    let prot_total = [];
+    prot_total["serum"] = $("#light-serum-prot-total").val().trim() != "" ? parseFloat( $("#light-serum-prot-total").val() ) : "";
+    prot_total["pleura"] = $("#light-pleura-prot-total").val().trim() != "" ? parseFloat( $("#light-pleura-prot-total").val() ) : "";
+    let dhl = [];
+    dhl["serum"] = $("#light-serum-dhl").val().trim() != "" ? parseFloat( $("#light-serum-dhl").val() ) : "";
+    dhl["uln"] = $("#light-serum-dhl-uln").val().trim() != "" ? parseFloat( $("#light-serum-dhl-uln").val() ) : "";
+    dhl["pleura"] = $("#light-pleura-dhl").val().trim() != "" ? parseFloat( $("#light-pleura-dhl").val() ) : "";
+    let criteria = [];
+    let criteria_txt = [
+      "Sem dados suficientes",
+      "razão Proteína Total Sérica/Pleural acima de 0.5",
+      "razão DHL Sérico/Pleural acima de 0.6",
+      "DHL Pleural acima de 2/3 do LSN sérico"
+    ]
+
+    if ( prot_total["serum"] == "" && prot_total["pleura"] == "" && dhl["serum"] == "" && dhl["uln"] == "" && dhl["pleura"] == "" ) {
+      $("#light-result-show")
+        .html( criteria_txt[0] )
+        .removeClass("is-info is-warning");
+      $("#light-result").val("");
+    } else {
+      // Criterion I
+      if ( prot_total["pleura"] != "" && prot_total["serum"] != "" ) {
+        criteria[1] = (prot_total["pleura"] / prot_total["serum"]) > 0.5;
+      } else {
+        criteria[1] = null;
+      }
+      // Criterion II
+      if ( dhl["pleura"] != "" && dhl["serum"] != "" ) {
+        criteria[2] = (dhl["pleura"] / dhl["serum"]) > 0.6;
+      } else {
+        criteria[2] = null;
+      }
+      // Criterion III
+      if ( dhl["pleura"] != "" && dhl["uln"] != "" ) {
+        dhl["uln_twothirds"] = (dhl["uln"] * 2) / 3;
+        criteria[3] = dhl["pleura"] > dhl["uln_twothirds"];
+      } else {
+        criteria[3] = null;
+      }
+
+      // Result
+      if ( criteria[1] === null && criteria[2] === null && criteria[3] === null ) {
+        $("#light-result-show")
+          .html( criteria_txt[0] )
+          .removeClass("is-info is-warning");
+        $("#light-result").val( criteria_txt[0] );
+      } else if ( criteria[1] === true || criteria[2] === true || criteria[3] === true ) {
+        $("#light-result-show")
+          .html( "EXUDATIVO" )
+          .removeClass("is-info is-warning")
+          .addClass("is-warning");
+        let reasons = [];
+        if ( criteria[1] === true ) { reasons.push( criteria_txt[1] ); }
+        if ( criteria[2] === true ) { reasons.push( criteria_txt[2] ); }
+        if ( criteria[3] === true ) { reasons.push( criteria_txt[3] ); }
+        $("#light-result").val( "EXUDATIVO (" + reasons.join(" + ") + ")" );
+      } else {
+        $("#light-result-show")
+          .html( "Transudativo" )
+          .removeClass("is-info is-warning")
+          .addClass("is-info");
+        $("#light-result").val( "transudativo" );
+      }
+    }
+  });
+  // Update corresponding fields
+  $("#light-serum-prot-total").on("change input", function() {
+    $("#prot-total")
+      .val( $("#light-serum-prot-total").val() )
+      .trigger("change");
+  });
+  $("#prot-total").on("change input", function() {
+    $("#light-serum-prot-total")
+      .val( $("#prot-total").val() )
+      .trigger("change");
+  });
+  $("#light-serum-dhl").on("change input", function() {
+    $("#dhl")
+      .val( $("#light-serum-dhl").val() )
+      .trigger("change");
+  });
+  $("#dhl").on("change input", function() {
+    $("#light-serum-dhl")
+      .val( $("#dhl").val() )
+      .trigger("change");
+  });
+
   // Generate result
   $("#button-run").on("click", function() {
     // Main result array
@@ -305,6 +396,30 @@ $(function() {
     if ( $("#tropo-us").val() != "" ) {
       let tropo = parseFloat( $("#tropo-us").val() );
       res.push( "- Tropo Ultrassensível " + ( tropo < 0.001 ? "indetectável ao método" : tropo ) );
+    }
+
+    // Light Criteria
+    if ( $("#light-result").val().trim() != "" ) {
+      res.push( "- Critérios de Light: " + $("#light-result").val() );
+      // (Re)parse values
+      let prot_total = [];
+      prot_total["serum"] = $("#light-serum-prot-total").val().trim() != "" ? parseFloat($("#light-serum-prot-total").val()) : "--";
+      prot_total["pleura"] = $("#light-pleura-prot-total").val().trim() != "" ? parseFloat($("#light-pleura-prot-total").val()) : "--";
+      prot_total["ratio"] = ( prot_total["serum"] != "--" && prot_total["pleura"] != "--" ) ? ( prot_total["pleura"] / prot_total["serum"] ).toFixed(3) : "";
+      let dhl = [];
+      dhl["serum"] = $("#light-serum-dhl").val().trim() != "" ? parseFloat($("#light-serum-dhl").val()) : "--";
+      dhl["uln"] = $("#light-serum-dhl-uln").val().trim() != "" ? parseFloat($("#light-serum-dhl-uln").val()) : "--";
+      dhl["uln_twothirds"] = dhl["uln"] != "--" ? ( (dhl["uln"] * 2) / 3 ).toFixed(1) : "";
+      dhl["pleura"] = $("#light-pleura-dhl").val().trim() != "" ? parseFloat($("#light-pleura-dhl").val()) : "--";
+      dhl["ratio"] = ( dhl["serum"] != "--" && dhl["pleura"] != "--" ) ? ( dhl["pleura"] / dhl["serum"] ).toFixed(3) : "";
+      // Total Protein
+      res.push( "  - Proteínas Totais" + ( prot_total["ratio"] != "" ? " (Razão Pl/Sg = " + prot_total["ratio"] + ")" : "" ) + ":" );
+      res.push( "    - Pleura " + prot_total["pleura"] );
+      res.push( "    - Sérica " + prot_total["serum"] );
+      // DHL
+      res.push( "  - DHL" + ( dhl["ratio"] != "" ? " (Razão Pl/Sg = " + dhl["ratio"] + ")" : "" ) + ":" );
+      res.push( "    - Pleura " + dhl["pleura"] );
+      res.push( "    - Sérica " + dhl["serum"] + " (LSN " + dhl["uln"] + ( dhl["uln_twothirds"] != " / LSN*2/3 " + dhl["uln_twothirds"] ? "" : "" ) + ")" );
     }
 
     // Miscellanea results

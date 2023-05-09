@@ -718,6 +718,67 @@ require_once "header.php";
       </div>
     </div>
 
+    <!-- Critérios de Light -->
+    <div class="box">
+      <h2 class="title is-4">Critérios de Light</h2>
+
+      <h3 class="title is-5">Proteínas Totais</h3>
+
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Sérica</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="light-serum-prot-total" min="0" step="0.1" placeholder="Prot. Total Sérica">
+        </div>
+      </div>
+
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Pleural</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="light-pleura-prot-total" min="0" step="0.1" placeholder="Prot. Total Pleural">
+        </div>
+      </div>
+
+      <h3 class="title is-5">DHL</h3>
+
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Sérico</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="light-serum-dhl" min="0" step="0.1" placeholder="DHL Sérico">
+        </div>
+        <div class="control">
+          <button class="button is-static" tabindex="-1">LSN Sérico</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="light-serum-dhl-uln" min="0" step="0.1" placeholder="LSN Sérico">
+        </div>
+      </div>
+
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Pleural</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="light-pleura-dhl" min="0" step="0.1" placeholder="DHL Pleural">
+        </div>
+      </div>
+
+      <h3 class="title is-5">Resultado</h3>
+
+      <input type="hidden" id="light-result">
+
+      <div class="field">
+        <div class="control is-expanded">
+          <button class="button is-fullwidth" id="light-result-show" tabindex="-1" disabled>Sem dados suficientes</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Miscelânea -->
     <div class="box">
       <h2 class="title is-4">Miscelânea</h2>
