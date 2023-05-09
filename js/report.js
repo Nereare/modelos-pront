@@ -36,7 +36,7 @@ $(document).ready(function() {
 
   // Enable/Disable heart proportion
   $("#heart-area").on("change", function() {
-    if ( $(this).val() == "adequada" ) {
+    if ( $(this).val() == "dentro dos limites da normalidade" ) {
       $("#heart-width, #heart-hemithorax-width, #heart-ratio")
         .val("")
         .prop("disabled", true);
@@ -247,7 +247,7 @@ function build_eval() {
 
   // Check heart parameters
   let heart = [];
-  if ( $("#heart-area").val() == "aumentada" ) {
+  if ( $("#heart-area").val() != "dentro dos limites da normalidade" ) {
     let heart_area = parseInt( $("#heart-width").val() );
     let hemith = parseInt( $("#heart-hemithorax-width").val() );
     let ratio = heart_area * 100 / hemith;

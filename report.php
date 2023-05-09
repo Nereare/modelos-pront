@@ -111,6 +111,7 @@ require_once "header.php";
           <div class="select is-fullwidth">
             <select id="heart-area">
               <option value="dentro dos limites da normalidade" selected>Normal</option>
+              <option value="próxima do limite superior da normalidade (não configurando cardiomegalia)">Limítrofe</option>
               <option value="aumentada">Aumentada</option>
             </select>
           </div>
