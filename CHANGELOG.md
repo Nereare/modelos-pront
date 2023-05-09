@@ -10,6 +10,11 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
   - Adicionar data.
 ### Modificado
 - Todos os campos dentro de `div.field`s agora têm fontes com espaçamento fixo (*monospace*).
+### Corrigido
+- *Exame Físico*:
+  - Exames abdominais com epônimo agora são processados de verdade.
+  - Melhorias no lido com dados miscelâneos de exame abdominal.
+  - Pontuação final automática em exame de pele.
 
 ## [2.10.5-r1] - 2023-03-11
 ### Adicionado

@@ -531,17 +531,21 @@ $(function() {
       if( $("#abdomen-stuff").val() == "com " ) { abd += $("#abdomen-stuff-desc").val(); }
       if( $("#abdomen-peritonitis").val() != "" ) { abd += ", descompressão brusca " + $("#abdomen-peritonitis").val(); }
       abd += ".";
-      if( $("#abdomen-other").val() != "" ) { abd += $("#abdomen-other").val(); }
+      if( $("#abdomen-other").val() != "" ) {
+        let other = $("#abdomen-other").val().trim();
+        if (!/^.+\.$/.test(other)) { other += "."; }
+        abd += " " + other.firstLettertoUpperCase();
+      }
 
       o.push( abd );
     }
-    if( $("#exam-murphy").is(":checked") ) {
+    if( $("#exam-murphy").val() != "" ) {
       o.push( "Sinal de Murphy " + $("#murphy").val() + "." );
     }
-    if( $("#exam-mcburney").is(":checked") ) {
+    if ($("#exam-mcburney").val() != "" ) {
       o.push( "Sinal de McBurney " + $("#mcburney").val() + "." );
     }
-    if( $("#exam-giordano").is(":checked") ) {
+    if ($("#exam-giordano").val() != "" ) {
       o.push( "Giordano " + $("#giordano").val() + "." );
     }
     if( $("#exam-oto").is(":checked") ) {
@@ -554,7 +558,9 @@ $(function() {
       o.push( "Nasoscopia anterior: mucosa " + $("#naso-skin").val() + ", cornetos nasais " + $("#naso-shells").val() + " e " + $("#naso-sept").val() + "." );
     }
     if( $("#exam-skin").is(":checked") ) {
-      o.push( "Pele: " + $("#skin").val() );
+      let skin = $("#skin").val().trim();
+      if (!/^.+\.$/.test(skin)) { skin += "."; }
+      o.push( "Pele: " + skin );
     }
     if( $("#exam-mmss").is(":checked") ) {
       var pulse = "";
