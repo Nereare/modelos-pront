@@ -325,7 +325,7 @@ $(function() {
     if ( $("#dhl").val() != "" ) { res.push( "- DHL " + $("#dhl").val() ); }
     if ( $("#bnp").val() != "" ) {
       let bnp = parseFloat( $("#bnp").val() );
-      res.push("- BNP " + ( bnp > 30000 ? "acima do limite superior de detecção do método" : bnp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") ) );
+      res.push("- BNP " + ( bnp > 35000 ? "acima do limite superior de detecção do método" : bnp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") ) );
     }
     if ( $("#inr").val() != "" ) { res.push( "- INR " + $("#inr").val() ); }
 
