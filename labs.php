@@ -175,6 +175,13 @@ require_once "header.php";
         <div class="control is-expanded">
           <input type="number" class="input" id="bi" min="0" step="0.1" placeholder="BI">
         </div>
+        <div class="control">
+          <button class="button is-danger" id="btf-clear">
+            <span class="icon">
+              <i class="mdi mdi-delete"></i>
+            </span>
+          </button>
+        </div>
       </div>
 
       <div class="field has-addons">

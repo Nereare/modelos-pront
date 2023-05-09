@@ -75,6 +75,20 @@ $(function() {
     }
   });
 
+  // Autocalculate Bilirubin
+  $("#bt, #bd, #bi").on("change input", function() {
+    let bt = $("#bt").val() != "" ? parseFloat($("#bt").val()) : "";
+    let bd = $("#bd").val() != "" ? parseFloat($("#bd").val()) : "";
+    let bi = $("#bi").val() != "" ? parseFloat($("#bi").val()) : "";
+    if( bt != "" && bd != "" ) { $("#bi").val( (bt - bd).toFixed(2) ); }
+    else if( bt != "" && bi != "" ) { $("#bd").val( (bt - bi).toFixed(2) ); }
+    else if( bd != "" && bi != "" ) { $("#bt").val( (bd + bi).toFixed(2) ); }
+  });
+  // Clear Bilirubin
+  $("#btf-clear").on("click", function() {
+    $("#bt, #bd, #bi").val("");
+  });
+
   // Urinary culture
   $("#uroc").on("change", function() {
     if ( $(this).val() == "PARCIAL POSITIVO para " ) {
