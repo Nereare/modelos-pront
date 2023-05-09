@@ -162,7 +162,7 @@ $(function() {
   // Add tactile descriptor entry
   // Then add the first one
   $("#neuro-feel-add").on("click", function() {
-    var uuid = uuidv4();
+    var uuid = uuidPoor();
     var item = $("<tr>")
       .addClass("neuro-feel-item")
       .attr("id", uuid);
@@ -296,7 +296,7 @@ $(function() {
   // Add other entry
   // Then add the first one
   $("#neuro-other-add").on("click", function() {
-    var uuid = uuidv4();
+    var uuid = uuidPoor();
     var item = $("<div>")
       .addClass("field has-addons neuro-other-item")
       .attr("id", uuid);

@@ -159,7 +159,7 @@ $(function() {
 
   // Add miscellaneous description field & button method
   $("#misc-add").on("click", function() {
-    let uuid = uuidv4();
+    let uuid = uuidPoor();
     let description_input = $("<input>")
       .addClass("input misc-desc")
       .attr("type", "text")
