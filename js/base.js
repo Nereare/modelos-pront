@@ -16,6 +16,7 @@ Date.prototype.getDOY = function() {
 
 $(function() {
   console.log("Main Logic Ready!");
+  new ClipboardJS("#insulin");
 
   // Accept cookies
   $("#cookie-accept").on("click", function() {
