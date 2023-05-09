@@ -116,7 +116,7 @@ require_once "header.php";
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Sat O<sub>2</sub></button>
+              <button class="button is-static" tabindex="-1">Sat O<sub>2</sub></button>
             </div>
             <div class="control is-expanded">
               <input type="number" id="ssvv-sat" class="input" min="0" max="100" step="1" placeholder="#">
@@ -137,55 +137,55 @@ require_once "header.php";
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Pulso</button>
+              <button class="button is-static" tabindex="-1">Pulso</button>
             </div>
             <div class="control is-expanded">
               <input type="number" id="ssvv-pulse" class="input" min="1" step="1" placeholder="#">
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">bpm</button>
+              <button class="button is-static" tabindex="-1">bpm</button>
             </div>
           </div>
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">PA</button>
+              <button class="button is-static" tabindex="-1">PA</button>
             </div>
             <div class="control is-expanded">
               <input type="number" id="ssvv-pas" class="input" min="1" step="2" placeholder="PAS">
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">/</button>
+              <button class="button is-static" tabindex="-1">/</button>
             </div>
             <div class="control is-expanded">
               <input type="number" id="ssvv-pad" class="input" min="1" step="2" placeholder="PAD">
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">mmHg</button>
+              <button class="button is-static" tabindex="-1">mmHg</button>
             </div>
           </div>
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">FR</button>
+              <button class="button is-static" tabindex="-1">FR</button>
             </div>
             <div class="control is-expanded">
               <input type="number" id="ssvv-fr" class="input" min="1" step="1" placeholder="#">
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">irpm</button>
+              <button class="button is-static" tabindex="-1">irpm</button>
             </div>
           </div>
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Dextro</button>
+              <button class="button is-static" tabindex="-1">Dextro</button>
             </div>
             <div class="control">
               <input type="number" id="ssvv-glucose" class="input" min="1" step="1" placeholder="# (HI > 400)">
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">mg/dL</button>
+              <button class="button is-static" tabindex="-1">mg/dL</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -202,13 +202,13 @@ require_once "header.php";
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Temp</button>
+              <button class="button is-static" tabindex="-1">Temp</button>
             </div>
             <div class="control is-expanded">
               <input type="number" id="ssvv-temp" class="input" min="1" step="0.1" placeholder="#">
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">°C</button>
+              <button class="button is-static" tabindex="-1">°C</button>
             </div>
             <div class="control">
               <div class="select">
@@ -222,43 +222,43 @@ require_once "header.php";
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Peso</button>
+              <button class="button is-static" tabindex="-1">Peso</button>
             </div>
             <div class="control is-expanded">
               <input type="number" id="ssvv-weight" class="input" min="0" step="0.1" placeholder="#">
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">kg</button>
+              <button class="button is-static" tabindex="-1">kg</button>
             </div>
           </div>
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Alt</button>
+              <button class="button is-static" tabindex="-1">Alt</button>
             </div>
             <div class="control is-expanded">
               <input type="number" id="ssvv-height" class="input" min="1" step="1" placeholder="#">
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">cm</button>
+              <button class="button is-static" tabindex="-1">cm</button>
             </div>
           </div>
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">IMC</button>
+              <button class="button is-static" tabindex="-1">IMC</button>
             </div>
             <div class="control is-expanded">
               <input type="number" id="ssvv-bmi" class="input" placeholder="#" readonly>
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">kg/m<sup>2</sup></button>
+              <button class="button is-static" tabindex="-1">kg/m<sup>2</sup></button>
             </div>
           </div>
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Dor (EVA)</button>
+              <button class="button is-static" tabindex="-1">Dor (EVA)</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -388,7 +388,7 @@ require_once "header.php";
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Conjuntiva</button>
+              <button class="button is-static" tabindex="-1">Conjuntiva</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -404,7 +404,7 @@ require_once "header.php";
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Secreções</button>
+              <button class="button is-static" tabindex="-1">Secreções</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -438,7 +438,7 @@ require_once "header.php";
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Tireoide</button>
+              <button class="button is-static" tabindex="-1">Tireoide</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -457,7 +457,7 @@ require_once "header.php";
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Linfonodos</button>
+              <button class="button is-static" tabindex="-1">Linfonodos</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -472,7 +472,7 @@ require_once "header.php";
               </div>
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">de aspecto</button>
+              <button class="button is-static" tabindex="-1">de aspecto</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -506,7 +506,7 @@ require_once "header.php";
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">MV</button>
+              <button class="button is-static" tabindex="-1">MV</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -523,7 +523,7 @@ require_once "header.php";
               </div>
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">RA</button>
+              <button class="button is-static" tabindex="-1">RA</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -541,7 +541,7 @@ require_once "header.php";
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Alteração até</button>
+              <button class="button is-static" tabindex="-1">Alteração até</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -562,7 +562,7 @@ require_once "header.php";
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Percussão</button>
+              <button class="button is-static" tabindex="-1">Percussão</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -602,7 +602,7 @@ require_once "header.php";
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">B</button>
+              <button class="button is-static" tabindex="-1">B</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -671,7 +671,7 @@ require_once "header.php";
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Abdome</button>
+              <button class="button is-static" tabindex="-1">Abdome</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -720,7 +720,7 @@ require_once "header.php";
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Traube</button>
+              <button class="button is-static" tabindex="-1">Traube</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -735,19 +735,19 @@ require_once "header.php";
           <p class="help">Valores negativos = acima de RCD, positivos = abaixo de RCD</p>
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Hepatimetria</button>
+              <button class="button is-static" tabindex="-1">Hepatimetria</button>
             </div>
             <div class="control is-expanded">
               <input type="number" class="input" id="abdomen-hepatimetry" min="-10" max="10" step="1" value="0" placeholder="#">
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">cm</button>
+              <button class="button is-static" tabindex="-1">cm</button>
             </div>
           </div>
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Macicez Móvel</button>
+              <button class="button is-static" tabindex="-1">Macicez Móvel</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -762,7 +762,7 @@ require_once "header.php";
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Skoda</button>
+              <button class="button is-static" tabindex="-1">Skoda</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -777,13 +777,13 @@ require_once "header.php";
               <input type="number" id="abdomen-skoda-cm" class="input" min="0" step="1" placeholder="#" disabled>
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">cm da c. umbilical</button>
+              <button class="button is-static" tabindex="-1">cm da c. umbilical</button>
             </div>
           </div>
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Piparote</button>
+              <button class="button is-static" tabindex="-1">Piparote</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -798,7 +798,7 @@ require_once "header.php";
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Massas</button>
+              <button class="button is-static" tabindex="-1">Massas</button>
             </div>
             <div class="control">
               <div class="select">
@@ -815,7 +815,7 @@ require_once "header.php";
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">DB</button>
+              <button class="button is-static" tabindex="-1">DB</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -830,7 +830,7 @@ require_once "header.php";
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Murphy</button>
+              <button class="button is-static" tabindex="-1">Murphy</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -845,7 +845,7 @@ require_once "header.php";
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">McBurney</button>
+              <button class="button is-static" tabindex="-1">McBurney</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -860,7 +860,7 @@ require_once "header.php";
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Giordano</button>
+              <button class="button is-static" tabindex="-1">Giordano</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -879,6 +879,146 @@ require_once "header.php";
             </div>
           </div>
 
+        </div>
+      </div>
+
+      <div>
+        <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+      </div>
+
+      <div class="columns is-vcentered">
+        <div class="column is-2">
+          <div class="field">
+            <input type="checkbox" id="exam-rectum" class="is-checkradio">
+            <label for="exam-rectum">
+              <span class="icon">
+                <i class="mdi mdi-seat-legroom-reduced mdi-rotate-270 mdi-24px"></i>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="mb-6">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Plicomas</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="plicoma">
+                    <option value="ausentes" selected>Ausentes</option>
+                    <option value="presente às 12h">12h</option>
+                    <option value="presente às 06h">06h</option>
+                    <option value="presentes às 12 e 06h">12+06h</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Hemorroidas Ext.</button>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="hemorrhoids-external">
+                    <option value="ausentes" selected>Ausentes</option>
+                    <option value="presente(s)">Presentes</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <input type="text" class="input" id="hemorrhoids-external-desc" placeholder="Descreva localização e achados..." disabled>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Hemorroidas Int.</button>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="hemorrhoids-internal">
+                    <option value="ausentes" selected>Ausentes</option>
+                    <option value="presente(s)">Presentes</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <input type="text" class="input" id="hemorrhoids-internal-desc" placeholder="Descreva localização e achados..." disabled>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <textarea class="textarea has-fixed-size" id="perineumscopy-other" placeholder="Descreva outros achados da perineoscopia, separados por vírgula..." rows="2"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Tônus Retal</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="rectum-tonus">
+                    <option value="normal" selected>Normal</option>
+                    <option value="reduzido">Reduzido</option>
+                    <option value="aumentado">Aumentado</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Ampola Retal</button>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="rectum-content">
+                    <option value="sem conteúdos tocáveis" selected>Vazia</option>
+                    <option value="com bolo fecal fisiológico">Fezes Normais</option>
+                    <option value="com fecaloma pétreo">Fecaloma</option>
+                    <option value="com massa">Massa</option>
+                    <option value="com">Com...</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <input type="text" class="input" id="rectum-content-desc" placeholder="Descreva..." disabled>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Dedo Luva</button>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="rectum-finger">
+                    <option value="sem nada digno de nota" selected>Ndn</option>
+                    <option value="com fezes">Fezes</option>
+                    <option value="com sangue">Sangue</option>
+                    <option value="com fezes entremeadas com sangue">Fezes+Sangue</option>
+                    <option value="com">Com...</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <input type="text" class="input" id="rectum-finger-desc" placeholder="Descreva..." disabled>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <textarea class="textarea has-fixed-size" id="rectum-other" placeholder="Descreva outros achados do toque, separados por vírgula..." rows="2"></textarea>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -901,7 +1041,7 @@ require_once "header.php";
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">MTD</button>
+              <button class="button is-static" tabindex="-1">MTD</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -926,7 +1066,7 @@ require_once "header.php";
               </div>
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">Conduto</button>
+              <button class="button is-static" tabindex="-1">Conduto</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -942,7 +1082,7 @@ require_once "header.php";
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">MTE</button>
+              <button class="button is-static" tabindex="-1">MTE</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -967,7 +1107,7 @@ require_once "header.php";
               </div>
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">Conduto</button>
+              <button class="button is-static" tabindex="-1">Conduto</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1002,7 +1142,7 @@ require_once "header.php";
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Oroscopia</button>
+              <button class="button is-static" tabindex="-1">Oroscopia</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1017,7 +1157,7 @@ require_once "header.php";
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Tonsilas</button>
+              <button class="button is-static" tabindex="-1">Tonsilas</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1046,7 +1186,7 @@ require_once "header.php";
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Palato</button>
+              <button class="button is-static" tabindex="-1">Palato</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1080,7 +1220,7 @@ require_once "header.php";
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Mucosa</button>
+              <button class="button is-static" tabindex="-1">Mucosa</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1095,7 +1235,7 @@ require_once "header.php";
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Cornetos</button>
+              <button class="button is-static" tabindex="-1">Cornetos</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1113,7 +1253,7 @@ require_once "header.php";
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Septo Nasal</button>
+              <button class="button is-static" tabindex="-1">Septo Nasal</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1176,7 +1316,7 @@ require_once "header.php";
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Pulsos</button>
+              <button class="button is-static" tabindex="-1">Pulsos</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1198,7 +1338,7 @@ require_once "header.php";
               </div>
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">a partir de aa.</button>
+              <button class="button is-static" tabindex="-1">a partir de aa.</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1233,7 +1373,7 @@ require_once "header.php";
         <div class="column">
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Edema</button>
+              <button class="button is-static" tabindex="-1">Edema</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1259,7 +1399,7 @@ require_once "header.php";
 
           <div class="field has-addons">
             <div class="control">
-               <button class="button is-static" tabindex="-1">Pulsos</button>
+              <button class="button is-static" tabindex="-1">Pulsos</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
@@ -1281,7 +1421,7 @@ require_once "header.php";
               </div>
             </div>
             <div class="control">
-               <button class="button is-static" tabindex="-1">a partir de aa.</button>
+              <button class="button is-static" tabindex="-1">a partir de aa.</button>
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">

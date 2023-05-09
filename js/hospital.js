@@ -102,6 +102,40 @@ $(function() {
     }
   });
 
+  // Enable hemorrhoids' descriptions
+  $("#hemorrhoids-external, #hemorrhoids-internal").on("change", function() {
+    let id = "#" + $(this).attr("id") + "-desc";
+    if ( $(this).val() != "ausentes" ) {
+      $(id).attr("disabled", false);
+    } else {
+      $(id)
+        .attr("disabled", true)
+        .val("");
+    }
+  });
+  // Enable rectum content description
+  $("#rectum-content").on("change", function() {
+    if ( $(this).val() != "sem conteúdos tocáveis" ) {
+      $("#rectum-content-desc").attr("disabled", false);
+    } else {
+      $("#rectum-content-desc")
+        .attr("disabled", true)
+        .val("");
+    }
+  });
+  // Enable finger covering description
+  $("#rectum-finger").on("change", function () {
+    if ($(this).val() == "com") {
+      $("#rectum-finger-desc")
+        .attr("disabled", false)
+        .trigger("focus");
+    } else {
+      $("#rectum-finger-desc")
+        .attr("disabled", true)
+        .val("");
+    }
+  });
+
   // Enable/Disable skin description
   $("#skin").on("input change", function() {
     if ( $("#skin").val() != "" ) {
@@ -480,15 +514,18 @@ $(function() {
       o.push( ssvv.join(" | ") );
     }
 
+    // Eyes
     if( $("#exam-eye").is(":checked") ) {
       o.push( "Olhos: conjuntiva " + $("#eye-white").val() + ", secreções " + $("#eye-secr").val() + "." );
     }
+    // Cervical
     if( $("#exam-neck").is(":checked") ) {
       var cerv = ["Cervical:"];
       if( $("#thyroid").val() != "" ) { cerv.push( "Tiroide " + $("#thyroid").val() + "." ); }
       if( $("#lymph").val() != "" ) { cerv.push( $("#lymph").val() + $("#lymph-desc").val() + "." ); }
       o.push( cerv.join(" ") );
     }
+    // Lungs
     if( $("#exam-lungs").is(":checked") ) {
       var crept = ".";
       if(
@@ -504,6 +541,7 @@ $(function() {
       }
       o.push( "Pulm: murmúrios vesiculares " + $("#lung").val() + ", " + $("#lung-sounds").val() + crept + tap );
     }
+    // Heart
     if( $("#exam-heart").is(":checked") ) {
       var murmur = $("#heart-murmur").val();
       if( murmur == "com sopro" ) {
@@ -511,6 +549,7 @@ $(function() {
       }
       o.push( "Card: bulhas " + $("#heart-rhythm").val() + " e " + $("#heart-sounds").val() + " em " + $("#heart-times").val() + " " + murmur + "." );
     }
+    // Abdomen
     if( $("#exam-abdomen").is(":checked") ) {
       var abd = "Abdome: " + $("#abdomen").val() + ", ruídos hidroaéreos " + $("#abdomen-rha").val() + ", " + $("#abdomen-tension").val() + ", percussão " + $("#abdomen-percussion").val();
       if( $("#abdomen-percussion").val() != "globalmente timpânica" ) {
@@ -539,35 +578,93 @@ $(function() {
 
       o.push( abd );
     }
-    if( $("#exam-murphy").val() != "" ) {
-      o.push( "Sinal de Murphy " + $("#murphy").val() + "." );
+    // Murphy's Sign
+    if( $("#exam-abdomen").is(":checked") && $("#murphy").val() != "" ) {
+      o.push( "- Sinal de Murphy " + $("#murphy").val() + "." );
     }
-    if ($("#exam-mcburney").val() != "" ) {
-      o.push( "Sinal de McBurney " + $("#mcburney").val() + "." );
+    // McBurney's Sign
+    if( $("#exam-abdomen").is(":checked") && $("#mcburney").val() != "" ) {
+      o.push( "- Sinal de McBurney " + $("#mcburney").val() + "." );
     }
-    if ($("#exam-giordano").val() != "" ) {
-      o.push( "Giordano " + $("#giordano").val() + "." );
+    // Giordano
+    if( $("#exam-abdomen").is(":checked") && $("#giordano").val() != "" ) {
+      o.push( "- Giordano " + $("#giordano").val() + "." );
     }
+    // Rectum
+    if( $("#exam-rectum").is(":checked") ) {
+      o.push( "Reto:" );
+      // Perineumscopy
+      let perineum = "plicomas " + $("#plicoma").val() + ", hemorroidas externas ";
+      if( $("#hemorrhoids-external").val() != "ausentes" ) {
+        let desc = $("#hemorrhoids-external-desc").val().trim();
+        perineum += $("#hemorrhoids-external").val() + (desc != "" ? " (" + desc + ")" : "");
+      } else { perineum += $("#hemorrhoids-external").val(); }
+      perineum += ", hemorroidas internas ";
+      if( $("#hemorrhoids-internal").val() != "ausentes" ) {
+        let desc = $("#hemorrhoids-internal-desc").val().trim();
+        perineum += $("#hemorrhoids-internal").val() + (desc != "" ? " (" + desc + ")" : "");
+      } else { perineum += $("#hemorrhoids-internal").val(); }
+      if( $("#perineumscopy-other").val() != "" ) {
+        let other = $("#perineumscopy-other").val().trim().split(",");
+        other.forEach((e, i) => {
+          other[i] = e.trim();
+        });
+        perineum += ", " + other.join(", ");
+      }
+      perineum += ".";
+      o.push( "- Perioscopia: " + perineum );
+
+      // Rectal Touch
+      let rectum = "tônus do esfíncter anal inferior " + $("#rectum-tonus").val() + ", ampola retal ";
+      if( $("#rectum-content").val() != "sem conteúdos tocáveis" ) {
+        let desc = $("#rectum-content-desc").val().trim();
+        if( $("#rectum-content").val() == "com" ) {
+          rectum += $("#rectum-content").val() + (desc != "" ? " " + desc : " conteúdo não descrito");
+        } else {
+          rectum += $("#rectum-content").val() + (desc != "" ? " (" + desc + ")" : "");
+        }
+      } else { rectum += $("#rectum-content").val(); }
+      rectum += ", dedo de luva ";
+      if ($("#rectum-finger").val() == "com" ) {
+        let desc = $("#rectum-finger-desc").val().trim();
+        rectum += $("#rectum-finger").val() + (desc != "" ? " " + desc : " substância não descrita");
+      } else { rectum += $("#rectum-finger").val(); }
+      if( $("#rectum-other").val() != "" ) {
+        let other = $("#rectum-other").val().trim().split(",");
+        other.forEach((e, i) => {
+          other[i] = e.trim();
+        });
+        rectum += ", " + other.join(", ");
+      }
+      rectum += ".";
+      o.push( "- Toque Retal: " + rectum );
+    }
+    // Otoscopy
     if( $("#exam-oto").is(":checked") ) {
       o.push( "Otoscopia:\n- OD: membrana timpânica direita " + $("#oto-d-membrane").val() + " " + $("#oto-d-retromembrane").val() + ". Conduto auditivo direito " + $("#oto-d-canal").val() + ".\n- OE: membrana timpânica esquerda " + $("#oto-e-membrane").val() + " " + $("#oto-e-retromembrane").val() + ". Conduto auditivo esquerdo " + $("#oto-e-canal").val() + "." );
     }
+    // Oroscopy
     if( $("#exam-oro").is(":checked") ) {
       o.push( "Oroscopia: orofaringe " + $("#exam-oro-pharynx").val() + ", com tonsilas palatinas " + $("#exam-oro-tonsils").val() + " " + $("#exam-oro-tonsilcover").val() + " e palato mole " + $("#exam-oro-palate").val() + "." );
     }
+    // Anterior Nasoscopy
     if( $("#exam-naso").is(":checked") ) {
       o.push( "Nasoscopia anterior: mucosa " + $("#naso-skin").val() + ", cornetos nasais " + $("#naso-shells").val() + " e " + $("#naso-sept").val() + "." );
     }
+    // Skin
     if( $("#exam-skin").is(":checked") ) {
       let skin = $("#skin").val().trim();
       if (!/^.+\.$/.test(skin)) { skin += "."; }
       o.push( "Pele: " + skin );
     }
+    // Pulses
     if( $("#exam-mmss").is(":checked") ) {
       var pulse = "";
       if( $("#mmsspulse-strength").val() == "ausentes até aa. axilares" ) { pulse = $("#mmsspulse-strength").val(); }
       else { pulse = $("#mmsspulse-strength").val() + " e " + $("#mmsspulse-simmetry").val() + ", palpáveis a partir de aa. " + $("#mmsspulse-artery").val(); }
       o.push( "MMSS: pulsos " + pulse + "." );
     }
+    // Inferior Members
     if( $("#exam-mmii").is(":checked") ) {
       var oedema = $("#oedema").val();
       if( oedema != "sem edemas" ) { oedema += " " + $("#oedema-grade").val(); }
@@ -576,6 +673,7 @@ $(function() {
       else { pulse = $("#mmiipulse-strength").val() + " e " + $("#mmiipulse-simmetry").val() + ", palpáveis a partir de aa. " + $("#mmiipulse-artery").val(); }
       o.push( "MMII: " + oedema + ", pulsos " + pulse + "." );
     }
+    // Cincinnati
     if( $("#neuro-cincinnati").is(":checked") ) {
       var data = [
         $("#neuro-cincinnati-eyebrow").val(),
@@ -594,7 +692,6 @@ $(function() {
          $("#neuro-reflex").is(":checked") ||
          $("#neuro-feel").is(":checked") ||
          $("#neuro-other").is(":checked") ) {
-      o.push("");
       o.push("## Neurológico:");
     }
     if( $("#neuro-main").is(":checked") && $("#neuro-rass").val() != "" ) {

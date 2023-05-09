@@ -8,6 +8,8 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Adicionado
 - *Labs*:
   - Adicionar data.
+- *Exame Físico*:
+  - Toque retal.
 ### Modificado
 - Todos os campos dentro de `div.field`s agora têm fontes com espaçamento fixo (*monospace*).
 ### Corrigido
