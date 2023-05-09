@@ -12,7 +12,7 @@
   "bugs": {
     "web": "https://github.com/Nereare/modelos-pront/issues"
   },
-  "license": "Hippocratic-2.1",
+  "license": "HL3-FULL",
   "dependencies": {
     "@creativebulma/bulma-divider": "^1.1.0",
     "@mdi/font": "^6.6.96",
