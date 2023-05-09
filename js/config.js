@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
   // Close modals with a `.delete` button
   $(".delete").on("click", function() {
     $(this).parents(".modal").removeClass("is-active");

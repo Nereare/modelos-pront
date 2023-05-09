@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
   new ClipboardJS(".copybtn");
 
   var med_list = [

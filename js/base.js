@@ -14,7 +14,7 @@ Date.prototype.getDOY = function() {
     return dayOfYear;
 };
 
-$(document).ready(function() {
+$(function() {
   console.log("Main Logic Ready!");
 
   // Accept cookies
