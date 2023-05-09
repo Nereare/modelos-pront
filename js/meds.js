@@ -15456,6 +15456,83 @@ $(function() {
         ""
       ]
     ],
+    "Resfriado/Gripe (dip/SUS)": [
+      [
+        "Ibuprofeno",
+        "300mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "8",
+        "horas",
+        " por 5 dias",
+        "",
+        ""
+      ],
+      [
+        "Dipirona",
+        "500mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "2",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor, febre ou calafrios",
+        ""
+      ],
+      [
+        "Soro Fisiológico",
+        "0,9%",
+        "Via Nasal",
+        "",
+        "",
+        "Lavar cada narina com",
+        "20",
+        "mL de soro",
+        "6",
+        "horas",
+        "",
+        "",
+        "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana."
+      ],
+      [
+        "Beclometasona",
+        "50mcg/jato",
+        "Via Nasal",
+        "",
+        "",
+        "Aplicar 01 jato em cada narina",
+        "",
+        "",
+        "12",
+        "horas",
+        " por 02 semanas",
+        "",
+        "Sempre realizar lavagem nasal ANTES de aplicar beclometasona."
+      ],
+      [
+        "Dexclorfeniramina",
+        "0.4mg/mL",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "10",
+        "mL",
+        "08",
+        "horas",
+        " por 07d",
+        ", se tosse",
+        ""
+      ]
+    ],
     "Resfriado/Gripe (dip+parac)": [
       [
         "Ibuprofeno",
@@ -15499,7 +15576,7 @@ $(function() {
         "6",
         "horas",
         "",
-        ", se dor, febre ou calafrios",
+        ", se dor, febre ou calafrios, intercalado com dipirona",
         ""
       ],
       [
@@ -15540,6 +15617,98 @@ $(function() {
         "",
         "Tomar",
         "05",
+        "mL",
+        "08",
+        "horas",
+        " por 07d",
+        ", se tosse",
+        ""
+      ]
+    ],
+    "Resfriado/Gripe (dip+parac/SUS)": [
+      [
+        "Ibuprofeno",
+        "300mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "8",
+        "horas",
+        " por 5 dias",
+        "",
+        ""
+      ],
+      [
+        "Dipirona",
+        "500mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "2",
+        "cps",
+        "6",
+        "horas",
+        "",
+        ", se dor, febre ou calafrios",
+        ""
+      ],
+      [
+        "Paracetamol",
+        "500mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor, febre ou calafrios, intercalado com dipirona",
+        ""
+      ],
+      [
+        "Soro Fisiológico",
+        "0,9%",
+        "Via Nasal",
+        "",
+        "",
+        "Lavar cada narina com",
+        "20",
+        "mL de soro",
+        "6",
+        "horas",
+        "",
+        "",
+        "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana."
+      ],
+      [
+        "Beclometasona",
+        "50mcg/jato",
+        "Via Nasal",
+        "",
+        "",
+        "Aplicar 01 jato em cada narina",
+        "",
+        "",
+        "12",
+        "horas",
+        " por 02 semanas",
+        "",
+        "Sempre realizar lavagem nasal ANTES de aplicar beclometasona."
+      ],
+      [
+        "Dexclorfeniramina",
+        "0.4mg/mL",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "10",
         "mL",
         "08",
         "horas",
@@ -15610,16 +15779,16 @@ $(function() {
         ""
       ]
     ],
-    "Dengue (dip)": [
+    "Resfriado/Gripe (parac/SUS)": [
       [
-        "Dipirona",
-        "1.000mg",
+        "Paracetamol",
+        "500mg",
         "Via Oral",
         "",
         "",
         "Tomar",
-        "1",
-        "cp",
+        "2",
+        "cps",
         "6",
         "horas",
         "",
@@ -15627,22 +15796,52 @@ $(function() {
         ""
       ],
       [
-        "Sais para Reidratação Oral",
-        "--",
+        "Soro Fisiológico",
+        "0,9%",
+        "Via Nasal",
+        "",
+        "",
+        "Lavar cada narina com",
+        "20",
+        "mL de soro",
+        "6",
+        "horas",
+        "",
+        "",
+        "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana."
+      ],
+      [
+        "Beclometasona",
+        "50mcg/jato",
+        "Via Nasal",
+        "",
+        "",
+        "Aplicar 01 jato em cada narina",
+        "",
+        "",
+        "12",
+        "horas",
+        " por 02 semanas",
+        "",
+        "Sempre realizar lavagem nasal ANTES de aplicar beclometasona."
+      ],
+      [
+        "Dexclorfeniramina",
+        "0.4mg/mL",
         "Via Oral",
         "",
         "",
         "Tomar",
-        "600",
-        "mL (aprox. 03 copos americanos) de soro",
-        "8",
+        "10",
+        "mL",
+        "08",
         "horas",
-        " intercalado por 1.200mL (aprox. 06 copos americanos) de água filtrada",
-        "",
-        "O soro acima pode ser substituído por água de coco e bebidas isotônicas. A água filtrada pode ser qualquer líquido, exceto refrigerantes e outros ultraprocessados."
+        " por 07d",
+        ", se tosse",
+        ""
       ]
     ],
-    "Dengue (dip+parac)": [
+    "Dengue (dip)": [
       [
         "Dipirona",
         "1.000mg",
@@ -15670,7 +15869,54 @@ $(function() {
         "6",
         "horas",
         "",
+        ", se dor, febre ou calafrios, intercalado com dipirona",
+        ""
+      ],
+      [
+        "Sais para Reidratação Oral",
+        "--",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "600",
+        "mL (aprox. 03 copos americanos) de soro",
+        "8",
+        "horas",
+        " intercalado por 1.200mL (aprox. 06 copos americanos) de água filtrada",
+        "",
+        "O soro acima pode ser substituído por água de coco e bebidas isotônicas. A água filtrada pode ser qualquer líquido, exceto refrigerantes e outros ultraprocessados."
+      ]
+    ],
+    "Dengue (dip/SUS)": [
+      [
+        "Dipirona",
+        "500mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "2",
+        "cps",
+        "6",
+        "horas",
+        "",
         ", se dor, febre ou calafrios",
+        ""
+      ],
+      [
+        "Paracetamol",
+        "500mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "2",
+        "cps",
+        "6",
+        "horas",
+        "",
+        ", se dor, febre ou calafrios, intercalado com dipirona",
         ""
       ],
       [
@@ -15699,6 +15945,38 @@ $(function() {
         "Tomar",
         "1",
         "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor, febre ou calafrios",
+        ""
+      ],
+      [
+        "Sais para Reidratação Oral",
+        "--",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "600",
+        "mL (aprox. 03 copos americanos) de soro",
+        "8",
+        "horas",
+        " intercalado por 1.200mL (aprox. 06 copos americanos) de água filtrada",
+        "",
+        "O soro acima pode ser substituído por água de coco e bebidas isotônicas. A água filtrada pode ser qualquer líquido, exceto refrigerantes e outros ultraprocessados."
+      ]
+    ],
+    "Dengue (parac/SUS)": [
+      [
+        "Paracetamol",
+        "500mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "2",
+        "cps",
         "6",
         "horas",
         "",
@@ -16608,6 +16886,53 @@ $(function() {
         ""
       ]
     ],
+    "Dermatite Seborreica": [
+      [
+        "Cetoconazol Xampu",
+        "20mg/mL",
+        "Via Tópica/Capilar",
+        "",
+        "",
+        "Lavar cabelo,",
+        "deixar xampu agindo por 15 a 20min,",
+        "enxaguar e lavar cabelo com xampu (vide abaixo)",
+        "",
+        "dia",
+        "",
+        "",
+        "NÃO USAR condicionadores, óleos capilares ou produtos que apliquem oleosidade ao cabelo.\n    EVITAR produtos capilares \"2 em 1\" e semelhantes.\n    DAR PREFERÊNCIA a xampus anticaspa ou adstringentes."
+      ],
+      [
+        "Clobetasol (Proprionato) Loção Capilar",
+        "0.05%",
+        "Via Tópica/Capilar",
+        "",
+        "",
+        "Aplicar fina camada",
+        "em região afetada",
+        "do couro cabeludo",
+        "12",
+        "horas",
+        "",
+        ", se irritação",
+        ""
+      ],
+      [
+        "Dexclorferinamina",
+        "0,4mg/mL",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "10",
+        "mL",
+        "8",
+        "horas",
+        "",
+        ", se coceira",
+        ""
+      ]
+    ],
     "Escabiose": [
       [
         "Ivermectina",
@@ -16674,16 +16999,16 @@ $(function() {
         ""
       ]
     ],
-    "PS - Quetiapina VO": [
+    "PS - Mida IM": [
       [
-        "Quetiapina",
-        "25mg",
-        "Via Oral",
-        "01 cp",
+        "Midazolam",
+        "05mg/mL",
+        "Via Intramuscular",
+        "01 ampola / 03mL",
         "",
-        "Dar",
+        "Aplicar",
         "01",
-        "cp",
+        "ampola",
         "",
         "",
         "DU",
