@@ -293,7 +293,7 @@ $(function() {
           var symps = [];
           var symptomatic = true;
           if ( $("#symp-cough").is(":checked") ) {
-            var cough = "TOSSE ";
+            var cough = "tosse ";
             var cough_start = new Date( $("#cough-start").val() + "T00:00:00.000-03:00" );
             cough += $("#cough-desc").val();
             if ( $("#cough-prev").val() != "" ) {
@@ -305,7 +305,7 @@ $(function() {
             symps.push(cough);
           }
           if ( $("#symp-fever").is(":checked") ) {
-            var fever = "FEBRE ";
+            var fever = "febre ";
             var fever_start = new Date( $("#fever-start").val() + "T00:00:00.000-03:00" );
             fever += $("#fever-measure").val();
             if ( $("#fever-measure").val() == "aferida, de até " ) {
@@ -318,9 +318,9 @@ $(function() {
 
             symps.push(fever);
           }
-          $.each($("input[name='symps-key']:checked"), function(){ symps.push( $(this).val().toUpperCase() ); });
+          $.each($("input[name='symps-key']:checked"), function(){ symps.push( $(this).val() ); });
           $.each($("input[name='symps-other']:checked"), function(){ symps.push( $(this).val() ); });
-          if( symps.length == 0 ) { symps = "ASSINTOMÁTICO"; symptomatic = false; }
+          if( symps.length == 0 ) { symps = "assintomático"; symptomatic = false; }
           else { symps = "com: " + humanList( symps ); }
           s.push( "Paciente procura atendimento referindo estar " + symps + "." );
           if ( $("#symp-misc").val().trim() != "" ) { s.push( $("#symp-misc").val().trim() ); }

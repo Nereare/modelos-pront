@@ -342,7 +342,7 @@ if (isset($_COOKIE["sr_header"])) {
             <h4 class="title is-6">Apenas Idosos</h4>
 
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-key-16" name="symps-key" value="hiporexia importante">
+              <input type="checkbox" class="is-checkradio" id="symp-key-16" name="symps-key" value="hiporexia">
               <label for="symp-key-16">Hiporexia</label>
             </div>
             <div class="field">
