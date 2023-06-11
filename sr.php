@@ -1459,7 +1459,8 @@ if (isset($_COOKIE["sr_header"])) {
               <div class="select is-fullwidth">
                 <select id="lung-sounds">
                   <option value="sem ruídos adventícios" selected>&empty;</option>
-                  <option value="com raros roncos">alguns roncos</option>
+                  <option value="com raros roncos difusamente">alguns roncos</option>
+                  <option value="com roncos de transmissão nasal">roncos nasais</option>
                   <option value="com sibilos expiratórios">sibilos exp</option>
                   <option value="com sibilos inspiratórios e expiratórios">sibilos ins/exp</option>
                   <option value="com crepitação estertorante em ">crepitação</option>
