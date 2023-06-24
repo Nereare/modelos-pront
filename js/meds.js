@@ -861,6 +861,8 @@ $(function() {
     "Isoconazol (Nitrato) 10mg/mL",
     "Isoflurano 1mL/mL",
     "Isoniazida 100mg",
+    "Isossorbida 05mg",
+    "Isossorbida 20mg",
     "Isotretinoína 10mg",
     "Isotretinoína 20mg",
     "Isotretinoína 0,5mg/g",
@@ -7352,6 +7354,18 @@ $(function() {
       "Isoniazida",
       "100mg",
       "com ver",
+      "comprimido"
+    ],
+    "Isossorbida 05mg": [
+      "Isossorbida",
+      "05mg",
+      "com",
+      "comprimido"
+    ],
+    "Isossorbida 20mg": [
+      "Isossorbida",
+      "20mg",
+      "com",
       "comprimido"
     ],
     "Isotretinoína 10mg": [
@@ -16031,6 +16045,21 @@ $(function() {
         ""
       ],
       [
+        "Simeticona",
+        "75mg/mL",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "40",
+        "gts",
+        "6",
+        "horas",
+        "",
+        ", se gases ou estufamento",
+        ""
+      ],
+      [
         "Sais para Reidratação Oral",
         "--",
         "Via Oral",
@@ -16059,6 +16088,68 @@ $(function() {
         " por 07d",
         ", se diarreia",
         ""
+      ],
+      [
+        "Saccharomyces boulardii",
+        "200mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "01",
+        "cp",
+        "12",
+        "horas",
+        " por 03d",
+        "",
+        "Tomar apenas quando DIARREIA ESTIVER EM MELHORA."
+      ]
+    ],
+    "GECA (buscopam/SUS)": [
+      [
+        "Dipirona + Escopolamina",
+        "333.4+6.67mg/mL",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "40",
+        "gts",
+        "8",
+        "horas",
+        "",
+        ", se dor ou cólicas",
+        ""
+      ],
+      [
+        "Dimenidrinato + Piridoxina",
+        "25+5mg/mL",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "40",
+        "gts",
+        "8",
+        "horas",
+        "",
+        ", se náuseas",
+        ""
+      ],
+      [
+        "Sais para Reidratação Oral",
+        "--",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "300",
+        "mL (aprox. 02 copos americanos) de soro",
+        "8",
+        "horas",
+        " ou se diarreias",
+        "",
+        "O soro acima pode ser substituído por água de coco e bebidas isotônicas."
       ],
       [
         "Saccharomyces boulardii",
@@ -16123,6 +16214,21 @@ $(function() {
         ""
       ],
       [
+        "Simeticona",
+        "75mg/mL",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "40",
+        "gts",
+        "6",
+        "horas",
+        "",
+        ", se gases ou estufamento",
+        ""
+      ],
+      [
         "Sais para Reidratação Oral",
         "--",
         "Via Oral",
@@ -16151,6 +16257,83 @@ $(function() {
         " por 07d",
         ", se diarreia",
         ""
+      ],
+      [
+        "Saccharomyces boulardii",
+        "200mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "01",
+        "cp",
+        "12",
+        "horas",
+        " por 03d",
+        "",
+        "Tomar apenas quando DIARREIA ESTIVER EM MELHORA."
+      ]
+    ],
+    "GECA (parac/SUS)": [
+      [
+        "Paracetamol",
+        "500mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor",
+        ""
+      ],
+      [
+        "Escopolamina",
+        "10mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "8",
+        "horas",
+        "",
+        ", se cólicas",
+        ""
+      ],
+      [
+        "Dimenidrinato + Piridoxina",
+        "25+5mg/mL",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "40",
+        "gts",
+        "8",
+        "horas",
+        "",
+        ", se náuseas",
+        ""
+      ],
+      [
+        "Sais para Reidratação Oral",
+        "--",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "300",
+        "mL (aprox. 02 copos americanos) de soro",
+        "8",
+        "horas",
+        " ou se diarreias",
+        "",
+        "O soro acima pode ser substituído por água de coco e bebidas isotônicas."
       ],
       [
         "Saccharomyces boulardii",
@@ -16965,6 +17148,68 @@ $(function() {
         ""
       ]
     ],
+    "Angina": [
+      [
+        "Isossorbida",
+        "05mg",
+        "Via Oral",
+        "",
+        " Contínua",
+        "Tomar",
+        "01",
+        "cp",
+        "06",
+        "horas",
+        "",
+        ", se dor no peito",
+        ""
+      ],
+      [
+        "Ácido Acetilsalicílico",
+        "100mg",
+        "Via Oral",
+        "",
+        " Contínua",
+        "Tomar",
+        "01",
+        "cp",
+        "24",
+        "horas",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Clopidogrel",
+        "75mg",
+        "Via Oral",
+        "",
+        " Contínua",
+        "Tomar",
+        "01",
+        "cp",
+        "24",
+        "horas",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Atorvastatina",
+        "40mg",
+        "Via Oral",
+        "",
+        " Contínua",
+        "Tomar",
+        "01",
+        "cp",
+        "24",
+        "horas",
+        "",
+        "",
+        ""
+      ]
+    ],
     "PS - Tramadol IV": [
       [
         "Tramadol",
@@ -16975,6 +17220,23 @@ $(function() {
         "Aplicar",
         "01",
         "ampola",
+        "",
+        "",
+        "DU",
+        "",
+        ""
+      ]
+    ],
+    "PS - Morf SC": [
+      [
+        "Morfina",
+        "10mg/mL",
+        "Via Subcutânea",
+        "01 ampola",
+        "",
+        "Aplicar",
+        "0.5",
+        "mL",
         "",
         "",
         "DU",
