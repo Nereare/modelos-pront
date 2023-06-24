@@ -323,7 +323,10 @@ $(function() {
           if( symps.length == 0 ) { symps = "assintomático"; symptomatic = false; }
           else { symps = "com: " + humanList( symps ); }
           s.push( "Paciente procura atendimento referindo estar " + symps + "." );
-          if ( $("#symp-misc").val().trim() != "" ) { s.push( $("#symp-misc").val().trim() ); }
+          if( !$("#symp-fever").is(":checked") && !$("#symp-key-9").is(":checked") ) {
+            s.push( "Paciente nega, em todo o período: dispneia, febre e equivalentes febris." );
+          }
+          if( $("#symp-misc").val().trim() != "" ) { s.push( $("#symp-misc").val().trim() ); }
 
           if( $("#fear-contact").is(":checked") ) { s.push( "Paciente conta ter tido contato com alguém que testou positivo." ); }
           if( $("#fear-fear").is(":checked") ) { s.push( "Paciente conta estar com medo de estar com COVID." ); }
