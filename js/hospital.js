@@ -34,6 +34,35 @@ $(function() {
     }
   });
 
+  // Enable face description, if other:
+  $("#face").on("change", function() {
+    if( $(this).val() == "other" ) {
+      $("#face-other").prop("disabled", false);
+    } else {
+      $("#face-other")
+        .prop("disabled", true)
+        .val("");
+    }
+  });
+  // Enable thyroid nodule location:
+  $("#thyroid-volume").on("change", function() {
+    if( $(this).val() == "palpável topicamente, volume aumentado às custas de nódulo único" ) {
+      $("#thyroid-nodule-loc").prop("disabled", false);
+    } else {
+      $("#thyroid-nodule-loc")
+        .prop("disabled", true)
+        .val("");
+    }
+  });
+  // Enable lymphnode locations:
+  $("#lymph").on("change", function() {
+    if ($(this).val().includes("Presença de") ) {
+      $("#lymph-locs").removeClass("is-hidden");
+    } else {
+      $("#lymph-locs").addClass("is-hidden");
+      $(".lymph-loc").prop("checked", false);
+    }
+  });
   // Enable crepitation description:
   $("#lung-sounds").on("change", function() {
     if(
@@ -159,6 +188,11 @@ $(function() {
   $("#mmiipulse-strength").on("change", function() {
     if( $("#mmiipulse-strength").val() == "ausentes até aa. femorais" ) { $("#mmiipulse-artery, #mmiipulse-simmetry").prop("disabled", true); }
     else { $("#mmiipulse-artery, #mmiipulse-simmetry").prop("disabled", false); }
+  });
+  // Enable MMSS pulse descriptors:
+  $("#mmsspulse-strength").on("change", function() {
+    if( $("#mmsspulse-strength").val() != "" ) { $("#mmsspulse-artery, #mmsspulse-simmetry").prop("disabled", false); }
+    else { $("#mmsspulse-artery, #mmsspulse-simmetry").prop("disabled", true); }
   });
   // Disable MMSS pulse descriptors, if absent:
   $("#mmsspulse-strength").on("change", function() {
@@ -514,15 +548,42 @@ $(function() {
       o.push( ssvv.join(" | ") );
     }
 
+    // Face
+    if ($("#exam-face").is(":checked") ) {
+      let face = $("#face").val().trim();
+      if( face == "other" ) { face = $("#face-other").val(); }
+      o.push( "Fácies " + face + "." );
+    }
     // Eyes
     if( $("#exam-eye").is(":checked") ) {
       o.push( "Olhos: conjuntiva " + $("#eye-white").val() + ", secreções " + $("#eye-secr").val() + "." );
     }
     // Cervical
     if( $("#exam-neck").is(":checked") ) {
-      var cerv = ["Cervical:"];
-      if( $("#thyroid").val() != "" ) { cerv.push( "Tiroide " + $("#thyroid").val() + "." ); }
-      if( $("#lymph").val() != "" ) { cerv.push( $("#lymph").val() + $("#lymph-desc").val() + "." ); }
+      let cerv = ["Cervical:"];
+      // Thyroid
+      if( $("#thyroid-volume").val() != "" ) {
+        let thyr = "Tiroide " + $("#thyroid-volume").val();
+        if( $("#thyroid-nodule-loc").val() != "" ) { thyr += $("#thyroid-nodule-loc").val(); }
+        if( $("#thyroid-margins").val() != "" ) { thyr += ", com " + $("#thyroid-margins").val(); }
+        thyr += ".";
+        cerv.push( thyr );
+      }
+      // Lymphs
+      if( $("#lymph").val() != "" ) {
+        let lymphs = $("#lymph").val();
+        if( lymphs.includes("Presença de") ) {
+          let lymph_locs = [];
+          $(".lymph-loc").each(function (i, e) {
+            if( $(e).is(":checked") ) { lymph_locs.push( $(e).val() ); }
+          });
+          if( lymph_locs.length > 0 ) {
+            lymphs += ", em zona" + (lymph_locs.length > 1 ? "s " : " ") + humanList(lymph_locs);
+          }
+        }
+        lymphs += $("#lymph-desc").val();
+        cerv.push( lymphs + "." );
+      }
       o.push( cerv.join(" ") );
     }
     // Lungs
@@ -657,12 +718,21 @@ $(function() {
       if (!/^.+\.$/.test(skin)) { skin += "."; }
       o.push( "Pele: " + skin );
     }
-    // Pulses
+    // Superior Members
     if( $("#exam-mmss").is(":checked") ) {
-      var pulse = "";
-      if( $("#mmsspulse-strength").val() == "ausentes até aa. axilares" ) { pulse = $("#mmsspulse-strength").val(); }
-      else { pulse = $("#mmsspulse-strength").val() + " e " + $("#mmsspulse-simmetry").val() + ", palpáveis a partir de aa. " + $("#mmsspulse-artery").val(); }
-      o.push( "MMSS: pulsos " + pulse + "." );
+      var mmss = [];
+      // Pulses
+      if( $("#mmsspulse-strength").val() != "" ) {
+        let pulse = "";
+        if( $("#mmsspulse-strength").val() == "ausentes até aa. axilares" ) { pulse = $("#mmsspulse-strength").val(); }
+        else { pulse = $("#mmsspulse-strength").val() + " e " + $("#mmsspulse-simmetry").val() + ", palpáveis a partir de aa. " + $("#mmsspulse-artery").val(); }
+        mmss.push( "Pulsos " + pulse + "." );
+      }
+      // Skin turgor
+      if ($("#mmssturgor").val() != "" ) {
+        mmss.push( "Turgor cutâneo " + $("#mmssturgor").val() + "." );
+      }
+      if( mmss.length > 0 ) { o.push( "MMSS: " + mmss.join(" ") ); }
     }
     // Inferior Members
     if( $("#exam-mmii").is(":checked") ) {

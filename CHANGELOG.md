@@ -7,6 +7,14 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Não Publicado][Unreleased]
 ### Adicionado
 - Roncos de transmissão nasal a ambos *Exame Físico* e *Sintomáticos Respiratórios*.
+- *Exame Físico*:
+  - Descrição de fácies.
+  - Turgor cutâneo de MMSS.
+### Modificado
+- *Exame Físico*:
+  - Melhoras da descrição de tireoide.
+  - Melhoras da descrição de linfonodo(megalia)s.
+  - Descrição de pulsos de MMSS e MMII.
 
 ## [2.10.14] - 2023-05-09
 ### Adicionado

@@ -376,6 +376,52 @@ require_once "header.php";
       <div class="columns is-vcentered">
         <div class="column is-2">
           <div class="field">
+            <input type="checkbox" id="exam-face" class="is-checkradio">
+            <label for="exam-face">
+              <span class="icon">
+                <i class="mdi mdi-emoticon-neutral mdi-24px"></i>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">Fácies</button>
+            </div>
+            <div class="control">
+              <div class="select">
+                <select id="face">
+                  <option value="atípica" selected>normal</option>
+                  <option value="acromegálica">Acromegálica</option>
+                  <option value="adenoidiana">Adenoidiana</option>
+                  <option value="cushingoide (ou 'moonface')">Cushingoide</option>
+                  <option value="esclerodérmica">Esclerodérmica</option>
+                  <option value="leonina">Leonina</option>
+                  <option value="miastênica (ou de Hutchinson)">Miastênica</option>
+                  <option value="parkinsoniana">Parkinsoniana</option>
+                  <option value="renal">Renal</option>
+                  <option value="sindrômica">Sindrômica</option>
+                  <option value="tireotóxica (ou basedowiana)">Tireotóxica</option>
+                  <option value="other">Outra...</option>
+                </select>
+              </div>
+            </div>
+            <div class="control is-expanded">
+              <input type="text" class="input" id="face-other" placeholder="Descreva aqui..." disabled>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+      </div>
+
+      <div class="columns is-vcentered">
+        <div class="column is-2">
+          <div class="field">
             <input type="checkbox" id="exam-eye" class="is-checkradio">
             <label for="exam-eye">
               <span class="icon">
@@ -442,14 +488,35 @@ require_once "header.php";
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
-                <select id="thyroid">
-                  <option value="" selected>N/A</option>
+                <select id="thyroid-volume">
+                  <option value="" selected>Vol N/A</option>
                   <option value="não palpável">&empty;</option>
                   <option value="palpável topicamente, sem alterações de volume ou de superfície palpáveis">Normal</option>
-                  <option value="palpável topicamente, levemente aumentada mas sem alterações palpáveis de superfície">&uarr;Vol</option>
-                  <option value="palpável topicamente, bastante aumentada mas sem alterações palpáveis de superfície">&uarr;&uarr;&uarr;Vol</option>
+                  <option value="palpável topicamente, levemente aumentada mas sem alterações palpáveis de superfície e sem nódulos individualizáveis à palpação">&uarr;Vol</option>
+                  <option value="palpável topicamente, bastante aumentada mas sem alterações palpáveis de superfície e sem nódulos individualizáveis à palpação">&uarr;&uarr;&uarr;Vol</option>
                   <option value="palpável topicamente, volume aumentado às custas de nódulo único">&uarr;Vol/Nód único</option>
                   <option value="palpável topicamente, volume aumentado às custas de diversos nódulos">&uarr;Vol/Nóds</option>
+                </select>
+              </div>
+            </div>
+            <div class="control">
+              <div class="select">
+                <select id="thyroid-nodule-loc" disabled>
+                  <option value="" selected disabled>Loc Nód</option>
+                  <option value=" em topografia de lobo direito">Lobo D</option>
+                  <option value=" em topografia de lobo esquerdo">Lobo E</option>
+                  <option value=" em topografia de istmo">Ístmo</option>
+                </select>
+              </div>
+            </div>
+            <div class="control">
+              <div class="select">
+                <select id="thyroid-margins">
+                  <option value="" selected>Marg N/A</option>
+                  <option value="margens superior e inferior bem caracterizáveis à palpação">normal</option>
+                  <option value="margem superior aparentemente ACIMA de topografia esperada, e inferior bem caracterizável à palpação">Sup&uarr; / Inf nl</option>
+                  <option value="margem superior aparentemente ACIMA de topografia esperada, e inferior NÃO caracterizável à palpação">Sup&uarr; / Inf&uarr;</option>
+                  <option value="margem superior aparentemente na topografia esperada, e inferior NÃO caracterizável à palpação">Sup nl / Inf&uarr;</option>
                 </select>
               </div>
             </div>
@@ -463,7 +530,7 @@ require_once "header.php";
               <div class="select is-fullwidth">
                 <select id="lymph">
                   <option value="" selected>N/A</option>
-                  <option value="Sem linfonodomegalias cervicais, periauriculares ou supraclávicas palpáveis">Normal</option>
+                  <option value="Sem linfonodomegalias cervicais, periauriculares ou supraclávicas palpáveis">&empty;</option>
                   <option value="Presença de alguns linfonodos palpáveis, menores que 05mm">&plus;&lt;5mm</option>
                   <option value="Presença de algumas linfonodomegalias">&plus;&ge;5mm</option>
                   <option value="Presença de inúmeros linfonodos palpáveis, todos menores que 05mm">&plus;&plus;&lt;5mm</option>
@@ -481,6 +548,126 @@ require_once "header.php";
                   <option value=", fibroelásticos, móveis, não-aderidos a planos profundos e dolorosos">reacional</option>
                   <option value=", endurados, coalescidos, aderidos a planos profundos e indolores">maligno</option>
                 </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="columns is-hidden" id="lymph-locs">
+            <div class="column">
+              <h4 class="title is-6 has-text-centered">Dir</h4>
+
+              <div class="field">
+                <div class="control">
+                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-retroaur" value="retroauricular direita">
+                  <label for="lymph-right-retroaur">Retroauric</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-anterioraur" value="auricular anterior direita">
+                  <label for="lymph-right-anterioraur">Auric Ant</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-i" value="I direita">
+                  <label for="lymph-right-i">I</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-ii" value="II direita">
+                  <label for="lymph-right-ii">II</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-iii" value="III direita">
+                  <label for="lymph-right-iii">III</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-iv" value="IV direita">
+                  <label for="lymph-right-iv">IV</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-v" value="V direita">
+                  <label for="lymph-right-v">V</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-vi" value="VI direita">
+                  <label for="lymph-right-vi">VI</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-vii" value="VII direita">
+                  <label for="lymph-right-vii">VII</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="column">
+              <h4 class="title is-6 has-text-centered">Esq</h4>
+
+              <div class="field">
+                <div class="control">
+                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-retroaur" value="retroauricular esquerda">
+                  <label for="lymph-left-retroaur">Retroauric</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-anterioraur" value="auricular anterior esquerda">
+                  <label for="lymph-left-anterioraur">Auric Ant</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-i" value="I esquerda">
+                  <label for="lymph-left-i">I</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-ii" value="II esquerda">
+                  <label for="lymph-left-ii">II</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-iii" value="III esquerda">
+                  <label for="lymph-left-iii">III</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-iv" value="IV esquerda">
+                  <label for="lymph-left-iv">IV</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-v" value="V esquerda">
+                  <label for="lymph-left-v">V</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-vi" value="VI esquerda">
+                  <label for="lymph-left-vi">VI</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-vii" value="VII esquerda">
+                  <label for="lymph-left-vii">VII</label>
+                </div>
               </div>
             </div>
           </div>
@@ -1322,7 +1509,8 @@ require_once "header.php";
             <div class="control is-expanded">
               <div class="select is-fullwidth">
                 <select id="mmsspulse-strength">
-                  <option value="cheios" selected>cheios</option>
+                  <option value="" selected>N/A</option>
+                  <option value="cheios">cheios</option>
                   <option value="fracos">&darr;</option>
                   <option value="em martelo d'água">&uarr;</option>
                   <option value="ausentes até aa. axilares">&empty;</option>
@@ -1331,7 +1519,7 @@ require_once "header.php";
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
-                <select id="mmsspulse-simmetry">
+                <select id="mmsspulse-simmetry" disabled>
                   <option value="simétricos" selected>simétricos</option>
                   <option value="diminuídos à direita">&darr;D</option>
                   <option value="diminuídos à esquerda">&darr;E</option>
@@ -1343,11 +1531,27 @@ require_once "header.php";
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
-                <select id="mmsspulse-artery">
+                <select id="mmsspulse-artery" disabled>
                   <option value="radiais" selected>radiais</option>
                   <option value="ulnares">ulnares</option>
                   <option value="braquiais">braquiais</option>
                   <option value="axilares">axilares</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">Turgor Cutâneo</button>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="mmssturgor">
+                  <option value="" selected>N/A</option>
+                  <option value="adequado">Normal</option>
+                  <option value="diminuído (prega cutânea persistente)">Desidratação</option>
+                  <option value="aumentado (prega cutânea não formável por edema)">Edema</option>
                 </select>
               </div>
             </div>
@@ -1379,10 +1583,12 @@ require_once "header.php";
             <div class="control is-expanded">
               <div class="select is-fullwidth">
                 <select id="oedema">
-                  <option value="sem edemas" selected>&empty;</option>
-                  <option value="com edema bilateral e simétrico">bilat</option>
-                  <option value="com edema bilateral, maior à direita">bilat D&gt;E</option>
-                  <option value="com edema bilateral, maior à esquerda">bilat D&lt;E</option>
+                  <option value="Ausência de edemas" selected>&empty;</option>
+                  <option value="Edema bilateral e simétrico">bilat</option>
+                  <option value="Edema bilateral, maior à direita">bilat D&gt;E</option>
+                  <option value="Edema bilateral, maior à esquerda">bilat D&lt;E</option>
+                  <option value="Edema exclusivo à direita">D apenas</option>
+                  <option value="Edema exclusivo à esquerda">E apenas</option>
                 </select>
               </div>
             </div>
