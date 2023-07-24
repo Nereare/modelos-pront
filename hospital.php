@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The slug for this page.
  * IMPORTANT: Set the variable below so that the header works properly!
@@ -1583,7 +1584,8 @@ require_once "header.php";
             <div class="control is-expanded">
               <div class="select is-fullwidth">
                 <select id="oedema">
-                  <option value="Ausência de edemas" selected>&empty;</option>
+                  <option value="" selected>N/A</option>
+                  <option value="Ausência de edemas">&empty;</option>
                   <option value="Edema bilateral e simétrico">bilat</option>
                   <option value="Edema bilateral, maior à direita">bilat D&gt;E</option>
                   <option value="Edema bilateral, maior à esquerda">bilat D&lt;E</option>
@@ -1594,13 +1596,58 @@ require_once "header.php";
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
-                <select id="oedema-grade">
-                  <option value="1+/4+" selected>1+</option>
-                  <option value="2+/4+">2+</option>
-                  <option value="3+/4+">3+</option>
-                  <option value="4+/4+">4+</option>
+                <select id="oedema-grade1" disabled>
+                  <option value="1+/4+" data-qtt="1+" selected>1+</option>
+                  <option value="2+/4+" data-qtt="2+">2+</option>
+                  <option value="3+/4+" data-qtt="3+">3+</option>
+                  <option value="4+/4+" data-qtt="4+">4+</option>
                 </select>
               </div>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="oedema-grade2" disabled>
+                  <option value="1+/4+" selected>1+ (E)</option>
+                  <option value="2+/4+">2+ (E)</option>
+                  <option value="3+/4+">3+ (E)</option>
+                  <option value="4+/4+">4+ (E)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">Empastamento Panturrilhas</button>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="calf">
+                  <option value="" selected>N/A</option>
+                  <option value="ausente">&empty;</option>
+                  <option value="PRESENTE bilateralmente">Bilat</option>
+                  <option value="PRESENTE à direita">D</option>
+                  <option value="PRESENTE à esquerda">E</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">Circ. Panturrilhas</button>
+            </div>
+            <div class="control">
+              <button class="button is-static" tabindex="-1">D</button>
+            </div>
+            <div class="control is-expanded">
+              <input type="number" class="input" id="calf-right" min="1" step="0.5" placeholder="# cm">
+            </div>
+            <div class="control">
+              <button class="button is-static" tabindex="-1">E</button>
+            </div>
+            <div class="control is-expanded">
+              <input type="number" class="input" id="calf-left" min="1" step="0.5" placeholder="# cm">
             </div>
           </div>
 
@@ -1611,7 +1658,8 @@ require_once "header.php";
             <div class="control is-expanded">
               <div class="select is-fullwidth">
                 <select id="mmiipulse-strength">
-                  <option value="cheios" selected>cheios</option>
+                  <option value="" selected>N/A</option>
+                  <option value="cheios">cheios</option>
                   <option value="fracos">&darr;</option>
                   <option value="em martelo d'água">&uarr;</option>
                   <option value="ausentes até aa. femorais">&empty;</option>
@@ -1620,7 +1668,7 @@ require_once "header.php";
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
-                <select id="mmiipulse-simmetry">
+                <select id="mmiipulse-simmetry" disabled>
                   <option value="simétricos" selected>simétricos</option>
                   <option value="diminuídos à direita">&darr;D</option>
                   <option value="diminuídos à esquerda">&darr;E</option>
@@ -1632,11 +1680,51 @@ require_once "header.php";
             </div>
             <div class="control is-expanded">
               <div class="select is-fullwidth">
-                <select id="mmiipulse-artery">
+                <select id="mmiipulse-artery" disabled>
                   <option value="pediosas" selected>pediosas</option>
                   <option value="tibiais posteriores">tibiais post</option>
                   <option value="poplíteas">poplíteas</option>
                   <option value="femorais">femorais</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">Varizes</button>
+            </div>
+            <div class="control">
+              <button class="button is-static" tabindex="-1">D</button>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="varicose-right">
+                  <option value="" data-degree="x" select>N/A</option>
+                  <option value="ausente(s) à direita (C0)" data-degree="0">&empty;</option>
+                  <option value="presente(s) à direita em grau C1 (varizes de pequeno calibre)" data-degree="1">C1 (pqnas)</option>
+                  <option value="presente(s) à direita em grau C2 (varizes de grande calibre)" data-degree="2">C2 (gdes)</option>
+                  <option value="presente(s) à direita em grau C3 (varizes com edema)" data-degree="3">C3 (edema)</option>
+                  <option value="presente(s) à direita em grau C4 (varizes e eczema de estase)" data-degree="4">C4 (eczema)</option>
+                  <option value="presente(s) à direita em grau C5 (úlcera varicosa cicatrizada)" data-degree="5">C5 (úlcera cic)</option>
+                  <option value="presente(s) à direita em grau C6 (úlcera varicosa ativa)" data-degree="6">C6 (úlcera ativa)</option>
+                </select>
+              </div>
+            </div>
+            <div class="control">
+              <button class="button is-static" tabindex="-1">E</button>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="varicose-left">
+                  <option value="" data-degree="y" select>N/A</option>
+                  <option value="ausente(s) à esquerda (C0)" data-degree="0">&empty;</option>
+                  <option value="presente(s) à esquerda em grau C1 (varizes de pequeno calibre)" data-degree="1">C1 (pqnas)</option>
+                  <option value="presente(s) à esquerda em grau C2 (varizes de grande calibre)" data-degree="2">C2 (gdes)</option>
+                  <option value="presente(s) à esquerda em grau C3 (varizes com edema)" data-degree="3">C3 (edema)</option>
+                  <option value="presente(s) à esquerda em grau C4 (varizes e eczema de estase)" data-degree="4">C4 (eczema)</option>
+                  <option value="presente(s) à esquerda em grau C5 (úlcera varicosa cicatrizada)" data-degree="5">C5 (úlcera cic)</option>
+                  <option value="presente(s) à esquerda em grau C6 (úlcera varicosa ativa)" data-degree="6">C6 (úlcera ativa)</option>
                 </select>
               </div>
             </div>

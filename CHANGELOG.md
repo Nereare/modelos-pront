@@ -10,6 +10,8 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - *Exame Físico*:
   - Descrição de fácies.
   - Turgor cutâneo de MMSS.
+  - Empastamento e circunferência de panturrilhas.
+  - Varizes.
 ### Modificado
 - *Exame Físico*:
   - Melhoras da descrição de tireoide.

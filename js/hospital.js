@@ -176,28 +176,52 @@ $(function() {
 
   // Enable oedema intensity:
   $("#oedema").on("change", function() {
-    if( $("#oedema").val() != "sem edemas" ) {
-      $("#oedema-grade").css("display", "inline-block");
-    } else {
-      $("#oedema-grade")
-        .css("display", "none")
-        .val("1+/4+");
+    switch( $("#oedema").val() ) {
+      case "Edema bilateral e simétrico":
+      case "Edema exclusivo à direita":
+      case "Edema exclusivo à esquerda":
+        $("#oedema-grade1").prop("disabled", false);
+        $("#oedema-grade1 option").each(function(i, e) {
+          $(e).html( $(e).attr("data-qtt") );
+        });
+        $("#oedema-grade2").prop("disabled", true);
+        break;
+      case "Edema bilateral, maior à direita":
+      case "Edema bilateral, maior à esquerda":
+        $("#oedema-grade1, #oedema-grade2").prop("disabled", false);
+        $("#oedema-grade1 option").each(function(i, e) {
+          $(e).html( $(e).attr("data-qtt") + " (D)" );
+        });
+        break;
+      default:
+        $("#oedema-grade1, #oedema-grade2")
+          .prop("disabled", true)
+          .val("1+/4+");
+        $("#oedema-grade1 option").each(function(i, e) {
+          $(e).html( $(e).attr("data-qtt") );
+        });
+        break;
     }
   });
-  // Disable MMII pulse descriptors, if absent:
+  // Enable MMII pulse descriptors:
   $("#mmiipulse-strength").on("change", function() {
-    if( $("#mmiipulse-strength").val() == "ausentes até aa. femorais" ) { $("#mmiipulse-artery, #mmiipulse-simmetry").prop("disabled", true); }
-    else { $("#mmiipulse-artery, #mmiipulse-simmetry").prop("disabled", false); }
+    if(
+      $("#mmiipulse-strength").val() == "ausentes até aa. femorais" ||
+      $("#mmiipulse-strength").val() == "" ) {
+        $("#mmiipulse-artery, #mmiipulse-simmetry").prop("disabled", true);
+    } else {
+      $("#mmiipulse-artery, #mmiipulse-simmetry").prop("disabled", false);
+    }
   });
   // Enable MMSS pulse descriptors:
   $("#mmsspulse-strength").on("change", function() {
-    if( $("#mmsspulse-strength").val() != "" ) { $("#mmsspulse-artery, #mmsspulse-simmetry").prop("disabled", false); }
-    else { $("#mmsspulse-artery, #mmsspulse-simmetry").prop("disabled", true); }
-  });
-  // Disable MMSS pulse descriptors, if absent:
-  $("#mmsspulse-strength").on("change", function() {
-    if( $("#mmsspulse-strength").val() == "ausentes até aa. axilares" ) { $("#mmsspulse-artery, #mmsspulse-simmetry").prop("disabled", true); }
-    else { $("#mmsspulse-artery, #mmsspulse-simmetry").prop("disabled", false); }
+    if(
+      $("#mmsspulse-strength").val() == "ausentes até aa. axilares" ||
+      $("#mmsspulse-strength").val() == "" ) {
+        $("#mmsspulse-artery, #mmsspulse-simmetry").prop("disabled", true);
+    } else {
+      $("#mmsspulse-artery, #mmsspulse-simmetry").prop("disabled", false);
+    }
   });
 
   // Show neuro exam
@@ -732,16 +756,65 @@ $(function() {
       if ($("#mmssturgor").val() != "" ) {
         mmss.push( "Turgor cutâneo " + $("#mmssturgor").val() + "." );
       }
+      // Output
       if( mmss.length > 0 ) { o.push( "MMSS: " + mmss.join(" ") ); }
     }
     // Inferior Members
     if( $("#exam-mmii").is(":checked") ) {
+      let mmii = [];
+      // Oedema
       var oedema = $("#oedema").val();
-      if( oedema != "sem edemas" ) { oedema += " " + $("#oedema-grade").val(); }
-      var pulse = "";
-      if( $("#mmiipulse-strength").val() == "ausentes até aa. femorais" ) { pulse = $("#mmiipulse-strength").val(); }
-      else { pulse = $("#mmiipulse-strength").val() + " e " + $("#mmiipulse-simmetry").val() + ", palpáveis a partir de aa. " + $("#mmiipulse-artery").val(); }
-      o.push( "MMII: " + oedema + ", pulsos " + pulse + "." );
+      switch (oedema) {
+        case "Edema bilateral e simétrico":
+        case "Edema exclusivo à direita":
+        case "Edema exclusivo à esquerda":
+          oedema += ", " + $("#oedema-grade1").val() + ".";
+          break;
+        case "Edema bilateral, maior à direita":
+        case "Edema bilateral, maior à esquerda":
+          oedema += ", " + $("#oedema-grade1").val() + " à direita e " + $("#oedema-grade2").val() + " à esquerda.";
+          break;
+        default:
+          oedema += ".";
+          break;
+      }
+      if( oedema != "." ) { mmii.push( oedema ); }
+      // Calf Empasta
+      if( $("#calf").val() != "" ) { mmii.push( "Empastamento de panturrilhas " + $("#calf").val() + "." ); }
+      // Calf Circunferences
+      if( $("#calf-right").val() != "" && $("#calf-right").val() != "" ) {
+        mmii.push( "Circunferência de panturrilhas D=" + $("#calf-right").val() + "cm e E=" + $("#calf-left").val() + "cm." );
+      }
+      // Pulses
+      if( $("#mmiipulse-strength").val() != "" ) {
+        let pulse = "";
+        if( $("#mmiipulse-strength").val() == "ausentes até aa. femorais" ) { pulse = $("#mmiipulse-strength").val(); }
+        else { pulse = $("#mmiipulse-strength").val() + " e " + $("#mmiipulse-simmetry").val() + ", palpáveis a partir de aa. " + $("#mmiipulse-artery").val(); }
+        mmii.push( "Pulsos " + pulse + "." );
+      }
+      // Varicose Veins
+      if( $("#varicose-right").val() != "" || $("#varicose-right").val() != "" ) {
+        let varicose = [];
+        if( $("#varicose-right").find(":selected").attr("data-degree") == $("#varicose-left").find(":selected").attr("data-degree") ) {
+          let degree = parseInt( $("#varicose-right").find(":selected").attr("data-degree") );
+          let varicose_degrees = [
+            "ausentes bilateralmente (C0)",
+            "presentes bilateralmente em grau C1 (varizes de pequeno calibre)",
+            "presentes bilateralmente em grau C2 (varizes de grande calibre)",
+            "presentes bilateralmente em grau C3 (varizes com edema)",
+            "presentes bilateralmente em grau C4 (varizes e eczema de estase)",
+            "presentes bilateralmente em grau C5 (úlcera varicosa cicatrizada)",
+            "presentes bilateralmente em grau C6 (úlcera varicosa ativa)"
+          ];
+          varicose.push( varicose_degrees[ degree ] );
+        } else {
+          if( $("#varicose-right").val() != "" ) { varicose.push( $("#varicose-right").val() ); }
+          if( $("#varicose-left").val() != "" ) { varicose.push( $("#varicose-left").val() ); }
+        }
+        if( varicose.length > 0 ) { mmii.push( "Varizes " + varicose.join(" e ") + "." ); }
+      }
+      // Output
+      if( mmii.length > 0 ) { o.push( "MMII: " + mmii.join(" ") ); }
     }
     // Cincinnati
     if( $("#neuro-cincinnati").is(":checked") ) {
