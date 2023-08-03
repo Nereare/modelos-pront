@@ -21,27 +21,24 @@ require_once "header.php";
       <div class="column is-12">
         <!-- CARD -->
         <div class="card">
-          <div class="card-image">
-            <a href="<?php echo $item[1]; ?>">
-              <figure class="image is-3by1">
-                <img src="assets/<?php echo $item[2]; ?>" alt="<?php echo $item[3]; ?>">
-              </figure>
-            </a>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-content">
-                <p class="title is-4 has-text-centered">
-                  <a href="<?php echo $item[1]; ?>"><?php echo $item[4]; ?></a>
-                </p>
+          <a href="<?php echo $item[1]; ?>">
+            <div class="card-image">
+              <a href="<?php echo $item[1]; ?>">
+                <figure class="image is-3by1">
+                  <img src="assets/<?php echo $item[2]; ?>" alt="<?php echo $item[3]; ?>">
+                </figure>
+              </a>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <p class="title is-4 has-text-centered">
+                    <?php echo $item[4]; ?>
+                  </p>
+                </div>
               </div>
             </div>
-            <div class="content">
-              <p>
-                <?php echo $item[5]; ?>
-              </p>
-            </div>
-          </div>
+          </a>
         </div>
         <!-- /CARD -->
       </div>
@@ -59,27 +56,22 @@ require_once "header.php";
     <div class="column is-4">
       <!-- CARD -->
       <div class="card">
-        <div class="card-image">
-          <a href="<?php echo $item[1]; ?>">
+        <a href="<?php echo $item[1]; ?>">
+          <div class="card-image">
             <figure class="image is-3by1">
               <img src="assets/<?php echo $item[2]; ?>" alt="<?php echo $item[3]; ?>">
             </figure>
-          </a>
-        </div>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4 has-text-centered">
-                <a href="<?php echo $item[1]; ?>"><?php echo $item[4]; ?></a>
-              </p>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4 has-text-centered">
+                  <?php echo $item[4]; ?>
+                </p>
+              </div>
             </div>
           </div>
-          <div class="content">
-            <p>
-              <?php echo $item[5]; ?>
-            </p>
-          </div>
-        </div>
+        </a>
       </div>
       <!-- /CARD -->
     </div>

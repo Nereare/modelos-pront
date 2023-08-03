@@ -17,6 +17,7 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
   - Melhoras da descrição de tireoide.
   - Melhoras da descrição de linfonodo(megalia)s.
   - Descrição de pulsos de MMSS e MMII.
+- Mudar organização dos *cards* iniciais (eles em si são os hiperlinks, agora).
 
 ## [2.10.14] - 2023-05-09
 ### Adicionado

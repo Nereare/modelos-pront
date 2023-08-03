@@ -18,6 +18,11 @@ $link: #00acc1;
   * { font-family: $family-monospace; }
 }
 
+// Set index's card titles' color
+.card .title {
+  color: $link;
+}
+
 // Notification from `config.php`, regarding the success (or not) of
 // saving the configurations.
 #config-reply {
