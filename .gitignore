@@ -636,3 +636,4 @@ FodyWeavers.xsd
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+vendor/
