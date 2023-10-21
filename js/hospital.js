@@ -756,6 +756,21 @@ $(function() {
       if ($("#mmssturgor").val() != "" ) {
         mmss.push( "Turgor cutâneo " + $("#mmssturgor").val() + "." );
       }
+      // Perfusion
+      if ($("#mmsstec").val() != "") {
+        let tec = parseInt($("#mmsstec").val());
+        if (tec < 3) {
+          mmss.push("TEC<3s.");
+        } else {
+          mmss.push("TEC ~" + $("#mmsstec").val() + "s.");
+        }
+      }
+      // Other
+      if ($("#mmss-misc").val() != "") {
+        let txt = $("#mmss-misc").val();
+        if (!/^.+\.$/.test(txt)) { txt += "."; }
+        mmss.push( txt );
+      }
       // Output
       if( mmss.length > 0 ) { o.push( "MMSS: " + mmss.join(" ") ); }
     }

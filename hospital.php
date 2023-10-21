@@ -1557,6 +1557,27 @@ require_once "header.php";
               </div>
             </div>
           </div>
+
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">TEC</button>
+            </div>
+            <div class="control is-expanded">
+              <input type="number" class="input" id="mmsstec" min="1" step="1" placeholder="# segundos">
+            </div>
+            <div class="control">
+              <button class="button is-static" tabindex="-1">s</button>
+            </div>
+          </div>
+
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">Misc</button>
+            </div>
+            <div class="control is-expanded">
+              <input type="text" class="input" id="mmss-misc" placeholder="Outros dados...">
+            </div>
+          </div>
         </div>
       </div>
 
