@@ -373,109 +373,133 @@ if (isset($_COOKIE["sr_header"])) {
               <label for="symp-other-4">Cervicalgia</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-5" name="symps-other" value="congestão nasal">
-              <label for="symp-other-5">Congestão Nasal (adultos)</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-5" name="symps-other" value="chiado no peito">
+              <label for="symp-other-5">Chiado no Peito</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-6" name="symps-other" value="diarreia">
-              <label for="symp-other-6">Diarreia</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-6" name="symps-other" value="congestão nasal">
+              <label for="symp-other-6">Congestão Nasal (adultos)</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-7" name="symps-other" value="disfonia">
-              <label for="symp-other-7">Disfonia</label>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-8" name="symps-other" value="dor abdominal">
-              <label for="symp-other-8">Dor Abdominal</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-7" name="symps-other" value="desejo de radiografia de seios da face">
+              <label for="symp-other-7">Desejo Rx Seios Face</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-9" name="symps-other" value="dor em pernas">
-              <label for="symp-other-9">Dor de MMII</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-8" name="symps-other" value="desejo de radiografia de tórax">
+              <label for="symp-other-8">Desejo Rx Tórax</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-10" name="symps-other" value="dor em braços">
-              <label for="symp-other-10">Dor de MMSS</label>
-            </div>
-            <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-11" name="symps-other" value="dor no pescoço">
-              <label for="symp-other-11">Dor no Pescoço</label>
-            </div>
-            <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-12" name="symps-other" value="dorsalgia">
-              <label for="symp-other-12">Dorsalgia</label>
-            </div>
-            <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-13" name="symps-other" value="espirros">
-              <label for="symp-other-13">Espirros</label>
-            </div>
-            <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-14" name="symps-other" value="inapetência">
-              <label for="symp-other-14">Inapetência</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-9" name="symps-other" value="diarreia">
+              <label for="symp-other-9">Diarreia</label>
             </div>
           </div>
 
           <div class="column">
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-15" name="symps-other" value="irritação na garganta">
-              <label for="symp-other-15">Irritação na Garganta</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-10" name="symps-other" value="disfonia">
+              <label for="symp-other-10">Disfonia</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-16" name="symps-other" value="irritação ocular">
-              <label for="symp-other-16">Irritação Ocular</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-11" name="symps-other" value="dor abdominal">
+              <label for="symp-other-11">Dor Abdominal</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-17" name="symps-other" value="lipotimia">
-              <label for="symp-other-17">Lipotimia</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-12" name="symps-other" value="dor em braços">
+              <label for="symp-other-12">Dor de MMSS</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-18" name="symps-other" value="lombalgia">
-              <label for="symp-other-18">Lombalgia</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-13" name="symps-other" value="dor em pernas">
+              <label for="symp-other-13">Dor de MMII</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-19" name="symps-other" value="mialgia">
-              <label for="symp-other-19">Mialgia</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-14" name="symps-other" value="dor no pescoço">
+              <label for="symp-other-14">Dor no Pescoço</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-20" name="symps-other" value="náuseas">
-              <label for="symp-other-20">Náuseas</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-15" name="symps-other" value="dorsalgia">
+              <label for="symp-other-15">Dorsalgia</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-21" name="symps-other" value="otalgia">
-              <label for="symp-other-21">Otalgia</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-16" name="symps-other" value="êmeses">
+              <label for="symp-other-16">Vômitos</label>
+            </div>
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-17" name="symps-other" value="espirros">
+              <label for="symp-other-17">Espirros</label>
+            </div>
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-18" name="symps-other" value="inapetência">
+              <label for="symp-other-18">Inapetência</label>
             </div>
           </div>
 
           <div class="column">
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-22" name="symps-other" value="otorreia">
-              <label for="symp-other-22">Otorreia</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-19" name="symps-other" value="irritação na garganta">
+              <label for="symp-other-19">Irritação na Garganta</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-23" name="symps-other" value="prurido nasal">
-              <label for="symp-other-23">Prurido Nasal</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-20" name="symps-other" value="irritação ocular">
+              <label for="symp-other-20">Irritação Ocular</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-24" name="symps-other" value="secreção ocular">
-              <label for="symp-other-24">Secreção Ocular</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-21" name="symps-other" value="lipotimia">
+              <label for="symp-other-21">Lipotimia</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-25" name="symps-other" value="sensação de calor">
-              <label for="symp-other-25">Sensação de Calor</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-22" name="symps-other" value="lombalgia">
+              <label for="symp-other-22">Lombalgia</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-26" name="symps-other" value="toracalgia">
-              <label for="symp-other-26">Toracalgia</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-23" name="symps-other" value="mialgia">
+              <label for="symp-other-23">Mialgia</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-27" name="symps-other" value="vertigem">
-              <label for="symp-other-27">Vertigem</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-24" name="symps-other" value="náuseas">
+              <label for="symp-other-24">Náuseas</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-28" name="symps-other" value="êmeses">
-              <label for="symp-other-28">Vômitos</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-25" name="symps-other" value="otalgia">
+              <label for="symp-other-25">Otalgia</label>
+            </div>
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-26" name="symps-other" value="otorreia">
+              <label for="symp-other-26">Otorreia</label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-27" name="symps-other" value="plenitude otológica">
+              <label for="symp-other-27">Plenitude Otológica</label>
+            </div>
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-28" name="symps-other" value="prurido nasal">
+              <label for="symp-other-28">Prurido Nasal</label>
+            </div>
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-29" name="symps-other" value="prurido ocular">
+              <label for="symp-other-29">Prurido Ocular</label>
+            </div>
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-30" name="symps-other" value="prurido otológico">
+              <label for="symp-other-30">Prurido Otológico</label>
+            </div>
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-31" name="symps-other" value="secreção ocular">
+              <label for="symp-other-31">Secreção Ocular</label>
+            </div>
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-32" name="symps-other" value="sensação de calor">
+              <label for="symp-other-32">Sensação de Calor</label>
+            </div>
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-33" name="symps-other" value="toracalgia">
+              <label for="symp-other-33">Toracalgia</label>
+            </div>
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-34" name="symps-other" value="vertigem">
+              <label for="symp-other-34">Vertigem</label>
             </div>
           </div>
         </div>
@@ -2533,6 +2557,7 @@ if (isset($_COOKIE["sr_header"])) {
                     <option value="amoxicilina 500mg 8/8h mais claritromicina 500mg 12/12h">Amoxi+Claritro</option>
                     <option value="amoxicilina+clavulanato 500+125mg 8/8h">Amoxi+Clav</option>
                     <option value="amoxicilina+clavulanato 875+125mg 12/12h">Amoxi+Clav BD</option>
+                    <option value="azitromicina 500mg/d">Azitro xP</option>
                     <option value="cefalexina 500mg 6/6h">Cefalexina</option>
                     <option value="cefalexina 1.000mg 6/6h">Cefalexina&times;2</option>
                     <option value="ciprofloxacino 500mg 12/12h mais clindamicina 300mg 8/8h">Cipro+Clinda</option>
@@ -3392,48 +3417,6 @@ if (isset($_COOKIE["sr_header"])) {
         não apresentam revogações expressas, segundo averiguação em 26 de maio de 2022. Note que isto é passível de mudança, conforme a progressão das medidas do (des)governo birolirolista.
         <a href="https://twitter.com/TheEconomist/status/1246019795998388224">#elenão</a>
       </p>
-    </footer>
-  </div>
-</div>
-
-<div class="modal" id="go-science-go">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">
-        <span class="icon-text">
-          <span class="icon">
-            <i class="mdi mdi-alert"></i>
-          </span>
-          <span>Aqui, nós defendemos Ciência!</span>
-        </span>
-      </p>
-    </header>
-    <section class="modal-card-body">
-      <div class="content">
-        <p>
-          Não, essa opção <strong>não pode ser desselecionada</strong> pois é sua <strong>OBRIGAÇÃO ÉTICA</strong> (Cap. III, Art. 20, <a href="https://cem.cfm.org.br/#Cap3">Código de Ética Médica, CFM, 2018</a>)
-          aderir e orientar paciente das melhores condutas baseadas em evidência científica, e você <em>deveria</em> saber que querer prescrever "Tratamento Precoce" é um ato baseado ou na sua ignorância sobre o
-          imenso corpo de literatura contraindicando uso do "kit COVID", ou em sua má-fé para com o bem-estar da população.
-        </p>
-        <p>
-          Se você quiser usar essa ferramenta, essa caixa se manterá selecionada.
-        </p>
-        <p>
-          Se você quiser seguir com o seu delírio esquizofrênico e <strong>privar a população</strong> sob seu cuidado de uma prática baseada nas melhores e mais sólidas evidências científicas disponíveis até o
-          momento, <a href="https://www.istoedinheiro.com.br/mpf-defende-que-cfm-seja-obrigado-a-suspender-parecer-a-favor-de-kit-covid/">a porta da</a>
-          <a href="https://www12.senado.leg.br/noticias/materias/2021/04/19/especialistas-defendem-comunicacao-ciencia-e-vacina-contra-pandemia">rua é serventia</a>
-          <a href="https://www.correiobraziliense.com.br/brasil/2021/10/4953373-cfm-pode-ter-que-pagar-rs-60-mi-por-ajudar-a-disseminar-kit-covid.html"> deste projeto</a>.
-        </p>
-      </div>
-
-      <figure class="image mx-auto" style="width: 50%;">
-        <img src="https://imgs.xkcd.com/comics/science.jpg">
-      </figure>
-    </section>
-    <footer class="modal-card-foot">
-      <button class="button is-success is-fullwidth" id="accept-science">Vou mitigar minha ignorância</button>
-      <a class="button is-fullwidth" href="https://www.jogosgratisparacriancas.com/" target="_self">Quero continuar sendo imbecil</a>
     </footer>
   </div>
 </div>
