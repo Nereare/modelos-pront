@@ -16479,7 +16479,69 @@ $(function() {
         ""
       ]
     ],
-    "Dor Osteomuscular (dip)": [
+    "Dor Osteomuscular (leve; dip)": [
+      [
+        "Ibuprofeno",
+        "400mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "8",
+        "horas",
+        " por 5 dias",
+        "",
+        ""
+      ],
+      [
+        "Dipirona",
+        "1.000mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor",
+        ""
+      ],
+      [
+        "Paracetamol",
+        "750mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor, intercalado com dipirona",
+        ""
+      ],
+      [
+        "Ciclobenzaprina",
+        "5mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "1",
+        "dia",
+        " por 1 semana",
+        "",
+        "Tomar 30 minutos antes de dormir."
+      ]
+    ],
+    "Dor Osteomuscular (intensa; dip)": [
       [
         "Ibuprofeno",
         "400mg",
@@ -16556,7 +16618,39 @@ $(function() {
         ""
       ]
     ],
-    "Dor Osteomuscular (parac)": [
+    "Dor Osteomuscular (leve; parac)": [
+      [
+        "Paracetamol",
+        "750mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "6",
+        "horas",
+        "",
+        ", se dor",
+        ""
+      ],
+      [
+        "Ciclobenzaprina",
+        "5mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "1",
+        "dia",
+        " por 1 semana",
+        "",
+        "Tomar 30 minutos antes de dormir."
+      ]
+    ],
+    "Dor Osteomuscular (intensa; parac)": [
       [
         "Paracetamol",
         "750mg",
@@ -16762,16 +16856,31 @@ $(function() {
         "Aciclovir",
         "200mg",
         "Via Oral",
-        "56 cps",
+        "140 cps",
         "",
         "Tomar",
-        "2",
+        "4",
         "cps",
-        "6",
+        "4",
         "horas",
         " por 7 dias",
         "",
-        ""
+        "Pular a dose da madrugada."
+      ],
+      [
+        "Omeprazol",
+        "20mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "01",
+        "cp",
+        "12",
+        "horas",
+        "",
+        "",
+        "Tomar cada cp 30min antes da refeição (café-da-manhã e janta)."
       ],
       [
         "Hidróxido de Alumínio",
@@ -16809,16 +16918,31 @@ $(function() {
         "Aciclovir",
         "200mg",
         "Via Oral",
-        "56 cps",
+        "140 cps",
         "",
         "Tomar",
-        "2",
+        "4",
         "cps",
-        "6",
+        "4",
         "horas",
         " por 7 dias",
         "",
-        ""
+        "Pular a dose da madrugada."
+      ],
+      [
+        "Omeprazol",
+        "20mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "01",
+        "cp",
+        "12",
+        "horas",
+        "",
+        "",
+        "Tomar cada cp 30min antes da refeição (café-da-manhã e janta)."
       ],
       [
         "Hidróxido de Alumínio",
@@ -17208,6 +17332,38 @@ $(function() {
         "",
         "",
         ""
+      ]
+    ],
+    "PEP": [
+      [
+        "Lamivudina + Tenofovir",
+        "300+300mg",
+        "Via Oral",
+        "28 cps",
+        " - USO POR 28 DIAS",
+        "Tomar",
+        "01",
+        "cp",
+        "24",
+        "horas",
+        " por 28 dias",
+        "",
+        "Tomar junto do dolutegravir."
+      ],
+      [
+        "Dolutegravir",
+        "50mg",
+        "Via Oral",
+        "28 cps",
+        " - USO POR 28 DIAS",
+        "Tomar",
+        "01",
+        "cp",
+        "24",
+        "horas",
+        " por 28 dias",
+        "",
+        "Tomar junto de lamivudina+tenofovir."
       ]
     ],
     "PS - Tramadol IV": [
