@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The slug for this page.
  * IMPORTANT: Set the variable below so that the header works properly!
@@ -38,6 +37,20 @@ if (isset($_COOKIE["sr_header"])) {
 
 <main class="section">
   <div class="container">
+    <div class="box">
+      <div class="field">
+        <div class="control">
+          <div class="select is-fullwidth">
+            <select name="pronouns" id="pronouns">
+              <option value="e" selected>Declinação de Gênero...</option>
+              <option value="a">Ela/Dela</option>
+              <option value="o">Ele/Dele</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="box">
       <h2 class="title is-4">Subjetivo</h2>
 
@@ -92,8 +105,8 @@ if (isset($_COOKIE["sr_header"])) {
           <div class="control">
             <div class="select">
               <select id="companion-func" disabled>
-                <option value="acompanhade" selected>acompanha</option>
-                <option value="trazide">traz</option>
+                <option value="acompanhad[[PRONOUN]]" selected>acompanha</option>
+                <option value="trazid[[PRONOUN]]">traz</option>
               </select>
             </div>
           </div>
@@ -106,7 +119,7 @@ if (isset($_COOKIE["sr_header"])) {
           <div class="control is-expanded">
             <div class="select is-fullwidth">
               <select id="companion-font" disabled>
-                <option value="próprie paciente" selected>paciente</option>
+                <option value="própri[[PRONOUN]] pacient[[PRONOUN]]" selected>paciente</option>
                 <option value="acompanhante">acompanhante</option>
               </select>
             </div>
@@ -177,7 +190,7 @@ if (isset($_COOKIE["sr_header"])) {
                     <option value=" com episódios de apneia associados">com apneia</option>
                     <option value=" com episódios de cianose associados">com cianose</option>
                     <option value=" com piora importante à noite a ao se deitar">pior em decúbito</option>
-                    <option value=", apenas à noite">apenas noturna</option>
+                    <option value=" apenas à noite">apenas noturna</option>
                   </select>
                 </div>
               </div>
@@ -784,12 +797,12 @@ if (isset($_COOKIE["sr_header"])) {
               <label for="comorb-4">DPOC</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-5" name="comorbidities" value="LRC">
-              <label for="comorb-5">IRC</label>
+              <input type="checkbox" class="is-checkradio" id="comorb-5" name="comorbidities" value="DRC">
+              <label for="comorb-5">DRC</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-6" name="comorbidities" value="IAM prévio">
-              <label for="comorb-6">IAM</label>
+              <input type="checkbox" class="is-checkradio" id="comorb-6" name="comorbidities" value="ICo">
+              <label for="comorb-6">ICo</label>
             </div>
             <div class="field">
               <input type="checkbox" class="is-checkradio" id="comorb-7" name="comorbidities" value="AVC prévio">
@@ -808,7 +821,7 @@ if (isset($_COOKIE["sr_header"])) {
               <label for="comorb-11">PVHIV + Aids</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-12" name="comorbidities" value="PC">
+              <input type="checkbox" class="is-checkradio" id="comorb-12" name="comorbidities" value="ECNP">
               <label for="comorb-12">PC</label>
             </div>
 
@@ -848,25 +861,6 @@ if (isset($_COOKIE["sr_header"])) {
               </div>
             </div>
 
-            <h4 class="title is-6">COVID Prévio</h4>
-
-            <div class="field has-addons">
-              <div class="control">
-                <label for="covid-before" class="button">
-                  <span class="icon">
-                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
-                  </span>
-                  <input type="checkbox" class="is-hidden checkbutton" id="covid-before" value="true">
-                </label>
-              </div>
-              <div class="control">
-                <button class="button is-static" tabindex="-1">Última infecção por SARS-CoV-2 em</button>
-              </div>
-              <div class="control is-expanded">
-                <input type="date" class="input" id="covid-before-date" disabled>
-              </div>
-            </div>
-
             <h4 class="title is-6">Alergias</h4>
 
             <div class="field has-text-centered">
@@ -898,24 +892,25 @@ if (isset($_COOKIE["sr_header"])) {
                 <button class="button is-static" tabindex="-1">Influenza</button>
               </div>
               <div class="control is-expanded">
-                <div class="select is-fullwidth">
-                  <select id="vax-influenza">
-                    <option value="" selected>...</option>
-                    <option value="true">tomou</option>
-                    <option value="false">NÃO tomou</option>
-                  </select>
-                </div>
+                <input type="number" class="input" id="vax-influenza" min="1900" step="1" placeholder="Última dose em (0 = nega)">
               </div>
             </div>
 
             <div class="field has-addons">
               <div class="control">
-                <button class="button is-static" tabindex="-1">Varíola?</button>
+                <button class="button is-static" tabindex="-1">Pneumo-23</button>
               </div>
               <div class="control is-expanded">
-                <button class="button is-fullwidth" tabindex="-1" disabled>
-                  &#x1F631;
-                </button>
+                <input type="number" class="input" id="vax-pneumo23" min="1900" step="1" placeholder="Última dose em (0 = nega)">
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Pneumo-13</button>
+              </div>
+              <div class="control is-expanded">
+                <input type="number" class="input" id="vax-pneumo13" min="1900" step="1" placeholder="Última dose em (0 = nega)">
               </div>
             </div>
           </div>
@@ -934,14 +929,14 @@ if (isset($_COOKIE["sr_header"])) {
               <div class="select is-fullwidth">
                 <select id="work">
                   <option value="" selected>Sem resposta</option>
-                  <option value="não trabalha">Não trabalha</option>
-                  <option value="não estuda">Não estuda</option>
+                  <option value="nega trabalhar">Não trabalha</option>
+                  <option value="nega estudar">Não estuda</option>
                   <option value="estuda">Estuda</option>
                   <option value="estuda e trabalha">Estuda + Trabalha</option>
                   <option value="trabalha com vínculo celetista">Trabalha com carteira assinada</option>
-                  <option value="trabalha como funcionárie públice">Trabalha como funcionárie</option>
+                  <option value="trabalha como funcionári[[PRONOUN]] públic[[PRONOUN]]">Trabalha como funcionárie</option>
                   <option value="trabalha por conta própria">Trabalha por conta</option>
-                  <option value="trabalha sem condições mínimas de manutenção de seus direitos humanos fundamentais (incluindo direito de ausência remunerada, neste caso)">"Trabalho" uberizado/semi-escravo</option>
+                  <option value="trabalha sem vínculo formal ou direito de ausência justificada/remunerada">"Trabalho" uberizado/semi-escravo</option>
                 </select>
               </div>
             </div>
@@ -957,9 +952,9 @@ if (isset($_COOKIE["sr_header"])) {
               <div class="select is-fullwidth">
                 <select id="family">
                   <option value="" selected>Sem resposta</option>
-                  <option value="mora sozinho">Mora sozinho</option>
-                  <option value="mora com outras pessoas que NÃO têm necessidade de afastamento de familiares">Coabitantes NÃO precisam de afastamento</option>
-                  <option value="mora com outras pessoas que têm necessidade de afastamento de familiares">Coabitantes PRECISAM de afastamento</option>
+                  <option value="mora sozinh[[PRONOUN]]">Mora sozinho</option>
+                  <option value="mora com outras pessoas que refere NÃO ter necessidade de afastamento de familiares">Coabitantes NÃO precisam de afastamento</option>
+                  <option value="mora com outras pessoas que refere ter necessidade de afastamento de familiares">Coabitantes PRECISAM de afastamento</option>
                 </select>
               </div>
             </div>
@@ -1166,6 +1161,8 @@ if (isset($_COOKIE["sr_header"])) {
               <option value="" selected>&ndash;</option>
               <option value="taqui">taqui</option>
               <option value="bradi">bradi</option>
+              <option value="taquidis">taqui + dispneice</option>
+              <option value="bradidis">bradi + dispneice</option>
             </select>
           </div>
         </div>
@@ -1179,10 +1176,10 @@ if (isset($_COOKIE["sr_header"])) {
           <div class="select is-fullwidth">
             <select id="child-activity">
               <option value="" selected>N/A</option>
-              <option value="ative">ative</option>
-              <option value="hipoative">hipoative</option>
-              <option value="inative">inative</option>
-              <option value="hiperative">hiperative</option>
+              <option value="ativ">ative</option>
+              <option value="hipoativ">hipoative</option>
+              <option value="inativ">inative</option>
+              <option value="hiperativ">hiperative</option>
             </select>
           </div>
         </div>
@@ -1190,9 +1187,9 @@ if (isset($_COOKIE["sr_header"])) {
           <div class="select is-fullwidth">
             <select id="child-reactivity">
               <option value="" selected>N/A</option>
-              <option value="reative">reative</option>
-              <option value="hiporreative">hiporreative</option>
-              <option value="arreative">arreative</option>
+              <option value="reativ">reative</option>
+              <option value="hiporreativ">hiporreative</option>
+              <option value="arreativ">arreative</option>
             </select>
           </div>
         </div>

@@ -109,18 +109,6 @@ $(function() {
         .val("");
     }
   });
-  // Enable previous COVID date
-  $("#covid-before").on("change", function() {
-    if( $("#covid-before").is(":checked") ) {
-      $("#covid-before-date")
-        .prop("disabled", false)
-        .focus();
-    } else {
-      $("#covid-before-date")
-        .prop("disabled", true)
-        .val("");
-    }
-  });
   // Enable allergy descrition
   $("input[name='allergy']").on("change", function() {
     if( $("input[name='allergy']:checked").val() == "true" ) {
@@ -283,29 +271,44 @@ $(function() {
           // Symptoms' listing
           var symps = [];
           var symptomatic = true;
+          // Get start date
+          var start_date = new Date( $("#symp-start").val() + "T00:00:00.000-03:00" );
+          // Cough
           if ( $("#symp-cough").is(":checked") ) {
             var cough = "tosse ";
-            var cough_start = new Date( $("#cough-start").val() + "T00:00:00.000-03:00" );
+            var cough_start = start_date;
+            if ($("#cough-start").val()) {
+              cough_start = new Date( $("#cough-start").val() + "T00:00:00.000-03:00" );
+            }
             cough += $("#cough-desc").val();
             if ( $("#cough-prev").val() != "" ) {
               cough += " (com tosse prévia " + $("#cough-prev").val() + ", e agora " + $("#cough-diff").val() + ")";
             }
-            cough += $("#cough-other").val() + ", desde ";
-            cough += cough_start.toLocaleDateString("pt-BR");
+            if (cough_start > start_date) {
+              cough += $("#cough-other").val() + " desde ";
+              cough += cough_start.toLocaleDateString("pt-BR");
+            }
 
             symps.push(cough);
           }
+          // Fever
           if ( $("#symp-fever").is(":checked") ) {
             var fever = "febre ";
-            var fever_start = new Date( $("#fever-start").val() + "T00:00:00.000-03:00" );
+            var fever_start = start_date;
+            if ($("#fever-start").val()) {
+              fever_start = new Date( $("#fever-start").val() + "T00:00:00.000-03:00" );
+            }
             fever += $("#fever-measure").val();
             if ( $("#fever-measure").val() == "aferida, de até " ) {
               fever += $("#fever-max").val() + "°C";
             }
             fever += ", " + $("#fever-freq").val() + $("#fever-other").val();
-            if ( $("#fever-freq").val() == "com pico único" ) { fever += " em "; }
-            else { fever += " desde "; }
-            fever += fever_start.toLocaleDateString("pt-BR");
+            if ( $("#fever-freq").val() == "com pico único" ) { fever += " em " + fever_start.toLocaleDateString("pt-BR"); }
+            else {
+              if (fever_start > start_date) {
+                fever += " desde " + fever_start.toLocaleDateString("pt-BR");
+              }
+            }
 
             symps.push(fever);
           }
@@ -326,7 +329,7 @@ $(function() {
             // Symptoms' start and duration
             var start_date = new Date( $("#symp-start").val() + "T00:00:00.000-03:00" );
             var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            var start = "Sintomas iniciaram " + start_date.toLocaleDateString("pt-BR", options) + ".";
+            var start = "Refere que sintomas iniciaram " + start_date.toLocaleDateString("pt-BR", options) + ".";
             s.push( start );
 
             // Comorbidities' and Alergies list
@@ -342,34 +345,41 @@ $(function() {
             comorb = humanList( comorb );
             if( comorb == "" ) { comorb = "# AP: nega comorbidades conhecidas."; }
             else { comorb = "# AP: " + comorb + "."; }
-            var allergies = "# Nega alergias medicamentosas.";
+            var allergies = "# Nega alergias medicamentosas conhecidas.";
             if( $("#allergy-yes").is(":checked") ) {
-              allergies = "# Refere alergia a " + $("#allergy-drug").val() + ".";
+              var allergies = $("#allergy-drug").val().split(",");
+              allergies = allergies.map(s => s.trim());
+              allergies = "# Refere " + (allergies.length > 1 ? "alergias medicamentosas conhecidas" : "alergia medicamentosa conhecida") + " apenas a " + humanList(allergies) + ".";
             }
             s.push( comorb + "\n" + allergies );
 
             // Pregnancy
             if( $("#pregnancy").is(":checked") ) {
               var preg = "";
-              preg = "# Gestante de " + $("#preg-w").val() + "+" + $("#preg-d").val() + " sem."
+              preg = "# Refere estar gestante de " + $("#preg-w").val() + "+" + $("#preg-d").val() + " sem."
               s.push( preg );
             }
 
-            // Previous COVID-19 infection
-            if( $("#covid-before").is(":checked") ) {
-              var covid_date = new Date( $("#covid-before-date").val() + "T00:00:00.000-03:00" );
-              s.push( "# Última COVID-19 em " + covid_date.toLocaleDateString("pt-BR") + "." );
-            }
-
             // Vaccines
-            var vax = [];
+            var vax = ["# Vacinas:"];
             if( $("#vax-covid").val() != "" ) {
-              if ( $("#vax-covid").val() == "0" ) { vax.push( "# Vacinas COVID-19: NEGA." ); }
-              else { vax.push( "# Vacinas COVID-19: " + $("#vax-covid").val() + " dose(s)." ); }
+              if ( $("#vax-covid").val() == "0" ) { vax.push( "- Covid-19: NEGA." ); }
+              else {
+                var covid_doses = parseInt($("#vax-covid").val());
+                vax.push( "- Covid-19: " + covid_doses + " dose" + (covid_doses > 1 ? "s" : "") + "." );
+              }
             }
             if( $("#vax-influenza").val() != "" ) {
-              if ( $("#vax-influenza").val() == "true" ) { vax.push( "# Vacina Influenza: refere ter tomado." ); }
-              else { vax.push( "# Vacina Influenza: NEGA." ); }
+              if ( $("#vax-influenza").val() == "0" ) { vax.push( "- Influenza: NEGA." ); }
+              else { vax.push( "- Influenza: última dose em" + $("#vax-influenza").val() + "." ); }
+            }
+            if( $("#vax-pneumo23").val() != "" ) {
+              if ( $("#vax-pneumo23").val() == "0" ) { vax.push( "- Pneumo-23: NEGA." ); }
+              else { vax.push( "- Pneumo-23: última dose em" + $("#vax-pneumo23").val() + "." ); }
+            }
+            if( $("#vax-pneumo13").val() != "" ) {
+              if ( $("#vax-pneumo13").val() == "0" ) { vax.push( "- Pneumo-13: NEGA." ); }
+              else { vax.push( "- Pneumo-13: última dose em" + $("#vax-pneumo13").val() + "." ); }
             }
             if ( vax.join("\n") != "" ) { s.push( vax.join("\n") ); }
 
@@ -383,11 +393,11 @@ $(function() {
                 else { work += ")"; }
               }
               work += ".";
-              s.push(work);
+              s.push(work.replaceAll("[[PRONOUN]]", pronoun));
             }
             if ($("#family").val() != "") {
               var family = "# Residência: " + $("#family").val() + ".";
-              s.push( family );
+              s.push( family.replaceAll("[[PRONOUN]]", pronoun) );
             }
           }
 
@@ -395,6 +405,7 @@ $(function() {
           s = s.join("\n");
           break;
         case "reeval": // Reevaluation
+          var pronoun = $("#pronouns").val();
           s = [];
           // Run companion info
           var companion = get_companion();
@@ -411,7 +422,7 @@ $(function() {
           // Symptoms' start and duration
           var start_date = new Date( $("#symp-start").val() + "T00:00:00.000-03:00" );
           var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-          var start = "Sintomas iniciaram " + start_date.toLocaleDateString("pt-BR", options) + ".";
+          var start = "Refere que sintomas iniciaram " + start_date.toLocaleDateString("pt-BR", options) + ".";
           s.push( start );
 
           // Work status
@@ -426,7 +437,7 @@ $(function() {
             work += ".";
           }
           if( $("#family").val() != "" ) { work += "Refere também morar " + $("#family").val() + "."; }
-          if( work != "" ) { s.push( work ); }
+          if( work != "" ) { s.push( work.replaceAll("[[PRONOUN]]", pronoun) ); }
 
           // Concatenate S
           s = s.join("\n");
@@ -655,48 +666,51 @@ function humanList(arr) {
 }
 
 function get_companion() {
+  var pronoun = $("#pronouns").val();
   var comp = "";
   if ( $("#companion").is(":checked") ) {
     comp = "# Vem ao PS " + $("#companion-func").val() + " por " + $("#companion-name").val();
     if ( $("#companion-relation").val() != "" ) { comp += " (" + $("#companion-relation").val() + ")"; }
     comp += ".\n# Fonte: " + $("#companion-font").val() + "."
   }
-  return comp;
+  return comp.replaceAll("[[PRONOUN]]", pronoun);
 }
 
 function runO() {
   var o = ["# EF"];
   o.push( "Paciente em " + $("#status").val() + "EG." );
 
+  var pronoun = $("#pronouns").val();
+
   var qualitative_exam = [];
   if( $('input[name="color"]:checked').val() == "Corade" ) {
-    qualitative_exam.push("Corade");
+    qualitative_exam.push("Corad" + pronoun);
   } else {
-    qualitative_exam.push("Descorade " + $('input[name="color"]:checked').val() + "+/4+");
+    qualitative_exam.push("Descorad" + pronoun + " " + $('input[name="color"]:checked').val() + "+/4+");
   }
   if( $('input[name="hydro"]:checked').val() == "hidratade" ) {
-    qualitative_exam.push("hidratade");
+    qualitative_exam.push("hidratad" + pronoun);
   } else {
-    qualitative_exam.push("desidratade " + $('input[name="hydro"]:checked').val() + "+/4+");
+    qualitative_exam.push("desidratad" + pronoun + " " + $('input[name="hydro"]:checked').val() + "+/4+");
   }
   if( $('input[name="cyanose"]:checked').val() == "acianótice" ) {
-    qualitative_exam.push("acianótice");
+    qualitative_exam.push("acianótic" + pronoun);
   } else {
-    qualitative_exam.push("cianótice " + $('input[name="cyanose"]:checked').val() + "+/4+");
+    qualitative_exam.push("cianótic" + pronoun + " " + $('input[name="cyanose"]:checked').val() + "+/4+");
   }
   if( $('input[name="icter"]:checked').val() == "anictérice" ) {
-    qualitative_exam.push("anictérice");
+    qualitative_exam.push("anictéric" + pronoun);
   } else {
-    qualitative_exam.push("ictérice " + $('input[name="icter"]:checked').val() + "+/4+");
+    qualitative_exam.push("ictéric" + pronoun + " " + $('input[name="icter"]:checked').val() + "+/4+");
   }
   qualitative_exam.push($('input[name="fever"]:checked').val());
   if( $('input[name="breathe"]:checked').val() == "dispneice" ) {
-    qualitative_exam.push( $("#breathe-abnormal-desc").val() + "dispneice" );
+    qualitative_exam.push( $("#breathe-abnormal-desc").val() + "pneic" + pronoun );
   } else {
-    qualitative_exam.push("eupneice");
+    qualitative_exam.push("eupneic" + pronoun);
   }
-  if ( $("#child-activity").val() != "" ) { qualitative_exam.push( $("#child-activity").val() ); }
-  if ( $("#child-reactivity").val() != "" ) { qualitative_exam.push( $("#child-reactivity").val() ); }
+  if ( $("#child-activity").val() != "" ) { qualitative_exam.push( $("#child-activity").val() + pronoun ); }
+  if ( $("#child-reactivity").val() != "" ) { qualitative_exam.push( $("#child-reactivity").val() + pronoun ); }
   o.push( humanList(qualitative_exam) + "." );
 
   // Vital Signs
