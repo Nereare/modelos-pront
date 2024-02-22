@@ -226,7 +226,9 @@ $(function() {
 
   // Show neuro exam
   $("#neuro-show").on("click", function() {
-    $("#neuro").toggleClass("is-hidden");
+    $("#neuro")
+      .toggleClass("is-hidden")
+      .trigger("focus");
     $(this).find("i").toggleClass("mdi-eye mdi-eye-off");
     if ( $(this).find(".text").html() == "Mostrar" ) { $(this).find(".text").html("Esconder"); }
     else { $(this).find(".text").html("Mostrar"); }
@@ -462,32 +464,34 @@ $(function() {
     var o = ["# EF"];
     o.push( "Paciente em " + $("#status").val() + "EG." );
 
+    var pronoun = $("#pronouns").val();
+
     var qualitative_exam = [];
     if( $('input[name="color"]:checked').val() == "Corade" ) {
-      qualitative_exam.push("Corade");
+      qualitative_exam.push("Corad" + pronoun);
     } else {
-      qualitative_exam.push("Descorade " + $('input[name="color"]:checked').val() + "+/4+");
+      qualitative_exam.push("Descorad" + pronoun + " " + $('input[name="color"]:checked').val() + "+/4+");
     }
     if( $('input[name="hydro"]:checked').val() == "hidratade" ) {
-      qualitative_exam.push("hidratade");
+      qualitative_exam.push("hidratad" + pronoun);
     } else {
-      qualitative_exam.push("desidratade " + $('input[name="hydro"]:checked').val() + "+/4+");
+      qualitative_exam.push("desidratad" + pronoun + " " + $('input[name="hydro"]:checked').val() + "+/4+");
     }
     if( $('input[name="cyanose"]:checked').val() == "acianótice" ) {
-      qualitative_exam.push("acianótice");
+      qualitative_exam.push("acianótic" + pronoun);
     } else {
-      qualitative_exam.push("cianótice " + $('input[name="cyanose"]:checked').val() + "+/4+");
+      qualitative_exam.push("cianótic" + pronoun + " " + $('input[name="cyanose"]:checked').val() + "+/4+");
     }
     if( $('input[name="icter"]:checked').val() == "anictérice" ) {
-      qualitative_exam.push("anictérice");
+      qualitative_exam.push("anictéric" + pronoun);
     } else {
-      qualitative_exam.push("ictérice " + $('input[name="icter"]:checked').val() + "+/4+");
+      qualitative_exam.push("ictéric" + pronoun + " " + $('input[name="icter"]:checked').val() + "+/4+");
     }
     qualitative_exam.push($('input[name="fever"]:checked').val());
     if( $('input[name="breathe"]:checked').val() == "dispneice" ) {
-      qualitative_exam.push( $("#breathe-abnormal-desc").val() + "dispneice" );
+      qualitative_exam.push( $("#breathe-abnormal-desc").val() + "pneic" + pronoun );
     } else {
-      qualitative_exam.push("eupneice");
+      qualitative_exam.push("eupneic" + pronoun);
     }
     o.push( humanList(qualitative_exam) + "." );
 
@@ -559,13 +563,13 @@ $(function() {
       if ( $("#orientation-time").val() != "" ||
            $("#orientation-space").val() != "" ) {
         if ( $("#orientation-time").val() == $("#orientation-space").val() ) {
-          ssvv.push( $("#orientation-time").val() + " no tempo-espaço" );
+          ssvv.push( $("#orientation-time").val() + pronoun + " no tempo-espaço" );
         } else {
           if ( $("#orientation-time").val() != "" ) {
-            ssvv.push( $("#orientation-time").val() + " no tempo" );
+            ssvv.push( $("#orientation-time").val() + pronoun + " no tempo" );
           }
           if ( $("#orientation-space").val() != "" ) {
-            ssvv.push( $("#orientation-space").val() + " no espaço" );
+            ssvv.push( $("#orientation-space").val() + pronoun + " no espaço" );
           }
         }
       }
@@ -827,6 +831,12 @@ $(function() {
           if( $("#varicose-left").val() != "" ) { varicose.push( $("#varicose-left").val() ); }
         }
         if( varicose.length > 0 ) { mmii.push( "Varizes " + varicose.join(" e ") + "." ); }
+      }
+      // Other
+      if ($("#mmii-misc").val() != "") {
+        let txt = $("#mmii-misc").val();
+        if (!/^.+\.$/.test(txt)) { txt += "."; }
+        mmii.push( txt );
       }
       // Output
       if( mmii.length > 0 ) { o.push( "MMII: " + mmii.join(" ") ); }

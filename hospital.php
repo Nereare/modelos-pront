@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The slug for this page.
  * IMPORTANT: Set the variable below so that the header works properly!
@@ -13,6 +12,20 @@ require_once "header.php";
 
 <main class="section">
   <div class="container">
+    <div class="box">
+      <div class="field">
+        <div class="control">
+          <div class="select is-fullwidth">
+            <select name="pronouns" id="pronouns">
+              <option value="e" disabled selected>Declinação de Gênero...</option>
+              <option value="a">Ela/Dela</option>
+              <option value="o">Ele/Dele</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="box">
       <h2 class="title is-4">Estado Geral</h2>
 
@@ -348,8 +361,8 @@ require_once "header.php";
           <div class="select is-fullwidth">
             <select id="orientation-time">
               <option value="" selected>NT</option>
-              <option value="Orientade">Orientade</option>
-              <option value="DESORIENTADE">DESorientade</option>
+              <option value="Orientad">Orientade</option>
+              <option value="DESorientad">DESorientade</option>
             </select>
           </div>
         </div>
@@ -363,8 +376,8 @@ require_once "header.php";
           <div class="select is-fullwidth">
             <select id="orientation-space">
               <option value="" selected>NT</option>
-              <option value="Orientade">Orientade</option>
-              <option value="DESORIENTADE">DESorientade</option>
+              <option value="Orientad">Orientade</option>
+              <option value="DESorientad">DESorientade</option>
             </select>
           </div>
         </div>
@@ -1748,6 +1761,15 @@ require_once "header.php";
                   <option value="presente(s) à esquerda em grau C6 (úlcera varicosa ativa)" data-degree="6">C6 (úlcera ativa)</option>
                 </select>
               </div>
+            </div>
+          </div>
+
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">Misc</button>
+            </div>
+            <div class="control is-expanded">
+              <input type="text" class="input" id="mmii-misc" placeholder="Outros dados...">
             </div>
           </div>
         </div>
