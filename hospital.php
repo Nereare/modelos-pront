@@ -17,7 +17,7 @@ require_once "header.php";
         <div class="control">
           <div class="select is-fullwidth">
             <select name="pronouns" id="pronouns">
-              <option value="e" disabled selected>Declinação de Gênero...</option>
+              <option value="e" selected>Declinação de Gênero...</option>
               <option value="a">Ela/Dela</option>
               <option value="o">Ele/Dele</option>
             </select>
@@ -117,6 +117,8 @@ require_once "header.php";
               <option value="" selected>&ndash;</option>
               <option value="taqui">taqui</option>
               <option value="bradi">bradi</option>
+              <option value="taquidis">taqui + dispneice</option>
+              <option value="bradidis">bradi + dispneice</option>
             </select>
           </div>
         </div>
