@@ -267,6 +267,7 @@ $(function() {
           s = [];
           // Run companion info
           var companion = get_companion();
+          let pronoun = $("#pronouns").val();
           if ( companion ) { s.push( companion ); }
           // Symptoms' listing
           var symps = [];
@@ -371,17 +372,17 @@ $(function() {
             }
             if( $("#vax-influenza").val() != "" ) {
               if ( $("#vax-influenza").val() == "0" ) { vax.push( "- Influenza: NEGA." ); }
-              else { vax.push( "- Influenza: última dose em" + $("#vax-influenza").val() + "." ); }
+              else { vax.push( "- Influenza: última dose em " + $("#vax-influenza").val() + "." ); }
             }
             if( $("#vax-pneumo23").val() != "" ) {
               if ( $("#vax-pneumo23").val() == "0" ) { vax.push( "- Pneumo-23: NEGA." ); }
-              else { vax.push( "- Pneumo-23: última dose em" + $("#vax-pneumo23").val() + "." ); }
+              else { vax.push( "- Pneumo-23: última dose em " + $("#vax-pneumo23").val() + "." ); }
             }
             if( $("#vax-pneumo13").val() != "" ) {
               if ( $("#vax-pneumo13").val() == "0" ) { vax.push( "- Pneumo-13: NEGA." ); }
-              else { vax.push( "- Pneumo-13: última dose em" + $("#vax-pneumo13").val() + "." ); }
+              else { vax.push( "- Pneumo-13: última dose em " + $("#vax-pneumo13").val() + "." ); }
             }
-            if ( vax.join("\n") != "" ) { s.push( vax.join("\n") ); }
+            if ( vax.join("\n") != "# Vacinas:" ) { s.push( vax.join("\n") ); }
 
 
             // Work status
@@ -405,7 +406,7 @@ $(function() {
           s = s.join("\n");
           break;
         case "reeval": // Reevaluation
-          var pronoun = $("#pronouns").val();
+          pronoun = $("#pronouns").val();
           s = [];
           // Run companion info
           var companion = get_companion();

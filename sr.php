@@ -119,7 +119,7 @@ if (isset($_COOKIE["sr_header"])) {
           <div class="control is-expanded">
             <div class="select is-fullwidth">
               <select id="companion-font" disabled>
-                <option value="própri[[PRONOUN]] pacient[[PRONOUN]]" selected>paciente</option>
+                <option value="própri[[PRONOUN]] paciente" selected>paciente</option>
                 <option value="acompanhante">acompanhante</option>
               </select>
             </div>
