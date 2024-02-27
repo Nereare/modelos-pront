@@ -16,10 +16,10 @@ function is_selected($link, $page) {
 
 $menu = [
   ["hospital"],
-  ["psico", "pn", "pueri"],
-  ["sadt", "sr", "diu"],
-  ["meds", "report", "labs" ],
-  [null, null, null],
+  ["meds", "report", "labs"],
+  ["sharps", "sr", "psico"],
+  ["sadt", "pn", "pueri"],
+  ["diu", null, null],
   [null, null, null]
 ];
 if ( isset($_SESSION["cookies"]) ) {
