@@ -15887,6 +15887,21 @@ $(function() {
         ""
       ],
       [
+        "Ondansetrona",
+        "08mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "8",
+        "horas",
+        "",
+        ", se enjôos",
+        ""
+      ],
+      [
         "Sais para Reidratação Oral",
         "--",
         "Via Oral",
@@ -15934,6 +15949,21 @@ $(function() {
         ""
       ],
       [
+        "Dimenidrinato+Piridoxina",
+        "25+05mg/mL",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "40",
+        "gts",
+        "8",
+        "horas",
+        "",
+        ", se enjôos",
+        ""
+      ],
+      [
         "Sais para Reidratação Oral",
         "--",
         "Via Oral",
@@ -15966,6 +15996,21 @@ $(function() {
         ""
       ],
       [
+        "Ondansetrona",
+        "08mg",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "1",
+        "cp",
+        "8",
+        "horas",
+        "",
+        ", se enjôos",
+        ""
+      ],
+      [
         "Sais para Reidratação Oral",
         "--",
         "Via Oral",
@@ -15995,6 +16040,21 @@ $(function() {
         "horas",
         "",
         ", se dor, febre ou calafrios",
+        ""
+      ],
+      [
+        "Dimenidrinato+Piridoxina",
+        "25+05mg/mL",
+        "Via Oral",
+        "",
+        "",
+        "Tomar",
+        "40",
+        "gts",
+        "8",
+        "horas",
+        "",
+        ", se enjôos",
         ""
       ],
       [
