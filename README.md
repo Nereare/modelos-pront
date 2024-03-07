@@ -79,4 +79,4 @@ Este projeto está disponível sob a [Licença Hipocrática HL3-FULL](https://fi
 ### Atribuições
 
 - Ícones retirados ou adaptados de [Material Design Icons](https://materialdesignicons.com/), disponíveis sob a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0);
-- Ícone de DIU: "IUD" por Cécile Parker, de [the Noun Project](https://thenounproject.com/search/?q=iud&i=3701552).
+- Ícone de Pernilongo: "Mosquito" por Georgiana Ionescu de [Noun Project](https://thenounproject.com/icon/mosquito-1975380/) (CC BY 3.0).
