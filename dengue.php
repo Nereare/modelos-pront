@@ -2450,7 +2450,7 @@ if (isset($_COOKIE["sr_header"])) {
         </ol>
       </div>
 
-      <div  class="content eval-reeval">
+      <div  class="content eval-reeval is-hidden">
         <ol>
           <h3 class="title is-5">Medicações</h3>
 
