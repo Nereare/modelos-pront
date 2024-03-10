@@ -261,13 +261,13 @@ $(function() {
       var o = "";
       var p = "";
       $("#output-uni").val("");
+      let pronoun = $("#pronouns").val();
 
       switch( $("#time-current").val() ) {
         case "first": // First evaluation
           s = [];
           // Run companion info
           var companion = get_companion();
-          let pronoun = $("#pronouns").val();
           if ( companion ) { s.push( companion ); }
           // Symptoms' listing
           var symps = [];
@@ -406,7 +406,6 @@ $(function() {
           s = s.join("\n");
           break;
         case "reeval": // Reevaluation
-          pronoun = $("#pronouns").val();
           s = [];
           // Run companion info
           var companion = get_companion();
