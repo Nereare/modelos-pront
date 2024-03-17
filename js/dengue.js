@@ -93,7 +93,9 @@ $(function() {
   // Set symptoms' day notice
   $("#symp-start").on("change", function() {
     if ( $(this).val() != "" ) {
-      var days = deltaDays( $(this).val() );
+      var days = $(this).val() + "T00:00:00-0300";
+      days = new Date(days);
+      days = deltaDays(days);
       $("#day").html( days );
     }
   });
@@ -478,12 +480,11 @@ function get_S(eval_time) {
     // D0
     let d0;
     if ($("#symp-start").val() != "") {
-      d0 = new Date($("#symp-start").val());
+      d0 = new Date($("#symp-start").val() + "T00:00:00-0300");
     } else {
       d0 = new Date();
     }
     let options = {
-      weekday: "long",
       year: "numeric",
       month: "long",
       day: "numeric",
