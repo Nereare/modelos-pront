@@ -516,7 +516,7 @@ function get_S(eval_time) {
     s.push("Paciente vem ao PS referindo " + humanList(symps) + ".");
     // Headache
     if ($("#symp-headache").is(":checked")) {
-      let headache = "Caracterzia cefaleia como";
+      let headache = "Caracteriza cefaleia como";
       if ($("#headache-desc").val() != "mal-caracterizada") { headache += " em"; }
       headache += " " + $("#headache-desc").val();
       headache += " " + $("#headache-location").val();
@@ -545,7 +545,7 @@ function get_S(eval_time) {
     }
     // Fever
     if ($("#symp-fever").is(":checked")) {
-      let fever = "Caracterzia febre como ";
+      let fever = "Caracteriza febre como ";
       fever += $("#fever-measure").val();
       if ($("#fever-measure").val() == "aferida, de até ") {
         fever += $("#fever-max").val() + "°C";
@@ -611,8 +611,9 @@ function get_S(eval_time) {
     }
     s.push(allergies);
     // Work
+    let pronoun = $("#pronouns").val();
     if ($("#work").val() != "") {
-      s.push("# Trabalho: " + $("#work").val() + ".");
+      s.push("# Trabalho: " + $("#work").val().replaceAll("[[PRONOUN]]", pronoun) + ".");
     }
 
     // Days info

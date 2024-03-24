@@ -359,6 +359,7 @@ if (isset($_COOKIE["sr_header"])) {
                     <option value="nega" selected>Nega</option>
                     <option value="leve">Leve</option>
                     <option value="PERSISTENTE">PERSISTENTE</option>
+                    <option value="REFRATÁRIA A ANALGESIA">REFRATÁRIA</option>
                   </select>
                 </div>
               </div>
@@ -383,8 +384,8 @@ if (isset($_COOKIE["sr_header"])) {
               <div class="control is-expanded">
                 <div class="select is-fullwidth">
                   <select id="alarm-oedema">
-                    <option value="nega" selected>Nega</option>
-                    <option value="REFERE">REFERE</option>
+                    <option value="ausente" selected>Ausente</option>
+                    <option value="PRESENTE">PRESENTE</option>
                   </select>
                 </div>
               </div>
@@ -411,7 +412,7 @@ if (isset($_COOKIE["sr_header"])) {
               <div class="control is-expanded">
                 <div class="select is-fullwidth">
                   <select id="alarm-liver">
-                    <option value="nega" selected>Nega</option>
+                    <option value="ausente" selected>Ausente</option>
                     <option value="PRESENTE">PRESENTE</option>
                     <option value="não avaliada">N/A</option>
                   </select>
@@ -442,8 +443,8 @@ if (isset($_COOKIE["sr_header"])) {
               <div class="control is-expanded">
                 <div class="select is-fullwidth">
                   <select id="alarm-letargy">
-                    <option value="nega" selected>Nega</option>
-                    <option value="REFERE">REFERE</option>
+                    <option value="ausente" selected>Ausente</option>
+                    <option value="PRESENTE">PRESENTE</option>
                   </select>
                 </div>
               </div>
