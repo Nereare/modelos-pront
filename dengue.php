@@ -545,7 +545,7 @@ if (isset($_COOKIE["sr_header"])) {
             </div>
             <div class="field">
               <input type="checkbox" class="is-checkradio" id="comorb-age" name="comorbidities">
-              <label for="comorb-9">&gt;65a</label>
+              <label for="comorb-age">&gt;65a</label>
             </div>
 
             <div class="field">
@@ -2666,11 +2666,11 @@ if (isset($_COOKIE["sr_header"])) {
           <li>
             <div class="field has-addons">
               <div class="control">
-                <label for="plan-out-repellent" class="button is-primary">
+                <label for="plan-out-repellent" class="button">
                   <span class="icon">
-                    <i class="mdi mdi-checkbox-marked mdi-24px"></i>
+                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
                   </span>
-                  <input type="checkbox" class="is-hidden checkbutton" id="plan-out-repellent" value="true" checked>
+                  <input type="checkbox" class="is-hidden checkbutton" id="plan-out-repellent" value="true">
                 </label>
               </div>
               <div class="control is-expanded">
@@ -2713,10 +2713,18 @@ if (isset($_COOKIE["sr_header"])) {
                 <button class="button is-static" tabindex="-1">Retorno em</button>
               </div>
               <div class="control is-expanded">
-                <input type="number" class="input" id="followup" value="5" placeholder="#">
+                <input type="number" class="input" id="followup" value="2" placeholder="#">
               </div>
               <div class="control">
                 <button class="button is-static" tabindex="-1">dias</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="followup-where">
+                    <option value="amb">Ambulatório</option>
+                    <option value="ps">PS</option>
+                  </select>
+                </div>
               </div>
             </div>
           </li>

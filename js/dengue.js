@@ -1244,7 +1244,11 @@ function get_P(eval_time, group) {
         plans.push("Oriento resultados de exames realizados");
       }
       if ($("#plan-out-followup").is(":checked")) {
-        plans.push("Emito documentos de retorno junto à Moléstias Infecciosas conforme fluxo institucional vigente, em " + $("#followup").val() + " dias");
+        if ($("#followup-where").val() == "amb") {
+          plans.push("Emito documentos de retorno junto à Moléstias Infecciosas conforme fluxo institucional vigente, em " + $("#followup").val() + " dias");
+        } else {
+          plans.push("Retorno em " + $("#followup").val() + " dias, via PS por indisponibilidade de Ambulatório quando de retorno");
+        }
       }
       if ($("#plan-out-whut").is(":checked")) {
         plans.push("Tiro dúvidas");
