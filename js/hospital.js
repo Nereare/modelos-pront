@@ -558,7 +558,7 @@ $(function() {
             $("#neuro-gcs-muscle").val() == "0" ) {
          gcscore += "NT";
         }
-        ssvv.push( "GCS = " + gcscore + " (" + gcs.join(", ") + ")" );
+        ssvv.push("GCS = " + gcscore + (gcscore == 15 ? "" : " (" + gcs.join(", ") + ")") );
       }
       if ( $("#orientation-time").val() != "" ||
            $("#orientation-space").val() != "" ) {
