@@ -132,6 +132,12 @@ $(function() {
     $("#hmg-neutro-abs").val( total );
   });
 
+  // Enable Light Criteria
+  $("#light-enable").on("click", function() {
+    $(this).remove();
+    $("#light").removeClass("is-hidden");
+    $("#light-do").val("true");
+  });
   // Light Criteria
   $("#light-serum-prot-total, #light-pleura-prot-total, #light-serum-dhl, #light-serum-dhl-uln, #light-pleura-dhl").on("change input", function() {
     // Parse values
@@ -184,7 +190,7 @@ $(function() {
         $("#light-result").val( criteria_txt[0] );
       } else if ( criteria[1] === true || criteria[2] === true || criteria[3] === true ) {
         $("#light-result-show")
-          .html( "EXUDATIVO" )
+          .html( "Exudativo" )
           .removeClass("is-info is-warning")
           .addClass("is-warning");
         let reasons = [];
@@ -223,6 +229,11 @@ $(function() {
       .trigger("change");
   });
 
+  // Enable GASA
+  $("#gasa-enable").on("click", function() {
+    $(this).remove();
+    $("#gasa").removeClass("is-hidden");
+  });
   // GASA
   $("#gasa-serum-alb, #gasa-ascitis-alb").on("change input", function() {
     // Parse values
@@ -480,7 +491,7 @@ $(function() {
     }
 
     // Light Criteria
-    if ( $("#light-result").val().trim() != "" ) {
+    if ( $("#light-result").val().trim() != "" && $("#light-do").val() !== "false" ) {
       res.push( "- Critérios de Light: " + $("#light-result").val() );
       // (Re)parse values
       let prot_total = [];

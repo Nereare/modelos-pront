@@ -720,94 +720,112 @@ require_once "header.php";
 
     <!-- Critérios de Light -->
     <div class="box">
-      <h2 class="title is-4">Critérios de Light</h2>
-
-      <h3 class="title is-5">Proteínas Totais</h3>
-
-      <div class="field has-addons">
-        <div class="control">
-          <button class="button is-static" tabindex="-1">Sérica</button>
-        </div>
-        <div class="control is-expanded">
-          <input type="number" class="input" id="light-serum-prot-total" min="0" step="0.1" placeholder="Prot. Total Sérica">
-        </div>
-      </div>
-
-      <div class="field has-addons">
-        <div class="control">
-          <button class="button is-static" tabindex="-1">Pleural</button>
-        </div>
-        <div class="control is-expanded">
-          <input type="number" class="input" id="light-pleura-prot-total" min="0" step="0.1" placeholder="Prot. Total Pleural">
-        </div>
-      </div>
-
-      <h3 class="title is-5">DHL</h3>
-
-      <div class="field has-addons">
-        <div class="control">
-          <button class="button is-static" tabindex="-1">Sérico</button>
-        </div>
-        <div class="control is-expanded">
-          <input type="number" class="input" id="light-serum-dhl" min="0" step="0.1" placeholder="DHL Sérico">
-        </div>
-        <div class="control">
-          <button class="button is-static" tabindex="-1">LSN Sérico</button>
-        </div>
-        <div class="control is-expanded">
-          <input type="number" class="input" id="light-serum-dhl-uln" min="0" step="0.1" placeholder="LSN Sérico">
-        </div>
-      </div>
-
-      <div class="field has-addons">
-        <div class="control">
-          <button class="button is-static" tabindex="-1">Pleural</button>
-        </div>
-        <div class="control is-expanded">
-          <input type="number" class="input" id="light-pleura-dhl" min="0" step="0.1" placeholder="DHL Pleural">
-        </div>
-      </div>
-
-      <h3 class="title is-5">Resultado</h3>
-
-      <input type="hidden" id="light-result">
-
       <div class="field">
-        <div class="control is-expanded">
-          <button class="button is-fullwidth" id="light-result-show" tabindex="-1" disabled>Sem dados suficientes</button>
+        <div class="control">
+          <button class="button is-fullwidth is-link" id="light-enable">Habilitar Critérios de Light</button>
+        </div>
+      </div>
+
+      <div class="is-hidden" id="light">
+        <h2 class="title is-4">Critérios de Light</h2>
+
+        <input type="hidden" id="light-do" value="false">
+
+        <h3 class="title is-5">Proteínas Totais</h3>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Sérica</button>
+          </div>
+          <div class="control is-expanded">
+            <input type="number" class="input" id="light-serum-prot-total" min="0" step="0.1" placeholder="Prot. Total Sérica">
+          </div>
+        </div>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Pleural</button>
+          </div>
+          <div class="control is-expanded">
+            <input type="number" class="input" id="light-pleura-prot-total" min="0" step="0.1" placeholder="Prot. Total Pleural">
+          </div>
+        </div>
+
+        <h3 class="title is-5">DHL</h3>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Sérico</button>
+          </div>
+          <div class="control is-expanded">
+            <input type="number" class="input" id="light-serum-dhl" min="0" step="0.1" placeholder="DHL Sérico">
+          </div>
+          <div class="control">
+            <button class="button is-static" tabindex="-1">LSN Sérico</button>
+          </div>
+          <div class="control is-expanded">
+            <input type="number" class="input" id="light-serum-dhl-uln" min="0" step="0.1" placeholder="LSN Sérico">
+          </div>
+        </div>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Pleural</button>
+          </div>
+          <div class="control is-expanded">
+            <input type="number" class="input" id="light-pleura-dhl" min="0" step="0.1" placeholder="DHL Pleural">
+          </div>
+        </div>
+
+        <h3 class="title is-5">Resultado</h3>
+
+        <input type="hidden" id="light-result">
+
+        <div class="field">
+          <div class="control is-expanded">
+            <button class="button is-fullwidth" id="light-result-show" tabindex="-1" disabled>Sem dados suficientes</button>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- GASA -->
     <div class="box">
-      <h2 class="title is-4">Gradiente Albumina Soro-Ascite</h2>
-
-      <div class="field has-addons">
-        <div class="control">
-          <button class="button is-static" tabindex="-1">Alb. Sérica</button>
-        </div>
-        <div class="control is-expanded">
-          <input type="number" class="input" id="gasa-serum-alb" min="0" step="0.1" placeholder="Albumina Sérica">
-        </div>
-      </div>
-
-      <div class="field has-addons">
-        <div class="control">
-          <button class="button is-static" tabindex="-1">Alb. Ascítica</button>
-        </div>
-        <div class="control is-expanded">
-          <input type="number" class="input" id="gasa-ascitis-alb" min="0" step="0.1" placeholder="Albumina Ascítica">
-        </div>
-      </div>
-
-      <h3 class="title is-5">Resultado</h3>
-
-      <input type="hidden" id="gasa-result">
-
       <div class="field">
-        <div class="control is-expanded">
-          <button class="button is-fullwidth" id="gasa-result-show" tabindex="-1" disabled>Sem dados suficientes</button>
+        <div class="control">
+          <button class="button is-fullwidth is-link" id="gasa-enable">Habilitar GASA</button>
+        </div>
+      </div>
+
+      <div class="is-hidden" id="gasa">
+        <h2 class="title is-4">Gradiente Albumina Soro-Ascite</h2>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Alb. Sérica</button>
+          </div>
+          <div class="control is-expanded">
+            <input type="number" class="input" id="gasa-serum-alb" min="0" step="0.1" placeholder="Albumina Sérica">
+          </div>
+        </div>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Alb. Ascítica</button>
+          </div>
+          <div class="control is-expanded">
+            <input type="number" class="input" id="gasa-ascitis-alb" min="0" step="0.1" placeholder="Albumina Ascítica">
+          </div>
+        </div>
+
+        <h3 class="title is-5">Resultado</h3>
+
+        <input type="hidden" id="gasa-result">
+
+        <div class="field">
+          <div class="control is-expanded">
+            <button class="button is-fullwidth" id="gasa-result-show" tabindex="-1" disabled>Sem dados suficientes</button>
+          </div>
         </div>
       </div>
     </div>
