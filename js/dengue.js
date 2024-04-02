@@ -1054,13 +1054,11 @@ function parseLab(
   max = false
 ) {
   let lab = null;
-  let rounded = "";
   if (val == "") { lab = "--"; }
   else {
     if (is_float) {
       lab = parseFloat(val);
       if (floats !== false) {
-        rounded = "~";
         lab = Math.round( (lab + Number.EPSILON) * Math.pow(10, floats) ) / Math.pow(10, floats);
       }
     } else {
@@ -1069,7 +1067,7 @@ function parseLab(
     if (min !== false && lab < min) { lab = "indetectável ao método"; }
     else if (max !== false && lab > max) { lab = "acima do limite superior de detecção do método"; }
   }
-  return rounded.toString() + lab.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  return lab.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
 function get_A(eval_time) {
