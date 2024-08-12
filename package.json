@@ -1,7 +1,7 @@
 {
   "name": "modelos-pront",
   "description": "Uma miscelânea de modelos de evolução de consultas com tópicos específicos.",
-  "version": "2.12.0",
+  "version": "2.13.0",
   "maintainers": [
     {
       "name": "Igor Padoim",
@@ -13,15 +13,18 @@
     "web": "https://github.com/Nereare/modelos-pront/issues"
   },
   "license": "HL3-FULL",
+  "scripts": {
+    "sass": "cd .\\style\\ && sass --watch pront.scss:pront.css --style compressed"
+  },
   "dependencies": {
     "@creativebulma/bulma-divider": "^1.1.0",
-    "@mdi/font": "^6.6.96",
+    "@mdi/font": "^7.4.47",
     "bulma": "^0.9.3",
     "bulma-checkradio": "^2.1.3",
     "bulma-switch": "^2.0.4",
-    "clipboard": "^2.0.8",
+    "clipboard": "^2.0.11",
     "dompurify": "^2.4.0",
-    "jquery": "^3.6.0",
+    "jquery": "^3.7.1",
     "jquery-ui-dist": "^1.13.1",
     "marked": "^4.1.0",
     "normalize.css": "^8.0.1",
