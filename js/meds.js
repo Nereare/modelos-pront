@@ -64,4 +64,96 @@ $(function() {
       console.error("Tried to copy '" + txt + "', but method undefined by insecure context.");
     }
   });
+
+  // Reset Wizard
+  function reset_wizard() {
+    // Reset selects
+    $("#wizard-act").val("Tomar");
+    $("#wizard-unity").val("cp|cps");
+    $("#wizard-interval-time").val("hora|horas");
+    $("#wizard-frequency").val("a cada");
+    $("#wizard-every-X").val("manhã");
+    $("#wizard-during-time").val("dia|dias");
+    // Reset enables
+    $("#wizard-interval, #wizard-interval-time").attr("disabled", false);
+    $("#wizard-N-times, #wizard-times-per-X, #wizard-every-X").attr("disabled", true);
+    // Reset inputs
+    $("#wizard-target, #wizard-cps, #wizard-interval, #wizard-N-times, #wizard-if, #wizard-during").val("");
+    // Hide modal
+    $("#wizard").removeClass("is-active");
+  }
+  // Prepend Zeroes
+  function prepend_zero(i) {
+    return ("00" + i).slice(-2);
+  }
+  // Change Frequency
+  $("#wizard-frequency").on("change", function() {
+    // Disable everything
+    $("#wizard-interval, #wizard-interval-time, #wizard-N-times, #wizard-times-per-X, #wizard-every-X").attr("disabled", true);
+    // Enable required
+    switch ($("#wizard-frequency").val()) {
+      case "N vezes por X":
+        $("#wizard-N-times, #wizard-times-per-X").attr("disabled", false);
+        break;
+      case "toda/o X":
+        $("#wizard-every-X").attr("disabled", false);
+        break;
+      case "DU":
+        // Disable nothing :)
+        break;
+      default:
+        $("#wizard-interval, #wizard-interval-time").attr("disabled", false);
+        break;
+    }
+  });
+  // Cancel Wizard
+  $("#wizard-cancel").on("click", function() {
+    reset_wizard();
+  });
+  // Save and Close Wizard
+  $("#wizard-save").on("click", function() {
+    // Get target
+    let target = $("#" + $("#wizard-target").val());
+
+    // Build subscript
+    // > Use X Ys
+    let qtt = ($("#wizard-cps").val() != "" ? parseInt($("#wizard-cps").val()) : 1);
+    let qtt_unit = $("#wizard-unity").val().split("|");
+    let txt = $("#wizard-act").val() + " " + prepend_zero(qtt) + " " + (qtt > 1 ? qtt_unit[1] : qtt_unit[0]) + " ";
+    // > Interval
+    switch ($("#wizard-frequency").val()) {
+      case "N vezes por X":
+        let n = ($("#wizard-N-times").val() != "" ? parseInt($("#wizard-N-times").val()) : 1);
+        let n_unit = $("#wizard-times-per-X").val().split("|");
+        txt += prepend_zero(n) + (n > 1 ? " vezes" : " vez") + " por " + (n > 1 ? n_unit[1] : n_unit[0]);
+        break;
+      case "toda/o X":
+        txt += $("#wizard-every-X").val();
+        break;
+      case "DU":
+        txt += "em DOSE ÚNICA";
+        break;
+      default:
+        let interval = ($("#wizard-interval").val() != "" ? parseInt($("#wizard-interval").val()) : 1);
+        let interval_unit = $("#wizard-interval-time").val().split("|");
+        txt += "a cada " + prepend_zero(interval) + " " + (interval > 1 ? interval_unit[1] : interval_unit[0]);
+        break;
+    }
+    // > Conditions
+    if ($("#wizard-if").val() != "") {
+      txt += " se " + $("#wizard-if").val();
+    }
+    // > Usage Time
+    if ($("#wizard-during").val() != "") {
+      let time = ($("#wizard-during").val() != "" ? parseInt($("#wizard-during").val()) : 1);
+      let time_unit = $("#wizard-during-time").val().split("|");
+      txt += " por " + prepend_zero(time) + " " + (time > 1 ? time_unit[1] : time_unit[0]);
+    }
+    txt += ".";
+    // Save subscript
+    target.val(txt);
+
+    // Reset and Close
+    reset_wizard();
+  });
 });

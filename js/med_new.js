@@ -81,6 +81,7 @@ function new_med(
   // > > Subscript
   let subscript_subscript_input = $("<input>")
     .addClass("input is-fullwidth med-subscript")
+    .attr("id", "med-subscript-" + uuid)
     .attr("placeholder", "Modo de uso...")
     .val(subscript);
   let subscript_subscript_control = $("<div>")
@@ -94,7 +95,12 @@ function new_med(
     .append(subscript_autofill_icon);
   let subscript_autofill_btn = $("<button>")
     .addClass("button is-link")
-    .append(subscript_autofill_span);
+    .attr("id", "med-subscript-" + uuid)
+    .append(subscript_autofill_span)
+    .on("click", function() {
+      $("#wizard-target").val("med-subscript-" + uuid);
+      $("#wizard").addClass("is-active");
+    });
   let subscript_autofill_control = $("<div>")
     .addClass("control")
     .append(subscript_autofill_btn);
