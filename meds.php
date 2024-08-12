@@ -10,6 +10,10 @@ $subtitle = "Prescrições";
 require_once "header.php";
 ?>
 
+<script src="js/med_lists.js"></script>
+<script src="js/med_predefs.js"></script>
+<script src="js/med_new.js"></script>
+
 <main class="section">
   <div class="container">
     <div class="box">

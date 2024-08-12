@@ -1,11 +1,8 @@
-$.getScript("js/med_lists.js");
-$.getScript("js/med_predefs.js");
-$.getScript("js/med_new.js");
-
 $(function() {
   // Initialize predefs
   $.each(predefineds, function(i, v) {
     $("#predefineds").append( $("<option>", { text: i, value: i}) )
+    console.log(i);
   });
   // Set predefined prescription from select menu
   $("#predefineds").on("change", function() {
