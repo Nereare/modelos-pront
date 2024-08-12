@@ -13,6 +13,9 @@
     "web": "https://github.com/Nereare/modelos-pront/issues"
   },
   "license": "HL3-FULL",
+  "scripts": {
+    "sass": "cd .\\style\\ && sass --watch pront.scss:pront.css --style compressed"
+  },
   "dependencies": {
     "@creativebulma/bulma-divider": "^1.1.0",
     "@mdi/font": "^7.4.47",
