@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The slug for this page.
  * IMPORTANT: Set the variable below so that the header works properly!
@@ -2212,7 +2213,149 @@ if (isset($_COOKIE["sr_header"])) {
     <div class="box">
       <h2 class="title is-4">Plano / Condutas</h2>
 
-      <div class="content">
+      <div class="tabs is-centered">
+        <ul>
+          <li class="is-active"><a class="plan-list-button" data-target="inpatient">Hospitalares</a></li>
+          <li><a class="plan-list-button" data-target="outpatient">Ambulatoriais</a></li>
+        </ul>
+      </div>
+
+      <div class="content" id="plan-list-inpatient">
+        <ol>
+          <h3 class="title is-5">Exames</h3>
+          <li>
+            <div class="field has-addons">
+              <div class="control">
+                <label for="plan-in-rx" class="button">
+                  <span class="icon">
+                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
+                  </span>
+                  <input type="checkbox" class="is-hidden checkbutton" id="plan-in-rx" value="true">
+                </label>
+              </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Ibagem</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="plan-in-rx-which">
+                    <option value="Rx Tórax PA+Perfil">Rx Tórax</option>
+                    <option value="TC Tórax">TC Tórax</option>
+                    <option value="AngioTC Tórax protocolo TEP">Angio TEP</option>
+                    <option value="Rx de Seios da Face (mesmo após orientação extensa da inutilidade absoluta deste exame, paciente se mantém reticente em desejar fazê-lo e, visando Prevenção Quinquenária da minha saúde mental, solicito tal exame para evitar maiores atritos)">Rx Seios Inúteis</option>
+                    <option value="TC Seios da Face">TC Seios Face</option>
+                    <option value="Rx Abdome Agudo">Rx Abdome</option>
+                    <option value="TC Abdome+Pelve">TC Abdome</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="field has-addons">
+              <div class="control">
+                <label for="plan-in-labs" class="button">
+                  <span class="icon">
+                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
+                  </span>
+                  <input type="checkbox" class="is-hidden checkbutton" id="plan-in-labs" value="true">
+                </label>
+              </div>
+              <div class="control is-expanded">
+                <button class="button is-static is-fullwidth" tabindex="-1">Labs</button>
+              </div>
+            </div>
+          </li>
+
+          <h3 class="title is-5">Meds</h3>
+          <li>
+            <div class="field has-addons">
+              <div class="control">
+                <label for="plan-in-meds" class="button">
+                  <span class="icon">
+                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
+                  </span>
+                  <input type="checkbox" class="is-hidden checkbutton" id="plan-in-meds" value="true">
+                </label>
+              </div>
+              <div class="control is-expanded">
+                <button class="button is-static is-fullwidth" tabindex="-1">Sintomáticos</button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="field has-addons">
+              <div class="control">
+                <label for="plan-in-atb" class="button">
+                  <span class="icon">
+                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
+                  </span>
+                  <input type="checkbox" class="is-hidden checkbutton" id="plan-in-atb" value="true">
+                </label>
+              </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Antibiótico</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="plan-in-atb-which">
+                    <option value="penicilina G benzatina 1.200.000UI IM" selected>Peni 1,2MUI</option>
+                    <option value="penicilina G benzatina 2.400.000UI IM">Peni 2,4MUI</option>
+                    <option value="ceftriaxona 02g">Cef (ataque)</option>
+                    <option value="meropenem 01g">Mero 1g</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="field has-addons">
+              <div class="control">
+                <label for="plan-in-corticosteroids" class="button">
+                  <span class="icon">
+                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
+                  </span>
+                  <input type="checkbox" class="is-hidden checkbutton" id="plan-in-corticosteroids" value="true">
+                </label>
+              </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Corticoide</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="plan-in-corticosteroids-which">
+                    <option value="dexametasona 10mg Dexa" selected>dexametasona 10mg Dexa</option>
+                    <option value="dexametasona 04mg Dexa">dexametasona 04mg Dexa</option>
+                    <option value="hidrocortisona 100mg Hidro">hidrocortisona 100mg Hidro</option>
+                    <option value="hidrocortisona 200mg Hidro">hidrocortisona 200mg Hidro</option>
+                    <option value="metilprednisolona 100mg Metilpred">metilprednisolona 100mg Metilpred</option>
+                    <option value="betametasona (acetato+fosfato dissódico) 03+03mg">betametasona (acetato+fosfato dissódico) 03+03mg</option>
+                    <option value="betametasona (dipropionato+fosfato dissódico) 05+02mg">betametasona (dipropionato+fosfato dissódico) 05+02mg</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <h3 class="title is-5">Misc</h3>
+          <li>
+            <div class="field has-addons">
+              <div class="control is-expanded">
+                <button class="button is-static is-fullwidth" tabindex="-1">Tiro dúvidas</button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="field has-addons">
+              <div class="control is-expanded">
+                <button class="button is-static is-fullwidth" tabindex="-1">Reaval após</button>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="content is-hidden" id="plan-list-outpatient">
         <ol>
           <h3 class="title is-5">Exame</h3>
           <li>
@@ -2546,11 +2689,11 @@ if (isset($_COOKIE["sr_header"])) {
               <div class="control">
                 <div class="select">
                   <select id="atb">
-                    <option value="" disabled>Sem TP aqui, satanás</option>
+                    <option value="" selected disabled>Sem TP aqui, satanás</option>
                     <option value="" disabled>-- Adultos --</option>
-                    <option value="amoxicilina 500mg 8/8h" selected>Amoxi</option>
-                    <option value="amoxicilina 875mg 12/12h" selected>Amoxi BD</option>
-                    <option value="amoxicilina 1.000mg 8/8h" selected>Amoxi&times;2</option>
+                    <option value="amoxicilina 500mg 8/8h">Amoxi</option>
+                    <option value="amoxicilina 875mg 12/12h">Amoxi BD</option>
+                    <option value="amoxicilina 1.000mg 8/8h">Amoxi&times;2</option>
                     <option value="amoxicilina 500mg 8/8h mais claritromicina 500mg 12/12h">Amoxi+Claritro</option>
                     <option value="amoxicilina+clavulanato 500+125mg 8/8h">Amoxi+Clav</option>
                     <option value="amoxicilina+clavulanato 875+125mg 12/12h">Amoxi+Clav BD</option>
@@ -2583,6 +2726,7 @@ if (isset($_COOKIE["sr_header"])) {
               <div class="control is-expanded">
                 <div class="select is-fullwidth">
                   <select id="atb-reason">
+                    <option value="" selected>para merda nenhuma</option>
                     <option value=" para faringotonsilite possivelmente bacteriana (Strep Score > 2) pela ausência de teste rápido para GAS">Amidalite Poss Bact (Strep S &gt; 2)</option>
                     <option value=" para faringotonsilite bacteriana de altíssima probabilidade pré-teste (Strep Score &ge; 4)">Amidalite Prov Bact (Strep S &ge; 4)</option>
                     <option value=" para pneumonia adquirida em comunidade não-complicada">Pneumonia</option>
@@ -2757,23 +2901,6 @@ if (isset($_COOKIE["sr_header"])) {
               </div>
             </div>
           </li>
-          <!-- TODO: Research further
-          <li>
-            <div class="field has-addons">
-              <div class="control">
-                <label for="plan-quarantine" class="button">
-                  <span class="icon">
-                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
-                  </span>
-                  <input type="checkbox" class="is-hidden checkbutton" id="plan-sympequalcontagion" value="true">
-                </label>
-              </div>
-              <div class="control is-expanded">
-                <button class="button is-static is-fullwidth" tabindex="-1">Fim sintomas = Fim transmissão</button>
-              </div>
-            </div>
-          </li>
-          -->
 
           <h3 class="title is-5">Sem Critérios</h3>
           <li>

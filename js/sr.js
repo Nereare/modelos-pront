@@ -246,6 +246,16 @@ $(function() {
     $("#icd-result").val( $(this).val() ).focus().select();
   });
 
+  // Select plan list
+  $(".plan-list-button").on("click", function() {
+    // Tabs
+    $(".plan-list-button").parent().removeClass("is-active");
+    $(this).parent().addClass("is-active");
+    // Plan Lists
+    $("#plan-list-outpatient, #plan-list-inpatient").addClass("is-hidden");
+    $("#plan-list-" + $(this).attr("data-target")).removeClass("is-hidden");
+  });
+
   // Select type of output to show
   $("#show-unified, #show-soap").on("click", function() {
     //if ( !$(this).hasClass("is-active") ) {
@@ -861,59 +871,70 @@ function runO() {
 function runP() {
   p = [];
 
-  // Labs
-  if( $("#plan-labcovid").is(":checked") ) { p.push( "Solicito coleta de " + $("#labcovid").val() + " para SARS-CoV-2" + $("#labcovid-refusal").val() ); }
-  if( $("#plan-labflu").is(":checked") ) { p.push( "Solicito coleta de " + $("#labflu").val() + " para Influenza A/B" + $("#labflu-refusal").val() ); }
-  if( $("#plan-labother").is(":checked") ) { p.push("Solicito " + $("#labother").val()); }
-  if( $("#plan-labnone").is(":checked") ) {
-    p.push( "Oriento paciente no protocolo vigente da Prefeitura Municipal de São Paulo e como ele restringe a possibilidade de coleta de exames para detecção de SARS-CoV-2, não estando o paciente entre os grupos autorizados por tal protocolo a colher exames de COVID-19" );
-    p.push( "Oriento também que, não fosse esse protocolo, paciente apresenta sim indicação de colher exame para detecção de SARS-CoV-2, uma vez que apresenta uma suspeita de infecção por este vírus" );
-  }
-  // Leaves
-  if( $("#plan-leave").is(":checked") ) { p.push( "Atesto paciente para " + $("#leave").val() + " dias" + $("#leave-reason").val() ); }
-  if( $("#plan-leaverefuse").is(":checked") ) { p.push("Ofereço afastamento, que paciente recusa"); }
-  if( $("#plan-leavehours").is(":checked") ) { p.push($("#leave-leavehours-what").val() + " comprovante de horas"); }
-  if( $("#plan-familyleave").is(":checked") ) { p.push( $("#familyleave").val() ); }
-  // Prescriptions
-  if( $("#plan-symptomatics").is(":checked") ) { p.push( $("#symptomatics").val() ); }
-  if( $("#plan-ln").is(":checked") ) { p.push( "Oriento lavagem nasal com soro fisiológico 0,9%" ); }
-  if( $("#plan-clenil").is(":checked") ) { p.push( "Prescrevo corticoesteroide nasal para otimização de controle de sintomas respiratórios altos" ); }
-  if( $("#plan-syrups").is(":checked") ) { p.push( "Oriento que não existem \"xaropes para tosse\" que sejam superiores a placebo, e, portanto, visando minimizar efeitos colaterais desnecessários, não serão prescritos" ); }
-  if( $("#plan-honey").is(":checked") ) { p.push( "Oriento consumo de uma colher de mel, antes de dormir, para melhorar percepção subjetiva da tosse" ); }
-  if( $("#plan-tamiflu").is(":checked") ) { p.push( "Prescrevo oseltamivir 12/12h por 05 dias" ); }
-  if( $("#plan-atb").is(":checked") ) {
-    if ($("#atb").val() == "penicilina G benzatina 1.200.000UI IM em dose única") {
-      p.push( "Prescrevo " + $("#atb").val() + $("#atb-reason").val() );
-    } else {
-      p.push( "Prescrevo " + $("#atb").val() + $("#atb-reason").val() + " por " + $("#atb-days").val() + " dias" );
+  if (!$("#plan-list-outpatient").hasClass("is-hidden")) {
+    // Labs
+    if( $("#plan-labcovid").is(":checked") ) { p.push( "Solicito coleta de " + $("#labcovid").val() + " para SARS-CoV-2" + $("#labcovid-refusal").val() ); }
+    if( $("#plan-labflu").is(":checked") ) { p.push( "Solicito coleta de " + $("#labflu").val() + " para Influenza A/B" + $("#labflu-refusal").val() ); }
+    if( $("#plan-labother").is(":checked") ) { p.push("Solicito " + $("#labother").val()); }
+    if( $("#plan-labnone").is(":checked") ) {
+      p.push( "Oriento paciente no protocolo vigente da Prefeitura Municipal de São Paulo e como ele restringe a possibilidade de coleta de exames para detecção de SARS-CoV-2, não estando o paciente entre os grupos autorizados por tal protocolo a colher exames de COVID-19" );
+      p.push( "Oriento também que, não fosse esse protocolo, paciente apresenta sim indicação de colher exame para detecção de SARS-CoV-2, uma vez que apresenta uma suspeita de infecção por este vírus" );
     }
+    // Leaves
+    if( $("#plan-leave").is(":checked") ) { p.push( "Atesto paciente para " + $("#leave").val() + " dias" + $("#leave-reason").val() ); }
+    if( $("#plan-leaverefuse").is(":checked") ) { p.push("Ofereço afastamento, que paciente recusa"); }
+    if( $("#plan-leavehours").is(":checked") ) { p.push($("#leave-leavehours-what").val() + " comprovante de horas"); }
+    if( $("#plan-familyleave").is(":checked") ) { p.push( $("#familyleave").val() ); }
+    // Prescriptions
+    if( $("#plan-symptomatics").is(":checked") ) { p.push( $("#symptomatics").val() ); }
+    if( $("#plan-ln").is(":checked") ) { p.push( "Oriento lavagem nasal com soro fisiológico 0,9%" ); }
+    if( $("#plan-clenil").is(":checked") ) { p.push( "Prescrevo corticoesteroide nasal para otimização de controle de sintomas respiratórios altos" ); }
+    if( $("#plan-syrups").is(":checked") ) { p.push( "Oriento que não existem \"xaropes para tosse\" que sejam superiores a placebo, e, portanto, visando minimizar efeitos colaterais desnecessários, não serão prescritos" ); }
+    if( $("#plan-honey").is(":checked") ) { p.push( "Oriento consumo de uma colher de mel, antes de dormir, para melhorar percepção subjetiva da tosse" ); }
+    if( $("#plan-tamiflu").is(":checked") ) { p.push( "Prescrevo oseltamivir 12/12h por 05 dias" ); }
+    if( $("#plan-atb").is(":checked") ) {
+      if ($("#atb").val() == "penicilina G benzatina 1.200.000UI IM em dose única") {
+        p.push( "Prescrevo " + $("#atb").val() + $("#atb-reason").val() );
+      } else {
+        p.push( "Prescrevo " + $("#atb").val() + $("#atb-reason").val() + " por " + $("#atb-days").val() + " dias" );
+      }
+    }
+    if( $("#plan-med1").is(":checked") ) { p.push( "Prescrevo " + $("#med1").val() + " para " + $("#med1-reason").val() ); }
+    if( $("#plan-med2").is(":checked") ) { p.push( "Prescrevo " + $("#med2").val() + " para " + $("#med2-reason").val() ); }
+    if( $("#plan-med3").is(":checked") ) { p.push( "Prescrevo " + $("#med3").val() + " para " + $("#med3-reason").val() ); }
+    // Guidance
+    if( $("#plan-warnsigns").is(":checked") ) { p.push( "Oriento sinais de alarme para retorno precoce e reavaliação" ); }
+    if( $("#plan-delusion").is(":checked") ) { p.push( "Oriento ausência de evidências científicas validando o uso de \"tratamento precoce\" para COVID-19 (e.g. dexametasona, ivermectina, azitromicina) em pacientes ambulatoriais, assim como reforço a CONTRAINDICAÇÃO FORMAL de uso de azitromicina em casos de suspeita de infeção por SARS-CoV-2 sem sinais de infecção bacteriana (Choosing Wisely Brasil)" ); }
+    if( $("#plan-isolation").is(":checked") ) { p.push( "Oriento sobre medidas de isolamento do caso-índice tanto dentro como fora de casa (uso de máscara durante todo o período, dormir e se manter em cômodo separado, manter casa arejada e ventilada, não compartilhar itens pessoais, de higiene ou de alimentação, etc.), higiene das mãos e medidas de etiqueta respiratória" ); }
+    if( $("#plan-quarantine").is(":checked") ) { p.push( "Oriento medidas que as demais pessoas da casa devem tomar para evitar entrar em contato com o caso índice, assim como reforço higiene de mãos e etiqueta respiratória" ); }
+    if( $("#plan-trvspcr").is(":checked") ) { p.push("Oriento diferenças de valores preditivos positivo e negativo entre Teste Rápido para Antígeno Nasal e RT-PCR para SARS-CoV-2, e impacto na interpretação diagnóstica dessas diferenças em bioestatística"); }
+    // No Criteria
+    if( $("#plan-criterianotmet").is(":checked") ) { p.push( "Oriento paciente da ausência de critérios para coleta de exame para investigação de SARS-CoV-2" ); }
+    if( $("#plan-whenseek").is(":checked") ) { p.push( "Oriento paciente sobre sinais que sugerem busca de nova avaliação no Sintomáticos Respiratórios" ); }
+    if( $("#plan-whenseeker").is(":checked") ) { p.push( "Oriento paciente sobre sinais que sugerem busca de nova avaliação em Pronto Socorro" ); }
+    if( $("#plan-er-restrictions").is(":checked") ) { p.push( "Oriento paciente sobre funções de um Pronto Socorro, assim como das retrições e impossibilidades inatas a este contexto de atendimento, as quais incluem (mas não se restringem a) não ser o contexto para exames de rotina, renovação de receitas ambulatoriais ou internação para tentar induzir alguma investigação ou seguimento ambulatorial a \"ir mais rápido\"" ); }
+    if( $("#plan-cltonus").is(":checked") ) {
+      p.push( "Oriento paciente que, segundo artigo 7.3.1, tópico (b), da Norma Regulamentadora Nº 07, que define e regulamenta o Programa de Controle Médico de Saúde Ocupacional (PCMSO) sob a Consolidação das Leis do Trabalho, é ÔNUS DO EMPREGADOR arcar e custear com exames demandados para SAÚDE OCUPACIONAL" );
+      p.push( "Oriento paciente também que, do ponto de vista de medicina ASSISTENCIAL, de que trata seu contato hoje com este serviço de saúde, paciente não preenche critério para coleta de RT-PCR ou Sorologia para SARS-CoV-2, como definido pelo protoco de combate à pandemia de COVID-19 da Secretaria Municipal de Saúde" );
+    }
+    if( $("#plan-labresults").is(":checked") ) { p.push( "Oriento sobre resultados de exames laboratoriais" ); }
+    if( $("#plan-labwait").is(":checked") ) { p.push( "Oriento que exame previamente coletado ainda não está pronto" ); }
+    // Follow Up
+    if( $("#plan-followup").is(":checked") ) { p.push( "Oriento retorno no Sintomáticos Respiratórios em " + $("#followup").val() + " dias para " + $("#followup-reason").val() ); }
+    if( $("#plan-whut").is(":checked") ) { p.push("Tiro dúvidas"); }
+    if( $("#plan-bai").is(":checked") ) { p.push( "Alta do episódio" ); }
+  } else {
+// Exams
+    if( $("#plan-in-rx").is(":checked") ) { p.push( "Solicito " + $("#plan-in-rx-which").val() + " agora" ); }
+    if( $("#plan-in-labs").is(":checked") ) { p.push( "Solicito exames laboratoriais agora" ); }
+    // Meds
+    if( $("#plan-in-meds").is(":checked") ) { p.push( "Prescrevo sintomáticos agora" ); }
+    if( $("#plan-in-atb").is(":checked") ) { p.push( "Prescrevo " + $("#plan-in-atb-which").val() + " agora" ); }
+    if( $("#plan-in-corticosteroids").is(":checked") ) { p.push( "Prescrevo " + $("#plan-in-corticosteroids-which").val() + " agora" ); }
+    // Misc
+    p.push( "Tiro dúvidas" );
+    p.push( "Reaval após" );
   }
-  if( $("#plan-med1").is(":checked") ) { p.push( "Prescrevo " + $("#med1").val() + " para " + $("#med1-reason").val() ); }
-  if( $("#plan-med2").is(":checked") ) { p.push( "Prescrevo " + $("#med2").val() + " para " + $("#med2-reason").val() ); }
-  if( $("#plan-med3").is(":checked") ) { p.push( "Prescrevo " + $("#med3").val() + " para " + $("#med3-reason").val() ); }
-  // Guidance
-  if( $("#plan-warnsigns").is(":checked") ) { p.push( "Oriento sinais de alarme para retorno precoce e reavaliação" ); }
-  if( $("#plan-delusion").is(":checked") ) { p.push( "Oriento ausência de evidências científicas validando o uso de \"tratamento precoce\" para COVID-19 (e.g. dexametasona, ivermectina, azitromicina) em pacientes ambulatoriais, assim como reforço a CONTRAINDICAÇÃO FORMAL de uso de azitromicina em casos de suspeita de infeção por SARS-CoV-2 sem sinais de infecção bacteriana (Choosing Wisely Brasil)" ); }
-  if( $("#plan-isolation").is(":checked") ) { p.push( "Oriento sobre medidas de isolamento do caso-índice tanto dentro como fora de casa (uso de máscara durante todo o período, dormir e se manter em cômodo separado, manter casa arejada e ventilada, não compartilhar itens pessoais, de higiene ou de alimentação, etc.), higiene das mãos e medidas de etiqueta respiratória" ); }
-  if( $("#plan-quarantine").is(":checked") ) { p.push( "Oriento medidas que as demais pessoas da casa devem tomar para evitar entrar em contato com o caso índice, assim como reforço higiene de mãos e etiqueta respiratória" ); }
-  if( $("#plan-trvspcr").is(":checked") ) { p.push("Oriento diferenças de valores preditivos positivo e negativo entre Teste Rápido para Antígeno Nasal e RT-PCR para SARS-CoV-2, e impacto na interpretação diagnóstica dessas diferenças em bioestatística"); }
-  // TODO: Research further!!! (transmission)
-  // if( $("#plan-sympequalcontagion").is(":checked") ) { p.push("Oriento "); }
-  // No Criteria
-  if( $("#plan-criterianotmet").is(":checked") ) { p.push( "Oriento paciente da ausência de critérios para coleta de exame para investigação de SARS-CoV-2" ); }
-  if( $("#plan-whenseek").is(":checked") ) { p.push( "Oriento paciente sobre sinais que sugerem busca de nova avaliação no Sintomáticos Respiratórios" ); }
-  if( $("#plan-whenseeker").is(":checked") ) { p.push( "Oriento paciente sobre sinais que sugerem busca de nova avaliação em Pronto Socorro" ); }
-  if( $("#plan-er-restrictions").is(":checked") ) { p.push( "Oriento paciente sobre funções de um Pronto Socorro, assim como das retrições e impossibilidades inatas a este contexto de atendimento, as quais incluem (mas não se restringem a) não ser o contexto para exames de rotina, renovação de receitas ambulatoriais ou internação para tentar induzir alguma investigação ou seguimento ambulatorial a \"ir mais rápido\"" ); }
-  if( $("#plan-cltonus").is(":checked") ) {
-    p.push( "Oriento paciente que, segundo artigo 7.3.1, tópico (b), da Norma Regulamentadora Nº 07, que define e regulamenta o Programa de Controle Médico de Saúde Ocupacional (PCMSO) sob a Consolidação das Leis do Trabalho, é ÔNUS DO EMPREGADOR arcar e custear com exames demandados para SAÚDE OCUPACIONAL" );
-    p.push( "Oriento paciente também que, do ponto de vista de medicina ASSISTENCIAL, de que trata seu contato hoje com este serviço de saúde, paciente não preenche critério para coleta de RT-PCR ou Sorologia para SARS-CoV-2, como definido pelo protoco de combate à pandemia de COVID-19 da Secretaria Municipal de Saúde" );
-  }
-  if( $("#plan-labresults").is(":checked") ) { p.push( "Oriento sobre resultados de exames laboratoriais" ); }
-  if( $("#plan-labwait").is(":checked") ) { p.push( "Oriento que exame previamente coletado ainda não está pronto" ); }
-  // Follow Up
-  if( $("#plan-followup").is(":checked") ) { p.push( "Oriento retorno no Sintomáticos Respiratórios em " + $("#followup").val() + " dias para " + $("#followup-reason").val() ); }
-  if ($("#plan-whut").is(":checked") ) { p.push("Tiro dúvidas"); }
-  if( $("#plan-bai").is(":checked") ) { p.push( "Alta do episódio" ); }
 
   return p;
 }
