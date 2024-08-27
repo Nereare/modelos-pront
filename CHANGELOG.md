@@ -15,6 +15,7 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
   - Declinação de gênero (pronomes).
 - Modelo de atendimento de *Acidente Pérfuro-Cortante*.
 - Modelo de atendimento de *Dengue*.
+- Modelo de *Buxo*.
 ### Modificado
 - *Exame Físico*:
   - Melhoras da descrição de tireoide.

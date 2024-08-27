@@ -1,15 +1,22 @@
 @charset "utf-8";
 
-$family-sans-serif: "Montserrat", sans-serif;
-$family-monospace: "Roboto Mono", monospace;
-$primary: #0090ed;
-$link: #00acc1;
+$family-sans-serif : "Montserrat", sans-serif;
+$family-monospace  : "Roboto Mono", monospace;
+$primary           : #0090ed;
+$link              : #00acc1;
+
+$blue   : #3273dc;
+$green  : #23d160;
+$yellow : #ffdd57;
+$orange : #ff8957;
+$red    : #ff3860;
 
 // Import Bulma for customization from the variables set above.
 @import "../node_modules/bulma/bulma.sass";
 @import "../node_modules/bulma-checkradio/dist/css/bulma-checkradio.min.css";
 @import "../node_modules/bulma-switch/dist/css/bulma-switch.min.css";
 @import "../node_modules/@creativebulma/bulma-divider/dist/bulma-divider.min.css";
+@import "../node_modules/@creativebulma/bulma-tagsinput/src/sass/index";
 
 // Custom styles
 
@@ -159,6 +166,7 @@ $link: #00acc1;
   }
 }
 
+// Medication item for Meds v2
 .med-item {
   border-left: $link solid 0.5rem;
   // Animate creation
@@ -171,5 +179,88 @@ $link: #00acc1;
   100% {
     opacity: 1;
     transform: none;
+  }
+}
+
+// Boxwood classification coloring
+.boxwood-classification {
+  display: inline-block;
+  width: 2.5rem;
+  border-radius: 4px;
+
+  &.i-blue {
+    &.f-blue { background-image: linear-gradient(to right, $blue 0%, $blue 30%, $blue 70%, $blue 100%); }
+    &.f-green { background-image: linear-gradient(to right, $blue 0%, $blue 30%, $green 70%, $green 100%); }
+    &.f-yellow { background-image: linear-gradient(to right, $blue 0%, $blue 30%, $yellow 70%, $yellow 100%); }
+    &.f-orange { background-image: linear-gradient(to right, $blue 0%, $blue 30%, $orange 70%, $orange 100%); }
+    &.f-red { background-image: linear-gradient(to right, $blue 0%, $blue 30%, $red 70%, $red 100%); }
+  }
+  &.i-green {
+    &.f-blue { background-image: linear-gradient(to right, $green 0%, $green 30%, $blue 70%, $blue 100%); }
+    &.f-green { background-image: linear-gradient(to right, $green 0%, $green 30%, $green 70%, $green 100%); }
+    &.f-yellow { background-image: linear-gradient(to right, $green 0%, $green 30%, $yellow 70%, $yellow 100%); }
+    &.f-orange { background-image: linear-gradient(to right, $green 0%, $green 30%, $orange 70%, $orange 100%); }
+    &.f-red { background-image: linear-gradient(to right, $green 0%, $green 30%, $red 70%, $red 100%); }
+  }
+  &.i-yellow {
+    &.f-blue { background-image: linear-gradient(to right, $yellow 0%, $yellow 30%, $blue 70%, $blue 100%); }
+    &.f-green { background-image: linear-gradient(to right, $yellow 0%, $yellow 30%, $green 70%, $green 100%); }
+    &.f-yellow { background-image: linear-gradient(to right, $yellow 0%, $yellow 30%, $yellow 70%, $yellow 100%); }
+    &.f-orange { background-image: linear-gradient(to right, $yellow 0%, $yellow 30%, $orange 70%, $orange 100%); }
+    &.f-red { background-image: linear-gradient(to right, $yellow 0%, $yellow 30%, $red 70%, $red 100%); }
+  }
+  &.i-orange {
+    &.f-blue { background-image: linear-gradient(to right, $orange 0%, $orange 30%, $blue 70%, $blue 100%); }
+    &.f-green { background-image: linear-gradient(to right, $orange 0%, $orange 30%, $green 70%, $green 100%); }
+    &.f-yellow { background-image: linear-gradient(to right, $orange 0%, $orange 30%, $yellow 70%, $yellow 100%); }
+    &.f-orange { background-image: linear-gradient(to right, $orange 0%, $orange 30%, $orange 70%, $orange 100%); }
+    &.f-red { background-image: linear-gradient(to right, $orange 0%, $orange 30%, $red 70%, $red 100%); }
+  }
+  &.i-red {
+    &.f-blue { background-image: linear-gradient(to right, $red 0%, $red 30%, $blue 70%, $blue 100%); }
+    &.f-green { background-image: linear-gradient(to right, $red 0%, $red 30%, $green 70%, $green 100%); }
+    &.f-yellow { background-image: linear-gradient(to right, $red 0%, $red 30%, $yellow 70%, $yellow 100%); }
+    &.f-orange { background-image: linear-gradient(to right, $red 0%, $red 30%, $orange 70%, $orange 100%); }
+    &.f-red { background-image: linear-gradient(to right, $red 0%, $red 30%, $red 70%, $red 100%); }
+  }
+}
+.todo-done {
+  font-style: italic;
+  color: #b2beb5;
+  text-decoration: line-through;
+}
+@media screen { #printable-todos { display: none; } }
+@media print {
+  body {
+    font-family: "Roboto Mono", sans-serif;
+    font-size: 15px;
+    header, nav, main, footer { display: none; }
+  }
+  #printable-todos {
+    display: block;
+    width: 100%;
+    thead {
+      text-align: center;
+      tr { border-bottom: solid 3px $text; }
+    }
+    tbody {
+      text-align: center;
+      tr {
+        border-bottom: solid 1px $text;
+        &:last-child { border: none; }
+        &:nth-child(even) { background-color: #ddd; }
+
+        td {
+          padding: 0.25rem 0.5rem;
+          &:nth-child(1) { width: 25%; }
+          &:nth-child(2) { width: 15%; }
+          &:nth-child(3) { text-align: justify; }
+          &:nth-child(4) {
+            width: 25%;
+            text-align: left;
+          }
+        }
+      }
+    }
   }
 }

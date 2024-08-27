@@ -8,7 +8,8 @@ session_start();
  * @param  string  $page    The current page. Use the $page variable set!
  * @return void
  */
-function is_selected($link, $page) {
+function is_selected($link, $page)
+{
   if ($link === $page) {
     echo " is-active";
   }
@@ -16,21 +17,21 @@ function is_selected($link, $page) {
 
 $menu = [
   ["hospital"],
-  ["meds", "dengue", "labs"],
-  ["sharps", "sr", "report"],
-  ["psico", "pn", "pueri"],
-  ["diu", "sadt", null],
+  ["meds", "boxwood", "labs"],
+  ["dengue", "sr", "report"],
+  ["psico", "sharps", "pueri"],
+  ["diu", "sadt", "pn"],
   [null, null, null]
 ];
-if ( isset($_SESSION["cookies"]) ) {
-  if ( $_SESSION["cookies"] ) {
-    if ( isset($_COOKIE["menu"]) ) {
-      $menu = json_decode( $_COOKIE["menu"] );
+if (isset($_SESSION["cookies"])) {
+  if ($_SESSION["cookies"]) {
+    if (isset($_COOKIE["menu"])) {
+      $menu = json_decode($_COOKIE["menu"]);
     } else {
-      setcookie( "menu", json_encode( $menu ), time() + 30*24*60*60, "/" );
+      setcookie("menu", json_encode($menu), time() + 30 * 24 * 60 * 60, "/");
     }
   } else {
-    if ( isset($_SESSION["menu"]) ) {
+    if (isset($_SESSION["menu"])) {
       $menu = $_SESSION["menu"];
     } else {
       $_SESSION["menu"] = $menu;
@@ -40,102 +41,104 @@ if ( isset($_SESSION["cookies"]) ) {
 ?>
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title><?php echo constant("APP_NAME"); ?></title>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
-    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#1565c0">
-    <link rel="shortcut icon" href="favicon/favicon.ico">
-    <meta name="msapplication-TileColor" content="#1565c0">
-    <meta name="msapplication-config" content="favicon/browserconfig.xml">
-    <meta name="theme-color" content="#1565c0">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title><?php echo constant("APP_NAME"); ?></title>
 
-    <link href="node_modules/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css">
-    <link href="node_modules/typeface-montserrat/index.css" rel="stylesheet" type="text/css">
-    <link href="node_modules/typeface-roboto-mono/index.css" rel="stylesheet" type="text/css">
-    <link href="node_modules/normalize.css/normalize.css" rel="stylesheet" type="text/css">
-    <link href="style/pront.css" rel="stylesheet" type="text/css">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#1565c0">
+  <link rel="shortcut icon" href="favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#1565c0">
+  <meta name="msapplication-config" content="favicon/browserconfig.xml">
+  <meta name="theme-color" content="#1565c0">
 
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
-    <script src="node_modules/clipboard/dist/clipboard.min.js"></script>
-    <script src="node_modules/dompurify/dist/purify.min.js"></script>
-    <script src="node_modules/marked/marked.min.js"></script>
-    <script src="js/base.js"></script>
-    <?php if ( !in_array($page, ["index", "about", "usage", "cookies", "privacy"]) ) { ?>
+  <link href="node_modules/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css">
+  <link href="node_modules/typeface-montserrat/index.css" rel="stylesheet" type="text/css">
+  <link href="node_modules/typeface-roboto-mono/index.css" rel="stylesheet" type="text/css">
+  <link href="node_modules/normalize.css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="style/pront.css" rel="stylesheet" type="text/css">
+
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
+  <script src="node_modules/clipboard/dist/clipboard.min.js"></script>
+  <script src="node_modules/dompurify/dist/purify.min.js"></script>
+  <script src="node_modules/marked/marked.min.js"></script>
+  <script src="node_modules/@creativebulma/bulma-tagsinput/dist/js/bulma-tagsinput.min.js"></script>
+  <script src="js/base.js"></script>
+  <?php if (!in_array($page, ["index", "about", "usage", "cookies", "privacy"])) { ?>
     <script src="js/<?php echo $page; ?>.js"></script>
-    <?php } ?>
-  </head>
+  <?php } ?>
+</head>
 
-  <body>
-    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="index.php">
-          <img src="assets/index-logo.svg" alt="Logo">
-        </a>
+<body>
+  <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="index.php">
+        <img src="assets/index-logo.svg" alt="Logo">
+      </a>
 
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbar-menu" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item<?php is_selected('index', $page); ?>" href="index.php">Início</a>
+        <a class="navbar-item<?php is_selected('about', $page); ?>" href="about.php">Sobre</a>
+        <a class="navbar-item<?php is_selected('usage', $page); ?>" href="usage.php">Termos de Uso</a>
+        <a class="navbar-item<?php is_selected('cookies', $page); ?>" href="cookies.php">Política de Cookies</a>
+        <a class="navbar-item<?php is_selected('privacy', $page); ?>" href="privacy.php">Política de Privacidade</a>
       </div>
 
-      <div id="navbar-menu" class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item<?php is_selected('index', $page); ?>" href="index.php">Início</a>
-          <a class="navbar-item<?php is_selected('about', $page); ?>" href="about.php">Sobre</a>
-          <a class="navbar-item<?php is_selected('usage', $page); ?>" href="usage.php">Termos de Uso</a>
-          <a class="navbar-item<?php is_selected('cookies', $page); ?>" href="cookies.php">Política de Cookies</a>
-          <a class="navbar-item<?php is_selected('privacy', $page); ?>" href="privacy.php">Política de Privacidade</a>
-        </div>
-
-        <div class="navbar-end">
-          <a class="navbar-item<?php is_selected('config', $page); ?>" href="config.php">
-            <span class="icon">
-              <i class="mdi mdi-cog mdi-24px"></i>
-            </span>
-          </a>
-          <span class="navbar-item">
-            <a class="button is-primary is-inverted" href="https://github.com/Nereare/modelos-pront">
-              <span class="icon">
-                <i class="mdi mdi-github mdi-24px"></i>
-              </span>
-              <span>Código-Fonte</span>
-            </a>
+      <div class="navbar-end">
+        <a class="navbar-item<?php is_selected('config', $page); ?>" href="config.php">
+          <span class="icon">
+            <i class="mdi mdi-cog mdi-24px"></i>
           </span>
-        </div>
+        </a>
+        <span class="navbar-item">
+          <a class="button is-primary is-inverted" href="https://github.com/Nereare/modelos-pront">
+            <span class="icon">
+              <i class="mdi mdi-github mdi-24px"></i>
+            </span>
+            <span>Código-Fonte</span>
+          </a>
+        </span>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <header class="section">
-      <div class="container has-text-centered">
-        <?php
-        if ( isset($subtitle) ) {
-        ?>
+  <header class="section">
+    <div class="container has-text-centered">
+      <?php
+      if (isset($subtitle)) {
+      ?>
         <p class="title has-text-primary">
           <?php echo $subtitle; ?>
         </p>
         <p class="subtitle">
           <?php echo constant("APP_NAME"); ?> &bull; v<?php echo constant("APP_VERSION"); ?>
         </p>
-        <?php } else { ?>
+      <?php } else { ?>
         <p class="title has-text-primary">
           <?php echo constant("APP_NAME"); ?>
         </p>
         <p class="subtitle">
           Versão <?php echo constant("APP_VERSION"); ?>
         </p>
-        <?php } ?>
-      </div>
-    </header>
+      <?php } ?>
+    </div>
+  </header>
 
-    <?php if ( !isset( $_SESSION["ethics"] ) && !isset( $_COOKIE["ethics"] ) ) { ?>
+  <?php if (!isset($_SESSION["ethics"]) && !isset($_COOKIE["ethics"])) { ?>
     <section class="section">
       <div class="container">
         <article class="message is-warning">
@@ -161,4 +164,4 @@ if ( isset($_SESSION["cookies"]) ) {
         </article>
       </div>
     </section>
-    <?php } ?>
+  <?php } ?>

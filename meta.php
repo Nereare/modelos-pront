@@ -4,7 +4,7 @@ define("APP_AUTHOR", "Igor Padoim");
 define("APP_YEAR", "2021-2023");
 define("APP_LICENSE_NAME", "Licença Hipocrática");
 define("APP_LICENSE_URI", "https://firstdonoharm.dev/");
-define("APP_VERSION", "2.13.1");
+define("APP_VERSION", "2.14.0");
 
 define("MODELS", [
   "sr" => [
@@ -90,5 +90,12 @@ define("MODELS", [
     "dengue.svg",
     "Um pernilongo branco com listras pretas e probóscide alongada",
     "Dengue"
+  ],
+  "boxwood" => [
+    "boxwood",
+    "boxwood.php",
+    "boxwood.svg",
+    "Um pernilongo branco com listras pretas e probóscide alongada",
+    "Buxo"
   ]
 ]);
