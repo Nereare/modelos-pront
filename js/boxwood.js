@@ -15,7 +15,7 @@ function get_todos() {
   // Initialize empty
   let todos = null;
   // Retrieve new empty or prefilled
-  if (localStorage.getItem("todos") === "undefined") {
+  if (localStorage.getItem("todos") == null) {
     todos = "[]";
   } else {
     todos = localStorage.getItem("todos");
