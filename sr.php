@@ -2686,8 +2686,8 @@ if (isset($_COOKIE["sr_header"])) {
               <div class="control">
                 <button class="button is-static" tabindex="-1">Antibiótico</button>
               </div>
-              <div class="control">
-                <div class="select">
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
                   <select id="atb">
                     <option value="" selected disabled>Sem TP aqui, satanás</option>
                     <option value="" disabled>-- Adultos --</option>
@@ -2717,27 +2717,6 @@ if (isset($_COOKIE["sr_header"])) {
                     <option value="clindamicina 40mg/kg/d 8/8h">Clina (40mg/kg/d 8)</option>
                     <option value="eritromicina 50mg/kg/d 6/6h">Eritro (50mg/kg/d 6)</option>
                     <option value="claritromicina 15mg/kg/d 12/12h">Claritro (15mg/kg/d 12)</option>
-                  </select>
-                </div>
-              </div>
-              <div class="control">
-                <button class="button is-static" tabindex="-1">para</button>
-              </div>
-              <div class="control is-expanded">
-                <div class="select is-fullwidth">
-                  <select id="atb-reason">
-                    <option value="" selected>para merda nenhuma</option>
-                    <option value=" para faringotonsilite possivelmente bacteriana (Strep Score > 2) pela ausência de teste rápido para GAS">Amidalite Poss Bact (Strep S &gt; 2)</option>
-                    <option value=" para faringotonsilite bacteriana de altíssima probabilidade pré-teste (Strep Score &ge; 4)">Amidalite Prov Bact (Strep S &ge; 4)</option>
-                    <option value=" para pneumonia adquirida em comunidade não-complicada">Pneumonia</option>
-                    <option value=" para pneumonia adquirida em comunidade em que não se pode excluir clinicamente germes atípicos">Pneumonia G. Atípicos</option>
-                    <option value=" para pneumonia por germe hospitalar pois paciente é institucionalizado">Pneumonia Institucionalizado</option>
-                    <option value=" para sinusite com evolução clínica desfávoral, que sugere etiologia bacteriana pela história clínica">Sinusite Bact DE VERDADE</option>
-                    <option value=" para cistite">Cistite</option>
-                    <option value=" para erisipela">Erisipela</option>
-                    <option value=" para celulite">Celulite</option>
-                    <option value=" para infecção cutânea">Infec Cutânea</option>
-                    <option value=" para Sífilis">Sífilis</option>
                   </select>
                 </div>
               </div>
@@ -2841,6 +2820,7 @@ if (isset($_COOKIE["sr_header"])) {
               </div>
             </div>
           </li>
+          <!--
           <li>
             <div class="field has-addons">
               <div class="control">
@@ -2856,6 +2836,7 @@ if (isset($_COOKIE["sr_header"])) {
               </div>
             </div>
           </li>
+          -->
           <li>
             <div class="field has-addons">
               <div class="control">
