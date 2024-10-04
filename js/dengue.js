@@ -1169,7 +1169,7 @@ function get_P(eval_time, group) {
         plans.push("Solicito teste de Dengue agora para confirmação diagnóstica");
       }
       if ($("#plan-now-lab-hmg").is(":checked")) {
-        plans.push("Solicito HMG agora para descarte de hemoconcentração importante e de plaquetopenia grave");
+        plans.push("Solicito HMG agora para descarte de hemoconcentração grave");
       }
       if ($("#plan-now-lab-liver").is(":checked")) {
         plans.push("Solicito marcadores de necrose hepatocítica agora");

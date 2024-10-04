@@ -2273,7 +2273,7 @@ if (isset($_COOKIE["sr_header"])) {
                 </label>
               </div>
               <div class="control is-expanded">
-                <button class="button is-static is-fullwidth" tabindex="-1">HMG (para avaliar Ht e Plaq)</button>
+                <button class="button is-static is-fullwidth" tabindex="-1">HMG (para avaliar Ht)</button>
               </div>
             </div>
           </li>
