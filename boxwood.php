@@ -200,21 +200,14 @@ require_once "header.php";
       </p>
     </header>
     <section class="modal-card-body">
-      <!--
-      <div class="file">
-        <label class="file-label">
-          <input class="file-input" type="file" id="upload-file">
-          <span class="file-cta">
-            <span class="file-icon">
-              <i class="mdi mdi-upload"></i>
-            </span>
-            <span class="file-label"> Selecione o arquivo JSON...</span>
-          </span>
-        </label>
-      </div>
-      -->
       <div class="content">
-        <p>Ainda não implementado, desculpinha... :(</p>
+        <p>Cole (<code>Ctrl+V</code>) os conteúdos do backup abaixo:</p>
+      </div>
+
+      <div class="field">
+        <div class="control is-expanded">
+          <textarea class="textarea has-fixed-size" id="upload-content" placeholder="Cole aqui..."></textarea>
+        </div>
       </div>
     </section>
     <footer class="modal-card-foot field has-addons">

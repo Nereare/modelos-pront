@@ -436,7 +436,7 @@ $(function() {
   // Cancel upload
   $("#cancel-upload").on("click", function() {
     $("#upload-modal").removeClass("is-active");
-    $("#upload-file").val("");
+    $("#upload-content").val("");
   });
   $("#confirm-upload").on("click", function() {
     // Disable button
@@ -444,10 +444,25 @@ $(function() {
       .addClass("is-loading")
       .attr("disabled", true);
 
-    // Warn about non-implementation yet
-    alert("Função ainda não implementada, como dito na última mensagem!");
-    $("#cancel-upload").trigger("click");
+    // Get contents
+    let upload = $("#upload-content").val();
+    if (typeof(upload) === "undefined" || upload == "") {
+      upload = "[]";
+    }
+    // Check To-Dos
+    todos = get_todos();
+    if (todos.length != 0) {
+      // If not empty, cancel
+      alert("Existem pendências, cancelando upload...");
+    } else {
+      // If empty, inject JSON
+      localStorage.setItem("todos", upload);
+    }
 
+    // Update To-Dos
+    update_todos();
+    // Close modal
+    $("#cancel-upload").trigger("click");
     // Reenable button
     $(this)
       .removeClass("is-loading")
