@@ -1,3 +1,4 @@
+// Method for removing To-Dos older than 24h
 function remove_old_todos(todos) {
   if (todos === "undefined" || todos.length == 0) {
     todos = [];
@@ -11,6 +12,26 @@ function remove_old_todos(todos) {
   }
   return todos;
 }
+// Method for reordering done and undone To-Dos
+function reorder_todos(todos) {
+  if (todos === "undefined" || todos.length == 0) {
+    todos = [];
+  } else {
+    let dones = [];
+    let undones = [];
+    todos.forEach(function(v, i, o) {
+      if (v.done) {
+        dones.push(v);
+      } else {
+        undones.push(v);
+      }
+    });
+    todos = dones.concat(undones);
+  }
+  return todos;
+}
+
+// Method for retrieving To-Dos from localStorage, or creating a new, empty set
 function get_todos() {
   // Initialize empty
   let todos = null;
@@ -22,19 +43,30 @@ function get_todos() {
   }
   // Parse Json
   todos = JSON.parse(todos);
-  // Update todos - remove todos over 24h-old
+  // Update todos - remove todos over 24h-old and sort them
   todos = remove_old_todos(todos);
+  todos = reorder_todos(todos);
+  // Update localStorage
+  localStorage.setItem("todos", JSON.stringify(todos));
   // Return
   return todos;
 }
+
+// Update DOM To-Do list
 function update_todos() {
   // Get local to-dos
   let todos = get_todos();
-  // Clear container
+  // Clear container and JSON href
   $("#todos, #printable-todos-container").empty();
+  $("#export-json")
+    .removeAttr("download")
+    .attr("href", "#");
   // Check and update to-dos
   if (todos.length > 0) {
     todos.forEach(function(v, i) {
+      /****************************************/
+      /*                 Table                */
+      /****************************************/
       // 1st Column - Identification
       let classification_span = $("<span>")
         .addClass("mr-1 boxwood-classification i-" + v.class_i + " f-" + v.class_f)
@@ -275,13 +307,38 @@ function update_todos() {
       }
       $("#todos").append(row);
     });
+    /****************************************/
+    /*              Export JSON             */
+    /****************************************/
+    // Get contents
+    let fileContent = JSON.stringify(todos, null, "  ");
+    // Create Blob object
+    let bb = new Blob(
+      [fileContent],
+      {type: "text/plain"}
+    );
+    // Update button/a
+    $("#export-json")
+      .attr("download", "buxo.json")
+      .attr("href", URL.createObjectURL(bb))
+      .attr("disabled", false);
+    $("#import-json")
+      .attr("disabled", true);
   } else {
+    // Add empty notice to table
     $("#todos").append($("<tr>").append(
       $("<td>")
         .addClass("has-text-centered")
         .attr("colspan", "3")
         .html("Nenhum paciente em seguimento...")
     ));
+    // Update button/a
+    $("#export-json")
+      .removeAttr("download")
+      .attr("href", "#")
+      .attr("disabled", true);
+    $("#import-json")
+      .attr("disabled", false);
   }
 }
 function parseClassification(classif) {
@@ -308,6 +365,7 @@ $(function() {
   // Cancel Modal
   $("#add-cancel").on("click", function() {
     $("#add-modal").removeClass("is-active");
+    $("#add-todos")[0].BulmaTagsInput().flush();
     $("#add-name, #add-age, #add-class-i, #add-class-f, #add-dx, #add-notes, #add-todos").val("");
   });
   // Add Patient Method
@@ -330,7 +388,18 @@ $(function() {
     let list = get_todos();
 
     // Include new patient
-    let pt = {name: name, age: age, class_i: class_i, class_f: class_f, dx: dx, notes: notes, todos: [], open: Date.now(), expired: false};
+    let pt = {
+      name: name,
+      age: age,
+      class_i: class_i,
+      class_f: class_f,
+      dx: dx,
+      notes: notes,
+      todos: [],
+      open: Date.now(),
+      expired: false,
+      done: false
+    };
     todos.forEach(function(v, i) {
       pt.todos.push({label: v.trim(), done: false, last_checked: Date.now()});
     });
@@ -341,5 +410,47 @@ $(function() {
     $("#add-cancel").trigger("click");
     // Refresh to-dos
     update_todos();
+  });
+
+  // Clear To-Dos
+  // Show confirmation modal
+  $("#clear-todos").on("click", function() {
+    $("#clear-modal").addClass("is-active");
+  });
+  // Cancel confirmation
+  $("#cancel-clear").on("click", function() {
+    $("#clear-modal").removeClass("is-active");
+  });
+  // Clear irreversibly To-Dos
+  $("#confirm-clear").on("click", function() {
+    localStorage.setItem("todos", "[]");
+    update_todos();
+    $("#cancel-clear").trigger("click");
+  });
+
+  // Import JSON
+  // Show upload modal
+  $("#import-json").on("click", function() {
+    $("#upload-modal").addClass("is-active");
+  });
+  // Cancel upload
+  $("#cancel-upload").on("click", function() {
+    $("#upload-modal").removeClass("is-active");
+    $("#upload-file").val("");
+  });
+  $("#confirm-upload").on("click", function() {
+    // Disable button
+    $(this)
+      .addClass("is-loading")
+      .attr("disabled", true);
+
+    // Warn about non-implementation yet
+    alert("Função ainda não implementada, como dito na última mensagem!");
+    $("#cancel-upload").trigger("click");
+
+    // Reenable button
+    $(this)
+      .removeClass("is-loading")
+      .attr("disabled", false);
   });
 });

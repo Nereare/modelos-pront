@@ -38,6 +38,43 @@ require_once "header.php";
         </tbody>
       </table>
     </div>
+
+    <div class="box">
+      <div class="field has-addons">
+        <div class="control is-expanded">
+          <a class="button is-link is-fullwidth" id="export-json" href="#">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="mdi mdi-download"></i>
+              </span>
+              <span>Exportar JSON</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="control">
+          <button class="button is-danger" id="clear-todos">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="mdi mdi-delete"></i>
+              </span>
+              <span>Limpar</span>
+            </span>
+          </button>
+        </div>
+
+        <div class="control is-expanded">
+          <button class="button is-fullwidth" id="import-json">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="mdi mdi-upload"></i>
+              </span>
+              <span>Importar JSON</span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </main>
 <table id="printable-todos">
@@ -53,6 +90,7 @@ require_once "header.php";
   </tbody>
 </table>
 
+<!-- Add patient/To-Do -->
 <div class="modal" id="add-modal">
   <div class="modal-background"></div>
   <div class="modal-card">
@@ -135,6 +173,109 @@ require_once "header.php";
       </div>
       <div class="control is-expanded">
         <button class="button is-fullwidth" id="add-cancel">
+          <span class="icon-text">
+            <span class="icon">
+              <i class="mdi mdi-cancel"></i>
+            </span>
+            <span>Cancelar</span>
+          </span>
+        </button>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- Upload To-Dos -->
+<div class="modal" id="upload-modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-upload"></i>
+          </span>
+          <span>Importar JSON</span>
+        </span>
+      </p>
+    </header>
+    <section class="modal-card-body">
+      <!--
+      <div class="file">
+        <label class="file-label">
+          <input class="file-input" type="file" id="upload-file">
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="mdi mdi-upload"></i>
+            </span>
+            <span class="file-label"> Selecione o arquivo JSON...</span>
+          </span>
+        </label>
+      </div>
+      -->
+      <div class="content">
+        <p>Ainda não implementado, desculpinha... :(</p>
+      </div>
+    </section>
+    <footer class="modal-card-foot field has-addons">
+      <div class="control is-expanded">
+        <button class="button is-success is-fullwidth" id="confirm-upload">
+          <span class="icon-text">
+            <span class="icon">
+              <i class="mdi mdi-upload"></i>
+            </span>
+            <span>Importar</span>
+          </span>
+        </button>
+      </div>
+      <div class="control is-expanded">
+        <button class="button is-fullwidth" id="cancel-upload">
+          <span class="icon-text">
+            <span class="icon">
+              <i class="mdi mdi-cancel"></i>
+            </span>
+            <span>Cancelar</span>
+          </span>
+        </button>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- Confirm clear To-Dos -->
+<div class="modal" id="clear-modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-delete"></i>
+          </span>
+          <span>Limpar</span>
+        </span>
+      </p>
+    </header>
+    <section class="modal-card-body">
+      <div class="content">
+        <p>Tem certeza que deseja remover <strong>todas as pendências atuais</strong>?</p>
+        <p>Esta ação é <strong>irreversível</strong>.</p>
+        <p>Sugerimos, <strong>antes</strong> exportar um arquivo <code>JSON</code> de <em>backup</em>.</p>
+      </div>
+    </section>
+    <footer class="modal-card-foot field has-addons">
+      <div class="control is-expanded">
+        <button class="button is-danger is-fullwidth" id="confirm-clear">
+          <span class="icon-text">
+            <span class="icon">
+              <i class="mdi mdi-delete"></i>
+            </span>
+            <span>Remover</span>
+          </span>
+        </button>
+      </div>
+      <div class="control is-expanded">
+        <button class="button is-fullwidth" id="cancel-clear">
           <span class="icon-text">
             <span class="icon">
               <i class="mdi mdi-cancel"></i>
