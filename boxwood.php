@@ -281,4 +281,57 @@ require_once "header.php";
   </div>
 </div>
 
+<!-- Edit Dx/Notes -->
+<div class="modal" id="dx-modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-pencil"></i>
+          </span>
+          <span>Editar Diagnóstico</span>
+        </span>
+      </p>
+    </header>
+    <section class="modal-card-body">
+      <input type="hidden" id="edit-dx-id">
+
+      <div class="field">
+        <div class="control">
+          <input type="text" class="input" id="edit-dx-dx" placeholder="Novo diagnóstico...">
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <textarea class="textarea has-fixed-size" id="edit-dx-notes" placeholder="Novas notas..."></textarea>
+        </div>
+      </div>
+    </section>
+    <footer class="modal-card-foot field has-addons">
+      <div class="control is-expanded">
+        <button class="button is-success is-fullwidth" id="edit-dx-save">
+          <span class="icon-text">
+            <span class="icon">
+              <i class="mdi mdi-content-save"></i>
+            </span>
+            <span>Salvar</span>
+          </span>
+        </button>
+      </div>
+      <div class="control is-expanded">
+        <button class="button is-fullwidth" id="edit-dx-cancel">
+          <span class="icon-text">
+            <span class="icon">
+              <i class="mdi mdi-cancel"></i>
+            </span>
+            <span>Cancelar</span>
+          </span>
+        </button>
+      </div>
+    </footer>
+  </div>
+
 <?php require_once "footer.php"; ?>

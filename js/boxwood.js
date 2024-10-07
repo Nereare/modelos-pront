@@ -167,9 +167,29 @@ function update_todos() {
       let span = $("<span>")
         .html(v.dx);
       if (v.notes != "") {
-        span.attr("title", v.notes);
+        span
+          .addClass("has-tooltip-arrow has-tooltip-multiline")
+          .attr("data-tooltip", v.notes);
       }
+      let edit_icon = $("<i>")
+        .addClass("mdi mdi-pencil");
+      let edit_span = $("<span>")
+        .addClass("icon")
+        .append(edit_icon);
+      let edit_a = $("<a>")
+        .addClass("has-text-link")
+        .attr("data-id", i)
+        .attr("data-dx", v.dx)
+        .attr("data-notes", v.notes)
+        .append(edit_span)
+        .on("click", function() {
+          $("#edit-dx-id").val($(this).attr("data-id"));
+          $("#edit-dx-dx").val($(this).attr("data-dx"));
+          $("#edit-dx-notes").val($(this).attr("data-notes"));
+          $("#dx-modal").addClass("is-active");
+        });
       let col2 = $("<td>").append(span);
+      if (!v.done) { col2.append(edit_a); }
       // > Printable 2nd Column
       let col2_pr = $("<td>")
         .html(v.dx);
@@ -485,5 +505,41 @@ $(function() {
     $(this)
       .removeClass("is-loading")
       .attr("disabled", false);
+  });
+
+  // Edit Dx/Notes
+  // Cancel edition
+  $("#edit-dx-cancel").on("click", function() {
+    $("#edit-dx-id").val("");
+    $("#edit-dx-dx").val("");
+    $("#edit-dx-notes").val("");
+    $("#dx-modal").removeClass("is-active");
+  });
+  // Save edition
+  $("#edit-dx-save").on("click", function() {
+    // Get data
+    let todo_id = parseInt($("#edit-dx-id").val());
+    let dx = $("#edit-dx-dx").val();
+    let notes = $("#edit-dx-notes").val();
+    // Check if ID is valid - aka a number
+    if (isNaN(todo_id)) {
+      // Warn and close modal
+      alert("Erro com ID da tarefa, recarregue a página e tente de novo...");
+    } else {
+      // Parse values
+      dx = (dx.trim() == "") ? "?" : dx.trim();
+      notes = notes.trim();
+      // Get todos
+      let old = get_todos();
+      // Edit todo
+      old[todo_id].dx = dx;
+      old[todo_id].notes = notes;
+      // Save todos
+      localStorage.setItem("todos", JSON.stringify(old));
+      // Update todos
+      update_todos();
+    }
+    // Close modal
+    $("#edit-dx-cancel").trigger("click");
   });
 });
