@@ -27,7 +27,7 @@ require_once "header.php";
       </div>
 
       <div class="field has-text-centered">
-        <input type="checkbox" class="switch is-rounded" id="show-done" checked>
+        <input type="checkbox" class="switch is-rounded" id="show-done">
         <label for="show-done">Mostrar finalizados</label>
       </div>
 
