@@ -12,6 +12,11 @@
   resolved "https://registry.yarnpkg.com/@creativebulma/bulma-tagsinput/-/bulma-tagsinput-1.0.3.tgz#bbf38aad9a4ed0f04f2baa7832b21679cdc54462"
   integrity sha512-uQg0KEBcvEmSfwozv2EkFtqai1+pwOgunt3YLlADjRuyKXQePcR3nPW4EDnLMsCt9XlDr4RLu5pcp3XwHIhaOQ==
 
+"@creativebulma/bulma-tooltip@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@creativebulma/bulma-tooltip/-/bulma-tooltip-1.2.0.tgz#84dcdd59d94c09c2975fadbec1d3d765ae29c471"
+  integrity sha512-ooImbeXEBxf77cttbzA7X5rC5aAWm9UsXIGViFOnsqB+6M944GkB28S5R4UWRqjFd2iW4zGEkEifAU+q43pt2w==
+
 "@mdi/font@^7.4.47":
   version "7.4.47"
   resolved "https://registry.yarnpkg.com/@mdi/font/-/font-7.4.47.tgz#2ae522867da3a5c88b738d54b403eb91471903af"
