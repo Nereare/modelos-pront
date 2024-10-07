@@ -63,6 +63,7 @@ function update_todos() {
     .attr("href", "#");
   // Check and update to-dos
   if (todos.length > 0) {
+    let show_done = $("#show-done").is(":checked");
     todos.forEach(function(v, i) {
       /****************************************/
       /*                 Table                */
@@ -325,6 +326,7 @@ function update_todos() {
       col3 = $("<td>").append(list);
       let col3_pr = $("<td>").append(list_pr);
 
+      // Add TRs
       let row = $("<tr>")
         .attr("data-id", i)
         .attr("id", "pt-" + i);
@@ -341,7 +343,12 @@ function update_todos() {
       } else {
         $("#printable-todos-container").append(row_pr);
       }
-      $("#todos").append(row);
+      if (
+        (v.done && show_done) ||
+        !v.done
+      ) {
+        $("#todos").append(row);
+      }
     });
     /****************************************/
     /*              Export JSON             */
@@ -541,5 +548,12 @@ $(function() {
     }
     // Close modal
     $("#edit-dx-cancel").trigger("click");
+  });
+
+  // Choose whether to show done To-Dos
+  $("#show-done").on("change", function() {
+    // The choice is done on update,
+    // so, just update them :)
+    update_todos();
   });
 });
