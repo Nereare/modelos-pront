@@ -131,11 +131,27 @@ function update_todos() {
 
           update_todos();
         });
+      // > Copy name
+      let actions_copy_i = $("<i>")
+        .addClass("mdi mdi-content-copy");
+      let actions_copy_icon = $("<span>")
+        .addClass("icon")
+        .append(actions_copy_i);
+      let actions_copy = $("<a>")
+        .addClass("has-text-dark copy-button")
+        .append(actions_copy_icon)
+        .attr("data-clipboard-text", v.name);
       // Name, age and open-time
-      let time = new Date(v.open);
+      let time = (new Date(v.open)).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit", timeZone: "America/Sao_Paulo" });
+      let first_part = $("<span>")
+        .html(v.name);
+      let second_part = $("<span>")
+        .html(", " + v.age + "a (" + time + ")");
       let col1 = $("<td>")
-        .html(v.name + ", " + v.age + "a (" + time.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit", timeZone: "America/Sao_Paulo" }) + ")")
-        .prepend(classification_span);
+        .append(classification_span)
+        .append(first_part)
+        .append(actions_copy)
+        .append(second_part);
       if (v.done) {
         col1
           .append(actions_unfinish);
@@ -340,6 +356,8 @@ function update_todos() {
     $("#import-json")
       .attr("disabled", false);
   }
+  // Instatialize ClipboardJS
+  new ClipboardJS(".copy-button");
 }
 function parseClassification(classif) {
   classif = classif.toLowerCase().trim();
