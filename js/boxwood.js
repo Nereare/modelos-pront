@@ -197,14 +197,14 @@ function update_todos() {
       // > Printable Notes Column
       let col25_pr = $("<td>")
         .addClass("is-size-7")
-        .html(v.notes);
+        .html(v.notes == "" ? "&mdash;&mdash;&mdash;" : v.notes);
       // 3rd Column - To-Dos
       let list = $("<ul>");
       let list_pr = $("<ul>");
       if (v.todos.length > 0) {
         v.todos.forEach(function(val, index) {
           let icon_i = $("<i>")
-            .addClass("mdi");
+            .addClass("mdi mr-2");
           let icon_i_pr = $("<i>")
             .addClass("mdi");
           if (val.done) {
@@ -214,9 +214,6 @@ function update_todos() {
             icon_i.addClass("mdi-checkbox-blank-outline");
             icon_i_pr.addClass("mdi-checkbox-blank-outline");
           }
-          let icon = $("<span>")
-            .addClass("icon")
-            .append(icon_i);
           // > Open To-Do
           let actions_update_i = $("<i>")
             .addClass("mdi mdi-clock-remove");
@@ -296,25 +293,17 @@ function update_todos() {
           let time = new Date(val.last_checked);
           let text = $("<span>")
             .html(val.label + " (" + time.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit", timeZone: "America/Sao_Paulo" }) + ")")
+            .prepend(icon_i);
+          let item = $("<li>")
+            .append(text)
             .append(buttons);
-          let icontext = $("<span>")
-            .addClass("icon-text")
-            .append(icon)
-            .append(text);
-          let item = $("<li>").append(icontext);
-          let icon_pr = $("<span>")
-            .addClass("icon")
-            .append(icon_i_pr);
           let time_pr = $("<sup>")
             .html(time.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit", timeZone: "America/Sao_Paulo" }));
           let text_pr = $("<span>")
             .html(val.label)
+            .prepend(icon_i_pr)
             .append(time_pr);
-          let icontext_pr = $("<span>")
-            .addClass("icon-text")
-            .append(icon_pr)
-            .append(text_pr);
-          let item_pr = $("<li>").append(icontext_pr);
+          let item_pr = $("<li>").append(text_pr);
           list.append(item);
           list_pr.append(item_pr);
         });
@@ -397,9 +386,7 @@ function parseClassification(classif) {
 $(function() {
   // Do initial update of the to-dos
   update_todos();
-  // Repeat every 5 seconds
-  //setInterval(update_todos, 5000);
-  // Attack Tags
+  // Attach Tags
   BulmaTagsInput.attach();
 
   // Add Patient Modal
