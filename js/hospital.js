@@ -39,9 +39,13 @@ $(function() {
   $("#walking").on("change", function() {
     let desc = $("#walking option:selected").attr("data-desc");
     if (typeof(desc) !== "undefined" && desc == "true") {
-      $("#walking-desc").attr("disabled", false);
+      $("#walking-desc")
+        .attr("disabled", false)
+        .trigger("focus");
     } else {
-      $("#walking-desc").attr("disabled", true);
+      $("#walking-desc")
+        .val("")
+        .attr("disabled", true);
     }
   });
 
@@ -49,8 +53,6 @@ $(function() {
   $(".collapsable").on("change", function() {
     let target = $(this).attr("data-target");
     $("#" + target).toggleClass("is-hidden");
-
-    console.log(target);
   });
 
   // Enable face description, if other:
@@ -154,7 +156,9 @@ $(function() {
   $("#hemorrhoids-external, #hemorrhoids-internal").on("change", function() {
     let id = "#" + $(this).attr("id") + "-desc";
     if ( $(this).val() != "ausentes" ) {
-      $(id).attr("disabled", false);
+      $(id)
+        .attr("disabled", false)
+        .trigger("focus");
     } else {
       $(id)
         .attr("disabled", true)
@@ -164,7 +168,9 @@ $(function() {
   // Enable rectum content description
   $("#rectum-content").on("change", function() {
     if ( $(this).val() != "sem conteúdos tocáveis" ) {
-      $("#rectum-content-desc").attr("disabled", false);
+      $("#rectum-content-desc")
+        .attr("disabled", false)
+        .trigger("focus");
     } else {
       $("#rectum-content-desc")
         .attr("disabled", true)
