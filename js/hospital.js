@@ -544,7 +544,7 @@ $(function() {
       }
       if( $("#ssvv-fr").val() != "" ) { ssvv.push( "FR = " + $("#ssvv-fr").val() + "irpm" ); }
       if( $("#ssvv-temp").val() != "" ) { ssvv.push( "Temp = " + $("#ssvv-temp").val() + "°C (" + $("#ssvv-temp-desc").val() + ")" ); }
-      if( $("#ssvv-weight").val() != "" ) { ssvv.push( "Peso = " + $("#ssvv-weight").val() + "kg" ); }
+      if( $("#ssvv-weight").val() != "" ) { ssvv.push( "Peso " + $("#ssvv-weight-eq").val() + " " + $("#ssvv-weight").val() + "kg" ); }
       if( $("#ssvv-height").val() != "" ) { ssvv.push( "Alt = " + $("#ssvv-height").val() + "cm" ); }
       if(
         $("#ssvv-weight").val() != "" &&

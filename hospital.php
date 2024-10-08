@@ -240,6 +240,14 @@ require_once "header.php";
             <div class="control">
               <button class="button is-static" tabindex="-1">Peso</button>
             </div>
+            <div class="control">
+              <div class="select">
+                <select id="ssvv-weight-eq">
+                  <option value="~" selected>~</option>
+                  <option value="=">=</option>
+                </select>
+              </div>
+            </div>
             <div class="control is-expanded">
               <input type="number" id="ssvv-weight" class="input" min="0" step="0.1" placeholder="#">
             </div>
