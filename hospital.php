@@ -144,7 +144,7 @@ require_once "header.php";
               <div class="select">
                 <select id="ssvv-sat-type">
                   <option value="em ar ambiente" selected>aa</option>
-                  <option value="em cateter nasal de O2">CN O<sub>2</sub></option>
+                  <option value="em cateter nasal de O2">CN O2</option>
                   <option value="em máscara não-reinalante">Másc+Reserv</option>
                 </select>
               </div>
