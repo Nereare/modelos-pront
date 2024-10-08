@@ -408,6 +408,28 @@ require_once "header.php";
           </div>
         </div>
       </div>
+
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">Deambulação</button>
+        </div>
+        <div class="control">
+          <div class="select">
+            <select id="walking">
+              <option value="" selected>NT</option>
+              <option value="Deambulando sem apoios, sem claudicações e sem dificuldades">&empty;Apoios/Claud/Dificuldades</option>
+              <option value="Deambulando sem apoios">&empty;Apoios</option>
+              <option value="Claudicação" data-desc="true">Claudicação...</option>
+              <option value="Usando" data-desc="true">C/ Órtese (usando...)</option>
+              <option value="Em cadeirda de rodas">Cadeira Rodas</option>
+              <option value="Em maca">Maca</option>
+            </select>
+          </div>
+        </div>
+        <div class="control is-expanded">
+          <input type="text" class="input" id="walking-desc" placeholder="Complemento" disabled>
+        </div>
+      </div>
     </div>
 
     <div class="box">

@@ -35,6 +35,16 @@ $(function() {
     }
   });
 
+  // Enable walking description, if applicable:
+  $("#walking").on("change", function() {
+    let desc = $("#walking option:selected").attr("data-desc");
+    if (typeof(desc) !== "undefined" && desc == "true") {
+      $("#walking-desc").attr("disabled", false);
+    } else {
+      $("#walking-desc").attr("disabled", true);
+    }
+  });
+
   // (Un)collapse fields
   $(".collapsable").on("change", function() {
     let target = $(this).attr("data-target");
@@ -525,7 +535,8 @@ $(function() {
       ) ||
       $("#orientation-time").val() != "" ||
       $("#orientation-space").val() != "" ||
-      $("#collaboration").val() != ""
+      $("#collaboration").val() != "" ||
+      $("#walking").val() != ""
     ) {
       var ssvv = [];
       if( $("#ssvv-sat").val() != "" ) { ssvv.push( "Sat. O2 = " + $("#ssvv-sat").val() + "% " + $("#ssvv-sat-type").val() ); }
@@ -600,6 +611,23 @@ $(function() {
       }
       if ( $("#collaboration").val() != "" ) {
         ssvv.push( $("#collaboration").val().replaceAll("((PRO))", pronoun) );
+      }
+      if ( $("#walking").val() != "" ) {
+        let walk = $("#walking").val();
+        let has_desc = $("#walking option:selected").attr("data-desc");
+        let desc = $("#walking-desc").val();
+        if (typeof(has_desc) !== "undefined" && has_desc == "true") {
+          if (desc == "") {
+            if (walk == "Claudicação") {
+              walk += " não especificada";
+            } else {
+              walk += " órtese não especificada";
+            }
+          } else {
+            walk += " " + desc;
+          }
+        }
+        ssvv.push( walk );
       }
       o.push( ssvv.join(" | ") );
     }
