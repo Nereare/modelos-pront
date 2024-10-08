@@ -484,6 +484,65 @@ $(function() {
     $("#neuro-other-container").append( item );
   }).trigger("click");
 
+  // Invasions
+  // Enable CVD descriptions
+  $("#cvd-collector-aspect").on("change", function() {
+    if ( $(this).val() == "false" ) {
+      $("#cvd-collector-aspect-desc")
+        .attr("disabled", false)
+        .trigger("focus");
+    } else {
+      $("#cvd-collector-aspect-desc")
+        .val("")
+        .attr("disabled", true);
+    }
+  });
+  $("#cvd-overflow").on("change", function() {
+    if ( $(this).val() == "false" ) {
+      $("#cvd-overflow-desc")
+        .attr("disabled", false)
+        .trigger("focus");
+    } else {
+      $("#cvd-overflow-desc")
+        .val("")
+        .attr("disabled", true);
+    }
+  });
+  // Enable CVC descriptions
+  $("#cvc-type").on("change", function() {
+    if ( $(this).val() == "false" ) {
+      $("#cvc-type-desc")
+        .attr("disabled", false)
+        .trigger("focus");
+    } else {
+      $("#cvc-type-desc")
+        .val("")
+        .attr("disabled", true);
+    }
+  });
+  $("#cvc-cover-dirtyness").on("change", function() {
+    if ( $(this).val() == "false" ) {
+      $("#cvc-cover-dirtyness-desc")
+        .attr("disabled", false)
+        .trigger("focus");
+    } else {
+      $("#cvc-cover-dirtyness-desc")
+        .val("")
+        .attr("disabled", true);
+    }
+  });
+  $("#cvc-entrance-secretions").on("change", function() {
+    if ( $(this).val() == "false" ) {
+      $("#cvc-entrance-secretions-desc")
+        .attr("disabled", false)
+        .trigger("focus");
+    } else {
+      $("#cvc-entrance-secretions-desc")
+        .val("")
+        .attr("disabled", true);
+    }
+  });
+
   // Build output:
   $("#button-run").on("click", function() {
     var o = ["# EF:"];
@@ -1215,6 +1274,105 @@ $(function() {
           );
         }
       });
+    }
+
+    // Devices
+    if (
+      $("#exam-invasions-cvd").is(":checked") ||
+      $("#exam-invasions-cvc").is(":checked")
+    ) {
+      o.push("# Invasões/Dispositivos:");
+    }
+    // CVD
+    if ( $("#exam-invasions-cvd").is(":checked") ) {
+      let cvd = [];
+      // Change
+      if ($("#cvd-last-change").val() != "") {
+        let last_change = new Date( $("#cvd-last-change").val() + "T00:00:00.000-03:00" );
+        let last_change_context = $("#cvd-last-change-desc").val() == "other" ? "segundo revisão de prontuário interno" : "referida";
+        cvd.push("última troca em " + last_change.toLocaleDateString("pt-BR") + " (" + last_change_context + ")");
+      }
+      // Emptying
+      let delta = 0;
+      if ($("#cvd-last-empty").val() != "") {
+        let last_empty = new Date( $("#cvd-last-empty").val() + ":00.000-03:00" );
+        delta = Date.now() - last_empty.getTime();
+        delta = Math.round(delta / (1000*60*60));
+        cvd.push("último esvaziamento referido há ~" + delta + " horas");
+      }
+      // Urine
+      let urine_vol = null;
+      if ( $("#cvd-collector-volume").val() ) {
+        let collector = "coletor contendo ~";
+        urine_vol = parseInt( $("#cvd-collector-volume").val() );
+        collector += urine_vol + "mL";
+        if ( $("#cvd-collector-aspect").val() != "" ) {
+          let aspect = $("#cvd-collector-aspect").val();
+          aspect = (aspect == "false") ? $("#cvd-collector-aspect-desc").val() : aspect;
+          collector += " de urina com aspecto " + aspect;
+        }
+        if ( $("#cvd-overflow").val() != "" ) {
+          let overflow = $("#cvd-overflow").val();
+          overflow = (overflow == "false") ? $("#cvd-overflow-desc").val() : overflow;
+          collector += ", extravasamento " + overflow;
+        }
+        cvd.push(collector);
+      }
+      // Urinary Output
+      if (
+        $("#ssvv-weight").val() != "" &&
+        delta != 0 &&
+        urine_vol != null
+      ) {
+        let w = parseFloat($("#ssvv-weight").val());
+        if (!isNaN(w) && w != 0) {
+          let output = urine_vol / (w * delta);
+          cvd.push("débito urinário de ~" + output.toFixed(1) + "mL/kg/h");
+        }
+      }
+      if (cvd.length > 0) { o.push("CVD: " + cvd.join("; ") + "."); }
+    }
+    // CVC
+    if ( $("#exam-invasions-cvc").is(":checked") ) {
+      let cvc = [];
+      // Type
+      if ( $("#cvc-type").val() != "" ) {
+        let type = $("#cvc-type").val();
+        type = (type == "false") ? $("#cvc-type-desc").val() : type;
+        cvc.push(type);
+      }
+      // Start/Change
+      if ( $("#cvc-when").val() != "" ) {
+        let what = $("#cvc-change-start").val();
+        let last_change = new Date( $("#cvc-when").val() + "T00:00:00.000-03:00" );
+        let last_change_context = $("#cvd-last-change-desc").val() == "other" ? "segundo revisão de prontuário interno" : "referida";
+        cvc.push(what + " em " + last_change.toLocaleDateString("pt-BR") + " (" + last_change_context + ")");
+      }
+      // Cover
+      if ( $("#cvc-cover").val() != "" ) {
+        let cover = "cobertura com curativo " + $("#cvc-cover").val();
+        if ( $("#cvc-cover-dirtyness").val() != "" ) {
+          let dirty = $("#cvc-cover-dirtyness").val();
+          dirty = (dirty == "false") ? $("#cvc-cover-dirtyness-desc").val() : dirty;
+          cover += ", " + dirty;
+        }
+        cvc.push(cover);
+      }
+      // Entrance
+      if ( $("#cvc-entrance").val() != "" ) {
+        let entrance = "óstio de entrada " + $("#cvc-entrance").val();
+        if ( $("#cvc-entrance-secretions").val() != "" ) {
+          let secretions = $("#cvc-entrance-secretions").val();
+          secretions = (secretions == "false") ? $("#cvc-entrance-secretions-desc").val() : secretions;
+          entrance += ", " + secretions;
+        }
+        cvc.push(entrance);
+      }
+      // Entrance
+      if ( $("#cvc-stopper").val() != "" ) {
+        cvc.push( "tampas " + $("#cvc-stopper").val() );
+      }
+      if (cvc.length > 0) { o.push("CVC: " + cvc.join("; ") + "."); }
     }
 
     $("#output-o").val( o.join("\n") );

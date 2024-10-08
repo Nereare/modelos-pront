@@ -14,6 +14,7 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
   - Empastamento e circunferência de panturrilhas.
   - Varizes.
   - Declinação de gênero (pronomes).
+  - Dispositivos/Invasões.
 - Modelo de atendimento de *Acidente Pérfuro-Cortante*.
 - Modelo de atendimento de *Dengue*.
 - Modelo de *Buxo*.

@@ -3191,6 +3191,262 @@ require_once "header.php";
     </div>
 
     <div class="box">
+      <div class="field">
+        <input type="checkbox" class="switch is-rounded is-large collapsable" id="c-invasions" data-target="collapsable-invasions">
+        <label for="c-invasions">
+          <span class="icon-text">
+            <span class="icon is-medium">
+              <i class="mdi mdi-needle mdi-36px"></i>
+            </span>
+            <span><strong>Invasões</strong></span>
+          </span>
+        </label>
+      </div>
+
+      <div class="is-hidden" id="collapsable-invasions">
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="exam-invasions-cvd" class="is-checkradio">
+              <label for="exam-invasions-cvd">
+                <span class="icon">
+                  <i class="mdi mdi-toilet mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">CVD Últ. Troca</button>
+              </div>
+              <div class="control is-expanded">
+                <input type="date" class="input" id="cvd-last-change">
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="cvd-last-change-desc">
+                    <option value="self" selected>Referida</option>
+                    <option value="other">Em pront</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Últ. Esvaziamento</button>
+              </div>
+              <div class="control is-expanded">
+                <input type="datetime-local" class="input" id="cvd-last-empty">
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Coletor</button>
+              </div>
+              <div class="control">
+                <input type="number" class="input" id="cvd-collector-volume" placeholder="Volume (mL)" min="0" step="50">
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="cvd-collector-aspect">
+                    <option value="" selected>N/A</option>
+                    <option value="límpido">Límpido</option>
+                    <option value="ligeiramente turvo">Lig. Turvo</option>
+                    <option value="turvo">Turvo</option>
+                    <option value="piúrico">Piúrico</option>
+                    <option value="francamente purulento">Pus</option>
+                    <option value="hematúrico">Hematúria</option>
+                    <option value="colúrico">Colúria</option>
+                    <option value="false">Outro...</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <input type="text" class="input" id="cvd-collector-aspect-desc" placeholder="Descreva" disabled>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Extravasamento</button>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="cvd-overflow">
+                    <option value="" selected>N/A</option>
+                    <option value="ausente">Ausente</option>
+                    <option value="urinário presente">Urinário</option>
+                    <option value="ausente, mas com sangramento por ósteo uretral">Sangramento</option>
+                    <option value="purulento">Pus</option>
+                    <option value="false">Outro...</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <input type="text" class="input" id="cvd-overflow-desc" placeholder="Descreva..." disabled>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="exam-invasions-cvc" class="is-checkradio">
+              <label for="exam-invasions-cvc">
+                <span class="icon">
+                  <i class="mdi mdi-iv-bag mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Tipo CVC</button>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="cvc-type">
+                    <option value="" selected>N/A</option>
+                    <option value="catéter de Shiley">Shiley</option>
+                    <option value="Permacath">Permacath</option>
+                    <option value="Portacath">Portacath</option>
+                    <option value="PICC">PICC</option>
+                    <option value="catéter oculto sob curativo opaco">Sob Curativo</option>
+                    <option value="false">Outro...</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <input type="text" class="input" id="cvc-type-desc" placeholder="Descreva..." disabled>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">CVC</button>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="cvc-change-start">
+                    <option value="passado" selected>Passado</option>
+                    <option value="trocado">Trocado</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <input type="date" class="input" id="cvc-when">
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="cvd-when-desc">
+                    <option value="self" selected>Referida</option>
+                    <option value="other">Em pront</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Curativo</button>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="cvc-cover">
+                    <option value="" selected>Transparência N/A</option>
+                    <option value="translúcido">Translúcido</option>
+                    <option value="opaco">Opaco</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="cvc-cover-dirtyness">
+                    <option value="" selected>Sujidade N/A</option>
+                    <option value="limpo">Limpo</option>
+                    <option value="úmido de substância sérica">&darr;Qtd Sérico</option>
+                    <option value="embebido de substância sérica">&uarr;Qtd Sérico</option>
+                    <option value="com pequena quantidade de sangue">&darr;Sangue</option>
+                    <option value="embebido em sangue">&uarr;Sangue</option>
+                    <option value="com pequena quantidade de pus">&darr;Pus</option>
+                    <option value="embebido em pus">&uarr;Pus</option>
+                    <option value="false">Outro...</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <input type="text" class="input" id="cvc-cover-dirtyness-desc" placeholder="Descreva..." disabled>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Óstio</button>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="cvc-entrance">
+                    <option value="" selected>N/A</option>
+                    <option value="não avaliável">Oculto</option>
+                    <option value="sem alterações">Normal</option>
+                    <option value="com leve hiperemia perióstio">&darr;Hiperemia</option>
+                    <option value="com hiperemia perióstio intensa">&uarr;Hiperemia</option>
+                    <option value="com necrose perióstio discreta">&darr;Necrose</option>
+                    <option value="com necrose perióstio extensa">&uarr;Necrose</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="cvc-entrance-secretions">
+                    <option value="" selected>Secreções N/A</option>
+                    <option value="sem secreções">Limpo</option>
+                    <option value="com secreção sérica em pequena quantidade">&darr;Qtd Sérico</option>
+                    <option value="com grande quantidade de secreção sérica">&uarr;Qtd Sérico</option>
+                    <option value="com saída de pus">Pus</option>
+                    <option value="com saída de sangue em pequena quantidade">&darr;Sangue</option>
+                    <option value="com grande quantidade de saída de sangue">&darr;Sangue</option>
+                    <option value="false">Outro...</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <input type="text" class="input" id="cvc-entrance-secretions-desc" placeholder="Descreva..." disabled>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Tampas</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="cvc-stopper">
+                    <option value="" selected>N/A</option>
+                    <option value="presentes e bem fechadas">Presentes / Bem-fechada</option>
+                    <option value="presentes mas mal fechadas">Presentes / Mal-fechada</option>
+                    <option value="ausentes">Ausentes</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
       <h2 class="title is-4">Resultado</h2>
 
       <div class="field is-expanded">
