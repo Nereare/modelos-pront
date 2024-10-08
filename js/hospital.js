@@ -1375,6 +1375,339 @@ $(function() {
       if (cvc.length > 0) { o.push("CVC: " + cvc.join("; ") + "."); }
     }
 
+    // Scores
+    if (
+      $("#score-abcd2").is(":checked") ||
+      $("#wells-dvt").is(":checked") ||
+      $("#score-wells-pe").is(":checked") ||
+      $("#score-pesi").is(":checked") ||
+      $("#score-mascc").is(":checked") ||
+      $("#score-port").is(":checked")
+    ) {
+      o.push("");
+    }
+    // ABCD²
+    if ( $("#score-abcd2").is(":checked") ) {
+      let score = 0;
+      // Parse age
+      let age = parseInt($("#abcd2-age").val());
+      age = isNaN(age) ? 60 : age;
+      if (age >= 60) { score++; }
+      // Parse BP
+      let pas = parseInt($("#ssvv-pas").val());
+      pas = isNaN(pas) ? 140 : pas;
+      let pad = parseInt($("#ssvv-pad").val());
+      pad = isNaN(pad) ? 90 : pad;
+      if (pas >= 140 || pad >= 90) { score++; }
+      // Parse neurological signs
+      let neuro = parseInt($("#abcd2-features").val());
+      neuro = isNaN(neuro) ? 1 : neuro;
+      score += neuro;
+      // Parse duration
+      let duration = parseInt($("#abcd2-duration").val());
+      duration = isNaN(duration) ? 1 : duration;
+      score += duration;
+      // Parse Diabetes
+      let dm = ($("#abcd2-dm").val() == "0") ? 0 : 1;
+      score += dm;
+      // Push result
+      o.push("# ABCD² = " + score);
+    }
+    // Well's for DVT
+    if ( $("#score-wells-dvt").is(":checked") ) {
+      let score = 0;
+      let pt = 0;
+      // Parse question #1
+      pt = parseInt($("#wells-dvt-1").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #2
+      pt = parseInt($("#wells-dvt-2").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #3
+      pt = parseInt($("#wells-dvt-3").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #4
+      pt = parseInt($("#wells-dvt-4").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #5
+      pt = parseInt($("#wells-dvt-5").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #6
+      pt = parseInt($("#wells-dvt-6").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #7
+      pt = parseInt($("#wells-dvt-7").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #8
+      pt = parseInt($("#wells-dvt-8").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #9
+      pt = parseInt($("#wells-dvt-9").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #10
+      pt = parseInt($("#wells-dvt-10").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Push result
+      o.push("# Well's (TVP) = " + score);
+    }
+    // Well's for PE
+    if ( $("#score-wells-pe").is(":checked") ) {
+      let score = 0;
+      let pt = 0;
+      // Parse question #1
+      pt = parseInt($("#wells-pe-1").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #2
+      pt = parseInt($("#wells-pe-2").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #3
+      pt = parseInt($("#wells-pe-3").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #4
+      pt = parseInt($("#wells-pe-4").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #5
+      pt = parseInt($("#wells-pe-5").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #6
+      pt = parseInt($("#wells-pe-6").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #7
+      pt = parseInt($("#wells-pe-7").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Push result
+      o.push("# Well's (TEP) = " + score);
+    }
+    // PESI
+    if ( $("#score-pesi").is(":checked") ) {
+      let score = 0;
+      let pt = 0;
+      // Parse question #1
+      pt = parseInt($("#wells-pe-1").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #2
+      pt = parseInt($("#wells-pe-2").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #3
+      pt = parseInt($("#wells-pe-3").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #4
+      pt = parseInt($("#wells-pe-4").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #5
+      pt = parseInt($("#wells-pe-5").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #6
+      pt = parseInt($("#wells-pe-6").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #7
+      pt = parseInt($("#wells-pe-7").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #8
+      pt = parseInt($("#wells-pe-8").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #9
+      pt = parseInt($("#wells-pe-9").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #10
+      pt = parseInt($("#wells-pe-10").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #11
+      pt = parseInt($("#wells-pe-11").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse class
+      let classification = null;
+      let c_num = null;
+      if (score <= 65) {
+        c_num = "I";
+        classification = "Muito Baixo Risco";
+      } else if (score <= 85) {
+        c_num = "II";
+        classification = "Baixo Risco";
+      } else if (score <= 105) {
+        c_num = "III";
+        classification = "Risco Intermediário";
+      } else if (score <= 125) {
+        c_num = "IV";
+        classification = "Alto Risco";
+      } else {
+        c_num = "V";
+        classification = "Muito Alto Risco";
+      }
+      // Push result
+      o.push("# PESI = Classe " + c_num + " (" + classification + "; " + score + "pts)");
+    }
+    // MASCC
+    if ( $("#score-mascc").is(":checked") ) {
+      let score = 0;
+      let pt = 0;
+      // Parse question #1
+      pt = parseInt($("#mascc-1").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #2
+      pt = parseInt($("#mascc-2").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #3
+      pt = parseInt($("#mascc-3").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #4
+      pt = parseInt($("#mascc-4").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #5
+      pt = parseInt($("#mascc-5").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #6
+      pt = parseInt($("#mascc-6").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #7
+      pt = parseInt($("#mascc-7").val());
+      pt = isNaN(pt) ? 60 : pt;
+      score += (pt < 0) ? 2 : 0;
+      // Parse class
+      let classification = null;
+      if (score < 21) {
+        classification = "ALTO Risco";
+      } else {
+        classification = "Baixo Risco";
+      }
+      // Push result
+      o.push("# MASCC de " + classification + " (" + score + "pts)");
+    }
+    // PORT/PSI
+    if ( $("#score-port").is(":checked") ) {
+      let score = 0;
+      let pt = 0;
+      // Parse question #1
+      pt = parseInt($("#port-1").val());
+      pt = isNaN(pt) ? 60 : pt;
+      score += pt;
+      // Parse question #2
+      pt = parseInt($("#port-2").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #3
+      pt = parseInt($("#port-3").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #3
+      pt = parseInt($("#port-3").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #4
+      pt = parseInt($("#port-4").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #5
+      pt = parseInt($("#port-5").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #6
+      pt = parseInt($("#port-6").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #7
+      pt = parseInt($("#port-7").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #8
+      pt = parseInt($("#port-8").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #9
+      pt = parseInt($("#port-9").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #10
+      pt = parseInt($("#port-10").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #11
+      pt = parseInt($("#port-11").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #12
+      pt = parseInt($("#port-12").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #13
+      pt = parseInt($("#port-13").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #14
+      pt = parseInt($("#port-14").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #15
+      pt = parseInt($("#port-15").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #16
+      pt = parseInt($("#port-16").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #17
+      pt = parseInt($("#port-17").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #18
+      pt = parseInt($("#port-18").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #19
+      pt = parseInt($("#port-19").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse question #20
+      pt = parseInt($("#port-20").val());
+      pt = isNaN(pt) ? 0 : pt;
+      score += pt;
+      // Parse class
+      let classification = null;
+      let desc = null;
+      if (score < 50 && $("#port-2").val() == "0") { classification = "I"; }
+      else if (score < 40) { classification = "I"; }
+      else if (score <= 70) { classification = "II"; }
+      else if (score <= 90) { classification = "III"; }
+      else if (score <= 130) { classification = "IV"; }
+      else { classification = "V"; }
+      // Push result
+      o.push("# PORT Classe " + classification + " (" + score + "pts)");
+    }
+
     $("#output-o").val( o.join("\n") );
   });
 });

@@ -3447,6 +3447,918 @@ require_once "header.php";
     </div>
 
     <div class="box">
+      <div class="field">
+        <input type="checkbox" class="switch is-rounded is-large collapsable" id="c-scores" data-target="collapsable-scores">
+        <label for="c-scores">
+          <span class="icon-text">
+            <span class="icon is-medium">
+              <i class="mdi mdi-calculator-variant mdi-36px"></i>
+            </span>
+            <span><strong>Escores</strong></span>
+          </span>
+        </label>
+      </div>
+
+      <div class="is-hidden" id="collapsable-scores">
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="score-abcd2" class="is-checkradio">
+              <label for="score-abcd2"><strong>ABCD²</strong></label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Idade</button>
+              </div>
+              <div class="control is-expanded">
+                <input type="number" class="input" id="abcd2-age" placeholder="Idade">
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Neuro</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="abcd2-features">
+                    <option value="0" selected>Sem déficits</option>
+                    <option value="1">Disartria/Afasia</option>
+                    <option value="2">Hemiparesia</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Duração</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="abcd2-duration">
+                    <option value="0" selected>&lt;10min</option>
+                    <option value="1">&ge;10min e &lt;60min</option>
+                    <option value="2">&ge;60min</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">DM</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="abcd2-dm">
+                    <option value="0" selected>Ausente</option>
+                    <option value="1">Presente</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="score-wells-dvt" class="is-checkradio">
+              <label for="score-wells-dvt"><strong>TVP (Well's)</strong></label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Câncer ativo (&le;6 meses)?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-dvt-1">
+                    <option value="0" selected>Não</option>
+                    <option value="1">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Acamado &gt;3d OU Cx gde porte (&le;12sem)?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-dvt-2">
+                    <option value="0" selected>Não</option>
+                    <option value="1">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Edema assimétrico &gt;3cm?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-dvt-3">
+                    <option value="0" selected>Não</option>
+                    <option value="1">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Veias sup. colaterais?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-dvt-4">
+                    <option value="0" selected>Não</option>
+                    <option value="1">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Edema de todo o membro?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-dvt-5">
+                    <option value="0" selected>Não</option>
+                    <option value="1">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Edema respeitando sistema venoso prof?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-dvt-6">
+                    <option value="0" selected>Não</option>
+                    <option value="1">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Godet unilateral?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-dvt-7">
+                    <option value="0" selected>Não</option>
+                    <option value="1">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Imobilização/Paresia recente?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-dvt-8">
+                    <option value="0" selected>Não</option>
+                    <option value="1">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">TVP prévia?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-dvt-9">
+                    <option value="0" selected>Não</option>
+                    <option value="1">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Dx alternativo tão ou mais provável?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-dvt-10">
+                    <option value="0">Não</option>
+                    <option value="-2" selected>Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="score-wells-pe" class="is-checkradio">
+              <label for="score-wells-pe"><strong>TEP (Well's)</strong></label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Suspeita de TVP?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-pe-1">
+                    <option value="0" selected>Não</option>
+                    <option value="3">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">TEP é a 1ª HD?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-pe-2">
+                    <option value="0" selected>Não</option>
+                    <option value="3">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">FC&gt;100bpm?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-pe-3">
+                    <option value="0" selected>Não</option>
+                    <option value="1.5">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Acamado &gt;3d OU Cx gde porte (&le;12sem)?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-pe-4">
+                    <option value="0" selected>Não</option>
+                    <option value="1.5">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">TVP ou TEP prévio?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-pe-5">
+                    <option value="0" selected>Não</option>
+                    <option value="1.5">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Hemoptise?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-pe-6">
+                    <option value="0" selected>Não</option>
+                    <option value="1">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Câncer ativo (&le;6 meses)?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-pe-7">
+                    <option value="0" selected>Não</option>
+                    <option value="1">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="score-pesi" class="is-checkradio">
+              <label for="score-pesi"><strong>PESI</strong></label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Idade</button>
+              </div>
+              <div class="control is-expanded">
+                <input type="number" class="input" id="pesi-1" placeholder="#" min="1" step="1">
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Sexo Biológico</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-pe-2">
+                    <option value="0" selected>Fêmea</option>
+                    <option value="10">Macho</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Câncer ativo?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-pe-3">
+                    <option value="0" selected>Não</option>
+                    <option value="30">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">IC?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-pe-4">
+                    <option value="0" selected>Não</option>
+                    <option value="10">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">DPOC?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-pe-5">
+                    <option value="0" selected>Não</option>
+                    <option value="10">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">FC&ge;110bpm?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-pe-6">
+                    <option value="0" selected>Não</option>
+                    <option value="20">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">PAS&lt;100mmHg?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-pe-7">
+                    <option value="0" selected>Não</option>
+                    <option value="30">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">FR&ge;30irpm?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-pe-8">
+                    <option value="0" selected>Não</option>
+                    <option value="20">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Temp&lt;36°C?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-pe-9">
+                    <option value="0" selected>Não</option>
+                    <option value="20">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Alt. de Estado Mental?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-pe-10">
+                    <option value="0" selected>Não</option>
+                    <option value="60">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">SO2&lt;90%?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="wells-pe-11">
+                    <option value="0" selected>Não</option>
+                    <option value="20">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="score-mascc" class="is-checkradio">
+              <label for="score-mascc"><strong>MASCC</strong></label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Severidade de Sintomas</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="mascc-1">
+                    <option value="5" selected>Nenhum ou Leve</option>
+                    <option value="3">Moderada</option>
+                    <option value="0">Severa</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">PAS&lt;90mmHg</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="mascc-2">
+                    <option value="5" selected>Não</option>
+                    <option value="0">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">DPOC / DVO / Supl O<sub>2</sub></button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="mascc-3">
+                    <option value="4" selected>Não</option>
+                    <option value="0">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Tipo de Tumor</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="mascc-4">
+                    <option value="4" selected>TU Sólido</option>
+                    <option value="4">Hematológico / Sem infec. fúngica prévia</option>
+                    <option value="0">Hematológico / COM infec. fúngica prévia</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Necessidade de Exp. Volêmica</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="mascc-5">
+                    <option value="3" selected>Não</option>
+                    <option value="0">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Febre iniciada...</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="mascc-6">
+                    <option value="3" selected>Ambulatorialmente</option>
+                    <option value="0">Internado</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Idade</button>
+              </div>
+              <div class="control is-expanded">
+                <input type="number" class="input" id="mascc-7" placeholder="#" min="1" step="1">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="score-port" class="is-checkradio">
+              <label for="score-port"><strong>PORT</strong></label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Idade</button>
+              </div>
+              <div class="control is-expanded">
+                <input type="number" class="input" id="port-1" placeholder="#" min="1" step="1">
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Sexo Biológico</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="port-2">
+                    <option value="-10" selected>Fêmea</option>
+                    <option value="0">Macho</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">ILP?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="port-3">
+                    <option value="0" selected>Não</option>
+                    <option value="10">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Câncer ativo?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="port-4">
+                    <option value="0" selected>Não</option>
+                    <option value="30">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Doença hepática?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="port-5">
+                    <option value="0" selected>Não</option>
+                    <option value="20">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">IC?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="port-6">
+                    <option value="0" selected>Não</option>
+                    <option value="10">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">AVC/AIT?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="port-7">
+                    <option value="0" selected>Não</option>
+                    <option value="10">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">DRC?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="port-8">
+                    <option value="0" selected>Não</option>
+                    <option value="10">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Alt. estado mental?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="port-9">
+                    <option value="0" selected>Não</option>
+                    <option value="20">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">FR&ge;30irpm?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="port-10">
+                    <option value="0" selected>Não</option>
+                    <option value="20">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">PAS&lt;90mmHg?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="port-11">
+                    <option value="0" selected>Não</option>
+                    <option value="20">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Temp&lt;35°C OU &ge;40°C?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="port-12">
+                    <option value="0" selected>Não</option>
+                    <option value="15">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">FC&ge;125bpm?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="port-13">
+                    <option value="0" selected>Não</option>
+                    <option value="10">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">pH&lt;7.35?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="port-14">
+                    <option value="0" selected>Não</option>
+                    <option value="30">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Ureia &ge;30mg/dL?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="port-15">
+                    <option value="0" selected>Não</option>
+                    <option value="20">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Na &lt;130mmol/L?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="port-16">
+                    <option value="0" selected>Não</option>
+                    <option value="20">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Glic &ge;250mg/dL?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="port-17">
+                    <option value="0" selected>Não</option>
+                    <option value="10">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Ht &lt;30%?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="port-18">
+                    <option value="0" selected>Não</option>
+                    <option value="10">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">pO<sub>2</sub> &lt;60mmHg?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="port-19">
+                    <option value="0" selected>Não</option>
+                    <option value="10">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Derrame pleural?</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="port-20">
+                    <option value="0" selected>Não</option>
+                    <option value="10">Sim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
       <h2 class="title is-4">Resultado</h2>
 
       <div class="field is-expanded">
