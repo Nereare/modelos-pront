@@ -35,6 +35,14 @@ $(function() {
     }
   });
 
+  // (Un)collapse fields
+  $(".collapsable").on("change", function() {
+    let target = $(this).attr("data-target");
+    $("#" + target).toggleClass("is-hidden");
+
+    console.log(target);
+  });
+
   // Enable face description, if other:
   $("#face").on("change", function() {
     if( $(this).val() == "other" ) {
@@ -462,7 +470,7 @@ $(function() {
 
   // Build output:
   $("#button-run").on("click", function() {
-    var o = ["# EF"];
+    var o = ["# EF:"];
     o.push( "Paciente em " + $("#status").val() + "EG." );
 
     var pronoun = $("#pronouns").val();
@@ -615,6 +623,19 @@ $(function() {
       }
       o.push( cerv.join(" ") );
     }
+    // ENT
+    // > Otoscopy
+    if ($("#exam-oto").is(":checked")) {
+      o.push("Otoscopia:\n- OD: membrana timpânica direita " + $("#oto-d-membrane").val() + " " + $("#oto-d-retromembrane").val() + ". Conduto auditivo direito " + $("#oto-d-canal").val() + ".\n- OE: membrana timpânica esquerda " + $("#oto-e-membrane").val() + " " + $("#oto-e-retromembrane").val() + ". Conduto auditivo esquerdo " + $("#oto-e-canal").val() + ".");
+    }
+    // > Oroscopy
+    if ($("#exam-oro").is(":checked")) {
+      o.push("Oroscopia: orofaringe " + $("#exam-oro-pharynx").val() + ", com tonsilas palatinas " + $("#exam-oro-tonsils").val() + " " + $("#exam-oro-tonsilcover").val() + " e palato mole " + $("#exam-oro-palate").val() + ".");
+    }
+    // > Anterior Nasoscopy
+    if ($("#exam-naso").is(":checked")) {
+      o.push("Nasoscopia anterior: mucosa " + $("#naso-skin").val() + ", cornetos nasais " + $("#naso-shells").val() + " e " + $("#naso-sept").val() + ".");
+    }
     // Lungs
     if( $("#exam-lungs").is(":checked") ) {
       var crept = ".";
@@ -728,18 +749,6 @@ $(function() {
       }
       rectum += ".";
       o.push( "- Toque Retal: " + rectum );
-    }
-    // Otoscopy
-    if( $("#exam-oto").is(":checked") ) {
-      o.push( "Otoscopia:\n- OD: membrana timpânica direita " + $("#oto-d-membrane").val() + " " + $("#oto-d-retromembrane").val() + ". Conduto auditivo direito " + $("#oto-d-canal").val() + ".\n- OE: membrana timpânica esquerda " + $("#oto-e-membrane").val() + " " + $("#oto-e-retromembrane").val() + ". Conduto auditivo esquerdo " + $("#oto-e-canal").val() + "." );
-    }
-    // Oroscopy
-    if( $("#exam-oro").is(":checked") ) {
-      o.push( "Oroscopia: orofaringe " + $("#exam-oro-pharynx").val() + ", com tonsilas palatinas " + $("#exam-oro-tonsils").val() + " " + $("#exam-oro-tonsilcover").val() + " e palato mole " + $("#exam-oro-palate").val() + "." );
-    }
-    // Anterior Nasoscopy
-    if( $("#exam-naso").is(":checked") ) {
-      o.push( "Nasoscopia anterior: mucosa " + $("#naso-skin").val() + ", cornetos nasais " + $("#naso-shells").val() + " e " + $("#naso-sept").val() + "." );
     }
     // Skin
     if( $("#exam-skin").is(":checked") ) {
