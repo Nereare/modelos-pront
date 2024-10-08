@@ -3,9 +3,10 @@ $(function() {
   console.log("App ready!");
 
   // Change febrile state when fever is input
-  $("#ssvv-temp").on("input change", function() {
+  $("#ssvv-temp, #ssvv-temp-desc").on("input change", function() {
     var temp = parseFloat( $("#ssvv-temp").val() );
     if( temp >= 37.8 ) { $("#fever-yes").prop("checked", true); }
+    else if ( temp >= 37.0 && $("#ssvv-temp-desc").val() == "infravermelho de testa" ) { $("#fever-yes").prop("checked", true); }
     else if ( temp <= 34 ) { $("#fever-hypo").prop("checked", true); }
     else { $("#fever-none").prop("checked", true); }
   });

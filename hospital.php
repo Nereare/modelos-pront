@@ -18,8 +18,8 @@ require_once "header.php";
           <div class="select is-fullwidth">
             <select name="pronouns" id="pronouns">
               <option value="e" selected>Declinação de Gênero...</option>
-              <option value="a">Ela/Dela</option>
               <option value="o">Ele/Dele</option>
+              <option value="a">Ela/Dela</option>
             </select>
           </div>
         </div>
@@ -229,8 +229,8 @@ require_once "header.php";
             <div class="control">
               <div class="select">
                 <select id="ssvv-temp-desc">
+                  <option value="infravermelho de testa" selected>testa</option>
                   <option value="axilar">axila</option>
-                  <option value="infravermelho de testa">testa</option>
                 </select>
               </div>
             </div>
