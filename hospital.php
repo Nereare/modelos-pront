@@ -387,734 +387,90 @@ require_once "header.php";
     </div>
 
     <div class="box">
-      <h2 class="title is-4">Geral</h2>
-
-      <div class="columns is-vcentered">
-        <div class="column is-2">
-          <div class="field">
-            <input type="checkbox" id="exam-face" class="is-checkradio">
-            <label for="exam-face">
-              <span class="icon">
-                <i class="mdi mdi-emoticon-neutral mdi-24px"></i>
-              </span>
-            </label>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Fácies</button>
-            </div>
-            <div class="control">
-              <div class="select">
-                <select id="face">
-                  <option value="atípica" selected>normal</option>
-                  <option value="acromegálica">Acromegálica</option>
-                  <option value="adenoidiana">Adenoidiana</option>
-                  <option value="cushingoide (ou 'moonface')">Cushingoide</option>
-                  <option value="esclerodérmica">Esclerodérmica</option>
-                  <option value="leonina">Leonina</option>
-                  <option value="miastênica (ou de Hutchinson)">Miastênica</option>
-                  <option value="parkinsoniana">Parkinsoniana</option>
-                  <option value="renal">Renal</option>
-                  <option value="sindrômica">Sindrômica</option>
-                  <option value="tireotóxica (ou basedowiana)">Tireotóxica</option>
-                  <option value="other">Outra...</option>
-                </select>
-              </div>
-            </div>
-            <div class="control is-expanded">
-              <input type="text" class="input" id="face-other" placeholder="Descreva aqui..." disabled>
-            </div>
-          </div>
-        </div>
+      <div class="field">
+        <input type="checkbox" class="switch is-rounded is-large collapsable" id="c-head" data-target="collapsable-head">
+        <label for="c-head">
+          <span class="icon-text">
+            <span class="icon is-medium">
+              <i class="mdi mdi-head mdi-36px"></i>
+            </span>
+            <span><strong>Cabeça</strong></span>
+          </span>
+        </label>
       </div>
 
-      <div>
-        <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
-      </div>
-
-      <div class="columns is-vcentered">
-        <div class="column is-2">
-          <div class="field">
-            <input type="checkbox" id="exam-eye" class="is-checkradio">
-            <label for="exam-eye">
-              <span class="icon">
-                <i class="mdi mdi-eye mdi-24px"></i>
-              </span>
-            </label>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Conjuntiva</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="eye-white">
-                  <option value="sem alterações" selected>normal</option>
-                  <option value="com hiperemia leve">hipermia leve</option>
-                  <option value="com hiperemia moderada">hipermia moderada</option>
-                  <option value="com hiperemia intensa">hipermia intensa</option>
-                </select>
-              </div>
+      <div class="is-hidden" id="collapsable-head">
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="exam-face" class="is-checkradio">
+              <label for="exam-face">
+                <span class="icon">
+                  <i class="mdi mdi-emoticon-neutral mdi-24px"></i>
+                </span>
+              </label>
             </div>
           </div>
 
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Secreções</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="eye-secr">
-                  <option value="ausentes">&empty;</option>
-                  <option value="presentes">&plus;</option>
-                  <option value="presentes, de aspecto purulento">&plus; / pus</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
-      </div>
-
-      <div class="columns is-vcentered">
-        <div class="column is-2">
-          <div class="field">
-            <input type="checkbox" id="exam-neck" class="is-checkradio">
-            <label for="exam-neck">
-              <span class="icon">
-                <i class="mdi mdi-head mdi-24px"></i>
-              </span>
-            </label>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Tireoide</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="thyroid-volume">
-                  <option value="" selected>Vol N/A</option>
-                  <option value="não palpável">&empty;</option>
-                  <option value="palpável topicamente, sem alterações de volume ou de superfície palpáveis">Normal</option>
-                  <option value="palpável topicamente, levemente aumentada mas sem alterações palpáveis de superfície e sem nódulos individualizáveis à palpação">&uarr;Vol</option>
-                  <option value="palpável topicamente, bastante aumentada mas sem alterações palpáveis de superfície e sem nódulos individualizáveis à palpação">&uarr;&uarr;&uarr;Vol</option>
-                  <option value="palpável topicamente, volume aumentado às custas de nódulo único">&uarr;Vol/Nód único</option>
-                  <option value="palpável topicamente, volume aumentado às custas de diversos nódulos">&uarr;Vol/Nóds</option>
-                </select>
-              </div>
-            </div>
-            <div class="control">
-              <div class="select">
-                <select id="thyroid-nodule-loc" disabled>
-                  <option value="" selected disabled>Loc Nód</option>
-                  <option value=" em topografia de lobo direito">Lobo D</option>
-                  <option value=" em topografia de lobo esquerdo">Lobo E</option>
-                  <option value=" em topografia de istmo">Ístmo</option>
-                </select>
-              </div>
-            </div>
-            <div class="control">
-              <div class="select">
-                <select id="thyroid-margins">
-                  <option value="" selected>Marg N/A</option>
-                  <option value="margens superior e inferior bem caracterizáveis à palpação">normal</option>
-                  <option value="margem superior aparentemente ACIMA de topografia esperada, e inferior bem caracterizável à palpação">Sup&uarr; / Inf nl</option>
-                  <option value="margem superior aparentemente ACIMA de topografia esperada, e inferior NÃO caracterizável à palpação">Sup&uarr; / Inf&uarr;</option>
-                  <option value="margem superior aparentemente na topografia esperada, e inferior NÃO caracterizável à palpação">Sup nl / Inf&uarr;</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Linfonodos</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="lymph">
-                  <option value="" selected>N/A</option>
-                  <option value="Sem linfonodomegalias cervicais, periauriculares ou supraclávicas palpáveis">&empty;</option>
-                  <option value="Presença de alguns linfonodos palpáveis, menores que 05mm">&plus;&lt;5mm</option>
-                  <option value="Presença de algumas linfonodomegalias">&plus;&ge;5mm</option>
-                  <option value="Presença de inúmeros linfonodos palpáveis, todos menores que 05mm">&plus;&plus;&lt;5mm</option>
-                  <option value="Presença de inúmeras linfonodomegalias palpáveis">&plus;&plus;&ge;5mm</option>
-                </select>
-              </div>
-            </div>
-            <div class="control">
-              <button class="button is-static" tabindex="-1">de aspecto</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="lymph-desc">
-                  <option value="" selected>&empty;</option>
-                  <option value=", fibroelásticos, móveis, não-aderidos a planos profundos e dolorosos">reacional</option>
-                  <option value=", endurados, coalescidos, aderidos a planos profundos e indolores">maligno</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="columns is-hidden" id="lymph-locs">
-            <div class="column">
-              <h4 class="title is-6 has-text-centered">Dir</h4>
-
-              <div class="field">
-                <div class="control">
-                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-retroaur" value="retroauricular direita">
-                  <label for="lymph-right-retroaur">Retroauric</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-anterioraur" value="auricular anterior direita">
-                  <label for="lymph-right-anterioraur">Auric Ant</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-i" value="I direita">
-                  <label for="lymph-right-i">I</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-ii" value="II direita">
-                  <label for="lymph-right-ii">II</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-iii" value="III direita">
-                  <label for="lymph-right-iii">III</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-iv" value="IV direita">
-                  <label for="lymph-right-iv">IV</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-v" value="V direita">
-                  <label for="lymph-right-v">V</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-vi" value="VI direita">
-                  <label for="lymph-right-vi">VI</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-vii" value="VII direita">
-                  <label for="lymph-right-vii">VII</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="column">
-              <h4 class="title is-6 has-text-centered">Esq</h4>
-
-              <div class="field">
-                <div class="control">
-                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-retroaur" value="retroauricular esquerda">
-                  <label for="lymph-left-retroaur">Retroauric</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-anterioraur" value="auricular anterior esquerda">
-                  <label for="lymph-left-anterioraur">Auric Ant</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-i" value="I esquerda">
-                  <label for="lymph-left-i">I</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-ii" value="II esquerda">
-                  <label for="lymph-left-ii">II</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-iii" value="III esquerda">
-                  <label for="lymph-left-iii">III</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-iv" value="IV esquerda">
-                  <label for="lymph-left-iv">IV</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-v" value="V esquerda">
-                  <label for="lymph-left-v">V</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-vi" value="VI esquerda">
-                  <label for="lymph-left-vi">VI</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-vii" value="VII esquerda">
-                  <label for="lymph-left-vii">VII</label>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
-      </div>
-
-      <div class="columns is-vcentered">
-        <div class="column is-2">
-          <div class="field">
-            <input type="checkbox" id="exam-lungs" class="is-checkradio">
-            <label for="exam-lungs">
-              <span class="icon">
-                <i class="mdi mdi-lungs mdi-24px"></i>
-              </span>
-            </label>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">MV</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="lung">
-                  <option value="presentes bilateralmente" selected>&plus;</option>
-                  <option value="diminuídos em bases bilateralmente">&darr; base bilat</option>
-                  <option value="diminuídos em base direita">&darr; base D</option>
-                  <option value="diminuídos em base esquerda">&darr; base E</option>
-                  <option value="diminuídos em hemitórax direito">&darr; D</option>
-                  <option value="diminuídos em hemitórax esquerdo">&darr; E</option>
-                  <option value="diminuídos globalmente">&darr; global</option>
-                  <option value="ausentes (tórax silencioso)">&ndash; (!!!)</option>
-                </select>
-              </div>
-            </div>
-            <div class="control">
-              <button class="button is-static" tabindex="-1">RA</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="lung-sounds">
-                  <option value="sem ruídos adventícios" selected>&empty;</option>
-                  <option value="com raros roncos difusamente">alguns roncos</option>
-                  <option value="com roncos de transmissão nasal">roncos nasais</option>
-                  <option value="com sibilos expiratórios">sibilos exp</option>
-                  <option value="com sibilos inspiratórios e expiratórios">sibilos ins/exp</option>
-                  <option value="com crepitação estertorante em ">crepitação</option>
-                  <option value="com sopro cavernoso em ">sopro cavernoso</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Alteração até</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="lung-crept" disabled>
-                  <option value="base direita" selected>base D</option>
-                  <option value="base esquerda">base E</option>
-                  <option value="mesotórax direito">meso D</option>
-                  <option value="mesotórax esquerdo">meso E</option>
-                  <option value="ápice direito">ápice D</option>
-                  <option value="ápice esquerdo">ápice E</option>
-                  <option value="bases bilateralmente">base bilat</option>
-                  <option value="mesotórax bilateralmente">meso bilat</option>
-                  <option value="ápices bilateralmente">ápice bilat</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Percussão</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="lung-tap">
-                  <option value="" selected>N/A</option>
-                  <option value="Percussão claro-pulmonar em todos os campos pulmonares">Normal</option>
-                  <option value="Macicez percutível em ">Macicez em...</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field">
-            <div class="control is-expanded">
-              <input type="text" class="input" id="lung-tap-desc" placeholder="Descreva localização da(s) macicez..." disabled>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
-      </div>
-
-      <div class="columns is-vcentered">
-        <div class="column is-2">
-          <div class="field">
-            <input type="checkbox" id="exam-heart" class="is-checkradio">
-            <label for="exam-heart">
-              <span class="icon">
-                <i class="mdi mdi-heart-pulse mdi-24px"></i>
-              </span>
-            </label>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">B</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="heart-rhythm">
-                  <option value="rítmicas" selected>R</option>
-                  <option value="arrítmicas">arrít.</option>
-                </select>
-              </div>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="heart-sounds">
-                  <option value="normofonéticas" selected>NF</option>
-                  <option value="hipofonéticas">&darr;fonese</option>
-                  <option value="hiperfonéticas por estalido metálico">&uarr;fonese (metal)</option>
-                </select>
-              </div>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="heart-times">
-                  <option value="dois tempos" selected>2T</option>
-                  <option value="dois tempos com desdobramento de B1">2T B1&times;</option>
-                  <option value="dois tempos com desdobramento de B2">2T B2&times;</option>
-                  <option value="dois tempos com desdobramento de B1 e B2">2T B1/B2&times;</option>
-                  <option value="três tempos com presença de B3">3T B3</option>
-                  <option value="três tempos com presença de B4">3T B4</option>
-                  <option value="quatro tempos com presença de B3 e B4">4T B3+B4</option>
-                </select>
-              </div>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="heart-murmur">
-                  <option value="sem sopros" selected>SS</option>
-                  <option value="com sopro">sopro...</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field">
-            <div class="control">
-              <input type="text" id="heart-murmur-desc" class="input" placeholder="Descreva o sopro..." disabled>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
-      </div>
-
-      <div class="columns is-vcentered">
-        <div class="column is-2">
-          <div class="field">
-            <input type="checkbox" id="exam-abdomen" class="is-checkradio">
-            <label for="exam-abdomen">
-              <span class="icon">
-                <i class="mdi mdi-stomach mdi-24px"></i>
-              </span>
-            </label>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Abdome</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="abdomen">
-                  <option value="plano" selected>Plano</option>
-                  <option value="globoso">Globoso</option>
-                  <option value="em batráquio">Batráquio</option>
-                  <option value="escavado">Escavado</option>
-                </select>
-              </div>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="abdomen-rha">
-                  <option value="presentes e normoativos">RHA +/nl</option>
-                  <option value="presentes e aumentados">RHA +/&uarr;</option>
-                  <option value="presentes e aumentados, com ruídos metálicos">RHA +/&uarr;&uarr;&uarr;</option>
-                  <option value="presentes mas hipoativos">RHA +/&darr;</option>
-                  <option value="ausentes">RHA&ndash;</option>
-                </select>
-              </div>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="abdomen-tension">
-                  <option value="flácido">Flácido</option>
-                  <option value="tenso">Tenso</option>
-                </select>
-              </div>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="abdomen-percussion">
-                  <option value="globalmente timpânica">timp</option>
-                  <option value="com macicez percutível em ">maciço em...</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field">
-            <div class="control">
-              <input type="text" id="abdomen-percussion-mass" class="input" placeholder="Descreva localização da(s) macicez..." disabled>
-            </div>
-          </div>
-
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Traube</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="abdomen-traube">
-                  <option value="livre" selected>livre</option>
-                  <option value="ocupado">ocupado</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <p class="help">Valores negativos = acima de RCD, positivos = abaixo de RCD</p>
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Hepatimetria</button>
-            </div>
-            <div class="control is-expanded">
-              <input type="number" class="input" id="abdomen-hepatimetry" min="-10" max="10" step="1" value="0" placeholder="#">
-            </div>
-            <div class="control">
-              <button class="button is-static" tabindex="-1">cm</button>
-            </div>
-          </div>
-
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Macicez Móvel</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="abdomen-mobilemass">
-                  <option value="" selected>NT</option>
-                  <option value="ausente">&ndash;</option>
-                  <option value="presente">+</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Skoda</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="abdomen-skoda">
-                  <option value="" selected>NT</option>
-                  <option value="ausente">&ndash;</option>
-                  <option value="presente a ">+</option>
-                </select>
-              </div>
-            </div>
-            <div class="control is-expanded">
-              <input type="number" id="abdomen-skoda-cm" class="input" min="0" step="1" placeholder="#" disabled>
-            </div>
-            <div class="control">
-              <button class="button is-static" tabindex="-1">cm da c. umbilical</button>
-            </div>
-          </div>
-
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Piparote</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="abdomen-fillip">
-                  <option value="" selected>NT</option>
-                  <option value="ausente">&ndash;</option>
-                  <option value="presente">+</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Massas</button>
-            </div>
-            <div class="control">
-              <div class="select">
-                <select id="abdomen-stuff">
-                  <option value="sem massas palpáveis superficial ou profundamente" selected>&empty;</option>
-                  <option value="com ">com...</option>
-                </select>
-              </div>
-            </div>
-            <div class="control is-expanded">
-              <input type="text" class="input" id="abdomen-stuff-desc" placeholder="descrição de massa/s palpável/is" disabled>
-            </div>
-          </div>
-
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">DB</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="abdomen-peritonitis">
-                  <option value="" selected>NT</option>
-                  <option value="ausente">&ndash;</option>
-                  <option value="PRESENTE">+</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Murphy</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="murphy">
-                  <option value="" selected>NT</option>
-                  <option value="negativo">&ndash;</option>
-                  <option value="POSITIVO">+</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">McBurney</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="mcburney">
-                  <option value="" selected>NT</option>
-                  <option value="negativo">&ndash;</option>
-                  <option value="POSITIVO">+</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Giordano</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="giordano">
-                  <option value="" selected>NT</option>
-                  <option value="negativo">&ndash;</option>
-                  <option value="POSITIVO">+</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field">
-            <div class="control">
-              <textarea class="textarea has-fixed-size" id="abdomen-other" placeholder="Descreva outros achados..." rows="2"></textarea>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <div>
-        <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
-      </div>
-
-      <div class="columns is-vcentered">
-        <div class="column is-2">
-          <div class="field">
-            <input type="checkbox" id="exam-rectum" class="is-checkradio">
-            <label for="exam-rectum">
-              <span class="icon">
-                <i class="mdi mdi-seat-legroom-reduced mdi-rotate-270 mdi-24px"></i>
-              </span>
-            </label>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="mb-6">
+          <div class="column">
             <div class="field has-addons">
               <div class="control">
-                <button class="button is-static" tabindex="-1">Plicomas</button>
+                <button class="button is-static" tabindex="-1">Fácies</button>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="face">
+                    <option value="atípica" selected>normal</option>
+                    <option value="acromegálica">Acromegálica</option>
+                    <option value="adenoidiana">Adenoidiana</option>
+                    <option value="cushingoide (ou 'moonface')">Cushingoide</option>
+                    <option value="esclerodérmica">Esclerodérmica</option>
+                    <option value="leonina">Leonina</option>
+                    <option value="miastênica (ou de Hutchinson)">Miastênica</option>
+                    <option value="parkinsoniana">Parkinsoniana</option>
+                    <option value="renal">Renal</option>
+                    <option value="sindrômica">Sindrômica</option>
+                    <option value="tireotóxica (ou basedowiana)">Tireotóxica</option>
+                    <option value="dolorosa">dolorosa</option>
+                    <option value="other">Outra...</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <input type="text" class="input" id="face-other" placeholder="Descreva aqui..." disabled>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="exam-eye" class="is-checkradio">
+              <label for="exam-eye">
+                <span class="icon">
+                  <i class="mdi mdi-eye mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Conjuntiva</button>
               </div>
               <div class="control is-expanded">
                 <div class="select is-fullwidth">
-                  <select id="plicoma">
-                    <option value="ausentes" selected>Ausentes</option>
-                    <option value="presente às 12h">12h</option>
-                    <option value="presente às 06h">06h</option>
-                    <option value="presentes às 12 e 06h">12+06h</option>
+                  <select id="eye-white">
+                    <option value="sem alterações" selected>normal</option>
+                    <option value="com hiperemia leve">hipermia leve</option>
+                    <option value="com hiperemia moderada">hipermia moderada</option>
+                    <option value="com hiperemia intensa">hipermia intensa</option>
                   </select>
                 </div>
               </div>
@@ -1122,104 +478,1047 @@ require_once "header.php";
 
             <div class="field has-addons">
               <div class="control">
-                <button class="button is-static" tabindex="-1">Hemorroidas Ext.</button>
+                <button class="button is-static" tabindex="-1">Secreções</button>
               </div>
-              <div class="control">
-                <div class="select">
-                  <select id="hemorrhoids-external">
-                    <option value="ausentes" selected>Ausentes</option>
-                    <option value="presente(s)">Presentes</option>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="eye-secr">
+                    <option value="ausentes">&empty;</option>
+                    <option value="presentes">&plus;</option>
+                    <option value="presentes, de aspecto purulento">&plus; / pus</option>
                   </select>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="exam-neck" class="is-checkradio">
+              <label for="exam-neck">
+                <span class="icon">
+                  <i class="mdi mdi-head mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Tireoide</button>
+              </div>
               <div class="control is-expanded">
-                <input type="text" class="input" id="hemorrhoids-external-desc" placeholder="Descreva localização e achados..." disabled>
+                <div class="select is-fullwidth">
+                  <select id="thyroid-volume">
+                    <option value="" selected>Vol N/A</option>
+                    <option value="não palpável">&empty;</option>
+                    <option value="palpável topicamente, sem alterações de volume ou de superfície palpáveis">Normal</option>
+                    <option value="palpável topicamente, levemente aumentada mas sem alterações palpáveis de superfície e sem nódulos individualizáveis à palpação">&uarr;Vol</option>
+                    <option value="palpável topicamente, bastante aumentada mas sem alterações palpáveis de superfície e sem nódulos individualizáveis à palpação">&uarr;&uarr;&uarr;Vol</option>
+                    <option value="palpável topicamente, volume aumentado às custas de nódulo único">&uarr;Vol/Nód único</option>
+                    <option value="palpável topicamente, volume aumentado às custas de diversos nódulos">&uarr;Vol/Nóds</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="thyroid-nodule-loc" disabled>
+                    <option value="" selected disabled>Loc Nód</option>
+                    <option value=" em topografia de lobo direito">Lobo D</option>
+                    <option value=" em topografia de lobo esquerdo">Lobo E</option>
+                    <option value=" em topografia de istmo">Ístmo</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="thyroid-margins">
+                    <option value="" selected>Marg N/A</option>
+                    <option value="margens superior e inferior bem caracterizáveis à palpação">normal</option>
+                    <option value="margem superior aparentemente ACIMA de topografia esperada, e inferior bem caracterizável à palpação">Sup&uarr; / Inf nl</option>
+                    <option value="margem superior aparentemente ACIMA de topografia esperada, e inferior NÃO caracterizável à palpação">Sup&uarr; / Inf&uarr;</option>
+                    <option value="margem superior aparentemente na topografia esperada, e inferior NÃO caracterizável à palpação">Sup nl / Inf&uarr;</option>
+                  </select>
+                </div>
               </div>
             </div>
 
             <div class="field has-addons">
               <div class="control">
-                <button class="button is-static" tabindex="-1">Hemorroidas Int.</button>
+                <button class="button is-static" tabindex="-1">Linfonodos</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="lymph">
+                    <option value="" selected>N/A</option>
+                    <option value="Sem linfonodomegalias cervicais, periauriculares ou supraclávicas palpáveis">&empty;</option>
+                    <option value="Presença de alguns linfonodos palpáveis, menores que 05mm">&plus;&lt;5mm</option>
+                    <option value="Presença de algumas linfonodomegalias">&plus;&ge;5mm</option>
+                    <option value="Presença de inúmeros linfonodos palpáveis, todos menores que 05mm">&plus;&plus;&lt;5mm</option>
+                    <option value="Presença de inúmeras linfonodomegalias palpáveis">&plus;&plus;&ge;5mm</option>
+                  </select>
+                </div>
               </div>
               <div class="control">
-                <div class="select">
-                  <select id="hemorrhoids-internal">
-                    <option value="ausentes" selected>Ausentes</option>
-                    <option value="presente(s)">Presentes</option>
+                <button class="button is-static" tabindex="-1">de aspecto</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="lymph-desc">
+                    <option value="" selected>&empty;</option>
+                    <option value=", fibroelásticos, móveis, não-aderidos a planos profundos e dolorosos">reacional</option>
+                    <option value=", endurados, coalescidos, aderidos a planos profundos e indolores">maligno</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="columns is-hidden" id="lymph-locs">
+              <div class="column">
+                <h4 class="title is-6 has-text-centered">Dir</h4>
+
+                <div class="field">
+                  <div class="control">
+                    <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-retroaur" value="retroauricular direita">
+                    <label for="lymph-right-retroaur">Retroauric</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-anterioraur" value="auricular anterior direita">
+                    <label for="lymph-right-anterioraur">Auric Ant</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-i" value="I direita">
+                    <label for="lymph-right-i">I</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-ii" value="II direita">
+                    <label for="lymph-right-ii">II</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-iii" value="III direita">
+                    <label for="lymph-right-iii">III</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-iv" value="IV direita">
+                    <label for="lymph-right-iv">IV</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-v" value="V direita">
+                    <label for="lymph-right-v">V</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-vi" value="VI direita">
+                    <label for="lymph-right-vi">VI</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-right-vii" value="VII direita">
+                    <label for="lymph-right-vii">VII</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="column">
+                <h4 class="title is-6 has-text-centered">Esq</h4>
+
+                <div class="field">
+                  <div class="control">
+                    <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-retroaur" value="retroauricular esquerda">
+                    <label for="lymph-left-retroaur">Retroauric</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-anterioraur" value="auricular anterior esquerda">
+                    <label for="lymph-left-anterioraur">Auric Ant</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-i" value="I esquerda">
+                    <label for="lymph-left-i">I</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-ii" value="II esquerda">
+                    <label for="lymph-left-ii">II</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-iii" value="III esquerda">
+                    <label for="lymph-left-iii">III</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-iv" value="IV esquerda">
+                    <label for="lymph-left-iv">IV</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-v" value="V esquerda">
+                    <label for="lymph-left-v">V</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-vi" value="VI esquerda">
+                    <label for="lymph-left-vi">VI</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input type="checkbox" class="is-checkradio lymph-loc" id="lymph-left-vii" value="VII esquerda">
+                    <label for="lymph-left-vii">VII</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="field">
+        <input type="checkbox" class="switch is-rounded is-large collapsable" id="c-orl" data-target="collapsable-orl">
+        <label for="c-orl">
+          <span class="icon-text">
+            <span class="icon is-medium">
+              <i class="mdi mdi-ear-hearing mdi-36px"></i>
+            </span>
+            <span><strong>ORL</strong></span>
+          </span>
+        </label>
+      </div>
+
+      <div class="is-hidden" id="collapsable-orl">
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="exam-oto" class="is-checkradio">
+              <label for="exam-oto">
+                <span class="icon">
+                  <i class="mdi mdi-ear-hearing mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">MTD</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select name="oto-d-membrane" id="oto-d-membrane">
+                    <option value="observável" selected>+</option>
+                    <option value="não observável">&empty;</option>
                   </select>
                 </div>
               </div>
               <div class="control is-expanded">
-                <input type="text" class="input" id="hemorrhoids-internal-desc" placeholder="Descreva localização e achados..." disabled>
+                <div class="select is-fullwidth">
+                  <select name="oto-d-retromembrane" id="oto-d-retromembrane">
+                    <option value="sem alterações, abaulamentos ou conteúdos retrotimpânicos" selected>nl</option>
+                    <option value="levemente opacificada">&half;opaca</option>
+                    <option value="levemente hiperemiada, mas sem abaulamentos ou conteúdos retrotimpânicos">&half;hiperem</option>
+                    <option value="hiperemiada, abaulada e com conteúdo retrotimpânico seroso">hiperem+abaul/seroso</option>
+                    <option value="hiperemiada, abaulada e com conteúdo retrotimpânico purulento">hiperem+abaul/pus</option>
+                    <option value="com rotura">rotura</option>
+                    <option value="mas ausente">ausente</option>
+                    <option value="por cerume impactado em conduto">cerume</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Conduto</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select name="oto-d-canal" id="oto-d-canal">
+                    <option value="sem alterações" selected>nl</option>
+                    <option value="com hiperemia importante mas sem secreções">hiperem</option>
+                    <option value="com hiperemia importante e secreção purulenta">hiperem+pus</option>
+                    <option value="com cerume impactado">cerume</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">MTE</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select name="oto-e-membrane" id="oto-e-membrane">
+                    <option value="observável" selected>+</option>
+                    <option value="não observável">&empty;</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select name="oto-e-retromembrane" id="oto-e-retromembrane">
+                    <option value="sem alterações, abaulamentos ou conteúdos retrotimpânicos" selected>nl</option>
+                    <option value="levemente opacificada">&half;opaca</option>
+                    <option value="levemente hiperemiada, mas sem abaulamentos ou conteúdos retrotimpânicos">&half;hiperem</option>
+                    <option value="hiperemiada, abaulada e com conteúdo retrotimpânico seroso">hiperem+abaul/seroso</option>
+                    <option value="hiperemiada, abaulada e com conteúdo retrotimpânico purulento">hiperem+abaul/pus</option>
+                    <option value="com rotura">rotura</option>
+                    <option value="mas ausente">ausente</option>
+                    <option value="por cerume impactado em conduto">cerume</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Conduto</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select name="oto-e-canal" id="oto-e-canal">
+                    <option value="sem alterações" selected>nl</option>
+                    <option value="com hiperemia importante mas sem secreções">hiperem</option>
+                    <option value="com hiperemia importante e secreção purulenta">hiperem+pus</option>
+                    <option value="com cerume impactado">cerume</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="exam-oro" class="is-checkradio">
+              <label for="exam-oro">
+                <span class="icon">
+                  <i class="mdi mdi-tooth mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Oroscopia</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="exam-oro-pharynx" name="exam-oro-pharynx">
+                    <option value="sem hiperemia" selected>&empty;hiperem</option>
+                    <option value="levemente hiperemiada">&half;hiperem</option>
+                    <option value="muito hiperemiada">+hiperem</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Tonsilas</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="exam-oro-tonsils" name="exam-oro-tonsils">
+                    <option value="ausentes, como esperado para idade,">&empty;idade</option>
+                    <option value="ausentes">&empty;</option>
+                    <option value="grau 1 de Brodsky" selected>g1</option>
+                    <option value="grau 2 de Brodsky">g2</option>
+                    <option value="grau 3 de Brodsky">g3</option>
+                    <option value="grau 4 de Brodsky">g4</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="exam-oro-tonsilcover" name="exam-oro-tonsilcover">
+                    <option value="sem placas purulentas ou caseicas" selected>nl</option>
+                    <option value="com cáseos">cáseo</option>
+                    <option value="com placas purulentas à direita">pus/D</option>
+                    <option value="com placas purulentas à esquerda">pus/E</option>
+                    <option value="com placas purulentas bilateralmente">pus/bilat</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Palato</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="exam-oro-palate" name="exam-oro-palate">
+                    <option value="centralizado, sem desvio" selected>nl</option>
+                    <option value="com desvio à direita">desvio D</option>
+                    <option value="com desvio à esquerda">desvio E</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="exam-naso" class="is-checkradio">
+              <label for="exam-naso">
+                <span class="icon">
+                  <i class="mdi mdi-face-woman-profile mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Mucosa</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select name="naso-skin" id="naso-skin">
+                    <option value="de aspecto normal" selected>nl</option>
+                    <option value="levemente enantematosa">&half;hiperem</option>
+                    <option value="bastante enantematosa">+hiperem</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Cornetos</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select name="naso-shells" id="naso-shells">
+                    <option value="sem hipertrofias" selected>nl</option>
+                    <option value="hipertrofiados bilateralmente">&uarr;bilat</option>
+                    <option value="hipertrofiados bilateralmente, pior à esquerda">&uarr;bilat/&uarr;E</option>
+                    <option value="hipertrofiados bilateralmente, pior à direita">&uarr;bilat/&uarr;D</option>
+                    <option value="com hipertrofia apenas à esquerda">&uarr;E</option>
+                    <option value="com hipertrofia apenas à direita">&uarr;D</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Septo Nasal</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select name="naso-sept" id="naso-sept">
+                    <option value="sem desvio aparente de septo nasal" selected>nl</option>
+                    <option value="desvio leve de septo nasal para esquerda">desvio &half;E</option>
+                    <option value="desvio moderado de septo nasal para esquerda">desvio &frac34;E</option>
+                    <option value="desvio importante de septo nasal para esquerda">desvio +E</option>
+                    <option value="desvio leve de septo nasal para direita">desvio &half;D</option>
+                    <option value="desvio moderado de septo nasal para direita">desvio &frac34;D</option>
+                    <option value="desvio importante de septo nasal para direita">desvio +D</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="field">
+        <input type="checkbox" class="switch is-rounded is-large collapsable" id="c-thorax" data-target="collapsable-thorax">
+        <label for="c-thorax">
+          <span class="icon-text">
+            <span class="icon is-medium">
+              <i class="mdi mdi-tshirt-crew mdi-36px"></i>
+            </span>
+            <span><strong>Tórax</strong></span>
+          </span>
+        </label>
+      </div>
+
+      <div class="is-hidden" id="collapsable-thorax">
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="exam-lungs" class="is-checkradio">
+              <label for="exam-lungs">
+                <span class="icon">
+                  <i class="mdi mdi-lungs mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">MV</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="lung">
+                    <option value="presentes bilateralmente" selected>&plus;</option>
+                    <option value="diminuídos em bases bilateralmente">&darr; base bilat</option>
+                    <option value="diminuídos em base direita">&darr; base D</option>
+                    <option value="diminuídos em base esquerda">&darr; base E</option>
+                    <option value="diminuídos em hemitórax direito">&darr; D</option>
+                    <option value="diminuídos em hemitórax esquerdo">&darr; E</option>
+                    <option value="diminuídos globalmente">&darr; global</option>
+                    <option value="ausentes (tórax silencioso)">&ndash; (!!!)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">RA</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="lung-sounds">
+                    <option value="sem ruídos adventícios" selected>&empty;</option>
+                    <option value="com raros roncos difusamente">alguns roncos</option>
+                    <option value="com roncos de transmissão nasal">roncos nasais</option>
+                    <option value="com sibilos expiratórios">sibilos exp</option>
+                    <option value="com sibilos inspiratórios e expiratórios">sibilos ins/exp</option>
+                    <option value="com crepitação estertorante em ">crepitação</option>
+                    <option value="com sopro cavernoso em ">sopro cavernoso</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Alteração até</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="lung-crept" disabled>
+                    <option value="base direita" selected>base D</option>
+                    <option value="base esquerda">base E</option>
+                    <option value="mesotórax direito">meso D</option>
+                    <option value="mesotórax esquerdo">meso E</option>
+                    <option value="ápice direito">ápice D</option>
+                    <option value="ápice esquerdo">ápice E</option>
+                    <option value="bases bilateralmente">base bilat</option>
+                    <option value="mesotórax bilateralmente">meso bilat</option>
+                    <option value="ápices bilateralmente">ápice bilat</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Percussão</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="lung-tap">
+                    <option value="" selected>N/A</option>
+                    <option value="Percussão claro-pulmonar em todos os campos pulmonares">Normal</option>
+                    <option value="Macicez percutível em ">Macicez em...</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control is-expanded">
+                <input type="text" class="input" id="lung-tap-desc" placeholder="Descreva localização da(s) macicez..." disabled>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="exam-heart" class="is-checkradio">
+              <label for="exam-heart">
+                <span class="icon">
+                  <i class="mdi mdi-heart-pulse mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">B</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="heart-rhythm">
+                    <option value="rítmicas" selected>R</option>
+                    <option value="arrítmicas">arrít.</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="heart-sounds">
+                    <option value="normofonéticas" selected>NF</option>
+                    <option value="hipofonéticas">&darr;fonese</option>
+                    <option value="hiperfonéticas por estalido metálico">&uarr;fonese (metal)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="heart-times">
+                    <option value="dois tempos" selected>2T</option>
+                    <option value="dois tempos com desdobramento de B1">2T B1&times;</option>
+                    <option value="dois tempos com desdobramento de B2">2T B2&times;</option>
+                    <option value="dois tempos com desdobramento de B1 e B2">2T B1/B2&times;</option>
+                    <option value="três tempos com presença de B3">3T B3</option>
+                    <option value="três tempos com presença de B4">3T B4</option>
+                    <option value="quatro tempos com presença de B3 e B4">4T B3+B4</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="heart-murmur">
+                    <option value="sem sopros" selected>SS</option>
+                    <option value="com sopro">sopro...</option>
+                  </select>
+                </div>
               </div>
             </div>
 
             <div class="field">
               <div class="control">
-                <textarea class="textarea has-fixed-size" id="perineumscopy-other" placeholder="Descreva outros achados da perineoscopia, separados por vírgula..." rows="2"></textarea>
+                <input type="text" id="heart-murmur-desc" class="input" placeholder="Descreva o sopro..." disabled>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
 
-          <div>
+    <div class="box">
+      <div class="field">
+        <input type="checkbox" class="switch is-rounded is-large collapsable" id="c-abdomen" data-target="collapsable-abdomen">
+        <label for="c-abdomen">
+          <span class="icon-text">
+            <span class="icon is-medium">
+              <i class="mdi mdi-human mdi-36px"></i>
+            </span>
+            <span><strong>Abdomen</strong></span>
+          </span>
+        </label>
+      </div>
+
+      <div class="is-hidden" id="collapsable-abdomen">
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="exam-abdomen" class="is-checkradio">
+              <label for="exam-abdomen">
+                <span class="icon">
+                  <i class="mdi mdi-stomach mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
             <div class="field has-addons">
               <div class="control">
-                <button class="button is-static" tabindex="-1">Tônus Retal</button>
+                <button class="button is-static" tabindex="-1">Abdome</button>
               </div>
               <div class="control is-expanded">
                 <div class="select is-fullwidth">
-                  <select id="rectum-tonus">
-                    <option value="normal" selected>Normal</option>
-                    <option value="reduzido">Reduzido</option>
-                    <option value="aumentado">Aumentado</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="field has-addons">
-              <div class="control">
-                <button class="button is-static" tabindex="-1">Ampola Retal</button>
-              </div>
-              <div class="control">
-                <div class="select">
-                  <select id="rectum-content">
-                    <option value="sem conteúdos tocáveis" selected>Vazia</option>
-                    <option value="com bolo fecal fisiológico">Fezes Normais</option>
-                    <option value="com fecaloma pétreo">Fecaloma</option>
-                    <option value="com massa">Massa</option>
-                    <option value="com">Com...</option>
+                  <select id="abdomen">
+                    <option value="plano" selected>Plano</option>
+                    <option value="globoso">Globoso</option>
+                    <option value="em batráquio">Batráquio</option>
+                    <option value="escavado">Escavado</option>
                   </select>
                 </div>
               </div>
               <div class="control is-expanded">
-                <input type="text" class="input" id="rectum-content-desc" placeholder="Descreva..." disabled>
-              </div>
-            </div>
-
-            <div class="field has-addons">
-              <div class="control">
-                <button class="button is-static" tabindex="-1">Dedo Luva</button>
-              </div>
-              <div class="control">
-                <div class="select">
-                  <select id="rectum-finger">
-                    <option value="sem nada digno de nota" selected>Ndn</option>
-                    <option value="com fezes">Fezes</option>
-                    <option value="com sangue">Sangue</option>
-                    <option value="com fezes entremeadas com sangue">Fezes+Sangue</option>
-                    <option value="com">Com...</option>
+                <div class="select is-fullwidth">
+                  <select id="abdomen-rha">
+                    <option value="presentes e normoativos">RHA +/nl</option>
+                    <option value="presentes e aumentados">RHA +/&uarr;</option>
+                    <option value="presentes e aumentados, com ruídos metálicos">RHA +/&uarr;&uarr;&uarr;</option>
+                    <option value="presentes mas hipoativos">RHA +/&darr;</option>
+                    <option value="ausentes">RHA&ndash;</option>
                   </select>
                 </div>
               </div>
               <div class="control is-expanded">
-                <input type="text" class="input" id="rectum-finger-desc" placeholder="Descreva..." disabled>
+                <div class="select is-fullwidth">
+                  <select id="abdomen-tension">
+                    <option value="flácido">Flácido</option>
+                    <option value="tenso">Tenso</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="abdomen-percussion">
+                    <option value="globalmente timpânica">timp</option>
+                    <option value="com macicez percutível em ">maciço em...</option>
+                  </select>
+                </div>
               </div>
             </div>
 
             <div class="field">
               <div class="control">
-                <textarea class="textarea has-fixed-size" id="rectum-other" placeholder="Descreva outros achados do toque, separados por vírgula..." rows="2"></textarea>
+                <input type="text" id="abdomen-percussion-mass" class="input" placeholder="Descreva localização da(s) macicez..." disabled>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Traube</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="abdomen-traube">
+                    <option value="livre" selected>livre</option>
+                    <option value="ocupado">ocupado</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <p class="help">Valores negativos = acima de RCD, positivos = abaixo de RCD</p>
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Hepatimetria</button>
+              </div>
+              <div class="control is-expanded">
+                <input type="number" class="input" id="abdomen-hepatimetry" min="-10" max="10" step="1" value="0" placeholder="#">
+              </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">cm</button>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Macicez Móvel</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="abdomen-mobilemass">
+                    <option value="" selected>NT</option>
+                    <option value="ausente">&ndash;</option>
+                    <option value="presente">+</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Skoda</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="abdomen-skoda">
+                    <option value="" selected>NT</option>
+                    <option value="ausente">&ndash;</option>
+                    <option value="presente a ">+</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <input type="number" id="abdomen-skoda-cm" class="input" min="0" step="1" placeholder="#" disabled>
+              </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">cm da c. umbilical</button>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Piparote</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="abdomen-fillip">
+                    <option value="" selected>NT</option>
+                    <option value="ausente">&ndash;</option>
+                    <option value="presente">+</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Massas</button>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="abdomen-stuff">
+                    <option value="sem massas palpáveis superficial ou profundamente" selected>&empty;</option>
+                    <option value="com ">com...</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <input type="text" class="input" id="abdomen-stuff-desc" placeholder="descrição de massa/s palpável/is" disabled>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">DB</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="abdomen-peritonitis">
+                    <option value="" selected>NT</option>
+                    <option value="ausente">&ndash;</option>
+                    <option value="PRESENTE">+</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Murphy</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="murphy">
+                    <option value="" selected>NT</option>
+                    <option value="negativo">&ndash;</option>
+                    <option value="POSITIVO">+</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">McBurney</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="mcburney">
+                    <option value="" selected>NT</option>
+                    <option value="negativo">&ndash;</option>
+                    <option value="POSITIVO">+</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Giordano</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="giordano">
+                    <option value="" selected>NT</option>
+                    <option value="negativo">&ndash;</option>
+                    <option value="POSITIVO">+</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <textarea class="textarea has-fixed-size" id="abdomen-other" placeholder="Descreva outros achados..." rows="2"></textarea>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="exam-rectum" class="is-checkradio">
+              <label for="exam-rectum">
+                <span class="icon">
+                  <i class="mdi mdi-seat-legroom-reduced mdi-rotate-270 mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="mb-6">
+              <div class="field has-addons">
+                <div class="control">
+                  <button class="button is-static" tabindex="-1">Plicomas</button>
+                </div>
+                <div class="control is-expanded">
+                  <div class="select is-fullwidth">
+                    <select id="plicoma">
+                      <option value="ausentes" selected>Ausentes</option>
+                      <option value="presente às 12h">12h</option>
+                      <option value="presente às 06h">06h</option>
+                      <option value="presentes às 12 e 06h">12+06h</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field has-addons">
+                <div class="control">
+                  <button class="button is-static" tabindex="-1">Hemorroidas Ext.</button>
+                </div>
+                <div class="control">
+                  <div class="select">
+                    <select id="hemorrhoids-external">
+                      <option value="ausentes" selected>Ausentes</option>
+                      <option value="presente(s)">Presentes</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="control is-expanded">
+                  <input type="text" class="input" id="hemorrhoids-external-desc" placeholder="Descreva localização e achados..." disabled>
+                </div>
+              </div>
+
+              <div class="field has-addons">
+                <div class="control">
+                  <button class="button is-static" tabindex="-1">Hemorroidas Int.</button>
+                </div>
+                <div class="control">
+                  <div class="select">
+                    <select id="hemorrhoids-internal">
+                      <option value="ausentes" selected>Ausentes</option>
+                      <option value="presente(s)">Presentes</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="control is-expanded">
+                  <input type="text" class="input" id="hemorrhoids-internal-desc" placeholder="Descreva localização e achados..." disabled>
+                </div>
+              </div>
+
+              <div class="field">
+                <div class="control">
+                  <textarea class="textarea has-fixed-size" id="perineumscopy-other" placeholder="Descreva outros achados da perineoscopia, separados por vírgula..." rows="2"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="field has-addons">
+                <div class="control">
+                  <button class="button is-static" tabindex="-1">Tônus Retal</button>
+                </div>
+                <div class="control is-expanded">
+                  <div class="select is-fullwidth">
+                    <select id="rectum-tonus">
+                      <option value="normal" selected>Normal</option>
+                      <option value="reduzido">Reduzido</option>
+                      <option value="aumentado">Aumentado</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field has-addons">
+                <div class="control">
+                  <button class="button is-static" tabindex="-1">Ampola Retal</button>
+                </div>
+                <div class="control">
+                  <div class="select">
+                    <select id="rectum-content">
+                      <option value="sem conteúdos tocáveis" selected>Vazia</option>
+                      <option value="com bolo fecal fisiológico">Fezes Normais</option>
+                      <option value="com fecaloma pétreo">Fecaloma</option>
+                      <option value="com massa">Massa</option>
+                      <option value="com">Com...</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="control is-expanded">
+                  <input type="text" class="input" id="rectum-content-desc" placeholder="Descreva..." disabled>
+                </div>
+              </div>
+
+              <div class="field has-addons">
+                <div class="control">
+                  <button class="button is-static" tabindex="-1">Dedo Luva</button>
+                </div>
+                <div class="control">
+                  <div class="select">
+                    <select id="rectum-finger">
+                      <option value="sem nada digno de nota" selected>Ndn</option>
+                      <option value="com fezes">Fezes</option>
+                      <option value="com sangue">Sangue</option>
+                      <option value="com fezes entremeadas com sangue">Fezes+Sangue</option>
+                      <option value="com">Com...</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="control is-expanded">
+                  <input type="text" class="input" id="rectum-finger-desc" placeholder="Descreva..." disabled>
+                </div>
+              </div>
+
+              <div class="field">
+                <div class="control">
+                  <textarea class="textarea has-fixed-size" id="rectum-other" placeholder="Descreva outros achados do toque, separados por vírgula..." rows="2"></textarea>
+                </div>
               </div>
             </div>
           </div>
@@ -1228,550 +1527,312 @@ require_once "header.php";
     </div>
 
     <div class="box">
-      <h2 class="title is-4">ORL</h2>
-
-      <div class="columns is-vcentered">
-        <div class="column is-2">
-          <div class="field">
-            <input type="checkbox" id="exam-oto" class="is-checkradio">
-            <label for="exam-oto">
-              <span class="icon">
-                <i class="mdi mdi-ear-hearing mdi-24px"></i>
-              </span>
-            </label>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">MTD</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select name="oto-d-membrane" id="oto-d-membrane">
-                  <option value="observável" selected>+</option>
-                  <option value="não observável">&empty;</option>
-                </select>
-              </div>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select name="oto-d-retromembrane" id="oto-d-retromembrane">
-                  <option value="sem alterações, abaulamentos ou conteúdos retrotimpânicos" selected>nl</option>
-                  <option value="levemente opacificada">&half;opaca</option>
-                  <option value="levemente hiperemiada, mas sem abaulamentos ou conteúdos retrotimpânicos">&half;hiperem</option>
-                  <option value="hiperemiada, abaulada e com conteúdo retrotimpânico seroso">hiperem+abaul/seroso</option>
-                  <option value="hiperemiada, abaulada e com conteúdo retrotimpânico purulento">hiperem+abaul/pus</option>
-                  <option value="com rotura">rotura</option>
-                  <option value="mas ausente">ausente</option>
-                  <option value="por cerume impactado em conduto">cerume</option>
-                </select>
-              </div>
-            </div>
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Conduto</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select name="oto-d-canal" id="oto-d-canal">
-                  <option value="sem alterações" selected>nl</option>
-                  <option value="com hiperemia importante mas sem secreções">hiperem</option>
-                  <option value="com hiperemia importante e secreção purulenta">hiperem+pus</option>
-                  <option value="com cerume impactado">cerume</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">MTE</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select name="oto-e-membrane" id="oto-e-membrane">
-                  <option value="observável" selected>+</option>
-                  <option value="não observável">&empty;</option>
-                </select>
-              </div>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select name="oto-e-retromembrane" id="oto-e-retromembrane">
-                  <option value="sem alterações, abaulamentos ou conteúdos retrotimpânicos" selected>nl</option>
-                  <option value="levemente opacificada">&half;opaca</option>
-                  <option value="levemente hiperemiada, mas sem abaulamentos ou conteúdos retrotimpânicos">&half;hiperem</option>
-                  <option value="hiperemiada, abaulada e com conteúdo retrotimpânico seroso">hiperem+abaul/seroso</option>
-                  <option value="hiperemiada, abaulada e com conteúdo retrotimpânico purulento">hiperem+abaul/pus</option>
-                  <option value="com rotura">rotura</option>
-                  <option value="mas ausente">ausente</option>
-                  <option value="por cerume impactado em conduto">cerume</option>
-                </select>
-              </div>
-            </div>
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Conduto</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select name="oto-e-canal" id="oto-e-canal">
-                  <option value="sem alterações" selected>nl</option>
-                  <option value="com hiperemia importante mas sem secreções">hiperem</option>
-                  <option value="com hiperemia importante e secreção purulenta">hiperem+pus</option>
-                  <option value="com cerume impactado">cerume</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="field">
+        <input type="checkbox" class="switch is-rounded is-large collapsable" id="c-periphery" data-target="collapsable-periphery">
+        <label for="c-periphery">
+          <span class="icon-text">
+            <span class="icon is-medium">
+              <i class="mdi mdi-arm-flex mdi-36px"></i>
+            </span>
+            <span><strong>Periferia</strong></span>
+          </span>
+        </label>
       </div>
 
-      <div>
-        <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
-      </div>
-
-      <div class="columns is-vcentered">
-        <div class="column is-2">
-          <div class="field">
-            <input type="checkbox" id="exam-oro" class="is-checkradio">
-            <label for="exam-oro">
-              <span class="icon">
-                <i class="mdi mdi-tooth mdi-24px"></i>
-              </span>
-            </label>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Oroscopia</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="exam-oro-pharynx" name="exam-oro-pharynx">
-                  <option value="sem hiperemia" selected>&empty;hiperem</option>
-                  <option value="levemente hiperemiada">&half;hiperem</option>
-                  <option value="muito hiperemiada">+hiperem</option>
-                </select>
-              </div>
+      <div class="is-hidden" id="collapsable-periphery">
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="exam-skin" class="is-checkradio">
+              <label for="exam-skin">
+                <span class="icon">
+                  <i class="mdi mdi-fingerprint mdi-24px"></i>
+                </span>
+              </label>
             </div>
           </div>
 
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Tonsilas</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="exam-oro-tonsils" name="exam-oro-tonsils">
-                  <option value="ausentes, como esperado para idade,">&empty;idade</option>
-                  <option value="ausentes">&empty;</option>
-                  <option value="grau 1 de Brodsky" selected>g1</option>
-                  <option value="grau 2 de Brodsky">g2</option>
-                  <option value="grau 3 de Brodsky">g3</option>
-                  <option value="grau 4 de Brodsky">g4</option>
-                </select>
-              </div>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="exam-oro-tonsilcover" name="exam-oro-tonsilcover">
-                  <option value="sem placas purulentas ou caseicas" selected>nl</option>
-                  <option value="com cáseos">cáseo</option>
-                  <option value="com placas purulentas à direita">pus/D</option>
-                  <option value="com placas purulentas à esquerda">pus/E</option>
-                  <option value="com placas purulentas bilateralmente">pus/bilat</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Palato</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="exam-oro-palate" name="exam-oro-palate">
-                  <option value="centralizado, sem desvio" selected>nl</option>
-                  <option value="com desvio à direita">desvio D</option>
-                  <option value="com desvio à esquerda">desvio E</option>
-                </select>
+          <div class="column">
+            <div class="field">
+              <div class="control">
+                <textarea class="textarea has-fixed-size" id="skin" rows="6"></textarea>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div>
-        <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
-      </div>
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
 
-      <div class="columns is-vcentered">
-        <div class="column is-2">
-          <div class="field">
-            <input type="checkbox" id="exam-naso" class="is-checkradio">
-            <label for="exam-naso">
-              <span class="icon">
-                <i class="mdi mdi-face-woman-profile mdi-24px"></i>
-              </span>
-            </label>
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="exam-mmss" class="is-checkradio">
+              <label for="exam-mmss">
+                <span class="icon">
+                  <i class="mdi mdi-hand-front-left mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Pulsos</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="mmsspulse-strength">
+                    <option value="" selected>N/A</option>
+                    <option value="cheios">cheios</option>
+                    <option value="fracos">&darr;</option>
+                    <option value="em martelo d'água">&uarr;</option>
+                    <option value="ausentes até aa. axilares">&empty;</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="mmsspulse-simmetry" disabled>
+                    <option value="simétricos" selected>simétricos</option>
+                    <option value="diminuídos à direita">&darr;D</option>
+                    <option value="diminuídos à esquerda">&darr;E</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">a partir de aa.</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="mmsspulse-artery" disabled>
+                    <option value="radiais" selected>radiais</option>
+                    <option value="ulnares">ulnares</option>
+                    <option value="braquiais">braquiais</option>
+                    <option value="axilares">axilares</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Turgor Cutâneo</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="mmssturgor">
+                    <option value="" selected>N/A</option>
+                    <option value="adequado">Normal</option>
+                    <option value="diminuído (prega cutânea persistente)">Desidratação</option>
+                    <option value="aumentado (prega cutânea não formável por edema)">Edema</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">TEC</button>
+              </div>
+              <div class="control is-expanded">
+                <input type="number" class="input" id="mmsstec" min="1" step="1" placeholder="# segundos">
+              </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">s</button>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Misc</button>
+              </div>
+              <div class="control is-expanded">
+                <input type="text" class="input" id="mmss-misc" placeholder="Outros dados...">
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="column">
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Mucosa</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select name="naso-skin" id="naso-skin">
-                  <option value="de aspecto normal" selected>nl</option>
-                  <option value="levemente enantematosa">&half;hiperem</option>
-                  <option value="bastante enantematosa">+hiperem</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Cornetos</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select name="naso-shells" id="naso-shells">
-                  <option value="sem hipertrofias" selected>nl</option>
-                  <option value="hipertrofiados bilateralmente">&uarr;bilat</option>
-                  <option value="hipertrofiados bilateralmente, pior à esquerda">&uarr;bilat/&uarr;E</option>
-                  <option value="hipertrofiados bilateralmente, pior à direita">&uarr;bilat/&uarr;D</option>
-                  <option value="com hipertrofia apenas à esquerda">&uarr;E</option>
-                  <option value="com hipertrofia apenas à direita">&uarr;D</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Septo Nasal</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select name="naso-sept" id="naso-sept">
-                  <option value="sem desvio aparente de septo nasal" selected>nl</option>
-                  <option value="desvio leve de septo nasal para esquerda">desvio &half;E</option>
-                  <option value="desvio moderado de septo nasal para esquerda">desvio &frac34;E</option>
-                  <option value="desvio importante de septo nasal para esquerda">desvio +E</option>
-                  <option value="desvio leve de septo nasal para direita">desvio &half;D</option>
-                  <option value="desvio moderado de septo nasal para direita">desvio &frac34;D</option>
-                  <option value="desvio importante de septo nasal para direita">desvio +D</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="box">
-      <h2 class="title is-4">Periferia</h2>
-
-      <div class="columns is-vcentered">
-        <div class="column is-2">
-          <div class="field">
-            <input type="checkbox" id="exam-skin" class="is-checkradio">
-            <label for="exam-skin">
-              <span class="icon">
-                <i class="mdi mdi-fingerprint mdi-24px"></i>
-              </span>
-            </label>
-          </div>
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
         </div>
 
-        <div class="column">
-          <div class="field">
-            <div class="control">
-              <textarea class="textarea has-fixed-size" id="skin" rows="6"></textarea>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
-      </div>
-
-      <div class="columns is-vcentered">
-        <div class="column is-2">
-          <div class="field">
-            <input type="checkbox" id="exam-mmss" class="is-checkradio">
-            <label for="exam-mmss">
-              <span class="icon">
-                <i class="mdi mdi-hand-front-left mdi-24px"></i>
-              </span>
-            </label>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Pulsos</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="mmsspulse-strength">
-                  <option value="" selected>N/A</option>
-                  <option value="cheios">cheios</option>
-                  <option value="fracos">&darr;</option>
-                  <option value="em martelo d'água">&uarr;</option>
-                  <option value="ausentes até aa. axilares">&empty;</option>
-                </select>
-              </div>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="mmsspulse-simmetry" disabled>
-                  <option value="simétricos" selected>simétricos</option>
-                  <option value="diminuídos à direita">&darr;D</option>
-                  <option value="diminuídos à esquerda">&darr;E</option>
-                </select>
-              </div>
-            </div>
-            <div class="control">
-              <button class="button is-static" tabindex="-1">a partir de aa.</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="mmsspulse-artery" disabled>
-                  <option value="radiais" selected>radiais</option>
-                  <option value="ulnares">ulnares</option>
-                  <option value="braquiais">braquiais</option>
-                  <option value="axilares">axilares</option>
-                </select>
-              </div>
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="exam-mmii" class="is-checkradio">
+              <label for="exam-mmii">
+                <span class="icon">
+                  <i class="mdi mdi-foot-print mdi-24px"></i>
+                </span>
+              </label>
             </div>
           </div>
 
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Turgor Cutâneo</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="mmssturgor">
-                  <option value="" selected>N/A</option>
-                  <option value="adequado">Normal</option>
-                  <option value="diminuído (prega cutânea persistente)">Desidratação</option>
-                  <option value="aumentado (prega cutânea não formável por edema)">Edema</option>
-                </select>
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Edema</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="oedema">
+                    <option value="" selected>N/A</option>
+                    <option value="Ausência de edemas">&empty;</option>
+                    <option value="Edema bilateral e simétrico">bilat</option>
+                    <option value="Edema bilateral, maior à direita">bilat D&gt;E</option>
+                    <option value="Edema bilateral, maior à esquerda">bilat D&lt;E</option>
+                    <option value="Edema exclusivo à direita">D apenas</option>
+                    <option value="Edema exclusivo à esquerda">E apenas</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="oedema-grade1" disabled>
+                    <option value="1+/4+" data-qtt="1+" selected>1+</option>
+                    <option value="2+/4+" data-qtt="2+">2+</option>
+                    <option value="3+/4+" data-qtt="3+">3+</option>
+                    <option value="4+/4+" data-qtt="4+">4+</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="oedema-grade2" disabled>
+                    <option value="1+/4+" selected>1+ (E)</option>
+                    <option value="2+/4+">2+ (E)</option>
+                    <option value="3+/4+">3+ (E)</option>
+                    <option value="4+/4+">4+ (E)</option>
+                  </select>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">TEC</button>
-            </div>
-            <div class="control is-expanded">
-              <input type="number" class="input" id="mmsstec" min="1" step="1" placeholder="# segundos">
-            </div>
-            <div class="control">
-              <button class="button is-static" tabindex="-1">s</button>
-            </div>
-          </div>
-
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Misc</button>
-            </div>
-            <div class="control is-expanded">
-              <input type="text" class="input" id="mmss-misc" placeholder="Outros dados...">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
-      </div>
-
-      <div class="columns is-vcentered">
-        <div class="column is-2">
-          <div class="field">
-            <input type="checkbox" id="exam-mmii" class="is-checkradio">
-            <label for="exam-mmii">
-              <span class="icon">
-                <i class="mdi mdi-foot-print mdi-24px"></i>
-              </span>
-            </label>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Edema</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="oedema">
-                  <option value="" selected>N/A</option>
-                  <option value="Ausência de edemas">&empty;</option>
-                  <option value="Edema bilateral e simétrico">bilat</option>
-                  <option value="Edema bilateral, maior à direita">bilat D&gt;E</option>
-                  <option value="Edema bilateral, maior à esquerda">bilat D&lt;E</option>
-                  <option value="Edema exclusivo à direita">D apenas</option>
-                  <option value="Edema exclusivo à esquerda">E apenas</option>
-                </select>
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Empastamento Panturrilhas</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="calf">
+                    <option value="" selected>N/A</option>
+                    <option value="ausente">&empty;</option>
+                    <option value="PRESENTE bilateralmente">Bilat</option>
+                    <option value="PRESENTE à direita">D</option>
+                    <option value="PRESENTE à esquerda">E</option>
+                  </select>
+                </div>
               </div>
             </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="oedema-grade1" disabled>
-                  <option value="1+/4+" data-qtt="1+" selected>1+</option>
-                  <option value="2+/4+" data-qtt="2+">2+</option>
-                  <option value="3+/4+" data-qtt="3+">3+</option>
-                  <option value="4+/4+" data-qtt="4+">4+</option>
-                </select>
-              </div>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="oedema-grade2" disabled>
-                  <option value="1+/4+" selected>1+ (E)</option>
-                  <option value="2+/4+">2+ (E)</option>
-                  <option value="3+/4+">3+ (E)</option>
-                  <option value="4+/4+">4+ (E)</option>
-                </select>
-              </div>
-            </div>
-          </div>
 
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Empastamento Panturrilhas</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="calf">
-                  <option value="" selected>N/A</option>
-                  <option value="ausente">&empty;</option>
-                  <option value="PRESENTE bilateralmente">Bilat</option>
-                  <option value="PRESENTE à direita">D</option>
-                  <option value="PRESENTE à esquerda">E</option>
-                </select>
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Circ. Panturrilhas</button>
+              </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">D</button>
+              </div>
+              <div class="control is-expanded">
+                <input type="number" class="input" id="calf-right" min="1" step="0.5" placeholder="# cm">
+              </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">E</button>
+              </div>
+              <div class="control is-expanded">
+                <input type="number" class="input" id="calf-left" min="1" step="0.5" placeholder="# cm">
               </div>
             </div>
-          </div>
 
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Circ. Panturrilhas</button>
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Pulsos</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="mmiipulse-strength">
+                    <option value="" selected>N/A</option>
+                    <option value="cheios">cheios</option>
+                    <option value="fracos">&darr;</option>
+                    <option value="em martelo d'água">&uarr;</option>
+                    <option value="ausentes até aa. femorais">&empty;</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="mmiipulse-simmetry" disabled>
+                    <option value="simétricos" selected>simétricos</option>
+                    <option value="diminuídos à direita">&darr;D</option>
+                    <option value="diminuídos à esquerda">&darr;E</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">a partir de aa.</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="mmiipulse-artery" disabled>
+                    <option value="pediosas" selected>pediosas</option>
+                    <option value="tibiais posteriores">tibiais post</option>
+                    <option value="poplíteas">poplíteas</option>
+                    <option value="femorais">femorais</option>
+                  </select>
+                </div>
+              </div>
             </div>
-            <div class="control">
-              <button class="button is-static" tabindex="-1">D</button>
-            </div>
-            <div class="control is-expanded">
-              <input type="number" class="input" id="calf-right" min="1" step="0.5" placeholder="# cm">
-            </div>
-            <div class="control">
-              <button class="button is-static" tabindex="-1">E</button>
-            </div>
-            <div class="control is-expanded">
-              <input type="number" class="input" id="calf-left" min="1" step="0.5" placeholder="# cm">
-            </div>
-          </div>
 
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Pulsos</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="mmiipulse-strength">
-                  <option value="" selected>N/A</option>
-                  <option value="cheios">cheios</option>
-                  <option value="fracos">&darr;</option>
-                  <option value="em martelo d'água">&uarr;</option>
-                  <option value="ausentes até aa. femorais">&empty;</option>
-                </select>
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Varizes</button>
+              </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">D</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="varicose-right">
+                    <option value="" data-degree="x" select>N/A</option>
+                    <option value="ausente(s) à direita (C0)" data-degree="0">&empty;</option>
+                    <option value="presente(s) à direita em grau C1 (varizes de pequeno calibre)" data-degree="1">C1 (pqnas)</option>
+                    <option value="presente(s) à direita em grau C2 (varizes de grande calibre)" data-degree="2">C2 (gdes)</option>
+                    <option value="presente(s) à direita em grau C3 (varizes com edema)" data-degree="3">C3 (edema)</option>
+                    <option value="presente(s) à direita em grau C4 (varizes e eczema de estase)" data-degree="4">C4 (eczema)</option>
+                    <option value="presente(s) à direita em grau C5 (úlcera varicosa cicatrizada)" data-degree="5">C5 (úlcera cic)</option>
+                    <option value="presente(s) à direita em grau C6 (úlcera varicosa ativa)" data-degree="6">C6 (úlcera ativa)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">E</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="varicose-left">
+                    <option value="" data-degree="y" select>N/A</option>
+                    <option value="ausente(s) à esquerda (C0)" data-degree="0">&empty;</option>
+                    <option value="presente(s) à esquerda em grau C1 (varizes de pequeno calibre)" data-degree="1">C1 (pqnas)</option>
+                    <option value="presente(s) à esquerda em grau C2 (varizes de grande calibre)" data-degree="2">C2 (gdes)</option>
+                    <option value="presente(s) à esquerda em grau C3 (varizes com edema)" data-degree="3">C3 (edema)</option>
+                    <option value="presente(s) à esquerda em grau C4 (varizes e eczema de estase)" data-degree="4">C4 (eczema)</option>
+                    <option value="presente(s) à esquerda em grau C5 (úlcera varicosa cicatrizada)" data-degree="5">C5 (úlcera cic)</option>
+                    <option value="presente(s) à esquerda em grau C6 (úlcera varicosa ativa)" data-degree="6">C6 (úlcera ativa)</option>
+                  </select>
+                </div>
               </div>
             </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="mmiipulse-simmetry" disabled>
-                  <option value="simétricos" selected>simétricos</option>
-                  <option value="diminuídos à direita">&darr;D</option>
-                  <option value="diminuídos à esquerda">&darr;E</option>
-                </select>
-              </div>
-            </div>
-            <div class="control">
-              <button class="button is-static" tabindex="-1">a partir de aa.</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="mmiipulse-artery" disabled>
-                  <option value="pediosas" selected>pediosas</option>
-                  <option value="tibiais posteriores">tibiais post</option>
-                  <option value="poplíteas">poplíteas</option>
-                  <option value="femorais">femorais</option>
-                </select>
-              </div>
-            </div>
-          </div>
 
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Varizes</button>
-            </div>
-            <div class="control">
-              <button class="button is-static" tabindex="-1">D</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="varicose-right">
-                  <option value="" data-degree="x" select>N/A</option>
-                  <option value="ausente(s) à direita (C0)" data-degree="0">&empty;</option>
-                  <option value="presente(s) à direita em grau C1 (varizes de pequeno calibre)" data-degree="1">C1 (pqnas)</option>
-                  <option value="presente(s) à direita em grau C2 (varizes de grande calibre)" data-degree="2">C2 (gdes)</option>
-                  <option value="presente(s) à direita em grau C3 (varizes com edema)" data-degree="3">C3 (edema)</option>
-                  <option value="presente(s) à direita em grau C4 (varizes e eczema de estase)" data-degree="4">C4 (eczema)</option>
-                  <option value="presente(s) à direita em grau C5 (úlcera varicosa cicatrizada)" data-degree="5">C5 (úlcera cic)</option>
-                  <option value="presente(s) à direita em grau C6 (úlcera varicosa ativa)" data-degree="6">C6 (úlcera ativa)</option>
-                </select>
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Misc</button>
               </div>
-            </div>
-            <div class="control">
-              <button class="button is-static" tabindex="-1">E</button>
-            </div>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select id="varicose-left">
-                  <option value="" data-degree="y" select>N/A</option>
-                  <option value="ausente(s) à esquerda (C0)" data-degree="0">&empty;</option>
-                  <option value="presente(s) à esquerda em grau C1 (varizes de pequeno calibre)" data-degree="1">C1 (pqnas)</option>
-                  <option value="presente(s) à esquerda em grau C2 (varizes de grande calibre)" data-degree="2">C2 (gdes)</option>
-                  <option value="presente(s) à esquerda em grau C3 (varizes com edema)" data-degree="3">C3 (edema)</option>
-                  <option value="presente(s) à esquerda em grau C4 (varizes e eczema de estase)" data-degree="4">C4 (eczema)</option>
-                  <option value="presente(s) à esquerda em grau C5 (úlcera varicosa cicatrizada)" data-degree="5">C5 (úlcera cic)</option>
-                  <option value="presente(s) à esquerda em grau C6 (úlcera varicosa ativa)" data-degree="6">C6 (úlcera ativa)</option>
-                </select>
+              <div class="control is-expanded">
+                <input type="text" class="input" id="mmii-misc" placeholder="Outros dados...">
               </div>
-            </div>
-          </div>
-
-          <div class="field has-addons">
-            <div class="control">
-              <button class="button is-static" tabindex="-1">Misc</button>
-            </div>
-            <div class="control is-expanded">
-              <input type="text" class="input" id="mmii-misc" placeholder="Outros dados...">
             </div>
           </div>
         </div>
@@ -1779,9 +1840,19 @@ require_once "header.php";
     </div>
 
     <div class="box">
-      <h2 class="title is-4">Neuro</h2>
+      <div class="field">
+        <input type="checkbox" class="switch is-rounded is-large collapsable" id="c-neuro" data-target="collapsable-neuro">
+        <label for="c-neuro">
+          <span class="icon-text">
+            <span class="icon is-medium">
+              <i class="mdi mdi-brain mdi-36px"></i>
+            </span>
+            <span><strong>Neuro</strong></span>
+          </span>
+        </label>
+      </div>
 
-      <div class="is-hidden" id="neuro">
+      <div class="is-hidden" id="collapsable-neuro">
         <div class="columns is-vcentered">
           <div class="column is-2">
             <div class="field">
@@ -3068,19 +3139,6 @@ require_once "header.php";
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div class="field">
-        <div class="control is-expanded">
-          <button type="button" class="button is-fullwidth" id="neuro-show">
-            <span class="text-icon">
-              <span class="icon">
-                <i class="mdi mdi-eye"></i>
-              </span>
-              <span class="text">Mostrar</span>
-            </span>
-          </button>
         </div>
       </div>
     </div>
