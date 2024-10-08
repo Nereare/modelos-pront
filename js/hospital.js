@@ -524,7 +524,8 @@ $(function() {
         $("#neuro-gcs-muscle").val() != ""
       ) ||
       $("#orientation-time").val() != "" ||
-      $("#orientation-space").val() != ""
+      $("#orientation-space").val() != "" ||
+      $("#collaboration").val() != ""
     ) {
       var ssvv = [];
       if( $("#ssvv-sat").val() != "" ) { ssvv.push( "Sat. O2 = " + $("#ssvv-sat").val() + "% " + $("#ssvv-sat-type").val() ); }
@@ -581,6 +582,9 @@ $(function() {
             ssvv.push( $("#orientation-space").val() + pronoun + " no espaço" );
           }
         }
+      }
+      if ( $("#collaboration").val() != "" ) {
+        ssvv.push( $("#collaboration").val().replaceAll("((PRO))", pronoun) );
       }
       o.push( ssvv.join(" | ") );
     }

@@ -8,6 +8,7 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Adicionado
 - Roncos de transmissão nasal a ambos *Exame Físico* e *Sintomáticos Respiratórios*.
 - *Exame Físico*:
+  - Colaboração.
   - Descrição de fácies.
   - Turgor cutâneo de MMSS.
   - Empastamento e circunferência de panturrilhas.

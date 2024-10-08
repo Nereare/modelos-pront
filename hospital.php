@@ -357,12 +357,21 @@ require_once "header.php";
 
       <div class="field has-addons">
         <div class="control">
-          <button class="button is-static" tabindex="-1">Orientação - Tempo</button>
+          <button class="button is-static" tabindex="-1">Orientação Tempo-Espacial</button>
         </div>
         <div class="control is-expanded">
           <div class="select is-fullwidth">
             <select id="orientation-time">
-              <option value="" selected>NT</option>
+              <option value="" selected>Tempo</option>
+              <option value="Orientad">Orientade</option>
+              <option value="DESorientad">DESorientade</option>
+            </select>
+          </div>
+        </div>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="orientation-space">
+              <option value="" selected>Espaço</option>
               <option value="Orientad">Orientade</option>
               <option value="DESorientad">DESorientade</option>
             </select>
@@ -372,14 +381,20 @@ require_once "header.php";
 
       <div class="field has-addons">
         <div class="control">
-          <button class="button is-static" tabindex="-1">Orientação - Espaço</button>
+          <button class="button is-static" tabindex="-1">Colaboração</button>
         </div>
         <div class="control is-expanded">
           <div class="select is-fullwidth">
-            <select id="orientation-space">
+            <select id="collaboration">
               <option value="" selected>NT</option>
-              <option value="Orientad">Orientade</option>
-              <option value="DESorientad">DESorientade</option>
+              <option value="Colaborativ((PRO))">Colaborative</option>
+              <option value="Pouco colaborativ((PRO))">&darr;Colaborative</option>
+              <option value="Agressiv((PRO))">Agressive</option>
+              <option value="Hipoativ((PRO)) | Hiporreativ((PRO))">Hipo- Ative/Reative</option>
+              <option value="Catatonic((PRO))">Catatonice</option>
+              <option value="Evasiv((PRO))">Evasive</option>
+              <option value="Aparente Hipomania">Hipomania</option>
+              <option value="Aparente Mania">Mania</option>
             </select>
           </div>
         </div>
@@ -420,7 +435,7 @@ require_once "header.php";
               <div class="control">
                 <div class="select">
                   <select id="face">
-                    <option value="atípica" selected>normal</option>
+                    <option value="atípica" selected>Normal</option>
                     <option value="acromegálica">Acromegálica</option>
                     <option value="adenoidiana">Adenoidiana</option>
                     <option value="cushingoide (ou 'moonface')">Cushingoide</option>
@@ -431,7 +446,8 @@ require_once "header.php";
                     <option value="renal">Renal</option>
                     <option value="sindrômica">Sindrômica</option>
                     <option value="tireotóxica (ou basedowiana)">Tireotóxica</option>
-                    <option value="dolorosa">dolorosa</option>
+                    <option value="dolorosa">Dolorosa</option>
+                    <option value="dolorosa">Entristecida</option>
                     <option value="other">Outra...</option>
                   </select>
                 </div>
