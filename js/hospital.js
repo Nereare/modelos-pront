@@ -530,7 +530,18 @@ $(function() {
       var ssvv = [];
       if( $("#ssvv-sat").val() != "" ) { ssvv.push( "Sat. O2 = " + $("#ssvv-sat").val() + "% " + $("#ssvv-sat-type").val() ); }
       if( $("#ssvv-pulse").val() != "" ) { ssvv.push( "Pulso = " + $("#ssvv-pulse").val() + "bpm" ); }
-      if( $("#ssvv-pas").val() != "" ) { ssvv.push( "PA = " + $("#ssvv-pas").val() + "/" + $("#ssvv-pad").val() + "mmHg" ); }
+      let pas = parseInt( $("#ssvv-pas").val() );
+      let pad = parseInt( $("#ssvv-pad").val() );
+      if(
+        !isNaN(pas) &&
+        !isNaN(pad)
+      ) {
+        ssvv.push( "PA = " + pas + "/" + pad + "mmHg" );
+        let pam = (pas + (pad*2))/3;
+        let pam_r = Math.round(pam);
+        let eq = (pam - pam_r > 0.0) ? "~" : "=";
+        ssvv.push( "PAM " + eq + " " + pam_r + "mmHg" );
+      }
       if( $("#ssvv-fr").val() != "" ) { ssvv.push( "FR = " + $("#ssvv-fr").val() + "irpm" ); }
       if( $("#ssvv-temp").val() != "" ) { ssvv.push( "Temp = " + $("#ssvv-temp").val() + "°C (" + $("#ssvv-temp-desc").val() + ")" ); }
       if( $("#ssvv-weight").val() != "" ) { ssvv.push( "Peso = " + $("#ssvv-weight").val() + "kg" ); }
