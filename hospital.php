@@ -288,6 +288,7 @@ require_once "header.php";
               <div class="select is-fullwidth">
                 <select id="ssvv-pain">
                   <option value="" selected>N/A</option>
+                  <option value="0">&empty;</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
