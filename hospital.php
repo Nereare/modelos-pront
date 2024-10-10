@@ -3620,6 +3620,92 @@ require_once "header.php";
           </div>
         </div>
 
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="exam-invasions-sne" class="is-checkradio">
+              <label for="exam-invasions-sne">
+                <span class="icon">
+                  <i class="mdi mdi-blender mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">SNE</button>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="sne-action">
+                    <option value="trocada" selected>Trocada</option>
+                    <option value="passada">Passada</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="sne-way">
+                    <option value="por via endoscópica" selected>Via EDA</option>
+                    <option value="às cegas">Às cegas</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <input type="date" class="input" id="sne-date">
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="sne-desc">
+                    <option value="self" selected>Referida</option>
+                    <option value="other">Em pront</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Fixação</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="sne-fix-place">
+                    <option value="nasal" selected>Nasal</option>
+                    <option value="facial">Facial</option>
+                    <option value="cefálica">Cefálica</option>
+                    <option value="AUSENTE">AUSENTE</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="sne-fix">
+                    <option value="justa" selected>Justa</option>
+                    <option value="frouxa, dando espaço para movimentações da sonda">Frouxa</option>
+                    <option value="justa excessivamente, implicando risco de lesões por pressão">Apertada</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Misc.</button>
+              </div>
+              <div class="control is-expanded">
+                <input type="text" class="input" id="sne-misc" placeholder="Outras alterações/descrições...">
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- -->
       </div>
     </div>

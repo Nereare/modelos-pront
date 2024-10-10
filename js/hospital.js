@@ -1300,7 +1300,8 @@ $(function() {
     if (
       $("#exam-invasions-cvd").is(":checked") ||
       $("#exam-invasions-cvc").is(":checked") ||
-      $("#exam-invasions-gtt").is(":checked")
+      $("#exam-invasions-gtt").is(":checked") ||
+      $("#exam-invasions-sne").is(":checked")
     ) {
       o.push("# Invasões/Dispositivos:");
     }
@@ -1415,6 +1416,25 @@ $(function() {
         gtt.push($("#gtt-misc").val().trim());
       }
       if (gtt.length > 0) { o.push("GTT: " + gtt.join("; ") + "."); }
+    }
+    // GTT
+    if ( $("#exam-invasions-sne").is(":checked") ) {
+      let sne = [];
+      // Last change/first insertion
+      if ($("#sne-date").val() != "") {
+        let action = $("#sne-action").val();
+        let date = new Date( $("#sne-date").val() + "T00:00:00.000-03:00" );
+        let way = $("#sne-way").val();
+        let context = $("#sne-desc").val() == "other" ? "segundo revisão de prontuário interno" : "referida";
+        sne.push(action + " em " + date.toLocaleDateString("pt-BR") + " " + way + " (" + context + ")");
+      }
+      // Fixing
+      sne.push("fixação " + $("#sne-fix-place").val() + " " + $("#sne-fix").val());
+      // Misc
+      if ($("#sne-misc").val().trim() != "") {
+        sne.push($("#sne-misc").val().trim());
+      }
+      if (sne.length > 0) { o.push("SNE: " + sne.join("; ") + "."); }
     }
 
     // Scores
