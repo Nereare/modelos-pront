@@ -1299,7 +1299,8 @@ $(function() {
     // Devices
     if (
       $("#exam-invasions-cvd").is(":checked") ||
-      $("#exam-invasions-cvc").is(":checked")
+      $("#exam-invasions-cvc").is(":checked") ||
+      $("#exam-invasions-gtt").is(":checked")
     ) {
       o.push("# Invasões/Dispositivos:");
     }
@@ -1393,6 +1394,27 @@ $(function() {
         cvc.push( "tampas " + $("#cvc-stopper").val() );
       }
       if (cvc.length > 0) { o.push("CVC: " + cvc.join("; ") + "."); }
+    }
+    // GTT
+    if ( $("#exam-invasions-gtt").is(":checked") ) {
+      let gtt = [];
+      // Last change/first insertion
+      if ($("#gtt-date").val() != "") {
+        let action = $("#gtt-action").val();
+        let date = new Date( $("#gtt-date").val() + "T00:00:00.000-03:00" );
+        let way = $("#gtt-way").val();
+        let context = $("#gtt-desc").val() == "other" ? "segundo revisão de prontuário interno" : "referida";
+        gtt.push(action + " em " + date.toLocaleDateString("pt-BR") + " " + way + " (" + context + ")");
+      }
+      // Outter stop
+      gtt.push("anteparo externo da GTT " + $("#gtt-outter-stop").val());
+      // Skin
+      gtt.push("pele perióstio " + $("#gtt-skin").val() + " e " + $("#gtt-secretions").val());
+      // Misc
+      if ($("#gtt-misc").val().trim() != "") {
+        gtt.push($("#gtt-misc").val().trim());
+      }
+      if (gtt.length > 0) { o.push("GTT: " + gtt.join("; ") + "."); }
     }
 
     // Scores

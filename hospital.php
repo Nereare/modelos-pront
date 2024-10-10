@@ -3511,6 +3511,116 @@ require_once "header.php";
             </div>
           </div>
         </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="exam-invasions-gtt" class="is-checkradio">
+              <label for="exam-invasions-gtt">
+                <span class="icon">
+                  <i class="mdi mdi-stomach mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">GTT</button>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="gtt-action">
+                    <option value="trocada" selected>Trocada</option>
+                    <option value="passada">Passada</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="gtt-way">
+                    <option value="por via endoscópica" selected>Via EDA</option>
+                    <option value="às cegas">Às cegas</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <input type="date" class="input" id="gtt-date">
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="gtt-desc">
+                    <option value="self" selected>Referida</option>
+                    <option value="other">Em pront</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Anteparo Externo</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="gtt-outter-stop">
+                    <option value="juxtacutâneo, sem estrangular pele e sem dar espaço para movimentações" selected>Adequado</option>
+                    <option value="rente excessivamente à parede abdominal, a comprimindo em algum grau">Apertado</option>
+                    <option value="excessivamente distante, dando espaço para movimentações do tubo">Largo demais</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Pele/Óstio</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="gtt-skin">
+                    <option value="sem sinais flogísticos detectáveis" selected>Normal</option>
+                    <option value="com mínima hiperemia juxtaóstio">&darr;&darr;Hiperemia</option>
+                    <option value="com hiperemia discreta juxtaóstio">&darr;Hiperemia</option>
+                    <option value="com hiperemia moderada juxtaóstio">&half;Hiperemia</option>
+                    <option value="com hiperemia intensa juxtaóstio">&uarr;Hiperemia</option>
+                    <option value="com necrose perióstio com tecido cutâneo inviável observável">Necrose</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="gtt-secretions">
+                    <option value="sem secreções quaisquer detectáveis" selected>Normal</option>
+                    <option value="com pequena quantidade de secreção sérica por óstio">&darr;Seroso</option>
+                    <option value="com grande quantidade de secreção sérica por óstio">&uarr;Seroso</option>
+                    <option value="com pequena quantidade de sangramento por óstio">&darr;Sangue</option>
+                    <option value="com grande quantidade de sangramento por óstio">&uarr;Sangue</option>
+                    <option value="com pequena quantidade de secreção purulenta por óstio">&darr;Pus</option>
+                    <option value="com grande quantidade de secreção purulenta por óstio">&uarr;Pus</option>
+                    <option value="com presença de extravasamento com aspecto semelhante a conteúdo gástrico">Cont. Gástrico</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Misc.</button>
+              </div>
+              <div class="control is-expanded">
+                <input type="text" class="input" id="gtt-misc" placeholder="Outras alterações/descrições...">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- -->
       </div>
     </div>
 
