@@ -12,6 +12,7 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - *Exame Físico*:
   - Colaboração.
   - Descrição de fácies.
+  - *HINTS*;
   - Turgor cutâneo de MMSS.
   - Empastamento e circunferência de panturrilhas.
   - Varizes.

@@ -1010,6 +1010,74 @@ require_once "header.php";
             </div>
           </div>
         </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="exam-hints" class="is-checkradio">
+              <label for="exam-hints">
+                <span class="icon">
+                  <i class="mdi mdi-weather-hurricane mdi-24px"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1"><em title="Avalição de Reflexo Vestibulo-Ocular, ou VOR em inglês.">Head Impulse</em></button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="hints-hi">
+                    <option value="SEM ALTERAÇÕES" data-pt="1" selected>Normal</option>
+                    <option value="latência à direita" data-pt="0">Atraso à D</option>
+                    <option value="latência à esquerda" data-pt="0">Atraso à E</option>
+                    <option value="latência a ambos os lados" data-pt="0">Atraso bilateral</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Nistagmo</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="hints-n">
+                    <option value="ausente" data-pt="0" selected>Ausente</option>
+                    <option value="horizontal unilateral" data-pt="0">Horizontal Unilat.</option>
+                    <option value="torcional" data-pt="0">Torcional</option>
+                    <option value="horizontal COM MUDANÇA DE LATERALIDADE" data-pt="1">Horizontal COM MUDANÇA DE LADO</option>
+                    <option value="VERTICAL para cima" data-pt="1">Upbeat</option>
+                    <option value="VERTICAL para baixo" data-pt="1">Downbeat</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Teste de&nbsp;<em>Skew</em></button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="hints-ts">
+                    <option value="ausente" data-pt="0" selected>Ausente</option>
+                    <option value="PRESENTE" data-pt="1">PRESENTE</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!-- -->
+          </div>
+        </div>
       </div>
     </div>
 

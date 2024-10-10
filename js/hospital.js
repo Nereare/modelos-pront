@@ -748,6 +748,26 @@ $(function() {
     if ($("#exam-naso").is(":checked")) {
       o.push("Nasoscopia anterior: mucosa " + $("#naso-skin").val() + ", cornetos nasais " + $("#naso-shells").val() + " e " + $("#naso-sept").val() + ".");
     }
+    // > HINTS
+    if ($("#exam-hints").is(":checked")) {
+      let hints = 0;
+      // Parse alterations
+      let hi = parseInt($("#hints-hi option:selected").attr("data-pt"));
+      hi = isNaN(hi) ? 1 : hi;
+      let n = parseInt($("#hints-n option:selected").attr("data-pt"));
+      n = isNaN(n) ? 1 : n;
+      let ts = parseInt($("#hints-ts option:selected").attr("data-pt"));
+      ts = isNaN(ts) ? 1 : ts;
+      // Sum alterations (should be ZERO for normality)
+      hints = hi + n + ts;
+      // Get string results
+      let str = ["HINTS (" + (hints > 0 ? "ALTERADO" : "normal") + "):"];
+      str.push("- Reflexo Vestibulo-Ocular: " + $("#hints-hi").val());
+      str.push("- Nistagmos: " + $("#hints-n").val());
+      str.push("- Teste de \"Skew\": " + $("#hints-ts").val());
+      // Push result
+      o.push(str.join("\n"));
+    }
     // Lungs
     if( $("#exam-lungs").is(":checked") ) {
       var crept = ".";
