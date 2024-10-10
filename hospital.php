@@ -3531,12 +3531,12 @@ require_once "header.php";
         <div class="columns is-vcentered">
           <div class="column is-2">
             <div class="field">
-              <input type="checkbox" id="score-abcd2" class="is-checkradio">
+              <input type="checkbox" id="score-abcd2" class="is-checkradio collapsable" data-target="sub-collapsable-abcd2">
               <label for="score-abcd2"><strong>ABCD²</strong></label>
             </div>
           </div>
 
-          <div class="column">
+          <div class="column is-hidden" id="sub-collapsable-abcd2">
             <div class="field has-addons">
               <div class="control">
                 <button class="button is-static" tabindex="-1">Idade</button>
@@ -3599,12 +3599,12 @@ require_once "header.php";
         <div class="columns is-vcentered">
           <div class="column is-2">
             <div class="field">
-              <input type="checkbox" id="score-wells-dvt" class="is-checkradio">
+              <input type="checkbox" id="score-wells-dvt" class="is-checkradio collapsable" data-target="sub-collapsable-wells-dvt">
               <label for="score-wells-dvt"><strong>TVP (Well's)</strong></label>
             </div>
           </div>
 
-          <div class="column">
+          <div class="column is-hidden" id="sub-collapsable-wells-dvt">
             <div class="field has-addons">
               <div class="control">
                 <button class="button is-static" tabindex="-1">Câncer ativo (&le;6 meses)?</button>
@@ -3754,12 +3754,12 @@ require_once "header.php";
         <div class="columns is-vcentered">
           <div class="column is-2">
             <div class="field">
-              <input type="checkbox" id="score-wells-pe" class="is-checkradio">
+              <input type="checkbox" id="score-wells-pe" class="is-checkradio collapsable" data-target="sub-collapsable-wells-pe">
               <label for="score-wells-pe"><strong>TEP (Well's)</strong></label>
             </div>
           </div>
 
-          <div class="column">
+          <div class="column is-hidden" id="sub-collapsable-wells-pe">
             <div class="field has-addons">
               <div class="control">
                 <button class="button is-static" tabindex="-1">Suspeita de TVP?</button>
@@ -3867,12 +3867,12 @@ require_once "header.php";
         <div class="columns is-vcentered">
           <div class="column is-2">
             <div class="field">
-              <input type="checkbox" id="score-pesi" class="is-checkradio">
+              <input type="checkbox" id="score-pesi" class="is-checkradio collapsable" data-target="sub-collapsable-pesi">
               <label for="score-pesi"><strong>PESI</strong></label>
             </div>
           </div>
 
-          <div class="column">
+          <div class="column is-hidden" id="sub-collapsable-pesi">
             <div class="field has-addons">
               <div class="control">
                 <button class="button is-static" tabindex="-1">Idade</button>
@@ -4031,12 +4031,12 @@ require_once "header.php";
         <div class="columns is-vcentered">
           <div class="column is-2">
             <div class="field">
-              <input type="checkbox" id="score-mascc" class="is-checkradio">
+              <input type="checkbox" id="score-mascc" class="is-checkradio collapsable" data-target="sub-collapsable-mascc">
               <label for="score-mascc"><strong>MASCC</strong></label>
             </div>
           </div>
 
-          <div class="column">
+          <div class="column is-hidden" id="sub-collapsable-mascc">
             <div class="field has-addons">
               <div class="control">
                 <button class="button is-static" tabindex="-1">Severidade de Sintomas</button>
@@ -4141,12 +4141,12 @@ require_once "header.php";
         <div class="columns is-vcentered">
           <div class="column is-2">
             <div class="field">
-              <input type="checkbox" id="score-port" class="is-checkradio">
+              <input type="checkbox" id="score-port" class="is-checkradio collapsable" data-target="sub-collapsable-port">
               <label for="score-port"><strong>PORT</strong></label>
             </div>
           </div>
 
-          <div class="column">
+          <div class="column is-hidden" id="sub-collapsable-port">
             <div class="field has-addons">
               <div class="control">
                 <button class="button is-static" tabindex="-1">Idade</button>
