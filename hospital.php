@@ -4634,6 +4634,26 @@ require_once "header.php";
 
           <div class="column is-hidden" id="sub-collapsable-nihss">
             <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Íctus</button>
+              </div>
+              <div class="control">
+                <input type="datetime-local" class="input" id="nihss-ictus">
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="nihss-wakeup">
+                    <option value="false">Em vigília</option>
+                    <option value="true">Wake-up</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <input type="datetime-local" class="input" id="nihss-ictus-sleep" disabled>
+              </div>
+            </div>
+
+            <div class="field has-addons">
               <div class="control has-tooltip-arrow has-tooltip-multiline"data-tooltip="O investigador deve escolher uma resposta mesmo se uma avaliação completa é prejudicada. Um 3 é dado apenas se o paciente não faz nenhum movimento.">
                 <button class="button is-static"tabindex="-1">
                   1a. Nível de Consciência

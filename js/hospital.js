@@ -542,6 +542,18 @@ $(function() {
         .attr("disabled", true);
     }
   });
+  // Enable Wake-up time
+  $("#nihss-wakeup").on("change", function() {
+    if ( $(this).val() == "true" ) {
+      $("#nihss-ictus-sleep")
+        .attr("disabled", false)
+        .trigger("focus");
+    } else {
+      $("#nihss-ictus-sleep")
+        .val("")
+        .attr("disabled", true);
+    }
+  });
 
   // Build output:
   $("#button-run").on("click", function() {
@@ -1772,6 +1784,28 @@ $(function() {
     }
     // NIHSS
     if ( $("#score-nihss").is(":checked") ) {
+      // Get ictus
+      if ($("#nihss-ictus").val() != "") {
+        // Get times
+        let start = "# Íctus = ";
+        let ictus = new Date( $("#nihss-ictus").val() + ":00.000-03:00" );
+        let now = new Date();
+        // Parse delta-t since ictus
+        let delta = now.getTime() - ictus.getTime();
+        delta = Math.round(delta / (1000*60*60));
+        // Return ictus
+        start += ictus.toLocaleDateString("pt-BR") + " às ~" + ictus.getHours("pt-BR") + "h" + (ictus.getMinutes("pt-BR") < 10 ? "0" : "") + ictus.getMinutes("pt-BR") + "min (~" + delta + "h desde íctus";
+        // Check if wake-up
+        if ($("#nihss-wakeup").val() == "true" && $("#nihss-ictus-sleep").val() != "") {
+          // Get sleeping time
+          let wakeup = new Date( $("#nihss-ictus-sleep").val() + ":00.000-03:00" );
+          // Add sleeping time
+          start += "; déficit \"wake-up\"; refere ter ido dormir " + wakeup.toLocaleDateString("pt-BR") + " às ~" + wakeup.getHours("pt-BR") + "h" + (wakeup.getMinutes("pt-BR") < 10 ? "0" : "") + wakeup.getMinutes("pt-BR") + "min";
+        }
+        start += ")";
+        o.push(start);
+      }
+      // Calculate score
       let score = 0;
       let desc = [];
       let pt = 0;
