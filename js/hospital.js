@@ -1444,7 +1444,8 @@ $(function() {
       $("#score-wells-pe").is(":checked") ||
       $("#score-pesi").is(":checked") ||
       $("#score-mascc").is(":checked") ||
-      $("#score-port").is(":checked")
+      $("#score-port").is(":checked") ||
+      $("#score-nihss").is(":checked")
     ) {
       o.push("");
     }
@@ -1768,6 +1769,151 @@ $(function() {
       else { classification = "V"; }
       // Push result
       o.push("# PORT Classe " + classification + " (" + score + "pts)");
+    }
+    // NIHSS
+    if ( $("#score-nihss").is(":checked") ) {
+      let score = 0;
+      let desc = [];
+      let pt = 0;
+      // Parse item #1a
+      pt = parseInt($("#nihss-1a").val());
+      pt = isNaN(pt) ? 0 : pt;
+      if (pt == 100) {
+        desc.push("1a=NT");
+      } else {
+        score += pt;
+        if (pt != 0) { desc.push("1a=" + pt); }
+      }
+      // Parse item #1b
+      pt = parseInt($("#nihss-1b").val());
+      pt = isNaN(pt) ? 0 : pt;
+      if (pt == 100) {
+        desc.push("1b=NT");
+      } else {
+        score += pt;
+        if (pt != 0) { desc.push("1b=" + pt); }
+      }
+      // Parse item #1c
+      pt = parseInt($("#nihss-1c").val());
+      pt = isNaN(pt) ? 0 : pt;
+      if (pt == 100) {
+        desc.push("1c=NT");
+      } else {
+        score += pt;
+        if (pt != 0) { desc.push("1c=" + pt); }
+      }
+      // Parse item #2
+      pt = parseInt($("#nihss-2").val());
+      pt = isNaN(pt) ? 0 : pt;
+      if (pt == 100) {
+        desc.push("2=NT");
+      } else {
+        score += pt;
+        if (pt != 0) { desc.push("2=" + pt); }
+      }
+      // Parse item #3
+      pt = parseInt($("#nihss-3").val());
+      pt = isNaN(pt) ? 0 : pt;
+      if (pt == 100) {
+        desc.push("3=NT");
+      } else {
+        score += pt;
+        if (pt != 0) { desc.push("3=" + pt); }
+      }
+      // Parse item #4
+      pt = parseInt($("#nihss-4").val());
+      pt = isNaN(pt) ? 0 : pt;
+      if (pt == 100) {
+        desc.push("4=NT");
+      } else {
+        score += pt;
+        if (pt != 0) { desc.push("4=" + pt); }
+      }
+      // Parse item #5a
+      pt = parseInt($("#nihss-5a").val());
+      pt = isNaN(pt) ? 0 : pt;
+      if (pt == 100) {
+        desc.push("5a=NT");
+      } else {
+        score += pt;
+        if (pt != 0) { desc.push("5a=" + pt); }
+      }
+      // Parse item #5b
+      pt = parseInt($("#nihss-5b").val());
+      pt = isNaN(pt) ? 0 : pt;
+      if (pt == 100) {
+        desc.push("5b=NT");
+      } else {
+        score += pt;
+        if (pt != 0) { desc.push("5b=" + pt); }
+      }
+      // Parse item #5a
+      pt = parseInt($("#nihss-5a").val());
+      pt = isNaN(pt) ? 0 : pt;
+      if (pt == 100) {
+        desc.push("5a=NT");
+      } else {
+        score += pt;
+        if (pt != 0) { desc.push("5a=" + pt); }
+      }
+      // Parse item #5b
+      pt = parseInt($("#nihss-5b").val());
+      pt = isNaN(pt) ? 0 : pt;
+      if (pt == 100) {
+        desc.push("5b=NT");
+      } else {
+        score += pt;
+        if (pt != 0) { desc.push("5b=" + pt); }
+      }
+      // Parse item #7
+      pt = parseInt($("#nihss-7").val());
+      pt = isNaN(pt) ? 0 : pt;
+      if (pt == 100) {
+        desc.push("7=NT");
+      } else {
+        score += pt;
+        if (pt != 0) { desc.push("7=" + pt); }
+      }
+      // Parse item #8
+      pt = parseInt($("#nihss-8").val());
+      pt = isNaN(pt) ? 0 : pt;
+      if (pt == 100) {
+        desc.push("8=NT");
+      } else {
+        score += pt;
+        if (pt != 0) { desc.push("8=" + pt); }
+      }
+      // Parse item #9
+      pt = parseInt($("#nihss-9").val());
+      pt = isNaN(pt) ? 0 : pt;
+      if (pt == 100) {
+        desc.push("9=NT");
+      } else {
+        score += pt;
+        if (pt != 0) { desc.push("9=" + pt); }
+      }
+      // Parse item #10
+      pt = parseInt($("#nihss-10").val());
+      pt = isNaN(pt) ? 0 : pt;
+      if (pt == 100) {
+        desc.push("10=NT");
+      } else {
+        score += pt;
+        if (pt != 0) { desc.push("10=" + pt); }
+      }
+      // Parse item #11
+      pt = parseInt($("#nihss-11").val());
+      pt = isNaN(pt) ? 0 : pt;
+      if (pt == 100) {
+        desc.push("11=NT");
+      } else {
+        score += pt;
+        if (pt != 0) { desc.push("11=" + pt); }
+      }
+      // Push result
+      r = "# NIHSS = " + score;
+      if (desc.length > 0) { r += " (" + desc.join("; ") + ")"; }
+      o.push(r);
     }
 
     $("#output-o").val( o.join("\n") );

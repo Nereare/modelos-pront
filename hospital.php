@@ -4619,6 +4619,296 @@ require_once "header.php";
             </div>
           </div>
         </div>
+
+        <div>
+          <div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
+        </div>
+
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <div class="field">
+              <input type="checkbox" id="score-nihss" class="is-checkradio collapsable" data-target="sub-collapsable-nihss">
+              <label for="score-nihss"><strong>NIHSS</strong></label>
+            </div>
+          </div>
+
+          <div class="column is-hidden" id="sub-collapsable-nihss">
+            <div class="field has-addons">
+              <div class="control has-tooltip-arrow has-tooltip-multiline"data-tooltip="O investigador deve escolher uma resposta mesmo se uma avaliação completa é prejudicada. Um 3 é dado apenas se o paciente não faz nenhum movimento.">
+                <button class="button is-static"tabindex="-1">
+                  1a. Nível de Consciência
+                </button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="nihss-1a">
+                  <option value="0" selected>Alerta; reponde com entusiasmo</option>
+                  <option value="1">Não alerta, mas ao ser acordado por mínima estimulação obedece, responde ou reage</option>
+                  <option value="2">Não alerta, requer repetida estimulação ou estimulação dolorosa para realizar movimentos (não estereotipados)</option>
+                  <option value="3">Responde somente com reflexo motor ou reações autonômicas, ou totalmente irresponsivo, flácido e arreflexo</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control has-tooltip-arrow has-tooltip-multiline"data-tooltip="O paciente é questionado sobre o mês e sua idade. Pacientes incapacitados de falar devido a intubação orotraqueal, trauma orotraqueal, disartria grave de qualquer causa, barreiras de linguagem ou qualquer outro problema não secundário a afasia receberão um 1.">
+                <button class="button is-static"tabindex="-1">
+                  1b. Perguntas de NdC
+                </button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="nihss-1b">
+                  <option value="0" selected>Responde ambas as questões corretamente</option>
+                  <option value="1">Responde uma questão corretamente</option>
+                  <option value="2">Não responde nenhuma questão corretamente</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control has-tooltip-arrow has-tooltip-multiline"data-tooltip="O paciente é solicitado a abrir e fechar os olhos e então abrir e fechar a mão não parética. É dado credito se uma tentativa inequívoca é feita, mas não completada devido à fraqueza.">
+                <button class="button is-static"tabindex="-1">
+                  1c. Comandos de NdC
+                </button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="nihss-1c">
+                  <option value="0" selected>Realiza ambas as tarefas corretamente</option>
+                  <option value="1">Realiza uma tarefa corretamente</option>
+                  <option value="2">Não realiza nenhuma tarefa corretamente</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control has-tooltip-arrow has-tooltip-multiline"data-tooltip="Somente os movimentos oculares horizontais são testados. Movimentos oculares voluntários ou reflexos (óculo-cefálico) recebem nota, mas a prova calórica não é usada.">
+                <button class="button is-static"tabindex="-1">
+                  2. Melhor Olhar Conjugado
+                </button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="nihss-2">
+                  <option value="0" selected>Normal</option>
+                  <option value="1">Paralisia parcial do olhar</option>
+                  <option value="2">Desvio forçado ou paralisia total do olhar que não podem ser vencidos</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control has-tooltip-arrow has-tooltip-multiline"data-tooltip="OS campos visuais (quadrantes superiores e inferiores) são testados por confrontação, utilizando contagem de dedos ou ameaça visual, conforme apropriado.">
+                <button class="button is-static"tabindex="-1">
+                  3. Visual
+                </button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="nihss-3">
+                  <option value="0" selected>Sem perda visual</option>
+                  <option value="1">Hemianopsia parcial</option>
+                  <option value="2">Hemianopsia completa</option>
+                  <option value="3">Hemianopsia bilateral</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control has-tooltip-arrow has-tooltip-multiline"data-tooltip="Pergunte ou use pantomima para encorajar o paciente a mostrar os dentes ou sorrir e fechar os olhos.">
+                <button class="button is-static"tabindex="-1">
+                  4. Paralisia Facial
+                </button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="nihss-4">
+                  <option value="0" selected>Movimentos normais simétricos</option>
+                  <option value="1">Paralisia facial leve</option>
+                  <option value="2">Paralisia facial central evidente</option>
+                  <option value="3">Paralisia facial completa</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control has-tooltip-arrow has-tooltip-multiline"data-tooltip="O braço é colocado na posição apropriada: extensão dos braços (palmas para baixo) a 90° (se sentado) ou a 45° (se deitado). É valorizada queda se esta ocorre antes de 10s.">
+                <button class="button is-static"tabindex="-1">
+                  5a. Motor MSE
+                </button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="nihss-5a">
+                  <option value="0" selected>Sem queda; mantém o braço por 10s completos</option>
+                  <option value="1">Queda; braço apresenta queda incompleta antes dos 10s completos; não toca a cama ou outro suporte</option>
+                  <option value="2">Algum esforço contra a gravidade; o braço extende, cai na cama, mas tem alguma força contra a gravidade</option>
+                  <option value="3">Nenhum esforço contra a gravidade; braço despenca</option>
+                  <option value="4">Nenhum movimento</option>
+                  <option value="100">Amputação ou fusão articular</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control has-tooltip-arrow has-tooltip-multiline"data-tooltip="O braço é colocado na posição apropriada: extensão dos braços (palmas para baixo) a 90° (se sentado) ou a 45° (se deitado). É valorizada queda se esta ocorre antes de 10s.">
+                <button class="button is-static"tabindex="-1">
+                  5b. Motor MSD
+                </button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="nihss-5b">
+                  <option value="0" selected>Sem queda; mantém o braço por 10s completos</option>
+                  <option value="1">Queda; braço apresenta queda incompleta antes dos 10s completos; não toca a cama ou outro suporte</option>
+                  <option value="2">Algum esforço contra a gravidade; o braço extende, cai na cama, mas tem alguma força contra a gravidade</option>
+                  <option value="3">Nenhum esforço contra a gravidade; braço despenca</option>
+                  <option value="4">Nenhum movimento</option>
+                  <option value="100">Amputação ou fusão articular</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control has-tooltip-arrow has-tooltip-multiline"data-tooltip="A perna é colocada na posição apropriada:  extensão a 30º (sempre na posição supina). É valorizada queda se esta ocorre antes de 5s.">
+                <button class="button is-static"tabindex="-1">
+                  5a. Motor MSE
+                </button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="nihss-5a">
+                  <option value="0" selected>Sem queda; mantém o perna por 10s completos</option>
+                  <option value="1">Queda; perna apresenta queda incompleta antes dos 10s completos; não toca a cama ou outro suporte</option>
+                  <option value="2">Algum esforço contra a gravidade; o perna extende, cai na cama, mas tem alguma força contra a gravidade</option>
+                  <option value="3">Nenhum esforço contra a gravidade; perna despenca</option>
+                  <option value="4">Nenhum movimento</option>
+                  <option value="100">Amputação ou fusão articular</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control has-tooltip-arrow has-tooltip-multiline"data-tooltip="A perna é colocada na posição apropriada:  extensão a 30º (sempre na posição supina). É valorizada queda se esta ocorre antes de 5s.">
+                <button class="button is-static"tabindex="-1">
+                  5b. Motor MSD
+                </button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="nihss-5b">
+                  <option value="0" selected>Sem queda; mantém o perna por 10s completos</option>
+                  <option value="1">Queda; perna apresenta queda incompleta antes dos 10s completos; não toca a cama ou outro suporte</option>
+                  <option value="2">Algum esforço contra a gravidade; o perna extende, cai na cama, mas tem alguma força contra a gravidade</option>
+                  <option value="3">Nenhum esforço contra a gravidade; perna despenca</option>
+                  <option value="4">Nenhum movimento</option>
+                  <option value="100">Amputação ou fusão articular</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control has-tooltip-arrow has-tooltip-multiline"data-tooltip="Testar se existe evidência de uma lesão cerebelar unilateral. Teste com os olhos abertos. Os testes índex-nariz e calcanhar-joelho são realizados bilateralmente, ataxia é valorizada somente se for desproporcional á fraqueza e se paciente ENTENDER.">
+                <button class="button is-static"tabindex="-1">
+                  7. Ataxia de Membros
+                </button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="nihss-7">
+                  <option value="0" selected>Ausente</option>
+                  <option value="1">Presente em 1 membro</option>
+                  <option value="2">Presente em 2 membros</option>
+                  <option value="100">Amputação ou fusão articular</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control has-tooltip-arrow has-tooltip-multiline"data-tooltip="Avalie sensibilidade ou mímica facial ao beliscar ou retirada do estímulo doloroso em paciente torporoso ou afásico. Somente perda de sensibilidade atribuída ao AVC é registrada como anormal, examinar tantas áreas do corpo (braços exceto mãos, pernas, tronco e face) quanto forem necessárias.">
+                <button class="button is-static"tabindex="-1">
+                  8. Sensibilidade
+                </button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="nihss-8">
+                  <option value="0" selected>Normal; nenhuma perda</option>
+                  <option value="1">Perda leve a moderada; sensibilidade é diminuída do lado afetado, mas paciente ciente de que está sendo tocado</option>
+                  <option value="2">Perda grave ou total; paciente não sente que está sendo tocado</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control has-tooltip-arrow has-tooltip-multiline"data-tooltip="Paciente é solicitado a descrever o que está acontecendo no quadro (pdf9/p3), a nomear os itens na lista de identificação (pdf9/p2), e a ler da lista de sentenças (pdf9/p1).">
+                <button class="button is-static"tabindex="-1">
+                  9. Melhor Linguagem
+                </button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="nihss-9">
+                  <option value="0" selected>Sem afasia; normal</option>
+                  <option value="1">Afasia leve a moderada; alguma perda óbvia da fluência ou compreensão, sem limitação significativa das idéias ou expressão</option>
+                  <option value="2">Afasia grave; comunicação feita através de expressões fragmentadas; grande necessidade de interferência, questionamento e adivinhação</option>
+                  <option value="3">Mudo, afasia global</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control has-tooltip-arrow has-tooltip-multiline"data-tooltip="Testar pedindo ao paciente que leia ou repita palavras da lista (pdf10).">
+                <button class="button is-static"tabindex="-1">
+                  10. Disartria
+                </button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="nihss-10">
+                  <option value="0" selected>Normal</option>
+                  <option value="1">Disartria leve a moderada; paciente arrasta pelo menos algumas palavras</option>
+                  <option value="2">Disartria grave; fala do paciente chega a ser ininteligível</option>
+                  <option value="100">Intubado ou outra barreira física</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control has-tooltip-arrow has-tooltip-multiline"data-tooltip="A presença de negligência espacial visual ou anosagnosia pode também ser considerada como evidência de negligência.">
+                <button class="button is-static"tabindex="-1">
+                  11. Extinção ou Desatenção
+                </button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="nihss-11">
+                  <option value="0" selected>Nenhuma anormalidade</option>
+                  <option value="1">Desatenção visual, táctil, auditiva, espacial OU pessoal</option>
+                  <option value="2">Profunda hemi-desatenção ou hemidesatenção para mais de uma modalidade</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- -->
       </div>
     </div>
 
