@@ -79,4 +79,13 @@ Este projeto está disponível sob a [Licença Hipocrática HL3-FULL](https://fi
 ### Atribuições
 
 - Ícones retirados ou adaptados de [Material Design Icons](https://materialdesignicons.com/), disponíveis sob a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0);
-- Ícone de Pernilongo: "Mosquito" por Georgiana Ionescu de [Noun Project](https://thenounproject.com/icon/mosquito-1975380/) (CC BY 3.0).
+- Ícone de Pernilongo: "Mosquito" por Georgiana Ionescu de [Noun Project](https://thenounproject.com/icon/mosquito-1975380/) (CC BY 3.0);
+- Pág. 1 do NIHSS:
+  - Lee & Fetsper &copy; 1983;
+- Pág. 2 do NIHSS:
+  - "Car" por Ar2ar de [Noun Project](https://thenounproject.com/icon/car-7258057/) (CC BY 3.0);
+  - "Horse" por NHA de [Noun Project](https://thenounproject.com/icon/horse-7084861/) (CC BY 3.0);
+  - "coconut palm" por Olga de [Noun Project](https://thenounproject.com/icon/coconut-palm-1627572/) (CC BY 3.0);
+  - "Scissors" por Peter de [Noun Project](https://thenounproject.com/icon/scissors-7238553/) (CC BY 3.0);
+  - "Bananas" por Alice Noir de [Noun Project](https://thenounproject.com/icon/bananas-2467080/) (CC BY 3.0);
+  - "Chair" por Zahirulizul de [Noun Project](https://thenounproject.com/icon/chair-6901199/) (CC BY 3.0).

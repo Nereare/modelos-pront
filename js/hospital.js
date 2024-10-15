@@ -555,6 +555,48 @@ $(function() {
     }
   });
 
+  // Scores
+  // > NIHSS
+  $("#nihss-9-helper-page").on("change", function() {
+    // Hide all slides
+    $(".nihss-9-slide").addClass("is-hidden");
+    // Get current page
+    let pg = parseInt($(this).val());
+    if (isNaN(pg) || pg < 0 || pg > 8) { pg = 0; }
+    // Set contents to the respective one
+    $("#nihss-9-" + pg).removeClass("is-hidden");
+  });
+  $(".nihss-helper-change").on("click", function() {
+    // Get action
+    let act = $(this).data("action");
+    // Get current page
+    let pg = parseInt($("#nihss-9-helper-page").val());
+    // Parse page
+    if (isNaN(pg) || pg < 0 || pg > 8) { pg = 0; }
+    // Change page accordingly
+    if (act == "next") { pg++; }
+    else { pg--; }
+    // Reparse page
+    if (pg < 0) { pg = 0; }
+    if (pg > 8) { pg = 8; }
+    // Update field
+    $("#nihss-9-helper-page")
+      .val(pg)
+      .trigger("change");
+  });
+  $("#show-nihss-9-helper").on("click", function() {
+    $("#nihss-9-helper").addClass("is-active");
+    $("#nihss-9-helper-page")
+      .val("0")
+      .trigger("change");
+  });
+  $("#show-nihss-10-helper").on("click", function() {
+    $("#nihss-10-helper").addClass("is-active");
+  });
+  $(".modal-close").on("click", function() {
+    $(this).parent().removeClass("is-active");
+  });
+
   // Build output:
   $("#button-run").on("click", function() {
     var o = ["# EF:"];

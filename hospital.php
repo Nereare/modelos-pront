@@ -4889,6 +4889,13 @@ require_once "header.php";
                   </select>
                 </div>
               </div>
+              <div class="control">
+                <button class="button is-link" id="show-nihss-9-helper">
+                  <span class="icon">
+                    <i class="mdi mdi-tooltip-plus"></i>
+                  </span>
+                </button>
+              </div>
             </div>
 
             <div class="field has-addons">
@@ -4906,6 +4913,13 @@ require_once "header.php";
                   <option value="100">Intubado ou outra barreira física</option>
                   </select>
                 </div>
+              </div>
+              <div class="control">
+                <button class="button is-link" id="show-nihss-10-helper">
+                  <span class="icon">
+                    <i class="mdi mdi-tooltip-plus"></i>
+                  </span>
+                </button>
               </div>
             </div>
 
@@ -4955,6 +4969,85 @@ require_once "header.php";
   </div>
 </main>
 
-<?php
-require_once "footer.php";
-?>
+<div class="modal" id="nihss-9-helper">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="box">
+      <input type="hidden" id="nihss-9-helper-page" value="0">
+      <div>
+        <!-- Page 1 -->
+        <div class="nihss-9-slide is-hidden" id="nihss-9-0">
+          <img src="assets/nihss/nihss9_pg1.jpg">
+        </div>
+        <!-- Page 2 - Slide 0 -->
+        <div class="nihss-9-slide is-hidden" id="nihss-9-1">
+          <img src="assets/nihss/nihss9_pg2_0.jpg">
+        </div>
+        <!-- Page 2 - Slide 1 -->
+        <div class="nihss-9-slide is-hidden" id="nihss-9-2">
+          <img src="assets/nihss/nihss9_pg2_1.jpg">
+        </div>
+        <!-- Page 2 - Slide 2 -->
+        <div class="nihss-9-slide is-hidden" id="nihss-9-3">
+          <img src="assets/nihss/nihss9_pg2_2.jpg">
+        </div>
+        <!-- Page 2 - Slide 3 -->
+        <div class="nihss-9-slide is-hidden" id="nihss-9-4">
+          <img src="assets/nihss/nihss9_pg2_3.jpg">
+        </div>
+        <!-- Page 2 - Slide 4 -->
+        <div class="nihss-9-slide is-hidden" id="nihss-9-5">
+          <img src="assets/nihss/nihss9_pg2_4.jpg">
+        </div>
+        <!-- Page 2 - Slide 5 -->
+        <div class="nihss-9-slide is-hidden" id="nihss-9-6">
+          <img src="assets/nihss/nihss9_pg2_5.jpg">
+        </div>
+        <!-- Page 2 - Slide 6 -->
+        <div class="nihss-9-slide is-hidden" id="nihss-9-7">
+          <img src="assets/nihss/nihss9_pg2_6.jpg">
+        </div>
+        <!-- Page 3 -->
+        <div class="content is-large has-text-centered mb-4 nihss-9-slide is-hidden" id="nihss-9-8">
+          <p>Você sabe como fazer.</p>
+          <p>De volta pra casa.</p>
+          <p>Eu cheguei em casa do trabalho.</p>
+          <p>Próximo da mesa, na sala de jantar.</p>
+          <p>Eles ouviram o Pelé falar no rádio.</p>
+        </div>
+      </div>
+      <div class="has-text-centered">
+        <button class="button nihss-helper-change" data-action="previous">
+          <span class="icon">
+            <i class="mdi mdi-skip-previous"></i>
+          </span>
+        </button>
+        <button class="button nihss-helper-change" data-action="next">
+          <span class="icon">
+            <i class="mdi mdi-skip-next"></i>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<div class="modal" id="nihss-10-helper">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="box">
+      <div class="content is-large has-text-centered">
+        <p>Mamãe</p>
+        <p>Tic-Tac</p>
+        <p>Paralelo</p>
+        <p>Obrigado</p>
+        <p>Estrada de ferro</p>
+        <p>Jogador de futebol</p>
+      </div>
+    </div>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<?php require_once "footer.php"; ?>
