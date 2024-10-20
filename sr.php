@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The slug for this page.
  * IMPORTANT: Set the variable below so that the header works properly!
@@ -480,13 +479,13 @@ if (isset($_COOKIE["sr_header"])) {
               <input type="checkbox" class="is-checkradio" id="symp-other-26" name="symps-other" value="otorreia">
               <label for="symp-other-26">Otorreia</label>
             </div>
-          </div>
-
-          <div class="column">
             <div class="field">
               <input type="checkbox" class="is-checkradio" id="symp-other-27" name="symps-other" value="plenitude otológica">
               <label for="symp-other-27">Plenitude Otológica</label>
             </div>
+          </div>
+
+          <div class="column">
             <div class="field">
               <input type="checkbox" class="is-checkradio" id="symp-other-28" name="symps-other" value="prurido nasal">
               <label for="symp-other-28">Prurido Nasal</label>
@@ -508,12 +507,16 @@ if (isset($_COOKIE["sr_header"])) {
               <label for="symp-other-32">Sensação de Calor</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-33" name="symps-other" value="toracalgia">
-              <label for="symp-other-33">Toracalgia</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-33" name="symps-other" value="sensação subjetiva de dispneia">
+              <label for="symp-other-33">Sensação de Dispneia</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="symp-other-34" name="symps-other" value="vertigem">
-              <label for="symp-other-34">Vertigem</label>
+              <input type="checkbox" class="is-checkradio" id="symp-other-34" name="symps-other" value="toracalgia">
+              <label for="symp-other-34">Toracalgia</label>
+            </div>
+            <div class="field">
+              <input type="checkbox" class="is-checkradio" id="symp-other-35" name="symps-other" value="vertigem">
+              <label for="symp-other-35">Vertigem</label>
             </div>
           </div>
         </div>
@@ -786,44 +789,40 @@ if (isset($_COOKIE["sr_header"])) {
               <label for="comorb-1">HAS</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-2" name="comorbidities" value="DM">
-              <label for="comorb-2">DM</label>
+              <input type="checkbox" class="is-checkradio" id="comorb-2" name="comorbidities" value="DMNID">
+              <label for="comorb-2">DMNID</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-3" name="comorbidities" value="Asma">
-              <label for="comorb-3">Asma</label>
+              <input type="checkbox" class="is-checkradio" id="comorb-3" name="comorbidities" value="DMID">
+              <label for="comorb-3">DMID</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-4" name="comorbidities" value="DPOC">
-              <label for="comorb-4">DPOC</label>
+              <input type="checkbox" class="is-checkradio" id="comorb-4" name="comorbidities" value="Asma">
+              <label for="comorb-4">Asma</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-5" name="comorbidities" value="DRC">
-              <label for="comorb-5">DRC</label>
+              <input type="checkbox" class="is-checkradio" id="comorb-5" name="comorbidities" value="DPOC">
+              <label for="comorb-5">DPOC</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-6" name="comorbidities" value="ICo">
-              <label for="comorb-6">ICo</label>
+              <input type="checkbox" class="is-checkradio" id="comorb-6" name="comorbidities" value="DRC">
+              <label for="comorb-6">DRC</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-7" name="comorbidities" value="AVC prévio">
-              <label for="comorb-7">AVC</label>
+              <input type="checkbox" class="is-checkradio" id="comorb-7" name="comorbidities" value="ICo">
+              <label for="comorb-7">ICo</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-8" name="comorbidities" value="Obesidade">
-              <label for="comorb-8">Obesidade</label>
+              <input type="checkbox" class="is-checkradio" id="comorb-8" name="comorbidities" value="AVC prévio">
+              <label for="comorb-8">AVC</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-9" name="comorbidities" value="PVHIV">
-              <label for="comorb-9">PVHIV</label>
+              <input type="checkbox" class="is-checkradio" id="comorb-9" name="comorbidities" value="Obesidade">
+              <label for="comorb-9">Obesidade</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-11" name="comorbidities" value="PVHIV+Aids">
-              <label for="comorb-11">PVHIV + Aids</label>
-            </div>
-            <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-12" name="comorbidities" value="ECNP">
-              <label for="comorb-12">PC</label>
+              <input type="checkbox" class="is-checkradio" id="comorb-10" name="comorbidities" value="ECNP">
+              <label for="comorb-10">PC</label>
             </div>
 
             <div class="field">
@@ -931,6 +930,7 @@ if (isset($_COOKIE["sr_header"])) {
                 <select id="work">
                   <option value="" selected>Sem resposta</option>
                   <option value="nega trabalhar">Não trabalha</option>
+                  <option value="aposentad[[PRONOUN]]">Aposentade</option>
                   <option value="nega estudar">Não estuda</option>
                   <option value="estuda">Estuda</option>
                   <option value="estuda e trabalha">Estuda + Trabalha</option>
@@ -2456,15 +2456,15 @@ if (isset($_COOKIE["sr_header"])) {
           <li>
             <div class="field has-addons">
               <div class="control">
-                <label for="plan-labnone" class="button">
+                <label for="plan-labrefusal" class="button">
                   <span class="icon">
                     <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
                   </span>
-                  <input type="checkbox" class="is-hidden checkbutton" id="plan-labnone" value="true">
+                  <input type="checkbox" class="is-hidden checkbutton" id="plan-labrefusal" value="true">
                 </label>
               </div>
               <div class="control is-expanded">
-                <button class="button is-static is-fullwidth" tabindex="-1">Oriento que&nbsp;<strong>não está nos grupos de coleta</strong>&nbsp;da SMS</button>
+                <button class="button is-static is-fullwidth" tabindex="-1">Ofereço exames / Pcte recusa</button>
               </div>
             </div>
           </li>
@@ -2973,8 +2973,17 @@ if (isset($_COOKIE["sr_header"])) {
                   <input type="checkbox" class="is-hidden checkbutton" id="plan-labresults" value="true">
                 </label>
               </div>
+              <div class="control">
+                <button class="button is-static" tabindex="-1">Oriento resultados</button>
+              </div>
               <div class="control is-expanded">
-                <button class="button is-static is-fullwidth" tabindex="-1">Oriento resultados labs</button>
+                <div class="select is-fullwidth">
+                  <select id="plan-labresults-desc">
+                    <option value="exame de imagem" selected>Imagem</option>
+                    <option value="exames laboratoriais">Labs</option>
+                    <option value="exames laboratoriais e de imagem">Labs + Imagem</option>
+                  </select>
+                </div>
               </div>
             </div>
           </li>

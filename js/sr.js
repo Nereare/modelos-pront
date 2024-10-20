@@ -876,10 +876,7 @@ function runP() {
     if( $("#plan-labcovid").is(":checked") ) { p.push( "Solicito coleta de " + $("#labcovid").val() + " para SARS-CoV-2" + $("#labcovid-refusal").val() ); }
     if( $("#plan-labflu").is(":checked") ) { p.push( "Solicito coleta de " + $("#labflu").val() + " para Influenza A/B" + $("#labflu-refusal").val() ); }
     if( $("#plan-labother").is(":checked") ) { p.push("Solicito " + $("#labother").val()); }
-    if( $("#plan-labnone").is(":checked") ) {
-      p.push( "Oriento paciente no protocolo vigente da Prefeitura Municipal de São Paulo e como ele restringe a possibilidade de coleta de exames para detecção de SARS-CoV-2, não estando o paciente entre os grupos autorizados por tal protocolo a colher exames de COVID-19" );
-      p.push( "Oriento também que, não fosse esse protocolo, paciente apresenta sim indicação de colher exame para detecção de SARS-CoV-2, uma vez que apresenta uma suspeita de infecção por este vírus" );
-    }
+    if ($("#plan-labrefusal").is(":checked") ) { p.push( "Ofereço solicitação de exames para detecção viral, mas paciente recusa" ); }
     // Leaves
     if( $("#plan-leave").is(":checked") ) { p.push( "Atesto paciente para " + $("#leave").val() + " dias" + $("#leave-reason").val() ); }
     if( $("#plan-leaverefuse").is(":checked") ) { p.push("Ofereço afastamento, que paciente recusa"); }
@@ -917,7 +914,7 @@ function runP() {
       p.push( "Oriento paciente que, segundo artigo 7.3.1, tópico (b), da Norma Regulamentadora Nº 07, que define e regulamenta o Programa de Controle Médico de Saúde Ocupacional (PCMSO) sob a Consolidação das Leis do Trabalho, é ÔNUS DO EMPREGADOR arcar e custear com exames demandados para SAÚDE OCUPACIONAL" );
       p.push( "Oriento paciente também que, do ponto de vista de medicina ASSISTENCIAL, de que trata seu contato hoje com este serviço de saúde, paciente não preenche critério para coleta de RT-PCR ou Sorologia para SARS-CoV-2, como definido pelo protoco de combate à pandemia de COVID-19 da Secretaria Municipal de Saúde" );
     }
-    if( $("#plan-labresults").is(":checked") ) { p.push( "Oriento sobre resultados de exames laboratoriais" ); }
+    if( $("#plan-labresults").is(":checked") ) { p.push( "Oriento sobre resultados de " + $("#plan-labresults-desc").val() ); }
     if( $("#plan-labwait").is(":checked") ) { p.push( "Oriento que exame previamente coletado ainda não está pronto" ); }
     // Follow Up
     if( $("#plan-followup").is(":checked") ) { p.push( "Oriento retorno no Sintomáticos Respiratórios em " + $("#followup").val() + " dias para " + $("#followup-reason").val() ); }

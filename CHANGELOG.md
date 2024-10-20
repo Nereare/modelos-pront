@@ -12,6 +12,8 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
     - SNE.
   - Escores:
     - NIHSS.
+- *Sintomáticos Respiratórios*:
+  - Pequenas otimizações miscelâneas.
 
 ## [2.15.0]
 ### Adicionado
