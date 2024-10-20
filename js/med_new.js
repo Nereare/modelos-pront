@@ -100,6 +100,7 @@ function new_med(
     .on("click", function() {
       $("#wizard-target").val("med-subscript-" + uuid);
       $("#wizard").addClass("is-active");
+      $("#wizard-cps").trigger("focus");
     });
   let subscript_autofill_control = $("<div>")
     .addClass("control")

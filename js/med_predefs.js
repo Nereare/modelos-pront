@@ -1021,4 +1021,40 @@ let predefineds = {
       "Tomar junto de lamivudina+tenofovir.",
     ],
   ],
+  "Tramadol IV": [
+    [
+      "Tramadol 100mg/02mL",
+      "Via Intravenosa",
+      "01 amp",
+      "Aplicar 01 amp em DOSE ÚNICA.",
+      ""
+    ]
+  ],
+  "Morf IV": [
+    [
+      "Morfina 10mg/mL",
+      "Via Intravenosa",
+      "01 amp",
+      "Aplicar 01 amp em DOSE ÚNICA.",
+      ""
+    ]
+  ],
+  "Haloperidol IM": [
+    [
+      "Haloperidol 05mg/mL",
+      "Via Intramuscular",
+      "01 amp",
+      "Aplicar 01 amp em DOSE ÚNICA.",
+      ""
+    ]
+  ],
+  "Diazepam IV": [
+    [
+      "Diazepam 10mg/02mL",
+      "Via Intravenosa",
+      "01 amp",
+      "Aplicar 01 amp em DOSE ÚNICA.",
+      ""
+    ]
+  ],
 };

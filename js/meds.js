@@ -2,7 +2,6 @@ $(function() {
   // Initialize predefs
   $.each(predefineds, function(i, v) {
     $("#predefineds").append( $("<option>", { text: i, value: i}) )
-    console.log(i);
   });
   // Set predefined prescription from select menu
   $("#predefineds").on("change", function() {
@@ -40,8 +39,13 @@ $(function() {
     $(".med-item").each(function(index) {
       // Inscript
       let item = (index + 1) + ". " + $(this).find(".med-name").val() + " --- " + $(this).find(".med-way").val() + " ------------------------------------------------------------------------";
-      if ($(this).find(".med-qtt").val() != "") {
-        item += $(this).find(".med-qtt").val();
+      let med_qtt = $(this).find(".med-qtt").val();
+      if (med_qtt != "") {
+        if (/^\d+$/.test(med_qtt)) {
+          let qtt = parseInt(med_qtt);
+          med_qtt += " cp" + (qtt > 1 ? "s" : "");
+        }
+        item += " " + med_qtt;
       }
       // Subscript
       item += "\n    " + $(this).find(".med-subscript").val();
