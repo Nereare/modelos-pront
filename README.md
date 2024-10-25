@@ -88,4 +88,5 @@ Este projeto está disponível sob a [Licença Hipocrática HL3-FULL](https://fi
   - "coconut palm" por Olga de [Noun Project](https://thenounproject.com/icon/coconut-palm-1627572/) (CC BY 3.0);
   - "Scissors" por Peter de [Noun Project](https://thenounproject.com/icon/scissors-7238553/) (CC BY 3.0);
   - "Bananas" por Alice Noir de [Noun Project](https://thenounproject.com/icon/bananas-2467080/) (CC BY 3.0);
-  - "Chair" por Zahirulizul de [Noun Project](https://thenounproject.com/icon/chair-6901199/) (CC BY 3.0).
+  - "Chair" por Zahirulizul de [Noun Project](https://thenounproject.com/icon/chair-6901199/) (CC BY 3.0);
+- Adaptado do caso cortesia de Frank Gaillard, [Radiopaedia.org](https://radiopaedia.org/). Do caso [rID: 57603](https://radiopaedia.org/cases/57603).

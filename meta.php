@@ -4,7 +4,7 @@ define("APP_AUTHOR", "Igor Padoim");
 define("APP_YEAR", "2021-2023");
 define("APP_LICENSE_NAME", "Licença Hipocrática");
 define("APP_LICENSE_URI", "https://firstdonoharm.dev/");
-define("APP_VERSION", "2.15.5");
+define("APP_VERSION", "2.16.0");
 
 define("MODELS", [
   "sr" => [
@@ -63,12 +63,12 @@ define("MODELS", [
     "Cápsula de medicação a 45°",
     "Prescrições"
   ],
-  "report" => [
-    "report",
-    "report.php",
-    "report.svg",
+  "rx" => [
+    "rx",
+    "rx.php",
+    "rx.svg",
     "Quadrado de bordas arredondadas com caixa torácica estilizada em negativo",
-    "Laudos de Rx Tórax"
+    "Laudos de Rx"
   ],
   "labs" => [
     "labs",
