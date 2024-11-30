@@ -16,6 +16,7 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
   - Pequenas otimizações miscelâneas.
 - *Meds Pré-Definidas*:
   - Reintroduzidas medicações para fluxo de um certo PS específico da zona sul... #iykyk
+  - Modelo de administração domicliar de ceftriaxona.
 - *Laudos Rx*:
   - Incluído laudos para Abdome, Colunas e Seios da Face.
 

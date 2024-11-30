@@ -1057,4 +1057,13 @@ let predefineds = {
       ""
     ]
   ],
+  "Ceftriaxona PEC": [
+    [
+      "Ceftriaxona 01g/amp",
+      "Via Intravenosa",
+      "2X amp",
+      "Diluir 02g (02 ampolas) em 100mL de SF 0,9% e infundir em 30min, a cada 24 horas, por X dias",
+      "Autorizo administração de ceftriaxona por vias IM ou SC na inviabilidade de via IV."
+    ]
+  ],
 };
