@@ -15,11 +15,27 @@ require_once "header.php";
       <div class="tabs is-centered is-toggle">
         <ul>
           <li>
-            <a class="report-type" data-type="thorax" data-laterality="false">
+            <a class="report-type" id="report-default" data-type="thorax" data-laterality="false">
               <span class="icon is-small">
                 <i class="mdi mdi-lungs"></i>
               </span>
               <span>Tórax</span>
+            </a>
+          </li>
+          <li>
+            <a class="report-type" data-type="abdomen" data-laterality="false">
+              <span class="icon is-small">
+                <i class="mdi mdi-stomach"></i>
+              </span>
+              <span>Abdome</span>
+            </a>
+          </li>
+          <li>
+            <a class="report-type" data-type="column" data-laterality="false">
+              <span class="icon is-small">
+                <i class="mdi mdi-pillar"></i>
+              </span>
+              <span>Colunas</span>
             </a>
           </li>
           <li>
@@ -28,14 +44,6 @@ require_once "header.php";
                 <i class="mdi mdi-skull-scan"></i>
               </span>
               <span>Seios Face</span>
-            </a>
-          </li>
-          <li>
-            <a class="report-type" id="report-default" data-type="column" data-laterality="false">
-              <span class="icon is-small">
-                <i class="mdi mdi-pillar"></i>
-              </span>
-              <span>Colunas</span>
             </a>
           </li>
         </ul>
@@ -222,6 +230,24 @@ require_once "header.php";
         </div>
       </div>
 
+      <div class="technique-box" id="technique-box-abdomen">
+        <h4 class="title is-6">Abdome Agudo</h4>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Inclui Diafragma&harr;Pelve</button>
+          </div>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <select class="adequability-technique column" data-wrong="Imagem não inclui das cúpulas diafragmáticas até a pelve">
+                <option value="ok" selected>Adequado</option>
+                <option value="shat">Inadequado</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="technique-box" id="technique-box-sinuses">
         <h4 class="title is-6">Seios da Face</h4>
 
@@ -268,6 +294,9 @@ require_once "header.php";
       <h3 class="title is-5">Avaliação</h3>
 
       <div class="eval-box" id="eval-box-thorax">
+        <!-------------------------------------------->
+        <!--                 Thorax                 -->
+        <!-------------------------------------------->
         <h4 class="title is-6">Coração</h4>
 
         <div class="columns">
@@ -722,6 +751,9 @@ require_once "header.php";
       </div>
 
       <div class="eval-box" id="eval-box-sinuses">
+        <!-------------------------------------------->
+        <!--                Sinuses                 -->
+        <!-------------------------------------------->
         <div class="content">
           <p>A não ser que você tenha pedido esse exame para avaliar padrão de "crânio em sal e pimenta", lembre-se que <a target="_blank" href="https://aborlccf.org.br/wp-content/uploads/2022/09/TemasAtualizacaoRinologia4.pdf"><strong>a própria ABORL</strong> o considera inútil no diagnóstico de sinusite desde 1998</a>! &#x1f600;</p>
           <p>(Em específico, note página 23, sob <em>Diagnóstico radiológico</em>.)</p>
@@ -5530,6 +5562,318 @@ require_once "header.php";
           </div>
         </div>
         <!-- Lumbar end -->
+      </div>
+
+      <div class="eval-box" id="eval-box-abdomen">
+        <!-------------------------------------------->
+        <!--                 Abdomen                -->
+        <!-------------------------------------------->
+        <h4 class="title is-6"><strong>A</strong>r</h4>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Pneumoperitôneo</button>
+          </div>
+          <div class="control">
+            <div class="select">
+              <select id="abdomen-a-pneumoperitoneum">
+                <option value="ok" selected>ausente</option>
+                <option value="shat">PRESENTE</option>
+              </select>
+            </div>
+          </div>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <select id="abdomen-a-pneumoperitoneum-sign" disabled>
+                <option value="ar entre silhueta hepática e cúpula diafragmática direita" selected>ar > fígado</option>
+                <option value="sinal de Rigler">Rigler</option>
+                <option value="ar entre silhueta hepática e cúpula diafragmática direita E sinal de Rigler">fígado + Rigler</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Aerobilia</button>
+          </div>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <select id="abdomen-a-pneumobilia">
+                <option value="" selected>N/A</option>
+                <option value="ok">ausente</option>
+                <option value="shat">PRESENTE</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="title is-6">Intestinos (<em>Bowel</em>)</h4>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Int. Delgado</button>
+          </div>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <select id="abdomen-b-smallbowel">
+                <option value="central e com atenuação habitual" selected>Normal</option>
+                <option value="central, mas com aumento da quantidade de gás dentro de alças">&uarr;Gás</option>
+                <option value="central, mas com grande quantidade de ar em alças, distensão gasosa destas, e sinal de 'empilhamento de moedas'">&uarr;&uarr;&uarr;Gás</option>
+                <option value="não detectável por ausência de gás mesoabdominal digno de nota">&empty;Gás</option>
+              </select>
+            </div>
+          </div>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <select id="abdomen-b-smallbowel-liquid">
+                <option value="" selected>N/A</option>
+                <option value=", sem nível hidroaéreo detectável">Sem Nvl Hidroaéreo</option>
+                <option value=", COM nível hidroaéreo observável">COM Nvl Hidroaéreo</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Cólon</button>
+          </div>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <select id="abdomen-b-colon">
+                <option value="com atenuação habitual" selected>Normal</option>
+                <option value="com aumento de gás em suas luzes">&uarr;Gás</option>
+                <option value="com grande quantidade de gás intraluminal associado a haustrações evidentes">&uarr;&uarr;&uarr;Gás</option>
+                <option value="não detectáveis ao método por ausência de gás em topografia compatível">&empty;Gás</option>
+              </select>
+            </div>
+          </div>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <select id="abdomen-b-colon-liquid">
+                <option value="" selected>N/A</option>
+                <option value=", sem nível hidroaéreo detectável">Sem Nvl Hidroaéreo</option>
+                <option value=", COM nível hidroaéreo observável">COM Nvl Hidroaéreo</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Sigmoide</button>
+          </div>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <select id="abdomen-b-sigmoid">
+                <option value="com atenuação habitual" selected>Normal</option>
+                <option value="com aumento de gás em sua luz">&uarr;Gás</option>
+                <option value="com grande quantidade de gás intraluminal associado a haustrações evidentes">&uarr;&uarr;&uarr;Gás</option>
+                <option value="com SINAIS DE VOLVO DE SIGMOIDE">VOLVO!!</option>
+                <option value="não detectável ao método por ausência de gás em topografia compatível">&empty;Gás</option>
+              </select>
+            </div>
+          </div>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <select id="abdomen-b-sigmoid-sign" disabled>
+                <option value="" selected>N/A</option>
+                <option value=", com presença de sinal do grão-de-café">Grão-de-Café</option>
+                <option value=", com presença de sinal de Frimann-Dahl">Frimann-Dahl</option>
+                <option value=", com presença de sinais do grão-de-café E de Frimann-Dahl">Grão-de-Café + Frimann</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Fezes</button>
+          </div>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <select id="abdomen-b-feces">
+                <option value="" selected>N/A</option>
+                <option value="não observáveis">Ausentes</option>
+                <option value="com imagem de 'miolo-de-pão' em quantidade habitual em topografia de ampola retal">Normal</option>
+                <option value="com imagem de 'miolo-de-pão' até cólon esquerdo">Cólon Esq.</option>
+                <option value="com imagem de 'miolo-de-pão' até cólon transverso">Cólon Transv.</option>
+                <option value="com imagem de 'miolo-de-pão' até cólon DIREITO">Cólon DIR!</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="title is-6">Estruturas <strong>D</strong>ensas</h4>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Ossos</button>
+          </div>
+          <div class="control">
+            <div class="select">
+              <select id="abdomen-d-bones">
+                <option value="ok" selected>ndn</option>
+                <option value="shat">COM...</option>
+              </select>
+            </div>
+          </div>
+          <div class="control is-expanded">
+            <input type="text" class="input" id="abdomen-d-bones-shat" placeholder="Descreva alterações..." disabled>
+          </div>
+        </div>
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Cálculos Biliares</button>
+          </div>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <select id="abdomen-d-gallbladder">
+                <option value="ok" selected>ausentes</option>
+                <option value="1">PRESENTE / Único</option>
+                <option value="2">PRESENTE / Múltiplos</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Cálculos Urinários</button>
+          </div>
+          <div class="control">
+            <div class="select">
+              <select id="abdomen-d-uroliths">
+                <option value="ok" selected>ausentes</option>
+                <option value="shat1">PRESENTE / único</option>
+                <option value="shat2">PRESENTES</option>
+              </select>
+            </div>
+          </div>
+          <div class="control">
+            <button class="button is-static" tabindex="-1">em</button>
+          </div>
+          <div class="control is-expanded">
+            <input type="text" class="input" id="abdomen-d-uroliths-shat" placeholder="Descreva..." disabled>
+          </div>
+        </div>
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Silhueta Ao</button>
+          </div>
+          <div class="control">
+            <div class="select">
+              <select id="abdomen-d-aorta">
+                <option value="ok" selected>N/A</option>
+                <option value="shat">COM...</option>
+              </select>
+            </div>
+          </div>
+          <div class="control is-expanded">
+            <input type="text" class="input" id="abdomen-d-aorta-shat" placeholder="Descreva alteração..." disabled>
+          </div>
+        </div>
+
+        <h4 class="title is-6"><strong>Ó</strong>rgãos</h4>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Bolha Gástrica</button>
+          </div>
+          <div class="control">
+            <div class="select">
+              <select id="abdomen-o-stomach">
+                <option value="" selected>N/A</option>
+                <option value="ok">ausentes</option>
+                <option value="shat">COM...</option>
+              </select>
+            </div>
+          </div>
+          <div class="control is-expanded">
+            <input type="text" class="input" id="abdomen-o-stomach-shat" placeholder="Descreva alteração..." disabled>
+          </div>
+        </div>
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Bexigoma</button>
+          </div>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <select id="abdomen-o-bladder">
+                <option value="" selected>N/A</option>
+                <option value="ok">ausentes</option>
+                <option value="shat">PRESENTES</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="title is-6">Objetos E<strong>X</strong>ternos</h4>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Ponta SNE</button>
+          </div>
+          <div class="control">
+            <div class="select">
+              <select id="abdomen-x-sne">
+                <option value="" selected>N/A</option>
+                <option value="ok" selected>Normal</option>
+                <option value="shat">COM...</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <input type="text" class="input" id="abdomen-x-sne-shat" placeholder="Descreva alteração..." disabled>
+          </div>
+        </div>
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Ponta CVC</button>
+          </div>
+          <div class="control">
+            <div class="select">
+              <select id="abdomen-x-cvc">
+                <option value="" selected>N/A</option>
+                <option value="ok" selected>Normal</option>
+                <option value="shat">COM...</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <input type="text" class="input" id="abdomen-x-cvc-shat" placeholder="Descreva alteração..." disabled>
+          </div>
+        </div>
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Balão CVD</button>
+          </div>
+          <div class="control">
+            <div class="select">
+              <select id="abdomen-x-cvd">
+                <option value="" selected>N/A</option>
+                <option value="ok" selected>Normal</option>
+                <option value="shat">COM...</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <input type="text" class="input" id="abdomen-x-cvd-shat" placeholder="Descreva alteração..." disabled>
+          </div>
+        </div>
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Duplo-J</button>
+          </div>
+          <div class="control">
+            <div class="select">
+              <select id="abdomen-x-jj">
+                <option value="" selected>N/A</option>
+                <option value="ok" selected>Normal</option>
+                <option value="shat">COM...</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <input type="text" class="input" id="abdomen-x-jj-shat" placeholder="Descreva alteração..." disabled>
+          </div>
+        </div>
       </div>
 
       <h4 class="title is-6 mt-3">Miscelânea</h4>

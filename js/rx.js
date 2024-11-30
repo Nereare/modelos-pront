@@ -311,6 +311,129 @@ $(function() {
   });
 
   /************************************************/
+  /*                    Abdomen                   */
+  /************************************************/
+  // Air
+  $("#abdomen-a-pneumoperitoneum").on("change", function() {
+    if ($(this).val() != "ok") {
+      $("#abdomen-a-pneumoperitoneum-sign")
+        .attr("disabled", false)
+        .trigger("focus");
+    } else {
+      $("#abdomen-a-pneumoperitoneum-sign")
+        .attr("disabled", true);
+    }
+  });
+  // Sigmoid Volvulus
+  $("#abdomen-b-sigmoid").on("change", function() {
+    if ($(this).val() == "com SINAIS DE VOLVO DE SIGMOIDE") {
+      $("#abdomen-b-sigmoid-sign")
+        .attr("disabled", false)
+        .trigger("focus");
+    } else {
+      $("#abdomen-b-sigmoid-sign")
+        .attr("disabled", true)
+        .val("");
+    }
+  });
+  // Bones
+  $("#abdomen-d-bones").on("change", function() {
+    if ($(this).val() != "ok") {
+      $("#abdomen-d-bones-shat")
+        .attr("disabled", false)
+        .trigger("focus");
+    } else {
+      $("#abdomen-d-bones-shat")
+        .attr("disabled", true)
+        .val("");
+    }
+  });
+  // Uroliths
+  $("#abdomen-d-uroliths").on("change", function() {
+    if ($(this).val() != "ok") {
+      $("#abdomen-d-uroliths-shat")
+        .attr("disabled", false)
+        .trigger("focus");
+    } else {
+      $("#abdomen-d-uroliths-shat")
+        .attr("disabled", true)
+        .val("");
+    }
+  });
+  // Aorta
+  $("#abdomen-d-aorta").on("change", function() {
+    if ($(this).val() != "ok") {
+      $("#abdomen-d-aorta-shat")
+        .attr("disabled", false)
+        .trigger("focus");
+    } else {
+      $("#abdomen-d-aorta-shat")
+        .attr("disabled", true)
+        .val("");
+    }
+  });
+  // Stomach
+  $("#abdomen-o-stomach").on("change", function() {
+    if ($(this).val() == "shat") {
+      $("#abdomen-o-stomach-shat")
+        .attr("disabled", false)
+        .trigger("focus");
+    } else {
+      $("#abdomen-o-stomach-shat")
+        .attr("disabled", true)
+        .val("");
+    }
+  });
+  // Nasoenteric Tube
+  $("#abdomen-x-sne").on("change", function() {
+    if ($(this).val() == "shat") {
+      $("#abdomen-x-sne-shat")
+        .attr("disabled", false)
+        .trigger("focus");
+    } else {
+      $("#abdomen-x-sne-shat")
+        .attr("disabled", true)
+        .val("");
+    }
+  });
+  // Central Catheter
+  $("#abdomen-x-cvc").on("change", function() {
+    if ($(this).val() == "shat") {
+      $("#abdomen-x-cvc-shat")
+        .attr("disabled", false)
+        .trigger("focus");
+    } else {
+      $("#abdomen-x-cvc-shat")
+        .attr("disabled", true)
+        .val("");
+    }
+  });
+  // Bladder Catheter
+  $("#abdomen-x-cvd").on("change", function() {
+    if ($(this).val() == "shat") {
+      $("#abdomen-x-cvd-shat")
+        .attr("disabled", false)
+        .trigger("focus");
+    } else {
+      $("#abdomen-x-cvd-shat")
+        .attr("disabled", true)
+        .val("");
+    }
+  });
+  // Double-J Stent
+  $("#abdomen-x-jj").on("change", function() {
+    if ($(this).val() == "shat") {
+      $("#abdomen-x-jj-shat")
+        .attr("disabled", false)
+        .trigger("focus");
+    } else {
+      $("#abdomen-x-jj-shat")
+        .attr("disabled", true)
+        .val("");
+    }
+  });
+
+  /************************************************/
   /*                   All Types                  */
   /************************************************/
   // Add miscellaneous description field & button method
@@ -394,7 +517,7 @@ function build_technique(type) {
   let params = [];
 
   // Parse common parameters
-  if ($("#adequability-exposure").val() != "ok") { params.push($("#adequability-exposure").data("wrong")); }
+  if ($("#adequability-exposure").val() != "ok") { params.push($("#adequability-exposure").val()); }
   if ($("#adequability-technique").val() != "ok") { params.push($("#adequability-technique").data("wrong")); }
   if ($("#adequability-orthogonal").val() != "ok") { params.push($("#adequability-orthogonal").data("wrong")); }
   // Parse specific parameters
@@ -434,6 +557,9 @@ function build_eval(type) {
   switch (type) {
     case "column":
       r = build_eval_column();
+      break;
+    case "abdomen":
+      r = build_eval_abdomen();
       break;
     default:
       r = build_eval_thorax();
@@ -2029,6 +2155,125 @@ function build_eval_column() {
     if (lesion.length > 0) {
       res.push("    - Observa-se também " + humanList(lesion));
     }
+  }
+
+  // Return evaluation array
+  return res;
+}
+function build_eval_abdomen() {
+  let res = [];
+
+  // Air
+  // > Pneumoperitoneum
+  if ($("#abdomen-a-pneumoperitoneum").val() == "ok") {
+    res.push("  - Ausência de pneumoperitônio observável");
+  } else {
+    res.push("  - Pneumoperitônio PRESENTE às custas de " + $("#abdomen-a-pneumoperitoneum-sign").val());
+  }
+  // > Pneumobilia
+  if ($("#abdomen-a-pneumobilia").val() != "") {
+    let pneumobilia = "  - Aerobilia ";
+    pneumobilia += $("#abdomen-a-pneumobilia").val() == "ok" ? "ausente" : "aparentemente PRESENTE";
+    res.push(pneumobilia);
+  }
+
+  // Bowels
+  // > Small bowel
+  res.push("  - Intestino Delgado " + $("#abdomen-b-smallbowel").val() + $("#abdomen-b-smallbowel-liquid").val());
+  // > Colon
+  res.push("  - Cólons " + $("#abdomen-b-colon").val() + $("#abdomen-b-colon-liquid").val());
+  // > Sigmoid
+  res.push("  - Sigmoide " + $("#abdomen-b-sigmoid").val() + $("#abdomen-b-sigmoid-sign").val());
+  // > Feces
+  if ($("#abdomen-b-feces").val() != "") {
+    res.push("  - Fezes " + $(this).val());
+  }
+
+  // Densities
+  // > Bones
+  if ($("#abdomen-d-bones").val() != "ok" && $("#abdomen-d-bones-shat").val().trim() != "") {
+    res.push("  - Ossos com " + $("#abdomen-d-bones-shat").val().trim());
+  }
+  // > Gallbladder Stones
+  if ($("#abdomen-d-gallbladder").val() != "ok") {
+    res.push("  - Aparente presença de " + ($("#abdomen-d-gallbladder").val() == "1" ? "cálculo biliar único" : "cálculos biliares múltiplos") + " em topografia de ponto de Murphy");
+  }
+  // > Uroliths
+  if ($("#abdomen-d-uroliths").val() != "ok" && $("#abdomen-d-uroliths-shat").val().trim() != "") {
+    res.push("  - Aparente presença de " + ($(this).val() == "shat1" ? "cálculo urinário" : "cálculos urinários") + " em " + $("#abdomen-d-uroliths-shat").val().trim());
+  }
+  // > Aorta
+  if ($("#abdomen-d-aorta").val() != ok && $("#abdomen-d-aorta-shat").val().trim() != "") {
+    res.push("  - Silhueta aórtica com " + $("#abdomen-d-aorta-shat").val().trim());
+  }
+
+  // Organs
+  // > Stomach
+  if ($("#abdomen-o-stomach").val() != "") {
+    let stomach = "  - Bolha gástrica ";
+    if ($(this).val() == "ok") {
+      stomach += "tópica e com atenuação habitual";
+    } else {
+      stomach += "com " + $("#abdomen-o-stomach-shat").val().trim();
+    }
+    res.push(stomach);
+  }
+  // > Bladder
+  if ($("#abdomen-o-bladder").val() != "") {
+    let bladder = "  - Bexigoma ";
+    if ($(this).val() == "ok") { bladder += "ausente"; }
+    else { bladder += "OBSERVÁVEL"; }
+    res.push(bladder);
+  }
+
+  // EXternal Devices
+  // > Nasoenteric Tube
+  if ($("#abdomen-x-sne").val() != "") {
+    let sne = "  - Ponta de SNE ";
+    if ($(this).val() == "ok") {
+      sne += "tópica";
+    } else {
+      let alt = $("#abdomen-x-sne-shat").val().trim();
+      if (alt != "") { sne += "com " + alt; }
+      else { sne += "com alteração >>NÃO DESCRITA!!<<"; }
+    }
+    res.push(sne);
+  }
+  // > Central Catheter
+  if ($("#abdomen-x-cvc").val() != "") {
+    let cvc = "  - Ponta de CVC ";
+    if ($(this).val() == "ok") {
+      cvc += "tópica";
+    } else {
+      let alt = $("#abdomen-x-cvc-shat").val().trim();
+      if (alt != "") { cvc += "com " + alt; }
+      else { cvc += "com alteração >>NÃO DESCRITA!!<<"; }
+    }
+    res.push(cvc);
+  }
+  // > Bladder Catheter
+  if ($("#abdomen-x-cvd").val() != "") {
+    let cvd = "  - Balão de CVD ";
+    if ($(this).val() == "ok") {
+      cvd += "tópica";
+    } else {
+      let alt = $("#abdomen-x-cvd-shat").val().trim();
+      if (alt != "") { cvd += "com " + alt; }
+      else { cvd += "com alteração >>NÃO DESCRITA!!<<"; }
+    }
+    res.push(cvd);
+  }
+  // > Double-J Stent
+  if ($("#abdomen-x-jj").val() != "") {
+    let jj = "  - Duplo-J com pontas ";
+    if ($(this).val() == "ok") {
+      jj += "tópicas";
+    } else {
+      let alt = $("#abdomen-x-jj-shat").val().trim();
+      if (alt != "") { jj += "com " + alt; }
+      else { jj += "com alteração >>NÃO DESCRITA!!<<"; }
+    }
+    res.push(jj);
   }
 
   // Return evaluation array
