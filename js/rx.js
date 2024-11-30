@@ -2203,7 +2203,7 @@ function build_eval_abdomen() {
     res.push("  - Aparente presença de " + ($(this).val() == "shat1" ? "cálculo urinário" : "cálculos urinários") + " em " + $("#abdomen-d-uroliths-shat").val().trim());
   }
   // > Aorta
-  if ($("#abdomen-d-aorta").val() != ok && $("#abdomen-d-aorta-shat").val().trim() != "") {
+  if ($("#abdomen-d-aorta").val() != "ok" && $("#abdomen-d-aorta-shat").val().trim() != "") {
     res.push("  - Silhueta aórtica com " + $("#abdomen-d-aorta-shat").val().trim());
   }
 
