@@ -2211,7 +2211,7 @@ function build_eval_abdomen() {
   // > Stomach
   if ($("#abdomen-o-stomach").val() != "") {
     let stomach = "  - Bolha gástrica ";
-    if ($(this).val() == "ok") {
+    if ($("#abdomen-o-stomach").val() == "ok") {
       stomach += "tópica e com atenuação habitual";
     } else {
       stomach += "com " + $("#abdomen-o-stomach-shat").val().trim();
@@ -2221,7 +2221,7 @@ function build_eval_abdomen() {
   // > Bladder
   if ($("#abdomen-o-bladder").val() != "") {
     let bladder = "  - Bexigoma ";
-    if ($(this).val() == "ok") { bladder += "ausente"; }
+    if ($("#abdomen-o-bladder").val() == "ok") { bladder += "ausente"; }
     else { bladder += "OBSERVÁVEL"; }
     res.push(bladder);
   }
@@ -2230,7 +2230,7 @@ function build_eval_abdomen() {
   // > Nasoenteric Tube
   if ($("#abdomen-x-sne").val() != "") {
     let sne = "  - Ponta de SNE ";
-    if ($(this).val() == "ok") {
+    if ($("#abdomen-x-sne").val() == "ok") {
       sne += "tópica";
     } else {
       let alt = $("#abdomen-x-sne-shat").val().trim();
@@ -2242,7 +2242,7 @@ function build_eval_abdomen() {
   // > Central Catheter
   if ($("#abdomen-x-cvc").val() != "") {
     let cvc = "  - Ponta de CVC ";
-    if ($(this).val() == "ok") {
+    if ($("#abdomen-x-cvc").val() == "ok") {
       cvc += "tópica";
     } else {
       let alt = $("#abdomen-x-cvc-shat").val().trim();
@@ -2254,7 +2254,7 @@ function build_eval_abdomen() {
   // > Bladder Catheter
   if ($("#abdomen-x-cvd").val() != "") {
     let cvd = "  - Balão de CVD ";
-    if ($(this).val() == "ok") {
+    if ($("#abdomen-x-cvd").val() == "ok") {
       cvd += "tópica";
     } else {
       let alt = $("#abdomen-x-cvd-shat").val().trim();
@@ -2266,7 +2266,7 @@ function build_eval_abdomen() {
   // > Double-J Stent
   if ($("#abdomen-x-jj").val() != "") {
     let jj = "  - Duplo-J com pontas ";
-    if ($(this).val() == "ok") {
+    if ($("#abdomen-x-jj").val() == "ok") {
       jj += "tópicas";
     } else {
       let alt = $("#abdomen-x-jj-shat").val().trim();
