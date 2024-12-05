@@ -5780,7 +5780,7 @@ require_once "header.php";
             <div class="select">
               <select id="abdomen-o-stomach">
                 <option value="" selected>N/A</option>
-                <option value="ok">ausentes</option>
+                <option value="ok">normal</option>
                 <option value="shat">COM...</option>
               </select>
             </div>
@@ -5814,7 +5814,7 @@ require_once "header.php";
             <div class="select">
               <select id="abdomen-x-sne">
                 <option value="" selected>N/A</option>
-                <option value="ok" selected>Normal</option>
+                <option value="ok">Normal</option>
                 <option value="shat">COM...</option>
               </select>
             </div>
@@ -5831,7 +5831,7 @@ require_once "header.php";
             <div class="select">
               <select id="abdomen-x-cvc">
                 <option value="" selected>N/A</option>
-                <option value="ok" selected>Normal</option>
+                <option value="ok">Normal</option>
                 <option value="shat">COM...</option>
               </select>
             </div>
@@ -5848,7 +5848,7 @@ require_once "header.php";
             <div class="select">
               <select id="abdomen-x-cvd">
                 <option value="" selected>N/A</option>
-                <option value="ok" selected>Normal</option>
+                <option value="ok">Normal</option>
                 <option value="shat">COM...</option>
               </select>
             </div>
@@ -5865,7 +5865,7 @@ require_once "header.php";
             <div class="select">
               <select id="abdomen-x-jj">
                 <option value="" selected>N/A</option>
-                <option value="ok" selected>Normal</option>
+                <option value="ok">Normal</option>
                 <option value="shat">COM...</option>
               </select>
             </div>
