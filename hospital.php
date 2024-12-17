@@ -123,6 +123,10 @@ require_once "header.php";
           </div>
         </div>
       </div>
+      <div class="field mb-5 mt-0">
+        <input class="is-checkradio" type="checkbox" id="breathe-really-normal">
+        <label for="breathe-really-normal"><strong>ENFATICAMENTE</strong> eupneice</label>
+      </div>
     </div>
 
     <div class="box">

@@ -98,6 +98,28 @@ $(function() {
     }
   });
 
+  // Set first day dynamically
+  $("#cough-start, #fever-start").on("change", function() {
+    let raw_cough = $("#cough-start").val();
+    let cough = raw_cough == "" ? null : new Date(raw_cough + "T00:00:00-0300");
+    let raw_fever = $("#fever-start").val();
+    let fever = raw_fever == "" ? null : new Date(raw_fever + "T00:00:00-0300");
+
+    if (cough != null && fever != null) {
+      if (cough < fever) {
+        $("#symp-start").val(raw_cough);
+      } else {
+        $("#symp-start").val(raw_fever);
+      }
+    } else if (cough != null) {
+      $("#symp-start").val(raw_cough);
+    } else if (fever != null) {
+      $("#symp-start").val(raw_fever);
+    }
+
+    $("#symp-start").trigger("change");
+  });
+
   // Enable pregnancy age
   $("#pregnancy").on("change", function() {
     if( $("#pregnancy").is(":checked") ) {
@@ -456,7 +478,12 @@ $(function() {
           s = "Gente, como você veio parar aqui?!";
       }
       o = runO().join("\n");
-      p = runP().join(";\n") + ".";
+      // Get plans
+      p = runP();
+      // Enumerate plans
+      p = $.map(p, function (e, i) { return (i + 1) + ". " + e; });
+      // Then join them
+      p = p.join(";\n") + ".";
       $("#output-s").val(s);
       $("#output-o").val(o);
       $("#output-p").val(p);
@@ -717,7 +744,9 @@ function runO() {
   if( $('input[name="breathe"]:checked').val() == "dispneice" ) {
     qualitative_exam.push( $("#breathe-abnormal-desc").val() + "pneic" + pronoun );
   } else {
-    qualitative_exam.push("eupneic" + pronoun);
+    let breath = "eupneic" + pronoun;
+    if($("#breathe-really-normal").is(":checked")) { breath += " (ausência de quaisquer sinais objetivos de dispneia - sem de uso de musculaturas respiratórias acessórias, sem postura compensatória)"; }
+    qualitative_exam.push(breath);
   }
   if ( $("#child-activity").val() != "" ) { qualitative_exam.push( $("#child-activity").val() + pronoun ); }
   if ( $("#child-reactivity").val() != "" ) { qualitative_exam.push( $("#child-reactivity").val() + pronoun ); }
@@ -921,7 +950,7 @@ function runP() {
     if( $("#plan-whut").is(":checked") ) { p.push("Tiro dúvidas"); }
     if( $("#plan-bai").is(":checked") ) { p.push( "Alta do episódio" ); }
   } else {
-// Exams
+    // Exams
     if( $("#plan-in-rx").is(":checked") ) { p.push( "Solicito " + $("#plan-in-rx-which").val() + " agora" ); }
     if( $("#plan-in-labs").is(":checked") ) { p.push( "Solicito exames laboratoriais agora" ); }
     // Meds

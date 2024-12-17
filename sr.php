@@ -817,12 +817,12 @@ if (isset($_COOKIE["sr_header"])) {
               <label for="comorb-8">AVC</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-9" name="comorbidities" value="Obesidade">
-              <label for="comorb-9">Obesidade</label>
+              <input type="checkbox" class="is-checkradio" id="comorb-9" name="comorbidities" value="Tabagista">
+              <label for="comorb-9">TBG</label>
             </div>
             <div class="field">
-              <input type="checkbox" class="is-checkradio" id="comorb-10" name="comorbidities" value="ECNP">
-              <label for="comorb-10">PC</label>
+              <input type="checkbox" class="is-checkradio" id="comorb-10" name="comorbidities" value="Ex-tabagista">
+              <label for="comorb-10">Ex-TBG</label>
             </div>
 
             <div class="field">
@@ -1167,6 +1167,10 @@ if (isset($_COOKIE["sr_header"])) {
             </select>
           </div>
         </div>
+      </div>
+      <div class="field mb-5 mt-0">
+        <input class="is-checkradio" type="checkbox" id="breathe-really-normal">
+        <label for="breathe-really-normal"><strong>ENFATICAMENTE</strong> eupneice</label>
       </div>
 
       <div class="field has-addons">

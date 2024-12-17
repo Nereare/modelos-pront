@@ -90,6 +90,28 @@ $(function() {
     else { $("#fever-max").prop("disabled", true).val(""); }
   });
 
+  // Set first day dynamically
+  $("#headache-start, #fever-start").on("change", function() {
+    let raw_headache = $("#headache-start").val();
+    let headache = raw_headache == "" ? null : new Date(raw_headache + "T00:00:00-0300");
+    let raw_fever = $("#fever-start").val();
+    let fever = raw_fever == "" ? null : new Date(raw_fever + "T00:00:00-0300");
+
+    if (headache != null && fever != null) {
+      if (headache < fever) {
+        $("#symp-start").val(raw_headache);
+      } else {
+        $("#symp-start").val(raw_fever);
+      }
+    } else if (headache != null) {
+      $("#symp-start").val(raw_headache);
+    } else if (fever != null) {
+      $("#symp-start").val(raw_fever);
+    }
+
+    $("#symp-start").trigger("change");
+  });
+
   // Set symptoms' day notice
   $("#symp-start").on("change", function() {
     if ( $(this).val() != "" ) {
@@ -426,7 +448,7 @@ $(function() {
     // Evaluation
     out.push("");
     let a = get_A(eval);
-    out.push(a[0]);
+    out.push(a[0] + "?");
 
     // Plans
     out.push("");
@@ -1255,6 +1277,9 @@ function get_P(eval_time, group) {
     }
   }
 
+  // Enumerate plans
+  plans = $.map(plans, function(e, i) { return (i+1) + ". " + e; });
+  // Then join them
   p += plans.join(";\n") + ".";
   return p;
 }

@@ -7,12 +7,19 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Não Publicado][Unreleased]
 ### Adicionado
 - *Exame Físico*:
+  - Eupneia enfática;
   - Dispositivos/Invasões:
     - GTT;
     - SNE.
   - Escores:
     - NIHSS.
+- *Dengue*:
+  - Condudas agora enumeradas;
+  - Sincronização de início de sintomas com datas de cefaleia e febre.
 - *Sintomáticos Respiratórios*:
+  - Eupneia enfática;
+  - Condutas agora enumeradas;
+  - Sincronicação de início de sintomas com datas de tosse e febre;
   - Pequenas otimizações miscelâneas.
 - *Meds Pré-Definidas*:
   - Reintroduzidas medicações para fluxo de um certo PS específico da zona sul... #iykyk

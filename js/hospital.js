@@ -629,7 +629,9 @@ $(function() {
     if( $('input[name="breathe"]:checked').val() == "dispneice" ) {
       qualitative_exam.push( $("#breathe-abnormal-desc").val() + "pneic" + pronoun );
     } else {
-      qualitative_exam.push("eupneic" + pronoun);
+      let breath = "eupneic" + pronoun;
+      if($("#breathe-really-normal").is(":checked")) { breath += " (ausência de quaisquer sinais objetivos de dispneia - sem de uso de musculaturas respiratórias acessórias, sem postura compensatória)"; }
+      qualitative_exam.push(breath);
     }
     o.push( humanList(qualitative_exam) + "." );
 

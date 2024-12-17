@@ -412,9 +412,9 @@ if (isset($_COOKIE["sr_header"])) {
               <div class="control is-expanded">
                 <div class="select is-fullwidth">
                   <select id="alarm-liver">
-                    <option value="ausente" selected>Ausente</option>
+                    <option value="não avaliada" selected>N/A</option>
+                    <option value="ausente">Ausente</option>
                     <option value="PRESENTE">PRESENTE</option>
-                    <option value="não avaliada">N/A</option>
                   </select>
                 </div>
               </div>
@@ -608,6 +608,7 @@ if (isset($_COOKIE["sr_header"])) {
                   <select id="work">
                     <option value="" selected>Sem resposta</option>
                     <option value="nega trabalhar">Não trabalha</option>
+                    <option value="aposentad[[PRONOUN]]">Aposentade</option>
                     <option value="nega estudar">Não estuda</option>
                     <option value="estuda">Estuda</option>
                     <option value="estuda e trabalha">Estuda + Trabalha</option>
