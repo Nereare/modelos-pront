@@ -5,6 +5,8 @@ Todas as mudanças significativas nesse projeto serão documentadas neste arquiv
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
 ## [Não Publicado][Unreleased]
+
+## [2.15.1]
 ### Adicionado
 - *Exame Físico*:
   - Eupneia enfática;
@@ -189,7 +191,8 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Página de Requisição de Implanon.
 - Página de Exame Físico genérico.
 
-[Unreleased]: https://github.com/Nereare/modelos-pront/compare/v2.15.0...HEAD
+[Unreleased]: https://github.com/Nereare/modelos-pront/compare/v2.15.1...HEAD
+[2.15.1]: https://github.com/Nereare/modelos-pront/compare/v2.15.0...v2.15.1
 [2.15.0]: https://github.com/Nereare/modelos-pront/compare/v2.10.14...v2.15.0
 [2.10.14]: https://github.com/Nereare/modelos-pront/compare/v2.10.5-r1...v2.10.14
 [2.10.5-r1]: https://github.com/Nereare/modelos-pront/compare/v2.10.5...v2.10.5-r1
