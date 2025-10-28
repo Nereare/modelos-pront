@@ -5,6 +5,9 @@ Todas as mudanças significativas nesse projeto serão documentadas neste arquiv
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
 ## [Não Publicado][Unreleased]
+### Modificado
+- *Licensa*: dado a nova versão, optamos por mudar para uma licensa mais permissiva.
+- *Base*: agora usamos Symfony 7 para entregar o site.
 
 ## [2.15.1]
 ### Adicionado
