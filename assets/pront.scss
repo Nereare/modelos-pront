@@ -1,3 +1,48 @@
-body {
-  background-color: lightgray;
+// Font Variables
+$family-primary   : "Montserrat", sans-serif;
+$family-monospace : "Roboto Mono", monospace;
+// Color Variables
+$color-main : #0090ed;
+$color-aux  : #00acc1;
+// Classification Colors
+$blue   : #3273dc;
+$green  : #23d160;
+$yellow : #ffdd57;
+$orange : #ff8957;
+$red    : #ff3860;
+
+// Bulma's structure
+@use "bulma/sass/utilities" with ( // Colors
+  $primary: $color-main,
+  $link: $color-aux,
+  // Typography
+  $family-primary: $family-primary,
+  $family-secondary: $family-primary,
+  $family-code: $family-monospace);
+@use "bulma/sass";
+
+// Fonts
+@use "typeface-montserrat" as montserrat;
+@use "typeface-roboto-mono" as roboto-mono;
+@forward "~@mdi/font/scss/materialdesignicons.scss";
+
+// Top navbar spacing
+html { padding-top: 1.5rem; }
+
+// Set all paragraphs to justified alignment
+p { text-align: justify; }
+
+// Set all form fields to monospaced font
+.field {
+  * { font-family: $family-monospace; }
+}
+
+// Navburger color
+.navbar-burger { color: white; }
+// Login image centering
+.login.hero {
+  figure {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

@@ -1,17 +1,91 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Welcome!{% endblock %}</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+{% extends 'skeleton.html.twig' %}
 
-    {{ encore_entry_link_tags('pront') }}
-    {% block stylesheets %}{% endblock %}
+{% block body %}
+<nav class="navbar is-primary is-fixed-top has-shadow" id="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="{{ path('home') }}">
+      <img src="{{ asset('Logo Light.svg') }}">
+    </a>
 
-    {{ encore_entry_script_tags('pront') }}
-    {% block javascripts %}{% endblock %}
-  </head>
-  <body>
-    {% block body %}{% endblock %}
-  </body>
-</html>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div class="navbar-menu" id="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item{% if app.request.get('_route') == 'about' %} is-selected{% endif %}" href="{{ path('about') }}">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-help"></i>
+          </span>
+          <span>Sobre</span>
+        </span>
+      </a>
+      <a class="navbar-item{% if app.request.get('_route') == 'cookies' %} is-selected{% endif %}" href="{{ path('cookies') }}">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-cookie"></i>
+          </span>
+          <span>Cookies</span>
+        </span>
+      </a>
+      <a class="navbar-item{% if app.request.get('_route') == 'privacy' %} is-selected{% endif %}" href="{{ path('privacy') }}">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-security"></i>
+          </span>
+          <span>Privacidade</span>
+        </span>
+      </a>
+      <a class="navbar-item{% if app.request.get('_route') == 'usage' %} is-selected{% endif %}" href="{{ path('usage') }}">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-information"></i>
+          </span>
+          <span>Uso</span>
+        </span>
+      </a>
+    </div>
+
+    <div class="navbar-end">
+      {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+      <a class="navbar-item">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-account"></i>
+          </span>
+          <span>{{ app.user.username }}</span>
+        </span>
+      </a>
+      <a class="navbar-item" href="{{ path('logout') }}">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-logout"></i>
+          </span>
+          <span>Logout</span>
+        </span>
+      </a>
+      {% else %}
+      <a class="navbar-item" href="{{ path('login') }}">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-login"></i>
+          </span>
+          <span>Login</span>
+        </span>
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+
+<div class="section">
+  <div class="container">
+    {% block main %}{% endblock %}
+  </div>
+</div>
+{% endblock %}
