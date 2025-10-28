@@ -1,6 +1,6 @@
 {
   "type": "project",
-  "license": "MIT",
+  "license": "WTFPL",
   "minimum-stability": "stable",
   "prefer-stable": true,
   "require": {
@@ -11,9 +11,11 @@
     "doctrine/doctrine-bundle": "^2.18",
     "doctrine/doctrine-migrations-bundle": "^3.5",
     "doctrine/orm": "^3.5",
+    "erusev/parsedown": "^1.7",
     "symfony/asset": "7.3.*",
     "symfony/console": "7.3.*",
     "symfony/dotenv": "7.3.*",
+    "symfony/emoji": "7.3.*",
     "symfony/flex": "^2",
     "symfony/framework-bundle": "7.3.*",
     "symfony/monolog-bundle": "^3.10",
@@ -22,7 +24,9 @@
     "symfony/twig-bundle": "7.3.*",
     "symfony/web-link": "7.3.*",
     "symfony/webpack-encore-bundle": "^2.3",
-    "symfony/yaml": "7.3.*"
+    "symfony/yaml": "7.3.*",
+    "twig/extra-bundle": "^3.21",
+    "twig/markdown-extra": "^3.21"
   },
   "config": {
     "allow-plugins": {

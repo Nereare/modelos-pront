@@ -14,6 +14,7 @@ Encore
   .enableVersioning(Encore.isProduction())
   .enableSassLoader()
   .enableIntegrityHashes(Encore.isProduction())
+  .autoProvidejQuery()
 
   /* Entrypoints */
   .addEntry('pront', './assets/pront.js')

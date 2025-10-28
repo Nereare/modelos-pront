@@ -1,7 +1,7 @@
 {
   "name": "modelos-pront",
   "description": "Uma miscelânea de modelos de evolução de consultas com tópicos específicos.",
-  "version": "2.17.2",
+  "version": "3.0.0",
   "maintainers": [
     {
       "name": "Igor Padoim",
