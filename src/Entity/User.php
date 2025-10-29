@@ -2,7 +2,10 @@
 
 namespace App\Entity;
 
+use App\Enum\FederationUnit;
+use App\Enum\RegistryType;
 use App\Repository\UserRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -30,6 +33,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
+
+    #[ORM\Column(length: 128)]
+    private ?string $firstName = null;
+
+    #[ORM\Column(length: 256)]
+    private ?string $lastName = null;
+
+    #[ORM\Column(enumType: RegistryType::class)]
+    private ?RegistryType $registryType = null;
+
+    #[ORM\Column(enumType: FederationUnit::class)]
+    private ?FederationUnit $registryState = null;
+
+    #[ORM\Column(type: Types::BIGINT)]
+    private ?string $registryNumber = null;
+
+    #[ORM\Column(length: 32, nullable: true)]
+    private ?string $phone = null;
+
+    #[ORM\Column(length: 256)]
+    private ?string $email = null;
 
     public function getId(): ?int
     {
@@ -110,5 +134,89 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function eraseCredentials(): void
     {
         // @deprecated, to be removed when upgrading to Symfony 8
+    }
+
+    public function getFirstName(): ?string
+    {
+        return $this->firstName;
+    }
+
+    public function setFirstName(string $firstName): static
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    public function getLastName(): ?string
+    {
+        return $this->lastName;
+    }
+
+    public function setLastName(string $lastName): static
+    {
+        $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    public function getRegistryType(): ?RegistryType
+    {
+        return $this->registryType;
+    }
+
+    public function setRegistryType(RegistryType $registryType): static
+    {
+        $this->registryType = $registryType;
+
+        return $this;
+    }
+
+    public function getRegistryState(): ?FederationUnit
+    {
+        return $this->registryState;
+    }
+
+    public function setRegistryState(FederationUnit $registryState): static
+    {
+        $this->registryState = $registryState;
+
+        return $this;
+    }
+
+    public function getRegistryNumber(): ?string
+    {
+        return $this->registryNumber;
+    }
+
+    public function setRegistryNumber(string $registryNumber): static
+    {
+        $this->registryNumber = $registryNumber;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?string $phone): static
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): static
+    {
+        $this->email = $email;
+
+        return $this;
     }
 }
