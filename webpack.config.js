@@ -18,6 +18,7 @@ Encore
 
   /* Entrypoints */
   .addEntry('pront', './assets/pront.js')
+  .addEntry('config', './assets/config.js')
 
   // configure Babel
   // .configureBabel((config) => {

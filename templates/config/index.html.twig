@@ -1,0 +1,226 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+{{ encore_entry_script_tags('config') }}
+{% endblock %}
+
+{% block main %}
+<div class="tabs is-toggle is-toggle-rounded is-centered mb-0">
+
+	<ul>
+		<li class="is-active">
+			<a href="{{ path('config_home') }}">
+				<span class="icon">
+					<i class="mdi mdi-account"></i>
+				</span>
+				<span>Usuário</span>
+			</a>
+		</li>
+	</ul>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="box">
+      <h2 class="title is-3">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-account-cog"></i>
+          </span>
+          <span>Configurações do Usuário</span>
+      </h2>
+
+      <form id="formConfigUser" action="{{ path('config_home_save') }}">
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-account"></i>
+                </span>
+                <span>Usuário</span>
+              </span>
+            </button>
+          </div>
+          <div class="control is-expanded">
+            <input class="input" type="text" placeholder="Usuário" value="{{ app.user.username }}" disabled>
+          </div>
+        </div>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-email"></i>
+                </span>
+                <span>Email</span>
+              </span>
+            </button>
+          </div>
+          <div class="control is-expanded">
+            <input class="input" type="text" placeholder="Email" value="{{ app.user.email }}" disabled>
+          </div>
+        </div>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-account-tag"></i>
+                </span>
+                <span>Nome</span>
+              </span>
+            </button>
+          </div>
+          <div class="control">
+            <input class="input" type="text" id="firstName" placeholder="Nome de usuário" value="{{ app.user.firstName }}" required>
+          </div>
+          <div class="control is-expanded">
+            <input class="input" type="text" id="lastName" placeholder="Nome de usuário" value="{{ app.user.lastName }}" required>
+          </div>
+        </div>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-stamper"></i>
+                </span>
+                <span>Registro</span>
+              </span>
+            </button>
+          </div>
+          <div class="control">
+            <div class="select">
+              <select id="registryType" required>
+                <option value="" disabled>Tipo</option>
+                {% for type in registryTypes %}
+                <option value="{{ type.value }}"{% if type.value == app.user.registryType.value %} selected{% endif %}>{{ type.value }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="control">
+            <div class="select">
+              <select id="registryState" required>
+                <option value="" disabled>UF</option>
+                {% for uf in federationUnits %}
+                <option value="{{ uf.value }}"{% if uf.value == app.user.registryState.value %} selected{% endif %}>{{ uf.value }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="control is-expanded">
+            <input class="input" type="number" id="registryNumber" placeholder="Nº de registro" value="{{ app.user.registryNumber }}" required>
+          </div>
+        </div>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-phone"></i>
+                </span>
+                <span>Telefone</span>
+              </span>
+            </button>
+          </div>
+          <div class="control is-expanded">
+            <input class="input" type="text" id="phone" placeholder="Telefone" value="{{ app.user.phone | format_phone }}" pattern="\+\d{2} \d{2} \d{4,5} \d{4}">
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control is-expanded">
+            <button type="submit" class="button is-success is-fullwidth">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-content-save"></i>
+                </span>
+                <span>Salvar Alterações</span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="box">
+      <h2 class="title is-3">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-lock"></i>
+          </span>
+          <span>Trocar Senha</span>
+      </h2>
+
+      <form id="formChangePw" action="{{ path('config_change_password') }}">
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-lock-open-outline"></i>
+                </span>
+                <span>Senha Atual</span>
+              </span>
+            </button>
+          </div>
+          <div class="control is-expanded">
+            <input class="input" type="password" id="oldPw" placeholder="Senha Atual" required>
+          </div>
+        </div>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-lock-open-outline"></i>
+                </span>
+                <span>Nova Senha</span>
+              </span>
+            </button>
+          </div>
+          <div class="control is-expanded">
+            <input class="input" type="password" id="newPw1" placeholder="Nova Senha" required>
+          </div>
+        </div>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-lock-open-outline"></i>
+                </span>
+                <span>Confirmar Nova Senha</span>
+              </span>
+            </button>
+          </div>
+          <div class="control is-expanded">
+            <input class="input" type="password" id="newPw2" placeholder="Confirmar Nova Senha" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control is-expanded">
+            <button type="submit" class="button is-success is-fullwidth">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-lock-reset"></i>
+                </span>
+                <span>Alterar Senha</span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

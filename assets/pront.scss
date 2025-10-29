@@ -37,6 +37,15 @@ p { text-align: justify; }
   * { font-family: $family-monospace; }
 }
 
+// Set notification styles
+#global-message {
+  position: absolute;
+  top: 4rem;
+  left: 1rem;
+  min-width: 20rem;
+  min-height: 2.5rem;
+}
+
 // Navburger color
 .navbar-burger { color: white; }
 // Login image centering
