@@ -6,7 +6,7 @@ import './pront.scss';
 /******************************************/
 // Base Methods
 $(function () {
-  console.log("Page ready!");
+  console.log("Base methods ready!");
 
   // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
   $(".navbar-burger").on("click", function () {

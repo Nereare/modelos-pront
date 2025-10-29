@@ -21,7 +21,7 @@ final class MainController extends AbstractController
   public function meta_about(): Response
   {
     return $this->render('main/markdown.html.twig',[
-      'contents' => file_get_contents(__DIR__ . '/../md/ABOUT.md')
+      'contents' => file_get_contents(__DIR__ . '/../Markdown/ABOUT.md')
     ]);
   }
 
@@ -29,7 +29,7 @@ final class MainController extends AbstractController
   public function meta_cookies(): Response
   {
     return $this->render('main/markdown.html.twig',[
-      'contents' => file_get_contents(__DIR__ . '/../md/COOKIES.md')
+      'contents' => file_get_contents(__DIR__ . '/../Markdown/COOKIES.md')
     ]);
   }
 
@@ -37,7 +37,7 @@ final class MainController extends AbstractController
   public function meta_privacy(): Response
   {
     return $this->render('main/markdown.html.twig',[
-      'contents' => file_get_contents(__DIR__ . '/../md/PRIVACY.md')
+      'contents' => file_get_contents(__DIR__ . '/../Markdown/PRIVACY.md')
     ]);
   }
 
@@ -45,7 +45,7 @@ final class MainController extends AbstractController
   public function meta_usage(): Response
   {
     return $this->render('main/markdown.html.twig',[
-      'contents' => file_get_contents(__DIR__ . '/../md/USAGE.md')
+      'contents' => file_get_contents(__DIR__ . '/../Markdown/USAGE.md')
     ]);
   }
 
