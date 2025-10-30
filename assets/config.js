@@ -111,4 +111,53 @@ $(function () {
         });
     }
   });
+
+  /********************************/
+  /*         Places Forms         */
+  /********************************/
+  // Change user password
+  $("#formPlace").on("submit", function(e) {
+    // Prevent default form submit actions
+    e.preventDefault();
+    // Lock button
+    $("#formPlace button[type=submit]")
+      .attr("disabled", true)
+      .addClass("is-loading");
+
+    // Prepare place data
+    let place = {
+      id: parseInt($("#id").val()),
+      name: $("#name").val(),
+      cnes: $("#cnes").val(),
+      phone: $("#phone").val().replace(/\s/g, ""),
+      address: $("#address").val()
+    };
+    // Prepare message reply
+    let msg_type = "info";
+    let msg_text = "Aguarde...";
+    console.log(place);
+
+    // Send Ajax request
+    $.ajax({
+      method: "post",
+      url: e.currentTarget.action,
+      data: place
+    })
+      .done(function(response) {
+        msg_type = response.success ? "success" : "warning";
+        msg_text = response.msg;
+      })
+      .fail(function() {
+        msg_type = "danger";
+        msg_text = "Erro de comunicação com o servidor...";
+      })
+      .always(function() {
+        // Show reply message
+        window.showMessage(msg_type, msg_text);
+        // Unlock button
+        $("#formPlace button[type=submit]")
+          .attr("disabled", false)
+          .removeClass("is-loading");
+      });
+  });
 });

@@ -1,0 +1,104 @@
+{% extends 'config/base.html.twig' %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="box">
+      <h2 class="title is-3">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-hospital-building"></i>
+          </span>
+          <span>{% if place.getName is empty %}Criar Local de Atendimento{% else %}Editar {{ place.getName }}{% endif %}</span>
+      </h2>
+
+      <form id="formPlace" action="{{ path('config_place_save') }}">
+        <input type="hidden" id="id" value="{% if place.getName is empty %}0{% else %}{{ place.getId }}{% endif %}">
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-tag"></i>
+                </span>
+                <span>Nome do Local</span>
+              </span>
+            </button>
+          </div>
+          <div class="control is-expanded">
+            <input class="input" type="text" id="name" placeholder="Nome do Local" value="{{ place.getName }}" required>
+          </div>
+        </div>
+
+        <div class="columns mb-0">
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">
+                  <span class="icon-text">
+                    <span class="icon">
+                      <i class="mdi mdi-barcode"></i>
+                    </span>
+                    <span>CNES</span>
+                  </span>
+                </button>
+              </div>
+              <div class="control is-expanded">
+                <input class="input" type="number" id="cnes" placeholder="CNES" value="{{ place.getCnes }}">
+              </div>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field has-addons">
+              <div class="control">
+                <button class="button is-static" tabindex="-1">
+                  <span class="icon-text">
+                    <span class="icon">
+                      <i class="mdi mdi-phone"></i>
+                    </span>
+                    <span>Telefone</span>
+                  </span>
+                </button>
+              </div>
+              <div class="control is-expanded">
+                <input class="input" type="text" id="phone" placeholder="Telefone do Local" value="{{ place.getPhone | format_phone }}" required>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-map-marker"></i>
+                </span>
+                <span>Endereço</span>
+              </span>
+            </button>
+          </div>
+          <div class="control is-expanded">
+            <input class="input" type="text" id="address" placeholder="Endereço do local" value="{{ place.getAddress }}" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control is-expanded">
+            <button type="submit" class="button is-success is-fullwidth">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-plus"></i>
+                </span>
+                <span>Criar Local de Atendimento</span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

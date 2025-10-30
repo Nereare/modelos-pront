@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+{{ encore_entry_script_tags('config') }}
+{% endblock %}
+
+{% block main %}
+<div class="tabs is-toggle is-toggle-rounded is-centered mb-0">
+	<ul>
+    <li{% if app.request.get('_route') == 'config_home' %} class="is-active"{% endif %}>
+			<a href="{{ path('config_home') }}">
+				<span class="icon">
+					<i class="mdi mdi-account"></i>
+				</span>
+				<span>Usuário</span>
+			</a>
+		</li>
+    {% set place_routes = ['config_places', 'config_place_new', 'config_place_edit'] %}
+		<li{% if app.request.get('_route') in place_routes %} class="is-active"{% endif %}>
+			<a href="{{ path('config_places') }}">
+				<span class="icon">
+					<i class="mdi mdi-hospital-building"></i>
+				</span>
+				<span>Locais</span>
+			</a>
+		</li>
+	</ul>
+</div>
+
+{% block content %}{% endblock %}
+{% endblock %}
