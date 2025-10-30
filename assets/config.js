@@ -5,6 +5,9 @@
 $(function () {
   console.log("Config methods ready!");
 
+  /********************************/
+  /*          User Forms          */
+  /********************************/
   // Update base user information
   $("#formConfigUser").on("submit", function(e) {
     // Prevent default form submit actions
@@ -37,7 +40,7 @@ $(function () {
         msg_type = response.success ? "success" : "warning";
         msg_text = response.msg;
       })
-      .fail(function(status) {
+      .fail(function() {
         msg_type = "danger";
         msg_text = "Erro de comunicação com o servidor...";
       })
@@ -94,7 +97,7 @@ $(function () {
           msg_type = response.success ? "success" : "warning";
           msg_text = response.msg;
         })
-        .fail(function (status) {
+        .fail(function () {
           msg_type = "danger";
           msg_text = "Erro de comunicação com o servidor...";
         })
