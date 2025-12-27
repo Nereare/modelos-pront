@@ -2,13 +2,13 @@
   <div class="content has-text-centered">
     <p>
       <a id="insulin" data-clipboard-text="CONFORME DEXTRO:
-< 200 : NÃO aplicar
-200-250 : 02 UI
-251-300 : 04 UI
-301-350 : 06 UI
-351-400 : 08 UI
-401-450 : 10 UI
-> 450 : 12 UI"><strong><?php echo constant("APP_NAME"); ?></strong></a>
+< 180 : NÃO aplicar
+180-200 : 02 UI
+201-250 : 04 UI
+251-300 : 06 UI
+301-350 : 08 UI
+351-400 : 10 UI
+> 400 : 12 UI + sinalizar equipe médica"><strong><?php echo constant("APP_NAME"); ?></strong></a>
       por <a href="https://nereare.com"><?php echo constant("APP_AUTHOR"); ?></a>.
       O código-fonte está licenciado sob a
       <a href="https://firstdonoharm.dev/">Licença Hipocrática</a>
