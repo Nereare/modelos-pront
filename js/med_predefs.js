@@ -96,7 +96,7 @@ let predefineds = {
       "",
     ],
     [
-      "Paracetamol 750mg",
+      "Paracetamol 500mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 06 horas, se dor, febre ou calafrios, intercalado com dipirona.",
@@ -170,7 +170,7 @@ let predefineds = {
   ],
   "Resfriado/Gripe (parac)": [
     [
-      "Paracetamol 750mg",
+      "Paracetamol 500mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 06 horas, se dor, febre ou calafrios.",
@@ -237,7 +237,7 @@ let predefineds = {
       "",
     ],
     [
-      "Paracetamol 750mg",
+      "Paracetamol 500mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 06 horas, se dor, febre ou calafrios, intercalado com dipirona.",
@@ -290,7 +290,7 @@ let predefineds = {
   ],
   "Dengue (parac)": [
     [
-      "Paracetamol 750mg",
+      "Paracetamol 500mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 06 horas, se dor, febre ou calafrios.",
@@ -336,17 +336,38 @@ let predefineds = {
   ],
   "GECA (buscopam)": [
     [
-      "Dipirona + Escopolamina 250+10mg",
+      "Dipirona 1.000mg",
       "Via Oral",
       "",
-      "Tomar 02cps a cada 08 horas, se dor ou cólicas.",
+      "Tomar 01cp a cada 06 horas, se dor.",
       "",
     ],
     [
-      "Ondansetrona 04mg",
+      "Escopolamina 10mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 08 horas, se náuseas.",
+      "Tomar 02cps a cada 08 horas, se cólicas.",
+      "",
+    ],
+    [
+      "Ondansetrona 08mg",
+      "Via Sublingual",
+      "",
+      "Dissolver 01cp sob a língua a cada 08 horas por 05 dias.",
+      "Após os 05 dias, pode ser usado também a cada 08 horas, se náuseas",
+    ],
+    [
+      "Bromoprida 10mg",
+      "Via Oral",
+      "",
+      "Tomar 01cps a cada 08 horas, se náuseas.",
+      "",
+    ],
+    [
+      "Dimenidrinato 50mg",
+      "Via Oral",
+      "",
+      "Tomar 01cps a cada 08 horas, se náuseas.",
       "",
     ],
     [
@@ -367,7 +388,7 @@ let predefineds = {
       "Racecadotrila 100mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 08 horas por até 07d, enquanto diarreia.",
+      "Tomar 01cp a cada 08 horas por 03d, enquanto diarreia.",
       "",
     ],
     [
@@ -390,7 +411,14 @@ let predefineds = {
       "Dimenidrinato + Piridoxina 25+5mg/mL",
       "Via Oral",
       "",
-      "Tomar 40gts a cada 08 horas, se náuseas.",
+      "Tomar 40gts a cada 08 horas por 05 dias.",
+      "Após os 05 dias, pode ser usado também a cada 08 horas, se náuseas",
+    ],
+    [
+      "Metoclopramida 10mg",
+      "Via Oral",
+      "",
+      "Tomar 01cp a cada 08 horas, se náuseas.",
       "",
     ],
     [
@@ -399,6 +427,13 @@ let predefineds = {
       "",
       "Tomar 300mL (aprox. 02 copos americanos) de soro a cada 08 horas ou se diarreias.",
       "O soro acima pode ser substituído por água de coco e bebidas isotônicas.",
+    ],
+    [
+      "Racecadotrila 100mg",
+      "Via Oral",
+      "",
+      "Tomar 01cp a cada 08 horas por 03d, enquanto diarreia.",
+      "",
     ],
     [
       "Saccharomyces boulardii 200mg",
@@ -410,7 +445,7 @@ let predefineds = {
   ],
   "GECA (parac)": [
     [
-      "Paracetamol 750mg",
+      "Paracetamol 500mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 06 horas, se dor.",
@@ -420,14 +455,28 @@ let predefineds = {
       "Escopolamina 10mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 08 horas, se cólicas.",
+      "Tomar 02cps a cada 08 horas, se cólicas.",
       "",
     ],
     [
-      "Ondansetrona 04mg",
+      "Ondansetrona 08mg",
+      "Via Sublingual",
+      "",
+      "Dissolver 01cp sob a língua a cada 08 horas por 05 dias.",
+      "Após os 05 dias, pode ser usado também a cada 08 horas, se náuseas",
+    ],
+    [
+      "Bromoprida 10mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 08 horas, se náuseas.",
+      "Tomar 01cps a cada 08 horas, se náuseas.",
+      "",
+    ],
+    [
+      "Dimenidrinato 50mg",
+      "Via Oral",
+      "",
+      "Tomar 01cps a cada 08 horas, se náuseas.",
       "",
     ],
     [
@@ -448,7 +497,7 @@ let predefineds = {
       "Racecadotrila 100mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 08 horas por 07d, enquanto diarreia.",
+      "Tomar 01cp a cada 08 horas por 03d, enquanto diarreia.",
       "",
     ],
     [
@@ -471,14 +520,21 @@ let predefineds = {
       "Escopolamina 10mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 08 horas, se cólicas.",
+      "Tomar 02cps a cada 08 horas, se cólicas.",
       "",
     ],
     [
       "Dimenidrinato + Piridoxina 25+5mg/mL",
       "Via Oral",
       "",
-      "Tomar 40gts a cada 08 horas, se náuseas.",
+      "Tomar 40gts a cada 08 horas por 05 dias.",
+      "Após os 05 dias, pode ser usado também a cada 08 horas, se náuseas",
+    ],
+    [
+      "Metoclopramida 10mg",
+      "Via Oral",
+      "",
+      "Tomar 01cp a cada 08 horas, se náuseas.",
       "",
     ],
     [
@@ -487,6 +543,13 @@ let predefineds = {
       "",
       "Tomar 300mL (aprox. 02 copos americanos) de soro a cada 08 horas ou se diarreias.",
       "O soro acima pode ser substituído por água de coco e bebidas isotônicas.",
+    ],
+    [
+      "Racecadotrila 100mg",
+      "Via Oral",
+      "",
+      "Tomar 01cp a cada 08 horas por 03d, enquanto diarreia.",
+      "",
     ],
     [
       "Saccharomyces boulardii 200mg",
@@ -592,7 +655,7 @@ let predefineds = {
       "",
     ],
     [
-      "Paracetamol 750mg",
+      "Paracetamol 500mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 06 horas, se dor, intercalado com dipirona.",
@@ -622,7 +685,7 @@ let predefineds = {
       "",
     ],
     [
-      "Paracetamol 750mg",
+      "Paracetamol 500mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 06 horas, se dor, intercalado com dipirona.",
@@ -636,7 +699,7 @@ let predefineds = {
       "",
     ],
     [
-      "Codeína 30mg",
+      "Tramadol 50mg",
       "Via Oral",
       "30 cps",
       "Tomar 01cp a cada 08 horas, se dor que não melhora mesmo após 30 minutos de uso de analgésico simples.",
@@ -645,7 +708,7 @@ let predefineds = {
   ],
   "Dor Osteomuscular (leve; parac)": [
     [
-      "Paracetamol 750mg",
+      "Paracetamol 500mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 06 horas, se dor.",
@@ -661,7 +724,7 @@ let predefineds = {
   ],
   "Dor Osteomuscular (intensa; parac)": [
     [
-      "Paracetamol 750mg",
+      "Paracetamol 500mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 06 horas, se dor.",
@@ -675,7 +738,7 @@ let predefineds = {
       "",
     ],
     [
-      "Codeína 30mg",
+      "Tramadol 50mg",
       "Via Oral",
       "30 cps",
       "Tomar 01cp a cada 08 horas, se dor que não melhora mesmo após 30 minutos de uso de analgésico simples.",
@@ -698,7 +761,7 @@ let predefineds = {
       "",
     ],
     [
-      "Paracetamol 750mg",
+      "Paracetamol 500mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 06 horas, se dor, intercalado com dipirona.",
@@ -712,7 +775,7 @@ let predefineds = {
       "",
     ],
     [
-      "Codeína 30mg",
+      "Tramadol 50mg",
       "Via Oral",
       "30 cps",
       "Tomar 01cp a cada 08 horas, se dor que não melhora mesmo após 30 minutos de uso de analgésico simples.",
@@ -728,7 +791,7 @@ let predefineds = {
   ],
   "Dor Neuropática (parac)": [
     [
-      "Paracetamol 750mg",
+      "Paracetamol 500mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 06 horas, se dor.",
@@ -742,7 +805,7 @@ let predefineds = {
       "",
     ],
     [
-      "Codeína 30mg",
+      "Tramadol 50mg",
       "Via Oral",
       "30 cps",
       "Tomar 01cp a cada 08 horas, se dor que não melhora mesmo após 30 minutos de uso de analgésico simples.",
@@ -855,10 +918,10 @@ let predefineds = {
   ],
   "Enxaqueca (+dip)": [
     [
-      "Ibuprofeno 400mg",
+      "Prednisona 20mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 08 horas por 05 dias.",
+      "Tomar 01cp a cada 12 horas por 05 dias.",
       "",
     ],
     [
@@ -869,7 +932,7 @@ let predefineds = {
       "",
     ],
     [
-      "Paracetamol 750mg",
+      "Paracetamol 500mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 06 horas, se dor, intercalado com dipirona.",
@@ -892,14 +955,14 @@ let predefineds = {
   ],
   "Enxaqueca (-dip)": [
     [
-      "Ibuprofeno 400mg",
+      "Prednisona 20mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 08 horas por 05 dias.",
+      "Tomar 01cp a cada 12 horas por 05 dias.",
       "",
     ],
     [
-      "Paracetamol 750mg",
+      "Paracetamol 500mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 06 horas, se dor.",
