@@ -636,5 +636,6 @@ FodyWeavers.xsd
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+var/
 vendor/
 public/
