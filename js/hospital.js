@@ -248,6 +248,15 @@ $(function() {
       $("#mmsspulse-artery, #mmsspulse-simmetry").prop("disabled", false);
     }
   });
+  // Enable MMSS oedema descriptors:
+  $("#mmss-oedema").on("change", function() {
+    if ($(this).val() == "Ausência de edemas") {
+      $("#mmss-oedema-level, #mmss-oedema-inflamation").attr("disabled", true);
+    } else {
+      $("#mmss-oedema-level, #mmss-oedema-inflamation").attr("disabled", false);
+      $("#mmss-oedema-level").trigger("focus");
+    }
+  });
 
   // Show neuro exam
   $("#neuro-show").on("click", function() {
@@ -966,6 +975,15 @@ $(function() {
         } else {
           mmss.push("TEC ~" + $("#mmsstec").val() + "s.");
         }
+      }
+      // Oedema
+      if ($("#mmss-oedema").val() != "") {
+        let oedema = $("#mmss-oedema").val();
+        if ($("#mmss-oedema").val() != "Ausência de edemas") {
+          oedema += $("#mmss-oedema-level").val() + $("#mmss-oedema-inflamation").val();
+        }
+        oedema += ".";
+        mmss.push( oedema );
       }
       // Other
       if ($("#mmss-misc").val() != "") {

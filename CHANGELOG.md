@@ -7,6 +7,8 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Não Publicado][Unreleased]
 ### Adicionado
 - *Repouso no Leito*.
+- *Exame Físico*:
+  - Edema de MMSS.
 ### Corrigido
 - *Labs*:
   - Nota sobre unidade de proteínas (interpretando em g/L, não mg/dL).

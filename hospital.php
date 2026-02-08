@@ -1766,6 +1766,50 @@ require_once "header.php";
 
             <div class="field has-addons">
               <div class="control">
+                <button class="button is-static" tabindex="-1">Edema</button>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="mmss-oedema">
+                    <option value="" selected>N/A</option>
+                    <option value="Ausência de edemas" plurality="">&empty;</option>
+                    <option value="Edema bilateral e simétrico" plurality="s">bilat</option>
+                    <option value="Edema bilateral, maior à direita" plurality="s">bilat D&gt;E</option>
+                    <option value="Edema bilateral, maior à esquerda" plurality="s">bilat D&lt;E</option>
+                    <option value="Edema exclusivo à direita" plurality="">D apenas</option>
+                    <option value="Edema exclusivo à esquerda" plurality="">E apenas</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select id="mmss-oedema-level" disabled>
+                    <option value="" disabled selected>Até</option>
+                    <option value="">N/A</option>
+                    <option value=", apenas em quirodáctilo\{\{plural\}\}">Dedo(s)</option>
+                    <option value=", quirodáctilo\{\{plural\}\} e mão\{\{plural\}\}">Mão(s)</option>
+                    <option value=", até antebraço\{\{plural\}\}">Antebraço(s)</option>
+                    <option value=", até braço\{\{plural\}\}">Braço(s)</option>
+                    <option value=", até ombro\{\{plural\}\}">Ombro(s)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="mmss-oedema-inflamation" disabled>
+                    <option value="" disabled selected>Flogos?</option>
+                    <option value="">N/A</option>
+                    <option value=", sem sinais flogísticos detectáveis">&empty;</option>
+                    <option value=", discretamente hiperemiado e quente ao toque">&half;</option>
+                    <option value=", moderadamente hiperemiado e quente ao toque">1&plus;</option>
+                    <option value=", intensamente hiperemiado e quente ao toque">1.000&plus;</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
                 <button class="button is-static" tabindex="-1">Misc</button>
               </div>
               <div class="control is-expanded">
