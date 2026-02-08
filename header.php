@@ -19,9 +19,9 @@ $menu = [
   ["hospital"],
   ["meds", "boxwood", "labs"],
   ["dengue", "sr", "rx"],
-  ["psico", "sharps", "pueri"],
+  ["psico", "lay", "pueri"],
   ["diu", "sadt", "pn"],
-  [null, null, null]
+  ["sharps", null, null]
 ];
 if (isset($_SESSION["cookies"])) {
   if ($_SESSION["cookies"]) {
