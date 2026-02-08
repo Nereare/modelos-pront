@@ -557,7 +557,7 @@ $(function() {
     if ( $("#inr").val() != "" ) { res.push( "- INR " + $("#inr").val() ); }
     // Proteins
     if ( $("#prot-total").val() != "" || $("#prot-alb").val() != "" || $("#prot-glob").val() != "" ) {
-      res.push("- Proteínas Séricas:");
+      res.push("- Proteínas Séricas (g/L):");
       if ( $("#prot-total").val() != "" ) { res.push( "  - Total " + $("#prot-total").val() ); }
       if ( $("#prot-alb").val() != "" ) { res.push( "  - Alb " + $("#prot-alb").val() ); }
       if ( $("#prot-glob").val() != "" ) { res.push( "  - Glob " + $("#prot-glob").val() ); }

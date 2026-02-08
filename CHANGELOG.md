@@ -7,6 +7,9 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Não Publicado][Unreleased]
 ### Adicionado
 - *Repouso no Leito*.
+### Corrigido
+- *Labs*:
+  - Nota sobre unidade de proteínas (interpretando em g/L, não mg/dL).
 
 ## [2.15.1]
 ### Adicionado
