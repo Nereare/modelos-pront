@@ -5,7 +5,7 @@ $(function() {
   // Enable/Disable justification field
   $("#external").on("change", function() {
     let val = $(this).val();
-    if (val == "no") {
+    if (val == "false") {
       $("#external-why")
         .attr("disabled", false)
         .trigger("focus");
