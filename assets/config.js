@@ -129,10 +129,10 @@ $(function () {
     // Prepare place data
     let place = {
       id: parseInt($("#id").val()),
-      name: $("#name").val(),
+      name: $("#name").val().trim(),
       cnes: $("#cnes").val(),
       phone: $("#phone").val(),
-      address: $("#address").val()
+      address: $("#address").val().trim()
     };
     // Prepare message reply
     let msg_type = "info";
