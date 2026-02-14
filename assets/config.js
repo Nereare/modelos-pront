@@ -159,7 +159,7 @@ $(function () {
           // If success, redirect to places' list
           setTimeout(function () {
             window.location.replace($("#places-list").val());
-          }, 2000);
+          }, 1000);
         }
         else {
           // Otherwise reenable fields
@@ -208,7 +208,7 @@ $(function () {
           // If success, redirect to places' list
           setTimeout(function () {
             window.location.reload();
-          }, 2000);
+          }, 1000);
         }
         else {
           // Otherwise reenable fields
@@ -253,7 +253,7 @@ $(function () {
           // If success, redirect to places' list
           setTimeout(function () {
             window.location.reload();
-          }, 2000);
+          }, 1000);
         }
         else {
           // Otherwise reenable fields
