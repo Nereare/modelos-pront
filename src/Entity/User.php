@@ -63,6 +63,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Place::class, mappedBy: 'owner', orphanRemoval: true)]
     private Collection $places;
 
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Place $place = null;
+
     public function __construct()
     {
         $this->places = new ArrayCollection();
@@ -259,6 +262,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $place->setOwner(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPlace(): ?Place
+    {
+        return $this->place;
+    }
+
+    public function setPlace(?Place $place): static
+    {
+        $this->place = $place;
 
         return $this;
     }

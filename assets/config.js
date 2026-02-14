@@ -174,7 +174,54 @@ $(function () {
         }
       });
   });
+
+  // Delete place
   $(".delete-place").on("click", function() {
+    // Lock button
+    $(this)
+      .attr("disabled", true)
+      .addClass("is-loading");
+
+    // Get target URI
+    let place = $(this).attr("target");
+    // Prepare message reply
+    let msg_type = "info";
+    let msg_text = "Aguarde...";
+
+    // Send Ajax request
+    $.ajax({
+      method: "get",
+      url: place
+    })
+      .done(function(response) {
+        msg_type = response.success ? "success" : "warning";
+        msg_text = response.msg;
+      })
+      .fail(function() {
+        msg_type = "danger";
+        msg_text = "Erro de comunicação com o servidor...";
+      })
+      .always(function() {
+        // Show reply message
+        window.showMessage(msg_type, msg_text);
+        if (msg_type == "success") {
+          // If success, redirect to places' list
+          setTimeout(function () {
+            window.location.reload();
+          }, 2000);
+        }
+        else {
+          // Otherwise reenable fields
+          // Unlock button
+          $(this)
+            .attr("disabled", false)
+            .removeClass("is-loading");
+        }
+      });
+  });
+
+  // Set place as current
+  $(".select-place").on("click", function() {
     // Lock button
     $(this)
       .attr("disabled", true)

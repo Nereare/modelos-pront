@@ -261,4 +261,24 @@ final class ConfigController extends AbstractController
       'msg' => 'Local deletado com sucesso'
     ]);
   }
+
+  #[Route('/painel/select/{place}', name: 'config_place_select')]
+  public function place_select(
+    EntityManagerInterface $entityManager,
+    Place $place
+  ): JsonResponse
+  {
+    /** @var User */
+    $user = $this->getUser();
+    // Change current place
+    $user->setPlace($place);
+    // Persist it
+    $entityManager->persist($user);
+    $entityManager->flush();
+
+    return $this->json([
+      'success' => true,
+      'msg' => 'Local selecionado com sucesso'
+    ]);
+  }
 }

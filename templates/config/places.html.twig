@@ -31,14 +31,29 @@
             <td>
               <div class="field has-addons">
                 <div class="control">
-                  <a class="button is-small" href="{{ path('config_place_edit', { 'place': place.getId }) }}">
+                  <a class="button is-small" title="Editar" href="{{ path('config_place_edit', { 'place': place.getId }) }}">
                     <span class="icon">
                       <i class="mdi mdi-pencil"></i>
                     </span>
                   </a>
                 </div>
                 <div class="control">
-                  <button class="button is-small is-danger delete-place" target="{{ path('config_place_remove', { 'place': place.getId }) }}">
+                {% if place.getId == app.user.place.getId %}
+                  <button class="button is-small" title="Atual" disabled>
+                    <span class="icon">
+                      <i class="mdi mdi-map-marker-radius"></i>
+                    </span>
+                  </button>
+                {% else %}
+                  <button class="button is-small select-place" title="Selecionar" target="{{ path('config_place_select', { 'place': place.getId }) }}">
+                    <span class="icon">
+                      <i class="mdi mdi-map-marker-check"></i>
+                    </span>
+                  </button>
+                {% endif %}
+                </div>
+                <div class="control">
+                  <button class="button is-small is-danger delete-place" title="Deletar" target="{{ path('config_place_remove', { 'place': place.getId }) }}">
                     <span class="icon">
                       <i class="mdi mdi-delete"></i>
                     </span>
