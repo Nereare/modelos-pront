@@ -115,7 +115,7 @@ $(function () {
   /********************************/
   /*         Places Forms         */
   /********************************/
-  // Change user password
+  // Create or Edit place
   $("#formPlace").on("submit", function(e) {
     // Prevent default form submit actions
     e.preventDefault();
