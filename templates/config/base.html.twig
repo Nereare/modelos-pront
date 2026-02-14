@@ -24,6 +24,14 @@
 				<span>Locais</span>
 			</a>
 		</li>
+    <li{% if app.request.get('_route') == 'config_header' %} class="is-active"{% endif %}>
+			<a href="{{ path('config_header') }}">
+				<span class="icon">
+					<i class="mdi mdi-format-header-1"></i>
+				</span>
+				<span>Cabeçalho</span>
+			</a>
+		</li>
 	</ul>
 </div>
 

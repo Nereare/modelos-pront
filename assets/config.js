@@ -264,4 +264,63 @@ $(function () {
         }
       });
   });
+
+  /********************************/
+  /*          Header Form         */
+  /********************************/
+  // Create or Edit place
+  $("#formHeader").on("submit", function(e) {
+    // Prevent default form submit actions
+    e.preventDefault();
+    // Lock button
+    $("#formHeader button[type=submit]")
+      .attr("disabled", true)
+      .addClass("is-loading");
+    // Lock field
+    $("#header").attr("disabled", true);
+
+    // Prepare place data
+    let data = {
+      header: $("#header").val().trim()
+    };
+    // Prepare message reply
+    let msg_type = "info";
+    let msg_text = "Aguarde...";
+
+    // Send Ajax request
+    $.ajax({
+      method: "get",
+      url: e.currentTarget.action,
+      data: data
+    })
+      .done(function(response) {
+        msg_type = response.success ? "success" : "warning";
+        msg_text = response.msg;
+      })
+      .fail(function() {
+        msg_type = "danger";
+        msg_text = "Erro de comunicação com o servidor...";
+      })
+      .always(function() {
+        // Show reply message
+        window.showMessage(msg_type, msg_text);
+        if (msg_type == "success") {
+          // If success, redirect to places' list
+          setTimeout(function () {
+            window.location.reload();
+          }, 1000);
+        }
+        else {
+          // Otherwise reenable fields
+          // Unlock button
+          $("#formHeader button[type=submit]")
+            .attr("disabled", false)
+            .removeClass("is-loading");
+          // Unlock and focus field
+          $("#header")
+            .attr("disabled", false)
+            .trigger("focus");
+        }
+      });
+  });
 });

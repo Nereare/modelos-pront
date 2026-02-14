@@ -281,4 +281,54 @@ final class ConfigController extends AbstractController
       'msg' => 'Local selecionado com sucesso'
     ]);
   }
+
+  /********************************************/
+  /*              Config Header               */
+  /********************************************/
+  #[Route('/painel/cabecalho', name: 'config_header')]
+  public function header(): Response
+  {
+    return $this->render('config/header.html.twig');
+  }
+
+  #[Route('/painel/cabecalho/salvar', name: 'config_header_save')]
+  public function header_save(
+    EntityManagerInterface $entityManager,
+    Request $request
+  ): JsonResponse
+  {
+    // Check if user is logged in
+    $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+    // Get new header
+    $header = $request->get('header');
+    // Get user
+    /** @var User */
+    $user = $this->getUser();
+
+    // Check new header
+    if ($header == "") {
+      return $this->json([
+        'success' => false,
+        'msg' => 'Cabeçalho deve conter texto'
+      ]);
+    }
+    if (strlen($header) > 64) {
+      return $this->json([
+        'success' => false,
+        'msg' => 'Cabeçalho deve ter, no máximo, 64 caracteres'
+      ]);
+    }
+
+    // Change current header
+    $user->setHeader($header);
+    // Persist it
+    $entityManager->persist($user);
+    $entityManager->flush();
+
+    return $this->json([
+      'success' => true,
+      'msg' => 'Cabeçalho atualizado com sucesso'
+    ]);
+  }
 }

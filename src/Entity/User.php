@@ -66,6 +66,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Place $place = null;
 
+    #[ORM\Column(length: 64)]
+    private ?string $header = null;
+
     public function __construct()
     {
         $this->places = new ArrayCollection();
@@ -274,6 +277,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPlace(?Place $place): static
     {
         $this->place = $place;
+
+        return $this;
+    }
+
+    public function getHeader(): ?string
+    {
+        return $this->header;
+    }
+
+    public function setHeader(string $header): static
+    {
+        $this->header = $header;
 
         return $this;
     }
