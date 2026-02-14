@@ -123,23 +123,24 @@ $(function () {
     $("#formPlace button[type=submit]")
       .attr("disabled", true)
       .addClass("is-loading");
+    // Lock fields
+    $("#name, #cnes, #phone, #address").attr("disabled", true);
 
     // Prepare place data
     let place = {
       id: parseInt($("#id").val()),
       name: $("#name").val(),
       cnes: $("#cnes").val(),
-      phone: $("#phone").val().replace(/\s/g, ""),
+      phone: $("#phone").val(),
       address: $("#address").val()
     };
     // Prepare message reply
     let msg_type = "info";
     let msg_text = "Aguarde...";
-    console.log(place);
 
     // Send Ajax request
     $.ajax({
-      method: "post",
+      method: "get",
       url: e.currentTarget.action,
       data: place
     })
@@ -154,10 +155,66 @@ $(function () {
       .always(function() {
         // Show reply message
         window.showMessage(msg_type, msg_text);
-        // Unlock button
-        $("#formPlace button[type=submit]")
-          .attr("disabled", false)
-          .removeClass("is-loading");
+        if (msg_type == "success") {
+          // If success, redirect to places' list
+          setTimeout(function () {
+            window.location.replace($("#places-list").val());
+          }, 2000);
+        }
+        else {
+          // Otherwise reenable fields
+          // Unlock button
+          $("#formPlace button[type=submit]")
+            .attr("disabled", false)
+            .removeClass("is-loading");
+          // Unlock fields
+          $("#name, #cnes, #phone, #address").attr("disabled", false);
+          // Focus on name
+          $("#name").trigger("focus");
+        }
+      });
+  });
+  $(".delete-place").on("click", function() {
+    // Lock button
+    $(this)
+      .attr("disabled", true)
+      .addClass("is-loading");
+
+    // Get target URI
+    let place = $(this).attr("target");
+    // Prepare message reply
+    let msg_type = "info";
+    let msg_text = "Aguarde...";
+
+    // Send Ajax request
+    $.ajax({
+      method: "get",
+      url: place
+    })
+      .done(function(response) {
+        msg_type = response.success ? "success" : "warning";
+        msg_text = response.msg;
+      })
+      .fail(function() {
+        msg_type = "danger";
+        msg_text = "Erro de comunicação com o servidor...";
+      })
+      .always(function() {
+        // Show reply message
+        window.showMessage(msg_type, msg_text);
+        if (msg_type == "success") {
+          // If success, redirect to places' list
+          setTimeout(function () {
+            window.location.reload();
+          }, 2000);
+        }
+        else {
+          // Otherwise reenable fields
+          // Unlock button
+          $(this)
+            .attr("disabled", false)
+            .removeClass("is-loading");
+        }
       });
   });
 });

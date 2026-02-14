@@ -28,7 +28,24 @@
           <tr>
             <td>{{ place.getName }}</td>
             <td>{{ place.getCnes }}</td>
-            <td></td>
+            <td>
+              <div class="field has-addons">
+                <div class="control">
+                  <a class="button is-small" href="{{ path('config_place_edit', { 'place': place.getId }) }}">
+                    <span class="icon">
+                      <i class="mdi mdi-pencil"></i>
+                    </span>
+                  </a>
+                </div>
+                <div class="control">
+                  <button class="button is-small is-danger delete-place" target="{{ path('config_place_remove', { 'place': place.getId }) }}">
+                    <span class="icon">
+                      <i class="mdi mdi-delete"></i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </td>
           </tr>
         {% endfor %}
         {% else %}

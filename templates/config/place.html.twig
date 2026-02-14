@@ -12,8 +12,9 @@
           <span>{% if place.getName is empty %}Criar Local de Atendimento{% else %}Editar {{ place.getName }}{% endif %}</span>
       </h2>
 
-      <form id="formPlace" action="{{ path('config_place_save') }}">
+      <form id="formPlace" action="{% if place.getName is empty %}{{ path('config_place_new_save') }}{% else %}{{ path('config_place_edit_save', { 'place': place.getId }) }}{% endif %}" method="get">
         <input type="hidden" id="id" value="{% if place.getName is empty %}0{% else %}{{ place.getId }}{% endif %}">
+        <input type="hidden" id="places-list" value="{{ path('config_places') }}">
 
         <div class="field has-addons">
           <div class="control">
@@ -27,7 +28,7 @@
             </button>
           </div>
           <div class="control is-expanded">
-            <input class="input" type="text" id="name" placeholder="Nome do Local" value="{{ place.getName }}" required>
+            <input class="input" type="text" id="name" placeholder="Nome do Local" value="{{ place.getName }}" required autofocus>
           </div>
         </div>
 
@@ -45,7 +46,7 @@
                 </button>
               </div>
               <div class="control is-expanded">
-                <input class="input" type="number" id="cnes" placeholder="CNES" value="{{ place.getCnes }}">
+                <input class="input" type="number" id="cnes" placeholder="CNES" value="{{ place.getCnes }}" required>
               </div>
             </div>
           </div>
@@ -88,12 +89,21 @@
         <div class="field">
           <div class="control is-expanded">
             <button type="submit" class="button is-success is-fullwidth">
+              {% if place.getName is empty %}
               <span class="icon-text">
                 <span class="icon">
                   <i class="mdi mdi-plus"></i>
                 </span>
                 <span>Criar Local de Atendimento</span>
               </span>
+              {% else %}
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-content-save"></i>
+                </span>
+                <span>Editar Local de Atendimento</span>
+              </span>
+              {% endif %}
             </button>
           </div>
         </div>

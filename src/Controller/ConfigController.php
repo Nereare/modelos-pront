@@ -6,7 +6,6 @@ use App\Entity\User;
 use App\Entity\Place;
 use App\Enum\FederationUnit;
 use App\Enum\RegistryType;
-use App\Repository\PlaceRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -125,6 +124,62 @@ final class ConfigController extends AbstractController
     );
   }
 
+  #[Route('/painel/local/novo/salvar', name: 'config_place_new_save')]
+  public function place_save(
+    EntityManagerInterface $entityManager,
+    Request $request
+  ): JsonResponse
+  {
+    // Check if user is logged in
+    $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+    // Get place data
+    $name = $request->get('name');
+    $cnes = $request->get('cnes');
+    $phone = $request->get('phone');
+    $address = $request->get('address');
+    // Parse data
+    // > Remove excess characters
+    $phone = preg_replace('/[\(\)\- ]/', '', $phone);
+    // > Add Brazil international code if none is set
+    preg_match('/(\+\d{2})?(\d{2})(\d{8,9})/', $phone, $matches);
+    if ($matches[1] == '') {
+      $phone = "+55$phone";
+    }
+
+    // Check data validity
+    // > CNES
+    if (preg_match('/^\d{7}$/', $cnes) == 0) {
+      return $this->json([
+        'success' => false,
+        'msg' => 'CNES inválido'
+      ]);
+    }
+    // > Phone
+    if (preg_match('/^\+\d{1,3}\d{2}\d{8,9}$/', $phone) == 0) {
+      return $this->json([
+        'success' => false,
+        'msg' => 'Telefone inválido'
+      ]);
+    }
+
+    // Create new place
+    $place = new Place();
+    $place->setName($name);
+    $place->setCnes($cnes);
+    $place->setPhone($phone);
+    $place->setAddress($address);
+    $place->setOwner($this->getUser());
+    // Persist it
+    $entityManager->persist($place);
+    $entityManager->flush();
+
+    return $this->json([
+      'success' => true,
+      'msg' => 'Local criado com sucesso'
+    ]);
+  }
+
   #[Route('/painel/local/{place}', name: 'config_place_edit')]
   public function place_edit(
     Place $place
@@ -136,24 +191,74 @@ final class ConfigController extends AbstractController
     );
   }
 
-  #[Route('/painel/local/salvar', name: 'config_place_save')]
-  public function place_save(
+  #[Route('/painel/local/novo/salvar/{place}', name: 'config_place_edit_save')]
+  public function place_edit_save(
+    EntityManagerInterface $entityManager,
+    Place $place,
     Request $request
-  ): JsonResponse
-  {
+  ): JsonResponse {
     // Check if user is logged in
-    $this->denyAccessUnlessGranted('IS_AUTHENTICATED');
+    $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
     // Get place data
-    $id = intval($request->get('id'));
     $name = $request->get('name');
     $cnes = $request->get('cnes');
     $phone = $request->get('phone');
     $address = $request->get('address');
+    // Parse data
+    // > Remove excess characters
+    $phone = preg_replace('/[\(\)\- ]/', '', $phone);
+    // > Add Brazil international code if none is set
+    preg_match('/(\+\d{2})?(\d{2})(\d{8,9})/', $phone, $matches);
+    if ($matches[1] == '') {
+      $phone = "+55$phone";
+    }
+
+    // Check data validity
+    // > CNES
+    if (preg_match('/^\d{7}$/', $cnes) == 0) {
+      return $this->json([
+        'success' => false,
+        'msg' => 'CNES inválido'
+      ]);
+    }
+    // > Phone
+    if (preg_match('/^\+\d{1,3}\d{2}\d{8,9}$/', $phone) == 0) {
+      return $this->json([
+        'success' => false,
+        'msg' => 'Telefone inválido'
+      ]);
+    }
+
+    // Edit place with new data
+    $place->setName($name);
+    $place->setCnes($cnes);
+    $place->setPhone($phone);
+    $place->setAddress($address);
+    $place->setOwner($this->getUser());
+    // Persist it
+    $entityManager->persist($place);
+    $entityManager->flush();
 
     return $this->json([
-      'success' => false,
-      'msg' => 'Funcionalidade desativada temporariamente.'
+      'success' => true,
+      'msg' => 'Local editado com sucesso'
+    ]);
+  }
+
+  #[Route('/painel/remove/{place}', name: 'config_place_remove')]
+  public function place_remove(
+    EntityManagerInterface $entityManager,
+    Place $place
+  ): JsonResponse
+  {
+    // Remove given place
+    $entityManager->remove($place);
+    $entityManager->flush();
+
+    return $this->json([
+      'success' => true,
+      'msg' => 'Local deletado com sucesso'
     ]);
   }
 }
