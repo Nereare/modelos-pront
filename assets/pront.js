@@ -1,5 +1,7 @@
 // SCSS imports
 import './pront.scss';
+// JS Dependencies
+import ClipboardJS from 'clipboard';
 
 /******************************************/
 /*             Global Methods             */
