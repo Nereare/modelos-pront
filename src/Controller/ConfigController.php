@@ -29,7 +29,7 @@ final class ConfigController extends AbstractController
   ]);
   }
 
-  #[Route('/painel/save', name: 'config_home_save')]
+  #[Route('/painel/salvar', name: 'config_home_save')]
   public function index_save(
     EntityManagerInterface $entityManager,
     Request $request
@@ -246,7 +246,7 @@ final class ConfigController extends AbstractController
     ]);
   }
 
-  #[Route('/painel/remove/{place}', name: 'config_place_remove')]
+  #[Route('/painel/remover/{place}', name: 'config_place_remove')]
   public function place_remove(
     EntityManagerInterface $entityManager,
     Place $place
@@ -262,7 +262,7 @@ final class ConfigController extends AbstractController
     ]);
   }
 
-  #[Route('/painel/select/{place}', name: 'config_place_select')]
+  #[Route('/painel/selecionar/{place}', name: 'config_place_select')]
   public function place_select(
     EntityManagerInterface $entityManager,
     Place $place
