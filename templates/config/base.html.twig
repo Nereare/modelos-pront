@@ -41,6 +41,17 @@
 				<span>Textos</span>
 			</a>
 		</li>
+    {% if is_granted('ROLE_ADMIN') %}
+    {% set users_routes = [''] %}
+    <li{% if app.request.get('_route') in users_routes %} class="is-active"{% endif %}>
+			<a href="{{ path('admin_users') }}">
+				<span class="icon">
+					<i class="mdi mdi-account-multiple"></i>
+				</span>
+				<span>Usuários</span>
+			</a>
+		</li>
+    {% endif %}
 	</ul>
 </div>
 

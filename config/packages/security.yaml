@@ -25,7 +25,6 @@ security:
 
   access_control:
     - { path: ^/painel, roles: IS_AUTHENTICATED }
-    - { path: ^/admin, roles: ROLE_ADMIN }
 
 when@test:
   security:
