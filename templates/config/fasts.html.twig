@@ -1,0 +1,131 @@
+{% extends 'config/base.html.twig' %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="box">
+      <h2 class="title is-3">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-content-copy"></i>
+          </span>
+          <span>Textos Rápidos</span>
+        </span>
+      </h2>
+
+      <div class="grid is-col-min-8">
+      {% for text in texts %}
+        <div class="cell">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">{{ text.getName }}</p>
+              <button class="card-header-icon clipboard" data-clipboard-text="{{ text.getText }}">
+                <span class="icon">
+                  <i class="mdi mdi-content-copy"></i>
+                </span>
+              </button>
+            </header>
+            <div class="card-content">
+              <p>
+                {{ text.getText | nl2br }}
+              </p>
+            </div>
+            <footer class="card-footer">
+              <!-- TODO: Implementar edição via modal/Ajax -->
+              <a class="card-footer-item text-edit" text-id="{{ text.getId }}" text-name="{{ text.getName }}" text-txt="{{ text.getText }}">
+                <span class="icon-text">
+                  <span class="icon">
+                    <i class="mdi mdi-pencil"></i>
+                  </span>
+                  <span>Editar</span>
+                </span>
+              </a>
+              <a class="card-footer-item text-remove" remove-uri="{{ path('config_text_remove', {text: text.getId}) }}">
+                <span class="icon-text">
+                  <span class="icon">
+                    <i class="mdi mdi-delete"></i>
+                  </span>
+                  <span>Remover</span>
+                </span>
+              </a>
+            </footer>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+
+      <div class="field">
+        <div class="control is-expanded">
+          <a class="button is-success is-fullwidth" href="{{ path('config_text_new') }}">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="mdi mdi-plus"></i>
+              </span>
+              <span>Criar Texto</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal" id="text-edit-modal">
+  <div class="modal-background"></div>
+  <div class="card modal-card">
+    <header class="card-header">
+      <p class="card-header-title">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-pencil"></i>
+          </span>
+          <span>Editar Texto</span>
+        </span>
+      </p>
+    </header>
+    <section class="card-content">
+      <input type="hidden" id="text-edit-id">
+
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="mdi mdi-tag"></i>
+              </span>
+              <span>Nome do Texto</span>
+            </span>
+          </button>
+        </div>
+        <div class="control is-expanded">
+          <input class="input" type="text" id="text-edit-name" textholder="Nome do Texto" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control is-expanded">
+          <textarea class="textarea has-fixed-size" id="text-edit-text" placeholder="Conteúdo do texto rápido" rows="7" required></textarea>
+        </div>
+      </div>
+    </section>
+    <footer class="card-footer">
+      <a class="card-footer-item" id="text-edit-save" save-uri="{{ path('config_text_edit_save', {text: 'FOO'}) }}">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-content-save"></i>
+          </span>
+          <span>Salvar</span>
+        </span>
+      </a>
+      <a class="card-footer-item" id="text-edit-cancel">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-close"></i>
+          </span>
+          <span>Cancelar</span>
+        </span>
+      </a>
+    </footer>
+  </div>
+</div>
+{% endblock %}

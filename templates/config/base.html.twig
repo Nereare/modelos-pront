@@ -32,6 +32,14 @@
 				<span>Cabeçalho</span>
 			</a>
 		</li>
+    <li{% if app.request.get('_route') == 'config_fasts' %} class="is-active"{% endif %}>
+			<a href="{{ path('config_fasts') }}">
+				<span class="icon">
+					<i class="mdi mdi-content-copy"></i>
+				</span>
+				<span>Textos</span>
+			</a>
+		</li>
 	</ul>
 </div>
 

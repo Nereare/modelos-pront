@@ -1,9 +1,14 @@
+// JS Dependencies
+import ClipboardJS from 'clipboard';
+
 /******************************************/
 /*                   JS                   */
 /******************************************/
 // Config Methods
 $(function () {
   console.log("Config methods ready!");
+  // Initialize Clipboard.js
+  new ClipboardJS('.clipboard');
 
   /********************************/
   /*          User Forms          */
@@ -320,6 +325,185 @@ $(function () {
           $("#header")
             .attr("disabled", false)
             .trigger("focus");
+        }
+      });
+  });
+
+  /********************************/
+  /*          Texts Forms         */
+  /********************************/
+  // Remove given text
+  $(".text-remove").on("click", function() {
+    // Block this element
+    $(this).attr("disabled", true);
+    // Prepare message reply
+    let msg_type = "info";
+    let msg_text = "Aguarde...";
+
+    // Send Ajax request
+    $.ajax({
+      method: "get",
+      url: $(this).attr("remove-uri")
+    })
+      .done(function(response) {
+        msg_type = response.success ? "success" : "warning";
+        msg_text = response.msg;
+      })
+      .fail(function() {
+        msg_type = "danger";
+        msg_text = "Erro de comunicação com o servidor...";
+      })
+      .always(function() {
+        // Show reply message
+        window.showMessage(msg_type, msg_text);
+        if (msg_type == "success") {
+          // If success, redirect to places' list
+          setTimeout(function () {
+            window.location.reload();
+          }, 1000);
+        } else {
+          // Block this element
+          $(this).attr("disabled", false);
+        }
+      });
+  });
+
+  // Edit text
+  // > Show edit modal
+  $(".text-edit").on("click", function() {
+    // Get given text data
+    let id   = $(this).attr("text-id");
+    let name = $(this).attr("text-name");
+    let txt  = $(this).attr("text-txt");
+    // Set modal fields
+    $("#text-edit-id").val(id);
+    $("#text-edit-name").val(name).trigger("change");
+    $("#text-edit-text").val(txt).trigger("change");
+
+    // Show modal
+    $("#text-edit-modal").addClass("is-active");
+    // Focus on name field
+    $("#text-edit-name").trigger("focus");
+  });
+  // > Hide edit modal
+  $("#text-edit-cancel").on("click", function() {
+    // Empty modal fields
+    $("#text-edit-id").val("");
+    $("#text-edit-name").val("");
+    $("#text-edit-text").val("");
+    // Hide modal
+    $("#text-edit-modal").removeClass("is-active");
+  });
+  // > Save edits
+  $("#text-edit-save").on("click", function() {
+    // Lock buttons
+    $("#text-edit-save, #text-edit-cancel")
+      .attr("disabled", true)
+      .addClass("is-loading");
+    // Lock fields
+    $("#text-edit-name, #text-edit-text").attr("disabled", true);
+
+    // Prepare text data
+    let text = {
+      name: $("#text-edit-name").val().trim(),
+      txt: $("#text-edit-text").val().trim()
+    };
+    // Prepare action URI
+    let uri = $(this).attr("save-uri").replace('FOO', $("#text-edit-id").val());
+    // Prepare message reply
+    let msg_type = "info";
+    let msg_text = "Aguarde...";
+
+    // Send Ajax request
+    $.ajax({
+      method: "get",
+      url: uri,
+      data: text
+    })
+      .done(function(response) {
+        msg_type = response.success ? "success" : "warning";
+        msg_text = response.msg;
+      })
+      .fail(function() {
+        msg_type = "danger";
+        msg_text = "Erro de comunicação com o servidor...";
+      })
+      .always(function() {
+        // Show reply message
+        window.showMessage(msg_type, msg_text);
+        if (msg_type == "success") {
+          // If success, redirect to places' list
+          setTimeout(function () {
+            window.location.reload();
+          }, 1000);
+        }
+        else {
+          // Otherwise reenable fields
+          // Unlock buttons
+          $("#text-edit-save, #text-edit-cancel")
+            .attr("disabled", false)
+            .removeClass("is-loading");
+          // Unlock fields
+          $("#text-edit-name, #text-edit-text").attr("disabled", false);
+          $("#text-edit-name").trigger("focus");
+        }
+      });
+  });
+
+  // Create or Edit text
+  $("#formText").on("submit", function(e) {
+    // Prevent default form submit actions
+    e.preventDefault();
+    // Lock button
+    $("#formText button[type=submit]")
+      .attr("disabled", true)
+      .addClass("is-loading");
+    // Lock fields
+    $("#name, #text").attr("disabled", true);
+
+    // Prepare text data
+    let text = {
+      id: parseInt($("#id").val()),
+      name: $("#name").val().trim(),
+      text: $("#text").val().trim()
+    };
+    // Prepare message reply
+    let msg_type = "info";
+    let msg_text = "Aguarde...";
+
+    // Send Ajax request
+    $.ajax({
+      method: "get",
+      url: e.currentTarget.action,
+      data: text
+    })
+      .done(function(response) {
+        msg_type = response.success ? "success" : "warning";
+        msg_text = response.msg;
+      })
+      .fail(function() {
+        msg_type = "danger";
+        msg_text = "Erro de comunicação com o servidor...";
+      })
+      .always(function() {
+        // Show reply message
+        window.showMessage(msg_type, msg_text);
+        if (msg_type == "success") {
+          // If success, redirect to places' list
+          setTimeout(function () {
+            window.location.replace($("#texts-list").val());
+          }, 1000);
+        }
+        else {
+          // Otherwise reenable fields
+          // Unlock button
+          $("#formText button[type=submit]")
+            .attr("disabled", false)
+            .removeClass("is-loading");
+          // Unlock fields
+          $("#name, #text").attr("disabled", false);
+          // Focus on name
+          $("#name").trigger("focus");
         }
       });
   });

@@ -1,0 +1,66 @@
+{% extends 'config/base.html.twig' %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="box">
+      <h2 class="title is-3">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-content-copy"></i>
+          </span>
+          <span>{% if text.getName is empty %}Criar Texto Rápido{% else %}Editar {{ text.getName }}{% endif %}</span>
+      </h2>
+
+      <form id="formText" action="{% if text.getName is empty %}{{ path('config_text_new_save') }}{% else %}{{ path('config_text_edit_save', { 'text': text.getId }) }}{% endif %}" method="get">
+        <input type="hidden" id="id" value="{% if text.getName is empty %}0{% else %}{{ text.getId }}{% endif %}">
+        <input type="hidden" id="texts-list" value="{{ path('config_fasts') }}">
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-tag"></i>
+                </span>
+                <span>Nome do Texto</span>
+              </span>
+            </button>
+          </div>
+          <div class="control is-expanded">
+            <input class="input" type="text" id="name" textholder="Nome do Texto" value="{{ text.getName }}" required autofocus>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control is-expanded">
+            <textarea class="textarea has-fixed-size" id="text" placeholder="Conteúdo do texto rápido" rows="13" required>{{ text.getText }}</textarea>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control is-expanded">
+            <button type="submit" class="button is-success is-fullwidth">
+              {% if text.getName is empty %}
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-plus"></i>
+                </span>
+                <span>Criar Texto</span>
+              </span>
+              {% else %}
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-content-save"></i>
+                </span>
+                <span>Editar Texto</span>
+              </span>
+              {% endif %}
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

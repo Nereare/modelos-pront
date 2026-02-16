@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Entity\Place;
+use App\Entity\Text;
 use App\Enum\FederationUnit;
 use App\Enum\RegistryType;
+use App\Repository\TextRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -329,6 +331,158 @@ final class ConfigController extends AbstractController
     return $this->json([
       'success' => true,
       'msg' => 'Cabeçalho atualizado com sucesso'
+    ]);
+  }
+
+  /********************************************/
+  /*             Config Fast Texts            */
+  /********************************************/
+  #[Route('/painel/textos', name: 'config_fasts')]
+  public function fasts(
+    TextRepository $textRepository
+  ): Response
+  {
+    // Get user
+    /** @var User */
+    $user = $this->getUser();
+    // Get user's texts
+    $texts = $textRepository->findBy(['owner' => $user]);
+
+    return $this->render(
+      'config/fasts.html.twig',
+      ['texts' => $texts]
+    );
+  }
+
+  #[Route('/painel/textos/novo', name: 'config_text_new')]
+  public function text_new(): Response
+  {
+    return $this->render(
+      'config/text.html.twig',
+      ['text' => new Text()]
+    );
+  }
+
+  #[Route('/painel/textos/remove/{text}', name: 'config_text_remove')]
+  public function text_remove(
+    EntityManagerInterface $entityManager,
+    Text $text
+  ): JsonResponse
+  {
+    // Get user
+    /** @var User */
+    $user = $this->getUser();
+
+    // Check if text is owned by user
+    if ($text->getOwner() != $user) {
+      return $this->json([
+        'success' => false,
+        'msg' => 'Texto com este ID não te pertence'
+      ]);
+    }
+
+    // Remove text
+    $entityManager->remove($text);
+    $entityManager->flush();
+
+    return $this->json([
+      'success' => true,
+      'msg' => 'Texto deletado com sucesso'
+    ]);
+  }
+
+  #[Route('/painel/textos/novo/salvar', name: 'config_text_new_save')]
+  public function text_save(
+    EntityManagerInterface $entityManager,
+    Request $request
+  ): JsonResponse
+  {
+    // Get place data
+    $name = $request->get('name');
+    $txt = $request->get('text');
+    // Remove excess characters
+    $name = trim($name);
+    $txt = trim($txt);
+    // Check data validity
+    // > Name
+    if ($name == '') {
+      return $this->json([
+        'success' => false,
+        'msg' => 'Nome não pode estar vazio'
+      ]);
+    }
+    // > Text
+    if ($txt == '') {
+      return $this->json([
+        'success' => false,
+        'msg' => 'Texto não pode estar vazio'
+      ]);
+    }
+
+    // Create new text
+    $text = new Text();
+    $text->setName($name);
+    $text->setText($txt);
+    $text->setOwner($this->getUser());
+    // Persist it
+    $entityManager->persist($text);
+    $entityManager->flush();
+
+    return $this->json([
+      'success' => true,
+      'msg' => 'Texto criado com sucesso'
+    ]);
+  }
+
+  #[Route('/painel/textos/salvar/{text}', name: 'config_text_edit_save')]
+  public function text_edit_save(
+    EntityManagerInterface $entityManager,
+    Text $text,
+    Request $request
+  ): JsonResponse {
+    // Get user
+    /** @var User */
+    $user = $this->getUser();
+    // Get place data
+    $name = $request->get('name');
+    $txt = $request->get('txt');
+    // Remove excess characters
+    $name = trim($name);
+    $txt = trim($txt);
+
+    // Check data validity
+    // > Name
+    if ($name == '') {
+      return $this->json([
+        'success' => false,
+        'msg' => 'Nome não pode estar vazio'
+      ]);
+    }
+    // > Text
+    if ($txt == '') {
+      return $this->json([
+        'success' => false,
+        'msg' => 'Texto não pode estar vazio'
+      ]);
+    }
+    // > User owns this text
+    if ($text->getOwner() != $user) {
+      return $this->json([
+        'success' => false,
+        'msg' => 'Você não possui o texto em questão'
+      ]);
+    }
+
+    // Edit text with new data
+    $text->setName($name);
+    $text->setText($txt);
+    // Persist it
+    $entityManager->persist($text);
+    $entityManager->flush();
+
+    return $this->json([
+      'success' => true,
+      'msg' => 'Texto editado com sucesso'
     ]);
   }
 }
