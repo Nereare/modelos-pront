@@ -69,9 +69,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 64)]
     private ?string $header = null;
 
+    /**
+     * @var Collection<int, Text>
+     */
+    #[ORM\OneToMany(targetEntity: Text::class, mappedBy: 'owner', orphanRemoval: true)]
+    private Collection $texts;
+
     public function __construct()
     {
         $this->places = new ArrayCollection();
+        $this->texts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -289,6 +296,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setHeader(string $header): static
     {
         $this->header = $header;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Text>
+     */
+    public function getTexts(): Collection
+    {
+        return $this->texts;
+    }
+
+    public function addText(Text $text): static
+    {
+        if (!$this->texts->contains($text)) {
+            $this->texts->add($text);
+            $text->setOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeText(Text $text): static
+    {
+        if ($this->texts->removeElement($text)) {
+            // set the owning side to null (unless already changed)
+            if ($text->getOwner() === $this) {
+                $text->setOwner(null);
+            }
+        }
 
         return $this;
     }
