@@ -21,7 +21,7 @@ class ParseRegistry
     );
     // Build register array
     $registry = [
-      strtoupper($user->getRegistryType()->name),
+      $user->getRegistryType()->value,
       '/',
       $user->getRegistryState()->name,
       ' ',
