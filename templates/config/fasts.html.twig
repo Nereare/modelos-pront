@@ -14,6 +14,7 @@
       </h2>
 
       <div class="grid is-col-min-8">
+      {% if texts|length %}
       {% for text in texts %}
         <div class="cell">
           <div class="card">
@@ -31,7 +32,6 @@
               </p>
             </div>
             <footer class="card-footer">
-              <!-- TODO: Implementar edição via modal/Ajax -->
               <a class="card-footer-item text-edit" text-id="{{ text.getId }}" text-name="{{ text.getName }}" text-txt="{{ text.getText }}">
                 <span class="icon-text">
                   <span class="icon">
@@ -52,6 +52,18 @@
           </div>
         </div>
       {% endfor %}
+      {% else %}
+        <div class="cell">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">Opa...</p>
+            </header>
+            <div class="card-content">
+              <p>Não há nenhum texto rápido salvo</p>
+            </div>
+          </div>
+        </div>
+      {% endif %}
       </div>
 
       <div class="field">
