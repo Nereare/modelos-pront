@@ -34,6 +34,7 @@
     "symfony/web-link": "8.0.*",
     "symfony/webpack-encore-bundle": "^2.4",
     "symfony/yaml": "8.0.*",
+    "twig/cssinliner-extra": "^3.23",
     "twig/extra-bundle": "^3.23",
     "twig/markdown-extra": "^3.23"
   },
