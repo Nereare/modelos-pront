@@ -17,7 +17,7 @@
 
   <div class="navbar-menu" id="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item{% if app.request.get('_route') == 'about' %} is-selected{% endif %}" href="{{ path('about') }}">
+      <a class="navbar-item{% if app.request.attributes.get('_route') == 'about' %} is-selected{% endif %}" href="{{ path('about') }}">
         <span class="icon-text">
           <span class="icon">
             <i class="mdi mdi-help"></i>
@@ -25,7 +25,7 @@
           <span>Sobre</span>
         </span>
       </a>
-      <a class="navbar-item{% if app.request.get('_route') == 'cookies' %} is-selected{% endif %}" href="{{ path('cookies') }}">
+      <a class="navbar-item{% if app.request.attributes.get('_route') == 'cookies' %} is-selected{% endif %}" href="{{ path('cookies') }}">
         <span class="icon-text">
           <span class="icon">
             <i class="mdi mdi-cookie"></i>
@@ -33,7 +33,7 @@
           <span>Cookies</span>
         </span>
       </a>
-      <a class="navbar-item{% if app.request.get('_route') == 'privacy' %} is-selected{% endif %}" href="{{ path('privacy') }}">
+      <a class="navbar-item{% if app.request.attributes.get('_route') == 'privacy' %} is-selected{% endif %}" href="{{ path('privacy') }}">
         <span class="icon-text">
           <span class="icon">
             <i class="mdi mdi-security"></i>
@@ -41,7 +41,7 @@
           <span>Privacidade</span>
         </span>
       </a>
-      <a class="navbar-item{% if app.request.get('_route') == 'usage' %} is-selected{% endif %}" href="{{ path('usage') }}">
+      <a class="navbar-item{% if app.request.attributes.get('_route') == 'usage' %} is-selected{% endif %}" href="{{ path('usage') }}">
         <span class="icon-text">
           <span class="icon">
             <i class="mdi mdi-information"></i>

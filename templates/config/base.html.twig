@@ -7,7 +7,7 @@
 {% block main %}
 <div class="tabs is-toggle is-toggle-rounded is-centered mb-0">
 	<ul>
-    <li{% if app.request.get('_route') == 'config_home' %} class="is-active"{% endif %}>
+    <li{% if app.request.attributes.get('_route') == 'config_home' %} class="is-active"{% endif %}>
 			<a href="{{ path('config_home') }}">
 				<span class="icon">
 					<i class="mdi mdi-account"></i>
@@ -16,7 +16,7 @@
 			</a>
 		</li>
     {% set place_routes = ['config_places', 'config_place_new', 'config_place_edit'] %}
-		<li{% if app.request.get('_route') in place_routes %} class="is-active"{% endif %}>
+		<li{% if app.request.attributes.get('_route') in place_routes %} class="is-active"{% endif %}>
 			<a href="{{ path('config_places') }}">
 				<span class="icon">
 					<i class="mdi mdi-hospital-building"></i>
@@ -24,7 +24,7 @@
 				<span>Locais</span>
 			</a>
 		</li>
-    <li{% if app.request.get('_route') == 'config_header' %} class="is-active"{% endif %}>
+    <li{% if app.request.attributes.get('_route') == 'config_header' %} class="is-active"{% endif %}>
 			<a href="{{ path('config_header') }}">
 				<span class="icon">
 					<i class="mdi mdi-format-header-1"></i>
@@ -33,7 +33,7 @@
 			</a>
 		</li>
     {% set text_routes = ['config_fasts', 'config_text_new'] %}
-    <li{% if app.request.get('_route') in text_routes %} class="is-active"{% endif %}>
+    <li{% if app.request.attributes.get('_route') in text_routes %} class="is-active"{% endif %}>
 			<a href="{{ path('config_fasts') }}">
 				<span class="icon">
 					<i class="mdi mdi-content-copy"></i>
@@ -43,7 +43,7 @@
 		</li>
     {% if is_granted('ROLE_ADMIN') %}
     {% set users_routes = [''] %}
-    <li{% if app.request.get('_route') in users_routes %} class="is-active"{% endif %}>
+    <li{% if app.request.attributes.get('_route') in users_routes %} class="is-active"{% endif %}>
 			<a href="{{ path('admin_users') }}">
 				<span class="icon">
 					<i class="mdi mdi-account-multiple"></i>
