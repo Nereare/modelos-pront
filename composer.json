@@ -25,6 +25,7 @@
     "symfony/emoji": "8.0.*",
     "symfony/flex": "^2",
     "symfony/framework-bundle": "8.0.*",
+    "symfony/mailer": "8.0.*",
     "symfony/monolog-bundle": "^4.0",
     "symfony/rate-limiter": "8.0.*",
     "symfony/runtime": "8.0.*",
@@ -33,7 +34,6 @@
     "symfony/web-link": "8.0.*",
     "symfony/webpack-encore-bundle": "^2.4",
     "symfony/yaml": "8.0.*",
-    "symfonycasts/verify-email-bundle": "^1.18",
     "twig/extra-bundle": "^3.23",
     "twig/markdown-extra": "^3.23"
   },
