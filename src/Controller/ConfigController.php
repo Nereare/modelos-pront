@@ -25,10 +25,10 @@ final class ConfigController extends AbstractController
   public function index(): Response
   {
     return $this->render('config/index.html.twig',
-  [
-    'registryTypes' => RegistryType::cases(),
-    'federationUnits' => FederationUnit::cases()
-  ]);
+    [
+      'registryTypes' => RegistryType::cases(),
+      'federationUnits' => FederationUnit::cases()
+    ]);
   }
 
   #[Route('/painel/salvar', name: 'config_home_save')]
@@ -43,12 +43,12 @@ final class ConfigController extends AbstractController
     /** @var User */
     $user = $this->getUser();
     // Get new user data
-    $firstName = $request->get('firstName');
-    $lastName = $request->get('lastName');
-    $registryType = $request->get('registryType');
-    $registryState = $request->get('registryState');
-    $registryNumber = $request->get('registryNumber');
-    $phone = $request->get('phone');
+    $firstName = $request->query->get('firstName');
+    $lastName = $request->query->get('lastName');
+    $registryType = $request->query->get('registryType');
+    $registryState = $request->query->get('registryState');
+    $registryNumber = $request->query->get('registryNumber');
+    $phone = $request->query->get('phone');
 
     // Update user entity
     $user->setFirstName($firstName);
@@ -79,8 +79,8 @@ final class ConfigController extends AbstractController
     /** @var User */
     $user = $this->getUser();
     // Get password data
-    $oldPw = $request->get('oldPw');
-    $newPw = $request->get('newPw');
+    $oldPw = $request->query->get('oldPw');
+    $newPw = $request->query->get('newPw');
     // Confirm old password
     if (!$passwordHasher->isPasswordValid($user, $oldPw)) {
       // Invalid old password
@@ -136,10 +136,10 @@ final class ConfigController extends AbstractController
     $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
     // Get place data
-    $name = $request->get('name');
-    $cnes = $request->get('cnes');
-    $phone = $request->get('phone');
-    $address = $request->get('address');
+    $name = $request->query->get('name');
+    $cnes = $request->query->get('cnes');
+    $phone = $request->query->get('phone');
+    $address = $request->query->get('address');
     // Parse data
     // > Remove excess characters
     $phone = preg_replace('/[\(\)\- ]/', '', $phone);
@@ -203,10 +203,10 @@ final class ConfigController extends AbstractController
     $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
     // Get place data
-    $name = $request->get('name');
-    $cnes = $request->get('cnes');
-    $phone = $request->get('phone');
-    $address = $request->get('address');
+    $name = $request->query->get('name');
+    $cnes = $request->query->get('cnes');
+    $phone = $request->query->get('phone');
+    $address = $request->query->get('address');
     // Parse data
     // > Remove excess characters
     $phone = preg_replace('/[\(\)\- ]/', '', $phone);
@@ -303,7 +303,7 @@ final class ConfigController extends AbstractController
     $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
     // Get new header
-    $header = $request->get('header');
+    $header = $request->query->get('header');
     // Get user
     /** @var User */
     $user = $this->getUser();
@@ -398,8 +398,8 @@ final class ConfigController extends AbstractController
   ): JsonResponse
   {
     // Get place data
-    $name = $request->get('name');
-    $txt = $request->get('text');
+    $name = $request->query->get('name');
+    $txt = $request->query->get('text');
     // Remove excess characters
     $name = trim($name);
     $txt = trim($txt);
@@ -444,8 +444,8 @@ final class ConfigController extends AbstractController
     /** @var User */
     $user = $this->getUser();
     // Get place data
-    $name = $request->get('name');
-    $txt = $request->get('txt');
+    $name = $request->query->get('name');
+    $txt = $request->query->get('txt');
     // Remove excess characters
     $name = trim($name);
     $txt = trim($txt);
