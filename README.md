@@ -2,7 +2,7 @@
 
 [![GitHub package.json version](https://img.shields.io/github/package-json/v/Nereare/modelos-pront)](https://github.com/Nereare/modelos-pront)
 [![Hippocratic License HL3-FULL](https://img.shields.io/static/v1?label=Hippocratic%20License&message=HL3-FULL&labelColor=5e2751&color=bc8c3d)](https://firstdonoharm.dev/version/3/0/full.html)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE-OF-CONDUCT.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE-OF-CONDUCT.md)
 [![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/Nereare/modelos-pront)](https://libraries.io/github/Nereare/modelos-pront)
 
 Uma miscelânea de modelos de evolução de consultas com tópicos específicos.
