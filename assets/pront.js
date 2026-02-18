@@ -34,6 +34,8 @@ window.showMessage = function showMessage(type, message) {
 // Base Methods
 $(function () {
   console.log("Base methods ready!");
+  // Init Clipboard.js
+  new ClipboardJS('.clipboard');
 
   // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
   $(".navbar-burger").on("click", function () {

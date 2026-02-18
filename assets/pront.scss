@@ -56,3 +56,29 @@ html { padding-top: 1.5rem; }
     margin-right: auto;
   }
 }
+
+// Set fast texts drawer
+#fasts-drawer {
+  width: 25rem;
+  max-height: calc(100vh - 5rem);
+  position: fixed;
+  top: 4rem;
+  left: calc(100vw - 3rem);
+  overflow: hidden;
+  transition: transform 0.5s;
+  .message-body { height: 100%; }
+  .message-header, .message-body {
+    // FIXME: Vertical scrolling still not working
+    overflow: auto;
+    padding-right: 2rem;
+  }
+  &:hover {
+    transform: translateX(calc(-25rem + 3rem));
+  }
+
+  // If touch device - up to tablets
+  @media screen and (max-width: 1024px) {
+    // Styles applied
+    // below $desktop
+  }
+}

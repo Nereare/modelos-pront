@@ -97,6 +97,28 @@
   </div>
 </div>
 
+{% if is_granted('IS_AUTHENTICATED') %}
+<article class="message is-primary" id="fasts-drawer">
+  <div class="message-header">
+    <p>Link</p>
+  </div>
+  <div class="message-body">
+    <div class="buttons">
+    {% for text in app.user.getTexts %}
+      <button class="button is-fullwidth clipboard" data-clipboard-text="{{ text.getText }}">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-content-copy"></i>
+          </span>
+          <span>{{ text.getName }}</span>
+        </span>
+      </button>
+    {% endfor %}
+    </div>
+  </div>
+</article>
+{% endif %}
+
 <div class="notification is-hidden" id="global-message">
 	<button class="delete"></button>
 	<p></p>
