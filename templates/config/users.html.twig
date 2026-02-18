@@ -7,53 +7,65 @@
       <h2 class="title is-3">
         <span class="icon-text">
           <span class="icon">
-            <i class="mdi mdi-hospital-building"></i>
+            <i class="mdi mdi-account-multiple"></i>
           </span>
-          <span>Locais de Atendimento</span>
+          <span>Usuários</span>
       </h2>
-
-      {% set places = app.user.getPlaces %}
 
       <table class="table is-striped is-hoverable is-fullwidth">
         <thead>
           <tr>
+            <td>Usuário</td>
             <td>Nome</td>
-            <td>CNES</td>
+            <td>Registro</td>
+            <td>Email</td>
             <td>Ações</td>
           </tr>
         </thead>
         <tbody>
-        {% if places|length %}
-        {% for place in places %}
+        {% if users|length %}
+        {% for user in users %}
           <tr>
-            <td>{{ place.getName }}</td>
-            <td>{{ place.getCnes }}</td>
+            <td>
+            {% if is_granted_for_user(user, 'ROLE_OWNER') %}
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-chess-king"></i>
+                </span>
+                <span>{{ user.getUsername }}</span>
+              </span>
+            {% elseif is_granted_for_user(user, 'ROLE_ADMIN') %}
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-chess-knight"></i>
+                </span>
+                <span>{{ user.getUsername }}</span>
+              </span>
+            {% else %}
+              {{ user.getUsername }}
+            {% endif %}
+            </td>
+            <td>{{ user.getFirstName }} {{ user.getLastName }}</td>
+            <td>{{ user | parse_registry }}</td>
+            <td><a target="_blank" href="mailto:{{ user.getEmail }}">{{ user.getEmail }}</a></td>
             <td>
               <div class="field has-addons">
                 <div class="control">
-                  <a class="button is-small" title="Editar" href="{{ path('config_place_edit', { 'place': place.getId }) }}">
+                  <a class="button is-small" title="Editar" href="{{ path('admin_users_edit', {'user': user.getId}) }}">
                     <span class="icon">
                       <i class="mdi mdi-pencil"></i>
                     </span>
                   </a>
                 </div>
                 <div class="control">
-                {% if place.getId == app.user.place.getId %}
-                  <button class="button is-small" title="Atual" disabled>
+                  <button class="button is-small resetpw-user" title="Resetar senha" target="{{ path('admin_users_pwreset', {'user': user.getId }) }}" username="{{ user.getUsername }}">
                     <span class="icon">
-                      <i class="mdi mdi-map-marker-radius"></i>
+                      <i class="mdi mdi-lock-alert"></i>
                     </span>
                   </button>
-                {% else %}
-                  <button class="button is-small select-place" title="Selecionar" target="{{ path('config_place_select', { 'place': place.getId }) }}">
-                    <span class="icon">
-                      <i class="mdi mdi-map-marker-check"></i>
-                    </span>
-                  </button>
-                {% endif %}
                 </div>
                 <div class="control">
-                  <button class="button is-small is-danger delete-place" title="Deletar" target="{{ path('config_place_remove', { 'place': place.getId }) }}">
+                  <button class="button is-small is-danger delete-user" title="Deletar" target="{{ path('admin_users_remove', {'user': user.getId }) }}" username="{{ user.getUsername }}">
                     <span class="icon">
                       <i class="mdi mdi-delete"></i>
                     </span>
@@ -65,7 +77,7 @@
         {% endfor %}
         {% else %}
           <tr>
-            <td colspan="3" class="has-text-centered">Nenhum local de atendimento cadastrado.</td>
+            <td colspan="5" class="has-text-centered">Nenhum usuário cadastrado &mdash; <strong>COMO</strong> você fez isso?!</td>
           </tr>
         {% endif %}
         </tbody>
@@ -73,12 +85,12 @@
 
       <div class="field">
         <div class="control is-expanded">
-          <a class="button is-success is-fullwidth" href="{{ path('config_place_new') }}">
+          <a class="button is-success is-fullwidth" href="{{ path('admin_users_new') }}">
             <span class="icon-text">
               <span class="icon">
                 <i class="mdi mdi-plus"></i>
               </span>
-              <span>Criar Local de Atendimento</span>
+              <span>Adicionar Usuário</span>
             </span>
           </a>
         </div>
@@ -86,4 +98,88 @@
     </div>
   </div>
 </section>
+
+<div class="modal" id="reset-pw-modal">
+  <div class="modal-background"></div>
+  <div class="card modal-card">
+    <header class="card-header">
+      <p class="card-header-title">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-lock-alert"></i>
+          </span>
+          <span>Resetar Senha</span>
+        </span>
+      </p>
+    </header>
+    <section class="card-content">
+      <div class="content">
+        <p>Você confirma que quer resetar a senha do usuário <span id="reset-pw-modal-username">?</span>?</p>
+      </div>
+    </section>
+    <footer class="card-footer">
+      <a class="card-footer-item" id="reset-pw-modal-do" reset-uri="">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-alert"></i>
+          </span>
+          <span>Resetar</span>
+        </span>
+      </a>
+      <a class="card-footer-item" id="reset-pw-modal-cancel">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-close"></i>
+          </span>
+          <span>Cancelar</span>
+        </span>
+      </a>
+    </footer>
+  </div>
+</div>
+
+<div class="modal" id="delete-modal">
+  <div class="modal-background"></div>
+  <div class="card modal-card">
+    <header class="card-header">
+      <p class="card-header-title">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-delete"></i>
+          </span>
+          <span>Remover Usuário</span>
+        </span>
+      </p>
+    </header>
+    <section class="card-content">
+      <div class="content">
+        <p>Você confirma que quer remover o usuário <span id="delete-modal-username">?</span>?</p>
+      </div>
+
+      <div class="field">
+        <div class="control is-expanded">
+          <textarea class="textarea has-fixed-size" id="delete-modal-reason" placeholder="Caso deseje, inclua uma mensagem explicativa da remoção aqui, Markdown optativo..."></textarea>
+        </div>
+      </div>
+    </section>
+    <footer class="card-footer">
+      <a class="card-footer-item" id="delete-modal-do" delete-uri="">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-delete-alert"></i>
+          </span>
+          <span>REMOVER</span>
+        </span>
+      </a>
+      <a class="card-footer-item" id="delete-modal-cancel">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-close"></i>
+          </span>
+          <span>Cancelar</span>
+        </span>
+      </a>
+    </footer>
+  </div>
+</div>
 {% endblock %}

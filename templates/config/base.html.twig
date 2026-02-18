@@ -2,6 +2,9 @@
 
 {% block javascripts %}
 {{ encore_entry_script_tags('config') }}
+{% if is_granted('ROLE_OWNER') %}
+{{ encore_entry_script_tags('admin') }}
+{% endif %}
 {% endblock %}
 
 {% block main %}
@@ -42,7 +45,7 @@
 			</a>
 		</li>
     {% if is_granted('ROLE_ADMIN') %}
-    {% set users_routes = [''] %}
+    {% set users_routes = ['admin_users', 'admin_users_new', 'admin_users_edit'] %}
     <li{% if app.request.attributes.get('_route') in users_routes %} class="is-active"{% endif %}>
 			<a href="{{ path('admin_users') }}">
 				<span class="icon">

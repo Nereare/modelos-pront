@@ -1,0 +1,20 @@
+{% extends 'emails/base.html.twig' %}
+
+{% block content %}
+<h1>{{ app }}</h1>
+
+<div class="box">
+  <h2>Olá, {{ name }}!</h2>
+  <p>
+    Viemos avisar que este email não está mais associado
+    à sua conta em {{ app }}.
+  </p>
+  <p>
+    Um resumo de todas as alterações eventuais foi
+    enviado para o novo email.
+  </p>
+  <p>
+    Obrigado!
+  </p>
+</div>
+{% endblock %}

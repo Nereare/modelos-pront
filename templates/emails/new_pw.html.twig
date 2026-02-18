@@ -1,0 +1,32 @@
+{% extends 'emails/base.html.twig' %}
+
+{% block content %}
+<h1>{{ app }}</h1>
+
+<div class="box">
+  <h2>Olá, {{ name }}!</h2>
+  <p>
+    Viemos avisar que a administração de {{ app }}
+    solicitou um <em>reset</em> da sua senha.
+  </p>
+  <p>
+    Sua nova senha é:
+  </p>
+  <p class="center">
+    <code>{{ pw }}</code>
+  </p>
+  <p>
+    Contate alguém da administração em caso de
+    dúvidas.
+  </p>
+</div>
+
+<div class="box warning">
+  <h2>Importante!</h2>
+  <p>
+    A senha acima foi gerada automaticamente, mas sugerimos
+    <strong>fortemente</strong> que você a modifique para
+    uma senha própria tão logo entre no seu Painel!
+  </p>
+</div>
+{% endblock %}

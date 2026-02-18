@@ -1,0 +1,24 @@
+{% extends 'emails/base.html.twig' %}
+
+{% block content %}
+<h1>{{ app }}</h1>
+
+<div class="box">
+  <h2>Olá, {{ name }}!</h2>
+  <p>
+    Viemos avisar que a administração de {{ app }}
+    modificou alguns dados da sua conta:
+  </p>
+  <p class="center">
+  {% for c in changes %}
+    <strong>{{ c[0] }}:</strong>
+    <code>{{ c[1] }}</code>
+    <br>
+  {% endfor %}
+  </p>
+  <p>
+    Contate alguém da administração em caso de
+    dúvidas.
+  </p>
+</div>
+{% endblock %}

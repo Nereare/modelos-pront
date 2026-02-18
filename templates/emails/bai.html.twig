@@ -1,0 +1,23 @@
+{% extends 'emails/base.html.twig' %}
+
+{% block content %}
+<h1>{{ app }}</h1>
+
+<div class="box">
+  <h2>Olá, {{ name }}!</h2>
+  <p>
+    Infelizmente a administração de {{ app }} decidiu
+    por remover seu usuário:
+  </p>
+  <p class="center">
+    <code>{{ username }}</code>
+  </p>
+  {% if reason is not empty %}
+  {{ reason | markdown_to_html }}
+  {% endif %}
+  <p>
+    Contate alguém da administração em caso de
+    dúvidas.
+  </p>
+</div>
+{% endblock %}

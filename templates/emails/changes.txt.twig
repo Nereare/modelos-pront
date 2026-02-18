@@ -1,0 +1,11 @@
+{{ app }}
+
+Olá, {{ name }}!
+
+Viemos avisar que a administração de {{ app }} modificou alguns dados da sua conta:
+
+{% for c in changes %}
+- {{ c[0] }}: {{ c[1] }}
+{% endfor %}
+
+Contate alguém da administração em caso de dúvidas.

@@ -1,0 +1,90 @@
+{% extends 'config/base.html.twig' %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="box">
+      <h2 class="title is-3">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-account-edit"></i>
+          </span>
+          <span>Editar Usuário</span>
+      </h2>
+
+      <form id="formUserEdit" action="{{ path('admin_users_edit_save', {'user': user.getId}) }}" method="get">
+        <input type="hidden" id="users-list" value="{{ path('admin_users') }}">
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-account"></i>
+                </span>
+                <span>Nome de Usuário</span>
+              </span>
+            </button>
+          </div>
+          <div class="control is-expanded">
+            <input class="input" type="text" id="username" textholder="Nome de usuário" value="{{ user.getUsername }}" required autofocus>
+          </div>
+        </div>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-email"></i>
+                </span>
+                <span>Email</span>
+              </span>
+            </button>
+          </div>
+          <div class="control is-expanded">
+            <input class="input" type="email" id="email" placeholder="Email" value="{{ user.getEmail }}" required>
+          </div>
+        </div>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-sitemap"></i>
+                </span>
+                <span>Função</span>
+              </span>
+            </button>
+          </div>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <select id="roles" required>
+                <option value="" disabled>Selecionar</option>
+                {% set user_role = user.getRoles|json_encode() %}
+                {% for role in roles %}
+                <option value="{{ role.value }}"{% if user_role == role.value %} selected{% endif %}>{{ role.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control is-expanded">
+            <button type="submit" class="button is-success is-fullwidth">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="mdi mdi-content-save"></i>
+                </span>
+                <span>Salvar Usuário</span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

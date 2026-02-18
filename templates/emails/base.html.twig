@@ -1,0 +1,61 @@
+{% apply inline_css %}
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Montserrat:wght@100..900&display=swap');
+
+* {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  line-height: 1.25;
+  text-align: justify;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+h3 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+h1, h2, h3 {
+  color: #0090ed;
+  font-weight: 800;
+}
+
+code {
+  font-style: "Courier Prime", monospace;
+  background-color: lightgray;
+  padding: 5px;
+  border-radius: 5px;
+}
+p.center {
+  line-height: 2;
+  text-align: center;
+}
+
+div {
+  overflow: auto;
+}
+.box {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+.box.info { background-color: #d6e3f8; }
+.box.success { background-color: #d3f6df; }
+.box.warning { background-color: #fff8dd; }
+.box.danger { background-color: #ffd7df; }
+.box.info h2 { color: #3273dc; }
+.box.success h2 { color: #23d160; }
+.box.warning h2 { color: #ffdd57; }
+.box.danger h2 { color: #ff3860; }
+</style>
+
+{% block content %}{% endblock %}
+{% endapply %}
