@@ -30,7 +30,7 @@ $red    : #ff3860;
 html { padding-top: 1.5rem; }
 
 // Set all paragraphs to justified alignment
-p { text-align: justify; }
+* { text-align: justify; }
 
 // Set all form fields to monospaced font
 .field {
