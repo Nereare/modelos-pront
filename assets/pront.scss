@@ -63,6 +63,8 @@ $red    : #ff3860;
   left: calc(100vw - 3rem);
   overflow: hidden;
   transition: transform 0.5s;
+  box-shadow: var(--bulma-shadow);
+
   .message-body { height: 100%; }
   .message-header, .message-body {
     // FIXME: Vertical scrolling still not working
