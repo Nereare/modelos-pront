@@ -60,7 +60,7 @@ $red    : #ff3860;
   max-height: calc(100vh - 5rem);
   position: fixed;
   top: 4rem;
-  left: calc(100vw - 3rem);
+  left: calc(100vw - 2rem);
   overflow: hidden;
   transition: transform 0.5s;
   box-shadow: var(--bulma-shadow);
@@ -69,7 +69,7 @@ $red    : #ff3860;
   .message-header, .message-body {
     // FIXME: Vertical scrolling still not working
     overflow: auto;
-    padding-right: 2rem;
+    padding-right: 3.5rem;
   }
   &:hover {
     transform: translateX(calc(-25rem + 3rem));
