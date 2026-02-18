@@ -1,5 +1,5 @@
 // SCSS imports
-import './pront.scss';
+import './styles/pront.scss';
 // JS Dependencies
 import ClipboardJS from 'clipboard';
 
