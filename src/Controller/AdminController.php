@@ -419,6 +419,17 @@ final class AdminController extends AbstractController
   ): JsonResponse {
     // Deny non-admin users
     $this->denyAccessUnlessGranted('ROLE_ADMIN');
+    // Don't remove owners
+    if (in_array('ROLE_OWNER', $user->getRoles())) {
+      return $this->json([
+        'success' => false,
+        'msg' => 'Este usuário não pode ser deletado'
+      ]);
+    }
+    // To remove admins, you must be an owner
+    if (in_array('ROLE_ADMIN', $user->getRoles())) {
+      $this->denyAccessUnlessGranted('ROLE_OWNER');
+    }
 
     // Fetch reason
     $reason = $request->query->get('reason');

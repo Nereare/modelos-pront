@@ -64,6 +64,7 @@
                     </span>
                   </button>
                 </div>
+                {% if not is_granted_for_user(user, 'ROLE_OWNER') %}
                 <div class="control">
                   <button class="button is-small is-danger delete-user" title="Deletar" target="{{ path('admin_users_remove', {'user': user.getId }) }}" username="{{ user.getUsername }}">
                     <span class="icon">
@@ -71,6 +72,7 @@
                     </span>
                   </button>
                 </div>
+                {% endif %}
               </div>
             </td>
           </tr>
