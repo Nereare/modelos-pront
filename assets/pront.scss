@@ -26,9 +26,6 @@ $red    : #ff3860;
 @use "typeface-roboto-mono" as roboto-mono;
 @forward "~@mdi/font/scss/materialdesignicons.scss";
 
-// Top navbar spacing
-html { padding-top: 1.5rem; }
-
 // Set all paragraphs to justified alignment
 * { text-align: justify; }
 
