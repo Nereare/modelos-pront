@@ -28,7 +28,6 @@ O *Modelo de Prontuários* é um recurso exclusivamente didático e não recebe 
 
 Todos os dados fornecidos nos formulários dos modelos (*e.g.* modelo de pré-natal) são processados e mantidos apenas no *client side* (na máquina do usuário) e não são, em nenhum momento, enviados para outro local. Todo o processamento desses dados é feito através de *scripts* locais.
 
-
 > Atualizado em 18 de fevereiro de 2026 às 12h55min.
 
 [1]: https://www.cremesp.org.br/?siteAcao=Publicacoes&acao=detalhes_capitulos&cod_capitulo=26
