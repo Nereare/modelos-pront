@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends '_base.html.twig' %}
 
 {% block javascripts %}
 {{ encore_entry_script_tags('config') }}
@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block main %}
-<div class="tabs is-toggle is-toggle-rounded is-centered mb-0">
+<div class="tabs is-toggle is-toggle-rounded is-centered mb-0 mt-6">
 	<ul>
     <li{% if app.request.attributes.get('_route') == 'config_home' %} class="is-active"{% endif %}>
 			<a href="{{ path('config_home') }}">
