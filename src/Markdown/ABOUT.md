@@ -14,7 +14,7 @@ O uso desses materiais é feito por escolha do profissional.
 
 Este projeto e seus membros não se responsabilizam por qualquer informação contida em seus materiais ou uso inadequado desses. Qualquer inacurácia ou desatualização devem ser remediados por estudo do próprio profissional, o qual, ao usar esses guias, assume responsabilidade para si no caso de uso de informação desatualizada ou inacurada, uma vez que sua conduta pessoal é exclusivamente de sua resposabilidade.
 
-Esse projeto é **fonte aberta** (*open source*), portanto nós encorajamos não só o uso dos recursos, mas a participação [saudável](CODE-OF-CONDUCT.md) para [melhorar o conteúdo disponível](CONTRIBUTING.md), permitindo que estes estejam sempre o mais atualizados o possível.
+Esse projeto é **fonte aberta** (*open source*), portanto nós encorajamos não só o uso dos recursos, mas a participação [saudável](https://www.contributor-covenant.org/pt-br/version/2/1/code_of_conduct/) para [melhorar o conteúdo disponível](https://github.com/Nereare/modelos-pront/blob/master/CONTRIBUTING.md), permitindo que estes estejam sempre o mais atualizados o possível.
 
 ## Aviso Ético
 
