@@ -1,6 +1,7 @@
 {% extends 'config/_base.html.twig' %}
 
 {% block content %}
+{% import "macros/_forms.html.twig" as form %}
 <section class="section">
   <div class="container">
     <div class="box">
@@ -13,37 +14,20 @@
       </h2>
 
       <form id="formConfigUser" action="{{ path('config_home_save') }}">
-        <div class="field has-addons">
-          <div class="control">
-            <button class="button is-static" tabindex="-1">
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="mdi mdi-account"></i>
-                </span>
-                <span>Usuário</span>
-              </span>
-            </button>
-          </div>
-          <div class="control is-expanded">
-            <input class="input" type="text" placeholder="Usuário" value="{{ app.user.username }}" disabled>
-          </div>
-        </div>
-
-        <div class="field has-addons">
-          <div class="control">
-            <button class="button is-static" tabindex="-1">
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="mdi mdi-email"></i>
-                </span>
-                <span>Email</span>
-              </span>
-            </button>
-          </div>
-          <div class="control is-expanded">
-            <input class="input" type="text" placeholder="Email" value="{{ app.user.email }}" disabled>
-          </div>
-        </div>
+        {{ form.single_input(
+          'Usuário',
+          '',
+          'account',
+          'text',
+          app.user.username,
+          'disabled') }}
+        {{ form.single_input(
+          'Email',
+          '',
+          'email',
+          'text',
+          app.user.email,
+          'disabled') }}
 
         <div class="field has-addons">
           <div class="control">

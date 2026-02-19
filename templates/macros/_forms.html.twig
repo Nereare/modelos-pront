@@ -1,0 +1,68 @@
+{##
+Includes a single-input field according to Bulma's
+Form standard. The form has a static button as a
+label, with a Material Design Icon icon before the
+label text.
+
+The classes for each element are predetermined and
+may not be altered through this macro.
+
+@example Username field
+
+{{ form.single_input(
+  'Username',
+  'username',
+  'account-badge',
+  'text') }}
+
+@param  [String]        label   The label text to display.
+@param  [String]        id      The input's id attribute.
+@param  [String, nil]   icon    The hyphen-separated icon name. The macro already inlcudes the preceding "mdi-". Defaults to "progress-question".
+@param  [String, nil]   type    The [type of input](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#input_types). Defaults to "text".
+@param  [Mixed, nil]    value   The value the input initially contains. Defaults to empty ("").
+@param  [String, nil]   attrs   A space-separated list of [aditional parameters](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#attributes) for the input. Defaults to empty ("").
+#}
+{% macro single_input(label, id, icon, type, value, attrs) %}
+<div class="field has-addons">
+  <div class="control">
+    <button class="button is-static" tabindex="-1">
+      <span class="icon-text">
+        <span class="icon">
+          <i class="mdi mdi-{{ icon | default('progress-question') }}"></i>
+        </span>
+        <span>{{ label }}</span>
+      </span>
+    </button>
+  </div>
+  <div class="control is-expanded">
+    <input
+      class="input"
+      id="{{ id }}"
+      type="{{ type | default('text') }}"
+      placeholder="{{ label }}"
+      value="{{ value | default('') }}"
+      {% if attrs %} {{ attrs }}{% endif %}>
+  </div>
+</div>
+{% endmacro %}
+
+{% macro double_input(label, icon, expanded, input1, input2) %}
+<div class="field has-addons">
+  <div class="control">
+    <button class="button is-static" tabindex="-1">
+      <span class="icon-text">
+        <span class="icon">
+          <i class="mdi mdi-{{ icon | default('progress-question') }}"></i>
+        </span>
+        <span>{{ label }}</span>
+      </span>
+    </button>
+  </div>
+  <div class="control">
+    <input class="input" type="text" id="firstName" placeholder="Nome de usuário" value="{{ app.user.firstName }}" required>
+  </div>
+  <div class="control is-expanded">
+    <input class="input" type="text" id="lastName" placeholder="Nome de usuário" value="{{ app.user.lastName }}" required>
+  </div>
+</div>
+{% endmacro %}
