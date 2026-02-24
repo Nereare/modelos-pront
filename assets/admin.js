@@ -3,7 +3,7 @@
 /******************************************/
 // Admin Methods
 $(function () {
-  console.log("Config methods ready!");
+  console.log("Métodos de Admin prontos!");
 
   // Create new user
   $("#formUserNew").on("submit", function(e) {

@@ -6,7 +6,7 @@ import ClipboardJS from 'clipboard';
 /******************************************/
 // Config Methods
 $(function () {
-  console.log("Config methods ready!");
+  console.log("Métodos de Configuração prontos!");
   // Initialize Clipboard.js
   new ClipboardJS('.clipboard');
 

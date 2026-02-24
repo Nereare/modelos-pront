@@ -33,7 +33,7 @@ window.showMessage = function showMessage(type, message) {
 /******************************************/
 // Base Methods
 $(function () {
-  console.log("Base methods ready!");
+  console.log("Métodos básicos prontos!");
   // Init Clipboard.js
   new ClipboardJS('.clipboard');
 
