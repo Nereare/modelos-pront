@@ -29,89 +29,37 @@
           app.user.email,
           'disabled') }}
 
-        <div class="field has-addons">
-          <div class="control">
-            <button class="button is-static" tabindex="-1">
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="mdi mdi-account-tag"></i>
-                </span>
-                <span>Nome</span>
-              </span>
-            </button>
-          </div>
-          <div class="control">
-            <input class="input" type="text" id="firstName" placeholder="Nome de usuário" value="{{ app.user.firstName }}" required>
-          </div>
-          <div class="control is-expanded">
-            <input class="input" type="text" id="lastName" placeholder="Nome de usuário" value="{{ app.user.lastName }}" required>
-          </div>
-        </div>
-
-        <div class="field has-addons">
-          <div class="control">
-            <button class="button is-static" tabindex="-1">
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="mdi mdi-stamper"></i>
-                </span>
-                <span>Registro</span>
-              </span>
-            </button>
-          </div>
-          <div class="control">
-            <div class="select">
-              <select id="registryType" required>
-                <option value="" disabled>Tipo</option>
-                {% for type in registryTypes %}
-                <option value="{{ type.value }}"{% if type.value == app.user.registryType.value %} selected{% endif %}>{{ type.value }}</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-          <div class="control">
-            <div class="select">
-              <select id="registryState" required>
-                <option value="" disabled>UF</option>
-                {% for uf in federationUnits %}
-                <option value="{{ uf.value }}"{% if uf.value == app.user.registryState.value %} selected{% endif %}>{{ uf.value }}</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-          <div class="control is-expanded">
-            <input class="input" type="number" id="registryNumber" placeholder="Nº de registro" value="{{ app.user.registryNumber }}" required>
-          </div>
-        </div>
-
-        <div class="field has-addons">
-          <div class="control">
-            <button class="button is-static" tabindex="-1">
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="mdi mdi-phone"></i>
-                </span>
-                <span>Telefone</span>
-              </span>
-            </button>
-          </div>
-          <div class="control is-expanded">
-            <input class="input" type="text" id="phone" placeholder="Telefone" value="{{ app.user.phone | format_phone }}" pattern="\+\d{2} \d{2} \d{4,5} \d{4}">
-          </div>
-        </div>
-
-        <div class="field">
-          <div class="control is-expanded">
-            <button type="submit" class="button is-success is-fullwidth">
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="mdi mdi-content-save"></i>
-                </span>
-                <span>Salvar Alterações</span>
-              </span>
-            </button>
-          </div>
-        </div>
+        {{ form.double_input(
+          'Nome',
+          'account-tag',
+          1,
+          [
+            'firstName',
+            'text',
+            app.user.firstName,
+            'disabled'
+          ],
+          [
+            'lastName',
+            'text',
+            app.user.lastName,
+            'disabled'
+          ]) }}
+        {{ form.registry_input(
+          registryTypes,
+          federationUnits,
+          app.user.registryType,
+          app.user.registryState,
+          app.user.registryNumber,
+          'disabled') }}
+        {{ form.single_input(
+          'Telefone',
+          'phone',
+          'phone',
+          'text',
+          app.user.phone | format_phone,
+          'placeholder="Telefone"') }}
+        {{ form.submit_input('Salvar Alterações') }}
       </form>
     </div>
 

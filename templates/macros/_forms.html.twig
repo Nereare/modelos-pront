@@ -46,7 +46,41 @@ may not be altered through this macro.
 </div>
 {% endmacro %}
 
-{% macro double_input(label, icon, expanded, input1, input2) %}
+{##
+Includes a double-input field according to Bulma's
+Form standard. The form has a static button as a
+label, with a Material Design Icon icon before the
+label text.
+
+The classes for each element are predetermined and
+may not be altered through this macro.
+
+@example Name (First + Last) field
+
+{{ form.double_input(
+  'Name',
+  'account',
+  0,
+  [ id, type, value, attrs
+    'firstName',
+    'text'
+  ],
+  [
+    'lastName',
+    'text'
+  ]) }}
+
+@param  [String]        label     The label text to display.
+@param  [String, nil]   icon      The hyphen-separated icon name. The macro already inlcudes the preceding "mdi-". Defaults to "progress-question".
+@param  [Integer]       expanded  Which of the two inputs is to be expanded. Either 0 or 1.
+@param  [Array, String] input0    An array containing the first input's data. If a string is giver, it will be user as the input's id attribute, and all other parameters will be set to default.
+@param  [Array, String] input1    An array containing the second input's data. If a string is giver, it will be user as the input's id attribute, and all other parameters will be set to default.
+  @param  [String]        id        The input's id attribute.
+  @param  [String, nil]   type      The [type of input](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#input_types). Defaults to "text".
+  @param  [Mixed, nil]    value     The value the input initially contains. Defaults to empty ("").
+  @param  [String, nil]   attrs     A space-separated list of [aditional parameters](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#attributes) for the input. Defaults to empty ("").
+#}
+{% macro double_input(label, icon, expanded, input0, input1) %}
 <div class="field has-addons">
   <div class="control">
     <button class="button is-static" tabindex="-1">
@@ -59,10 +93,138 @@ may not be altered through this macro.
     </button>
   </div>
   <div class="control">
-    <input class="input" type="text" id="firstName" placeholder="Nome de usuário" value="{{ app.user.firstName }}" required>
+    <input
+      class="input{% if expanded == 0 %} is-expanded{% endif %}"
+      type="{{ input0[1] | default('text') }}"
+      id="{{ input0[0] | default(input0) }}"
+      value="{{ input0[2] | default('') }}"
+      {% if input0[3] %} {{ input0[3] }}{% endif %}>
   </div>
   <div class="control is-expanded">
-    <input class="input" type="text" id="lastName" placeholder="Nome de usuário" value="{{ app.user.lastName }}" required>
+    <input
+      class="input{% if expanded == 1 %} is-expanded{% endif %}"
+      type="{{ input1[1] | default('text') }}"
+      id="{{ input1[0] | default(input1) }}"
+      value="{{ input1[2] | default('') }}"
+      {% if input1[3] %} {{ input1[3] }}{% endif %}>
+  </div>
+</div>
+{% endmacro %}
+
+{##
+Includes a field according to Bulma's Form standard.
+The form has a static button as a label, with a
+Material Design Icon icon before the label text.
+The field is to set and/or show a user's professional
+registry.
+
+The classes for each element are predetermined and
+may not be altered through this macro.
+
+@example Username registry
+
+{{ form.registry_input(
+  registryTypes,
+  federationUnits,
+  user.registryType,
+  user.registryState,
+  user.registryNumber,
+  'disabled') }}
+
+@param  [Enum Array]          registryTypes     The Enum object with the possible registry types.
+@param  [Enum Array]          federationUnits   The Enum object with the possible registry federation units.
+@param  [Enum Object, nil]    type              User's registry type Enum object - i.e. one of the given 'cases'.
+@param  [Enum Object, nil]    uf                User's registry federation unit Enum object - i.e. one of the given 'cases'.
+@param  [Integer, nil]        number            User's registry number.
+@param  [String, nil]         attrs             A space-separated list of [aditional parameters](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#attributes) for the input. Defaults to empty ("").
+#}
+{% macro registry_input(registryTypes, federationUnits, type, uf, number, attrs) %}
+<div class="field has-addons">
+  <div class="control">
+    <button class="button is-static" tabindex="-1">
+      <span class="icon-text">
+        <span class="icon">
+          <i class="mdi mdi-stamper"></i>
+        </span>
+        <span>Registro</span>
+      </span>
+    </button>
+  </div>
+  <div class="control">
+    <div class="select">
+      <select id="registryType"{% if attrs %} {{ attrs }}{% endif %}>
+        <option value="" disabled>Tipo</option>
+        {% for t in registryTypes %}
+        <option
+          value="{{ t.value }}"
+          {% if t.value == type.value %} selected{% endif %}>
+          {{ t.value }}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+  <div class="control">
+    <div class="select">
+      <select id="registryState"{% if attrs %} {{ attrs }}{% endif %}>
+        <option value="" disabled>UF</option>
+        {% for f in federationUnits %}
+        <option
+          value="{{ f.value }}"
+          {% if f.value == uf.value %} selected{% endif %}>
+          {{ f.value }}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+  <div class="control is-expanded">
+    <input
+      class="input"
+      type="number"
+      id="registryNumber"
+      placeholder="Nº de registro"
+      value="{{ number | default('') }}"
+      {% if attrs %} {{ attrs }}{% endif %}>
+  </div>
+</div>
+{% endmacro %}
+
+{##
+Includes a FORM submit button according to Bulma's
+Form standard.
+The form has a Material Design Icon icon before the
+label text.
+
+The classes for each element are predetermined and
+may not be altered through this macro.
+
+@example Minimal Submit
+
+<form id="minimalForm">
+  {{ form.submit_input() }}
+</form>
+
+@example Submit
+
+<form id="nonStandardSubmit">
+  {{ form.submit_input('Salvar Alterações') }}
+</form>
+
+@param  [String, nil]   label   The label text to display. Defaults to "Salvar".
+@param  [String, nil]   icon    The hyphen-separated icon name. The macro already inlcudes the preceding "mdi-". Defaults to "content-save".
+#}
+{% macro submit_input(label, icon) %}
+<div class="field">
+  <div class="control is-expanded">
+    <button type="submit" class="button is-success is-fullwidth">
+      <span class="icon-text">
+        <span class="icon">
+          <i class="mdi mdi-{{ icon | default('content-save') }}"></i>
+        </span>
+        <span>{{ label | default('Salvar') }}</span>
+      </span>
+    </button>
   </div>
 </div>
 {% endmacro %}
