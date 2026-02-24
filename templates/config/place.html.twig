@@ -1,6 +1,7 @@
 {% extends 'config/_base.html.twig' %}
 
 {% block content %}
+{% import "macros/_forms.html.twig" as form %}
 <section class="section">
   <div class="container">
     <div class="box">
@@ -13,8 +14,12 @@
       </h2>
 
       <form id="formPlace" action="{% if place.getName is empty %}{{ path('config_place_new_save') }}{% else %}{{ path('config_place_edit_save', { 'place': place.getId }) }}{% endif %}" method="get">
-        <input type="hidden" id="id" value="{% if place.getName is empty %}0{% else %}{{ place.getId }}{% endif %}">
-        <input type="hidden" id="places-list" value="{{ path('config_places') }}">
+        {{ form.hidden_input(
+          'id',
+          (place.getName is empty) ? 0 : place.getId) }}
+        {{ form.hidden_input(
+          'places-list',
+          path('config_places')) }}
 
         <div class="field has-addons">
           <div class="control">

@@ -36,6 +36,27 @@ may not be altered through this macro.
 {% endmacro %}
 
 {##
+Includes a hidden input field which does not adhere
+to Bulma's standards since it isn't shown. It must
+have a value set!
+
+@example Product ID
+
+{{ form.hidden_input(
+  'id',
+  15875) }}
+
+@param  [String]  id      The input's id attribute.
+@param  [Mixed]   value   The value the input contains.
+#}
+{% macro hidden_input(id, value) %}
+<input
+  type="hidden"
+  id="{{ id }}"
+  value="{{ value }}">
+{% endmacro %}
+
+{##
 Includes a single-input field according to Bulma's
 Form standard. The form has a static button as a
 label, with a Material Design Icon icon before the
