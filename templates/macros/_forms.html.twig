@@ -99,7 +99,10 @@ may not be altered through this macro.
     <input
       class="input{% if expanded == 0 %} is-expanded{% endif %}"
       type="{{ input0[1] | default('text') }}"
-      id="{{ input0[0] | default(input0) }}"
+      {% if input0 is iterable %}
+      {% set input0_id = input0 %}
+      {% endif %}
+      id="{{ input0[0] | default('') }}"
       value="{{ input0[2] | default('') }}"
       {% if input0[3] is defined %} placeholder="{{ input0[3] }}"{% endif %}
       {% if input0[4] is defined %} {{ input0[4] }}{% endif %}>
@@ -108,7 +111,10 @@ may not be altered through this macro.
     <input
       class="input{% if expanded == 1 %} is-expanded{% endif %}"
       type="{{ input1[1] | default('text') }}"
-      id="{{ input1[0] | default(input1) }}"
+      {% if input1 is iterable %}
+      {% set input1_id = input1 %}
+      {% endif %}
+      id="{{ input1[0] | default('') }}"
       value="{{ input1[2] | default('') }}"
       {% if input1[3] is defined %} placeholder="{{ input1[3] }}"{% endif %}
       {% if input1[4] is defined %} {{ input1[4] }}{% endif %}>
