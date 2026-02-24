@@ -15,14 +15,15 @@ may not be altered through this macro.
   'account-badge',
   'text') }}
 
-@param  [String]        label   The label text to display.
-@param  [String]        id      The input's id attribute.
-@param  [String, nil]   icon    The hyphen-separated icon name. The macro already inlcudes the preceding "mdi-". Defaults to "progress-question".
-@param  [String, nil]   type    The [type of input](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#input_types). Defaults to "text".
-@param  [Mixed, nil]    value   The value the input initially contains. Defaults to empty ("").
-@param  [String, nil]   attrs   A space-separated list of [aditional parameters](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#attributes) for the input. Defaults to empty ("").
+@param  [String]        label         The label text to display.
+@param  [String]        id            The input's id attribute.
+@param  [String, nil]   icon          The hyphen-separated icon name. The macro already inlcudes the preceding "mdi-". Defaults to "progress-question".
+@param  [String, nil]   type          The [type of input](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#input_types). Defaults to "text".
+@param  [Mixed, nil]    value         The value the input initially contains. Defaults to empty ("").
+@param  [String, nil]   placeholder   A text to be used as placeholder. Defaults to empty ("").
+@param  [String, nil]   attrs         A space-separated list of [aditional parameters](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#attributes) for the input. Defaults to empty ("").
 #}
-{% macro single_input(label, id, icon, type, value, attrs) %}
+{% macro single_input(label, id, icon, type, value, placeholder, attrs) %}
 <div class="field has-addons">
   <div class="control">
     <button class="button is-static" tabindex="-1">
@@ -41,6 +42,7 @@ may not be altered through this macro.
       type="{{ type | default('text') }}"
       placeholder="{{ label }}"
       value="{{ value | default('') }}"
+      placeholder="{{ placeholder | default(label) | default('') }}"
       {% if attrs %} {{ attrs }}{% endif %}>
   </div>
 </div>
@@ -75,10 +77,11 @@ may not be altered through this macro.
 @param  [Integer]       expanded  Which of the two inputs is to be expanded. Either 0 or 1.
 @param  [Array, String] input0    An array containing the first input's data. If a string is giver, it will be user as the input's id attribute, and all other parameters will be set to default.
 @param  [Array, String] input1    An array containing the second input's data. If a string is giver, it will be user as the input's id attribute, and all other parameters will be set to default.
-  @param  [String]        id        The input's id attribute.
-  @param  [String, nil]   type      The [type of input](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#input_types). Defaults to "text".
-  @param  [Mixed, nil]    value     The value the input initially contains. Defaults to empty ("").
-  @param  [String, nil]   attrs     A space-separated list of [aditional parameters](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#attributes) for the input. Defaults to empty ("").
+  @param  [String]        id            The input's id attribute.
+  @param  [String, nil]   type          The [type of input](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#input_types). Defaults to "text".
+  @param  [Mixed, nil]    value         The value the input initially contains. Defaults to empty ("").
+  @param  [String, nil]   placeholder   A text to be used as placeholder. Defaults to empty ("").
+  @param  [String, nil]   attrs         A space-separated list of [aditional parameters](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#attributes) for the input. Defaults to empty ("").
 #}
 {% macro double_input(label, icon, expanded, input0, input1) %}
 <div class="field has-addons">
@@ -98,7 +101,8 @@ may not be altered through this macro.
       type="{{ input0[1] | default('text') }}"
       id="{{ input0[0] | default(input0) }}"
       value="{{ input0[2] | default('') }}"
-      {% if input0[3] %} {{ input0[3] }}{% endif %}>
+      {% if input0[3] is defined %} placeholder="{{ input0[3] }}"{% endif %}
+      {% if input0[4] is defined %} {{ input0[4] }}{% endif %}>
   </div>
   <div class="control is-expanded">
     <input
@@ -106,7 +110,8 @@ may not be altered through this macro.
       type="{{ input1[1] | default('text') }}"
       id="{{ input1[0] | default(input1) }}"
       value="{{ input1[2] | default('') }}"
-      {% if input1[3] %} {{ input1[3] }}{% endif %}>
+      {% if input1[3] is defined %} placeholder="{{ input1[3] }}"{% endif %}
+      {% if input1[4] is defined %} {{ input1[4] }}{% endif %}>
   </div>
 </div>
 {% endmacro %}

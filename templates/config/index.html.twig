@@ -20,6 +20,7 @@
           'account',
           'text',
           app.user.username,
+          'Nome de usuário',
           'disabled') }}
         {{ form.single_input(
           'Email',
@@ -27,6 +28,7 @@
           'email',
           'text',
           app.user.email,
+          'Endereço de email',
           'disabled') }}
 
         {{ form.double_input(
@@ -43,6 +45,7 @@
             'lastName',
             'text',
             app.user.lastName,
+            'Sobrenome',
             'disabled'
           ]) }}
         {{ form.registry_input(
