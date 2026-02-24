@@ -16,6 +16,43 @@ may not be altered through this macro.
   'text') }}
 
 @param  [String]        label         The label text to display.
+@param  [String, nil]   icon          The hyphen-separated icon name. The macro already inlcudes the preceding "mdi-". Defaults to "progress-question".
+@param  [Integer, nil]  level         The level of the header. Defaults to 2, if greater than 5, parses to 5.
+#}
+{% macro header(label, icon, level) %}
+{% if level is not defined or level < 2 %}
+  {% set level = 2 %}
+{% endif %}
+{% if level > 5 %}
+  {% set level = 5 %}
+{% endif %}
+<h2 class="title is-{{ level + 1 }}">
+  <span class="icon-text">
+    <span class="icon">
+      <i class="mdi mdi-{{ icon }}"></i>
+    </span>
+    <span>{{ label }}</span>
+</h2>
+{% endmacro %}
+
+{##
+Includes a single-input field according to Bulma's
+Form standard. The form has a static button as a
+label, with a Material Design Icon icon before the
+label text.
+
+The classes for each element are predetermined and
+may not be altered through this macro.
+
+@example Username field
+
+{{ form.single_input(
+  'Username',
+  'username',
+  'account-badge',
+  'text') }}
+
+@param  [String]        label         The label text to display.
 @param  [String]        id            The input's id attribute.
 @param  [String, nil]   icon          The hyphen-separated icon name. The macro already inlcudes the preceding "mdi-". Defaults to "progress-question".
 @param  [String, nil]   type          The [type of input](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#input_types). Defaults to "text".

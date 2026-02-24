@@ -5,13 +5,9 @@
 <section class="section">
   <div class="container">
     <div class="box">
-      <h2 class="title is-3">
-        <span class="icon-text">
-          <span class="icon">
-            <i class="mdi mdi-account-cog"></i>
-          </span>
-          <span>Configurações do Usuário</span>
-      </h2>
+      {{ form.header(
+        'Configurações do Usuário',
+        'account-cog') }}
 
       <form id="formConfigUser" action="{{ path('config_home_save') }}">
         {{ form.single_input(
@@ -68,13 +64,9 @@
     </div>
 
     <div class="box">
-      <h2 class="title is-3">
-        <span class="icon-text">
-          <span class="icon">
-            <i class="mdi mdi-lock"></i>
-          </span>
-          <span>Trocar Senha</span>
-      </h2>
+      {{ form.header(
+        'Trocar Senha',
+        'lock') }}
 
       <form id="formChangePw" action="{{ path('config_change_password') }}">
         {{ form.password_input(
