@@ -24,12 +24,7 @@ $(function () {
 
     // Prepare user data
     let user = {
-      firstName: $("#firstName").val(),
-      lastName: $("#lastName").val(),
-      registryType: $("#registryType").val(),
-      registryState: $("#registryState").val(),
-      registryNumber: $("#registryNumber").val(),
-      phone: $("#phone").val().replace(/\s/g, ""),
+      phone: $("#phone").val().replace(/\s/g, "")
     };
     // Prepare message reply
     let msg_type = "info";

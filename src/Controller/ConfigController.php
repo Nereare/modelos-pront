@@ -43,19 +43,9 @@ final class ConfigController extends AbstractController
     /** @var User */
     $user = $this->getUser();
     // Get new user data
-    $firstName = $request->query->get('firstName');
-    $lastName = $request->query->get('lastName');
-    $registryType = $request->query->get('registryType');
-    $registryState = $request->query->get('registryState');
-    $registryNumber = $request->query->get('registryNumber');
     $phone = $request->query->get('phone');
 
     // Update user entity
-    $user->setFirstName($firstName);
-    $user->setLastName($lastName);
-    $user->setRegistryType(RegistryType::from($registryType));
-    $user->setRegistryState(FederationUnit::from($registryState));
-    $user->setRegistryNumber($registryNumber);
     $user->setPhone($phone);
     // Persist changes
     $entityManager->persist($user);
