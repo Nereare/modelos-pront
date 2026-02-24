@@ -239,3 +239,50 @@ may not be altered through this macro.
   </div>
 </div>
 {% endmacro %}
+
+{##
+Includes a single-input password field according
+to Bulma's Form standard. The form has a static
+button as a label, with a Material Design Icon
+icon before the label text.
+
+The classes and types for each element are
+predetermined and may not be altered through
+this macro.
+
+@example Old Password Field
+
+{{ form.password_input(
+  'Senha Antiga',
+  'oldPw',
+  true,
+  'required') }}
+
+@param  [String]        label         The label text to display.
+@param  [String]        id            The input's id attribute.
+@param  [Boolen, nil]   open          Whether the lock icon is to be open or closed. Defaults to false.
+@param  [String, nil]   placeholder   A text to be used as placeholder. Defaults to empty ("").
+@param  [String, nil]   attrs         A space-separated list of [aditional parameters](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#attributes) for the input. Defaults to empty ("").
+#}
+{% macro password_input(label, id, open, placeholder, attrs) %}
+<div class="field has-addons">
+  <div class="control">
+    <button class="button is-static" tabindex="-1">
+      <span class="icon-text">
+        <span class="icon">
+          <i class="mdi mdi-lock-{% if open %}open-{% endif %}outline"></i>
+        </span>
+        <span>{{ label }}</span>
+      </span>
+    </button>
+  </div>
+  <div class="control is-expanded">
+    <input
+      class="input"
+      type="password"
+      id="{{ id }}"
+      {% if placeholder %} placeholder="{{ placeholder }}"{% endif %}
+      {% if attrs %} {{ attrs }}{% endif %}>
+  </div>
+</div>
+{% endmacro %}
