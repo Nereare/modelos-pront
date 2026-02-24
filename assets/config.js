@@ -32,7 +32,7 @@ $(function () {
 
     // Send Ajax request
     $.ajax({
-      method: "post",
+      method: "get",
       url: e.currentTarget.action,
       data: user
     })
@@ -89,7 +89,7 @@ $(function () {
 
       // Send Ajax request
       $.ajax({
-        method: "post",
+        method: "get",
         url: e.currentTarget.action,
         data: pw
       })
