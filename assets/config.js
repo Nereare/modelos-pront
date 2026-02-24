@@ -68,7 +68,6 @@ $(function () {
     let new_pw2 = $("#newPw2").val();
     if (new_pw1 !== new_pw2) {
       // If new passwords do not match
-
       // Show warning message
       window.showMessage("warning", "As novas senhas não coincidem.");
       // Unlock button
@@ -82,7 +81,6 @@ $(function () {
         oldPw: $("#oldPw").val(),
         newPw: new_pw1
       };
-      console.log(pw);
       // Prepare message reply
       let msg_type = "info";
       let msg_text = "Aguarde...";
