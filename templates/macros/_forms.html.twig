@@ -178,6 +178,45 @@ may not be altered through this macro.
 {% endmacro %}
 
 {##
+Includes a textarea field according to Bulma's
+Form standard. The form has no label nor icon,
+only the placeholder text and the value, if
+given.
+
+The classes for each element are predetermined and
+may not be altered through this macro.
+
+@example Bio field
+
+{{ form.textarea_input(
+  'user_bio',
+  '',
+  'Insira um texto curto para sua bio',
+  3,
+  'required') }}
+
+@param  [String]        id            The input's id attribute.
+@param  [Mixed, nil]    value         The value the input initially contains. Defaults to empty ("").
+@param  [String, nil]   placeholder   A text to be used as placeholder. Defaults to empty ("").
+@param  [Integer, nil]  rows          The vertical size of the textarea in rows. Defaults to 5.
+@param  [String, nil]   attrs         A space-separated list of [aditional parameters](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#attributes) for the input. Defaults to empty ("").
+#}
+{% macro textarea_input(id, value, placeholder, rows, attrs) %}
+<div class="field">
+  <div class="control is-expanded">
+    <textarea
+      class="textarea has-fixed-size"
+      id="{{ id }}"
+      placeholder="{{ placeholder | default('') }}"
+      rows="{{ rows | default(5) }}"
+      {% if attrs %} {{ attrs }}{% endif %}>
+      {{ value | default('') }}
+    </textarea>
+  </div>
+</div>
+{% endmacro %}
+
+{##
 Includes a field according to Bulma's Form standard.
 The form has a static button as a label, with a
 Material Design Icon icon before the label text.
