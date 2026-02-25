@@ -5,13 +5,9 @@
 <section class="section">
   <div class="container">
     <div class="box">
-      <h2 class="title is-3">
-        <span class="icon-text">
-          <span class="icon">
-            <i class="mdi mdi-hospital-building"></i>
-          </span>
-          <span>{% if place.getName is empty %}Criar Local de Atendimento{% else %}Editar {{ place.getName }}{% endif %}</span>
-      </h2>
+      {{ form.header(
+        (place.getName is empty) ? 'Criar Local de Atendimento' : "Editar #{place.getName}",
+        'hospital-building') }}
 
       <form id="formPlace" action="{% if place.getName is empty %}{{ path('config_place_new_save') }}{% else %}{{ path('config_place_edit_save', { 'place': place.getId }) }}{% endif %}" method="get">
         {{ form.hidden_input(
@@ -21,97 +17,55 @@
           'places-list',
           path('config_places')) }}
 
-        <div class="field has-addons">
-          <div class="control">
-            <button class="button is-static" tabindex="-1">
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="mdi mdi-tag"></i>
-                </span>
-                <span>Nome do Local</span>
-              </span>
-            </button>
-          </div>
-          <div class="control is-expanded">
-            <input class="input" type="text" id="name" placeholder="Nome do Local" value="{{ place.getName }}" required autofocus>
-          </div>
-        </div>
+        {{ form.single_input(
+          'Nome do Local',
+          'name',
+          'tag',
+          'text',
+          place.getName,
+          'Nome do Local',
+          'required autofocus') }}
 
         <div class="columns mb-0">
           <div class="column">
-            <div class="field has-addons">
-              <div class="control">
-                <button class="button is-static" tabindex="-1">
-                  <span class="icon-text">
-                    <span class="icon">
-                      <i class="mdi mdi-barcode"></i>
-                    </span>
-                    <span>CNES</span>
-                  </span>
-                </button>
-              </div>
-              <div class="control is-expanded">
-                <input class="input" type="number" id="cnes" placeholder="CNES" value="{{ place.getCnes }}" required>
-              </div>
-            </div>
+            {{ form.single_input(
+              'CNES',
+              'cnes',
+              'barcode',
+              'number',
+              place.getCnes,
+              'CNES',
+              'required') }}
           </div>
 
           <div class="column">
-            <div class="field has-addons">
-              <div class="control">
-                <button class="button is-static" tabindex="-1">
-                  <span class="icon-text">
-                    <span class="icon">
-                      <i class="mdi mdi-phone"></i>
-                    </span>
-                    <span>Telefone</span>
-                  </span>
-                </button>
-              </div>
-              <div class="control is-expanded">
-                <input class="input" type="text" id="phone" placeholder="Telefone do Local" value="{{ place.getPhone | format_phone }}" required>
-              </div>
-            </div>
+            {{ form.single_input(
+              'Telefone',
+              'phone',
+              'phone',
+              'text',
+              place.getPhone | format_phone,
+              'Telefone',
+              'required') }}
           </div>
         </div>
 
-        <div class="field has-addons">
-          <div class="control">
-            <button class="button is-static" tabindex="-1">
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="mdi mdi-map-marker"></i>
-                </span>
-                <span>Endereço</span>
-              </span>
-            </button>
-          </div>
-          <div class="control is-expanded">
-            <input class="input" type="text" id="address" placeholder="Endereço do local" value="{{ place.getAddress }}" required>
-          </div>
-        </div>
+        {{ form.single_input(
+          'Endereço',
+          'address',
+          'map-marker',
+          'text',
+          place.getAddress,
+          'Endereço',
+          'required') }}
 
-        <div class="field">
-          <div class="control is-expanded">
-            <button type="submit" class="button is-success is-fullwidth">
-              {% if place.getName is empty %}
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="mdi mdi-plus"></i>
-                </span>
-                <span>Criar Local de Atendimento</span>
-              </span>
-              {% else %}
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="mdi mdi-content-save"></i>
-                </span>
-                <span>Editar Local de Atendimento</span>
-              </span>
-              {% endif %}
-            </button>
-          </div>
-        </div>
+        {% if place.getName is empty %}
+          {{ form.submit_input(
+            'Criar Local de Atendimento',
+            'plus') }}
+        {% else %}
+          {{ form.submit_input('Editar Local de Atendimento') }}
+        {% endif %}
       </form>
     </div>
   </div>
