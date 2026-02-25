@@ -1,16 +1,13 @@
 {% extends 'config/_base.html.twig' %}
 
 {% block content %}
+{% import "macros/_forms.html.twig" as form %}
 <section class="section">
   <div class="container">
     <div class="box">
-      <h2 class="title is-3">
-        <span class="icon-text">
-          <span class="icon">
-            <i class="mdi mdi-hospital-building"></i>
-          </span>
-          <span>Locais de Atendimento</span>
-      </h2>
+      {{ form.header(
+        'Locais de Atendimento',
+        'hospital-building') }}
 
       {% set places = app.user.getPlaces %}
 
@@ -72,18 +69,11 @@
         </tbody>
       </table>
 
-      <div class="field">
-        <div class="control is-expanded">
-          <a class="button is-success is-fullwidth" href="{{ path('config_place_new') }}">
-            <span class="icon-text">
-              <span class="icon">
-                <i class="mdi mdi-plus"></i>
-              </span>
-              <span>Criar Local de Atendimento</span>
-            </span>
-          </a>
-        </div>
-      </div>
+      {{ form.link_button(
+        'config_place_new',
+        'Criar Local de Atendimento',
+        'plus',
+        'success') }}
     </div>
   </div>
 </section>

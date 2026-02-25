@@ -1,16 +1,13 @@
 {% extends 'config/_base.html.twig' %}
 
 {% block content %}
+{% import "macros/_forms.html.twig" as form %}
 <section class="section">
   <div class="container">
     <div class="box">
-      <h2 class="title is-3">
-        <span class="icon-text">
-          <span class="icon">
-            <i class="mdi mdi-account-multiple"></i>
-          </span>
-          <span>Usuários</span>
-      </h2>
+      {{ form.header(
+        'Usuários',
+        'account-multiple') }}
 
       <table class="table is-striped is-hoverable is-fullwidth">
         <thead>
@@ -85,18 +82,11 @@
         </tbody>
       </table>
 
-      <div class="field">
-        <div class="control is-expanded">
-          <a class="button is-success is-fullwidth" href="{{ path('admin_users_new') }}">
-            <span class="icon-text">
-              <span class="icon">
-                <i class="mdi mdi-plus"></i>
-              </span>
-              <span>Adicionar Usuário</span>
-            </span>
-          </a>
-        </div>
-      </div>
+      {{ form.link_button(
+        'admin_users_new',
+        'Adicionar Usuário',
+        'plus',
+        'success') }}
     </div>
   </div>
 </section>
