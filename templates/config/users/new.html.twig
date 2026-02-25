@@ -1,158 +1,83 @@
 {% extends 'config/_base.html.twig' %}
 
 {% block content %}
+{% import "macros/_forms.html.twig" as form %}
 <section class="section">
   <div class="container">
     <div class="box">
-      <h2 class="title is-3">
-        <span class="icon-text">
-          <span class="icon">
-            <i class="mdi mdi-account-plus"></i>
-          </span>
-          <span>Adicionar Usuário</span>
-      </h2>
+      {{ form.header(
+        'Adicionar Usuário',
+        'account-plus') }}
 
       <form id="formUserNew" action="{{ path('admin_users_new_save') }}" method="get">
-        <input type="hidden" id="users-list" value="{{ path('admin_users') }}">
+        {{ form.hidden_input(
+          'users-list',
+          path('admin_users')) }}
 
-        <div class="field has-addons">
-          <div class="control">
-            <button class="button is-static" tabindex="-1">
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="mdi mdi-account"></i>
-                </span>
-                <span>Nome de Usuário</span>
-              </span>
-            </button>
-          </div>
-          <div class="control is-expanded">
-            <input class="input" type="text" id="username" textholder="Nome de usuário" required autofocus>
-          </div>
-        </div>
+        {{ form.single_input(
+          'Nome de Usuário',
+          'username',
+          'account',
+          'text',
+          '',
+          'Nome de Usuário',
+          'required autofocus') }}
+        {{ form.double_input(
+          'Nome',
+          'badge-account',
+          1,
+          [
+            'firstName',
+            'text',
+            '',
+            'Primeiro nome',
+            'required'
+          ],
+          [
+            'lastName',
+            'text',
+            '',
+            'Sobrenome',
+            'required'
+          ]) }}
+        {{ form.registry_input(
+          registryTypes,
+          federationUnits,
+          null,
+          null,
+          null,
+          'required') }}
+        {{ form.single_input(
+          'Email',
+          'email',
+          'email',
+          'email',
+          '',
+          'Email',
+          'required') }}
+        {{ form.single_input(
+          'Celular',
+          'phone',
+          'cellphone',
+          'text',
+          '',
+          'Celular',
+          'required') }}
+        {# Map parsed array of Objects into array of arrays,
+        to adhere to the macro specification #}
+        {% set mapped_roles = roles|map(r => [r.value, r.name]) %}
+        {{ form.select_input(
+          'Função',
+          'roles',
+          mapped_roles,
+          'sitemap',
+          null,
+          '',
+          'required') }}
 
-        <div class="field has-addons">
-          <div class="control">
-            <button class="button is-static" tabindex="-1">
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="mdi mdi-badge-account"></i>
-                </span>
-                <span>Nome</span>
-              </span>
-            </button>
-          </div>
-          <div class="control">
-            <input class="input" type="text" id="firstName" textholder="Primeiro nome" required>
-          </div>
-          <div class="control is-expanded">
-            <input class="input" type="text" id="lastName" textholder="Sobrenome" required>
-          </div>
-        </div>
-
-        <div class="field has-addons">
-          <div class="control">
-            <button class="button is-static" tabindex="-1">
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="mdi mdi-stamper"></i>
-                </span>
-                <span>Registro</span>
-              </span>
-            </button>
-          </div>
-          <div class="control">
-            <div class="select">
-              <select id="registryType" required>
-                <option value="" disabled selected>Tipo</option>
-                {% for type in registryTypes %}
-                <option value="{{ type.value }}">{{ type.value }}</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-          <div class="control">
-            <div class="select">
-              <select id="registryState" required>
-                <option value="" disabled selected>UF</option>
-                {% for uf in federationUnits %}
-                <option value="{{ uf.value }}">{{ uf.value }}</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-          <div class="control is-expanded">
-            <input class="input" type="number" id="registryNumber" placeholder="Nº de registro" required>
-          </div>
-        </div>
-
-        <div class="field has-addons">
-          <div class="control">
-            <button class="button is-static" tabindex="-1">
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="mdi mdi-email"></i>
-                </span>
-                <span>Email</span>
-              </span>
-            </button>
-          </div>
-          <div class="control is-expanded">
-            <input class="input" type="email" id="email" placeholder="Email" required>
-          </div>
-        </div>
-
-        <div class="field has-addons">
-          <div class="control">
-            <button class="button is-static" tabindex="-1">
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="mdi mdi-cellphone"></i>
-                </span>
-                <span>Celular</span>
-              </span>
-            </button>
-          </div>
-          <div class="control is-expanded">
-            <input class="input" type="phone" id="phone" placeholder="Nº Telefone">
-          </div>
-        </div>
-
-        <div class="field has-addons">
-          <div class="control">
-            <button class="button is-static" tabindex="-1">
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="mdi mdi-sitemap"></i>
-                </span>
-                <span>Função</span>
-              </span>
-            </button>
-          </div>
-          <div class="control is-expanded">
-            <div class="select is-fullwidth">
-              <select id="roles" required>
-                <option value="" disabled selected>Selecionar</option>
-                {% for role in roles %}
-                <option value="{{ role.value }}">{{ role.name }}</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="field">
-          <div class="control is-expanded">
-            <button type="submit" class="button is-success is-fullwidth">
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="mdi mdi-send-lock"></i>
-                </span>
-                <span>Enviar Convite</span>
-              </span>
-            </button>
-          </div>
-        </div>
+        {{ form.submit_input(
+          'Enviar Convite',
+          'send-lock') }}
       </form>
     </div>
   </div>
