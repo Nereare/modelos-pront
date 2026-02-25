@@ -1,19 +1,16 @@
 {##
-Includes a single-input field according to Bulma's
-Form standard. The form has a static button as a
-label, with a Material Design Icon icon before the
-label text.
+Includes a header according to Bulma's standard.
+The header has its text with a Material Design
+Icon icon before it.
 
 The classes for each element are predetermined and
 may not be altered through this macro.
 
-@example Username field
+@example Edit header
 
-{{ form.single_input(
-  'Username',
-  'username',
-  'account-badge',
-  'text') }}
+{{ form.header(
+  'Edit File',
+  'content-file') }}
 
 @param  [String]        label         The label text to display.
 @param  [String, nil]   icon          The hyphen-separated icon name. The macro already inlcudes the preceding "mdi-". Defaults to "progress-question".
