@@ -1,17 +1,13 @@
 {% extends 'config/_base.html.twig' %}
 
 {% block content %}
+{% import "macros/_forms.html.twig" as form %}
 <section class="section">
   <div class="container">
     <div class="box">
-      <h2 class="title is-3">
-        <span class="icon-text">
-          <span class="icon">
-            <i class="mdi mdi-content-copy"></i>
-          </span>
-          <span>Textos Rápidos</span>
-        </span>
-      </h2>
+      {{ form.header(
+        'Textos Rápidos',
+        'content-copy') }}
 
       <div class="grid is-col-min-8">
       {% if texts|length %}
@@ -66,18 +62,11 @@
       {% endif %}
       </div>
 
-      <div class="field">
-        <div class="control is-expanded">
-          <a class="button is-success is-fullwidth" href="{{ path('config_text_new') }}">
-            <span class="icon-text">
-              <span class="icon">
-                <i class="mdi mdi-plus"></i>
-              </span>
-              <span>Criar Texto</span>
-            </span>
-          </a>
-        </div>
-      </div>
+      {{ form.link_button(
+        'config_text_new',
+        'Criar Texto',
+        'plus',
+        'success') }}
     </div>
   </div>
 </section>
@@ -98,27 +87,20 @@
     <section class="card-content">
       <input type="hidden" id="text-edit-id">
 
-      <div class="field has-addons">
-        <div class="control">
-          <button class="button is-static" tabindex="-1">
-            <span class="icon-text">
-              <span class="icon">
-                <i class="mdi mdi-tag"></i>
-              </span>
-              <span>Nome do Texto</span>
-            </span>
-          </button>
-        </div>
-        <div class="control is-expanded">
-          <input class="input" type="text" id="text-edit-name" textholder="Nome do Texto" required>
-        </div>
-      </div>
-
-      <div class="field">
-        <div class="control is-expanded">
-          <textarea class="textarea has-fixed-size" id="text-edit-text" placeholder="Conteúdo do texto rápido" rows="7" required></textarea>
-        </div>
-      </div>
+      {{ form.single_input(
+        'Nome do Texto',
+        'text-edit-name',
+        'tag',
+        'text',
+        '',
+        'Nome do Texto',
+        'required') }}
+      {{ form.textarea_input(
+        'text-edit-text',
+        '',
+        'Conteúdo do texto rápido',
+        7,
+        'required') }}
     </section>
     <footer class="card-footer">
       <a class="card-footer-item" id="text-edit-save" save-uri="{{ path('config_text_edit_save', {text: 'FOO'}) }}">
