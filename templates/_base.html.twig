@@ -108,6 +108,7 @@
     </span>
   </div>
   <div class="message-body">
+  {% if app.user.getTexts|length > 0 %}
     <div class="buttons">
     {% for text in app.user.getTexts %}
       <button class="button is-fullwidth clipboard" data-clipboard-text="{{ text.getText }}">
@@ -120,6 +121,9 @@
       </button>
     {% endfor %}
     </div>
+  {% else %}
+    <p class="has-text-centered">Sem textos rápidos</p>
+  {% endif %}
   </div>
 </article>
 {% endif %}
