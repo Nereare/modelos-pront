@@ -23,13 +23,13 @@ may not be altered through this macro.
 {% if level > 5 %}
   {% set level = 5 %}
 {% endif %}
-<h2 class="title is-{{ level + 1 }}">
+<h{{ level }} class="title is-{{ level + 1 }}">
   <span class="icon-text">
     <span class="icon">
       <i class="mdi mdi-{{ icon }}"></i>
     </span>
     <span>{{ label }}</span>
-</h2>
+</h{{ level }}>
 {% endmacro %}
 
 {##
