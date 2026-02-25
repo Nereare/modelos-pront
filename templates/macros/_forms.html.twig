@@ -247,6 +247,12 @@ may not be altered through this macro.
 @param  [String, nil]         attrs             A space-separated list of [aditional parameters](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#attributes) for the input. Defaults to empty ("").
 #}
 {% macro registry_input(registryTypes, federationUnits, type, uf, number, attrs) %}
+{% if type is null %}
+  {% set type = {'value': null} %}
+{% endif %}
+{% if uf is null %}
+  {% set uf = {'value': null} %}
+{% endif %}
 <div class="field has-addons">
   <div class="control">
     <button class="button is-static" tabindex="-1">
@@ -261,7 +267,7 @@ may not be altered through this macro.
   <div class="control">
     <div class="select">
       <select id="registryType"{% if attrs %} {{ attrs }}{% endif %}>
-        <option value="" disabled>Tipo</option>
+        <option value="" disabled{% if type.value == null %} selected{% endif %}>Tipo</option>
         {% for t in registryTypes %}
         <option
           value="{{ t.value }}"
@@ -275,7 +281,7 @@ may not be altered through this macro.
   <div class="control">
     <div class="select">
       <select id="registryState"{% if attrs %} {{ attrs }}{% endif %}>
-        <option value="" disabled>UF</option>
+        <option value="" disabled{% if uf.value == null %} selected{% endif %}>UF</option>
         {% for f in federationUnits %}
         <option
           value="{{ f.value }}"
