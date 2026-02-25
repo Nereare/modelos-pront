@@ -216,6 +216,8 @@ final class AdminController extends AbstractController
       'config/users/edit.html.twig',
       [
         'user' => $user,
+        'registryTypes' => RegistryType::cases(),
+        'federationUnits' => FederationUnit::cases(),
         'roles' => Roles::cases()
       ]
     );
@@ -233,14 +235,33 @@ final class AdminController extends AbstractController
 
     // Get new data
     $username = $request->query->get('username');
+    $firstName = $request->query->get('firstName');
+    $lastName = $request->query->get('lastName');
+    $registryType = $request->query->get('registryType');
+    $registryState = $request->query->get('registryState');
+    $registryNumber =  $request->query->get('registryNumber');
     $email = $request->query->get('email');
     $roles = $request->query->get('roles');
-    // Trim whitespaces
-    $username = trim($username);
     // Get old (corresponding) data
     $old_username = $user->getUsername();
+    $old_firstName = $user->getfirstName();
+    $old_lastName = $user->getLastName();
+    $old_registryType = $user->getRegistryType();
+    $old_registryState = $user->getRegistryState();
+    $old_registryNumber = $user->getRegistryNumber();
     $old_email = $user->getEmail();
     $old_roles = json_encode($user->getRoles());
+
+    // (Post-)Process data
+    // > Trim whitespaces
+    $username = trim($username);
+    $firstName = trim($firstName);
+    $lastName = trim($lastName);
+    // > Sanitize strings not otherwise validated
+    $firstName = htmlspecialchars($firstName);
+    $lastName = htmlspecialchars($lastName);
+    // > Cast as integer
+    $registryNumber = intval($registryNumber);
 
     // Check new data validity
     // > Username must contain only alphanumeric non-accented characters
@@ -248,6 +269,27 @@ final class AdminController extends AbstractController
       return $this->json([
         'success' => false,
         'msg' => 'Nome de Usuário inválido'
+      ]);
+    }
+    // > Registries' Type and State must be valid
+    // > > Types
+    $types = array_map(fn($v): string => $v->value, RegistryType::cases());
+    if (in_array($registryType, $types)) {
+      $registryType = RegistryType::from($registryType);
+    } else {
+      return $this->json([
+        'success' => false,
+        'msg' => 'Tipo de registro inválido'
+      ]);
+    }
+    // > > States
+    $ufs = array_map(fn($v): string => $v->value, FederationUnit::cases());
+    if (in_array($registryState, $ufs)) {
+      $registryState = FederationUnit::from($registryState);
+    } else {
+      return $this->json([
+        'success' => false,
+        'msg' => 'Unidade Federativa do registro inválida'
       ]);
     }
     // > Roles are valid
@@ -270,7 +312,12 @@ final class AdminController extends AbstractController
     if (
       $old_username == $username &&
       $old_email == $email &&
-      $old_roles == $roles
+      $old_roles == $roles &&
+      $old_firstName == $firstName &&
+      $old_lastName == $lastName &&
+      $old_registryType == $registryType &&
+      $old_registryState == $registryState &&
+      $old_registryNumber == $registryNumber
     ) {
       return $this->json([
         'success' => false,
@@ -282,6 +329,26 @@ final class AdminController extends AbstractController
     // > If new username
     if ($old_username != $username) {
       $changes[] = ['Usuário', $username];
+    }
+    // > If new Primeiro Nome
+    if ($old_firstName != $firstName) {
+      $changes[] = ['Primeiro Nome', $firstName];
+    }
+    // > If new Sobrenome
+    if ($old_lastName != $lastName) {
+      $changes[] = ['Sobrenome', $lastName];
+    }
+    // > If new Tipo de Registro
+    if ($old_registryType != $registryType) {
+      $changes[] = ['Tipo de Registro', $registryType->value];
+    }
+    // > If new UF do Registro
+    if ($old_registryState != $registryState) {
+      $changes[] = ['UF do Registro', $registryState->value];
+    }
+    // > If new Nº do Registro
+    if ($old_registryNumber != $registryNumber) {
+      $changes[] = ['Nº do Registro', $registryNumber];
     }
     // > If new email
     if ($old_email != $email) {
@@ -320,6 +387,11 @@ final class AdminController extends AbstractController
 
     // Set user data to the new ones
     $user->setUsername($username);
+    $user->setFirstName($firstName);
+    $user->setLastName($lastName);
+    $user->setRegistryType($registryType);
+    $user->setRegistryState($registryState);
+    $user->setRegistryNumber($registryNumber);
     $user->setEmail($email);
     $user->setRoles(json_decode($roles));
     // Persist it

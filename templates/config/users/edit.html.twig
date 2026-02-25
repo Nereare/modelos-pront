@@ -30,6 +30,31 @@
           user.getEmail,
           'Email',
           'required') }}
+        {{ form.double_input(
+          'Nome',
+          'badge-account',
+          1,
+          [
+            'firstName',
+            'text',
+            user.getFirstName,
+            'Primeiro nome',
+            'required'
+          ],
+          [
+            'lastName',
+            'text',
+            user.getLastName,
+            'Sobrenome',
+            'required'
+          ]) }}
+        {{ form.registry_input(
+          registryTypes,
+          federationUnits,
+          user.getRegistryType,
+          user.getRegistryState,
+          user.getRegistryNumber,
+          'required') }}
         {# Map parsed array of Objects into array of arrays,
         to adhere to the macro specification #}
         {% set mapped_roles = roles|map(r => [r.value, r.name]) %}

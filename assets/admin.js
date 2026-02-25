@@ -75,6 +75,11 @@ $(function () {
     // Prepare user data
     let user = {
       username: $("#username").val(),
+      firstName: $("#firstName").val(),
+      lastName: $("#lastName").val(),
+      registryType: $("#registryType").val(),
+      registryState: $("#registryState").val(),
+      registryNumber: parseInt($("#registryNumber").val()),
       email: $("#email").val(),
       roles: $("#roles").val()
     };
