@@ -339,7 +339,7 @@ final class ConfigController extends AbstractController
     $texts = $textRepository->findBy(['owner' => $user]);
 
     return $this->render(
-      'config/fasts.html.twig',
+      'config/texts.html.twig',
       ['texts' => $texts]
     );
   }
