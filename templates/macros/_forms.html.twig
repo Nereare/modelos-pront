@@ -296,6 +296,58 @@ may not be altered through this macro.
 {% endmacro %}
 
 {##
+Includes a link button according to Bulma's Form
+standard. The link may have a Material Design Icon
+icon before the label text, and may also have one
+of the button colors defined by Bulma.
+
+The classes for each element are predetermined and
+may not be altered through this macro.
+
+@example Link to create
+
+{{ form.link_button(
+  'route_to_new_product',
+  'Novo Produto',
+  'plus',
+  'success') }}
+
+@param  [String]        target  The target, either a URL or a Route name.
+@param  [String]        label   The label text to display. Defaults to "Salvar".
+@param  [String, nil]   icon    The hyphen-separated icon name. The macro already inlcudes the preceding "mdi-". Defaults to "content-save".
+@param  [String, nil]   color   The type of color, if any. Defaults to empty (""), may be one of: `primary`, `link`, `info`, `success`, `warning`, and `danger`.
+#}
+{% macro link_button(target, label, icon, color) %}
+{% set color_classes = ['primary', 'link', 'info', 'success', 'warning', 'danger'] %}
+{% if color is not defined or color not in color_classes %}
+  {% set color_class = '' %}
+{% else %}
+  {% set color_class = " is-#{color}" %}
+{% endif %}
+{% if target matches '{^[0-9a-z]+://}' %}
+  {% set uri = target %}
+{% else %}
+  {% set uri = path(target) %}
+{% endif %}
+<div class="field">
+  <div class="control is-expanded">
+    <a class="button{{ color_class }} is-fullwidth" href="{{ uri }}">
+      {% if icon is defined %}
+      <span class="icon-text">
+        <span class="icon">
+          <i class="mdi mdi-{{ icon }}"></i>
+        </span>
+        <span>{{ label }}</span>
+      </span>
+      {% else %}
+      <span>{{ label }}</span>
+      {% endif %}
+    </a>
+  </div>
+</div>
+{% endmacro %}
+
+{##
 Includes a single-input password field according
 to Bulma's Form standard. The form has a static
 button as a label, with a Material Design Icon
