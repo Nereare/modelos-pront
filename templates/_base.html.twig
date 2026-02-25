@@ -16,41 +16,6 @@
   </div>
 
   <div class="navbar-menu" id="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item{% if app.request.attributes.get('_route') == 'about' %} is-selected{% endif %}" href="{{ path('about') }}">
-        <span class="icon-text">
-          <span class="icon">
-            <i class="mdi mdi-help"></i>
-          </span>
-          <span>Sobre</span>
-        </span>
-      </a>
-      <a class="navbar-item{% if app.request.attributes.get('_route') == 'cookies' %} is-selected{% endif %}" href="{{ path('cookies') }}">
-        <span class="icon-text">
-          <span class="icon">
-            <i class="mdi mdi-cookie"></i>
-          </span>
-          <span>Cookies</span>
-        </span>
-      </a>
-      <a class="navbar-item{% if app.request.attributes.get('_route') == 'privacy' %} is-selected{% endif %}" href="{{ path('privacy') }}">
-        <span class="icon-text">
-          <span class="icon">
-            <i class="mdi mdi-security"></i>
-          </span>
-          <span>Privacidade</span>
-        </span>
-      </a>
-      <a class="navbar-item{% if app.request.attributes.get('_route') == 'usage' %} is-selected{% endif %}" href="{{ path('usage') }}">
-        <span class="icon-text">
-          <span class="icon">
-            <i class="mdi mdi-information"></i>
-          </span>
-          <span>Uso</span>
-        </span>
-      </a>
-    </div>
-
     <div class="navbar-end">
       {% if is_granted('IS_AUTHENTICATED_FULLY') %}
       <a class="navbar-item">
@@ -96,6 +61,79 @@
     {% block main %}{% endblock %}
   </div>
 </div>
+
+<footer class="footer">
+  <div class="columns">
+    <div class="column is-4">
+      <div class="content has-text-centered is-small">
+        <p>
+          <a target="_blank" href="https://github.com/Nereare/modelos-pront"><strong>Modelo de Prontuários v3</strong></a>
+          por
+          <a target="_blank" href="https://padoim.com.br/">Igor Padoim</a>.
+          <br>
+          Disponível sob a
+          <a target="_blank" href="https://www.wtfpl.net/">WTFPL</a>
+          &copy; 2021&mdash;2026
+        </p>
+        <hr>
+        <p>
+          <strong>{{ app_name }}</strong>
+          por
+          <a href="mailto:{{ app_email }}">{{ app_owner }}</a>
+          &copy;
+          {{ app_year }}
+        </p>
+        {{ app_desc | emojify | markdown_to_html | sanitize_html }}
+      </div>
+    </div>
+
+    <div class="column is-8">
+      <h2 class="title is-5">Informações</h2>
+      <div class="grid is-col-min-32">
+        <div class="cell">
+          <a href="{{ path('about') }}">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="mdi mdi-help"></i>
+              </span>
+              <span>Sobre</span>
+            </span>
+          </a>
+        </div>
+        <div class="cell">
+          <a href="{{ path('cookies') }}">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="mdi mdi-cookie"></i>
+              </span>
+              <span>Cookies</span>
+            </span>
+          </a>
+        </div>
+        <div class="cell">
+          <a href="{{ path('privacy') }}">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="mdi mdi-security"></i>
+              </span>
+              <span>Privacidade</span>
+            </span>
+          </a>
+        </div>
+        <div class="cell">
+          <a href="{{ path('usage') }}">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="mdi mdi-information"></i>
+              </span>
+              <span>Uso</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 
 {% if is_granted('IS_AUTHENTICATED') %}
 <article class="message is-primary" id="fasts-drawer">
