@@ -220,6 +220,65 @@ may not be altered through this macro.
 {% endmacro %}
 
 {##
+Includes a select field according to Bulma's
+Form standard. The form has a static button as a
+label, with a Material Design Icon icon before the
+label text.
+
+The classes for each element are predetermined and
+may not be altered through this macro.
+
+@example Favorite color field
+
+{{ form.select_input(
+  'Cor Favorita',
+  'fav_color',
+  [
+    ['blue', 'Azul'],
+    ['green', 'Verde'],
+    ['red', 'Vermelho']
+  ],
+  'palette',
+  null,
+  'Escolher cor',
+  'required') }}
+
+@param  [String]        label         The label text to display.
+@param  [String]        id            The input's id attribute.
+@param  [Array]         options       An array of arrays, each element one option, made of system value (index 0 of the subarray) and display value (index 1).
+@param  [String, nil]   icon          The hyphen-separated icon name. The macro already inlcudes the preceding "mdi-". Defaults to "progress-question".
+@param  [Mixed, nil]    value         The value the input initially contains. Defaults to empty ("").
+@param  [String, nil]   placeholder   A text to be used as placeholder. Defaults to empty ("Selecionar").
+@param  [String, nil]   attrs         A space-separated list of [aditional parameters](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#attributes) for the input. Defaults to empty ("").
+#}
+{% macro select_input(label, id, options, icon, value, placeholder, attrs) %}
+<div class="field has-addons">
+  <div class="control">
+    <button class="button is-static" tabindex="-1">
+      <span class="icon-text">
+        <span class="icon">
+          <i class="mdi mdi-{{ icon | default('progress-question') }}"></i>
+        </span>
+        <span>{{ label }}</span>
+      </span>
+    </button>
+  </div>
+  <div class="control is-expanded">
+    <div class="select is-fullwidth">
+      <select
+        id="{{ id }}"
+        {% if attrs %} {{ attrs}}{% endif %}>
+        <option value="" disabled{% if value is empty %} selected{% endif %}>{{ placeholder | default('Selecionar')}}</option>
+        {% for o in options %}
+        <option value="{{ o[0] }}"{% if o[0] == value %} selected{% endif %}>{{ o[1] }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+{##
 Includes a field according to Bulma's Form standard.
 The form has a static button as a label, with a
 Material Design Icon icon before the label text.
