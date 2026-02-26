@@ -14,10 +14,7 @@
         <a
           class="button is-warning is-fullwidth"
           href="{{ path('config_home') }}">
-          <figure class="image is-128x128">
-            <img src="" />
-          </figure>
-          <span>Módulos Novos!</span>
+          <img src="{{ asset('modules/new.svg') }}" />
         </a>
       </div>
     {% endif %}
@@ -28,7 +25,6 @@
           class="button is-link is-fullwidth has-text-light module-button"
           href="{{ path('module_' ~ m[0]) }}">
           <img src="{{ asset('modules/' ~ m[0] ~ '.svg') }}" />
-          <span>{{ m[0] }}</span>
         </a>
       </div>
     {% endfor %}

@@ -77,6 +77,11 @@ hr {
   }
 }
 
+// Modules' buttons
+.module-button {
+  img { max-width: 256px; }
+}
+
 // Set fast texts drawer
 #fasts-drawer {
   z-index: 100;
