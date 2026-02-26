@@ -13,22 +13,28 @@ may not be altered through this macro.
   'content-file') }}
 
 @param  [String]        label         The label text to display.
-@param  [String, nil]   icon          The hyphen-separated icon name. The macro already inlcudes the preceding "mdi-". Defaults to "progress-question".
-@param  [Integer, nil]  level         The level of the header. Defaults to 2, if greater than 5, parses to 5.
+@param  [String, nil]   icon          The hyphen-separated icon name. The macro already inlcudes the preceding "mdi-". Shows no icon if blank.
+@param  [Integer, nil]  level         The level of the header. Defaults to 2, if greater than 5, parses to 5 and if lesse than 1, parses to 1.
 #}
 {% macro header(label, icon, level) %}
-{% if level is not defined or level < 2 %}
+{% if level is not defined %}
   {% set level = 2 %}
-{% endif %}
-{% if level > 5 %}
+{% elseif level < 1 %}
+  {% set level = 1 %}
+{% elseif level > 5 %}
   {% set level = 5 %}
 {% endif %}
 <h{{ level }} class="title is-{{ level + 1 }}">
+  {% if icon is defined and icon is not empty %}
   <span class="icon-text">
     <span class="icon">
       <i class="mdi mdi-{{ icon }}"></i>
     </span>
     <span>{{ label }}</span>
+  </span>
+  {% else %}
+  <span>{{ label }}</span>
+  {% endif %}
 </h{{ level }}>
 {% endmacro %}
 

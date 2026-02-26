@@ -11,8 +11,11 @@ final class ModuleController extends AbstractController
   #[Route('/m/hospital', name: 'module_hospital')]
   public function index(): Response
   {
-    return $this->render('module/index.html.twig', [
-      'controller_name' => 'ModuleController',
-    ]);
+    return $this->render(
+      'module/hospital.html.twig',
+      [
+        'name' => 'Exame Físico'
+      ]
+    );
   }
 }

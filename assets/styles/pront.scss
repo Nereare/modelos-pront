@@ -12,7 +12,8 @@ $orange : #ff8957;
 $red    : #ff3860;
 
 // Bulma's structure
-@use "bulma/sass/utilities" with ( // Colors
+@use "bulma/sass/utilities" with (
+  // Colors
   $primary: $color-main,
   $link: $color-aux,
   // Typography
