@@ -6,6 +6,11 @@ twig:
       app_owner: '%env(APP_OWNER)%'
       app_email: '%env(APP_EMAIL)%'
       app_year: '%env(APP_YEAR)%'
+      pront_name: '%env(PRONT_NAME)%'
+      pront_author: '%env(PRONT_AUTHOR)%'
+      pront_version: '%env(PRONT_VERSION)%'
+      pront_license: '%env(PRONT_LICENSE)%'
+      pront_year: '%env(PRONT_YEAR)%'
 
 when@test:
     twig:
