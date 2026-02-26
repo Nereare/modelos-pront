@@ -5,14 +5,42 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 final class MainController extends AbstractController
 {
   #[Route('/', name: 'home')]
-  public function index(): Response
+  public function index(
+    RouterInterface $router
+  ): Response
   {
-    return $this->render('main/index.html.twig');
+    // Get list of all routes
+    $routes = $router->getRouteCollection()->all();
+    // Map only 'module_*' routes
+    $routes = array_map(
+      function($v): ?array {
+        if (preg_match('/^module_[a-z_]+/', $v) === 1) {
+          return [
+            str_replace('module_', '', $v),
+            1
+          ];
+        } else {
+          return null;
+        }
+      },
+      array_keys($routes)
+    );
+    // Filter out null elements
+    $routes = array_filter($routes);
+
+    // Return page
+    return $this->render(
+      'main/index.html.twig',
+      [
+        'modules' => $routes
+      ]
+    );
   }
 
   // Metafile routes

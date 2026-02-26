@@ -18,6 +18,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\RouterInterface;
 
 final class AdminController extends AbstractController
 {
@@ -58,6 +59,7 @@ final class AdminController extends AbstractController
     EntityManagerInterface $entityManager,
     MailerInterface $mailer,
     Request $request,
+    RouterInterface $router,
     UserPasswordHasherInterface $passwordHasher
   ): JsonResponse {
     // Deny non-admin users
@@ -141,6 +143,25 @@ final class AdminController extends AbstractController
       ]);
     }
 
+    // Get list of all routes
+    $routes = $router->getRouteCollection()->all();
+    // Map only 'module_*' routes
+    $routes = array_map(
+      function($v): ?array {
+        if (preg_match('/^module_[a-z_]+/', $v) === 1) {
+          return [
+            str_replace('module_', '', $v),
+            1
+          ];
+        } else {
+          return null;
+        }
+      },
+      array_keys($routes)
+    );
+    // Filter out null elements
+    $routes = array_filter($routes);
+
     // Create random password
     $pw_chars = '0123456789';
     $pw_chars .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -173,6 +194,7 @@ final class AdminController extends AbstractController
     $user->setPhone($phone);
     $user->setRoles($roles);
     $user->setHeader('');
+    $user->setModules($routes);
     // Hash password and set it
     $hashedPw = $passwordHasher->hashPassword(
       $user,

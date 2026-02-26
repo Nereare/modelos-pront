@@ -75,6 +75,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Text::class, mappedBy: 'owner', orphanRemoval: true)]
     private Collection $texts;
 
+    #[ORM\Column(nullable: true)]
+    private ?array $modules = null;
+
     public function __construct()
     {
         $this->places = new ArrayCollection();
@@ -326,6 +329,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $text->setOwner(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getModules(): ?array
+    {
+        return $this->modules;
+    }
+
+    public function setModules(?array $modules): static
+    {
+        $this->modules = $modules;
 
         return $this;
     }

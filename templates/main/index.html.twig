@@ -1,10 +1,37 @@
 {% extends '_base.html.twig' %}
 
 {% block main %}
+{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+  {% set all_modules = modules %}
+  {% set modules = app.user.getModules %}
+{% endif %}
 <section class="section">
   <div class="container">
-    <div class="content">
-      Foo
+    <div class="grid is-col-min-12 is-gap-3">
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+    {% if all_modules|length > modules|length %}
+      <div class="cell is-col-span-4">
+        <a
+          class="button is-warning is-fullwidth"
+          href="{{ path('config_home') }}">
+          <figure class="image is-128x128">
+            <img src="" />
+          </figure>
+          <span>Módulos Novos!</span>
+        </a>
+      </div>
+    {% endif %}
+    {% endif %}
+    {% for m in modules %}
+      <div class="cell{{ (m[1] > 1) ? " is-col-span-#{m[1]}" : '' }}">
+        <a
+          class="button is-link is-fullwidth has-text-light module-button"
+          href="{{ path('module_' ~ m[0]) }}">
+          <img src="{{ asset('modules/' ~ m[0] ~ '.svg') }}" />
+          <span>{{ m[0] }}</span>
+        </a>
+      </div>
+    {% endfor %}
     </div>
   </div>
 </section>
