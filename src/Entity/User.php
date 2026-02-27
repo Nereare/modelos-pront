@@ -78,6 +78,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(nullable: true)]
     private ?array $modules = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?array $inactiveModules = null;
+
     public function __construct()
     {
         $this->places = new ArrayCollection();
@@ -341,6 +344,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setModules(?array $modules): static
     {
         $this->modules = $modules;
+
+        return $this;
+    }
+
+    public function getInactiveModules(): ?array
+    {
+        return $this->inactiveModules;
+    }
+
+    public function setInactiveModules(?array $inactiveModules): static
+    {
+        $this->inactiveModules = $inactiveModules;
 
         return $this;
     }
