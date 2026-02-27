@@ -1,5 +1,6 @@
 // JS Dependencies
 import ClipboardJS from 'clipboard';
+import Sortable from 'sortablejs';
 
 /******************************************/
 /*                   JS                   */
