@@ -83,6 +83,13 @@ hr {
 .module-button {
   img { max-width: 256px; }
 }
+// Modules' headers
+header {
+  .title {
+    color: $color-main;
+    text-align: center;
+  }
+}
 
 // Set fast texts drawer
 #fasts-drawer {
