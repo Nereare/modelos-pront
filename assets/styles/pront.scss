@@ -28,7 +28,8 @@ $red    : #ff3860;
 @forward "~@mdi/font/scss/materialdesignicons.scss";
 
 // Set all paragraphs to justified alignment
-* { text-align: justify; }
+.content { text-align: justify; }
+footer .content { text-align: center; }
 // Set horizontal lines to a minimalist style
 hr {
   overflow: visible;
