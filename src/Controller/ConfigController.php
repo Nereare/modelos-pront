@@ -64,7 +64,7 @@ final class ConfigController extends AbstractController
     UserPasswordHasherInterface $passwordHasher
   ): JsonResponse {
     // Check if user is logged in
-    $this->denyAccessUnlessGranted('IS_AUTHENTICATED');
+    $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
 
     /** @var User */
     $user = $this->getUser();
