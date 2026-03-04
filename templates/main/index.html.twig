@@ -2,18 +2,17 @@
 
 {% block main %}
 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-  {% set all_modules = modules %}
   {% set modules = app.user.getModules %}
 {% endif %}
 <section class="section">
   <div class="container">
     <div class="grid is-col-min-12 is-gap-3">
     {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-    {% if all_modules|length > modules|length %}
+    {% if new_modules %}
       <div class="cell is-col-span-4">
         <a
           class="button is-warning is-fullwidth"
-          href="{{ path('config_home') }}">
+          href="{{ path('config_modules_reorder') }}">
           <img src="{{ asset('modules/new.svg') }}">
         </a>
       </div>
