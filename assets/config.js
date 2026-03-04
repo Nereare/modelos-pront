@@ -112,6 +112,146 @@ $(function () {
   });
 
   /********************************/
+  /*         Modules Form         */
+  /********************************/
+  // Initialize Sortables
+  let sortable_opts = {
+    group: {
+      name: 'modules-list',
+      pull: true,
+      put: true
+    },
+    animation: 150,
+    dataIdAttr: 'data-module'
+  };
+  let available_opts = {
+    group: {
+      name: 'modules-list',
+      pull: true,
+      put: false
+    },
+    animation: 150
+  };
+  let active_modules = null;
+  let inactive_modules = null;
+  if ($("#active-modules-list").length ||
+      $("#inactive-modules-list").length ||
+      $("#available-modules-list").length) {
+    active_modules = Sortable.create(
+      $("#active-modules-list")[0],
+      sortable_opts
+    );
+    inactive_modules = Sortable.create(
+      $("#inactive-modules-list")[0],
+      sortable_opts
+    );
+    Sortable.create(
+      $("#available-modules-list")[0],
+      available_opts
+    );
+  }
+  // Save module order
+  $("#module_save").on("click", function() {
+    // Lock button
+    $(this)
+      .attr("disabled", true)
+      .addClass("is-loading");
+
+    // Get new module organization
+    let activeModules = active_modules.toArray().map((x) => JSON.parse(x));
+    let inactiveModules = inactive_modules.toArray().map((x) => JSON.parse(x));
+    let modules = {
+      activeModules: JSON.stringify(activeModules),
+      inactiveModules: JSON.stringify(inactiveModules)
+    };
+    // Prepare message reply
+    let msg_type = "info";
+    let msg_text = "Aguarde...";
+
+    // Send Ajax request
+    $.ajax({
+      method: "get",
+      url: $("#action-path").val(),
+      data: modules
+    })
+      .done(function(response) {
+        msg_type = response.success ? "success" : "warning";
+        msg_text = response.msg;
+      })
+      .fail(function() {
+        msg_type = "danger";
+        msg_text = "Erro de comunicação com o servidor...";
+      })
+      .always(function() {
+        // Show reply message
+        window.showMessage(msg_type, msg_text);
+        if (msg_type == "success") {
+          // If success, redirect to places' list
+          setTimeout(function () {
+            window.location.replace($("#modules-path").val());
+          }, 1000);
+        }
+        else {
+          // Otherwise reenable fields
+          // Unlock button
+          $("#module_save")
+            .attr("disabled", false)
+            .removeClass("is-loading");
+        }
+      });
+  });
+  // Save module sizes
+  $("#module_save_sizes").on("click", function() {
+    // Lock button
+    $(this)
+      .attr("disabled", true)
+      .addClass("is-loading");
+
+    // Set module array
+    let modules = [];
+    $(".module-size").each(function() {
+      let mod = $(this).attr("module");
+      let size = $(this).val();
+      modules.push([mod, size]);
+    });
+    // Prepare message reply
+    let msg_type = "info";
+    let msg_text = "Aguarde...";
+
+    // Send Ajax request
+    $.ajax({
+      method: "get",
+      url: $("#action-path").val(),
+      data: { modules: JSON.stringify(modules) }
+    })
+      .done(function(response) {
+        msg_type = response.success ? "success" : "warning";
+        msg_text = response.msg;
+      })
+      .fail(function() {
+        msg_type = "danger";
+        msg_text = "Erro de comunicação com o servidor...";
+      })
+      .always(function() {
+        // Show reply message
+        window.showMessage(msg_type, msg_text);
+        if (msg_type == "success") {
+          // If success, redirect to places' list
+          setTimeout(function () {
+            window.location.reload();
+          }, 1000);
+        }
+        else {
+          // Otherwise reenable fields
+          // Unlock button
+          $("#module_save_sizes")
+            .attr("disabled", false)
+            .removeClass("is-loading");
+        }
+      });
+  });
+
+  /********************************/
   /*         Places Forms         */
   /********************************/
   // Create or Edit place

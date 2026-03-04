@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\RouterInterface;
 
 final class ConfigController extends AbstractController
 {
@@ -96,6 +97,194 @@ final class ConfigController extends AbstractController
         'msg' => 'Senha alterada com sucesso.'
       ]);
     }
+  }
+
+  /********************************************/
+  /*              Config Modules              */
+  /********************************************/
+  #[Route('/painel/modulos', name: 'config_modules')]
+  public function modules(): Response {
+    // Check if user is logged in
+    $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
+    /** @var User */
+    $user = $this->getUser();
+    // Get user's modules list
+    $modules = $user->getModules();
+
+    return $this->render(
+      'config/modules.html.twig',
+      [
+        'modules' => $modules
+      ]
+    );
+  }
+
+  #[Route('/painel/modulos/reorganizar', name: 'config_modules_reorder')]
+  public function modules_reorder(
+    RouterInterface $router
+  ): Response
+  {
+    // Check if user is logged in
+    $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
+    /** @var User */
+    $user = $this->getUser();
+    // Get user's modules list
+    $user_active_modules = $user->getModules();
+    $user_inactive_modules = $user->getInactiveModules();
+    // Map inactive modules to single-column
+    $user_inactive_modules = array_map(
+      fn($i) => [$i, 1],
+      $user_inactive_modules
+    );
+
+    // All modules
+    // > Get list of all routes
+    $available_modules = $router->getRouteCollection()->all();
+    // > Map only 'module_*' routes
+    $available_modules = array_map(
+      function ($v): ?string {
+        if (preg_match('/^module_[a-z_]+/', $v) === 1) {
+          return str_replace('module_', '', $v);
+        } else {
+          return null;
+        }
+      },
+      array_keys($available_modules)
+    );
+    // > Filter out null elements
+    $available_modules = array_filter($available_modules);
+    // > Filter out categorized modules
+    // > > Merge them
+    $categorized_modules = array_merge($user_active_modules, $user_inactive_modules);
+    // > > Plainify it
+    $categorized_modules = array_map(
+      fn($v) => $v[0],
+      $categorized_modules
+    );
+    // > > Remove categorized modules from all
+    $available_modules = array_diff($available_modules, $categorized_modules);
+    // > Map available modules to single-column
+    $available_modules = array_map(
+      fn($i) => [$i, 1],
+      $available_modules
+    );
+
+    return $this->render(
+      'config/reorder.html.twig',
+      [
+        'user_active_modules' => $user_active_modules,
+        'user_inactive_modules' => $user_inactive_modules,
+        'available_modules' => $available_modules
+      ]
+    );
+  }
+
+  #[Route('/painel/modulos/reorganizar/salvar', name: 'config_modules_reorder_save')]
+  public function modules_reorder_save(
+    EntityManagerInterface $entityManager,
+    Request $request
+  ): JsonResponse
+  {
+    // Check if user is logged in
+    $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
+    /** @var User */
+    $user = $this->getUser();
+
+    // Get module order
+    $activeModules = json_decode($request->query->get('activeModules'));
+    $inactiveModules = json_decode($request->query->get('inactiveModules'));
+    // Parse module validity
+    // > Actives
+    $activeModules = array_map(
+      function($v) {
+        if (gettype($v) == 'array' &&
+            count($v) == 2 &&
+            gettype($v[0]) == 'string' &&
+            gettype($v[1]) == 'integer') {
+          return $v;
+        } elseif (gettype($v) == 'string') {
+          return [$v, 1];
+        } else {
+          return null;
+        }
+      },
+      $activeModules
+    );
+    // > Inactives
+    $inactiveModules = array_map(
+      function ($v) {
+        if (
+          gettype($v) == 'array' &&
+          count($v) == 2 &&
+          gettype($v[0]) == 'string' &&
+          gettype($v[1]) == 'integer'
+        ) {
+          return $v[0];
+        } elseif (gettype($v) == 'string') {
+          return $v;
+        } else {
+          return null;
+        }
+      },
+      $inactiveModules
+    );
+    // Filter out null elements
+    $activeModules = array_filter($activeModules);
+    $inactiveModules = array_filter($inactiveModules);
+
+    // Set user's modules
+    $user->setModules($activeModules);
+    $user->setInactiveModules($inactiveModules);
+    // Persist it
+    $entityManager->persist($user);
+    $entityManager->flush();
+
+    return $this->json([
+      'success' => true,
+      'msg' => 'Módulos reorganizados com sucesso'
+    ]);
+  }
+
+  #[Route('/painel/modulos/tamanho/salvar', name: 'config_modules_size_save')]
+  public function modules_size_save(
+    EntityManagerInterface $entityManager,
+    Request $request
+  ): JsonResponse
+  {
+    // Check if user is logged in
+    $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
+    /** @var User */
+    $user = $this->getUser();
+
+    // Get module order
+    $modules = json_decode($request->query->get('modules'));
+    // Parse module validity
+    $modules = array_map(
+      function($v) {
+        if (gettype($v) == 'array' &&
+            count($v) == 2) {
+          return [$v[0], intval($v[1])];
+        } elseif (gettype($v) == 'string') {
+          return [$v, 1];
+        } else {
+          return null;
+        }
+      },
+      $modules
+    );
+    // Filter out null elements
+    $modules = array_filter($modules);
+
+    // Set user's modules
+    $user->setModules($modules);
+    // Persist it
+    $entityManager->persist($user);
+    $entityManager->flush();
+
+    return $this->json([
+      'success' => true,
+      'msg' => 'Tamanhos dos módulos salvos com sucesso'
+    ]);
   }
 
   /********************************************/

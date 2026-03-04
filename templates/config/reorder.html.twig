@@ -1,0 +1,93 @@
+{% extends 'config/_base.html.twig' %}
+
+{% block content %}
+{% import "macros/_forms.html.twig" as form %}
+<section class="section">
+  <div class="container">
+    <div class="box">
+      {{ form.header(
+        'Módulos',
+        'puzzle') }}
+
+      {{ form.hidden_input(
+        'action-path',
+        path('config_modules_reorder_save')) }}
+      {{ form.hidden_input(
+        'modules-path',
+        path('config_modules')) }}
+
+      <div class="columns">
+        {#- Active modules -#}
+        <div class="column">
+          {{ form.header(
+            'Ativos',
+            'check',
+            3) }}
+          <div class="fixed-grid has-1-cols">
+            <div class="grid module-list" id="active-modules-list">
+            {%- if user_active_modules|length > 0 -%}
+            {%- for m in user_active_modules -%}
+              <div class="cell button is-link" data-module="{{- m|json_encode() -}}">
+                <img src="{{- asset('modules/' ~ m[0] ~ '.svg') -}}">
+              </div>
+            {%- endfor -%}
+            {%- endif -%}
+            </div>
+          </div>
+        </div>
+
+        {#- Inactive modules -#}
+        <div class="column">
+          {{ form.header(
+            'Inativos',
+            'close',
+            3) }}
+          <div class="fixed-grid has-1-cols">
+            <div class="grid module-list" id="inactive-modules-list">
+            {%- if user_inactive_modules|length > 0 -%}
+            {%- for m in user_inactive_modules -%}
+              <div class="cell button is-link" data-module="{{- m|json_encode() -}}">
+                <img src="{{- asset('modules/' ~ m[0] ~ '.svg') -}}">
+              </div>
+            {%- endfor -%}
+            {%- endif -%}
+            </div>
+          </div>
+        </div>
+
+        {#- Available/Unset modules -#}
+        <div class="column">
+          {{ form.header(
+            'Disponíveis',
+            'dots-horizontal',
+            3) }}
+          <div class="fixed-grid has-1-cols">
+            <div class="grid module-list" id="available-modules-list">
+            {%- if available_modules|length > 0 -%}
+            {%- for m in available_modules -%}
+              <div class="cell button is-link" data-module="{{- m|json_encode() -}}">
+                <img src="{{- asset('modules/' ~ m[0] ~ '.svg') -}}">
+              </div>
+            {%- endfor -%}
+            {%- endif -%}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control is-expanded">
+          <button class="button is-success is-fullwidth" id="module_save" target="{{ path('config_modules') }}">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="mdi mdi-content-save"></i>
+              </span>
+              <span>Salvar Organização</span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

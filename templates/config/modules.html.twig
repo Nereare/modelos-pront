@@ -1,0 +1,87 @@
+{% extends 'config/_base.html.twig' %}
+
+{% block content %}
+{% import "macros/_forms.html.twig" as form %}
+<section class="section">
+  <div class="container">
+    <div class="box">
+      {{ form.header(
+        'Módulos',
+        'puzzle') }}
+
+      {{ form.hidden_input(
+        'action-path',
+        path('config_modules_size_save')) }}
+
+      <table class="table is-striped is-hoverable is-fullwidth" id="module-size-table">
+        <thead>
+          <tr>
+            <th>Módulo</th>
+            <th>Tamanho</th>
+          </tr>
+        </thead>
+        {%- if modules|length > 0 -%}
+        {%- for m in modules -%}
+        <tr>
+          <td class="has-text-centered">
+            <img src="{{- asset('modules/' ~ m[0] ~ '.svg') -}}">
+          </td>
+          <td>
+            <div class="field">
+              <div class="control is-expanded has-icons-left">
+                <div class="select is-fullwidth">
+                  <select class="module-size" module="{{- m[0] -}}">
+                    <option value="1"{% if m[1] == 1 %} selected{% endif %}>Pequeno</option>
+                    <option value="2"{% if m[1] == 2 %} selected{% endif %}>Médio</option>
+                    <option value="4"{% if m[1] == 4 %} selected{% endif %}>Grande</option>
+                  </select>
+                  <div class="icon is-left">
+                    <i class="mdi mdi-resize"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        {%- endfor -%}
+        {%- else -%}
+        <tr>
+          <td colspan="2" class="is-size-4 has-text-centered">
+            Sem módulos ativos:
+            <a href="{{- path('config_modules_reorder') -}}">
+              ativar módulos...
+            </a>
+          </td>
+        </tr>
+        {%- endif -%}
+        <tbody>
+        </tbody>
+      </table>
+
+      <div class="columns">
+        <div class="column">
+          <div class="field">
+            <div class="control is-expanded">
+              <button class="button is-success is-fullwidth" id="module_save_sizes">
+                <span class="icon-text">
+                  <span class="icon">
+                    <i class="mdi mdi-content-save"></i>
+                  </span>
+                  <span>Salvar Tamanhos</span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          {{ form.link_button(
+            'config_modules_reorder',
+            'Selecionar Módulos',
+            'puzzle') }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -105,6 +105,13 @@ header {
     text-align: center;
   }
 }
+// Module's size table
+#module-size-table {
+  img {
+    max-width: 32px;
+    filter: invert(100%);
+  }
+}
 
 // Set fast texts drawer
 #fasts-drawer {

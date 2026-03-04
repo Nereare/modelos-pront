@@ -18,6 +18,15 @@
 				<span>Usuário</span>
 			</a>
 		</li>
+    {% set module_routes = ['config_modules', 'config_modules_reorder'] %}
+    <li{% if app.request.attributes.get('_route') in module_routes %} class="is-active"{% endif %}>
+			<a href="{{ path('config_modules') }}">
+				<span class="icon">
+					<i class="mdi mdi-puzzle"></i>
+				</span>
+				<span>Módulos</span>
+			</a>
+		</li>
     {% set place_routes = ['config_places', 'config_place_new', 'config_place_edit'] %}
 		<li{% if app.request.attributes.get('_route') in place_routes %} class="is-active"{% endif %}>
 			<a href="{{ path('config_places') }}">
