@@ -27,6 +27,14 @@ $red    : #ff3860;
 @use "typeface-roboto-mono" as roboto-mono;
 @forward "~@mdi/font/scss/materialdesignicons.scss";
 
+// Extra styles to expand Bulma
+@use "./checkradio.scss" with (
+  // Colors
+  $primary: $color-main,
+  $link: $color-aux,
+  // Typography
+  $font: $family-monospace);
+
 // Set all paragraphs to justified alignment
 .content { text-align: justify; }
 footer .content { text-align: center; }

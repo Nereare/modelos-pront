@@ -13,9 +13,7 @@ final class ModuleController extends AbstractController
   {
     return $this->render(
       'module/hospital.html.twig',
-      [
-        'name' => 'Exame Físico'
-      ]
+      ['name' => 'Exame Físico']
     );
   }
 }

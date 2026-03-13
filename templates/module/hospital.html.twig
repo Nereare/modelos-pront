@@ -2,6 +2,7 @@
 
 {% block main %}
 {% import "macros/_forms.html.twig" as form %}
+{% import "macros/_physical.html.twig" as physical %}
 <header class="section">
   <div class="container">
     {{ form.header(name) }}
@@ -10,9 +11,8 @@
 
 <section class="section">
   <div class="container">
-    <div class="box">
-      //
-    </div>
+    {{ physical.gender() }}
+    {{ physical.general() }}
   </div>
 </section>
 {% endblock %}

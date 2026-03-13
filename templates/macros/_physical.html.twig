@@ -1,0 +1,202 @@
+{##
+A gender selection select field.
+
+@example Basic gender select
+
+{{ physical.gender() }}
+
+@param  [String, nil]   id    The input's id attribute. Defaults to 'pronouns'.
+#}
+{% macro gender(id) %}
+<div class="box">
+  <div class="field has-addons">
+    <div class="control">
+      <button class="button is-static" tabindex="-1">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-gender-transgender"></i>
+          </span>
+          <span>Declinação de Gênero</span>
+        </span>
+      </button>
+    </div>
+    <div class="control is-expanded">
+      <div class="select is-fullwidth">
+        <select id="{{ id | default('pronouns') }}" title="Qual declinação de gênero e/ou pronome será usado para descrever o exame físico, quando aplicável">
+          <option value="e" selected>Neutro</option>
+          <option value="o">Ele/Dele</option>
+          <option value="a">Ela/Dela</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+{##
+Includes a select macro according to Bulma's standard.
+The select choses the gender to be used.
+
+@example Basic gender select
+
+{{ physical.gender() }}
+
+@param  [String, nil]   id    The input's id attribute. Defaults to 'pronouns'.
+#}
+{% macro general(id) %}
+<div class="box">
+  <h2 class="title is-4">Estado Geral</h2>
+
+  <div class="columns">
+    <div class="column">
+      <div class="field">
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="status" title="Estado geral">
+              <option value="Bom" selected>BEG</option>
+              <option value="Regular">REG</option>
+              <option value="Mal">MEG</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="field">
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="nutrition" title="Estado nutricional">
+              <option value="" selected>Status Nutric. (N/A)</option>
+              <option value="Esmaecido">Esmaecido</option>
+              <option value="Caquético">Caquético</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="is-checkradio">
+      <input class="is-success" type="radio" name="color" value="Corade" checked>
+      <span>Corade</span>
+    </label>
+    <label class="is-checkradio">
+      <input class="is-warning" type="radio" name="color" value="1">
+      <span>&plus;</span>
+    </label>
+    <label class="is-checkradio">
+      <input class="is-danger" type="radio" name="color" value="2">
+      <span>&plus;&plus;</span>
+    </label>
+    <label class="is-checkradio">
+      <input class="is-danger" type="radio" name="color" value="3">
+      <span>&plus;&plus;&plus;</span>
+    </label>
+    <label class="is-checkradio">
+      <input class="is-danger" type="radio" name="color" value="4">
+      <span>&plus;&plus;&plus;&plus;</span>
+    </label>
+  </div>
+
+  <div class="field">
+    <label class="is-checkradio">
+      <input class="is-success" type="radio" name="hydro" value="hidratade" checked>
+      <span>Hidratade</span>
+    </label>
+    <label class="is-checkradio">
+      <input class="is-warning" type="radio" name="hydro" value="1">
+      <span>&plus;</span>
+    </label>
+    <label class="is-checkradio">
+      <input class="is-danger" type="radio" name="hydro" value="2">
+      <span>&plus;&plus;</span>
+    </label>
+    <label class="is-checkradio">
+      <input class="is-danger" type="radio" name="hydro" value="3">
+      <span>&plus;&plus;&plus;</span>
+    </label>
+    <label class="is-checkradio">
+      <input class="is-danger" type="radio" name="hydro" value="4">
+      <span>&plus;&plus;&plus;&plus;</span>
+    </label>
+  </div>
+
+  <div class="field">
+    <label class="is-checkradio">
+      <input class="is-success" type="radio" name="cyanose" value="acianótice" checked>
+      <span>Acianótice</span>
+    </label>
+    <label class="is-checkradio">
+      <input class="is-warning" type="radio" name="cyanose" value="1">
+      <span>&plus;</span>
+    </label>
+    <label class="is-checkradio">
+      <input class="is-danger" type="radio" name="cyanose" value="2">
+      <span>&plus;&plus;</span>
+    </label>
+    <label class="is-checkradio">
+      <input class="is-danger" type="radio" name="cyanose" value="3">
+      <span>&plus;&plus;&plus;</span>
+    </label>
+    <label class="is-checkradio">
+      <input class="is-danger" type="radio" name="cyanose" value="4">
+      <span>&plus;&plus;&plus;&plus;</span>
+    </label>
+  </div>
+
+  <div class="field">
+    <label class="is-checkradio">
+      <input class="is-success" type="radio" name="icter" value="anictérice" checked>
+      <span>Anictérice</span>
+    </label>
+    <label class="is-checkradio">
+      <input class="is-warning" type="radio" name="icter" value="1">
+      <span>&plus;</span>
+    </label>
+    <label class="is-checkradio">
+      <input class="is-danger" type="radio" name="icter" value="2">
+      <span>&plus;&plus;</span>
+    </label>
+    <label class="is-checkradio">
+      <input class="is-danger" type="radio" name="icter" value="3">
+      <span>&plus;&plus;&plus;</span>
+    </label>
+    <label class="is-checkradio">
+      <input class="is-danger" type="radio" name="icter" value="4">
+      <span>&plus;&plus;&plus;&plus;</span>
+    </label>
+  </div>
+
+  <div class="field">
+    <label class="is-checkradio">
+      <input class="is-success" type="radio" name="fever" value="afebril" checked>
+      <span>Afebril</span>
+    </label>
+    <label class="is-checkradio">
+      <input class="is-danger" type="radio" name="fever" value="febril">
+      <span>Febril</span>
+    </label>
+    <label class="is-checkradio">
+      <input class="is-danger" type="radio" name="fever" value="hipotérmice">
+      <span>Hipotérmice</span>
+    </label>
+  </div>
+
+  <div class="field">
+    <div class="control is-expanded">
+      <div class="select is-fullwidth">
+        <select id="breathe-abnormal-desc">
+          <option value="eu" selected>Eupneice</option>
+          <option value="*eu">Eupneice (enfático)</option>
+          <option value="taqui">Taquipneice</option>
+          <option value="bradi">Bradipneice</option>
+          <option value="taquidis">Taquidispneice</option>
+          <option value="bradidis">Bradidispneice</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+{% endmacro %}
