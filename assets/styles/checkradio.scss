@@ -1,0 +1,60 @@
+@use 'sass:color' as sass-color;
+
+// Main Colors
+$text          : hsl(221, 14%, 21%) !default;
+$primary       : hsl(171, 100%, 41%) !default;
+$info          : hsl(198, 100%, 70%) !default;
+$link          : hsl(233, 100%, 63%) !default;
+$success       : hsl(153, 53%, 53%) !default;
+$warning       : hsl(42, 100%, 53%) !default;
+$danger        : hsl(348, 100%, 70%) !default;
+// Main font
+$font          : monospace !default;
+// Main size
+$size          : 1.5rem !default;
+
+// Radio color mixin
+@mixin radio-colors($color) {
+  background: radial-gradient(farthest-side, $color 94%, $color) 50%/0 0 no-repeat content-box;
+  &:hover { border-color: $color; }
+  &:active { border-color: sass-color.adjust($color, $lightness: 10%); }
+}
+
+.is-checkradio {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  &:last-child { margin-right: 0; }
+
+  input {
+    height: $size;
+    aspect-ratio: 1;
+    padding: 0.25rem;
+    border: 1px solid sass-color.adjust($text, $lightness: 60%);
+    appearance: none;
+    transition: 0.1s;
+    &[type=radio] { border-radius: 50%; }
+    &[type=checkbox] { border-radius: 0.3rem; }
+
+    @include radio-colors($text);
+    &.is-primary { @include radio-colors($primary); }
+    &.is-info { @include radio-colors($info); }
+    &.is-link { @include radio-colors($link); }
+    &.is-success { @include radio-colors($success); }
+    &.is-warning { @include radio-colors($warning); }
+    &.is-danger { @include radio-colors($danger); }
+
+    &:checked {
+      border-color: sass-color.adjust($text, $lightness: 60%);
+      background-size: 100% 100%;
+    }
+    &:disabled {
+      background: linear-gradient(#939393 0 0) 50%/100% 20% no-repeat content-box;
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  span { margin-left: 0.3rem; }
+}

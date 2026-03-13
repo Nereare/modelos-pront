@@ -37,12 +37,10 @@
 							</div>
 
               <div class="field has-text-centered">
-                <p class="control">
-                  <label class="checkbox">
-                    <input type="checkbox" name="_remember_me" checked>
-                    Mantenha logado
-                  </label>
-                </p>
+                <label class="is-checkradio">
+                  <input class="is-primary" type="checkbox" name="_remember_me" checked>
+                  <span>Mantenha logado</span>
+                </label>
               </div>
 
 							<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
