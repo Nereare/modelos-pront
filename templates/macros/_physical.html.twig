@@ -44,8 +44,8 @@
           <div class="select is-fullwidth">
             <select id="nutrition" title="Estado nutricional">
               <option value="" selected>Status Nutric. (N/A)</option>
-              <option value="Esmaecido">Esmaecido</option>
-              <option value="Caquético">Caquético</option>
+              <option value="Esmaecid((PRO))">Esmaecide</option>
+              <option value="Caquétic((PRO))">Caquétice</option>
             </select>
           </div>
         </div>
@@ -55,7 +55,7 @@
 
   <div class="field">
     <label class="is-checkradio">
-      <input class="is-success" type="radio" name="color" value="Corade" checked>
+      <input class="is-success" type="radio" name="color" value="Corad((PRO))" checked>
       <span>Corade</span>
     </label>
     <label class="is-checkradio">
@@ -78,7 +78,7 @@
 
   <div class="field">
     <label class="is-checkradio">
-      <input class="is-success" type="radio" name="hydro" value="hidratade" checked>
+      <input class="is-success" type="radio" name="hydro" value="hidratad((PRO))" checked>
       <span>Hidratade</span>
     </label>
     <label class="is-checkradio">
@@ -101,7 +101,7 @@
 
   <div class="field">
     <label class="is-checkradio">
-      <input class="is-success" type="radio" name="cyanose" value="acianótice" checked>
+      <input class="is-success" type="radio" name="cyanose" value="acianótic((PRO))" checked>
       <span>Acianótice</span>
     </label>
     <label class="is-checkradio">
@@ -124,7 +124,7 @@
 
   <div class="field">
     <label class="is-checkradio">
-      <input class="is-success" type="radio" name="icter" value="anictérice" checked>
+      <input class="is-success" type="radio" name="icter" value="anictéric((PRO))" checked>
       <span>Anictérice</span>
     </label>
     <label class="is-checkradio">
@@ -147,7 +147,11 @@
 
   <div class="field">
     <label class="is-checkradio">
-      <input class="is-success" type="radio" name="fever" value="afebril" checked>
+      <input class="is-link" type="radio" name="fever" value="" checked>
+      <span>NT</span>
+    </label>
+    <label class="is-checkradio">
+      <input class="is-success" type="radio" name="fever" value="afebril">
       <span>Afebril</span>
     </label>
     <label class="is-checkradio">
@@ -155,21 +159,32 @@
       <span>Febril</span>
     </label>
     <label class="is-checkradio">
-      <input class="is-danger" type="radio" name="fever" value="hipotérmice">
+      <input class="is-danger" type="radio" name="fever" value="hipotérmic((PRO))">
       <span>Hipotérmice</span>
     </label>
   </div>
 
-  <div class="field">
-    <div class="control is-expanded">
-      <div class="select is-fullwidth">
+  <div class="field has-addons">
+    <div class="control">
+      <button class="button is-static" tabindex="-1">Estado Respiratório</button>
+    </div>
+    <div class="control">
+      <div class="select">
         <select id="breathe-abnormal-desc">
-          <option value="eu" selected>Eupneice</option>
-          <option value="*eu">Eupneice (enfático)</option>
-          <option value="taqui">Taquipneice</option>
-          <option value="bradi">Bradipneice</option>
-          <option value="taquidis">Taquidispneice</option>
-          <option value="bradidis">Bradidispneice</option>
+          <option value="eupneic((PRO))" selected>Eupneice</option>
+          <option value="eupneic((PRO)) (ausência de quaisquer sinais objetivos de dispneia - sem de uso de musculaturas respiratórias acessórias, sem postura compensatória)">Eupneice (enfático)</option>
+          <option value="taquipneic((PRO))">Taquipneice</option>
+          <option value="bradipneic((PRO))">Bradipneice</option>
+          <option value="taquidispneic((PRO))">Taquidispneice</option>
+          <option value="bradidispneic((PRO))">Bradidispneice</option>
+          <option value="other">Outro...</option>
+        </select>
+      </div>
+    </div>
+    <div class="control is-expanded">
+      <input class="input" id="breathe-abnormal-desc-other" placeholder="Descreva..." disabled>
+    </div>
+  </div>
         </select>
       </div>
     </div>
