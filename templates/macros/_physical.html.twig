@@ -1,13 +1,5 @@
-{##
-A gender selection select field.
-
-@example Basic gender select
-
-{{ physical.gender() }}
-
-@param  [String, nil]   id    The input's id attribute. Defaults to 'pronouns'.
-#}
-{% macro gender(id) %}
+{## A gender selection select field. #}
+{% macro gender() %}
 <div class="box">
   <div class="field has-addons">
     <div class="control">
@@ -33,17 +25,8 @@ A gender selection select field.
 </div>
 {% endmacro %}
 
-{##
-Includes a select macro according to Bulma's standard.
-The select choses the gender to be used.
-
-@example Basic gender select
-
-{{ physical.gender() }}
-
-@param  [String, nil]   id    The input's id attribute. Defaults to 'pronouns'.
-#}
-{% macro general(id) %}
+{## The main physical exam fields: general, vital signs, and conscience. #}
+{% macro general() %}
 <div class="box">
   <h2 class="title is-4">Estado Geral</h2>
 
