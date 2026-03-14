@@ -1,8 +1,12 @@
 {% extends '_base.html.twig' %}
 
+{% block javascripts %}
+{{ encore_entry_script_tags('physical') }}
+{% endblock %}
+
 {% block main %}
-{% import "macros/_forms.html.twig" as form %}
-{% import "macros/_physical.html.twig" as physical %}
+{%- import "macros/_forms.html.twig" as form -%}
+{%- import "macros/_physical.html.twig" as physical -%}
 <header class="section">
   <div class="container">
     {{ form.header(name) }}
@@ -13,6 +17,7 @@
   <div class="container">
     {{ physical.gender() }}
     {{ physical.general() }}
+    {{ physical.head() }}
   </div>
 </section>
 {% endblock %}

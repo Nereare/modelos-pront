@@ -20,6 +20,7 @@ Encore
   .addEntry('pront', './assets/pront.js')
   .addEntry('config', './assets/config.js')
   .addEntry('admin', './assets/admin.js')
+  .addEntry('physical', './assets/physical.js')
 
   // configure Babel
   // .configureBabel((config) => {
