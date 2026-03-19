@@ -145,6 +145,26 @@ $(function () {
     }
   });
 
+
+  /****************************************/
+  /*               Ears Exam              */
+  /****************************************/
+  // Autoselect ears exam checkbox if any field is on
+  $("[id^='oto-']").on("change input", function () {
+    let filled = false;
+    $("[id^='oto-']").each(function () {
+      if ($(this).val() != "") {
+        filled = true;
+        return false;
+      }
+    });
+    if (filled) {
+      $("#exam-oto").prop("checked", true);
+    } else {
+      $("#exam-oto").prop("checked", false);
+    }
+  });
+
   /****************************************/
   /*                Output                */
   /****************************************/
@@ -360,7 +380,6 @@ $(function () {
       out.push(eyes.trim());
     }
 
-    /***** Neck/Cervical *****/
     // > Cervical
     let cervical = [];
     // > > Thyroid
@@ -421,6 +440,8 @@ $(function () {
       cervical += (/.+\.$/).test(cervical) ? "" : ".";
       out.push(cervical.trim());
     }
+
+    /***** ORL/ENT *****/
 
     /***** OUTPUT *****/
     // Return final output
