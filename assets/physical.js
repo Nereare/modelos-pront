@@ -114,28 +114,34 @@ $(function () {
       $("#neck-lymphnodes-desc")
         .attr("disabled", true)
         .val("");
-    }
-  });
-  // Show lymphnode localization choices
-  $("#neck-lymphnodes").on("change", function() {
-    if ($(this).val().includes("Presença de")) {
-      $("#lymph-locs-select").removeClass("is-hidden");
-    } else {
       $("#lymph-locs-select").addClass("is-hidden");
+      $("[name=neck-lymphnode-loc]").each(function () {
+        $(this).prop("checked", false);
+      });
+      $("#neck-lymphnodes-locs").val("");
     }
   });
-  // Autoselect eye exam checkbox if any field is on
-  $("[id^='neck-']").on("change", function() {
-    let changed = false;
+  // Fill hidden field with selected sectors
+  $("[name=neck-lymphnode-sector]").on("change", function () {
+    let sectors = [];
+    $("[name=neck-lymphnode-sector]:checked").each(function () {
+      sectors.push($(this).val());
+    });
+    $("#neck-lymphnodes-locs").val(JSON.stringify(sectors));
+  });
+  // Autoselect neck exam checkbox if any field is on
+  $("[id^='neck-']").on("change input", function() {
+    let filled = false;
     $("[id^='neck-']").each(function() {
       if ($(this).val() != "") {
-        changed = true;
+        filled = true;
+        return false;
       }
     });
-    if (changed) {
-      $("#exam-neck").attr("checked", true);
+    if (filled) {
+      $("#exam-neck").prop("checked", true);
     } else {
-      $("#exam-neck").attr("checked", false);
+      $("#exam-neck").prop("checked", false);
     }
   });
 
@@ -149,20 +155,20 @@ $(function () {
     // Get patient's pronouns
     let pronouns = $("#pronouns").val();
 
-    // General
+    /***** GENERAL *****/
     // This is the one series of exams that will always be included
     // > First line
-    out.push([]);
+    let line1 = [];
     // > > General status
-    out[0] = $("#status").val() + " estado geral";
+    line1.push($("#status").val() + " estado geral");
     // > > Nutritional status
     if ($("#nutrition").val() != "") {
-      out[0].push($("#nutrition").val());
+      line1.push($("#nutrition").val());
     }
     // > > Compile first line
-    out[0] = out[0].join(". ") + ".";
+    out.push(line1.join(". ") + ".");
     // > Second line
-    out.push([]);
+    let line2 = [];
     // > > Loop through each of the four main parameters
     [
       ["color", "Descorad((PRO))"],
@@ -170,85 +176,93 @@ $(function () {
       ["cyanose", "cianótic((PRO))"],
       ["icter", "ictéric((PRO))"]].forEach(function (p) {
         if (isNaN($("[name=" + p[0] + "]:checked").val())) {
-          out[1].push($("[name=" + p[0] + "]:checked").val());
+          line2.push($("[name=" + p[0] + "]:checked").val());
         } else {
-          out[1].push(p[1] + $("[name=" + p[0] + "]:checked").val() + "+/4+");
+          line2.push(p[1] + $("[name=" + p[0] + "]:checked").val() + "+/4+");
         }
       });
     // > > Fever
     if ($("[name=fever]").val() != "") {
-      out.push($("[name=fever]").val());
+      line2.push($("[name=fever]").val());
     }
     // > > Breathing
     if ($("#breathing").val() == "other") {
-      out.push($("#breathing-other").val());
+      line2.push($("#breathing-other").val());
     } else if ($("#breathing").val() != "") {
-      out.push($("#breathing").val());
+      line2.push($("#breathing").val());
+    }
+    // > > Add face to compiled second line
+    line2 = line2.join(", ") + ".";
+    if ($("#face").val() == "other") {
+      line2 += " " + $("#face-other").val() + ".";
+    } else if ($("#face").val() != "") {
+      line2 += " Fácies " + $("#face").val() + ".";
     }
     // > > Compile second line
-    out[1] = out[1].join(", ") + ".";
-    // > > Add face to compiled second line
-    if ($("#face").val() == "other") {
-      out[1] += ". " + $("#face-other").val() + ".";
-    } else if ($("#face").val() != "") {
-      out[1] += ". " + $("#face").val() + ".";
-    }
+    out.push(line2);
     // > Third line
-    out.push([]);
+    let line3 = [];
     // > > Pulse oximetry
     if ($("#ssvv-sat").val() != "") {
       let o2 = "Sat O2 = " + $("#ssvv-sat").val() + "% em " + $("#ssvv-sat-type").val();
       if ($("#ssvv-sat-flux").val() != "") { o2 += " a " + $("#ssvv-sat-flux").val() + "L/min"; }
-      out[2].push(o2);
+      line3.push(o2);
     }
     // > > Pulse
     if ($("#ssvv-pulse").val() != "") {
-      out[2].push("FC = " + $("#ssvv-pulse").val() + "bpm");
+      line3.push("FC = " + $("#ssvv-pulse").val() + "bpm");
     }
     // > > Arterial Pressure
     if ($("#ssvv-pas").val() != "" && $("#ssvv-pad").val() != "") {
       let pas = parseInt($("#ssvv-pas").val());
       let pad = parseInt($("#ssvv-pad").val());
       let pam = (pas + (pad * 2)) / 3;
-      out[2].push("PA = " + $("#ssvv-pas").val() + "/" + $("#ssvv-pas").val() + "mmHg");
-      out[2].push("PAM = " + pam.toFixed(0) + "mmHg");
+      line3.push("PA = " + $("#ssvv-pas").val() + "/" + $("#ssvv-pas").val() + "mmHg");
+      line3.push("PAM = " + pam.toFixed(0) + "mmHg");
     } else if ($("#ssvv-pas").val() != "") {
-      out[2].push("PAS = " + $("#ssvv-pas").val() + "mmHg");
+      line3.push("PAS = " + $("#ssvv-pas").val() + "mmHg");
     } else if ($("#ssvv-pad").val() != "") {
-      out[2].push("PAD = " + $("#ssvv-pas").val() + "mmHg");
+      line3.push("PAD = " + $("#ssvv-pas").val() + "mmHg");
     }
     // > > Respiration
     if ($("#ssvv-fr").val() != "") {
-      out[2].push("FR = " + $("#ssvv-fr").val() + "irpm");
+      line3.push("FR = " + $("#ssvv-fr").val() + "irpm");
     }
     // > > Glucose
     if ($("#ssvv-glucose").val() != "") {
-      out[2].push("GC = " + $("#ssvv-glucose").val() + "mg/dL" + $("#ssvv-glucose-time").val());
+      line3.push("GC = " + $("#ssvv-glucose").val() + "mg/dL" + $("#ssvv-glucose-time").val());
     }
     // > > Temperature
     if ($("#ssvv-temp").val() != "") {
-      out[2].push("Temp = " + $("#ssvv-temp").val() + "°C" + " (" + $("#ssvv-temp-desc").val() + ")");
+      line3.push("Temp = " + $("#ssvv-temp").val() + "°C" + " (" + $("#ssvv-temp-desc").val() + ")");
     }
     // > > Weight
     if ($("#ssvv-weight").val() != "") {
-      out[2].push("Peso " + $("#ssvv-weight-eq").val() + " " + $("#ssvv-weight").val() + "kg");
+      line3.push("Peso " + $("#ssvv-weight-eq").val() + $("#ssvv-weight").val() + "kg");
     }
     // > > Height
     if ($("#ssvv-height").val() != "") {
-      out[2].push("Alt = " + $("#ssvv-height").val() + "cm");
+      line3.push("Alt = " + $("#ssvv-height").val() + "cm");
     }
     // > > BMI
     if ($("#ssvv-bmi").val() != "") {
-      out[2].push("IMC = " + $("#ssvv-bmi").val() + "kg/m²");
+      let bmi = parseFloat($("#ssvv-bmi").val());
+      let bmi_name = "";
+      if (bmi >= 40.0) { bmi_name = "obesidade grave"; }
+      else if (bmi >= 30.0) { bmi_name = "obesidade"; }
+      else if (bmi >= 25.0) { bmi_name = "sobrepeso"; }
+      else if (bmi < 18.5) { bmi_name = "subnutrição"; }
+      else { bmi_name = "eutrofia"; }
+      line3.push("IMC = " + bmi.toFixed(1) + "kg/m² (" + bmi_name + ")");
     }
     // > > Pain
     if ($("#ssvv-pain").val() != "") {
-      out[2].push("EVA Dor = " + $("#ssvv-pain").val() + "/10");
+      line3.push("EVA Dor = " + $("#ssvv-pain").val() + "/10");
     }
     // > > Compile third line
-    out[2] = out[1].join(" | ");
+    if (line3.length > 0) { out.push(line3.join(" | ")); }
     // > Fourth line
-    out.push([]);
+    let line4 = [];
     // > > GCS
     if ($("#ssvv-gcs-eye").val() != "" &&
       $("#ssvv-gcs-speech").val() != "" &&
@@ -263,40 +277,153 @@ $(function () {
         rm = "RM " + (rm == 0 ? "0NT" : rm.toFixed(0));
         gcs = gcs + " (" + [ao, rv, rm].join("; ") + ")";
       }
-      out[3].push("GCS " + gcs);
+      line4.push("GCS " + gcs);
     }
     // > > RASS
     if ($("#ssvv-rass").val() != "") {
-      out[3].push("RASS " + $("#ssvv-rass").val());
+      line4.push("RASS " + $("#ssvv-rass").val());
     }
     // > > Orientation
     if ($("#ssvv-orientation-time").val() != "" ||
       $("#ssvv-orientation-space").val() != "") {
       if ($("#ssvv-orientation-time").val() == $("#ssvv-orientation-space").val()) {
-        out[3].push($("#ssvv-orientation-time").val() + " no tempo-espaço");
+        line4.push($("#ssvv-orientation-time").val() + " no tempo-espaço");
       } else {
         if ($("#ssvv-orientation-time").val() != "") {
-          out[3].push($("#ssvv-orientation-time").val() + " no tempo");
+          line4.push($("#ssvv-orientation-time").val() + " no tempo");
         }
         if ($("#ssvv-orientation-space").val() != "") {
-          out[3].push($("#ssvv-orientation-space").val() + " no espaço");
+          line4.push($("#ssvv-orientation-space").val() + " no espaço");
         }
       }
     }
     // > > Collaboration
     if ($("#ssvv-collaboration").val() == "other") {
-      out[3].push($("#ssvv-collaboration-other").val());
+      line4.push($("#ssvv-collaboration-other").val());
     } else if ($("#ssvv-collaboration").val() != "") {
-      out[3].push($("#ssvv-collaboration").val());
+      line4.push($("#ssvv-collaboration").val());
     }
     // > > Walking
     if ($("#ssvv-walking").val() == "other") {
-      out[3].push($("#ssvv-walking-other").val());
+      line4.push($("#ssvv-walking-other").val());
     } else if ($("#ssvv-walking").val() != "") {
-      out[3].push($("#ssvv-walking").val());
+      line4.push($("#ssvv-walking").val());
+    }
+    // > > Compile fourth line
+    if (line4.length > 0) { out.push(line4.join(" | ")); }
+
+    /***** HEAD *****/
+    // > Eyes
+    let eyes = [];
+    // > > Redness
+    if ($("#eye-redness").val() != "") {
+      eyes.push("Conjuntiva " + $("#eye-redness").val());
+    }
+    // > > Yellowness
+    if ($("#eye-yellowness").val() != "") {
+      eyes.push("Conjuntiva " + $("#eye-yellowness").val());
+    }
+    // > > Crusts
+    if ($("#eye-secretions").val() != "") {
+      eyes.push($("#eye-secretions").val());
+    }
+    // > > Pus
+    if ($("#eye-pus").val() != "") {
+      eyes.push($("#eye-pus").val());
+    }
+    // > > Eye movements
+    if ($("#eye-movements").val() != "") {
+      if ($("#eye-movements").val() == "other") {
+        eyes.push("Movimentação Ocular Extrínseca com " + $("#eye-movements-other").val());
+      } else {
+        eyes.push("Movimentação Ocular Extrínseca " + $("#eye-movements").val());
+      }
+    }
+    // > > Pupil reflexes
+    if ($("#eye-pupils").val() != "") {
+      if ($("#eye-pupils").val() == "other") {
+        eyes.push("Reflexos Pupilares com " + $("#eye-pupils-other").val());
+      } else if ($("#eye-pupils").val() == "preservada") {
+        eyes.push("Pupilas isofotorreagentes (PIFR)");
+      } else {
+        eyes.push("Reflexos Pupilares " + $("#eye-pupils").val());
+      }
+    }
+    // > > Other
+    if ($("#eye-other").val() != "") {
+      eyes.push($("#eye-other").val());
+    }
+    // > > Compile and push eye descriptors
+    if (eyes.length > 0) {
+      eyes = "Olhos: " + eyes.join(". ");
+      eyes += (/.+\.$/.test(eyes)) ? "" : ".";
+      out.push(eyes.trim());
     }
 
+    /***** Neck/Cervical *****/
+    // > Cervical
+    let cervical = [];
+    // > > Thyroid
+    if ($("#neck-thyroid-volume").val() != "") {
+      cervical.push(
+        "Tireóide " +
+        $("#neck-thyroid-volume").val() +
+        $("#neck-thyroid-nodules").val() +
+        $("#neck-thyroid-margins").val());
+    }
+    // > > Lymphnodes
+    if ($("#neck-lymphnodes").val() != "") {
+      cervical.push($("#neck-lymphnodes").val() + $("#neck-lymphnodes-desc").val());
+    }
+    // > > Lymphnodes localizations
+    if ($("#neck-lymphnodes-locs").val() != "") {
+      let locs = JSON.parse($("#neck-lymphnodes-locs").val());
+      if (locs.length > 2) {
+        let last = locs.pop();
+        cervical.push("Com linfonodos palpápeis nos setores " + locs.join(", ") + ", e " + last);
+      } else if (locs.length == 2) {
+        cervical.push("Com linfonodos palpápeis nos setores " + locs.join(" e "));
+      } else if (locs.length > 0) {
+        cervical.push("Com linfonodo palpápel no setor " + locs.join(""));
+      }
+    }
+    // > > Parotid glands
+    if ($("#neck-parotid-right").val() != "" ||
+        $("#neck-parotid-left").val() != "") {
+      if ($("#neck-parotid-right").val() == $("#neck-parotid-left").val()) {
+        cervical.push("Glândulas Parótidas " + $("#neck-parotid-left").attr("plural-alt"));
+      } else {
+        if ($("#neck-parotid-right").val() != "") {
+          cervical.push("Glândula Parótida Direita " + $("#neck-parotid-right").val());
+        }
+        if ($("#neck-parotid-left").val() != "") {
+          cervical.push("Glândula Parótida Esquerda " + $("#neck-parotid-left").val());
+        }
+      }
+    }
+    // > > Sublingual glands
+    if ($("#neck-sublingual-right").val() != "" ||
+      $("#neck-sublingual-left").val() != "") {
+      if ($("#neck-sublingual-right").val() == $("#neck-sublingual-left").val()) {
+        cervical.push("Glândulas Sublinguais " + $("#neck-sublingual-left").attr("plural-alt"));
+      } else {
+        if ($("#neck-sublingual-right").val() != "") {
+          cervical.push("Glândula Sublingual Direita " + $("#neck-sublingual-right").val());
+        }
+        if ($("#neck-sublingual-left").val() != "") {
+          cervical.push("Glândula Sublingual Esquerda " + $("#neck-sublingual-left").val());
+        }
+      }
+    }
+    // > > Compile and push cervical descriptors
+    if (cervical.length > 0) {
+      cervical = "Cervical: " + cervical.join(". ");
+      cervical += (/.+\.$/) ? "" : ".";
+      out.push(cervical.trim());
+    }
+
+    /***** OUTPUT *****/
     // Return final output
-    $("#output").val(out.join("\n"));
+    $("#output").val(out.join("\n").replaceAll("((PRO))", pronouns));
   });
 });

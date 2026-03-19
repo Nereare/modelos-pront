@@ -357,7 +357,7 @@
 					<div class="select">
 						<select id="ssvv-weight-eq">
 							<option value="~" title="Peso APROXIMADO" selected>~</option>
-							<option value="=" title="Peso exato aferido neste contato">=</option>
+							<option value="= " title="Peso exato aferido neste contato">=</option>
 						</select>
 					</div>
 				</div>
@@ -486,16 +486,16 @@
 			<div class="select is-fullwidth">
 				<select id="ssvv-rass">
 					<option value="" selected>N/A</option>
-					<option value="+4" title="Violento, perigoso">Agressivo</option>
-          <option value="+3" title="Conduta agressiva, remoção de tubos e catéteres">Muito agitado</option>
-          <option value="+2" title="Movimentos sem coordenação frequente">Agitado</option>
-          <option value="+1" title="Ansioso, mas sem movimentos agressivos ou vigorosos">Inquieto</option>
-          <option value="0" title="Consciência normal">Alerta, calmo</option>
-          <option value="-1" title="Não se encontra totalmente alerta, mas tem o despertar sustentado ao som da voz por >10s">Sonolento</option>
-          <option value="-2" title="Acorda rapidamente e faz contato visual com o som da voz, mas por <10s">Sedação leve</option>
-          <option value="-3" title="Movimento ou abertura dos olhos ao som da voz, mas sem contato visual">Sedação moderada</option>
-          <option value="-4" title="Não responde ao som da voz, mas movimenta ou abre os olhos com estimulação física">Sedação profunda</option>
-          <option value="-5" title="Não responde ao som da voz ou ao estímulo físico">Incapaz de ser despertado</option>
+					<option value="+4" title="+4 - Violento, perigoso">Agressivo</option>
+          <option value="+3" title="+3 - Conduta agressiva, remoção de tubos e catéteres">Muito agitado</option>
+          <option value="+2" title="+2 - Movimentos sem coordenação frequente">Agitado</option>
+          <option value="+1" title="+1 - Ansioso, mas sem movimentos agressivos ou vigorosos">Inquieto</option>
+          <option value="0" title="0 - Consciência normal">Alerta, calmo</option>
+          <option value="-1" title="-1 - Não se encontra totalmente alerta, mas tem o despertar sustentado ao som da voz por >10s">Sonolento</option>
+          <option value="-2" title="-2 - Acorda rapidamente e faz contato visual com o som da voz, mas por <10s">Sedação leve</option>
+          <option value="-3" title="-3 - Movimento ou abertura dos olhos ao som da voz, mas sem contato visual">Sedação moderada</option>
+          <option value="-4" title="-4 - Não responde ao som da voz, mas movimenta ou abre os olhos com estimulação física">Sedação profunda</option>
+          <option value="-5" title="-5 - Não responde ao som da voz ou ao estímulo físico">Incapaz de ser despertado</option>
 				</select>
 			</div>
 		</div>
@@ -595,7 +595,7 @@
       <div class="column is-2">
         <div class="field">
           <label class="is-checkradio">
-            <input type="checkbox" id="exam-eye">
+            <input type="checkbox" class="is-link" id="exam-eye">
             <span class="icon">
               <i class="mdi mdi-eye mdi-24px"></i>
             </span>
@@ -612,16 +612,16 @@
             <div class="select is-fullwidth">
               <select id="eye-redness">
                 <option value="" selected>Hiperemia? (N/A)</option>
-                <option value="Sem hiperemia">S/ Hiperm</option>
-                <option value="Hiperemia leve bilateral">Leve Bilat</option>
-                <option value="Hiperemia moderada bilateral">Moderada Bilat</option>
-                <option value="Hiperemia intensa bilateral">Intensa Bilat</option>
-                <option value="Hiperemia leve apenas à direita">Leve D</option>
-                <option value="Hiperemia moderada apenas à direita">Moderada D</option>
-                <option value="Hiperemia intensa apenas à direita">Intensa D</option>
-                <option value="Hiperemia leve apenas à esquerda">Leve E</option>
-                <option value="Hiperemia moderada apenas à esquerda">Moderada E</option>
-                <option value="Hiperemia intensa apenas à esquerda">Intensa E</option>
+                <option value="sem hiperemia">S/ Hiperm</option>
+                <option value="hiperemia leve bilateral">Leve Bilat</option>
+                <option value="hiperemia moderada bilateral">Moderada Bilat</option>
+                <option value="hiperemia intensa bilateral">Intensa Bilat</option>
+                <option value="hiperemia leve apenas à direita">Leve D</option>
+                <option value="hiperemia moderada apenas à direita">Moderada D</option>
+                <option value="hiperemia intensa apenas à direita">Intensa D</option>
+                <option value="hiperemia leve apenas à esquerda">Leve E</option>
+                <option value="hiperemia moderada apenas à esquerda">Moderada E</option>
+                <option value="hiperemia intensa apenas à esquerda">Intensa E</option>
               </select>
             </div>
           </div>
@@ -629,16 +629,16 @@
             <div class="select is-fullwidth">
               <select id="eye-yellowness">
                 <option value="" selected>Icterícia? (N/A)</option>
-                <option value="Sem icterícia">S/ Icter</option>
-                <option value="Hiperemia leve bilateral">Leve Bilat</option>
-                <option value="Hiperemia moderada bilateral">Moderada Bilat</option>
-                <option value="Hiperemia intensa bilateral">Intensa Bilat</option>
-                <option value="Hiperemia leve apenas à direita">Leve D</option>
-                <option value="Hiperemia moderada apenas à direita">Moderada D</option>
-                <option value="Hiperemia intensa apenas à direita">Intensa D</option>
-                <option value="Hiperemia leve apenas à esquerda">Leve E</option>
-                <option value="Hiperemia moderada apenas à esquerda">Moderada E</option>
-                <option value="Hiperemia intensa apenas à esquerda">Intensa E</option>
+                <option value="sem icterícia">S/ Icter</option>
+                <option value="icterícia leve bilateral">Leve Bilat</option>
+                <option value="icterícia moderada bilateral">Moderada Bilat</option>
+                <option value="icterícia intensa bilateral">Intensa Bilat</option>
+                <option value="icterícia leve apenas à direita">Leve D</option>
+                <option value="icterícia moderada apenas à direita">Moderada D</option>
+                <option value="icterícia intensa apenas à direita">Intensa D</option>
+                <option value="icterícia leve apenas à esquerda">Leve E</option>
+                <option value="icterícia moderada apenas à esquerda">Moderada E</option>
+                <option value="icterícia intensa apenas à esquerda">Intensa E</option>
               </select>
             </div>
           </div>
@@ -663,10 +663,10 @@
             <div class="select is-fullwidth">
               <select id="eye-pus">
                 <option value="" selected>Pus (N/A)</option>
-                <option value="Pus ausentes">&empty;Pus</option>
-                <option value="Pus presentes bilateralmente">Pus Bilat</option>
-                <option value="Pus presentes apenas à direita">Pus D</option>
-                <option value="Pus presentes apenas à esquerda">Pus E</option>
+                <option value="Pus ausente">&empty;Pus</option>
+                <option value="Pus presente bilateralmente">Pus Bilat</option>
+                <option value="Pus presente apenas à direita">Pus D</option>
+                <option value="Pus presente apenas à esquerda">Pus E</option>
               </select>
             </div>
           </div>
@@ -681,7 +681,8 @@
               <select id="eye-movements">
                 <option value="" selected>N/A</option>
                 <option value="preservada">Normal</option>
-                <option value="other">Alterada</option>
+                <option value="AUSENTE">Ausente</option>
+                <option value="other">Alterada (com...)</option>
               </select>
             </div>
           </div>
@@ -699,7 +700,22 @@
               <select id="eye-pupils">
                 <option value="" selected>N/A</option>
                 <option value="preservada">Normal</option>
-                <option value="other">Alterada</option>
+                <option value="com midríase fotorreativa à esquerda">Midríase Reat E</option>
+                <option value="com midríase fixa à esquerda">Midríase Fixa E</option>
+                <option value="com miose fotorreativa à esquerda">Miose Reat E</option>
+                <option value="com miose fixa à esquerda">Miose Fixa E</option>
+                <option value="puntiforme à esquerda">Puntif E</option>
+                <option value="com midríase fotorreativa à direita">Midríase Reat D</option>
+                <option value="com midríase fixa à direita">Midríase Fixa D</option>
+                <option value="com miose fotorreativa à direita">Miose Reat D</option>
+                <option value="com miose fixa à direita">Miose Fixa D</option>
+                <option value="puntiforme à direita">Puntif D</option>
+                <option value="com midríase fotorreativa bilateralmente">Midríase Reat Bilat</option>
+                <option value="com midríase fixa bilateralmente">Midríase Fixa Bilat</option>
+                <option value="com miose fotorreativa bilateralmente">Miose Reat Bilat</option>
+                <option value="com miose fixa bilateralmente">Miose Fixa Bilat</option>
+                <option value="puntiforme bilateralmente">Puntif Bilat</option>
+                <option value="other">Alterada (pupilas com...)</option>
               </select>
             </div>
           </div>
@@ -751,7 +767,7 @@
           <div class="control">
             <div class="select">
               <select id="neck-thyroid-nodules" disabled>
-                <option value="" selected disabled>Loc Nód (N/A)</option>
+                <option value="" selected>Loc Nód (N/A)</option>
                 <option value=" em topografia de lobo direito">Lobo D</option>
                 <option value=" em topografia de lobo esquerdo">Lobo E</option>
                 <option value=" em topografia medial">Medial</option>
@@ -763,10 +779,10 @@
             <div class="select">
               <select id="neck-thyroid-margins">
                 <option value="" selected>Marg N/A</option>
-                <option value="margens superior e inferior bem caracterizáveis à palpação">normal</option>
-                <option value="margem superior aparentemente ACIMA de topografia esperada, e inferior bem caracterizável à palpação">Sup&uarr; / Inf nl</option>
-                <option value="margem superior aparentemente ACIMA de topografia esperada, e inferior NÃO caracterizável à palpação">Sup&uarr; / Inf&uarr;</option>
-                <option value="margem superior aparentemente na topografia esperada, e inferior NÃO caracterizável à palpação">Sup nl / Inf&uarr;</option>
+                <option value=" com margens superior e inferior bem caracterizáveis à palpação">normal</option>
+                <option value=" com margem superior aparentemente ACIMA de topografia esperada, e inferior bem caracterizável à palpação">Sup&uarr; / Inf nl</option>
+                <option value=" com margem superior aparentemente ACIMA de topografia esperada, e inferior NÃO caracterizável à palpação">Sup&uarr; / Inf&uarr;</option>
+                <option value=" com margem superior aparentemente na topografia esperada, e inferior NÃO caracterizável à palpação">Sup nl / Inf&uarr;</option>
               </select>
             </div>
           </div>
@@ -795,95 +811,150 @@
             <div class="select is-fullwidth">
               <select id="neck-lymphnodes-desc" disabled>
                 <option value="" selected>&empty;</option>
-                <option value=", fibroelásticos, móveis, não-aderidos a planos profundos e dolorosos">reacional</option>
-                <option value=", endurados, coalescidos, aderidos a planos profundos e indolores">maligno</option>
-                <option value=", com padrões mistos reacional e edurados">misto</option>
+                <option value=", de aspecto indeterminado">indeterm</option>
+                <option value=", de aspecto fibroelástico, móvel, não-aderido a planos profundos e doloroso à palpação">reacional</option>
+                <option value=", de aspecto endurado, coalescidos, aderido a planos profundos e indolor à palpação">maligno</option>
+                <option value=", de aspecto misto reacional/linfoinfiltrativo">misto</option>
               </select>
             </div>
           </div>
         </div>
 
+        <input type="hidden" id="neck-lymphnodes-locs">
+
         <div class="columns is-hidden" id="lymph-locs-select">
           <div class="column">
-            <h4 class="title is-6 has-text-centered">Esquerda</h4>
+            <h4 class="title is-6 has-text-centered">Direita</h4>
 
-                        <label class="is-checkradio">
-              <input type="checkbox" class="is-link" id="neck-lymphnode-loc-ia-e">
-              <span>IA</span>
+            <label class="is-checkradio">
+              <input type="checkbox" class="is-link" value="IA esquerdo" name="neck-lymphnode-sector">
+              <span>Ia</span>
             </label>
             <label class="is-checkradio">
-              <input type="checkbox" class="is-link" id="neck-lymphnode-loc-ib-e">
-              <span>IB</span>
+              <input type="checkbox" class="is-link" value="IB esquerdo" name="neck-lymphnode-sector">
+              <span>Ib</span>
             </label>
             <label class="is-checkradio">
-              <input type="checkbox" class="is-link" id="neck-lymphnode-loc-iia-e">
-              <span>IIA</span>
+              <input type="checkbox" class="is-link" value="IIA esquerdo" name="neck-lymphnode-sector">
+              <span>IIa</span>
             </label>
             <label class="is-checkradio">
-              <input type="checkbox" class="is-link" id="neck-lymphnode-loc-iib-e">
-              <span>IIB</span>
+              <input type="checkbox" class="is-link" value="IIB esquerdo" name="neck-lymphnode-sector">
+              <span>IIb</span>
             </label>
             <label class="is-checkradio">
-              <input type="checkbox" class="is-link" id="neck-lymphnode-loc-iii-e">
+              <input type="checkbox" class="is-link" value="III esquerdo" name="neck-lymphnode-sector">
               <span>III</span>
             </label>
             <label class="is-checkradio">
-              <input type="checkbox" class="is-link" id="neck-lymphnode-loc-iv-e">
+              <input type="checkbox" class="is-link" value="IV esquerdo" name="neck-lymphnode-sector">
               <span>IV</span>
             </label>
             <label class="is-checkradio">
-              <input type="checkbox" class="is-link" id="neck-lymphnode-loc-va-e">
-              <span>VA</span>
+              <input type="checkbox" class="is-link" value="VA esquerdo" name="neck-lymphnode-sector">
+              <span>Va</span>
             </label>
             <label class="is-checkradio">
-              <input type="checkbox" class="is-link" id="neck-lymphnode-loc-vb-e">
-              <span>VB</span>
+              <input type="checkbox" class="is-link" value="VB esquerdo" name="neck-lymphnode-sector">
+              <span>Vb</span>
             </label>
             <label class="is-checkradio">
-              <input type="checkbox" class="is-link" id="neck-lymphnode-loc-vi-e">
+              <input type="checkbox" class="is-link" value="VI esquerdo" name="neck-lymphnode-sector">
               <span>VI</span>
             </label>
           </div>
 
           <div class="column">
-            <h4 class="title is-6 has-text-centered">Direita</h4>
+            <h4 class="title is-6 has-text-centered">Esquerda</h4>
 
-                        <label class="is-checkradio">
-              <input type="checkbox" class="is-link" id="neck-lymphnode-loc-ia-d">
-              <span>IA</span>
+            <label class="is-checkradio">
+              <input type="checkbox" class="is-link" value="IA direito" name="neck-lymphnode-sector">
+              <span>Ia</span>
             </label>
             <label class="is-checkradio">
-              <input type="checkbox" class="is-link" id="neck-lymphnode-loc-ib-d">
-              <span>IB</span>
+              <input type="checkbox" class="is-link" value="IB direito" name="neck-lymphnode-sector">
+              <span>Ib</span>
             </label>
             <label class="is-checkradio">
-              <input type="checkbox" class="is-link" id="neck-lymphnode-loc-iia-d">
-              <span>IIA</span>
+              <input type="checkbox" class="is-link" value="IIA direito" name="neck-lymphnode-sector">
+              <span>IIa</span>
             </label>
             <label class="is-checkradio">
-              <input type="checkbox" class="is-link" id="neck-lymphnode-loc-iib-d">
-              <span>IIB</span>
+              <input type="checkbox" class="is-link" value="IIB direito" name="neck-lymphnode-sector">
+              <span>IIb</span>
             </label>
             <label class="is-checkradio">
-              <input type="checkbox" class="is-link" id="neck-lymphnode-loc-iii-d">
+              <input type="checkbox" class="is-link" value="III direito" name="neck-lymphnode-sector">
               <span>III</span>
             </label>
             <label class="is-checkradio">
-              <input type="checkbox" class="is-link" id="neck-lymphnode-loc-iv-d">
+              <input type="checkbox" class="is-link" value="IV direito" name="neck-lymphnode-sector">
               <span>IV</span>
             </label>
             <label class="is-checkradio">
-              <input type="checkbox" class="is-link" id="neck-lymphnode-loc-va-d">
-              <span>VA</span>
+              <input type="checkbox" class="is-link" value="VA direito" name="neck-lymphnode-sector">
+              <span>Va</span>
             </label>
             <label class="is-checkradio">
-              <input type="checkbox" class="is-link" id="neck-lymphnode-loc-vb-d">
-              <span>VB</span>
+              <input type="checkbox" class="is-link" value="VB direito" name="neck-lymphnode-sector">
+              <span>Vb</span>
             </label>
             <label class="is-checkradio">
-              <input type="checkbox" class="is-link" id="neck-lymphnode-loc-vi-d">
+              <input type="checkbox" class="is-link" value="VI direito" name="neck-lymphnode-sector">
               <span>VI</span>
             </label>
+          </div>
+        </div>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Gl. Parótidas</button>
+          </div>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <select id="neck-parotid-right">
+                <option value="" selected>Dir (N/A)</option>
+                <option value="não palpável" plural-alt="não palpáveis">&empty;</option>
+                <option value="aumentada com padrão inflamatório/reacional" plural-alt="aumentadas, ambas com padrão inflamatório/reacional">&uarr;Flogos</option>
+                <option value="aumentada com aspecto endurado/sólido" plural-alt="aumentadas, ambas com aspecto endurado/sólido">&uarr;Malig</option>
+              </select>
+            </div>
+          </div>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <select id="neck-parotid-left">
+                <option value="" selected>Esq (N/A)</option>
+                <option value="não palpável" plural-alt="não palpáveis">&empty;</option>
+                <option value="aumentada com padrão inflamatório/reacional" plural-alt="aumentadas, ambas com padrão inflamatório/reacional">&uarr;Flogos</option>
+                <option value="aumentada com aspecto endurado/sólido" plural-alt="aumentadas, ambas com aspecto endurado/sólido">&uarr;Malig</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field has-addons">
+          <div class="control">
+            <button class="button is-static" tabindex="-1">Gl. Sublinguais</button>
+          </div>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <select id="neck-sublingual-right">
+                <option value="" selected>Dir (N/A)</option>
+                <option value="não palpável" plural-alt="não palpáveis">&empty;</option>
+                <option value="aumentada com padrão inflamatório/reacional" plural-alt="aumentadas, ambas com padrão inflamatório/reacional">&uarr;Flogos</option>
+                <option value="aumentada com aspecto endurado/sólido" plural-alt="aumentadas, ambas com aspecto endurado/sólido">&uarr;Malig</option>
+              </select>
+            </div>
+          </div>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <select id="neck-sublingual-left">
+                <option value="" selected>Esq (N/A)</option>
+                <option value="não palpável" plural-alt="não palpáveis">&empty;</option>
+                <option value="aumentada com padrão inflamatório/reacional" plural-alt="aumentadas, ambas com padrão inflamatório/reacional">&uarr;Flogos</option>
+                <option value="aumentada com aspecto endurado/sólido" plural-alt="aumentadas, ambas com aspecto endurado/sólido">&uarr;Malig</option>
+              </select>
+            </div>
           </div>
         </div>
 
