@@ -700,7 +700,7 @@
 
         <div class="field has-addons">
           <div class="control is-expanded">
-            <textarea class="textarea has-fixed-size" id="eye-other" rows="2" placeholder="Descreva outras alterações oculares..."></textarea>
+            <textarea class="textarea has-fixed-size" id="eye-other" rows="{{ app.user.getMiscRows | default(2) }}" placeholder="Descreva outras alterações oculares..."></textarea>
           </div>
         </div>
       </div>
@@ -879,7 +879,7 @@
 
         <div class="field">
           <div class="control is-expanded">
-            <textarea class="textarea has-fixed-size" id="neck-other" placeholder="Descreva outras alterações cervicais..." rows="2"></textarea>
+            <textarea class="textarea has-fixed-size" id="neck-other" placeholder="Descreva outras alterações cervicais..." rows="{{ app.user.getMiscRows | default(2) }}"></textarea>
           </div>
         </div>
       </div>

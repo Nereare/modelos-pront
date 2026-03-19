@@ -6,6 +6,30 @@
   <div class="container">
     <div class="box">
       {{ form.header(
+        'Configurações Gerais',
+        'cog') }}
+
+      <form id="formConfigGeneral" action="{{ path('config_general_save') }}">
+        {{ form.single_input(
+          'Linhas de Miscelânea',
+          'miscRows',
+          'format-align-left',
+          'number',
+          app.user.getMiscRows,
+          '# Linhas') }}
+        {{ form.single_input(
+          'Linhas de Resultado',
+          'outputRows',
+          'format-align-left',
+          'number',
+          app.user.getOutputRows,
+          '# Linhas') }}
+        {{ form.submit_input('Salvar Alterações') }}
+      </form>
+    </div>
+
+    <div class="box">
+      {{ form.header(
         'Configurações do Usuário',
         'account-cog') }}
 

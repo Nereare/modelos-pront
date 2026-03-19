@@ -39,7 +39,7 @@ final class ConfigController extends AbstractController
   ): JsonResponse
   {
     // Check if user is logged in
-    $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+    $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
 
     /** @var User */
     $user = $this->getUser();
@@ -48,6 +48,37 @@ final class ConfigController extends AbstractController
 
     // Update user entity
     $user->setPhone($phone);
+    // Persist changes
+    $entityManager->persist($user);
+    $entityManager->flush();
+
+    return $this->json([
+      'success' => true,
+      'msg' => 'Configurações salvas com sucesso.'
+    ]);
+  }
+
+  #[Route('/painel/generico/salvar', name: 'config_general_save')]
+  public function general_save(
+    EntityManagerInterface $entityManager,
+    Request $request
+  ): JsonResponse
+  {
+    // Check if user is logged in
+    $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
+
+    /** @var User */
+    $user = $this->getUser();
+    // Get new config data
+    $miscRows = (int) $request->query->get('miscRows');
+    $outputRows = (int) $request->query->get('outputRows');
+    // Validate new config data
+    $miscRows = filter_var($miscRows, FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
+    $outputRows = filter_var($outputRows, FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
+
+    // Update user entity
+    $user->setMiscRows($miscRows);
+    $user->setOutputRows($outputRows);
     // Persist changes
     $entityManager->persist($user);
     $entityManager->flush();

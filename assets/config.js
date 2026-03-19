@@ -54,6 +54,47 @@ $(function () {
           .removeClass("is-loading");
       });
   });
+  // Update general user configurations
+  $("#formConfigGeneral").on("submit", function (e) {
+    // Prevent default form submit actions
+    e.preventDefault();
+    // Lock button
+    $("#formConfigGeneral button[type=submit]")
+      .attr("disabled", true)
+      .addClass("is-loading");
+
+    // Prepare user data
+    let user = {
+      miscRows: parseInt($("#miscRows").val()),
+      outputRows: parseInt($("#outputRows").val())
+    };
+    // Prepare message reply
+    let msg_type = "info";
+    let msg_text = "Aguarde...";
+
+    // Send Ajax request
+    $.ajax({
+      method: "get",
+      url: e.currentTarget.action,
+      data: user
+    })
+      .done(function (response) {
+        msg_type = response.success ? "success" : "warning";
+        msg_text = response.msg;
+      })
+      .fail(function () {
+        msg_type = "danger";
+        msg_text = "Erro de comunicação com o servidor...";
+      })
+      .always(function () {
+        // Show reply message
+        window.showMessage(msg_type, msg_text);
+        // Unlock button
+        $("#formConfigGeneral button[type=submit]")
+          .attr("disabled", false)
+          .removeClass("is-loading");
+      });
+  });
 
   // Change user password
   $("#formChangePw").on("submit", function(e) {

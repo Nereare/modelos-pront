@@ -81,6 +81,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(nullable: true)]
     private ?array $inactiveModules = null;
 
+    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
+    private ?int $outputRows = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $miscRows = null;
+
     public function __construct()
     {
         $this->places = new ArrayCollection();
@@ -356,6 +362,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setInactiveModules(?array $inactiveModules): static
     {
         $this->inactiveModules = $inactiveModules;
+
+        return $this;
+    }
+
+    public function getOutputRows(): ?int
+    {
+        return $this->outputRows;
+    }
+
+    public function setOutputRows(?int $outputRows): static
+    {
+        $this->outputRows = $outputRows;
+
+        return $this;
+    }
+
+    public function getMiscRows(): ?int
+    {
+        return $this->miscRows;
+    }
+
+    public function setMiscRows(?int $miscRows): static
+    {
+        $this->miscRows = $miscRows;
 
         return $this;
     }
