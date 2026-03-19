@@ -1,4 +1,6 @@
-{## A gender selection select field. #}
+{##
+  A gender selection select field.
+#}
 {% macro gender() %}
 <div class="box">
   <div class="field has-addons">
@@ -18,7 +20,10 @@
 </div>
 {% endmacro %}
 
-{## The main physical exam fields: general, vital signs, and conscience. #}
+{##
+  The main physical exam fields: general, vital
+  signs, and conscience.
+#}
 {% macro general() %}
 <div class="box">
   <h2 class="title is-4">Estado Geral</h2>
@@ -170,7 +175,8 @@
     </div>
     <div class="control">
       <div class="select">
-        <select id="breathe-abnormal-desc">
+        <select id="breathing">
+          <option value="">N/A</option>
           <option value="eupneic((PRO))" selected>Eupneice</option>
           <option value="eupneic((PRO)) (ausência de quaisquer sinais objetivos de dispneia - sem de uso de musculaturas respiratórias acessórias, sem postura compensatória)">Eupneice (enfático)</option>
           <option value="taquipneic((PRO))">Taquipneice</option>
@@ -182,7 +188,7 @@
       </div>
     </div>
     <div class="control is-expanded">
-      <input class="input" id="breathe-abnormal-desc-other" placeholder="Descreva..." disabled>
+      <input class="input" id="breathing-other" placeholder="Descreva..." disabled>
     </div>
   </div>
 
@@ -242,15 +248,15 @@
 				<div class="control">
 					<div class="select">
 						<select id="ssvv-sat-type" title="Tipo de aporte de oxigênio: 'aa' = ar ambiente / 'CN' = cateter nasal de oxigênio / 'CAF' = cateter nasal de alto fluxo / 'MNR' = máscara não reinalante">
-							<option value="em ar ambiente" selected>aa</option>
-							<option value="em cateter nasal de O2">CN</option>
-              <option value="em cateter nasal de alto fluxo">CAF</option>
-							<option value="em máscara não-reinalante">MNR</option>
+							<option value="ar ambiente" selected>aa</option>
+							<option value="cateter nasal de O2">CN</option>
+              <option value="cateter nasal de alto fluxo">CAF</option>
+							<option value="máscara não-reinalante">MNR</option>
 						</select>
 					</div>
 				</div>
 				<div class="control is-expanded">
-					<input type="number" id="ssvv-flux" class="input" min="0" max="15" step="1" placeholder="#" title="Fluxo de oxigênio" disabled>
+					<input type="number" id="ssvv-sat-flux" class="input" min="0" max="15" step="1" placeholder="#" title="Fluxo de oxigênio" disabled>
 				</div>
 				<div class="control">
 					<button class="button is-static" tabindex="-1">L/min</button>
@@ -312,9 +318,9 @@
 				<div class="control is-expanded">
 					<div class="select is-fullwidth">
 						<select id="ssvv-glucose-time">
-							<option value="alimentação desconhecida" selected>Desconhecida</option>
-							<option value="jejum">Jejum</option>
-							<option value="pós-alimentação">PÓS-Aliment</option>
+							<option value="" selected>Desconhecida</option>
+							<option value=" (jejum)">Jejum</option>
+							<option value=" (pós-alimentação)">PÓS-Aliment</option>
 						</select>
 					</div>
 				</div>
@@ -426,7 +432,7 @@
 		</div>
 		<div class="control is-expanded">
 			<div class="select is-fullwidth">
-				<select id="neuro-gcs-eye">
+				<select id="ssvv-gcs-eye">
 					<option value="" selected>N/A</option>
 					<option value="4" title="Abre os olhos espontaneamente">4</option>
           <option value="3" title="Abre os olhos em resposta a um chamado">3</option>
@@ -441,7 +447,7 @@
 		</div>
 		<div class="control is-expanded">
 			<div class="select is-fullwidth">
-				<select id="neuro-gcs-speech">
+				<select id="ssvv-gcs-speech">
 					<option value="" selected>N/A</option>
           <option value="5" title="Orientado, conversa normalmente">5</option>
           <option value="4" title="Confuso, desorientado">4</option>
@@ -457,7 +463,7 @@
 		</div>
 		<div class="control is-expanded">
 			<div class="select is-fullwidth">
-				<select id="neuro-gcs-muscle">
+				<select id="ssvv-gcs-muscle">
 					<option value="" selected>N/A</option>
 					<option value="6" title="Obedece a comandos">6</option>
           <option value="5" title="Localiza estímulos dolorosos">5</option>
@@ -477,13 +483,13 @@
 		</div>
 		<div class="control is-expanded">
 			<div class="select is-fullwidth">
-				<select id="neuro-rass">
+				<select id="ssvv-rass">
 					<option value="" selected>N/A</option>
 					<option value="+4" title="Violento, perigoso">Agressivo</option>
           <option value="+3" title="Conduta agressiva, remoção de tubos e catéteres">Muito agitado</option>
           <option value="+2" title="Movimentos sem coordenação frequente">Agitado</option>
           <option value="+1" title="Ansioso, mas sem movimentos agressivos ou vigorosos">Inquieto</option>
-          <option value="±0" title="Consciência normal">Alerta, calmo</option>
+          <option value="0" title="Consciência normal">Alerta, calmo</option>
           <option value="-1" title="Não se encontra totalmente alerta, mas tem o despertar sustentado ao som da voz por >10s">Sonolento</option>
           <option value="-2" title="Acorda rapidamente e faz contato visual com o som da voz, mas por <10s">Sedação leve</option>
           <option value="-3" title="Movimento ou abertura dos olhos ao som da voz, mas sem contato visual">Sedação moderada</option>
@@ -500,7 +506,7 @@
 		</div>
 		<div class="control is-expanded">
 			<div class="select is-fullwidth">
-				<select id="orientation-time">
+				<select id="ssvv-orientation-time">
 					<option value="" selected>Tempo</option>
 					<option value="Orientad((PRO))">Orientade</option>
 					<option value="DESorientad((PRO))">DESorientade</option>
@@ -509,7 +515,7 @@
 		</div>
 		<div class="control is-expanded">
 			<div class="select is-fullwidth">
-				<select id="orientation-space">
+				<select id="ssvv-orientation-space">
 					<option value="" selected>Espaço</option>
 					<option value="Orientad((PRO))">Orientade</option>
 					<option value="DESorientad((PRO))">DESorientade</option>
@@ -524,7 +530,7 @@
 		</div>
 		<div class="control">
 			<div class="select">
-				<select id="collaboration">
+				<select id="ssvv-collaboration">
 					<option value="" selected>N/A</option>
 					<option value="Colaborativ((PRO))">Colaborative</option>
 					<option value="Pouco colaborativ((PRO))">&darr;Colaborative</option>
@@ -534,11 +540,12 @@
 					<option value="Evasiv((PRO))">Evasive</option>
 					<option value="Hipomania">Hipomania</option>
 					<option value="Mania">Mania</option>
+          <option value="other">Outro...</option>
 				</select>
 			</div>
 		</div>
     <div class="control is-expanded">
-      <input class="input" id="collaboration-other" placeholder="Descreva..." disabled>
+      <input class="input" id="ssvv-collaboration-other" placeholder="Descreva..." disabled>
     </div>
 	</div>
 
@@ -548,7 +555,7 @@
 		</div>
 		<div class="control">
 			<div class="select">
-				<select id="walking">
+				<select id="ssvv-walking">
 					<option value="" selected>N/A</option>
 					<option value="Deambulando sem apoios, sem claudicações e sem dificuldades">&empty;Apoios/Claud/Dificuldades</option>
 					<option value="Deambulando sem apoios">&empty;Apoios</option>
@@ -559,13 +566,15 @@
 			</div>
 		</div>
 		<div class="control is-expanded">
-			<input type="text" class="input" id="walking-other" placeholder="Descreva..." disabled>
+			<input type="text" class="input" id="ssvv-walking-other" placeholder="Descreva..." disabled>
 		</div>
 	</div>
 </div>
 {% endmacro %}
 
-{## Head physical exam fields. #}
+{##
+  Head physical exam fields.
+#}
 {% macro head() %}
 <div class="box">
   <div class="field">
@@ -883,6 +892,48 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+{##
+  Includes a box div, containing a compile
+  button, an output textarea and a copy button.
+#}
+{% macro output_box() %}
+<div class="box">
+  <h2 class="title is-4">Resultado</h2>
+
+  <div class="field is-expanded">
+    <div class="control is-expanded">
+      <button id="output-compile" class="button is-primary is-fullwidth">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-arrow-collapse"></i>
+          </span>
+          <span>Gerar</span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div class="field is-expanded">
+    <div class="control">
+      <textarea id="output" class="textarea has-fixed-size" placeholder="Resultado..." rows="{{ app.getUser.getOutputRows | default(10) }}" readonly></textarea>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control is-expanded">
+      <button class="button is-fullwidth clipboard" data-clipboard-target="#output">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-content-copy"></i>
+          </span>
+          <span>Copiar Resultado</span>
+        </span>
+      </button>
     </div>
   </div>
 </div>
