@@ -391,7 +391,7 @@ $(function () {
     if ($("#neck-parotid-right").val() != "" ||
         $("#neck-parotid-left").val() != "") {
       if ($("#neck-parotid-right").val() == $("#neck-parotid-left").val()) {
-        cervical.push("Glândulas Parótidas " + $("#neck-parotid-left").attr("plural-alt"));
+        cervical.push("Glândulas Parótidas " + $("#neck-parotid-left option:selected").attr("plural-alt"));
       } else {
         if ($("#neck-parotid-right").val() != "") {
           cervical.push("Glândula Parótida Direita " + $("#neck-parotid-right").val());
@@ -405,7 +405,7 @@ $(function () {
     if ($("#neck-sublingual-right").val() != "" ||
       $("#neck-sublingual-left").val() != "") {
       if ($("#neck-sublingual-right").val() == $("#neck-sublingual-left").val()) {
-        cervical.push("Glândulas Sublinguais " + $("#neck-sublingual-left").attr("plural-alt"));
+        cervical.push("Glândulas Sublinguais " + $("#neck-sublingual-left option:selected").attr("plural-alt"));
       } else {
         if ($("#neck-sublingual-right").val() != "") {
           cervical.push("Glândula Sublingual Direita " + $("#neck-sublingual-right").val());
