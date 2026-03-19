@@ -74,17 +74,18 @@ $(function () {
   /*               Eye Exam               */
   /****************************************/
   // Autoselect eye exam checkbox if any field is on
-  $("[id^='eye-']").on("change", function() {
-    let changed = false;
+  $("[id^='eye-']").on("change input", function() {
+    let filled = false;
     $("[id^='eye-']").each(function() {
       if ($(this).val() != "") {
-        changed = true;
+        filled = true;
+        return false;
       }
     });
-    if (changed) {
-      $("#exam-eye").attr("checked", true);
+    if (filled) {
+      $("#exam-eye").prop("checked", true);
     } else {
-      $("#exam-eye").attr("checked", false);
+      $("#exam-eye").prop("checked", false);
     }
   });
   /****************************************/
@@ -98,16 +99,17 @@ $(function () {
         .trigger("focus");
     } else {
       $("#neck-thyroid-nodules")
-        .attr("disabled", false)
+        .attr("disabled", true)
         .val("");
     }
   });
-  // Enable lymphnode aspect description
+  // Enable lymphnode aspect and localization descriptions
   $("#neck-lymphnodes").on("change", function() {
     if ($(this).val().includes("Presença de")) {
       $("#neck-lymphnodes-desc")
         .attr("disabled", false)
         .trigger("focus");
+      $("#lymph-locs-select").removeClass("is-hidden");
     } else {
       $("#neck-lymphnodes-desc")
         .attr("disabled", true)
