@@ -355,7 +355,7 @@ $(function () {
     }
     // > > Compile and push eye descriptors
     if (eyes.length > 0) {
-      eyes = "Olhos: " + eyes.join(". ");
+      eyes = "- Olhos: " + eyes.join(". ");
       eyes += (/.+\.$/.test(eyes)) ? "" : ".";
       out.push(eyes.trim());
     }
