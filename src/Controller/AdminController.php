@@ -196,6 +196,8 @@ final class AdminController extends AbstractController
     $user->setHeader('');
     $user->setModules($routes);
     $user->setInactiveModules([]);
+    $user->setMiscRows(2);
+    $user->setOutputRows(10);
     // Hash password and set it
     $hashedPw = $passwordHasher->hashPassword(
       $user,
