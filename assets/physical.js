@@ -417,8 +417,8 @@ $(function () {
     }
     // > > Compile and push cervical descriptors
     if (cervical.length > 0) {
-      cervical = "Cervical: " + cervical.join(". ");
-      cervical += (/.+\.$/) ? "" : ".";
+      cervical = "- Cervical: " + cervical.join(". ");
+      cervical += (/.+\.$/).test(cervical) ? "" : ".";
       out.push(cervical.trim());
     }
 
