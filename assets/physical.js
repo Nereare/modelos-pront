@@ -240,4 +240,96 @@ $(function () {
       $("#hints-hi, #hints-n, #hints-ts").val("");
     }
   });
+
+  /****************************************/
+  /*              Lungs Exam              */
+  /****************************************/
+  // Show reduction, sounds, and percursion locations
+  $("#lung-reduction, #lung-sounds, #lung-percussion").on("change", function() {
+    let which = $(this).attr("id")
+                       .split("-")
+                       [1];
+    if (/.+ em $/.test($(this).val())) {
+      $("#locs-lung-" + which).removeClass("is-hidden");
+    } else {
+      $("#locs-lung-" + which).addClass("is-hidden");
+      $("[name=lung-" + which + "-loc]").each(function() {
+        $(this).prop("checked", false);
+      })
+    }
+  });
+  // Change to global option if all checkboxes are checked
+  $("[name=lung-reduction-loc], [name=lung-sounds-loc], [name=lung-percussion-loc]").on("change", function() {
+    let which = $(this).attr("name")
+                       .split("-")
+                       [1];
+    let global_eq = $("#lung-" + which).val()
+                     .replace(/ em $/, " globalmente");
+    if ($("[name=lung-" + which + "-loc]:checked").length == 6) {
+      $("[name=lung-" + which + "-loc]").each(function() {
+        $(this).prop("checked", false);
+      });
+      $("#locs-lung-" + which).addClass("is-hidden");
+      $("#lung-" + which).val(global_eq).trigger("change");
+    }
+  });
+  // Show Signorelli Sign height
+  $("#lung-signorelli").on("change", function() {
+    if (/inferiormente a $/.test($(this).val())) {
+      $("#lung-signorelli-height")
+        .attr("disabled", false)
+        .trigger("focus");
+    } else {
+      $("#lung-signorelli-height")
+        .attr("disabled", true)
+        .val("");
+    }
+  });
+  // Autoselect lungs exam checkbox if any field is on
+  $("[id^='lung-']").on("change input", function () {
+    let filled = false;
+    $("[id^='lung-']").each(function () {
+      if ($(this).val() != "") {
+        filled = true;
+        return false;
+      }
+    });
+    if (filled) {
+      $("#exam-lung").prop("checked", true);
+    } else {
+      $("#exam-lung").prop("checked", false);
+    }
+  });
+  /****************************************/
+  /*             Heart Exam               */
+  /****************************************/
+  // If the first line has any field filled, all must be
+  $("#heart-rhythm, #heart-sound, #heart-times").on("change", function() {
+    if ($(this).val() != "") {
+      $("#heart-rhythm").val($("#heart-rhythm option:eq(1)").val());
+      $("#heart-sound").val($("#heart-sound option:eq(1)").val());
+      $("#heart-times").val($("#heart-times option:eq(1)").val());
+    }
+  });
+  // If the heart checkbox is unchecked, empty first line
+  $("#exam-heart").on("change", function() {
+    if (!$(this).is(":checked")) {
+      $("#heart-rhythm, #heart-sound, #heart-times").val("");
+    }
+  });
+  // Autoselect heart exam checkbox if any field is on
+  $("[id^='heart-']").on("change input", function () {
+    let filled = false;
+    $("[id^='heart-']").each(function () {
+      if ($(this).val() != "") {
+        filled = true;
+        return false;
+      }
+    });
+    if (filled) {
+      $("#exam-heart").prop("checked", true);
+    } else {
+      $("#exam-heart").prop("checked", false);
+    }
+  });
 });

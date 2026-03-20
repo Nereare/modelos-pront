@@ -1,3 +1,55 @@
+// Parse locations descriptions, edit text and return edited text
+window.parseThoraxLocations = function parseThoraxLocations(text, exam) {
+  // Specific, sorted, array cases with their respective
+  // qualitative description
+  let specific_cases = [
+    [['terço inferior direito', 'terço médio direito', 'terço superior direito'], " em todo o hemitórax direito"],
+    [['terço inferior direito', 'terço médio direito'], " nos dois terços inferiores do hemitórax direito"],
+    [['terço médio direito', 'terço superior direito'], " nos dois terços superiores do hemitórax direito"],
+    [['terço inferior esquerdo', 'terço médio esquerdo', 'terço superior esquerdo'], " em todo o hemitórax esquerdo"],
+    [['terço inferior esquerdo', 'terço médio esquerdo'], " nos dois terços inferiores do hemitórax esquerdo"],
+    [['terço médio esquerdo', 'terço superior esquerdo'], " nos dois terços superiores do hemitórax esquerdo"],
+    [['terço inferior direito', 'terço inferior esquerdo'], " nos terços inferiores de ambos os hemitóraces"],
+    [['terço médio direito', 'terço médio esquerdo'], " nos terços médios de ambos os hemitóraces"],
+    [['terço superior direito', 'terço superior esquerdo'], " nos terços superiores de ambos os hemitóraces"],
+    [['terço inferior direito', 'terço inferior esquerdo', 'terço médio direito', 'terço médio esquerdo'], " nos dois terços inferiores de ambos os hemitóraces"],
+    [['terço médio direito', 'terço médio esquerdo', 'terço superior direito', 'terço superior esquerdo'], " nos dois terços superiores de ambos os hemitóraces"]
+  ];
+  // Init localizations' array
+  let locs = [];
+  // Populate it
+  $("[name=lung-" + exam + "-loc]:checked").each(function () {
+    locs.push($(this).val());
+  });
+  // Sort it, to match the specific cases
+  locs = locs.sort();
+  // Init qualitative description
+  let desc = "";
+  // If it is contemplated, set it according to the
+  // specific case
+  specific_cases.forEach(function(elem) {
+    if (locs == elem[0]) {
+      desc = elem[1];
+      return false;
+    }
+  });
+  // If not set in the specific cases, concatenate
+  // each location, using Oxford Comma
+  if (desc == "") {
+    if (locs.length > 2) {
+      let last = locs.pop();
+      desc = " em " + locs.join(", ") + ", e " + last;
+    } else if (locs.length == 2) {
+      desc = " em " + locs.join(" e ");
+    } else if (locs.length == 1) {
+      desc = " em " + locs.join("");
+    }
+  }
+  // Replace the last part with the specific description
+  // (Which MAY be empty!)
+  return text.replace(" em ", desc);
+}
+
 /******************************************/
 /*                   JS                   */
 /******************************************/
@@ -441,6 +493,73 @@ $(function () {
         "  - Reflexo Vestíbulo-Ocular " + $("#hints-hi").val() + "\n" +
         "  - Nistagmos " + $("#hints-n").val() + "\n" +
         "  - Teste de \"Skew\" " + $("#hints-ts").val());
+    }
+
+    /***** THORAX *****/
+    // > Lungs
+    let lung = [];
+    // > > Expansion
+    if ($("#lung-expansion").val() != "") {
+      lung.push("Expansibilidade " + $("#lung-expansion").val());
+    }
+    // > > Sound Reductions
+    if ($("#lung-reduction").val() != "") {
+      lung.push("Murmúrios vesiculares " + window.parseThoraxLocations($("#lung-reduction").val(), "reduction"));
+    }
+    // > > Sounds
+    if ($("#lung-sound").val() != "") {
+      lung.push(window.parseThoraxLocations($("#lung-sound").val(), "sound"));
+    }
+    // > > Percussion
+    if ($("#lung-percussion").val() != "") {
+      lung.push(window.parseThoraxLocations($("#lung-percussion").val(), "percussion"));
+    }
+    // > > Signorelli
+    if ($("#lung-signorelli").val() != "") {
+      if ($("#lung-signorelli").val().includes("inferiormente a")) {
+        lung.push("Signorelli " + $("#lung-signorelli").val() + $("#lung-signorelli-height").val());
+      } else {
+        lung.push("Signorelli " + $("#lung-signorelli").val());
+      }
+    }
+    // > > Other
+    if ($("#lung-other").val() != "") {
+      lung.push($("#lung-other").val().trim());
+    }
+    // > > Compile and push lung descriptors
+    if (lung.length > 0) {
+      lung = "- Pulm: " + lung.join(". ");
+      lung += (/.+\.$/).test(lung) ? "" : ".";
+      out.push(lung.trim());
+    }
+
+    // > Heart
+    let heart = [];
+    // > > Base
+    if ($("#heart-rhythm").val() != "" &&
+        $("#heart-sound").val() != "" &&
+        $("#heart-times").val() != "") {
+      heart.push(
+        "Bulhas " +
+        $("#heart-rhythm").val() + ", " +
+        $("#heart-sound").val() + " em " +
+        $("#heart-times").val());
+    }
+    // > > Murmurs
+    if ($("#heart-murmur").val() == "other") {
+      heart.push("Com sopro " + $("#heart-murmur-other").val());
+    } else if ($("#heart-murmur").val() != "") {
+      heart.push($("#heart-murmur").val());
+    }
+    // > > Other
+    if ($("#heart-other").val() != "") {
+      heart.push($("#heart-other").val().trim());
+    }
+    // > > Compile and push lung descriptors
+    if (heart.length > 0) {
+      heart = "- Card: " + heart.join(". ");
+      heart += (/.+\.$/).test(heart) ? "" : ".";
+      out.push(heart.trim());
     }
 
     /***** OUTPUT *****/

@@ -1406,6 +1406,384 @@
 {% endmacro %}
 
 {##
+  Thorax physical exam fields.
+#}
+{% macro thorax() %}
+<div class="box">
+	<div class="field">
+		<label class="is-checkradio">
+      <input type="checkbox" class="collapsable is-primary" id="c-thorax" data-target="collapsable-thorax">
+			<span class="icon-text">
+				<span class="icon is-medium">
+					<i class="mdi mdi-tshirt-crew mdi-36px"></i>
+				</span>
+				<span>
+					<strong>Tórax</strong>
+				</span>
+			</span>
+		</label>
+	</div>
+
+	<div class="is-hidden" id="collapsable-thorax">
+		<div class="columns is-vcentered">
+			<div class="column is-2">
+				<div class="field">
+					<label class="is-checkradio">
+            <input type="checkbox" id="exam-lung" class="is-link">
+						<span class="icon">
+							<i class="mdi mdi-lungs mdi-24px"></i>
+						</span>
+					</label>
+				</div>
+			</div>
+
+			<div class="column">
+				<div class="field has-addons">
+					<div class="control">
+						<button class="button is-static" tabindex="-1">Expansibilidade</button>
+					</div>
+					<div class="control is-expanded">
+						<div class="select is-fullwidth">
+							<select id="lung-expansion">
+                <option value="" selected>N/A</option>
+								<option value="normal e simétrica">Normal</option>
+								<option value="reduzida à direita">&darr;Dir</option>
+								<option value="reduzida à esquerda">&darr;Esq</option>
+							</select>
+						</div>
+					</div>
+        </div>
+
+        <div class="field has-addons">
+					<div class="control">
+						<button class="button is-static" tabindex="-1">MV</button>
+					</div>
+					<div class="control is-expanded">
+						<div class="select is-fullwidth">
+							<select id="lung-reduction">
+                <option value="" selected>N/A</option>
+								<option value="presentes bilateralmente">&plus;</option>
+								<option value="diminuídos em ">&darr;Em...</option>
+								<option value="diminuídos globalmente">&darr;Global</option>
+                <option value="ausentes em ">&empty;Em...</option>
+								<option value="ausentes globalmente">&empty;Global</option>
+							</select>
+						</div>
+					</div>
+        </div>
+
+        <div class="columns is-hidden" id="locs-lung-reduction">
+          <div class="column">
+            <h4 class="title is-6 has-text-centered">Direita</h4>
+
+            <div class="field">
+              <label class="is-checkradio">
+                <input type="checkbox" name="lung-reduction-loc" value="terço superior direito">
+                <span>&frac13;Sup Dir</span>
+              </label>
+            </div>
+            <div class="field">
+              <label class="is-checkradio">
+                <input type="checkbox" name="lung-reduction-loc" value="terço médio direito">
+                <span>&frac13;Méd Dir</span>
+              </label>
+            </div>
+            <div class="field">
+              <label class="is-checkradio">
+                <input type="checkbox" name="lung-reduction-loc" value="terço inferior direito">
+                <span>&frac13;Inf Dir</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <h4 class="title is-6 has-text-centered">Esquerda</h4>
+
+            <div class="field">
+              <label class="is-checkradio">
+                <input type="checkbox" name="lung-reduction-loc" value="terço superior esquerdo">
+                <span>&frac13;Sup Esq</span>
+              </label>
+            </div>
+            <div class="field">
+              <label class="is-checkradio">
+                <input type="checkbox" name="lung-reduction-loc" value="terço médio esquerdo">
+                <span>&frac13;Méd Esq</span>
+              </label>
+            </div>
+            <div class="field">
+              <label class="is-checkradio">
+                <input type="checkbox" name="lung-reduction-loc" value="terço inferior esquerdo">
+                <span>&frac13;Inf Esq</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="field has-addons">
+					<div class="control">
+						<button class="button is-static" tabindex="-1">RA</button>
+					</div>
+					<div class="control is-expanded">
+						<div class="select is-fullwidth">
+							<select id="lung-sounds">
+                <option value="" selected>N/A</option>
+								<option value="Sem ruídos adventícios auscultáveis">&empty;</option>
+								<option value="Raros roncos difusamente">Alguns Roncos</option>
+								<option value="Roncos de transmissão nasal">Roncos Nasais</option>
+                <option value="Sibilos expiratórios em ">Sibilos Expir em...</option>
+								<option value="Sibilos expiratórios globalmente">Sibilos Expir Global</option>
+                <option value="Sibilos inspiratórios e expiratórios em ">Sibilos Ins+Exp em...</option>
+								<option value="Sibilos inspiratórios e expiratórios globalmente">Sibilos Ins+Exp Global</option>
+								<option value="Crepitação estertorante em ">Crepitação em...</option>
+                <option value="Crepitação estertorante globalmente">Crepitação Global</option>
+								<option value="Sopro cavernoso em ">Sopro Cavernoso em...</option>
+                <option value="Sopro cavernoso globalmente">Sopro Cavernoso Global (WUT?!)</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+        <div class="columns is-hidden" id="locs-lung-sounds">
+          <div class="column">
+            <h4 class="title is-6 has-text-centered">Direita</h4>
+
+            <div class="field">
+              <label class="is-checkradio">
+                <input type="checkbox" name="lung-sounds-loc" value="terço superior direito">
+                <span>&frac13;Sup Dir</span>
+              </label>
+            </div>
+            <div class="field">
+              <label class="is-checkradio">
+                <input type="checkbox" name="lung-sounds-loc" value="terço médio direito">
+                <span>&frac13;Méd Dir</span>
+              </label>
+            </div>
+            <div class="field">
+              <label class="is-checkradio">
+                <input type="checkbox" name="lung-sounds-loc" value="terço inferior direito">
+                <span>&frac13;Inf Dir</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <h4 class="title is-6 has-text-centered">Esquerda</h4>
+
+            <div class="field">
+              <label class="is-checkradio">
+                <input type="checkbox" name="lung-sounds-loc" value="terço superior esquerdo">
+                <span>&frac13;Sup Esq</span>
+              </label>
+            </div>
+            <div class="field">
+              <label class="is-checkradio">
+                <input type="checkbox" name="lung-sounds-loc" value="terço médio esquerdo">
+                <span>&frac13;Méd Esq</span>
+              </label>
+            </div>
+            <div class="field">
+              <label class="is-checkradio">
+                <input type="checkbox" name="lung-sounds-loc" value="terço inferior esquerdo">
+                <span>&frac13;Inf Esq</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+				<div class="field has-addons">
+					<div class="control">
+						<button class="button is-static" tabindex="-1">Percussão</button>
+					</div>
+					<div class="control is-expanded">
+						<div class="select is-fullwidth">
+							<select id="lung-percussion">
+								<option value="" selected>N/A</option>
+								<option value="Percussão claro-pulmonar em todos os campos">Normal</option>
+								<option value="Macicez percutível em ">Macicez em...</option>
+                <option value="Macicez percutível globalmente">Macicez Global</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+        <div class="columns is-hidden" id="locs-lung-percussion">
+          <div class="column">
+            <h4 class="title is-6 has-text-centered">Direita</h4>
+
+            <div class="field">
+              <label class="is-checkradio">
+                <input type="checkbox" name="lung-percussion-loc" value="terço superior direito">
+                <span>&frac13;Sup Dir</span>
+              </label>
+            </div>
+            <div class="field">
+              <label class="is-checkradio">
+                <input type="checkbox" name="lung-percussion-loc" value="terço médio direito">
+                <span>&frac13;Méd Dir</span>
+              </label>
+            </div>
+            <div class="field">
+              <label class="is-checkradio">
+                <input type="checkbox" name="lung-percussion-loc" value="terço inferior direito">
+                <span>&frac13;Inf Dir</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="column">
+            <h4 class="title is-6 has-text-centered">Esquerda</h4>
+
+            <div class="field">
+              <label class="is-checkradio">
+                <input type="checkbox" name="lung-percussion-loc" value="terço superior esquerdo">
+                <span>&frac13;Sup Esq</span>
+              </label>
+            </div>
+            <div class="field">
+              <label class="is-checkradio">
+                <input type="checkbox" name="lung-percussion-loc" value="terço médio esquerdo">
+                <span>&frac13;Méd Esq</span>
+              </label>
+            </div>
+            <div class="field">
+              <label class="is-checkradio">
+                <input type="checkbox" name="lung-percussion-loc" value="terço inferior esquerdo">
+                <span>&frac13;Inf Esq</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+				<div class="field has-addons">
+					<div class="control">
+						<button class="button is-static" tabindex="-1">Signorelli</button>
+					</div>
+					<div class="control is-expanded">
+						<div class="select is-fullwidth">
+							<select id="lung-signorelli">
+								<option value="" selected>N/A</option>
+								<option value="negativo (sem alterações)">Normal</option>
+								<option value="positivo inferiormente a ">Positivo desde...</option>
+							</select>
+						</div>
+					</div>
+					<div class="control is-expanded">
+						<div class="select is-fullwidth">
+							<select id="lung-signorelli-height" disabled>
+								<option value="" selected>N/A</option>
+								<option value="T1">T1</option>
+                <option value="T2">T2</option>
+                <option value="T3">T3</option>
+                <option value="T4">T4</option>
+                <option value="T5">T5</option>
+                <option value="T6">T6</option>
+                <option value="T7">T7</option>
+                <option value="T8">T8</option>
+                <option value="T9">T9</option>
+                <option value="T10">T10</option>
+                <option value="T11">T11</option>
+                <option value="T12">T12</option>
+                <option value="L1">L1</option>
+                <option value="L2">L2</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+        <div class="field">
+          <div class="control is-expanded">
+            <textarea class="textarea has-fixed-size" id="lung-other" placeholder="Descreva outras alterações pulmonares..." rows="{{ app.user.getMiscRows | default(2) }}"></textarea>
+          </div>
+        </div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="columns is-vcentered">
+			<div class="column is-2">
+				<div class="field">
+					<label class="is-checkradio">
+            <input type="checkbox" id="exam-heart" class="is-link">
+						<span class="icon">
+							<i class="mdi mdi-heart-pulse mdi-24px"></i>
+						</span>
+					</label>
+				</div>
+			</div>
+
+			<div class="column">
+				<div class="field has-addons">
+					<div class="control">
+						<button class="button is-static" tabindex="-1">Bulhas</button>
+					</div>
+					<div class="control is-expanded">
+						<div class="select is-fullwidth">
+							<select id="heart-rhythm">
+                <option value="" selected>N/A</option>
+								<option value="rítmicas">R</option>
+								<option value="arrítmicas">arrít.</option>
+							</select>
+						</div>
+					</div>
+					<div class="control is-expanded">
+						<div class="select is-fullwidth">
+							<select id="heart-sound">
+                <option value="" selected>N/A</option>
+								<option value="normofonéticas">NF</option>
+								<option value="hipofonéticas">&darr;fonese</option>
+								<option value="hiperfonéticas por estalido metálico">&uarr;fonese (metal)</option>
+							</select>
+						</div>
+					</div>
+					<div class="control is-expanded">
+						<div class="select is-fullwidth">
+							<select id="heart-times">
+                <option value="" selected>N/A</option>
+								<option value="dois tempos">2T</option>
+								<option value="dois tempos com desdobramento de B1">2T B1&times;</option>
+								<option value="dois tempos com desdobramento de B2">2T B2&times;</option>
+								<option value="dois tempos com desdobramento de B1 e B2">2T B1/B2&times;</option>
+								<option value="três tempos com presença de B3">3T B3</option>
+								<option value="três tempos com presença de B4">3T B4</option>
+								<option value="quatro tempos com presença de B3 e B4">4T B3+B4</option>
+							</select>
+						</div>
+					</div>
+        </div>
+
+        <div class="field has-addons">
+					<div class="control">
+						<button class="button is-static" tabindex="-1">Sopros</button>
+					</div>
+					<div class="control">
+						<div class="select">
+							<select id="heart-murmur">
+                <option value="" selected>N/A</option>
+								<option value="Sem sopros auscultáveis">SS</option>
+								<option value="other">sopro...</option>
+							</select>
+						</div>
+					</div>
+					<div class="control is-expanded">
+						<input type="text" class="input" id="heart-murmur-other" placeholder="Descreva o sopro..." disabled>
+					</div>
+				</div>
+
+        <div class="field">
+          <div class="control is-expanded">
+            <textarea class="textarea has-fixed-size" id="heart-other" placeholder="Descreva outras alterações cardíacas..." rows="{{ app.user.getMiscRows | default(2) }}"></textarea>
+          </div>
+        </div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endmacro %}
+
+{##
   Includes a box div, containing a compile
   button, an output textarea and a copy button.
 #}
