@@ -47,7 +47,7 @@ $(function () {
     }
     // > > Breathing
     if ($("#breathing").val() == "other") {
-      line2.push($("#breathing-other").val());
+      line2.push($("#breathing-other").val().trim());
     } else if ($("#breathing").val() != "") {
       line2.push($("#breathing").val());
     }
@@ -211,7 +211,7 @@ $(function () {
     }
     // > > Other
     if ($("#eye-other").val() != "") {
-      eyes.push($("#eye-other").val());
+      eyes.push($("#eye-other").val().trim());
     }
     // > > Compile and push eye descriptors
     if (eyes.length > 0) {
@@ -314,7 +314,7 @@ $(function () {
     }
     // > > Other
     if ($("#oto-other").val() != "") {
-      ears.push($("#oto-other").val());
+      ears.push($("#oto-other").val().trim());
     }
     // > > Compile and push otological descriptors
     if (ears.length > 0) {
@@ -323,7 +323,6 @@ $(function () {
       out.push(ears.trim());
     }
 
-    /***** Mouth *****/
     // > Mouth
     let mouth = [];
     // > > Oroscopy
@@ -372,7 +371,7 @@ $(function () {
     }
     // > > Other
     if ($("#oro-other").val() != "") {
-      mouth.push($("#oro-other").val());
+      mouth.push($("#oro-other").val().trim());
     }
     // > > Compile and push otological descriptors
     if (mouth.length > 0) {
@@ -381,7 +380,6 @@ $(function () {
       out.push(mouth.trim());
     }
 
-    /***** Nose *****/
     // > Nose
     let nose = [];
     // > > Mucosa
@@ -408,7 +406,7 @@ $(function () {
     }
     // > > Other
     if ($("#nose-other").val() != "") {
-      nose.push($("#nose-other").val());
+      nose.push($("#nose-other").val().trim());
     }
     // > > Compile and push nasological descriptors
     if (nose.length > 0) {
@@ -417,9 +415,10 @@ $(function () {
       out.push(nose.trim());
     }
 
-    /***** HINTS *****/
-    // Since HINTS demands all three exams to be performed
-    // Required the the three to be set
+    // > HINTS
+    // > > Since HINTS demands all three exams to
+    // > > be performed. Required the the three
+    // > > to be set
     if ($("#hints-hi").val() != "" &&
         $("#hints-n").val() != "" &&
         $("#hints-ts").val() != "") {
