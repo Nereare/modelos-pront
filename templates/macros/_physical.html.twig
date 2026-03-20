@@ -1008,73 +1008,101 @@
 			<div class="column">
 				<div class="field has-addons">
 					<div class="control">
-						<button class="button is-static" tabindex="-1">MTD</button>
+						<button class="button is-static" tabindex="-1">Tímpano</button>
 					</div>
 					<div class="control is-expanded">
 						<div class="select is-fullwidth">
 							<select id="oto-d-membrane">
-                <option value="">N/A</option>
-								<option value="visualizável, sem alterações, abaulamentos ou conteúdos retrotimpânicos">nl</option>
-								<option value="visualizável, levemente opacificada">&half;opaca</option>
-								<option value="visualizável, levemente hiperemiada, mas sem abaulamentos ou conteúdos retrotimpânicos">&half;hiperem</option>
-								<option value="visualizável, hiperemiada, abaulada e com conteúdo retrotimpânico seroso">hiperem+abaul/seroso</option>
-								<option value="visualizável, hiperemiada, abaulada e com conteúdo retrotimpânico purulento">hiperem+abaul/pus</option>
-								<option value="visualizável, mas com rotura">rotura</option>
-								<option value="não visualizável">ausente</option>
-								<option value="não visualizável por cerume impactado em conduto">cerume</option>
+                <option value="">MTD (N/A)</option>
+								<option value="visualizável, sem alterações, abaulamentos ou conteúdos retrotimpânicos">Normal</option>
+								<option value="visualizável, levemente opacificada">&half;Opaca</option>
+								<option value="visualizável, levemente hiperemiada, mas sem abaulamentos ou conteúdos retrotimpânicos">&half;Hiperem</option>
+								<option value="visualizável, hiperemiada, abaulada e com conteúdo retrotimpânico seroso">Hiperem+Abaul/Seroso</option>
+								<option value="visualizável, hiperemiada, abaulada e com conteúdo retrotimpânico purulento">Hiperem+Abaul/Pus</option>
+								<option value="visualizável, mas com rotura">Rotura</option>
+								<option value="não visualizável">Ausente</option>
+								<option value="não visualizável por cerume impactado em conduto">Cerume</option>
 							</select>
 						</div>
 					</div>
-					<div class="control">
-						<button class="button is-static" tabindex="-1">Conduto</button>
-					</div>
 					<div class="control is-expanded">
 						<div class="select is-fullwidth">
-							<select id="oto-d-canal">
-                <option value="" selected>N/A</option>
-								<option value="sem alterações">nl</option>
-								<option value="com hiperemia importante mas sem secreções">hiperem</option>
-								<option value="com hiperemia importante e secreção purulenta">hiperem+pus</option>
-								<option value="com cerume impactado">cerume</option>
+							<select id="oto-e-membrane">
+								<option value="">MTE (N/A)</option>
+								<option value="visualizável, sem alterações, abaulamentos ou conteúdos retrotimpânicos">Normal</option>
+								<option value="visualizável, levemente opacificada">&half;Opaca</option>
+								<option value="visualizável, levemente hiperemiada, mas sem abaulamentos ou conteúdos retrotimpânicos">&half;Hiperem</option>
+								<option value="visualizável, hiperemiada, abaulada e com conteúdo retrotimpânico seroso">Hiperem+Abaul/Seroso</option>
+								<option value="visualizável, hiperemiada, abaulada e com conteúdo retrotimpânico purulento">Hiperem+Abaul/Pus</option>
+								<option value="visualizável, mas com rotura">Rotura</option>
+								<option value="não visualizável">Ausente</option>
+								<option value="não visualizável por cerume impactado em conduto">Cerume</option>
 							</select>
 						</div>
 					</div>
 				</div>
 
-				<div class="field has-addons">
-					<div class="control">
-						<button class="button is-static" tabindex="-1">MTE</button>
-					</div>
-					<div class="control is-expanded">
-						<div class="select is-fullwidth">
-							<select id="oto-e-membrane">
-								<option value="">N/A</option>
-								<option value="visualizável, sem alterações, abaulamentos ou conteúdos retrotimpânicos">nl</option>
-								<option value="visualizável, levemente opacificada">&half;opaca</option>
-								<option value="visualizável, levemente hiperemiada, mas sem abaulamentos ou conteúdos retrotimpânicos">&half;hiperem</option>
-								<option value="visualizável, hiperemiada, abaulada e com conteúdo retrotimpânico seroso">hiperem+abaul/seroso</option>
-								<option value="visualizável, hiperemiada, abaulada e com conteúdo retrotimpânico purulento">hiperem+abaul/pus</option>
-								<option value="visualizável, mas com rotura">rotura</option>
-								<option value="não visualizável">ausente</option>
-								<option value="não visualizável por cerume impactado em conduto">cerume</option>
-							</select>
-						</div>
-					</div>
-					<div class="control">
+        <div class="field has-addons">
+          <div class="control">
 						<button class="button is-static" tabindex="-1">Conduto</button>
 					</div>
 					<div class="control is-expanded">
 						<div class="select is-fullwidth">
-							<select id="oto-e-canal">
-                <option value="" selected>N/A</option>
-								<option value="sem alterações">nl</option>
-								<option value="com hiperemia importante mas sem secreções">hiperem</option>
-								<option value="com hiperemia importante e secreção purulenta">hiperem+pus</option>
-								<option value="com cerume impactado">cerume</option>
+							<select id="oto-d-canal">
+                <option value="" selected>Dir (N/A)</option>
+								<option value="sem alterações">Normal</option>
+								<option value="com hiperemia importante mas sem secreções">Hiperem</option>
+								<option value="com hiperemia importante e secreção purulenta">Hiperem+Pus</option>
+								<option value="com cerume impactado">Cerume</option>
 							</select>
 						</div>
 					</div>
-				</div>
+					<div class="control is-expanded">
+						<div class="select is-fullwidth">
+							<select id="oto-e-canal">
+                <option value="" selected>Esq (N/A)</option>
+								<option value="sem alterações">Normal</option>
+								<option value="com hiperemia importante mas sem secreções">Hiperem</option>
+								<option value="com hiperemia importante e secreção purulenta">Hiperem+Pus</option>
+								<option value="com cerume impactado">Cerume</option>
+							</select>
+						</div>
+					</div>
+        </div>
+
+        <div class="field has-addons">
+          <div class="control">
+						<button class="button is-static" tabindex="-1">Pavilhão</button>
+					</div>
+					<div class="control is-expanded">
+						<div class="select is-fullwidth">
+							<select id="oto-d-ear">
+                <option value="" selected>Dir (N/A)</option>
+								<option value="sem alterações">Normal</option>
+								<option value="com hiperemia importante mas sem secreções">Hiperem</option>
+								<option value="com hiperemia importante e secreção purulenta">Hiperem+Pus</option>
+								<option value="com cerume impactado">Cerume</option>
+							</select>
+						</div>
+					</div>
+					<div class="control is-expanded">
+						<div class="select is-fullwidth">
+							<select id="oto-e-ear">
+                <option value="" selected>Esq (N/A)</option>
+								<option value="sem alterações">Normal</option>
+								<option value="com hiperemia importante mas sem secreções">Hiperem</option>
+								<option value="com hiperemia importante e secreção purulenta">Hiperem+Pus</option>
+								<option value="com cerume impactado">Cerume</option>
+							</select>
+						</div>
+					</div>
+        </div>
+
+        <div class="field">
+          <div class="control is-expanded">
+            <textarea class="textarea has-fixed-size" id="oto-other" placeholder="Descreva outras alterações otológicas..." rows="{{ app.user.getMiscRows | default(2) }}"></textarea>
+          </div>
+        </div>
 			</div>
 		</div>
 
@@ -1083,8 +1111,8 @@
 		<div class="columns is-vcentered">
 			<div class="column is-2">
 				<div class="field">
-					<input type="checkbox" id="exam-oro" class="is-checkradio">
-					<label for="exam-oro">
+					<label class="is-checkradio">
+            <input type="checkbox" id="exam-oro" class="is-link">
 						<span class="icon">
 							<i class="mdi mdi-tooth mdi-24px"></i>
 						</span>
@@ -1097,45 +1125,80 @@
 					<div class="control">
 						<button class="button is-static" tabindex="-1">Oroscopia</button>
 					</div>
-					<div class="control is-expanded">
-						<div class="select is-fullwidth">
-							<select id="exam-oro-pharynx" name="exam-oro-pharynx">
-								<option value="sem hiperemia" selected>&empty;hiperem</option>
+					<div class="control">
+						<div class="select">
+							<select id="oro-pharynx">
+                <option value="" selected>N/A</option>
+                <option value="sem alterações">Normal</option>
+								<option value="sem hiperemia">&empty;hiperem</option>
 								<option value="levemente hiperemiada">&half;hiperem</option>
 								<option value="muito hiperemiada">+hiperem</option>
+                <option value="other">Com...</option>
+							</select>
+						</div>
+					</div>
+          <div class="control is-expanded">
+            <input type="text" class="input" id="oro-pharynx-other" placeholder="Descreva..." disabled>
+          </div>
+				</div>
+
+				<div class="field has-addons">
+					<div class="control">
+						<button class="button is-static" tabindex="-1">Tamanho Tonsilas</button>
+					</div>
+					<div class="control is-expanded">
+						<div class="select is-fullwidth">
+							<select id="oro-d-tonsils-size">
+                <option value="" selected>Dir (N/A)</option>
+								<option value="ausente">&empty;</option>
+								<option value="grau 1 de Brodsky">Grau 1</option>
+								<option value="grau 2 de Brodsky">Grau 2</option>
+								<option value="grau 3 de Brodsky">Grau 3</option>
+								<option value="grau 4 de Brodsky">Grau 4</option>
+							</select>
+						</div>
+					</div>
+					<div class="control is-expanded">
+						<div class="select is-fullwidth">
+							<select id="oro-e-tonsils-size">
+                <option value="" selected>Esq (N/A)</option>
+								<option value="ausente">&empty;</option>
+								<option value="grau 1 de Brodsky">Grau 1</option>
+								<option value="grau 2 de Brodsky">Grau 2</option>
+								<option value="grau 3 de Brodsky">Grau 3</option>
+								<option value="grau 4 de Brodsky">Grau 4</option>
 							</select>
 						</div>
 					</div>
 				</div>
 
-				<div class="field has-addons">
+        <div class="field has-addons">
 					<div class="control">
-						<button class="button is-static" tabindex="-1">Tonsilas</button>
+						<button class="button is-static" tabindex="-1">Cobert. Tonsilas</button>
 					</div>
 					<div class="control is-expanded">
 						<div class="select is-fullwidth">
-							<select id="exam-oro-tonsils" name="exam-oro-tonsils">
-								<option value="ausentes, como esperado para idade,">&empty;idade</option>
-								<option value="ausentes">&empty;</option>
-								<option value="grau 1 de Brodsky" selected>g1</option>
-								<option value="grau 2 de Brodsky">g2</option>
-								<option value="grau 3 de Brodsky">g3</option>
-								<option value="grau 4 de Brodsky">g4</option>
+							<select id="oro-d-tonsils-cover">
+                <option value="" selected>Dir (N/A)</option>
+								<option value="sem placas, cáseos, ou outras coberturas">Normal</option>
+                <option value="com trama fibrínica">Fibrina</option>
+								<option value="com cáseos">Cáseos</option>
+								<option value="com placas purulentas">Pus</option>
 							</select>
 						</div>
 					</div>
 					<div class="control is-expanded">
 						<div class="select is-fullwidth">
-							<select id="exam-oro-tonsilcover" name="exam-oro-tonsilcover">
-								<option value="sem placas purulentas ou caseicas" selected>nl</option>
-								<option value="com cáseos">cáseo</option>
-								<option value="com placas purulentas à direita">pus/D</option>
-								<option value="com placas purulentas à esquerda">pus/E</option>
-								<option value="com placas purulentas bilateralmente">pus/bilat</option>
+							<select id="oro-e-tonsils-cover">
+                <option value="" selected>Esq (N/A)</option>
+								<option value="sem placas, cáseos, ou outras coberturas">Normal</option>
+                <option value="com trama fibrínica">Fibrina</option>
+								<option value="com cáseos">Cáseos</option>
+								<option value="com placas purulentas">Pus</option>
 							</select>
 						</div>
 					</div>
-				</div>
+        </div>
 
 				<div class="field has-addons">
 					<div class="control">
@@ -1143,26 +1206,48 @@
 					</div>
 					<div class="control is-expanded">
 						<div class="select is-fullwidth">
-							<select id="exam-oro-palate" name="exam-oro-palate">
-								<option value="centralizado, sem desvio" selected>nl</option>
-								<option value="com desvio à direita">desvio D</option>
-								<option value="com desvio à esquerda">desvio E</option>
+							<select id="oro-palate">
+                <option value="" selected>N/A</option>
+								<option value="centralizado, sem desvios">Normal</option>
+								<option value="com desvio à direita">Desvio D</option>
+								<option value="com desvio à esquerda">Desvio E</option>
+								<option value="sem úvula visível">&empty;Úvula</option>
 							</select>
 						</div>
 					</div>
 				</div>
+
+				<div class="field has-addons">
+					<div class="control">
+						<button class="button is-static" tabindex="-1">Higiene</button>
+					</div>
+					<div class="control is-expanded">
+						<div class="select is-fullwidth">
+							<select id="oro-hygine">
+                <option value="" selected>N/A</option>
+								<option value="Bom estado de higiene oral">Boa</option>
+								<option value="Mal estado de higiene oral">&half;Ruim</option>
+								<option value="Péssimo estado de higiene oral">&uarr;Ruim</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+        <div class="field">
+          <div class="control is-expanded">
+            <textarea class="textarea has-fixed-size" id="oro-other" placeholder="Descreva outras alterações otológicas..." rows="{{ app.user.getMiscRows | default(2) }}"></textarea>
+          </div>
+        </div>
 			</div>
 		</div>
 
-		<div>
-			<div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
-		</div>
+		<hr>
 
 		<div class="columns is-vcentered">
 			<div class="column is-2">
 				<div class="field">
-					<input type="checkbox" id="exam-naso" class="is-checkradio">
-					<label for="exam-naso">
+					<label class="is-checkradio">
+            <input type="checkbox" id="exam-nose" class="is-link">
 						<span class="icon">
 							<i class="mdi mdi-face-woman-profile mdi-24px"></i>
 						</span>
@@ -1177,10 +1262,11 @@
 					</div>
 					<div class="control is-expanded">
 						<div class="select is-fullwidth">
-							<select name="naso-skin" id="naso-skin">
-								<option value="de aspecto normal" selected>nl</option>
-								<option value="levemente enantematosa">&half;hiperem</option>
-								<option value="bastante enantematosa">+hiperem</option>
+							<select id="nose-mucosa">
+                <option value="" selected>N/A</option>
+								<option value="de aspecto normal">Normal</option>
+								<option value="levemente enantematosa">&half;Hiperem</option>
+								<option value="bastante enantematosa">&uarr;Hiperem</option>
 							</select>
 						</div>
 					</div>
@@ -1192,13 +1278,19 @@
 					</div>
 					<div class="control is-expanded">
 						<div class="select is-fullwidth">
-							<select name="naso-shells" id="naso-shells">
-								<option value="sem hipertrofias" selected>nl</option>
-								<option value="hipertrofiados bilateralmente">&uarr;bilat</option>
-								<option value="hipertrofiados bilateralmente, pior à esquerda">&uarr;bilat/&uarr;E</option>
-								<option value="hipertrofiados bilateralmente, pior à direita">&uarr;bilat/&uarr;D</option>
-								<option value="com hipertrofia apenas à esquerda">&uarr;E</option>
-								<option value="com hipertrofia apenas à direita">&uarr;D</option>
+							<select id="nose-d-shells">
+                <option value="" selected>Dir (N/A)</option>
+								<option value="sem hipertrofias">Normal</option>
+								<option value="hipertrofiadas">&uarr;Tamanho</option>
+							</select>
+						</div>
+					</div>
+					<div class="control is-expanded">
+						<div class="select is-fullwidth">
+							<select id="nose-e-shells">
+                <option value="" selected>Esq (N/A)</option>
+								<option value="sem hipertrofias">Normal</option>
+								<option value="hipertrofiadas">&uarr;Tamanho</option>
 							</select>
 						</div>
 					</div>
@@ -1210,30 +1302,35 @@
 					</div>
 					<div class="control is-expanded">
 						<div class="select is-fullwidth">
-							<select name="naso-sept" id="naso-sept">
-								<option value="sem desvio aparente de septo nasal" selected>nl</option>
-								<option value="desvio leve de septo nasal para esquerda">desvio &half;E</option>
-								<option value="desvio moderado de septo nasal para esquerda">desvio &frac34;E</option>
-								<option value="desvio importante de septo nasal para esquerda">desvio +E</option>
-								<option value="desvio leve de septo nasal para direita">desvio &half;D</option>
-								<option value="desvio moderado de septo nasal para direita">desvio &frac34;D</option>
-								<option value="desvio importante de septo nasal para direita">desvio +D</option>
+							<select id="nose-sept">
+                <option value="" selected>N/A</option>
+								<option value="sem desvio aparente de septo nasal">&empty;Desvios</option>
+								<option value="desvio leve de septo nasal para esquerda">Desvio &half;E</option>
+								<option value="desvio moderado de septo nasal para esquerda">Desvio &frac34;E</option>
+								<option value="desvio importante de septo nasal para esquerda">Desvio +E</option>
+								<option value="desvio leve de septo nasal para direita">Desvio &half;D</option>
+								<option value="desvio moderado de septo nasal para direita">Desvio &frac34;D</option>
+								<option value="desvio importante de septo nasal para direita">Desvio +D</option>
 							</select>
 						</div>
 					</div>
 				</div>
+
+        <div class="field">
+          <div class="control is-expanded">
+            <textarea class="textarea has-fixed-size" id="nose-other" placeholder="Descreva outras alterações otológicas..." rows="{{ app.user.getMiscRows | default(2) }}"></textarea>
+          </div>
+        </div>
 			</div>
 		</div>
 
-		<div>
-			<div class="divider">&bull;&nbsp;&bull;&nbsp;&bull;</div>
-		</div>
+		<hr>
 
 		<div class="columns is-vcentered">
 			<div class="column is-2">
 				<div class="field">
-					<input type="checkbox" id="exam-hints" class="is-checkradio">
-					<label for="exam-hints">
+					<label class="is-checkradio">
+            <input type="checkbox" id="exam-hints" class="is-link">
 						<span class="icon">
 							<i class="mdi mdi-weather-hurricane mdi-24px"></i>
 						</span>
@@ -1244,17 +1341,16 @@
 			<div class="column">
 				<div class="field has-addons">
 					<div class="control">
-						<button class="button is-static" tabindex="-1">
-							<em title="Avalição de Reflexo Vestibulo-Ocular, ou VOR em inglês.">Head Impulse</em>
-						</button>
+						<button class="button is-static" tabindex="-1">Head Impulse</button>
 					</div>
 					<div class="control is-expanded">
 						<div class="select is-fullwidth">
-							<select id="hints-hi">
-								<option value="SEM ALTERAÇÕES" data-pt="1" selected>Normal</option>
-								<option value="latência à direita" data-pt="0">Atraso à D</option>
-								<option value="latência à esquerda" data-pt="0">Atraso à E</option>
-								<option value="latência a ambos os lados" data-pt="0">Atraso bilateral</option>
+							<select id="hints-hi" title="Avalição de Reflexo Vestibulo-Ocular, ou VOR em inglês.">
+                <option value="" selected>N/A</option>
+								<option value="sem latência bilateralmente" pattern="0">&empty;Latências</option>
+								<option value="com latência à direita" pattern="1">Atraso à D</option>
+								<option value="com latência à esquerda" pattern="1">Atraso à E</option>
+								<option value="com latência a ambos os lados" pattern="1">Atraso bilateral</option>
 							</select>
 						</div>
 					</div>
@@ -1267,12 +1363,13 @@
 					<div class="control is-expanded">
 						<div class="select is-fullwidth">
 							<select id="hints-n">
-								<option value="ausente" data-pt="0" selected>Ausente</option>
-								<option value="horizontal unilateral" data-pt="0">Horizontal Unilat.</option>
-								<option value="torcional" data-pt="0">Torcional</option>
-								<option value="horizontal COM MUDANÇA DE LATERALIDADE" data-pt="1">Horizontal COM MUDANÇA DE LADO</option>
-								<option value="VERTICAL para cima" data-pt="1">Upbeat</option>
-								<option value="VERTICAL para baixo" data-pt="1">Downbeat</option>
+                <option value="" selected>N/A</option>
+								<option value="ausentes" pattern="0">Ausente</option>
+								<option value="presentes, horizontal unilateral" pattern="-1">Horizontal Unilat.</option>
+								<option value="presentes, torcional" pattern="-1">Torcional</option>
+								<option value="presentes, horizontal COM MUDANÇA DE LATERALIDADE" pattern="1">Horizontal COM MUDANÇA DE LADO</option>
+								<option value="presentes, VERTICAL para cima" pattern="1">Upbeat</option>
+								<option value="presentes, VERTICAL para baixo" pattern="1">Downbeat</option>
 							</select>
 						</div>
 					</div>
@@ -1286,13 +1383,22 @@
 					<div class="control is-expanded">
 						<div class="select is-fullwidth">
 							<select id="hints-ts">
-								<option value="ausente" data-pt="0" selected>Ausente</option>
-								<option value="PRESENTE" data-pt="1">PRESENTE</option>
+                <option value="" selected>N/A</option>
+								<option value="sem alterações" pattern="0">Normal</option>
+								<option value="ALTERADO à direita" pattern="1">ALTERADO Dir</option>
+                <option value="ALTERADO à esquerda" pattern="1">ALTERADO Esq</option>
+                <option value="ALTERADO bilateralmente" pattern="1">ALTERADO Bilat</option>
 							</select>
 						</div>
 					</div>
 				</div>
-				<!-- -->
+
+        <p class="help">
+          O processamento de padrão do HINTS está em
+          <strong>estágio ALPHA</strong>, então faça
+          <strong>dupla checagem do resultado</strong>
+          antes de usá-lo!
+        </p>
 			</div>
 		</div>
 	</div>
