@@ -3,14 +3,15 @@ $(function() {
   console.log("App ready!");
 
   // Enable/Disable justification field
-  $("#external").on("change", function() {
+  $("#external, #pec").on("change", function() {
+    let id = $(this).attr("id");
     let val = $(this).val();
     if (val == "false") {
-      $("#external-why")
+      $("#" + id + "-why")
         .attr("disabled", false)
         .trigger("focus");
     } else {
-      $("#external-why")
+      $("#" + id + "-why")
         .attr("disabled", true)
         .val("");
     }
@@ -53,25 +54,41 @@ $(function() {
   // Build output
   $("#button-run").on("click", function() {
     // Get data
-    let assistant    = $("#assistant").val();
-    let patient      = $("#patient").val();
-    let age          = parseInt($("#age").val());
+    let assistant    = $("#assistant").val().trim();
+    let patient      = $("#patient").val().trim();
+    let birth        = Date.parse($("#birth").val() + "T00:00:00.000-03:00");
+    let atend        = $("#atend").val();
     let type         = $("#type").val();
     let external     = ($("#external").val() == "true") ? true : false;
-    let external_why = $("#external-why").val();
-    let pec          = ($("#pec").val() == "true") ? true : false;
+    let external_why = $("#external-why").val().trim();
+    let pec          = $("#pec").val();
+    let pec_why      = $("#pec-why").val().trim();
     let dx           = $("#dx").val();
     let priority     = $("#priority").val();
-    let notes        = $("#notes").val();
+    let notes        = $("#notes").val().trim();
     let datetime     = new Date();
 
     // Parse applicable data
+    // > Calculate age
+    let now = Date.now();
+    let ms_per_year = 1000 * 60 * 60 * 24 * 365.25;
+    let age = (now - birth) / ms_per_year;
     // > If age is set and is a number, append to patient name
     if (isNaN(age)) {
-      patient = "`" + patient + "`";
+      patient = "`" + patient.toUpperCase() + "`";
     } else {
-      patient = "`" + patient + "`, " + age + "a";
+      patient = "`" + patient.toUpperCase() + "`, " + age.toFixed(0) + "a";
     }
+    // > Parse birth date
+    let birth_options = {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    };
+    birth = new Date(birth);
+    birth = birth.toLocaleString("pt-BR", birth_options);
+    // > Prettify atend number
+    atend = atend.substr(0, 3) + "." + atend.substr(3, 2) + "." + atend.substr(5, 3);
     // > Parse type
     let type_lay = (type == "lay") ? "x" : " ";
     let type_inpatient = (type == "inpatient") ? "x" : " ";
@@ -89,8 +106,34 @@ $(function() {
       }
     }
     // > Parse PEC
-    let pec_true  = pec ? "x" : " ";
-    let pec_false = pec ? " " : "x";
+    let pec_true = " ";
+    let pec_false = " ";
+    let pec_na = " ";
+    switch (pec) {
+      case "false":
+        pec_true = " ";
+        pec_false = "x";
+        pec_na = " ";
+        break;
+      case "neither":
+        pec_true = " ";
+        pec_false = " ";
+        pec_na = "x";
+        break;
+      default:
+        // I.e. true
+        pec_true = "x";
+        pec_false = " ";
+        pec_na = " ";
+        break;
+    }
+    // > If not PEC-apt, set justification
+    if (pec == "false") {
+      pec_why = pec_why == "" ? "periodicidade de antibiótico não coberta pelo PEC" : pec_why;
+      pec_why = " (" + pec_why + ")";
+    } else {
+      pec_why = "";
+    }
     // > Parse priority
     let priority_high = (priority == "high") ? "x" : " ";
     let priority_mid  = (priority == "mid") ? "x" : " ";
@@ -109,9 +152,11 @@ $(function() {
     datetime = datetime.toLocaleString("pt-BR", datetime_options);
 
     // Set final string template
-    final = `🛏 ATUALIZAÇÃO - MÉDICOS DA PORTA 🩺
+    final = `*🛏 \`ATUALIZAÇÃO - MÉDICOS DA PORTA\` 🩺*
 Médico: {{assistant}}
 Paciente: {{patient}}
+DN: {{birth}}
+Atend: {{atend}}
 Solicitação:
 - ({{type_lay}}) Repouso no leito
 - ({{type_inpatient}}) Internação
@@ -120,7 +165,8 @@ Elegível para Transferência Externa:
 - ({{external_false}}) Não{{external_why}}
 Elegível para PEC:
 - ({{pec_true}}) Sim
-- ({{pec_false}}) Não
+- ({{pec_false}}) Não{{pec_why}}
+- ({{pec_na}}) N/A
 Hipótese diagnóstica: {{dx}}
 Prioridade:
 - ({{priority_high}}) Urgente
@@ -133,6 +179,8 @@ Data e hora: {{datetime}}`;
     final = final
       .replaceAll("{{assistant}}", assistant)
       .replaceAll("{{patient}}", patient)
+      .replaceAll("{{birth}}", birth)
+      .replaceAll("{{atend}}", atend)
       .replaceAll("{{type_lay}}", type_lay)
       .replaceAll("{{type_inpatient}}", type_inpatient)
       .replaceAll("{{external_true}}", external_true)
@@ -140,12 +188,17 @@ Data e hora: {{datetime}}`;
       .replaceAll("{{external_why}}", external_why)
       .replaceAll("{{pec_true}}", pec_true)
       .replaceAll("{{pec_false}}", pec_false)
+      .replaceAll("{{pec_na}}", pec_na)
+      .replaceAll("{{pec_why}}", pec_why)
       .replaceAll("{{dx}}", dx)
       .replaceAll("{{priority_high}}", priority_high)
       .replaceAll("{{priority_mid}}", priority_mid)
       .replaceAll("{{priority_low}}", priority_low)
       .replaceAll("{{notes}}", notes)
-      .replaceAll("{{datetime}}", datetime);
+      .replaceAll("{{datetime}}", datetime)
+      // Replace common abbreviations
+      .replaceAll("pcte", "paciente")
+      .replaceAll("atb", "antibiótico");
     // Set output field to parsed string
     $("#output-o").val(final);
   });

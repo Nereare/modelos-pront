@@ -45,7 +45,17 @@ require_once "header.php";
           <input type="text" class="input" id="patient" placeholder="Nome do paciente..." required>
         </div>
         <div class="control">
-          <input type="number" class="input" id="age" placeholder="Idade...">
+          <input type="date" class="input" id="birth" placeholder="DN..." required>
+        </div>
+      </div>
+
+      <!-- ID -->
+      <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1"># Atend</button>
+        </div>
+        <div class="control is-expanded">
+          <input type="number" class="input" id="atend" placeholder="#..." required>
         </div>
       </div>
 
@@ -89,14 +99,18 @@ require_once "header.php";
         <div class="control">
           <button class="button is-static" tabindex="-1">PEC?</button>
         </div>
-        <div class="control is-expanded">
-          <div class="select is-fullwidth">
+        <div class="control">
+          <div class="select">
             <select id="pec" required>
               <option selected disabled>Elegível?</option>
               <option value="true">Sim</option>
               <option value="false">Não</option>
+              <option value="neither">N/A</option>
             </select>
           </div>
+        </div>
+        <div class="control is-expanded">
+          <input type="text" class="input" id="pec-why" placeholder="Se não, por quê..." disabled>
         </div>
       </div>
 
