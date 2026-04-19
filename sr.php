@@ -2598,7 +2598,7 @@ if (isset($_COOKIE["sr_header"])) {
                 </div>
               </div>
               <div class="control">
-                <a class="button is-link" id="got-to-meds" href="meds.php?pre=<?php echo urlencode("Resfriado/Gripe (dip+parac)"); ?>" target="_blank">Ir p/ Prescrições</a>
+                <a class="button is-link" id="got-to-meds" href="meds.php?pre=<?php echo urlencode("Resfriado/Gripe"); ?>" target="_blank">Ir p/ Prescrições</a>
               </div>
             </div>
           </li>

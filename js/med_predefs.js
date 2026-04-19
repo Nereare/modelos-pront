@@ -6,892 +6,428 @@ var guides = {
 
 
 let predefineds = {
-  "Resfriado/Gripe (dip)": [
+  "Resfriado/Gripe": [
     [
       "Ibuprofeno 400mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 08 horas por no máximo 05 dias.",
-      "",
+      "Tomar 01cp a cada 08 horas por 05 dias.",
+      ""
     ],
     [
       "Dipirona 1.000mg",
       "Via Oral",
       "",
-      "Tomar 01cp até a cada 06 horas, se dor, febre ou calafrios.",
+      "Tomar 01cp a cada 06 horas se dor, febre ou calafrios.",
+      ""
+    ],
+    [
+      "Paracetamol 500mg",
+      "Via Oral",
       "",
+      "Tomar 01cp a cada 06 horas se dor, febre ou calafrios, intercalado com dipirona.",
+      ""
     ],
     [
       "Soro Fisiológico 0,9%",
       "Via Nasal",
       "",
       "Lavar cada narina com 20mL de soro pelo menos a cada 06 horas.",
-      "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana.",
+      "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até a marca de 20mL e injetar, sem forçar, o volume em cada narina. Guardar seringa em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana."
     ],
     [
-      "Budesonida 32mcg/jato",
+      "Fluticasona 50mcg/jato",
       "Via Nasal",
       "",
-      "Aplicar 01 jato em cada narina a cada 12 horas por 02 semanas.",
-      "Sempre realizar lavagem nasal ANTES de aplicar budesonida.",
+      "Aplicar 01 jato em cada narina a cada 12 horas por 01 semana.",
+      "Sempre realizar lavagem nasal ANTES de aplicar fluticasona."
     ],
     [
       "Ambroxol 06mg/mL",
       "Via Oral",
       "",
-      "Tomar 05mL a cada 08 horas por até 07d, enquanto tosse.",
-      "",
-    ],
+      "Tomar 05mL a cada 08 horas por até 07 dias se tosse.",
+      ""
+    ]
   ],
-  "Resfriado/Gripe (dip/SUS)": [
+  "Resfriado/Gripe (SUS)": [
     [
       "Ibuprofeno 300mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 08 horas por no máximo 05 dias.",
-      "",
+      "Tomar 01cp a cada 08 horas por 05 dias.",
+      ""
     ],
     [
       "Dipirona 500mg",
       "Via Oral",
       "",
-      "Tomar 02cps a cada 06 horas, se dor, febre ou calafrios.",
+      "Tomar 02cps a cada 06 horas se dor, febre ou calafrios.",
+      ""
+    ],
+    [
+      "Paracetamol 500mg",
+      "Via Oral",
       "",
+      "Tomar 01cp a cada 06 horas se dor, febre ou calafrios, intercalado com dipirona.",
+      ""
     ],
     [
       "Soro Fisiológico 0,9%",
       "Via Nasal",
       "",
       "Lavar cada narina com 20mL de soro pelo menos a cada 06 horas.",
-      "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana.",
+      "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até a marca de 20mL e injetar, sem forçar, o volume em cada narina. Guardar seringa em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana."
     ],
     [
       "Beclometasona 50mcg/jato",
       "Via Nasal",
       "",
       "Aplicar 01 jato em cada narina a cada 12 horas por 02 semanas.",
-      "Sempre realizar lavagem nasal ANTES de aplicar beclometasona.",
+      "Sempre realizar lavagem nasal ANTES de aplicar beclometasona."
     ],
     [
       "Dexclorfeniramina 0.4mg/mL",
       "Via Oral",
       "",
-      "Tomar 10mL a cada 08 horas por 07d, se tosse.",
-      "",
-    ],
+      "Tomar 10mL a cada 08 horas por até 07 dias se tosse.",
+      ""
+    ]
   ],
-  "Resfriado/Gripe (dip+parac)": [
-    [
-      "Ibuprofeno 400mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 08 horas por no máximo 05 dias.",
-      "",
-    ],
+  "Dengue": [
     [
       "Dipirona 1.000mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 06 horas, se dor, febre ou calafrios.",
-      "",
+      "Tomar 01cp a cada 06 horas se dor, febre ou calafrios.",
+      ""
     ],
     [
       "Paracetamol 500mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 06 horas, se dor, febre ou calafrios, intercalado com dipirona.",
-      "",
-    ],
-    [
-      "Soro Fisiológico 0,9%",
-      "Via Nasal",
-      "",
-      "Lavar cada narina com 20mL de soro pelo menos a cada 06 horas.",
-      "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana.",
-    ],
-    [
-      "Budesonida 32mcg/jato",
-      "Via Nasal",
-      "",
-      "Aplicar 01 jato em cada narina a cada 12 horas por 02 semanas.",
-      "Sempre realizar lavagem nasal ANTES de aplicar budesonida.",
-    ],
-    [
-      "Ambroxol 06mg/mL",
-      "Via Oral",
-      "",
-      "Tomar 05mL a cada 08 horas por 07d, se tosse.",
-      "",
-    ],
-  ],
-  "Resfriado/Gripe (dip+parac/SUS)": [
-    [
-      "Ibuprofeno 300mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 08 horas por no máximo 05 dias.",
-      "",
-    ],
-    [
-      "Dipirona 500mg",
-      "Via Oral",
-      "",
-      "Tomar 02cps a cada 06 horas, se dor, febre ou calafrios.",
-      "",
-    ],
-    [
-      "Paracetamol 500mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 06 horas, se dor, febre ou calafrios, intercalado com dipirona.",
-      "",
-    ],
-    [
-      "Soro Fisiológico 0,9%",
-      "Via Nasal",
-      "",
-      "Lavar cada narina com 20mL de soro pelo menos a cada 06 horas.",
-      "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana.",
-    ],
-    [
-      "Beclometasona 50mcg/jato",
-      "Via Nasal",
-      "",
-      "Aplicar 01 jato em cada narina a cada 12 horas por 02 semanas.",
-      "Sempre realizar lavagem nasal ANTES de aplicar beclometasona.",
-    ],
-    [
-      "Dexclorfeniramina 0.4mg/mL",
-      "Via Oral",
-      "",
-      "Tomar 10mL a cada 08 horas por 07d, se tosse.",
-      "",
-    ],
-  ],
-  "Resfriado/Gripe (parac)": [
-    [
-      "Paracetamol 500mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 06 horas, se dor, febre ou calafrios.",
-      "",
-    ],
-    [
-      "Soro Fisiológico 0,9%",
-      "Via Nasal",
-      "",
-      "Lavar cada narina com 20mL de soro pelo menos a cada 06 horas.",
-      "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana.",
-    ],
-    [
-      "Budesonida 32mcg/jato",
-      "Via Nasal",
-      "",
-      "Aplicar 01 jato em cada narina a cada 12 horas por 02 semanas.",
-      "Sempre realizar lavagem nasal ANTES de aplicar budesonida.",
-    ],
-    [
-      "Ambroxol 06mg/mL",
-      "Via Oral",
-      "",
-      "Tomar 05mL a cada 08 horas por 07d, se tosse.",
-      "",
-    ],
-  ],
-  "Resfriado/Gripe (parac/SUS)": [
-    [
-      "Paracetamol 500mg",
-      "Via Oral",
-      "",
-      "Tomar 02cps a cada 06 horas, se dor, febre ou calafrios.",
-      "",
-    ],
-    [
-      "Soro Fisiológico 0,9%",
-      "Via Nasal",
-      "",
-      "Lavar cada narina com 20mL de soro pelo menos a cada 06 horas.",
-      "Usar seringa plástica de 20mL SEM agulhas. Preencher a seringa até o volume prévio e injetar sem forçar o volume em cada narina. Guardar seringa e recipiente do soro (caso garrafa) em ambiente seco, fresco e protegido de luz solar direta. Trocar seringa a cada semana.",
-    ],
-    [
-      "Beclometasona 50mcg/jato",
-      "Via Nasal",
-      "",
-      "Aplicar 01 jato em cada narina a cada 12 horas por 02 semanas.",
-      "Sempre realizar lavagem nasal ANTES de aplicar beclometasona.",
-    ],
-    [
-      "Dexclorfeniramina 0.4mg/mL",
-      "Via Oral",
-      "",
-      "Tomar 10mL a cada 08 horas por 07d, se tosse.",
-      "",
-    ],
-  ],
-  "Dengue (dip)": [
-    [
-      "Dipirona 1.000mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 06 horas, se dor, febre ou calafrios.",
-      "",
-    ],
-    [
-      "Paracetamol 500mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 06 horas, se dor, febre ou calafrios, intercalado com dipirona.",
-      "",
-    ],
-    [
-      "Ondansetrona 08mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 08 horas, se enjôos.",
-      "",
-    ],
-    [
-      "Sais para Reidratação Oral",
-      "Via Oral",
-      "",
-      "Tomar 600mL (aprox. 03 copos americanos) de soro a cada 08 horas intercalado por 1.200mL (aprox. 06 copos americanos) de água filtrada.",
-      "O soro acima pode ser substituído por água de coco e bebidas isotônicas. A água filtrada pode ser qualquer líquido, exceto refrigerantes e outros ultraprocessados.",
-    ],
-  ],
-  "Dengue (dip/SUS)": [
-    [
-      "Dipirona 500mg",
-      "Via Oral",
-      "",
-      "Tomar 02cps a cada 06 horas, se dor, febre ou calafrios.",
-      "",
-    ],
-    [
-      "Paracetamol 500mg",
-      "Via Oral",
-      "",
-      "Tomar 02cps a cada 06 horas, se dor, febre ou calafrios, intercalado com dipirona.",
-      "",
-    ],
-    [
-      "Dimenidrinato+Piridoxina 25+5mg/mL",
-      "Via Oral",
-      "",
-      "Tomar 40gts a cada 08 horas, se enjôos.",
-      "",
-    ],
-    [
-      "Sais para Reidratação Oral",
-      "Via Oral",
-      "",
-      "Tomar 600mL (aprox. 03 copos americanos) de soro a cada 08 horas intercalado por 1.200mL (aprox. 06 copos americanos) de água filtrada.",
-      "O soro acima pode ser substituído por água de coco e bebidas isotônicas. A água filtrada pode ser qualquer líquido, exceto refrigerantes e outros ultraprocessados.",
-    ],
-  ],
-  "Dengue (parac)": [
-    [
-      "Paracetamol 500mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 06 horas, se dor, febre ou calafrios.",
-      "",
-    ],
-    [
-      "Ondansetrona 08mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 08 horas, se enjôos.",
-      "",
-    ],
-    [
-      "Sais para Reidratação Oral",
-      "Via Oral",
-      "",
-      "Tomar 600mL (aprox. 03 copos americanos) de soro a cada 08 horas intercalado por 1.200mL (aprox. 06 copos americanos) de água filtrada.",
-      "O soro acima pode ser substituído por água de coco e bebidas isotônicas. A água filtrada pode ser qualquer líquido, exceto refrigerantes e outros ultraprocessados.",
-    ],
-  ],
-  "Dengue (parac/SUS)": [
-    [
-      "Paracetamol 500mg",
-      "Via Oral",
-      "",
-      "Tomar 02cps a cada 06 horas, se dor, febre ou calafrios.",
-      "",
-    ],
-    [
-      "Dimenidrinato+Piridoxina 25+5mg/mL",
-      "Via Oral",
-      "",
-      "Tomar 40gts a cada 08 horas, se enjôos.",
-      "",
-    ],
-    [
-      "Sais para Reidratação Oral",
-      "Via Oral",
-      "",
-      "Tomar 600mL (aprox. 03 copos americanos) de soro a cada 08 horas intercalado por 1.200mL (aprox. 06 copos americanos) de água filtrada.",
-      "O soro acima pode ser substituído por água de coco e bebidas isotônicas. A água filtrada pode ser qualquer líquido, exceto refrigerantes e outros ultraprocessados.",
-    ],
-  ],
-  "GECA (buscopam)": [
-    [
-      "Dipirona 1.000mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 06 horas, se dor.",
-      "",
-    ],
-    [
-      "Escopolamina 10mg",
-      "Via Oral",
-      "",
-      "Tomar 02cps a cada 08 horas, se cólicas.",
-      "",
+      "Tomar 01cp a cada 06 horas se dor, febre ou calafrios, intercalado com dipirona.",
+      ""
     ],
     [
       "Ondansetrona 08mg",
       "Via Sublingual",
       "",
-      "Dissolver 01cp sob a língua a cada 08 horas por 05 dias.",
-      "Após os 05 dias, pode ser usado também a cada 08 horas, se náuseas",
-    ],
-    [
-      "Bromoprida 10mg",
-      "Via Oral",
-      "",
-      "Tomar 01cps a cada 08 horas, se náuseas.",
-      "",
-    ],
-    [
-      "Dimenidrinato 50mg",
-      "Via Oral",
-      "",
-      "Tomar 01cps a cada 08 horas, se náuseas.",
-      "",
-    ],
-    [
-      "Simeticona 75mg/mL",
-      "Via Oral",
-      "",
-      "Tomar 40gts a cada 06 horas, se gases ou estufamento.",
-      "",
+      "Dissolver 01cp (ou folha) sob a língua a cada 08 horas se enjôos.",
+      ""
     ],
     [
       "Sais para Reidratação Oral",
       "Via Oral",
       "",
-      "Tomar 300mL (aprox. 02 copos americanos) de soro a cada 08 horas ou se diarreias.",
-      "O soro acima pode ser substituído por água de coco e bebidas isotônicas.",
-    ],
-    [
-      "Racecadotrila 100mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 08 horas por 03d, enquanto diarreia.",
-      "",
-    ],
-    [
-      "Saccharomyces boulardii 200mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 12 horas por 03 dias.",
-      "Tomar apenas quando DIARREIA ESTIVER EM MELHORA.",
-    ],
+      "Tomar 600mL (aprox. 03 copos americanos) de soro a cada 08 horas intercalado por 1.200mL (aprox. 06 copos americanos) de água filtrada.",
+      "O soro acima pode ser substituído por água de coco e bebidas isotônicas. A água filtrada pode ser qualquer líquido, exceto refrigerantes e outros ultraprocessados."
+    ]
   ],
-  "GECA (buscopam/SUS)": [
+  "Dengue (SUS)": [
     [
-      "Dipirona + Escopolamina 333,4+6,67mg/mL",
+      "Dipirona 500mg",
       "Via Oral",
       "",
-      "Tomar 40gts a cada 08 horas, se dor ou cólicas.",
-      "",
+      "Tomar 02cps a cada 06 horas se dor, febre ou calafrios.",
+      ""
     ],
-    [
-      "Dimenidrinato + Piridoxina 25+5mg/mL",
-      "Via Oral",
-      "",
-      "Tomar 40gts a cada 08 horas por 05 dias.",
-      "Após os 05 dias, pode ser usado também a cada 08 horas, se náuseas",
-    ],
-    [
-      "Metoclopramida 10mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 08 horas, se náuseas.",
-      "",
-    ],
-    [
-      "Sais para Reidratação Oral",
-      "Via Oral",
-      "",
-      "Tomar 300mL (aprox. 02 copos americanos) de soro a cada 08 horas ou se diarreias.",
-      "O soro acima pode ser substituído por água de coco e bebidas isotônicas.",
-    ],
-    [
-      "Racecadotrila 100mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 08 horas por 03d, enquanto diarreia.",
-      "",
-    ],
-    [
-      "Saccharomyces boulardii 200mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 12 horas por 03 dias.",
-      "Tomar apenas quando DIARREIA ESTIVER EM MELHORA.",
-    ],
-  ],
-  "GECA (parac)": [
     [
       "Paracetamol 500mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 06 horas, se dor.",
+      "Tomar 01cp a cada 06 horas se dor, febre ou calafrios, intercalado com dipirona.",
+      ""
+    ],
+    [
+      "Dimenidrinato+Piridoxina 25+5mg/mL",
+      "Via Oral",
       "",
+      "Tomar 40gts a cada 08 horas se enjôos.",
+      ""
+    ],
+    [
+      "Sais para Reidratação Oral",
+      "Via Oral",
+      "",
+      "Tomar 600mL (aprox. 03 copos americanos) de soro a cada 08 horas intercalado por 1.200mL (aprox. 06 copos americanos) de água filtrada.",
+      "O soro acima pode ser substituído por água de coco e bebidas isotônicas. A água filtrada pode ser qualquer líquido, exceto refrigerantes e outros ultraprocessados."
+    ]
+  ],
+  "GECA": [
+    [
+      "Dipirona 1.000mg",
+      "Via Oral",
+      "",
+      "Tomar 01cp a cada 06 horas se dor.",
+      ""
+    ],
+    [
+      "Paracetamol 500mg",
+      "Via Oral",
+      "",
+      "Tomar 01cp a cada 06 horas se dor.",
+      ""
     ],
     [
       "Escopolamina 10mg",
       "Via Oral",
       "",
-      "Tomar 02cps a cada 08 horas, se cólicas.",
-      "",
+      "Tomar 02cps a cada 08 horas se cólicas.",
+      ""
     ],
     [
       "Ondansetrona 08mg",
       "Via Sublingual",
       "",
-      "Dissolver 01cp sob a língua a cada 08 horas por 05 dias.",
-      "Após os 05 dias, pode ser usado também a cada 08 horas, se náuseas",
+      "Dissolver 01cp (ou folha) sob a língua a cada 08 horas, de horário, por 03 dias.",
+      "Após os 03 dias, pode ser usado também a cada 08 horas se náuseas"
     ],
     [
       "Bromoprida 10mg",
       "Via Oral",
       "",
-      "Tomar 01cps a cada 08 horas, se náuseas.",
-      "",
+      "Tomar 01cp a cada 08 horas se náuseas.",
+      ""
     ],
     [
       "Dimenidrinato 50mg",
       "Via Oral",
       "",
-      "Tomar 01cps a cada 08 horas, se náuseas.",
-      "",
+      "Tomar 01cp a cada 08 horas se náuseas.",
+      ""
     ],
     [
       "Simeticona 75mg/mL",
       "Via Oral",
       "",
-      "Tomar 40gts a cada 06 horas, se gases ou estufamento.",
-      "",
+      "Tomar 40gts a cada 06 horas se gases ou estufamento.",
+      ""
     ],
     [
       "Sais para Reidratação Oral",
       "Via Oral",
       "",
       "Tomar 300mL (aprox. 02 copos americanos) de soro a cada 08 horas ou se diarreias.",
-      "O soro acima pode ser substituído por água de coco e bebidas isotônicas.",
+      "O soro acima pode ser substituído por água de coco e bebidas isotônicas."
     ],
     [
       "Racecadotrila 100mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 08 horas por 03d, enquanto diarreia.",
-      "",
+      ""
     ],
     [
       "Saccharomyces boulardii 200mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 12 horas por 03 dias.",
-      "Tomar apenas quando DIARREIA ESTIVER EM MELHORA.",
-    ],
+      "Tomar apenas quando DIARREIA ESTIVER EM MELHORA."
+    ]
   ],
-  "GECA (parac/SUS)": [
+  "GECA (SUS)": [
+    [
+      "Dipirona 500mg",
+      "Via Oral",
+      "",
+      "Tomar 01cp a cada 06 horas se dor.",
+      ""
+    ],
     [
       "Paracetamol 500mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 06 horas, se dor.",
-      "",
+      "Tomar 01cp a cada 06 horas se dor.",
+      ""
     ],
     [
       "Escopolamina 10mg",
       "Via Oral",
       "",
-      "Tomar 02cps a cada 08 horas, se cólicas.",
-      "",
+      "Tomar 02cps a cada 08 horas se cólicas.",
+      ""
     ],
     [
       "Dimenidrinato + Piridoxina 25+5mg/mL",
       "Via Oral",
       "",
-      "Tomar 40gts a cada 08 horas por 05 dias.",
-      "Após os 05 dias, pode ser usado também a cada 08 horas, se náuseas",
+      "Tomar 40gts a cada 08 horas por 03 dias.",
+      "Após os 03 dias, pode ser usado também a cada 08 horas se náuseas"
     ],
     [
       "Metoclopramida 10mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 08 horas, se náuseas.",
-      "",
+      "Tomar 01cp a cada 08 horas se náuseas.",
+      ""
     ],
     [
       "Sais para Reidratação Oral",
       "Via Oral",
       "",
       "Tomar 300mL (aprox. 02 copos americanos) de soro a cada 08 horas ou se diarreias.",
-      "O soro acima pode ser substituído por água de coco e bebidas isotônicas.",
+      "O soro acima pode ser substituído por água de coco e bebidas isotônicas."
     ],
     [
       "Racecadotrila 100mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 08 horas por 03d, enquanto diarreia.",
-      "",
+      ""
     ],
     [
       "Saccharomyces boulardii 200mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 12 horas por 03 dias.",
-      "Tomar apenas quando DIARREIA ESTIVER EM MELHORA.",
-    ],
+      "Tomar apenas quando DIARREIA ESTIVER EM MELHORA."
+    ]
   ],
-  "Cistite (macrodantina, 03d)": [
+  "Cistite (macrodantina)": [
     [
       "Nitrofurantoína 100mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 06 horas por 03 dias.",
-      "",
+      "Sempre tomar nitrofurantoína após se alimentar."
     ],
     [
       "Fenazopiridina 200mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 08 horas, se dor no canal da urina.",
-      "",
-    ],
+      "Tomar 01cp a cada 08 horas se dor no canal da urina.",
+      ""
+    ]
   ],
-  "Cistite (cefalexina, 03d)": [
+  "Cistite (cefalexina)": [
     [
       "Cefalexina 500mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 06 horas por 03 dias.",
-      "",
+      "Sempre tomar nitrofurantoína após se alimentar."
     ],
     [
       "Fenazopiridina 200mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 08 horas, se dor no canal da urina.",
-      "",
-    ],
+      "Tomar 01cp a cada 08 horas se dor no canal da urina.",
+      ""
+    ]
   ],
   "Cistite (fosfomicina)": [
     [
-      "Fosfomicina 03g",
+      "Fosfomicina 05g",
       "Via Oral",
       "",
-      "Diluir conforme orientação do fabricante e tomar hoje em DOSE ÚNICA.",
-      "",
+      "Diluir conforme orientação do fabricante e tomar esta noite, em DOSE ÚNICA.",
+      "Antes de dormir, urinar. Após isto, tomar o antibiótico dissolvido e ir dormir. NÃO URINAR POR PELO MENOS 08 HORAS após uso."
     ],
     [
       "Fenazopiridina 200mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 08 horas, se dor no canal da urina.",
-      "",
-    ],
+      "Tomar 01cp a cada 08 horas se dor no canal da urina.",
+      ""
+    ]
   ],
-  "Cistite (macrodantina, 07d)": [
-    [
-      "Nitrofurantoína 100mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 06 horas por 07 dias.",
-      "",
-    ],
-    [
-      "Fenazopiridina 200mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 08 horas, se dor no canal da urina.",
-      "",
-    ],
-  ],
-  "Cistite (cefalexina, 07d)": [
-    [
-      "Cefalexina 500mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 06 horas por 07 dias.",
-      "",
-    ],
-    [
-      "Fenazopiridina 200mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 08 horas, se dor no canal da urina.",
-      "",
-    ],
-  ],
-  "Dor Osteomuscular (leve; dip)": [
+  "Dor Osteomuscular": [
     [
       "Ibuprofeno 400mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 08 horas por no máximo 05 dias.",
-      "",
+      "Tomar 01cp a cada 08 horas por 03 dias.",
+      ""
     ],
     [
       "Dipirona 1.000mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 06 horas, se dor.",
-      "",
+      "Tomar 01cp a cada 06 horas se dor.",
+      ""
     ],
     [
       "Paracetamol 500mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 06 horas, se dor, intercalado com dipirona.",
-      "",
+      "Tomar 01cp a cada 06 horas se dor, intercalado com dipirona.",
+      ""
     ],
     [
       "Ciclobenzaprina 10mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada noite, 30min antes de dormir, por 01 semana.",
-      "",
-    ],
+      ""
+    ]
   ],
-  "Dor Osteomuscular (intensa; dip)": [
+  "Dor Osteomuscular (SUS)": [
     [
-      "Ibuprofeno 400mg",
+      "Ibuprofeno 300mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 08 horas por 05 dias.",
-      "",
+      "Tomar 01cp a cada 08 horas por 03 dias.",
+      ""
     ],
     [
-      "Dipirona 1.000mg",
+      "Dipirona 500mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 06 horas, se dor.",
-      "",
+      "Tomar 02cps a cada 06 horas se dor.",
+      ""
     ],
     [
       "Paracetamol 500mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 06 horas, se dor, intercalado com dipirona.",
-      "",
+      "Tomar 01cp a cada 06 horas se dor, intercalado com dipirona.",
+      ""
     ],
     [
       "Ciclobenzaprina 10mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada noite, 30min antes de dormir, por 01 semana.",
-      "",
-    ],
-    [
-      "Tramadol 50mg",
-      "Via Oral",
-      "30 cps",
-      "Tomar 01cp a cada 08 horas, se dor que não melhora mesmo após 30 minutos de uso de analgésico simples.",
-      "",
-    ],
+      ""
+    ]
   ],
-  "Dor Osteomuscular (leve; parac)": [
-    [
-      "Paracetamol 500mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 06 horas, se dor.",
-      "",
-    ],
-    [
-      "Ciclobenzaprina 10mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada noite, 30min antes de dormir, por 01 semana.",
-      "",
-    ],
-  ],
-  "Dor Osteomuscular (intensa; parac)": [
-    [
-      "Paracetamol 500mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 06 horas, se dor.",
-      "",
-    ],
-    [
-      "Ciclobenzaprina 10mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada noite, 30min antes de dormir, por 01 semana.",
-      "",
-    ],
-    [
-      "Tramadol 50mg",
-      "Via Oral",
-      "30 cps",
-      "Tomar 01cp a cada 08 horas, se dor que não melhora mesmo após 30 minutos de uso de analgésico simples.",
-      "",
-    ],
-  ],
-  "Dor Neuropática (dip)": [
-    [
-      "Ibuprofeno 400mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 08 horas por 05 dias.",
-      "",
-    ],
-    [
-      "Dipirona 1.000mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 06 horas, se dor.",
-      "",
-    ],
-    [
-      "Paracetamol 500mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 06 horas, se dor, intercalado com dipirona.",
-      "",
-    ],
-    [
-      "Ciclobenzaprina 10mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada noite, 30min antes de dormir, por 01 semana.",
-      "",
-    ],
-    [
-      "Tramadol 50mg",
-      "Via Oral",
-      "30 cps",
-      "Tomar 01cp a cada 08 horas, se dor que não melhora mesmo após 30 minutos de uso de analgésico simples.",
-      "",
-    ],
-    [
-      "Gabapentina 300mg",
-      "Via Oral",
-      "60 cps",
-      "Tomar 01cp a cada noite, 30min antes de dormir.",
-      "",
-    ],
-  ],
-  "Dor Neuropática (parac)": [
-    [
-      "Paracetamol 500mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 06 horas, se dor.",
-      "",
-    ],
-    [
-      "Ciclobenzaprina 10mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada noite, 30min antes de dormir, por 01 semana.",
-      "",
-    ],
-    [
-      "Tramadol 50mg",
-      "Via Oral",
-      "30 cps",
-      "Tomar 01cp a cada 08 horas, se dor que não melhora mesmo após 30 minutos de uso de analgésico simples.",
-      "",
-    ],
-    [
-      "Gabapentina 300mg",
-      "Via Oral",
-      "60 cps",
-      "Tomar 01cp a cada noite, 30min antes de dormir.",
-      "",
-    ],
-  ],
-  "Herpes Zóster (adulto)": [
+  "Herpes Zóster": [
     [
       "Aciclovir 400mg",
       "Via Oral",
       "70 cps",
       "Tomar 02cps a cada 04 horas por 07 dias.",
-      "Pular a dose da madrugada.",
+      "Pular a dose da madrugada."
     ],
     [
       "Aciclovir 200mg",
       "Via Oral",
       "140 cps",
       "Tomar 04cps a cada 04 horas por 07 dias.",
-      "Pular a dose da madrugada.",
+      "Pular a dose da madrugada."
     ],
     [
       "Omeprazol 20mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 12 horas.",
-      "Tomar cada cp 30min antes da refeição (café-da-manhã e janta).",
+      "Tomar cada cp 30min antes da refeição (café-da-manhã e janta)."
     ],
     [
       "Hidróxido de Alumínio 60mg/mL",
       "Via Oral",
       "",
-      "Tomar 10mL a cada 06 horas, se queimação no estômago.",
-      "",
+      "Tomar 10mL a cada 06 horas se queimação no estômago.",
+      ""
     ],
     [
-      "Pregabalina 75mg",
+      "Gabapentina 300mg",
       "Via Oral",
-      "180 cps",
-      "Tomar 01cp a cada 12 horas por 03 meses.",
-      "Caso persista a dor mesmo após os 03 meses de uso, buscar aconselhamento junto a neurologista ou médico especializado em dor.",
-    ],
-  ],
-  "Herpes Zóster (idoso)": [
-    [
-      "Aciclovir 400mg",
-      "Via Oral",
-      "140 cps",
-      "Tomar 02cps a cada 04 horas por 07 dias.",
-      "Pular a dose da madrugada.",
-    ],
-    [
-      "Aciclovir 200mg",
-      "Via Oral",
-      "140 cps",
-      "Tomar 04cps a cada 04 horas por 07 dias.",
-      "Pular a dose da madrugada.",
-    ],
-    [
-      "Omeprazol 20mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 12 horas.",
-      "Tomar cada cp 30min antes da refeição (café-da-manhã e janta).",
-    ],
-    [
-      "Hidróxido de Alumínio 60mg/mL",
-      "Via Oral",
-      "",
-      "Tomar 10mL a cada 06 horas, se queimação no estômago.",
-      "",
-    ],
-    [
-      "Pregabalina 75mg",
-      "Via Oral",
-      "90 cps",
-      "Tomar 01cp a cada 01 dia por 03 meses.",
-      "Caso persista a dor mesmo após os 03 meses de uso, buscar aconselhamento junto a neurologista ou médico especializado em dor.",
-    ],
+      "30 cps/mês",
+      "Tomar 01cp a toda noite por 03 meses.",
+      "Caso persista a dor mesmo após os 03 meses de uso, buscar aconselhamento junto a neurologista ou médico especializado em dor."
+    ]
   ],
   "Dispepsia": [
     [
@@ -899,89 +435,59 @@ let predefineds = {
       "Via Oral",
       "",
       "Tomar 02cps a cada 12 horas (30min antes dos café-da-manhã e janta) por 03 meses.",
-      "",
+      ""
     ],
     [
-      "Domperidona 10mg",
+      "Bromoprida 10mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 08 horas por 03 meses.",
-      "",
+      "Tomar 01cp a cada 08 horas (30min antes dos café-da-manhã, almoço, e janta) por 03 meses.",
+      ""
     ],
     [
       "Hidróxido de Alumínio 60mg/mL",
       "Via Oral",
       "",
-      "Tomar 20mL a cada 06 horas, se queimação no estômago ou sensação de refluxo ou azia.",
-      "",
-    ],
+      "Tomar 20mL a cada 06 horas se queimação no estômago ou sensação de refluxo ou azia.",
+      ""
+    ]
   ],
-  "Enxaqueca (+dip)": [
+  "Enxaqueca": [
     [
       "Prednisona 20mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada 12 horas por 05 dias.",
-      "",
+      ""
     ],
     [
       "Dipirona 1.000mg",
       "Via Oral",
       "",
-      "Tomar 02cps a cada 06 horas, se dor ou antes de crise de enxaqueca.",
-      "",
+      "Tomar 02cps a cada 06 horas se dor ou antes de crise de enxaqueca.",
+      ""
     ],
     [
       "Paracetamol 500mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 06 horas, se dor, intercalado com dipirona.",
-      "",
+      "Tomar 01cp a cada 06 horas se dor, intercalado com dipirona.",
+      ""
     ],
     [
       "Metoclopramida 10mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 08 horas, se crise de enxaqueca ou enjôos.",
-      "",
+      "Tomar 01cp a cada 08 horas se crise de enxaqueca ou enjôos.",
+      ""
     ],
     [
       "Sumatriptana 50mg",
       "Via Oral",
       "",
       "Tomar 01 cp se crise de enxaqueca e esperar 30 minutos. Caso não apresente melhora, tente mais 01 cp e aguarde mais 30 minutos. Se, após a 01 hora total, não apresentar melhora da crise de enxaqueca, buscar atendimento médico.",
-      "",
-    ],
-  ],
-  "Enxaqueca (-dip)": [
-    [
-      "Prednisona 20mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 12 horas por 05 dias.",
-      "",
-    ],
-    [
-      "Paracetamol 500mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 06 horas, se dor.",
-      "",
-    ],
-    [
-      "Metoclopramida 10mg",
-      "Via Oral",
-      "",
-      "Tomar 01cp a cada 08 horas, se crise de enxaqueca ou enjôos.",
-      "",
-    ],
-    [
-      "Sumatriptana 50mg",
-      "Via Oral",
-      "",
-      "Tomar 01 cp se crise de enxaqueca e esperar 30 minutos. Caso não apresente melhora, tente mais 01 cp e aguarde mais 30 minutos. Se, após a 01 hora total, não apresentar melhora da crise de enxaqueca, buscar atendimento médico.",
-      "",
-    ],
+      ""
+    ]
   ],
   "Xeratose": [
     [
@@ -989,38 +495,38 @@ let predefineds = {
       "Via Tópica",
       "",
       "Aplicar quantidade generosa à toda a pele a cada pelo menos 12 horas.",
-      "(A marca de hidratante acima é posta meramente como sugestão, podendo ser substituída por qualquer hidratante corporal sem fragância, sem corantes e sem remédios.)",
+      "(A marca de hidratante acima é posta meramente como sugestão, podendo ser substituída por qualquer hidratante corporal sem fragância, sem corantes e sem remédios.)"
     ],
     [
       "Dexclorferinamina 0,4mg/mL",
       "Via Oral",
       "",
-      "Tomar 10mL a cada 08 horas, se coceira.",
-      "",
-    ],
+      "Tomar 10mL a cada 08 horas se coceira.",
+      ""
+    ]
   ],
   "Dermatite Seborreica": [
     [
       "Cetoconazol Xampu 20mg/mL",
       "Via Tópica",
       "",
-      "Lavar cabelo com este xampu, deixá-lo agindo por 15 a 20min, enxaguar e então lavar cabelo com xampu (vide abaixo). Repetir este processo todo dia por 01 mês.",
-      "NÃO USAR condicionadores, óleos capilares ou produtos que apliquem oleosidade ao cabelo. EVITAR produtos capilares \"2 em 1\" e semelhantes. DAR PREFERÊNCIA a xampus anticaspa ou adstringentes.",
+      "Lavar cabelo com xampu tradicional (vide abaixo), então lavar cabelo com este xampu e deixá-lo agindo por pelo menos 10min, então enxaguar produto do cabelo. Repetir este processo todo dia por 01 mês.",
+      "NÃO USAR condicionadores, óleos capilares ou produtos que apliquem oleosidade ao cabelo. EVITAR produtos capilares \"2 em 1\" e semelhantes. DAR PREFERÊNCIA a xampus anticaspa ou adstringentes."
     ],
     [
       "Clobetasol Loção Capilar 0,05%",
       "Via Tópica",
       "",
-      "Aplicar fina camada em couro cabeludo até a cada 12 horas, se irritação ou coceira.",
-      "",
+      "Aplicar fina camada em couro cabeludo até a cada 12 horas se irritação ou coceira.",
+      ""
     ],
     [
       "Dexclorferinamina 0,4mg/mL",
       "Via Oral",
       "",
-      "Tomar 10mL a cada 08 horas, se coceira.",
-      "",
-    ],
+      "Tomar 10mL a cada 08 horas se coceira.",
+      ""
+    ]
   ],
   "Escabiose": [
     [
@@ -1028,61 +534,61 @@ let predefineds = {
       "Via Oral",
       "",
       "Tomar 02cps hoje e mais 02cps em 07 dias.",
-      "A cada tomada de ivermectina, lavar todas as roupas de cama, mesa, banho e corpo em água quente ou, caso não seja possível lavar em água quente, passar a ferro após lavar.",
+      "A cada tomada de ivermectina, lavar todas as roupas de cama, mesa, banho e corpo em água quente ou, caso não seja possível lavar em água quente, passar a ferro após lavar."
     ],
     [
       "Dexclorferinamina 0,4mg/mL",
       "Via Oral",
       "",
-      "Tomar 10mL a cada 08 horas, se coceira.",
-      "",
-    ],
+      "Tomar 10mL a cada 08 horas se coceira.",
+      ""
+    ]
   ],
   "Angina": [
     [
       "Isossorbida 05mg",
       "Via Oral",
       "",
-      "Tomar 01cp a cada 06 horas, se dor no peito.",
-      "",
+      "Tomar 01cp a cada 06 horas se dor no peito.",
+      ""
     ],
     [
       "Ácido Acetilsalicílico 100mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada tarde.",
-      "",
+      ""
     ],
     [
       "Clopidogrel 75mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada tarde, junto do ác. acetilsalicílico.",
-      "",
+      ""
     ],
     [
       "Atorvastatina 40mg",
       "Via Oral",
       "",
       "Tomar 01cp a cada noite.",
-      "",
-    ],
+      ""
+    ]
   ],
-  "PEP": [
+  "PEP-HIV": [
     [
       "Lamivudina + Tenofovir 300+300mg",
       "Via Oral",
       "30 cps",
       "Tomar 01cp a cada 24 horas por 30 dias.",
-      "Tomar junto do dolutegravir.",
+      "Tomar junto do dolutegravir."
     ],
     [
       "Dolutegravir 50mg",
       "Via Oral",
       "30 cps",
       "Tomar 01cp a cada 24 horas por 30 dias.",
-      "Tomar junto de lamivudina+tenofovir.",
-    ],
+      "Tomar junto de lamivudina+tenofovir."
+    ]
   ],
   "Tramadol IV": [
     [
@@ -1128,5 +634,5 @@ let predefineds = {
       "Diluir 02g (02 ampolas) em 100mL de SF 0,9% e infundir em 30min, a cada 24 horas, por X dias",
       "Autorizo administração de ceftriaxona por vias IM ou SC na inviabilidade de via IV."
     ]
-  ],
+  ]
 };
