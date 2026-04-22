@@ -94,6 +94,15 @@ let predefineds = {
       ""
     ]
   ],
+  "Tamiflu": [
+    [
+      "Oseltamivir 75mg",
+      "Via Oral",
+      "10cps",
+      "Tomar 01cp a cada 12 horas por 05 dias.",
+      "Iniciar uso apenas SE TESTE POSITIVO PARA H1N1!"
+    ]
+  ],
   "Dengue": [
     [
       "Dipirona 1.000mg",
