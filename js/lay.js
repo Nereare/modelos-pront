@@ -55,7 +55,7 @@ $(function() {
   $("#button-run").on("click", function() {
     // Get data
     let assistant    = $("#assistant").val().trim();
-    let patient      = $("#patient").val().trim();
+    let patient      = $("#patient").val().trim().toUpperCase();
     let birth        = Date.parse($("#birth").val() + "T00:00:00.000-03:00");
     let atend        = $("#atend").val();
     let type         = $("#type").val();
