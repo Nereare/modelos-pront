@@ -289,7 +289,7 @@ $(function() {
   // Run
   $("#button-run").on("click", function() {
     if( $("#eval").val() != "" ) {
-      var s = "";
+      var s = [get_companion(), "", "# HMA:"];
       var o = "";
       var p = "";
       $("#output-uni").val("");
@@ -297,10 +297,6 @@ $(function() {
 
       switch( $("#time-current").val() ) {
         case "first": // First evaluation
-          s = [];
-          // Run companion info
-          var companion = get_companion();
-          if ( companion ) { s.push( companion ); }
           // Symptoms' listing
           var symps = [];
           var symptomatic = true;
@@ -438,10 +434,6 @@ $(function() {
           s = s.join("\n");
           break;
         case "reeval": // Reevaluation
-          s = [];
-          // Run companion info
-          var companion = get_companion();
-          if ( companion ) { s.push( companion ); }
           // Symptom evolution
           var evol = $("#evol").val();
           if( evol != "resolução completa dos sintomas" ) {
@@ -475,7 +467,7 @@ $(function() {
           s = s.join("\n");
           break;
         default:
-          s = "Gente, como você veio parar aqui?!";
+          s.push("Gente, como você veio parar aqui?!");
       }
       o = runO().join("\n");
       // Get plans
@@ -484,6 +476,7 @@ $(function() {
       p = $.map(p, function (e, i) { return (i + 1) + ". " + e; });
       // Then join them
       p = p.join(";\n") + ".";
+
       $("#output-s").val(s);
       $("#output-o").val(o);
       $("#output-p").val(p);
@@ -706,9 +699,11 @@ function get_companion() {
   var pronoun = $("#pronouns").val();
   var comp = "";
   if ( $("#companion").is(":checked") ) {
-    comp = "# Vem ao PS " + $("#companion-func").val() + " por " + $("#companion-name").val();
+    comp = "# Acompanhantes: " + $("#companion-name").val();
     if ( $("#companion-relation").val() != "" ) { comp += " (" + $("#companion-relation").val() + ")"; }
     comp += ".\n# Fonte: " + $("#companion-font").val() + "."
+  } else {
+    comp = "# Acompanhantes: nenhum.\n# Fonte: própri[[PRONOUN]] paciente."
   }
   return comp.replaceAll("[[PRONOUN]]", pronoun);
 }

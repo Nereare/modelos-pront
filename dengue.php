@@ -88,14 +88,6 @@ if (isset($_COOKIE["sr_header"])) {
             <div class="control">
               <button class="button is-static" tabindex="-1">)</button>
             </div>
-            <div class="control">
-              <div class="select">
-                <select id="companion-func" disabled>
-                  <option value="acompanhad[[PRONOUN]]" selected>acompanha</option>
-                  <option value="trazid[[PRONOUN]]">traz</option>
-                </select>
-              </div>
-            </div>
           </div>
 
           <div class="field has-addons">

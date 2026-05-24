@@ -9,6 +9,10 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - *Repouso no Leito*.
 - *Exame Físico*:
   - Edema de MMSS.
+### Modificado
+- *Sintomáticos Respiratórios* e *Dengue*:
+  - Campos de acompanhantes simplificados;
+  - Modificada ordem de exibição.
 ### Corrigido
 - *Labs*:
   - Nota sobre unidade de proteínas (interpretando em g/L, não mg/dL).

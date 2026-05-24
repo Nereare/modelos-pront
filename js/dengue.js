@@ -433,6 +433,9 @@ $(function() {
     let eval = $("#time-current").val();
     let out = ["# " + sr_header + " #"];
 
+    // Companion info
+    out.push(get_companion());
+
     // Subjective
     out.push(get_S(eval));
 
@@ -488,15 +491,17 @@ function get_companion() {
   var pronoun = $("#pronouns").val();
   var comp = "";
   if ( $("#companion").is(":checked") ) {
-    comp = "# Vem ao PS " + $("#companion-func").val() + " por " + $("#companion-name").val();
+    comp = "# Acompanhantes: " + $("#companion-name").val();
     if ( $("#companion-relation").val() != "" ) { comp += " (" + $("#companion-relation").val() + ")"; }
     comp += ".\n# Fonte: " + $("#companion-font").val() + "."
+  } else {
+    comp = "# Acompanhantes: nenhum.\n# Fonte: própri[[PRONOUN]] paciente."
   }
   return comp.replaceAll("[[PRONOUN]]", pronoun);
 }
 
 function get_S(eval_time) {
-  let s = [];
+  let s = ["", "# HMA:"];
 
   if (eval_time == "first") {
     // D0
@@ -511,10 +516,6 @@ function get_S(eval_time) {
       month: "long",
       day: "numeric",
     };
-
-    // Companion info
-    let comp = get_companion();
-    if (comp != "") { s.push(comp); }
 
     // Symptoms
     let symps = [];
