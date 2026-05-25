@@ -104,5 +104,12 @@ define("MODELS", [
     "lay.svg",
     "Uma cama com uma pessoa deitada e coberta",
     "Repouso"
+  ],
+  "saintpauline" => [
+    "saintpauline",
+    "saintpauline.php",
+    "saintpauline.svg",
+    "Uma lista enumerada em uma prancheta",
+    "Produtividade HSP"
   ]
 ]);

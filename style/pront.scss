@@ -266,6 +266,25 @@ $red    : #ff3860;
   }
 }
 
+@media screen { #printable-atends { display: none; } }
+@media print {
+  body {
+    font-family: "Roboto Mono", sans-serif;
+    font-size: 15px;
+    header, nav, main, footer { display: none; }
+  }
+  #printable-atends {
+    display: block;
+    width: 100%;
+    table {
+      display: block;
+      width: 100%;
+      text-align: center;
+      td { border: solid 3px $text; }
+    }
+  }
+}
+
 // Hospital
 #nihss-9-helper, #nihss-9-helper {
   .modal-content { width: 90%; }

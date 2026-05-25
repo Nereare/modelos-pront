@@ -13,7 +13,7 @@ require_once "header.php";
 <main class="section">
   <div class="container">
     <div class="box">
-      <div class="field">
+      <div class="field has-addons">
         <div class="control">
           <button class="button is-static" tabindex="-1">
             <span class="icontext">
@@ -83,15 +83,15 @@ require_once "header.php";
     </div>
   </div>
 </main>
-<div id="printable">
+<div id="printable-atends">
   <!-- Tabela Identificação -->
   <table>
     <tbody>
       <tr>
-        <td rowspan="4">CONTROLE DO NÚMERO DE ATENDIMENTOS</td>
+        <td colspan="4">CONTROLE DO NÚMERO DE ATENDIMENTOS</td>
       </tr>
       <tr>
-        <td rowspan="4">Nome do médico(a): <span id="print-physician"></span></td>
+        <td colspan="4">Nome do médico(a): <span id="print-physician"></span></td>
       </tr>
       <tr>
         <td>Data: <span id="print-date"></span></td>
@@ -101,15 +101,17 @@ require_once "header.php";
       </tr>
     </tbody>
   </table>
+
   <!-- Tabela Atendimentos -->
   <table>
     <thead>
       <tr>
-        <th>&num;Atend</th>
+        <th>&num;</th>
+        <th>Atend</th>
         <th>Desfecho</th>
       </tr>
     </thead>
-    <tbody id="printable-todos-container">
+    <tbody id="printable-atends-container">
     </tbody>
   </table>
 </div>
