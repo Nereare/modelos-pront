@@ -1248,99 +1248,62 @@ if (isset($_COOKIE["sr_header"])) {
           <li>
             <div class="field has-addons">
               <div class="control">
-                <label for="plan-now-symptomatics" class="button is-primary">
-                  <span class="icon">
-                    <i class="mdi mdi-checkbox-marked mdi-24px"></i>
-                  </span>
-                  <input type="checkbox" class="is-hidden checkbutton" id="plan-now-symptomatics" checked>
-                </label>
-              </div>
-              <div class="control is-expanded">
-                <button class="button is-static is-fullwidth" tabindex="-1">Sintomáticos agora</button>
-              </div>
-            </div>
-          </li>
-          <p class="help">Lembre-se: <strong>NÃO PRESCREVER ANTIINFLAMATÓRIOS</strong>, esteroidais ou não, enaquanto Dengue fôr sequer uma <strong>POSSIBILIDADE</strong>.</p>
-
-          <li>
-            <div class="field has-addons">
-              <div class="control">
-                <label for="plan-now-expansion" class="button is-primary">
-                  <span class="icon">
-                    <i class="mdi mdi-checkbox-marked mdi-24px"></i>
-                  </span>
-                  <input type="checkbox" class="is-hidden checkbutton" id="plan-now-expansion" checked>
-                </label>
-              </div>
-              <div class="control is-expanded">
-                <button class="button is-static is-fullwidth" tabindex="-1">Expansão volêmica agressiva agora</button>
-              </div>
-              <div class="control is-expanded">
-                <button class="button is-static is-fullwidth" tabindex="-1">(<span id="plan-now-expansion-volume">1.500</span>mL)</button>
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <div class="field has-addons">
-              <div class="control">
-                <label for="plan-now-othermeds1" class="button">
+                <label for="plan-0" class="button">
                   <span class="icon">
                     <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
                   </span>
-                  <input type="checkbox" class="is-hidden checkbutton" id="plan-now-othermeds1">
+                  <input type="checkbox" class="is-hidden checkbutton check-plan" id="plan-0" value="Otimizo sintomáticos + SRO para casa">
                 </label>
               </div>
               <div class="control is-expanded">
-                <input type="text" class="input" id="plan-now-othermeds1-what" placeholder="Outras medicações...">
+                <button class="button is-static is-fullwidth" tabindex="-1">Sintomáticos + SRO</button>
               </div>
             </div>
           </li>
           <li>
             <div class="field has-addons">
               <div class="control">
-                <label for="plan-now-othermeds2" class="button">
+                <label for="plan-1" class="button">
                   <span class="icon">
                     <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
                   </span>
-                  <input type="checkbox" class="is-hidden checkbutton" id="plan-now-othermeds2">
+                  <input type="checkbox" class="is-hidden checkbutton check-plan" id="plan-1" value="">
                 </label>
               </div>
+              <div class="control">
+                <button class="button is-static is-fullwidth" tabindex="-1">ATB</button>
+              </div>
               <div class="control is-expanded">
-                <input type="text" class="input" id="plan-now-othermeds2-what" placeholder="Outras medicações...">
+                <div class="select is-fullwidth">
+                  <select class="plan-changer" data-target="plan-1">
+                    <option value="ciprofloxacino por 05d">Cipro 5d</option>
+                    <option value="metronidazol por 05d">Metro 5d</option>
+                  </select>
+                </div>
               </div>
             </div>
           </li>
           <li>
             <div class="field has-addons">
               <div class="control">
-                <label for="plan-now-othermeds3" class="button">
+                <label for="plan-2" class="button">
                   <span class="icon">
                     <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
                   </span>
-                  <input type="checkbox" class="is-hidden checkbutton" id="plan-now-othermeds3">
+                  <input type="checkbox" class="is-hidden checkbutton check-plan" id="plan-2" value="">
                 </label>
               </div>
-              <div class="control is-expanded">
-                <input type="text" class="input" id="plan-now-othermeds3-what" placeholder="Outras medicações...">
-              </div>
-            </div>
-          </li>
-
-          <h3 class="title is-5">Exames</h3>
-
-          <li>
-            <div class="field has-addons">
               <div class="control">
-                <label for="plan-now-lab-dengue" class="button is-primary">
-                  <span class="icon">
-                    <i class="mdi mdi-checkbox-marked mdi-24px"></i>
-                  </span>
-                  <input type="checkbox" class="is-hidden checkbutton" id="plan-now-lab-dengue" checked>
-                </label>
+                <button class="button is-static is-fullwidth" tabindex="-1">ATB</button>
               </div>
               <div class="control is-expanded">
-                <button class="button is-static is-fullwidth" tabindex="-1">Teste para Dengue / NS1</button>
+                <div class="select is-fullwidth">
+                  <select class="plan-changer" data-target="plan-2">
+                    <option value="Prescrevo ivermectina 12mg em dose única para casa">Ivermec (DU)</option>
+                    <option value="Prescrevo albendazol dose única para casa">Albendazol (DU)</option>
+                    <option value="Prescrevo nitazoxanida por 03d para casa">Annita (3d)</option>
+                  </select>
+                </div>
               </div>
             </div>
           </li>
@@ -1348,138 +1311,54 @@ if (isset($_COOKIE["sr_header"])) {
           <li>
             <div class="field has-addons">
               <div class="control">
-                <label for="plan-now-lab-hmg" class="button is-primary">
-                  <span class="icon">
-                    <i class="mdi mdi-checkbox-marked mdi-24px"></i>
-                  </span>
-                  <input type="checkbox" class="is-hidden checkbutton" id="plan-now-lab-hmg" checked>
-                </label>
-              </div>
-              <div class="control is-expanded">
-                <button class="button is-static is-fullwidth" tabindex="-1">HMG (para avaliar Ht)</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="field has-addons">
-              <div class="control">
-                <label for="plan-now-lab-liver" class="button is-primary">
-                  <span class="icon">
-                    <i class="mdi mdi-checkbox-marked mdi-24px"></i>
-                  </span>
-                  <input type="checkbox" class="is-hidden checkbutton" id="plan-now-lab-liver" checked>
-                </label>
-              </div>
-              <div class="control is-expanded">
-                <button class="button is-static is-fullwidth" tabindex="-1">Marcadores de necrose hepatocítica</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="field has-addons">
-              <div class="control">
-                <label for="plan-now-lab-btf" class="button is-primary">
-                  <span class="icon">
-                    <i class="mdi mdi-checkbox-marked mdi-24px"></i>
-                  </span>
-                  <input type="checkbox" class="is-hidden checkbutton" id="plan-now-lab-btf" checked>
-                </label>
-              </div>
-              <div class="control is-expanded">
-                <button class="button is-static is-fullwidth" tabindex="-1">Bilirrubinas total e frações</button>
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <div class="field has-addons">
-              <div class="control">
-                <label for="plan-now-lab-kidney" class="button">
+                <label for="plan-3" class="button">
                   <span class="icon">
                     <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
                   </span>
-                  <input type="checkbox" class="is-hidden checkbutton" id="plan-now-lab-kidney">
+                  <input type="checkbox" class="is-hidden checkbutton check-plan" id="plan-3" value="x">
                 </label>
               </div>
+              <div class="control">
+                <button class="button is-static is-fullwidth" tabindex="-1">Prescrevo</button>
+              </div>
               <div class="control is-expanded">
-                <button class="button is-static is-fullwidth" tabindex="-1">Função renal</button>
+                <input type="text" class="input plan-changer" data-target="plan-3" data-prefix="Prescrevo " placeholder="Item prescrito...">
               </div>
             </div>
           </li>
           <li>
             <div class="field has-addons">
               <div class="control">
-                <label for="plan-now-lab-gaso" class="button">
+                <label for="plan-4" class="button">
                   <span class="icon">
                     <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
                   </span>
-                  <input type="checkbox" class="is-hidden checkbutton" id="plan-now-lab-gaso">
+                  <input type="checkbox" class="is-hidden checkbutton check-plan" id="plan-4" value="x">
                 </label>
               </div>
-              <div class="control is-expanded">
-                <button class="button is-static is-fullwidth" tabindex="-1">Gasometria&nbsp;<strong>ARTERIAL</strong></button>
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <div class="field has-addons">
               <div class="control">
-                <label for="plan-now-lab-radiography" class="button">
-                  <span class="icon">
-                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
-                  </span>
-                  <input type="checkbox" class="is-hidden checkbutton" id="plan-now-lab-radiography">
-                </label>
+                <button class="button is-static is-fullwidth" tabindex="-1">Prescrevo</button>
               </div>
               <div class="control is-expanded">
-                <button class="button is-static is-fullwidth" tabindex="-1">Rx Tórax</button>
+                <input type="text" class="input plan-changer" data-target="plan-4" data-prefix="Prescrevo " placeholder="Item prescrito...">
               </div>
             </div>
           </li>
           <li>
             <div class="field has-addons">
               <div class="control">
-                <label for="plan-now-lab-abdomen" class="button">
+                <label for="plan-5" class="button">
                   <span class="icon">
                     <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
                   </span>
-                  <input type="checkbox" class="is-hidden checkbutton" id="plan-now-lab-abdomen">
+                  <input type="checkbox" class="is-hidden checkbutton check-plan" id="plan-5" value="x">
                 </label>
               </div>
-              <div class="control is-expanded">
-                <button class="button is-static is-fullwidth" tabindex="-1">USG Abdome Superior</button>
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <div class="field has-addons">
               <div class="control">
-                <label for="plan-now-labs-other1" class="button">
-                  <span class="icon">
-                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
-                  </span>
-                  <input type="checkbox" class="is-hidden checkbutton" id="plan-now-labs-other1">
-                </label>
+                <button class="button is-static is-fullwidth" tabindex="-1">Prescrevo</button>
               </div>
               <div class="control is-expanded">
-                <input type="text" class="input" id="plan-now-labs-other1-what" placeholder="Outros labs...">
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="field has-addons">
-              <div class="control">
-                <label for="plan-now-labs-other2" class="button">
-                  <span class="icon">
-                    <i class="mdi mdi-checkbox-blank-outline mdi-24px"></i>
-                  </span>
-                  <input type="checkbox" class="is-hidden checkbutton" id="plan-now-labs-other2">
-                </label>
-              </div>
-              <div class="control is-expanded">
-                <input type="text" class="input" id="plan-now-labs-other2-what" placeholder="Outros labs...">
+                <input type="text" class="input plan-changer" data-target="plan-5" data-prefix="Prescrevo " placeholder="Item prescrito...">
               </div>
             </div>
           </li>
@@ -1497,7 +1376,22 @@ if (isset($_COOKIE["sr_header"])) {
                 </label>
               </div>
               <div class="control is-expanded">
-                <button class="button is-static is-fullwidth" tabindex="-1">Oriento HD</button>
+                <button class="button is-static is-fullwidth" tabindex="-1">Oriento HD + História natural</button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="field has-addons">
+              <div class="control">
+                <label for="plan-now-misc-dx" class="button is-primary">
+                  <span class="icon">
+                    <i class="mdi mdi-checkbox-marked mdi-24px"></i>
+                  </span>
+                  <input type="checkbox" class="is-hidden checkbutton" id="plan-now-misc-dx" checked>
+                </label>
+              </div>
+              <div class="control is-expanded">
+                <button class="button is-static is-fullwidth" tabindex="-1">Oriento sinais de alarme</button>
               </div>
             </div>
           </li>
@@ -1519,7 +1413,7 @@ if (isset($_COOKIE["sr_header"])) {
           <li>
             <div class="field has-addons">
               <div class="control">
-                <label for="plan-now-misc-reeval" class="button is-primary">
+                <label for="plan-bai" class="button is-primary">
                   <span class="icon">
                     <i class="mdi mdi-checkbox-marked mdi-24px"></i>
                   </span>
@@ -1527,7 +1421,7 @@ if (isset($_COOKIE["sr_header"])) {
                 </label>
               </div>
               <div class="control is-expanded">
-                <button class="button is-static is-fullwidth" tabindex="-1">Reaval após</button>
+                <button class="button is-static is-fullwidth" tabindex="-1">Alta</button>
               </div>
             </div>
           </li>
