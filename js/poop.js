@@ -70,16 +70,6 @@ $(function() {
     $("#symp-start").trigger("change");
   });
 
-  // Set symptoms' day notice
-  $("#symp-start").on("change", function() {
-    if ( $(this).val() != "" ) {
-      var days = $(this).val() + "T00:00:00-0300";
-      days = new Date(days);
-      days = deltaDays(days);
-      $("#day").html( days );
-    }
-  });
-
   // Enable pregnancy age
   $("#pregnancy").on("change", function() {
     if( $("#pregnancy").is(":checked") ) {
@@ -96,7 +86,7 @@ $(function() {
     if( $("input[name='allergy']:checked").val() == "true" ) {
       $("#allergy-drug")
         .prop("disabled", false)
-        .focus();
+        .trigger("focus");
     } else {
       $("#allergy-drug")
         .prop("disabled", true)
@@ -104,98 +94,15 @@ $(function() {
     }
   });
 
-  // Enable eGFR calculation
-  $("#egfr-method").on("change", function () {
-    if ($(this).val() == "") {
-      $("#egfr-sex, #egfr-ethnicity, #egfr-age, #egfr-weight, #egfr-result")
-        .attr("disabled", true);
-      $("#egfr-age, #egfr-weight, #egfr-result")
-        .val("");
-      $("#egfr-sex")
-        .val("f");
-      $("#egfr-ethnicity")
-        .val("true");
-      $("#creatinine, #egfr-sex, #egfr-ethnicity, #egfr-age, #egfr-weight")
-        .off();
-    } else if ($(this).val() == "ckdepi") {
-      $("#egfr-sex, #egfr-ethnicity, #egfr-age, #egfr-weight, #egfr-result")
-        .attr("disabled", false);
-      $("#creatinine, #egfr-sex, #egfr-ethnicity, #egfr-age, #egfr-weight")
-        .off()
-        .on("change input", function () {
-          if ($("#egfr-sex").val() != "" &&
-            $("#egfr-age").val() != "" &&
-            $("#egfr-weight").val() != "" &&
-            $("#creatinine").val() != "") {
-            let sex = $("#egfr-sex").val();
-            let ethnicity = ($("#egfr-ethnicity").val() == "true") ? true : false;
-            let age = parseFloat($("#egfr-age").val());
-            let weight = parseFloat($("#egfr-weight").val());
-            let cr = parseFloat($("#creatinine").val());
-            $("#egfr-result").val(getCKD(age, weight, sex, ethnicity, cr));
-          }
-        })
-        .trigger("change");
-    } else {
-      $("#egfr-sex, #egfr-age, #egfr-weight, #egfr-result")
-        .attr("disabled", false);
-      $("#creatinine, #egfr-sex, #egfr-age, #egfr-weight")
-        .off()
-        .on("change input", function () {
-          if ($("#egfr-sex").val() != "" &&
-            $("#egfr-age").val() != "" &&
-            $("#egfr-weight").val() != "" &&
-            $("#creatinine").val() != "") {
-            let sex = $("#egfr-sex").val();
-            let age = parseFloat($("#egfr-age").val());
-            let weight = parseFloat($("#egfr-weight").val());
-            let cr = parseFloat($("#creatinine").val());
-            $("#egfr-result").val(getCockroft(age, weight, sex, cr));
-          }
-        })
-        .trigger("change");
-      $("#egfr-ethnicity")
-        .attr("disabled", true)
-        .val("true");
-    }
-  });
-  // Autocalculate Bilirubin
-  $("#bt, #bd, #bi").on("change input", function () {
-    let bt = $("#bt").val() != "" ? parseFloat($("#bt").val()) : "";
-    let bd = $("#bd").val() != "" ? parseFloat($("#bd").val()) : "";
-    let bi = $("#bi").val() != "" ? parseFloat($("#bi").val()) : "";
-    if (bt != "" && bd != "") { $("#bi").val((bt - bd).toFixed(2)); }
-    else if (bt != "" && bi != "") { $("#bd").val((bt - bi).toFixed(2)); }
-    else if (bd != "" && bi != "") { $("#bt").val((bd + bi).toFixed(2)); }
-  });
-  // Clear Bilirubin
-  $("#btf-clear").on("click", function () {
-    $("#bt, #bd, #bi").val("");
-    $("#bt").trigger("focus");
-  });
-  // Sum neutrophile percent totals
-  $("#hmg-segm-percent, #hmg-bast-percent, #hmg-metamyelocyst-percent, #hmg-myelocyst-percent, #hmg-promyelocyst-percent, #hmg-myeloblast-percent, #hmg-blast-percent").on("change input", function() {
-    let total = 0.0;
-    total += parseFloat( $("#hmg-segm-percent").val() == "" ? "0.0" : $("#hmg-segm-percent").val() );
-    total += parseFloat( $("#hmg-bast-percent").val() == "" ? "0.0" : $("#hmg-bast-percent").val() );
-    total += parseFloat( $("#hmg-metamyelocyst-percent").val() == "" ? "0.0" : $("#hmg-metamyelocyst-percent").val() );
-    total += parseFloat( $("#hmg-myelocyst-percent").val() == "" ? "0.0" : $("#hmg-myelocyst-percent").val() );
-    total += parseFloat( $("#hmg-promyelocyst-percent").val() == "" ? "0.0" : $("#hmg-promyelocyst-percent").val() );
-    total += parseFloat( $("#hmg-myeloblast-percent").val() == "" ? "0.0" : $("#hmg-myeloblast-percent").val() );
-    total += parseFloat( $("#hmg-blast-percent").val() == "" ? "0.0" : $("#hmg-blast-percent").val() );
-    $("#hmg-neutro-percent").val( total );
-  });
-  // Sum neutrophile absolute totals
-  $("#hmg-segm-abs, #hmg-bast-abs, #hmg-metamyelocyst-abs, #hmg-myelocyst-abs, #hmg-promyelocyst-abs, #hmg-myeloblast-abs, #hmg-blast-abs").on("change input", function() {
-    let total = 0.0;
-    total += parseFloat( $("#hmg-segm-abs").val() == "" ? "0.0" : $("#hmg-segm-abs").val() );
-    total += parseFloat( $("#hmg-bast-abs").val() == "" ? "0.0" : $("#hmg-bast-abs").val() );
-    total += parseFloat( $("#hmg-metamyelocyst-abs").val() == "" ? "0.0" : $("#hmg-metamyelocyst-abs").val() );
-    total += parseFloat( $("#hmg-myelocyst-abs").val() == "" ? "0.0" : $("#hmg-myelocyst-abs").val() );
-    total += parseFloat( $("#hmg-promyelocyst-abs").val() == "" ? "0.0" : $("#hmg-promyelocyst-abs").val() );
-    total += parseFloat( $("#hmg-myeloblast-abs").val() == "" ? "0.0" : $("#hmg-myeloblast-abs").val() );
-    total += parseFloat( $("#hmg-blast-abs").val() == "" ? "0.0" : $("#hmg-blast-abs").val() );
-    $("#hmg-neutro-abs").val( total );
+  // Change plan value
+  $(".plan-changer").on("change", function() {
+    let t = $(this).data("target").trim(); // Target elem's ID
+    let v = $(this).val().trim();          // New value
+    let p = $(this).data("prefix")         // Any prefix to the new value
+    p = (p == null) ? "" : p.trim();       // Fix `null` if unset to empty string
+
+    // Set new value with applicable prefix
+    $("#" + t).val(p + v);
   });
 
   // Change febrile state when fever is input
@@ -240,42 +147,6 @@ $(function() {
       $("#face-other").prop("disabled", false);
     } else {
       $("#face-other")
-        .prop("disabled", true)
-        .val("");
-    }
-  });
-  // Enable crepitation description:
-  $("#lung-sounds").on("change", function() {
-    if(
-      $("#lung-sounds").val() == "com crepitação estertorante em " ||
-      $("#lung-sounds").val() == "com sopro cavernoso em "
-    ) {
-      $("#lung-crept").prop("disabled", false);
-    } else {
-      $("#lung-crept")
-        .prop("disabled", true)
-        .val("base direita");
-    }
-  });
-  // Enable percussion description:
-  $("#lung-tap").on("change", function() {
-    if ( $(this).val() == "Macicez percutível em " ) {
-      $("#lung-tap-desc")
-        .prop("disabled", false);
-    } else {
-      $("#lung-tap-desc")
-        .prop("disabled", true)
-        .val("");
-    }
-  });
-
-  // Enable heart murmur description:
-  $("#heart-murmur").on("change", function() {
-    if( $("#heart-murmur option:selected").val() == "com sopro" ) {
-      $("#heart-murmur-desc").prop("disabled", false);
-    }
-    else {
-      $("#heart-murmur-desc")
         .prop("disabled", true)
         .val("");
     }
@@ -350,16 +221,6 @@ $(function() {
         break;
     }
   });
-  // Enable MMII pulse descriptors:
-  $("#mmiipulse-strength").on("change", function() {
-    if(
-      $("#mmiipulse-strength").val() == "ausentes até aa. femorais" ||
-      $("#mmiipulse-strength").val() == "" ) {
-        $("#mmiipulse-artery, #mmiipulse-simmetry").prop("disabled", true);
-    } else {
-      $("#mmiipulse-artery, #mmiipulse-simmetry").prop("disabled", false);
-    }
-  });
   // Enable MMSS pulse descriptors:
   $("#mmsspulse-strength").on("change", function() {
     if(
@@ -371,24 +232,9 @@ $(function() {
     }
   });
 
-  // Calculate expansion volume
-  $("#ssvv-weight, #comorb-6").on("input change", function() {
-    let vol = 1500;
-    if ($("#ssvv-weight").val() != "") {
-      let w = parseFloat($("#ssvv-weight").val());
-      w = Math.round(w);
-      let hf = $("#comorb-6").is(":checked");
-      let rate = 20; // 1st + 2nd hours = 20mL/kg/2h. See CHANGELOG for reasoning.
-      vol = w * rate * (hf ? 0.5 : 1);
-      vol = Math.round(vol);
-    }
-    $("#plan-now-expansion-volume").html(vol.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
-  });
-
   // Build output:
   $("#button-run").on("click", function() {
     let sr_header = $("#sr-header").val();
-    let eval = $("#time-current").val();
     let out = ["# " + sr_header + " #"];
 
     // Companion info
