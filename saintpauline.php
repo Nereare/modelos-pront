@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The slug for this page.
  * IMPORTANT: Set the variable below so that the header works properly!
@@ -13,19 +14,128 @@ require_once "header.php";
 <main class="section">
   <div class="container">
     <div class="box">
-      <div class="field has-addons">
-        <div class="control">
-          <button class="button is-static" tabindex="-1">
-            <span class="icontext">
-              <span class="icon">
-                <i class="mdi mdi-account"></i>
-              </span>
-              <span>Nominho</span>
-            </span>
-          </button>
+      <!-- 1st Line -->
+      <div class="columns">
+        <!-- Physician name -->
+        <div class="column is-8">
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">
+                <span class="icontext">
+                  <span class="icon">
+                    <i class="mdi mdi-account"></i>
+                  </span>
+                  <span>Nominho</span>
+                </span>
+              </button>
+            </div>
+            <div class="control is-expanded">
+              <input type="text" class="input" id="input-physician">
+            </div>
+          </div>
         </div>
-        <div class="control is-expanded">
-          <input type="text" class="input" id="input-physician">
+
+        <!-- Working flow -->
+        <div class="column">
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">
+                <span class="icontext">
+                  <span class="icon">
+                    <i class="mdi mdi-waves-arrow-left"></i>
+                  </span>
+                  <span>Fluxo</span>
+                </span>
+              </button>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="input-flow">
+                  <optgroup label="Atuais">
+                    <option value="Volante" selected>&#x26ab; Volante</option>
+                    <option value="Rápido">&#x1f7e2; Rápido</option>
+                  </optgroup>
+                  <optgroup label="Antigos">
+                    <option value="Laranja">&#x1f7e0; Laranja</option>
+                    <option value="Reaval">&#x1f501; Reaval</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2nd Line -->
+      <div class="columns">
+        <!-- Today's date -->
+        <div class="column">
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">
+                <span class="icontext">
+                  <span class="icon">
+                    <i class="mdi mdi-calendar"></i>
+                  </span>
+                  <span>Data</span>
+                </span>
+              </button>
+            </div>
+            <div class="control is-expanded">
+              <input type="date" class="input" id="input-date" readonly>
+            </div>
+            <div class="control">
+              <button class="button is-danger" id="reset-call">
+                <span class="icon">
+                  <i class="mdi mdi-calendar-refresh"></i>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shift start -->
+        <div class="column">
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">
+                <span class="icontext">
+                  <span class="icon">
+                    <i class="mdi mdi-timer-sand-empty"></i>
+                  </span>
+                  <span>Entrada</span>
+                </span>
+              </button>
+            </div>
+            <div class="control is-expanded">
+              <input type="number" class="input" id="input-start">
+            </div>
+            <div class="control">
+              <button class="button is-static" tabindex="-1">h</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shift end -->
+        <div class="column">
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">
+                <span class="icontext">
+                  <span class="icon">
+                    <i class="mdi mdi-timer-sand-complete"></i>
+                  </span>
+                  <span>Entrada</span>
+                </span>
+              </button>
+            </div>
+            <div class="control is-expanded">
+              <input type="number" class="input" id="input-end">
+            </div>
+            <div class="control">
+              <button class="button is-static" tabindex="-1">h</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -48,6 +158,9 @@ require_once "header.php";
         <thead>
           <tr>
             <th>&num;Atend</th>
+            <th>Idd/Sexo</th>
+            <th>Class.</th>
+            <th>Tipo Atend.</th>
             <th>Desfecho</th>
           </tr>
         </thead>
@@ -55,34 +168,9 @@ require_once "header.php";
         </tbody>
       </table>
     </div>
-
-    <div class="box">
-      <div class="field has-addons">
-        <div class="control is-expanded">
-          <a class="button is-link is-fullwidth" id="export-json" href="#">
-            <span class="icon-text">
-              <span class="icon">
-                <i class="mdi mdi-download"></i>
-              </span>
-              <span>Exportar JSON</span>
-            </span>
-          </a>
-        </div>
-
-        <div class="control is-expanded">
-          <button class="button is-fullwidth" id="import-json">
-            <span class="icon-text">
-              <span class="icon">
-                <i class="mdi mdi-upload"></i>
-              </span>
-              <span>Importar JSON</span>
-            </span>
-          </button>
-        </div>
-      </div>
-    </div>
   </div>
 </main>
+
 <div id="printable-atends">
   <!-- Tabela Identificação -->
   <table>
@@ -108,6 +196,7 @@ require_once "header.php";
       <tr>
         <th>&num;</th>
         <th>Atend</th>
+        <th>Classificação</th>
         <th>Desfecho</th>
       </tr>
     </thead>
@@ -126,30 +215,148 @@ require_once "header.php";
           <span class="icon">
             <i class="mdi mdi-account-plus"></i>
           </span>
-          <span>Adicionar Paciente</span>
+          <span>Adicionar Atendimento</span>
         </span>
       </p>
     </header>
     <section class="modal-card-body">
       <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">
+            <span class="icontext">
+              <span class="icon">
+                <i class="mdi mdi-pound"></i>
+              </span>
+              <span>Atendimento</span>
+            </span>
+          </button>
+        </div>
         <div class="control is-expanded">
-          <input type="number" class="input" id="add-atend" placeholder="# Atendimento">
+          <input type="number" class="input" id="add-atend" placeholder="#">
+        </div>
+      </div>
+
+      <div class="columns mb-0">
+        <div class="column">
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">
+                <span class="icontext">
+                  <span class="icon">
+                    <i class="mdi mdi-account-supervisor"></i>
+                  </span>
+                  <span>Idade</span>
+                </span>
+              </button>
+            </div>
+            <div class="control is-expanded">
+              <input type="number" class="input" id="add-age" placeholder="#">
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">
+                <span class="icontext">
+                  <span class="icon">
+                    <i class="mdi mdi-gender-transgender"></i>
+                  </span>
+                  <span>Sexo Biól.</span>
+                </span>
+              </button>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="add-sex">
+                  <option value="F" selected>Feminino</option>
+                  <option value="M">Masculino</option>
+                  <option value="O">Outro</option>
+                </select>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="field has-addons">
+        <div class="control">
+          <button class="button is-static" tabindex="-1">
+            <span class="icontext">
+              <span class="icon">
+                <i class="mdi mdi-gradient-vertical"></i>
+              </span>
+              <span>Classificação</span>
+            </span>
+          </button>
+        </div>
         <div class="control is-expanded">
           <div class="select is-fullwidth">
-            <select id="add-outcome">
-              <option value="" selected disabled>Desfecho...</option>
-              <option value="discharge">Atend &larr; Alta</option>
-              <option value="neweval">Atend &larr; Reaval</option>
-              <option value="reeval">Reaval</option>
-              <option value="inpatient">IH</option>
+            <select id="add-class">
+              <option value="Branco">&#x26aa; Branco</option>
+              <option value="Azul">&#x1f535; Azul</option>
+              <option value="Verde">&#x1f7e2; Verde</option>
+              <option value="Amarelo">&#x1f7e1; Amarelo</option>
+              <option value="Laranja">&#x1f7e0; Laranja</option>
+              <option value="Vermelho">&#x1f534; Vermelho</option>
             </select>
           </div>
         </div>
       </div>
+
+      <div class="columns">
+        <div class="column">
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">
+                <span class="icontext">
+                  <span class="icon">
+                    <i class="mdi mdi-stethoscope"></i>
+                  </span>
+                  <span>Tipo Atend.</span>
+                </span>
+              </button>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="add-type">
+                  <option value="1º Atendimento">1º Atendimento</option>
+                  <option value="Reaval">Reaval</option>
+                  <option value="NRC">NRC</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button is-static" tabindex="-1">
+                <span class="icontext">
+                  <span class="icon">
+                    <i class="mdi mdi-walk"></i>
+                  </span>
+                  <span>Desfecho</span>
+                </span>
+              </button>
+            </div>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth">
+                <select id="add-outcome">
+                  <option value="Alta">Alta</option>
+                  <option value="Reaval">Reaval</option>
+                  <option value="Internação">Internação</option>
+                  <option value="Evasão">Evasão</option>
+                  <option value="Emergência">Emergência</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section>
     <footer class="modal-card-foot field has-addons">
       <div class="control is-expanded">
@@ -176,44 +383,39 @@ require_once "header.php";
   </div>
 </div>
 
-<!-- Upload To-Dos -->
-<div class="modal" id="upload-modal">
+<!-- Reset data -->
+<div class="modal" id="reset-modal">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
       <p class="modal-card-title">
         <span class="icon-text">
           <span class="icon">
-            <i class="mdi mdi-upload"></i>
+            <i class="mdi mdi-calendar-refresh"></i>
           </span>
-          <span>Importar JSON</span>
+          <span>Resetar Atendimentos</span>
         </span>
       </p>
     </header>
     <section class="modal-card-body">
       <div class="content">
-        <p>Cole (<code>Ctrl+V</code>) os conteúdos do backup abaixo:</p>
-      </div>
-
-      <div class="field">
-        <div class="control is-expanded">
-          <textarea class="textarea has-fixed-size" id="upload-content" placeholder="Cole aqui..."></textarea>
-        </div>
+        <p>Você tem certeza que deseja resetar todos os dados de atendimento?</p>
+        <p>Isso apagará todos os dados prévios <strong>irreversivelmente</strong>!</p>
       </div>
     </section>
     <footer class="modal-card-foot field has-addons">
       <div class="control is-expanded">
-        <button class="button is-success is-fullwidth" id="confirm-upload">
+        <button class="button is-danger is-fullwidth" id="reset-do">
           <span class="icon-text">
             <span class="icon">
-              <i class="mdi mdi-upload"></i>
+              <i class="mdi mdi-refresh"></i>
             </span>
-            <span>Importar</span>
+            <span>Resetar</span>
           </span>
         </button>
       </div>
       <div class="control is-expanded">
-        <button class="button is-fullwidth" id="cancel-upload">
+        <button class="button is-fullwidth" id="reset-cancel">
           <span class="icon-text">
             <span class="icon">
               <i class="mdi mdi-cancel"></i>
